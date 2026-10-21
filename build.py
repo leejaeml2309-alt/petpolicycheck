@@ -102,6 +102,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
 <html lang="{e(cfg.get('language','en'))}">
 <head>
 <meta charset="utf-8">
+<meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
