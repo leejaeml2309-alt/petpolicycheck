@@ -1,0 +1,194 @@
+{
+  "verified": "2026-10-22",
+  "products": [
+    {
+      "slug": "sherpa-original-deluxe",
+      "name": "Sherpa Original Deluxe Pet Carrier",
+      "brand": "Sherpa",
+      "category": "soft_carrier",
+      "official_url": "https://sherpapet.com/products/sherpa-original-deluxe-travel-bag-pet-carrier",
+      "construction": "Soft-sided (Sherpa describes it as usable as \"a soft-sided crate\")",
+      "dims_note": "Sherpa lists \"Product Dimensions\" without naming the axes; we read them as length x width x height.",
+      "maker_says": [
+        "Sherpa says the patented spring wire frame lets the rear of the carrier be pushed down \"several inches\" to fit under airplane seats (no exact compressed height is published).",
+        "Sherpa says the carrier is part of its \"Guaranteed On Board\" program."
+      ],
+      "sizes": [
+        {"name": "Small", "L": 15, "W": 10, "H": 8.5, "unit": "in", "pet": "pets up to 8 lb; max pet length 13 in, height 7.5 in"},
+        {"name": "Medium", "L": 17, "W": 11, "H": 10.5, "unit": "in", "pet": "pets up to 16 lb; max pet length 16 in, height 9.5 in"},
+        {"name": "Large", "L": 19, "W": 11.75, "H": 11.5, "unit": "in", "pet": "pets up to 22 lb; max pet length 18 in, height 10.5 in"}
+      ]
+    },
+    {
+      "slug": "sleepypod-air",
+      "name": "Sleepypod Air",
+      "brand": "Sleepypod",
+      "category": "soft_carrier",
+      "official_url": "https://sleepypod.com/products/sleepypod-air",
+      "construction": null,
+      "dims_note": "Sleepypod lists the length as adjustable from 16 to 22 in (40.64 to 55.88 cm).",
+      "maker_says": [
+        "Sleepypod says the design contracts in length to fit under a range of airline seats.",
+        "Sleepypod says it doubles as a crash-tested car seat and lists a Center for Pet Safety certification for pets up to 18 lb."
+      ],
+      "sizes": [
+        {"name": "One size", "L": 22, "L_min": 16, "W": 10.5, "H": 10.5, "unit": "in", "pet": "recommended for pets 18 lb (8 kg) or less"}
+      ]
+    },
+    {
+      "slug": "sleepypod-atom",
+      "name": "Sleepypod Atom",
+      "brand": "Sleepypod",
+      "category": "soft_carrier",
+      "official_url": "https://sleepypod.com/products/atom",
+      "construction": null,
+      "dims_note": "Exterior carrier dimensions as listed by Sleepypod (long x wide x tall). Interior: 16 x 8 x 9.5 in.",
+      "maker_says": [
+        "Sleepypod lists a Center for Pet Safety certification for pets up to 12 lb and says it can be used as a car seat."
+      ],
+      "sizes": [
+        {"name": "One size", "L": 17, "W": 8.5, "H": 10.5, "unit": "in", "pet": "recommended for pets 12 lb or less"}
+      ]
+    },
+    {
+      "slug": "sleepypod-mini",
+      "name": "Sleepypod Mini",
+      "brand": "Sleepypod",
+      "category": "soft_carrier",
+      "official_url": "https://sleepypod.com/products/mini",
+      "construction": null,
+      "dims_note": "Round carrier: Sleepypod lists 13 in diameter and 11 in tall (bed + dome). We compare it as a 13 x 13 in footprint.",
+      "maker_says": [
+        "Sleepypod says the Mini is \"small enough to fit under an airline seat\" and lists a Center for Pet Safety certification for pets up to 7 lb."
+      ],
+      "sizes": [
+        {"name": "One size", "L": 13, "W": 13, "H": 11, "unit": "in", "pet": "kittens, puppies or toy breeds (certified for pets up to 7 lb per Sleepypod)"}
+      ]
+    },
+    {
+      "slug": "sturdibag-pro",
+      "name": "SturdiBag Pro 3.0 Travel Pet Carrier",
+      "brand": "Sturdi Products",
+      "category": "soft_carrier",
+      "official_url": "https://sturdiproducts.com/products/sturdibag-pro-luxe",
+      "construction": "Soft-sided (per Sturdi Products)",
+      "dims_note": "Sturdi lists depth (D) x width (W) x height (H); we treat depth as length.",
+      "maker_says": [
+        "Sturdi says the carrier is airline compliant for in-cabin travel on most major airlines, excluding the XL and XXL sizes.",
+        "Sturdi says flexible height rods adjust to varying seat dimensions (no compressed height is published)."
+      ],
+      "sizes": [
+        {"name": "Small", "L": 18, "W": 10, "H": 9.25, "unit": "in", "pet": "pet weight limit 25 lb / 11 kg"},
+        {"name": "Medium", "L": 15, "W": 12, "H": 11.75, "unit": "in", "pet": "pet weight limit 25 lb / 11 kg"},
+        {"name": "Large", "L": 18, "W": 11.5, "H": 11.5, "unit": "in", "pet": "pet weight limit 30 lb / 13 kg"},
+        {"name": "XL", "L": 20, "W": 12, "H": 15, "unit": "in", "pet": "pet weight limit 40 lb / 18 kg (not for in-cabin use per Sturdi)"},
+        {"name": "XXL", "L": 23, "W": 15, "H": 14, "unit": "in", "pet": "pet weight limit 50 lb / 22 kg (not for in-cabin use per Sturdi)"}
+      ]
+    },
+    {
+      "slug": "sherpa-elevation-backpack",
+      "name": "Sherpa Elevation Pet Backpack (Medium)",
+      "brand": "Sherpa",
+      "category": "backpack",
+      "official_url": "https://sherpapet.com/products/sherpa-elevation-pet-backpack-blue-medium",
+      "construction": null,
+      "dims_note": "Sherpa lists 9 in L x 13 in W x 19 in H (23 x 33 x 48 cm), carrier weight 4 lb (1.81 kg).",
+      "maker_says": [
+        "Sherpa says the Medium backpack carries pets up to 16 lb (7 kg) that measure 18 in H x 12 in L or less, sitting."
+      ],
+      "sizes": [
+        {"name": "Medium", "L": 9, "W": 13, "H": 19, "unit": "in", "pet": "pets up to 16 lb (7 kg), up to 18 in tall x 12 in long sitting"}
+      ]
+    },
+    {
+      "slug": "petmate-sky-kennel",
+      "name": "Petmate Sky Kennel",
+      "brand": "Petmate",
+      "category": "hard_crate",
+      "official_url": "https://www.petmate.com/products/petmate-sky-kennel-1",
+      "construction": "Hard plastic kennel",
+      "dims_note": "Petmate publishes interior dimensions only (no exterior dimensions on the product page), so we don't compare it against airline size limits.",
+      "maker_says": [
+        "Petmate says the Sky Kennel complies with the standards of the 51st edition (2025) of the IATA Live Animals Regulations, including door, side and back ventilation, and meets most airline cargo specifications.",
+        "Petmate says it includes 2 \"LIVE ANIMAL\" stickers, a food and water cup, ID stickers and absorbent material. Only the 21\" and 28\" sizes include a handle."
+      ],
+      "interior": true,
+      "sizes": [
+        {"name": "21\"", "L": 18.75, "W": 13.5, "H": 14.5, "unit": "in"},
+        {"name": "28\"", "L": 24.25, "W": 18.25, "H": 19.5, "unit": "in"},
+        {"name": "32\"", "L": 29.5, "W": 19.75, "H": 23.5, "unit": "in"},
+        {"name": "36\"", "L": 32.5, "W": 22, "H": 26, "unit": "in"},
+        {"name": "40\"", "L": 36.25, "W": 24.75, "H": 28.8, "unit": "in"},
+        {"name": "48\"", "L": 44, "W": 29, "H": 32.5, "unit": "in"}
+      ]
+    },
+    {
+      "slug": "petmate-ultra-vari-kennel",
+      "name": "Petmate Ultra Vari Kennel",
+      "brand": "Petmate",
+      "category": "hard_crate",
+      "official_url": "https://www.petmate.com/products/petmate-ultra-vari-kennel",
+      "construction": "Hard plastic kennel",
+      "dims_note": "Petmate publishes interior dimensions only (no exterior dimensions on the product page), so we don't compare it against airline size limits.",
+      "maker_says": [
+        "Petmate says the Ultra Vari Kennel \"meets most air travel requirements\" and recommends checking with your airline beforehand. Unlike the Sky Kennel page, this page does not cite an IATA edition.",
+        "Petmate says tie-down strap holes let you zip-tie the kennel together for airline travel. Only the 21\" and 28\" sizes include a handle."
+      ],
+      "interior": true,
+      "sizes": [
+        {"name": "21\"", "L": 18.75, "W": 13.5, "H": 14.5, "unit": "in"},
+        {"name": "28\"", "L": 24.25, "W": 18.25, "H": 19.5, "unit": "in"},
+        {"name": "32\"", "L": 29.5, "W": 19.75, "H": 23.5, "unit": "in"},
+        {"name": "36\"", "L": 32.5, "W": 26, "H": 26, "unit": "in"},
+        {"name": "40\"", "L": 36.25, "W": 24.75, "H": 28.8, "unit": "in"},
+        {"name": "48\"", "L": 44, "W": 29, "H": 32.5, "unit": "in"}
+      ]
+    },
+    {
+      "slug": "sleepypod-yummy-travel-bowls",
+      "name": "Sleepypod Yummy Travel Bowls",
+      "brand": "Sleepypod",
+      "category": "bowl",
+      "official_url": "https://sleepypod.com/products/yummy-travel-bowl",
+      "construction": "Silicone (Sleepypod says FDA food-grade, BPA-free; freezer, dishwasher and microwave safe)",
+      "dims_note": "Three nesting bowls: a water bowl base, a food bowl that slips into it, and a lid bowl that seals the set.",
+      "maker_says": [
+        "Sleepypod says the set stores, carries and serves food and water without mixing or spilling."
+      ],
+      "spec_rows": [
+        ["Small", "6.5 in diameter x 3 in tall; water bowl 20 oz, food bowl 8.5 oz, lid bowl 6.5 oz"],
+        ["Medium", "7.6 in diameter x 3.5 in tall; water bowl 37 oz, food bowl 17 oz, lid bowl 11 oz"]
+      ]
+    },
+    {
+      "slug": "ruffwear-quencher",
+      "name": "Ruffwear Quencher Packable Dog Bowl",
+      "brand": "Ruffwear",
+      "category": "bowl",
+      "official_url": "https://ruffwear.com/products/quencher-packable-dog-bowl",
+      "construction": "Collapsible fabric bowl (per Ruffwear)",
+      "dims_note": "Available in one size (Medium).",
+      "maker_says": [
+        "Ruffwear says the Quencher folds to fit in a pocket or backpack."
+      ],
+      "spec_rows": [
+        ["Medium", "Opening 5.5 in (14 cm); capacity 4.2 cups (1 L)"]
+      ]
+    }
+  ],
+  "guides": [
+    {"slug": "best-airline-approved-soft-carriers", "kind": "soft"},
+    {"slug": "under-seat-carrier-size-by-airline", "kind": "airlines"},
+    {"slug": "iata-hard-crates-for-cargo", "kind": "crates"},
+    {"slug": "pet-carrier-backpacks-for-flying", "kind": "backpacks"},
+    {"slug": "travel-water-bowls", "kind": "bowls"}
+  ],
+  "skipped": [
+    {"name": "Sherpa Element Pet Carrier", "reason": "No dimensions on the official product page when checked."},
+    {"name": "Sherpa Duffel Backpack Pet Carrier", "reason": "No dimensions on the official product page when checked."},
+    {"name": "Sherpa Trek Tote 2-in-1 Pet Backpack", "reason": "Official page gives dimensions labelled as a different product (Elevation), so they could not be trusted."},
+    {"name": "K9 Sport Sack Air", "reason": "Official page lists dog length ranges but no carrier dimensions."},
+    {"name": "Mr. Peanut's carriers", "reason": "Official product data could not be retrieved."},
+    {"name": "Away Pet Carrier", "reason": "Official product page not found (404)."}
+  ]
+}

@@ -22,5 +22,67 @@
       "label": "Lemonade pet insurance",
       "url": ""
     }
+  },
+  "product_links": {
+    "sherpa-original-deluxe": {
+      "amazon_url": "",
+      "chewy_url": ""
+    },
+    "sleepypod-air": {
+      "amazon_url": "",
+      "chewy_url": ""
+    },
+    "sleepypod-atom": {
+      "amazon_url": "",
+      "chewy_url": ""
+    },
+    "sleepypod-mini": {
+      "amazon_url": "",
+      "chewy_url": ""
+    },
+    "sturdibag-pro": {
+      "amazon_url": "",
+      "chewy_url": ""
+    },
+    "sherpa-elevation-backpack": {
+      "amazon_url": "",
+      "chewy_url": ""
+    },
+    "petmate-sky-kennel": {
+      "amazon_url": "",
+      "chewy_url": ""
+    },
+    "petmate-ultra-vari-kennel": {
+      "amazon_url": "",
+      "chewy_url": ""
+    },
+    "sleepypod-yummy-travel-bowls": {
+      "amazon_url": "",
+      "chewy_url": ""
+    },
+    "ruffwear-quencher": {
+      "amazon_url": "",
+      "chewy_url": ""
+    }
+  },
+  "ads": {
+    "airline_top": {
+      "image_url": "",
+      "link_url": "",
+      "alt": "",
+      "advertiser": ""
+    },
+    "guide_sponsor": {
+      "image_url": "",
+      "link_url": "",
+      "alt": "",
+      "advertiser": ""
+    },
+    "sidebar_or_footer": {
+      "image_url": "",
+      "link_url": "",
+      "alt": "",
+      "advertiser": ""
+    }
   }
 }

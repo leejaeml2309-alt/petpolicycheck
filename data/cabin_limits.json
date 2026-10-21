@@ -1,0 +1,155 @@
+{
+  "_doc": "Under-seat carrier limits parsed from each airline's max_carrier_dimensions field. 'quote' must appear verbatim in that field or build.py drops the limit (so a policy edit never leaves stale numbers). Axes: L x W x H; for unlabeled airline figures the reading is stated in 'reading'.",
+  "limits": [
+    {
+      "airline": "air-canada",
+      "label": "Most mainline jets",
+      "L": 43,
+      "W": 40,
+      "H": 20,
+      "unit": "cm",
+      "soft_only": true,
+      "quote": "Most mainline jets: 43 x 40 x 20 cm"
+    },
+    {
+      "airline": "air-canada",
+      "label": "Dash 8-400 / E175 / CRJ900",
+      "L": 55,
+      "W": 40,
+      "H": 27,
+      "unit": "cm",
+      "soft_only": true,
+      "quote": "Dash 8-400/E175/CRJ900: 55 x 40 x 27 cm"
+    },
+    {
+      "airline": "air-canada",
+      "label": "Widebody Business Class",
+      "L": 41,
+      "W": 21,
+      "H": 28,
+      "unit": "cm",
+      "soft_only": true,
+      "quote": "widebody Business Class: 41 x 21 x 28 cm"
+    },
+    {
+      "airline": "air-france",
+      "label": "Cabin",
+      "L": 46,
+      "W": 28,
+      "H": 24,
+      "unit": "cm",
+      "soft_only": true,
+      "quote": "max 46 x 28 x 24 cm",
+      "reading": "Air France gives no axis labels; read as L x W x H."
+    },
+    {
+      "airline": "alaska",
+      "label": "Cabin",
+      "L": 17,
+      "W": 11,
+      "H": 9.5,
+      "unit": "in",
+      "soft_only": true,
+      "quote": "17 x 11 x 9.5 in",
+      "reading": "Read as L x W x H."
+    },
+    {
+      "airline": "american",
+      "label": "Soft-sided (recommended)",
+      "L": 18,
+      "W": 11,
+      "H": 11,
+      "unit": "in",
+      "quote": "Soft-sided (recommended): 18 x 11 x 11 in",
+      "reading": "Read as L x W x H.",
+      "soft_limit": true
+    },
+    {
+      "airline": "american",
+      "label": "Hard-sided, mainline",
+      "L": 19,
+      "W": 13,
+      "H": 9,
+      "unit": "in",
+      "hard_only": true,
+      "quote": "hard-sided mainline: 19 x 13 x 9 in",
+      "reading": "Read as L x W x H."
+    },
+    {
+      "airline": "american",
+      "label": "Hard-sided, American Eagle",
+      "L": 16,
+      "W": 12,
+      "H": 8,
+      "unit": "in",
+      "hard_only": true,
+      "quote": "hard-sided American Eagle: 16 x 12 x 8 in",
+      "reading": "Read as L x W x H."
+    },
+    {
+      "airline": "delta",
+      "label": "Recommended soft-sided kennel",
+      "L": 18,
+      "W": 11,
+      "H": 11,
+      "unit": "in",
+      "quote": "max 18 x 11 x 11 in",
+      "reading": "Read as L x W x H. Delta says the real limit depends on the aircraft's under-seat space.",
+      "soft_limit": true
+    },
+    {
+      "airline": "jetblue",
+      "label": "Cabin (soft or hard)",
+      "L": 17,
+      "W": 12.5,
+      "H": 8.5,
+      "unit": "in",
+      "quote": "17 x 12.5 x 8.5 in",
+      "reading": "Read as L x W x H."
+    },
+    {
+      "airline": "lufthansa",
+      "label": "Cabin",
+      "L": 55,
+      "W": 40,
+      "H": 23,
+      "unit": "cm",
+      "soft_only": true,
+      "quote": "55 x 40 x 23 cm",
+      "reading": "Read as L x W x H. Lufthansa also states a 118 cm total."
+    },
+    {
+      "airline": "united",
+      "label": "Soft-sided",
+      "L": 18,
+      "W": 11,
+      "H": 11,
+      "unit": "in",
+      "quote": "soft-sided: 11 x 18 x 11 in",
+      "reading": "United lists 11 x 18 x 11 in without axis labels; read as H x L x W. United also says carriers can be no more than 10 in tall on the Boeing 737 MAX.",
+      "soft_limit": true
+    },
+    {
+      "airline": "united",
+      "label": "Soft-sided, Boeing 737 MAX",
+      "L": 18,
+      "W": 11,
+      "H": 10,
+      "unit": "in",
+      "soft_limit": true,
+      "quote": "max 10 in tall on Boeing 737 MAX",
+      "reading": "United's soft-sided limit with its 10 in maximum height on the Boeing 737 MAX applied."
+    },
+    {
+      "airline": "united",
+      "label": "Hard-sided",
+      "L": 17.5,
+      "W": 12,
+      "H": 9,
+      "unit": "in",
+      "hard_only": true,
+      "quote": "Hard-sided: 9 x 17.5 x 12 in",
+      "reading": "United lists 9 x 17.5 x 12 in without axis labels; read as H x L x W."
+    }
+  ]
+}

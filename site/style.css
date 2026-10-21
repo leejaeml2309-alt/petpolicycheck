@@ -37,7 +37,23 @@ table{border-collapse:collapse;width:100%}
  .cmp td{display:block;border:0;padding:4px 12px}
  .cmp td::before{content:attr(data-l)": ";font-weight:600;color:var(--mut)}
  .facts th,.facts td{display:block;width:100%}
+ .facts thead{display:none}
  nav a{margin-left:0;margin-right:14px}
 }
 .note{background:var(--soft);border:1px dashed var(--line);padding:10px 14px;border-radius:6px}
 .disc{font-style:italic}
+.fit-ok{color:var(--acc);font-weight:600}
+.fit-mid{color:#7a4b00;font-weight:600}
+.fit-no{color:#a33;font-weight:600}
+.fitm td{white-space:normal}
+.buy{margin:16px 0}
+.btn{display:inline-block;padding:8px 14px;border:1px solid var(--acc);border-radius:8px;text-decoration:none;font-weight:600;margin:0 8px 8px 0}
+.btn:hover{background:#e9f6f0}
+.plist li{margin:.45em 0}
+.facts thead th{background:var(--soft);font-size:.8rem;text-transform:uppercase;letter-spacing:.03em;color:var(--mut)}
+.ad{margin:14px 0;text-align:center}
+.ad img{max-width:100%;height:auto;display:block;margin:4px auto 0;border-radius:4px}
+.adlabel{font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+.adph{margin:8px 0;font-size:.75rem;text-align:right}
+.adph a{color:var(--mut);text-decoration:none;border:1px dashed var(--line);border-radius:4px;padding:1px 6px}
+.adph a:hover{color:var(--acc)}
