@@ -1,0 +1,39 @@
+{
+  "slug": "southwest",
+  "name": "Southwest Airlines",
+  "iata": "WN",
+  "country": "United States",
+  "official_url": "https://support.southwest.com/helpcenter/s/article/pet-policy",
+  "watch_urls": [
+    "https://support.southwest.com/helpcenter/s/article/pet-policy",
+    "https://www.southwest.com/html/customer-service/travel-fees.html"
+  ],
+  "fetch_status": "ok",
+  "in_cabin_allowed": true,
+  "species": "Small vaccinated domestic cats and dogs (at least 8 weeks old)",
+  "max_carrier_dimensions": null,
+  "max_combined_weight": null,
+  "fees": [
+    {
+      "route": "U.S. mainland",
+      "amount": "$125 per pet carrier each way"
+    },
+    {
+      "route": "Between Hawaiian Islands",
+      "amount": "$35 per pet carrier each way"
+    }
+  ],
+  "checked_or_cargo": "No. Southwest does not transport pets in the cargo compartment.",
+  "banned_breeds": null,
+  "banned_routes": "No pets on international itineraries or on flights to/from Hawaii (inter-island flights allowed).",
+  "service_animal_note": null,
+  "recent_changes": [],
+  "notes": "One carrier per ticketed customer, up to two small cats or dogs of the same species per carrier. Pet Fare paid at the ticket counter; refundable if you cancel. The 'acceptable pet carriers' article did not render for our fetcher, so carrier dimensions are left unconfirmed.",
+  "last_verified": "2026-10-22",
+  "needs_review": false,
+  "content_hashes": {
+    "https://support.southwest.com/helpcenter/s/article/pet-policy": "c40095810ff9a6eb74b6e4378e48e84b4029175da128a27b5094a68c6319a2c1",
+    "https://www.southwest.com/html/customer-service/travel-fees.html": "7be93c14bd699d2e857617a73623e1cd63a0f75c0a23bd8d14fafe6b67dc29e6"
+  },
+  "last_checked": "2026-10-22"
+}

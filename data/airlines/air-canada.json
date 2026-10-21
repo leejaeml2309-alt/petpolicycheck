@@ -1,0 +1,58 @@
+{
+  "slug": "air-canada",
+  "name": "Air Canada",
+  "iata": "AC",
+  "country": "Canada",
+  "official_url": "https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/pets.html",
+  "watch_urls": [
+    "https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/pets.html"
+  ],
+  "fetch_status": "ok",
+  "in_cabin_allowed": true,
+  "species": "Cats and small dogs (one per passenger, at least 10 weeks old)",
+  "max_carrier_dimensions": "Soft-sided only. Most mainline jets: 43 x 40 x 20 cm (17 x 16 x 8 in) L x W x H; Dash 8-400/E175/CRJ900: 55 x 40 x 27 cm; widebody Business Class: 41 x 21 x 28 cm",
+  "max_combined_weight": "Baggage compartment: up to 45 kg (100 lb) pet + kennel; max 292 cm (115 in) linear",
+  "fees": [
+    {
+      "route": "Cabin: within Canada and Canada/U.S.",
+      "amount": "CA/US $50-$60 one way"
+    },
+    {
+      "route": "Cabin: international",
+      "amount": "CA/US $100-$120 one way"
+    },
+    {
+      "route": "Baggage compartment: within Canada and Canada/U.S.",
+      "amount": "CA/US $105-$126 one way"
+    },
+    {
+      "route": "Baggage compartment: international",
+      "amount": "CA/US $270-$324 one way"
+    }
+  ],
+  "checked_or_cargo": "Yes, in the baggage compartment (hard-sided kennel) with seasonal and route embargoes; Air Canada Cargo (AC Animals) for unaccompanied pets.",
+  "banned_breeds": "Short/snub-nosed (brachycephalic) dog breeds cannot travel in the baggage compartment; 'strong' breeds need reinforced crates.",
+  "banned_routes": "No pet carriers on Air Canada Jetz or codeshare flights operated by partners; no cabin pets in Premium Economy. Many seasonal baggage-compartment embargoes (e.g. Dec 18 - Jan 4 no checked pets or cargo).",
+  "service_animal_note": "See Air Canada's accessibility services page for service or emotional support dogs.",
+  "recent_changes": [
+    {
+      "date": "2025-06-01",
+      "summary": "All pets travelling in the cabin must be in soft-sided carriers.",
+      "source_url": "https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/pets.html",
+      "official": true
+    },
+    {
+      "date": "2026-07-25",
+      "summary": "Travellers reported a temporary in-cabin pet embargo for July 25 - August 1, 2026, later cancelled. Not shown on Air Canada's official page as of 2026-10-22: unconfirmed by the airline.",
+      "source_url": "https://www.reddit.com/r/aircanada/comments/1v16rkf/pet_in_cabin_embargo_july_25_august_1_2026/",
+      "official": false
+    }
+  ],
+  "notes": "Register your pet with Air Canada Reservations, ideally within 24 hours of booking; online/kiosk check-in not available with a pet.",
+  "last_verified": "2026-10-22",
+  "needs_review": false,
+  "content_hashes": {
+    "https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/pets.html": "ce476b13b843cc98466ffce7ddbbd9d422d83e0d06977fd1ee89f485cb5bc160"
+  },
+  "last_checked": "2026-10-22"
+}

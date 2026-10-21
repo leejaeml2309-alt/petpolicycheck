@@ -1,0 +1,68 @@
+{
+  "slug": "lufthansa",
+  "name": "Lufthansa",
+  "iata": "LH",
+  "country": "Germany",
+  "official_url": "https://www.lufthansa.com/us/en/travelling-with-animals",
+  "watch_urls": [
+    "https://www.lufthansa.com/us/en/travelling-with-animals",
+    "https://www.lufthansa.com/ca/en/tiere-als-handgepaeck"
+  ],
+  "fetch_status": "ok",
+  "in_cabin_allowed": true,
+  "species": "Small dogs and cats only",
+  "max_carrier_dimensions": "Soft-sided, 55 x 40 x 23 cm (22 x 16 x 9 in), 118 cm total",
+  "max_combined_weight": "8 kg pet + carrier in cabin",
+  "fees": [
+    {
+      "route": "Cabin: domestic",
+      "amount": "EUR 65-85 / USD 80-100"
+    },
+    {
+      "route": "Cabin: Europe",
+      "amount": "EUR 80-100 / USD 95-115"
+    },
+    {
+      "route": "Cabin: Levant and Egypt",
+      "amount": "EUR 100-120 / USD 110-130"
+    },
+    {
+      "route": "Cabin: intercontinental short haul",
+      "amount": "EUR 105-125 / USD 120-140"
+    },
+    {
+      "route": "Cabin: intercontinental medium haul",
+      "amount": "EUR 115-135 / USD 135-155"
+    },
+    {
+      "route": "Cabin: intercontinental long haul",
+      "amount": "EUR 125-145 / USD 145-165"
+    }
+  ],
+  "checked_or_cargo": "Yes: dogs and cats over 8 kg as excess baggage in the air-conditioned hold; other animals via Lufthansa Cargo.",
+  "banned_breeds": "Special rules for 'fighting dog' breeds and snub-nosed breeds (see Lufthansa's dedicated pages). Pregnant animals not accepted.",
+  "banned_routes": "New bookings for dogs to the USA only to Atlanta, Los Angeles, Miami, New York-JFK, Philadelphia, Washington DC, and Newark (if no high-risk rabies country in prior 6 months). Bookings may be refused on routes such as the UK, Ireland or Bangalore.",
+  "service_animal_note": "Assistance dogs fly in the cabin free of charge; CDC requirements apply for the USA.",
+  "recent_changes": [
+    {
+      "date": "2024-08-01",
+      "summary": "After CDC dog-entry rule changes, Lufthansa accepts new dog bookings to the USA only to ATL, LAX, MIA, JFK, PHL and Washington DC.",
+      "source_url": "https://www.lufthansa.com/us/en/travelling-with-animals",
+      "official": true
+    },
+    {
+      "date": "2024-10-01",
+      "summary": "Dogs to Newark (EWR) possible again if not in a high-risk rabies area in the prior 6 months.",
+      "source_url": "https://www.lufthansa.com/us/en/travelling-with-animals",
+      "official": true
+    }
+  ],
+  "notes": "Minimum age 12 weeks (15 weeks to/from/via Germany; 6 months for dogs to the USA). Register at least 72 hours before departure (USA flights: online form only).",
+  "last_verified": "2026-10-22",
+  "needs_review": false,
+  "content_hashes": {
+    "https://www.lufthansa.com/us/en/travelling-with-animals": "c5ad4bdb5966be0acd1effffe25aa6bd1b569a086f755662a0942cdc3cddf27a",
+    "https://www.lufthansa.com/ca/en/tiere-als-handgepaeck": "772256c34abe67d19d5a785cd9925d5b926e4556ac4f27aae5b6408e8c5a2abc"
+  },
+  "last_checked": "2026-10-22"
+}

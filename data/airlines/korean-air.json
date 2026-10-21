@@ -1,0 +1,26 @@
+{
+  "slug": "korean-air",
+  "name": "Korean Air",
+  "iata": "KE",
+  "country": "South Korea",
+  "official_url": "https://www.koreanair.com/contents/plan-your-travel/special-help/traveling-with-pets",
+  "watch_urls": [
+    "https://www.koreanair.com/contents/plan-your-travel/special-help/traveling-with-pets"
+  ],
+  "fetch_status": "blocked",
+  "in_cabin_allowed": null,
+  "species": null,
+  "max_carrier_dimensions": null,
+  "max_combined_weight": null,
+  "fees": null,
+  "checked_or_cargo": null,
+  "banned_breeds": null,
+  "banned_routes": null,
+  "service_animal_note": null,
+  "recent_changes": [],
+  "notes": "Official pet policy page was blocked on 2026-10-22 (WebFetch: HTTP 500; curl: HTTP 403 Access Denied; headless browser: 'Page cannot be found'). All fields left unconfirmed.",
+  "last_verified": null,
+  "needs_review": false,
+  "content_hashes": {},
+  "last_checked": "2026-10-22"
+}

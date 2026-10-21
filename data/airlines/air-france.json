@@ -1,0 +1,28 @@
+{
+  "slug": "air-france",
+  "name": "Air France",
+  "iata": "AF",
+  "country": "France",
+  "official_url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat",
+  "watch_urls": [
+    "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat"
+  ],
+  "fetch_status": "partial",
+  "in_cabin_allowed": true,
+  "species": "Cats and dogs",
+  "max_carrier_dimensions": "Soft-sided bag, max 46 x 28 x 24 cm (per Air France's official cabin checklist PDF, Oct 2025)",
+  "max_combined_weight": "8 kg (17.64 lb) pet + carrier in cabin; over 8 kg and up to 75 kg (165.35 lb) must travel in the hold",
+  "fees": null,
+  "checked_or_cargo": "Yes: pets over 8 kg and up to 75 kg with carrier travel in the hold (subject to availability).",
+  "banned_breeds": null,
+  "banned_routes": null,
+  "service_animal_note": null,
+  "recent_changes": [],
+  "notes": "Add your pet at least 24 hours before departure (48 hours for dogs to the U.S.); late requests carry a 25-50% surcharge. Fee amounts are shown in a dynamic section our fetcher could not read. Extra source: https://img.static-af.com/m/581dcafaaa04ab97/original/Travel-Pets-Checklist-EN.pdf",
+  "last_verified": "2026-10-22",
+  "needs_review": false,
+  "content_hashes": {
+    "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat": "fa4cae00b16b6180ac4a83b4a249a5b15d4c7d644a1e38b148c0550f97110802"
+  },
+  "last_checked": "2026-10-22"
+}

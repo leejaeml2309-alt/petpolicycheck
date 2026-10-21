@@ -1,0 +1,28 @@
+{
+  "slug": "british-airways",
+  "name": "British Airways",
+  "iata": "BA",
+  "country": "United Kingdom",
+  "official_url": "https://www.britishairways.com/content/information/travel-assistance/travelling-with-pets",
+  "watch_urls": [
+    "https://www.britishairways.com/content/information/travel-assistance/travelling-with-pets"
+  ],
+  "fetch_status": "ok",
+  "in_cabin_allowed": false,
+  "species": "None (no pets in the cabin on any route)",
+  "max_carrier_dimensions": "Not applicable: BA carries no pets in the cabin",
+  "max_combined_weight": null,
+  "fees": null,
+  "checked_or_cargo": "Pets travel in the hold, arranged by partners: PetAir UK (from the UK) or IAG Cargo (to the UK).",
+  "banned_breeds": null,
+  "banned_routes": null,
+  "service_animal_note": "Assistance dogs fly free in the cabin on most BA flights; emotional support dogs are not accepted in the cabin and must travel as pets.",
+  "recent_changes": [],
+  "notes": "Entering the UK requires the DEFRA Pet Travel Scheme.",
+  "last_verified": "2026-10-22",
+  "needs_review": false,
+  "content_hashes": {
+    "https://www.britishairways.com/content/information/travel-assistance/travelling-with-pets": "5d424e1190e3bb3e203fa270b533d407ad4e72d920a70a4bb8e688a075a21483"
+  },
+  "last_checked": "2026-10-22"
+}

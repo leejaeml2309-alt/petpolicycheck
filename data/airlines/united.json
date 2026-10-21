@@ -1,0 +1,40 @@
+{
+  "slug": "united",
+  "name": "United Airlines",
+  "iata": "UA",
+  "country": "United States",
+  "official_url": "https://www.united.com/en/us/fly/travel/animals.html",
+  "watch_urls": [
+    "https://www.united.com/en/us/fly/travel/animals.html"
+  ],
+  "fetch_status": "ok",
+  "in_cabin_allowed": true,
+  "species": "Cats and dogs only",
+  "max_carrier_dimensions": "Hard-sided: 9 x 17.5 x 12 in (22 x 44 x 30 cm); soft-sided: 11 x 18 x 11 in (27 x 45 x 27 cm); max 10 in tall on Boeing 737 MAX",
+  "max_combined_weight": "No weight limit (United states there are no weight or breed limitations; pet must fit the carrier)",
+  "fees": [
+    {
+      "route": "All routes",
+      "amount": "$150 each way"
+    }
+  ],
+  "checked_or_cargo": "PetSafe checked-pet program ended. Pets fly in cargo only with certain active-duty military or State Department employees.",
+  "banned_breeds": "None for in-cabin pets (United states no breed limitations).",
+  "banned_routes": "No pets to/from/through: Australia, Barbados, Brazil, Cuba, Dominica, Dominican Republic, French Polynesia, Greenland, Guam (partial), Guyana, Hawaii, Hong Kong, Iceland, Ireland, Jamaica, Marshall Islands, Micronesia, Mongolia, Morocco, New Zealand, Northern Mariana Islands, Palau, Philippines, St Kitts & Nevis, South Africa, Spain (Bilbao only), Sweden, Taiwan (partial), Thailand, Trinidad & Tobago, UAE, United Kingdom, Vietnam.",
+  "service_animal_note": "Therapy and emotional support cats and dogs must fly as pets, not service animals.",
+  "recent_changes": [
+    {
+      "date": null,
+      "summary": "United no longer accepts checked pets through PetSafe; cargo only for certain active-duty military / State Department staff. (No effective date given on the page.)",
+      "source_url": "https://www.united.com/en/us/fly/travel/animals.html",
+      "official": true
+    }
+  ],
+  "notes": "Up to 2 pets per person on most flights (second requires an adjacent purchased seat); only 1 per person on A319, A320, A321neo, 737-800/8, 737-900/9.",
+  "last_verified": "2026-10-22",
+  "needs_review": false,
+  "content_hashes": {
+    "https://www.united.com/en/us/fly/travel/animals.html": "5ca63af7d0efc6d9e21cbda59ddd8367fb121a3ede913d13d65d3c2fafc54fcf"
+  },
+  "last_checked": "2026-10-22"
+}

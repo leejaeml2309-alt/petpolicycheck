@@ -1,0 +1,147 @@
+Air Canada - Travelling with your Pet
+skip to search" href="javascript:void(0);" data-ng-click="cc.showSearchTextBox($event)" accesskey="3" class="sr-only sr-only-focusable">Skip to search field
+search expand" class="ac-icon search btn-ghost slim-search-button" aria-expanded="{{cc.showSearchBar}}" data-ng-cloak data-ng-click="cc.showSearchTextBox($event);" data-ng-if="cc.showSlimHeader()"> Expand search box
+aco>navigation title 1>sub menu>nav1row1col4path">Fare Options and Fees
+Opens in a New Window
+Check-In Information
+user nav>sub menu>signin">Sign in
+search expand" class="ac-icon search btn-ghost slim-search-button" aria-expanded="{{cc.showSearchBar}}" data-ng-cloak data-ng-click="cc.showSearchTextBox($event);" data-ng-if="cc.showSlimHeader()"> Expand search box
+Sign in or create an Aeroplan account
+Sign in or create an Aeroplan account
+Travelling with your Pet
+Travelling with your Pet
+We’ve updated our pet travel policy
+Starting June 1, 2025, all pets travelling in the cabin must be transported in soft-sided carriers . Learn more
+In the Cabin
+In the Baggage Compartment
+Air Canada Cargo
+Your cat or small dog is welcome to join you in the cabin, as long as they’re kept in a flexible, soft sided carrier under the seat in front of you. They must be small enough to stand, turn around and lie down in their carrier.
+Just make sure to let us know in advance, as space is sometimes limited. See the ‘ What else do I need to know’ section (at right) for details.
+And a reminder that your pet cannot travel with you in the cabin if you:
+Are seated in an exit or bulkhead row
+Are travelling in our Premium Economy cabin, as the layout of Premium Economy seats does not allow for the safe stowage of a pet carrier.
+Charge for one-way travel
+CA/US $50.00-$60.00
+CA/US $100.00-$120.00
+Your pet and their carrier
+The carrier must be soft-sided and flexible. Backpack carriers with hard plastic windows are not permitted.
+Your pet must always remain in its closed carrier under the seat in front of you.
+Your pet’s carrier must be big enough to allow them to stand up, turn around and lie down safely and comfortably, with no part of them extending outside the carrier. Your pet could be refused travel if the carrier is deemed to be too small for them.
+For all fares except Economy Basic : you may bring your pet in their carrier on board in addition to your regular carry-on baggage allowance of 1 personal item and 1 carry-on bag.
+Travelling on an Economy Basic fare? For certain itineraries, Basic fares no longer include carry-on baggage. On those flights, you may bring your pet in their carrier on board and 1 personal item. Learn more
+Carrier size exceptions based on cabin/aircraft type
+For certain aircraft and cabin types, there are exceptions to the general size or type of pet carrier you can bring on board.
+Have a look at the chart below to ensure that your pet’s carrier meets the requirements for your flight or Landline connection .
+NOTE : Pet carriers are not permitted on our Air Canada Jetz flights.
+Only one cat or small dog in the cabin is allowed per passenger.
+In most cases, your pet must be at least 10 weeks old and fully weaned*
+You’ll need to arrive a full 30 minutes prior to the recommended check-in time for your flight as you must see an agent at check-in. When travelling with a pet, it is not possible to check in online or at an airport self-service kiosk.
+Pet restraint devices
+If your pet is travelling in the cabin with you, pet restraint devices (e.g. pet strollers and car seats) are accepted as checked baggage only (all checked baggage rules apply).
+This is because you are allowed one standard carry-on item and your pet in its carrier already counts as that one item.
+Due to longer than usual airport delays, and for the safety and comfort of your pet, we will not be accepting new requests for pets travelling in the baggage compartment until September 12, 2022.
+If you are booking a flight and wish to travel with a pet that cannot be in the cabin with you, please refer to the Air Canada Cargo tab at right for options.
+Your pet can't fly in the cabin with you? It can still travel safely and comfortably on the same flight as you, in the pressurized cargo compartment of most of our aircraft.
+On which flights can I travel with my cat or dog?
+Your cat or dog can travel with you if you're travelling on :
+If your itinerary includes a flight that is marketed by Air Canada but operated by one of our codeshare partners, you will not be able to travel with your pet.
+For the specific terms and conditions of any or our codeshare partners or other airlines sold on aircanada.com, visit the operating carrier's website directly.
+Are there weight and size restrictions? And what will it cost?
+Maximum carrier size allowed
+292 cm (115 in) in linear dimensions
+Maximum allowable weight
+Up to 45 kg (100 lb) 1
+(pet and kennel combined)
+Fee for one-way travel, inclusive of the
+CA/US $105.00-$126.00 2
+CA/US $270.00-$324.00
+1 Please contact Air Canada Cargo (AC Animals) for rates and assistance in shipping kennels that exceed 45 kg (100 lb) in weight, or 292 cm (115 in) in linear dimensions (length + width + height).
+2 Fees are inclusive of the minimum (0%) to maximum (18%) tax which may apply , based on your itinerary.
+What restrictions apply to travelling with a cat or dog in the baggage compartment?
+Click on the links below to learn about very important rules and restrictions that apply to travelling with your pet in the baggage compartment.
+In most cases, your cat or dog must be at least 10 weeks old and fully weaned*
+Maximum number of pets allowed
+Maximum number of pets allowed
+Customers can send up to two pets in the same kennel in the baggage compartment following these conditions:
+Only fully weaned puppies or kittens from 12 weeks to 6 months can be placed together in the same kennel;
+Both animals must be of the same species (no cat and dog mixed together)
+Two pets travelling in one kennel are counted as two pets regardless of combined weight.
+You'll need to contact Air Canada Cargo Opens in New Window (AC Animals) no more than 14 days or less than 7 days prior to your anticipated travel date if you’re travelling with more than two pets.
+Because not all our aircraft are equipped with temperature controlled and ventilated baggage compartments, it may not always be possible to accommodate your pet when summer temperatures exceed 29.5°C (85°F).
+During these periods of high heat, we recommend that you travel early in the morning or late in the evening when temperatures are lower and, whenever possible, that you choose a direct or non-stop flight to limit the time your pet will be spending in the baggage compartment. We offer priority handling upon departure, where pets remain with our airside personnel to be loaded last and offloaded first upon arrival.
+Pets are not permitted to travel in the baggage compartment between the following dates and for these destinations.
+Pets may not travel in the baggage compartment of all or some of our aircraft on the dates and for the reasons listed below. Please note also that temperature controlled and ventilated baggage compartments are available only on certain aircraft.
+Cats and dogs weighing less than 4.5 kg (10 lb) are not accepted in the baggage compartment of any of our aircraft.
+Pets are not accepted on the following flights and aircraft:
+It is not recommended to transport animals as checked baggage on our Airbus A319-100 , A320-200 and A321-200 aircraft: the cargo compartment is not heated and temperatures can be as low as 2 °C (36 °F).
+Cats and dogs are not accepted in the baggage compartment of our Boeing 737 MAX 8 (7M8) aircraft due to minimal heating in the cargo hold.
+Due to increased passenger and cargo loads during the peak winter travel period, no pets are accepted as checked baggage or cargo.
+Due to increased passenger loads during the peak winter travel period, no pets are accepted as checked baggage on:
+Pets can be accommodated by Air Canada Cargo during the winter months on certain aircraft. Find out more about the transport of pets in the cargo hold during winter Opens in New Window .
+Due to limits on the number of checked bags customers can check between specific airports, pets may not travel in the baggage compartment between the following dates.
+The pet carrier
+It’s important to always remove your pet’s leash before placing it in its carrier.
+The carrier can contain a maximum of 2 dogs (each weighing no more than 14 kg/31 lb) who are used to cohabitation. Note that the applicable fee will be charged twice.
+Locking pins must engage the container beyond the extrusions by at least 1.6 cm (5’8 inches).
+If the carrier is equipped with wheels, these must be removed prior to check-in.
+To be accepted for travel in the checked baggage compartment, the pet carrier must be:
+Hard-sided. The container top must not be covered with mesh. However, ventilation holes are allowed in the lid.
+Collapsible carriers are not accepted, nor are wire carriers as no part of your pet may extend outside the carrier.
+Secure and leak proof . The door of the pet carrier must close securely and your pet must not be able to easily push the door open.
+Large enough to allow your pet to stand, turn around and lie down comfortably, as per international regulations.
+If the pet carrier is not large enough for your pet to do this, we must refuse transport.
+See the ‘Dog breeds classified as strong or aggressive’ section below for important information on special containers or crates required for the transport of such breeds.
+Please note: Customers travelling with a pet in the baggage compartment will be required to secure their kennels with resealable zip ties for transportation. These zip ties will be provided at the check-in counter by our Customer Experience Specialists.
+Short/snub-nosed (brachycephalic) breeds
+These short/snub-nosed (brachycephalic) breeds of dogs cannot travel in the baggage compartment because they are susceptible to increased risks of heat stroke and breathing problems when exposed to extreme heat or stressful situations.
+Dog breeds classified as strong
+Certain dog breeds are classified as strong dogs and must be transported in a special reinforced container or crate when travelling in the baggage compartment.
+About the container or crate:
+The container must be constructed of weld or wire mesh, metal, wood or a synthetic material other than plastic. The crate door must be made of wire mesh, metal or wood and should have a secure lock that can’t be opened accidentally.
+We reserve the right to refuse any animal that exhibits aggressive behavior and/or cage destruction.
+Pets travelling via Air Canada Cargo
+When your pet has to travel alone , for a variety of animals, including cats and dogs.
+Air Canada Cargo ships a wide variety of animals, from cats and dogs to hatching eggs, insects and tropical fish. You can be sure that your pet will travel safely and comfortably to its destination.
+Please contact Air Canada Cargo for complete details on their AC Animals service Opens in New Window .
+When travelling with your pet, it's crucial to have all the necessary documents in order .
+Upon landing in any country or region, government veterinary officials may inspect your pet. Keep in mind that there might be veterinary inspection fees.
+While local veterinary health certificates obtained from animal clinics are essential, they may not be sufficient to clear government inspections. To ensure a smooth journey, obtain any additional documents, such as government-approved health certificates, by contacting the consulate or embassy of your destination country or region.
+Moreover, Air Canada adheres to animal entry and exit requirements outlined in the IATA Travel Information Manual . We recommend visiting the IATA Travel Centre website for comprehensive details about pet requirements.
+Are you bringing a dog to the U.S.?
+Effective August 1, 2024, the U.S. Centers for Disease Control and Prevention (CDC) has issued new entry requirements for dogs entering the U.S. Visit the CDC website for more information.
+Are you looking for information about travelling with a service or emotional support dog?
+Do I need to register my pet?
+Cats or dogs in the cabin or in the baggage compartment
+You'll need to let us know in advance of travel if you plan on travelling with your cat or dog in the cabin or in the baggage compartment.
+The first thing you'll need to do is book your own flight*. Once that's done, contact Air Canada Reservations to register** your pet for travel on the same flight as yours .
+the dimensions of the carrier and
+the weight and breed of your pet.
+We strongly recommend that you register** your pet within 24 hours of completing your booking . This will ensure that, if your pet cannot be accommodated on the flight(s) and date(s) you selected, your ticket will be refunded without charge. After 24 hours, any changes to your booking will be subject to applicable change and cancellation fees.
+Please take note that you'll need to arrive a full 30 minutes prior to the recommended check-in time for your flight as you must see an agent at check-in. Customers with pets cannot use Web check-in or airport self-service kiosks.
+* Please also view important information below about travelling on Codeshare flights/Flights with other airlines (in the 'What else do I need to know' section at the bottom of the page).
+** Pets that have not been registered in advance will not be accepted at the airport.
+If you're changing your reservation online or with your travel agent, you'll need to make sure to contact Air Canada Reservations immediately afterward to change your pet's reservation too .
+If one of our Call Centre agents is handling the change to your reservation, your pet's reservation will be changed at the same time.
+Cats and dogs in the Maple Leaf Lounges
+Cats and small dogs are allowed in our Maple Leaf Lounges only under the following conditions:
+Your cat or dog must stay with you and must be kept in the pet carrier at all times ;
+The pet carrier must be leak proof and well ventilated (both soft and hard-sided carriers are accepted for carry-on);
+No part of the pet may extend outside the pet carrier.
+Pet restraint devices
+If your pet is travelling in the checked baggage compartment, pet restraint devices (e.g. pet strollers and car seats) are accepted:
+as carry-on baggage . The pet restraint device:
+will count as the standard article in your carry-on baggage allowance
+Preparing your cat or dog for travel
+Always remove your pet’s leash before placing it in its carrier.
+Since we assume no responsibility for the care or feeding of cats and dogs while in transit, it is most important that you prepare both the pet carrier and your pet ahead of time:
+Feed your pet four to six hours prior to departure, as a full stomach may cause discomfort during travel.
+Give your pet water right up to the time of travel. Be sure to empty the dish at check-in, otherwise spillage during the flight will give your pet a wet and uncomfortable ride.
+Leave the dish in the carrier so our agents can provide water in the event of an extended wait before or after the flight, or during connections.
+Tranquilizers and other medications are not recommended. Consult your veterinarian.
+Cover the bottom of the carrier with absorbent material such as a blanket.
+Do not lock the carrier door as Air Canada personnel may need to access your pet in the event of an emergency.
+Pets shipped for commercial purposes
+If you are shipping a pet for commercial purposes, please contact Air Canada Cargo Opens in New Window (AC Animals).
+Air Canada Cargo (AC Animals) Opens in New Window
+Are you travelling with a service animal?
+We have detected a device type and/or operating system version that may result in slow performance on this site. If you are experiencing problems, please try our mobile app Opens in a new window .

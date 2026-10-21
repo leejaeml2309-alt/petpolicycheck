@@ -1,0 +1,26 @@
+{
+  "site_name": "PetFlightPolicy (placeholder)",
+  "site_tagline": "Airline pet policies, checked against the official source, dated.",
+  "base_url": "https://example.github.io/petsite",
+  "language": "en",
+  "contact_email": "",
+  "name_ideas": [
+    "PawBoardingPass (.com unregistered per RDAP 2026-10-22)",
+    "PetPolicyCheck (.com unregistered per RDAP 2026-10-22)",
+    "CabinPetWatch (.com unregistered per RDAP 2026-10-22)"
+  ],
+  "affiliates": {
+    "chewy": {
+      "label": "Airline-friendly soft-sided carriers at Chewy",
+      "url": ""
+    },
+    "trupanion": {
+      "label": "Trupanion pet insurance",
+      "url": ""
+    },
+    "lemonade": {
+      "label": "Lemonade pet insurance",
+      "url": ""
+    }
+  }
+}

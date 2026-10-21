@@ -1,0 +1,28 @@
+{
+  "slug": "jetblue",
+  "name": "JetBlue",
+  "iata": "B6",
+  "country": "United States",
+  "official_url": "https://www.jetblue.com/help/traveling-with-pets",
+  "watch_urls": [
+    "https://www.jetblue.com/help/traveling-with-pets"
+  ],
+  "fetch_status": "ok",
+  "in_cabin_allowed": true,
+  "species": "Small dogs and cats only",
+  "max_carrier_dimensions": "17 x 12.5 x 8.5 in (43.18 x 31.75 x 21.59 cm); soft- or hard-sided",
+  "max_combined_weight": null,
+  "fees": null,
+  "checked_or_cargo": "No large dogs accommodated; pets travel in the cabin only.",
+  "banned_breeds": null,
+  "banned_routes": null,
+  "service_animal_note": "Different policies apply to service animals (see JetBlue Accessibility Assistance).",
+  "recent_changes": [],
+  "notes": "Max two pets per traveler, each in its own carrier; a second pet requires a second seat and pet fee. No seating in exit rows, bulkheads or Mint. Pet fee amount was not shown on the help page we fetched.",
+  "last_verified": "2026-10-22",
+  "needs_review": false,
+  "content_hashes": {
+    "https://www.jetblue.com/help/traveling-with-pets": "8dc50b12a8d1f323f6946dd32ce0760c2c3081bcb7e6f2ae6500a7befc966be2"
+  },
+  "last_checked": "2026-10-22"
+}

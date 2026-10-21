@@ -1,0 +1,41 @@
+{
+  "slug": "american",
+  "name": "American Airlines",
+  "iata": "AA",
+  "country": "United States",
+  "official_url": "https://www.aa.com/i18n/travel-info/special-assistance/pets.jsp",
+  "watch_urls": [
+    "https://www.aa.com/i18n/travel-info/special-assistance/pets.jsp"
+  ],
+  "fetch_status": "ok",
+  "in_cabin_allowed": true,
+  "species": "Cats and dogs",
+  "max_carrier_dimensions": "Soft-sided (recommended): 18 x 11 x 11 in (46 x 28 x 28 cm); hard-sided mainline: 19 x 13 x 9 in; hard-sided American Eagle: 16 x 12 x 8 in",
+  "max_combined_weight": "20 lb (9.07 kg) pet + carrier on A321T premium cabins; checked kennel max 100 lb (45 kg) combined. No general in-cabin limit stated.",
+  "fees": [
+    {
+      "route": "Carry-on: U.S., Canada, Mexico, Central America, Caribbean",
+      "amount": "$150 per kennel each way"
+    },
+    {
+      "route": "Checked (active-duty military / State Dept only)",
+      "amount": "$200 per kennel; $150 to/from Brazil"
+    },
+    {
+      "route": "Cargo (PetEmbark)",
+      "amount": "Varies"
+    }
+  ],
+  "checked_or_cargo": "Checked pets only for active-duty U.S. Military and State Department Foreign Service on official orders. Others: American Airlines Cargo (PetEmbark).",
+  "banned_breeds": "Checked: brachycephalic cats (e.g. Burmese, Persian, Himalayan, Exotic Shorthair) and brachycephalic dogs (e.g. Boxer, Bulldog, Pug, Shih Tzu, Pit Bull, Mastiff, and more).",
+  "banned_routes": "No carry-on pets to/from Hawaii, Jamaica, Argentina, Brazil, Chile, Colombia, Uruguay, or on trans-Atlantic and trans-Pacific trips.",
+  "service_animal_note": "Fully-trained service dogs fly in the cabin at no charge if they meet requirements.",
+  "recent_changes": [],
+  "notes": "Carry-on pets: max 20 carriers per flight on most mainline aircraft; no dogs as carry-on from CDC high-risk rabies countries.",
+  "last_verified": "2026-10-22",
+  "needs_review": false,
+  "content_hashes": {
+    "https://www.aa.com/i18n/travel-info/special-assistance/pets.jsp": "4658be026fc85c7af87e59531aaadfd13cbfc2346d45b3ea87bd4acc1f16137a"
+  },
+  "last_checked": "2026-10-22"
+}

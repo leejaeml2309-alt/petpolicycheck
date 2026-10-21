@@ -1,0 +1,39 @@
+{
+  "slug": "alaska",
+  "name": "Alaska Airlines (and Hawaiian Airlines)",
+  "iata": "AS",
+  "country": "United States",
+  "official_url": "https://www.alaskaair.com/content/travel-info/policies/pets-traveling-with-pets",
+  "watch_urls": [
+    "https://www.alaskaair.com/content/travel-info/policies/pets-traveling-with-pets",
+    "https://news.alaskaair.com/company/international-dog-day-2026/"
+  ],
+  "fetch_status": "partial",
+  "in_cabin_allowed": true,
+  "species": null,
+  "max_carrier_dimensions": "Soft-sided carrier max 17 x 11 x 9.5 in (per Alaska's official newsroom, Aug 26, 2026)",
+  "max_combined_weight": "Baggage compartment: up to 150 lb pet + kennel combined (official newsroom, Aug 26, 2026)",
+  "fees": [
+    {
+      "route": "In cabin",
+      "amount": "$100 per carrier each way ($35 wholly within Hawaii)"
+    },
+    {
+      "route": "Baggage compartment",
+      "amount": "$200 per kennel each way (discounts within Alaska/Hawaii and for active-duty military)"
+    }
+  ],
+  "checked_or_cargo": "Yes: temperature-controlled baggage compartment on your flight, or Pet Connect via Alaska Air Cargo for unaccompanied pets.",
+  "banned_breeds": "Brachycephalic (short-nosed) dogs are not permitted in the baggage compartment (official newsroom).",
+  "banned_routes": null,
+  "service_animal_note": "Trained service animals travel free; see Alaska's accessible travel services section.",
+  "recent_changes": [],
+  "notes": "The detailed 'Pets in cabin' page renders client-side and could not be read by our fetcher; carrier size and fees come from Alaska's overview page (fees range $100-$200) and its official newsroom post of Aug 26, 2026. An older search snippet of Alaska's fee page showed $150 for the baggage compartment: a contradiction to check with the airline.",
+  "last_verified": "2026-10-22",
+  "needs_review": false,
+  "content_hashes": {
+    "https://www.alaskaair.com/content/travel-info/policies/pets-traveling-with-pets": "4813aa4d88fb38a0cc2208cf6ba5c9c8d6a2fc35d479425e0a03e15988597267",
+    "https://news.alaskaair.com/company/international-dog-day-2026/": "3396320b4e521cb573a7d58f6917bc3de01b29398ce9547822bc911309938d61"
+  },
+  "last_checked": "2026-10-22"
+}
