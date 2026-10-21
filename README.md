@@ -8,6 +8,6 @@ Static site: airline pet policies, each checked against the airline's official p
 - `python3 refresh.py`: nightly check of the airline checked longest ago (`--slug X`, `--all`, `--dry-run`, `--no-build`).
   Hashes policy-relevant text, sets `needs_review` + an Updates entry on change (values are never auto-edited),
   bumps `last_verified` only when the page is unchanged, rebuilds, writes `reports/YYYY-MM-DD.md`.
-  Git commit/push is intentionally disabled: see `publish_hook()`.
+  Then commits + pushes (no force) via `publish_hook()`; `--no-publish` to skip.
 - Cron: `0 3 * * * cd /workspace/petsite && python3 refresh.py >> reports/cron.log 2>&1`
-- GitHub Pages (later): publish the `site/` folder (e.g. via an Actions workflow), then set `base_url` in config.json.
+- Live: https://leejaeml2309-alt.github.io/petpolicycheck/ (GitHub Actions deploys `site/` on every push to main).

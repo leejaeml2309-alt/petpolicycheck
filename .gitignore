@@ -5,3 +5,4 @@ raw/
 .cache/
 .DS_Store
 *.log
+reports/cron.log

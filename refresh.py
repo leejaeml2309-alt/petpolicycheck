@@ -7,7 +7,8 @@ Steps: pick airline (oldest last_checked/last_verified) -> fetch its official pa
 
 It never edits policy values automatically (no guessing): a detected change sets
 needs_review=true so a human can update the fields from the official page.
-It does NOT commit or push: see publish_hook() below.
+After the report it commits site/, data/, reports/ and runs `git push origin main` (never force) via publish_hook();
+failures are written to the report. Use --no-publish to skip.
 
 Usage:
   python3 refresh.py               # nightly: one airline
@@ -177,17 +178,29 @@ def check_airline(a, dry):
     return res, changed_urls
 
 
-def publish_hook(changed_any):
-    # ------------------------------------------------------------------
-    # >>> FUTURE PUBLISH HOOK (disabled on purpose) <<<
-    # When the GitHub repo + Pages are set up and `gh`/git credentials exist,
-    # replace this body with e.g.:
-    #   subprocess.run(["git", "add", "-A"], cwd=ROOT, check=True)
-    #   subprocess.run(["git", "commit", "-m", f"refresh {today()}"], cwd=ROOT, check=False)
-    #   subprocess.run(["git", "push", "origin", "main"], cwd=ROOT, check=True)
-    # Until then this script never commits or pushes.
-    # ------------------------------------------------------------------
-    print("[publish_hook] disabled: no git commit/push performed.")
+def publish_hook(slugs):
+    """Commit + push site/ and data/ changes. Never force-pushes. Returns a log string for the report."""
+    def git(*a):
+        return subprocess.run(["git", *a], cwd=ROOT, capture_output=True, text=True)
+    try:
+        st = git("status", "--porcelain", "--", "site", "data", "reports")
+        if st.returncode != 0:
+            return f"publish_hook: git status failed: {st.stderr.strip()}"
+        if not st.stdout.strip():
+            return "publish_hook: nothing changed in site/, data/ or reports/; no commit."
+        add = git("add", "--", "site", "data", "reports")
+        if add.returncode != 0:
+            return f"publish_hook: git add failed: {add.stderr.strip()}"
+        msg = f"Nightly refresh {today()}: {', '.join(slugs)}"
+        cm = git("commit", "-m", msg)
+        if cm.returncode != 0:
+            return f"publish_hook: git commit failed: {(cm.stderr or cm.stdout).strip()}"
+        ps = git("push", "origin", "main")  # plain push only; never --force
+        if ps.returncode != 0:
+            return f"publish_hook: committed '{msg}' but git push FAILED: {ps.stderr.strip()}"
+        return f"publish_hook: committed and pushed '{msg}'."
+    except Exception as ex:
+        return f"publish_hook: error {ex}"
 
 
 def main():
@@ -196,6 +209,7 @@ def main():
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--dry-run", action="store_true", help="do not write JSON/snapshots/updates")
     ap.add_argument("--no-build", action="store_true")
+    ap.add_argument("--no-publish", action="store_true", help="do not git commit/push")
     args = ap.parse_args()
 
     paths = {p.stem: p for p in DATA.glob("*.json")}
@@ -244,7 +258,14 @@ def main():
     with rp.open("a") as f:
         f.write("\n".join(out) + "\n")
     print(f"Report: {rp}")
-    publish_hook(any(r["changed"] for r in results))
+    if args.dry_run or args.no_publish:
+        log = "publish_hook: skipped (dry run / --no-publish)."
+    else:
+        log = publish_hook([r["slug"] for r in results])
+    print(log)
+    with rp.open("a") as f:
+        f.write(f"**Publish:** {log}\n\n")
+
 
 
 if __name__ == "__main__":
