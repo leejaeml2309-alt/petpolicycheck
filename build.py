@@ -94,6 +94,9 @@ def affiliate_box(cfg):
             '<a href="{root}about.html#affiliates">Disclosure</a>.</p></aside>')
 
 
+TP_DRIVE = '<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">\n  (function () {\n      var script = document.createElement("script");\n      script.async = 1;\n      script.setAttribute("data-cmp-ab","2");\n      script.src = \'https://emrldtp.cc/NTg4ODAy.js?t=588802\';\n      document.head.appendChild(script);\n  })();\n</script>'
+
+
 def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
     base = cfg["base_url"].rstrip("/")
     canon = canonical or f"{base}/{path}"
@@ -103,6 +106,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
 <head>
 <meta charset="utf-8">
 <meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
+{TP_DRIVE}
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
