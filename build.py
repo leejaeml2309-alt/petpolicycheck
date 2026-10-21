@@ -124,7 +124,8 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
 </main>
 <footer class="foot"><div class="wrap">
 <p>Airline pet rules change often. Always confirm with the airline before you book. Information here is not legal or veterinary advice.</p>
-<p>&copy; {dt.date.today().year} {e(cfg['site_name'])} &middot; <a href="{root}about.html">About &amp; disclaimer</a> &middot; <a href="{root}updates.html">Updates</a></p>
+<p class="disc">Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</p>
+<p>&copy; {dt.date.today().year} {e(cfg['site_name'])} &middot; <a href="{root}about.html">About &amp; disclaimer</a> &middot; <a href="{root}updates.html">Updates</a> &middot; <a href="{root}privacy.html">Privacy</a> &middot; <a href="{root}contact.html">Contact</a></p>
 </div></footer>
 </body></html>
 """
@@ -239,8 +240,54 @@ def build_about(cfg):
 <h2 id="affiliates">Affiliate disclosure</h2>
 <p>Some pages may contain affiliate links (for example to pet carriers or pet insurance). If you buy through them we may earn a commission at no extra cost to you. Affiliate relationships never change the policy information we publish.</p>
 <h2>Corrections</h2>
-<p>Spotted something out of date? {('Email <a href="mailto:'+e(cfg['contact_email'])+'">'+e(cfg['contact_email'])+'</a>.') if cfg.get('contact_email') else 'A contact address will be added soon.'}</p>"""
+<p>Spotted something out of date? Please tell us via our <a href="contact.html">contact page</a>.</p>"""
     return page(cfg, f"About & disclaimer | {cfg['site_name']}", "How we verify airline pet policies, our disclaimer and affiliate disclosure.", body, "about.html", "")
+
+
+def obf_mail(addr):
+    """Mailto link with every character as an HTML entity: clickable, no JS, hidden from naive scrapers."""
+    ent = lambda t: "".join(f"&#{ord(ch)};" for ch in t)
+    return f'<a href="{ent("mailto:" + addr)}">{ent(addr)}</a>'
+
+
+EFFECTIVE = "October 22, 2026"
+
+
+def build_privacy(cfg):
+    mail = obf_mail(cfg["contact_email"])
+    body = f"""<h1>Privacy policy</h1>
+<p class="small">Effective date: {EFFECTIVE}</p>
+<p>{e(cfg['site_name'])} is a simple static website. This page explains, in plain English, what data is and isn't collected when you visit.</p>
+<h2>No accounts, no forms</h2>
+<p>There are no user accounts, logins, comment forms or newsletters on this site. We don't ask for, and don't store, your name, email or any other personal information. If you email us, we only use your message and address to reply.</p>
+<h2>Hosting (GitHub Pages)</h2>
+<p>The site is hosted on GitHub Pages, a service of GitHub, Inc. When you load a page, GitHub's servers may log technical information such as your IP address, browser type and the page requested, for security and operations. We don't receive or control those logs. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub Privacy Statement</a>.</p>
+<h2>Analytics</h2>
+<p>We currently use <b>no analytics, tracking pixels or advertising scripts</b>, and the site itself sets no cookies.</p>
+<div class="note" id="analytics-update"><b>Update note:</b> if we add an analytics tool in the future, this section will be updated before it goes live to name the tool, what it collects, and how to opt out, and the effective date above will change.</div>
+<h2>Affiliate links and partner cookies</h2>
+<p>Some pages may include affiliate links to partners, for example brands on the Impact network (such as Chewy, Trupanion or Lemonade) and Booking.com. If you click one, you leave our site and the partner (or its affiliate network) may set cookies or use similar technology to record that the visit came from us, so we can be paid a commission if you buy something. Those cookies are governed by the partner's own privacy policy, not ours. You can block or delete cookies in your browser settings. We don't receive personal information about you from these partners, only aggregated sales or commission reports.</p>
+<h2>External links</h2>
+<p>We link to airline and government websites. Their privacy practices are their own.</p>
+<h2>Children</h2>
+<p>This site is not directed at children and does not knowingly collect information from anyone.</p>
+<h2>Changes</h2>
+<p>If this policy changes, we'll update this page and its effective date.</p>
+<h2>Contact</h2>
+<p>Questions about privacy: {mail}.</p>"""
+    return page(cfg, f"Privacy policy | {cfg['site_name']}", "Privacy policy for PetPolicyCheck: no accounts, no analytics, GitHub Pages hosting and affiliate partner cookies explained.", body, "privacy.html", "")
+
+
+def build_contact(cfg):
+    mail = obf_mail(cfg["contact_email"])
+    body = f"""<h1>Contact</h1>
+<p>Email: <b>{mail}</b></p>
+<h2>Corrections to airline data</h2>
+<p>Found a pet policy detail that's out of date or wrong? Please email us with the airline, what's wrong, and a link to the airline's official page showing the current rule. We check every correction against the official source before updating, and the page's "last verified" date changes when we do.</p>
+<h2>Partnerships &amp; sponsorship</h2>
+<p>Pet travel brands, insurers and travel companies interested in partnerships or sponsorship are welcome to get in touch. Sponsorship never changes the airline policy data we publish (see our <a href="about.html#affiliates">disclosure</a>).</p>
+<p class="small">We can't book flights or answer questions about a specific reservation: please contact your airline for that.</p>"""
+    return page(cfg, f"Contact | {cfg['site_name']}", "Contact PetPolicyCheck for corrections to airline pet policy data, partnerships or sponsorship.", body, "contact.html", "")
 
 
 def main():
@@ -255,9 +302,12 @@ def main():
         (OUT / "airlines" / f"{a['slug']}.html").write_text(build_airline(cfg, a))
     (OUT / "updates.html").write_text(build_updates(cfg, airlines, updates))
     (OUT / "about.html").write_text(build_about(cfg))
+    (OUT / "privacy.html").write_text(build_privacy(cfg))
+    (OUT / "contact.html").write_text(build_contact(cfg))
     base = cfg["base_url"].rstrip("/")
     newest = max(a["last_verified"] for a in airlines if a.get("last_verified"))
-    urls = [(f"{base}/", newest), (f"{base}/updates.html", newest), (f"{base}/about.html", newest)]
+    urls = [(f"{base}/", newest), (f"{base}/updates.html", newest), (f"{base}/about.html", newest),
+            (f"{base}/privacy.html", newest), (f"{base}/contact.html", newest)]
     urls += [(f"{base}/airlines/{a['slug']}.html", a.get("last_verified") or a.get("last_checked") or newest) for a in airlines]
     sm = "".join(f"<url><loc>{e(u)}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n')

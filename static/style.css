@@ -39,3 +39,5 @@ table{border-collapse:collapse;width:100%}
  .facts th,.facts td{display:block;width:100%}
  nav a{margin-left:0;margin-right:14px}
 }
+.note{background:var(--soft);border:1px dashed var(--line);padding:10px 14px;border-radius:6px}
+.disc{font-style:italic}
