@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Check Gabia DNS for petpolicycheck.com against GitHub Pages requirements.
+command -v dig >/dev/null || { echo "dig not found: install dnsutils (apt) / bind (brew)"; exit 2; }
 DOMAIN=${1:-petpolicycheck.com}
 TARGET=leejaeml2309-alt.github.io
 WANT="185.199.108.153 185.199.109.153 185.199.110.153 185.199.111.153"
