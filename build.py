@@ -846,7 +846,8 @@ def gear_table(ps, root=""):
     tr = "".join(f"<tr><td data-l='Product'><a href='{p['slug']}.html'>{e(p['name'])}</a><br><span class='small'>{e(p['brand'])}</span></td>"
                  f"<td data-l='Key specs'>{e(p.get('summary') or '; '.join(f'{a}: {b}' for a, b in p.get('spec_rows', []))[:120])}</td>"
                  f"<td data-l='For'>{pets_txt(p) or '&ndash;'}</td></tr>" for p in ps)
-    return (f"<div class='tablewrap'><table class='cmp'><thead><tr><th>Product</th><th>Key specs (per maker)</th><th>For</th></tr></thead>"
+    return (f"<div class='tablewrap'><table class='cmp gear'><colgroup><col class='c-prod'><col><col class='c-for'></colgroup>"
+            f"<thead><tr><th>Product</th><th>Key specs (per maker)</th><th>For</th></tr></thead>"
             f"<tbody>{tr}</tbody></table></div>")
 
 
@@ -962,7 +963,8 @@ def build_products_index(cfg, pd, lims):
             if c in ("soft_carrier", "backpack"):
                 best = max((len(ok) for _, ok in fits_list(p, lims)), default=0)
                 n = len(applicable(p, lims))
-                info = f"within {best} of {n} airline cabin limits (best size)"
+                info = (f"within {best} of {n} airline cabin limits (best size)" if best
+                        else "Larger than the cabin limits we track; check the hold/cargo options")
             elif c == "hard_crate":
                 info = f"{len(p['sizes'])} sizes, interior dimensions"
             elif p.get("summary"):
