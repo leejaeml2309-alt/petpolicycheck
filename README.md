@@ -16,3 +16,15 @@ Static site: airline pet policies, each checked against the airline's official p
 - Cron: `0 3 * * * cd /workspace/petsite && python3 refresh.py >> reports/cron.log 2>&1`
 - Live: https://leejaeml2309-alt.github.io/petpolicycheck/ (GitHub Actions deploys `site/` on every push to main).
 - Base URL comes from `config.json` (`site_url` + `base_path`). Custom-domain switch: `./switch_domain.sh` (check DNS first with `./check_dns.sh`).
+
+## Design / hero photos
+
+The theme lives in `static/style.css` (copied to `site/` by build.py) plus small inline SVG ornaments in build.py.
+Fonts are self-hosted from `static/fonts/` (Marcellus + Inter, SIL OFL).
+
+Home hero photos: put JPG/PNG files in `static/img/` and list them in `config.json`:
+
+    "hero_images": ["dog.jpg", {"src": "cat.jpg", "alt": "Our cat Mimi"}]
+
+Up to 3 are used (1 = arched frame, 2-3 = arch + round medallions). build.py converts them with Pillow to
+WebP (max 1600 px wide, under ~200 KB) in `site/img/`. Empty list = botanical illustration instead.

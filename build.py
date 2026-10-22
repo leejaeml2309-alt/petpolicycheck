@@ -52,10 +52,15 @@ def yn(v):
     return CHECK if v is None else ("Yes" if v else "No")
 
 
+def yn_badge(v):
+    cls = "b-check" if v is None else ("b-yes" if v else "b-no")
+    return f'<span class="badge {cls}">{e(yn(v))}</span>'
+
+
 def val(a, key):
     v = a.get(key)
     if key == "in_cabin_allowed":
-        return e(yn(v))
+        return yn_badge(v)
     if v is None or v == []:
         return f'<span class="na">{CHECK}</span>'
     if key == "fees":
@@ -117,6 +122,41 @@ ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/ad
 TP_DRIVE = '<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">\n  (function () {\n      var script = document.createElement("script");\n      script.async = 1;\n      script.setAttribute("data-cmp-ab","2");\n      script.src = \'https://emrldtp.cc/NTg4ODAy.js?t=588802\';\n      document.head.appendChild(script);\n  })();\n</script>'
 
 
+LOGO = ('<svg class="logo" viewBox="0 0 40 40" width="38" height="38" aria-hidden="true" focusable="false">'
+        '<circle cx="20" cy="20" r="19" fill="#1d4f55"/><circle cx="20" cy="20" r="16.4" fill="none" stroke="#d9b765" stroke-width=".9"/>'
+        '<g fill="#f5efe0"><ellipse cx="12.6" cy="18.6" rx="2.1" ry="2.7" transform="rotate(-18 12.6 18.6)"/><ellipse cx="16.4" cy="14.4" rx="2.1" ry="2.8"/>'
+        '<ellipse cx="21.6" cy="14.4" rx="2.1" ry="2.8"/><ellipse cx="25.4" cy="18.6" rx="2.1" ry="2.7" transform="rotate(18 25.4 18.6)"/>'
+        '<path d="M19 19.6c-3.4 0-6.2 3.9-6.2 6.4 0 1.8 1.3 2.6 2.9 2.6 1.3 0 2.1-.7 3.3-.7s2 .7 3.3.7c1.6 0 2.9-.8 2.9-2.6 0-2.5-2.8-6.4-6.2-6.4z"/></g>'
+        '<path d="M11.2 25.6c-2.4-.5-3 2.4-.9 2.9M10.3 28.5c3.4 5 10.6 6.5 16 3.7 4.2-2.2 6.3-6.1 6.3-10.2" fill="none" stroke="#d9b765" stroke-width="1.2" stroke-linecap="round"/>'
+        '<path d="M0-5l1 .6v3l4 2.4v1l-4-1.1v2.5l1.3 1v.8L0 4.8l-2.3.4v-.8l1.3-1V.8l-4 1.1v-1l4-2.4v-3z" fill="#d9b765" transform="translate(29.6 13.4) rotate(32) scale(.62)"/></svg>')
+NAV = [("index.html", "Compare", ("index.html", "airlines/")), ("products/", "Products", ("products/",)),
+       ("updates.html", "Updates", ("updates.html",)), ("about.html", "About", ("about.html",)),
+       ("advertise/", "Advertise", ("advertise/",))]
+
+
+def brand_word(name):
+    """Wordmark: same text, last word tinted (PetPolicy|Check)."""
+    if name.endswith("Check"):
+        return f'<span class="wm">{e(name[:-5])}<span>Check</span></span>'
+    return f'<span class="wm">{e(name)}</span>'
+
+
+def nav_links(root, path):
+    out = []
+    for href, label, pre in NAV:
+        cur = ' aria-current="page"' if any(path.startswith(x) for x in pre) else ""
+        out.append(f'<a href="{root}{href}"{cur}>{label}</a>')
+    return "".join(out)
+
+
+def css_version():
+    import hashlib
+    return hashlib.sha1((ROOT / "static" / "style.css").read_bytes()).hexdigest()[:8]
+
+
+CSS_VER = css_version()
+
+
 def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
     base = site_base(cfg)
     canon = canonical or f"{base}/{path}"
@@ -137,19 +177,24 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
 <meta property="og:type" content="website">
 <meta property="og:url" content="{e(canon)}">
 <meta name="twitter:card" content="summary">
-<link rel="stylesheet" href="{root}style.css">
+<link rel="preload" href="{root}fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{root}fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{root}style.css?v={CSS_VER}">
+<meta name="theme-color" content="#0f4c52">
 {ld}
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
-<a class="brand" href="{root}index.html">{e(cfg['site_name'])}</a>
-<nav><a href="{root}index.html">Compare</a><a href="{root}products/">Products</a><a href="{root}updates.html">Updates</a><a href="{root}about.html">About</a><a href="{root}advertise/">Advertise</a></nav>
+<a class="brand" href="{root}index.html">{LOGO}{brand_word(cfg['site_name'])}</a>
+<nav class="nav" aria-label="Main">{nav_links(root, path)}</nav>
 </div></header>
-<main class="wrap">
+<main class="wrap" id="main">
 {body.replace('{root}', root)}
 </main>
 <footer class="foot"><div class="wrap">
 {ad_slot(cfg, "sidebar_or_footer", root)}
+<p class="foot-brand">{LOGO}{brand_word(cfg['site_name'])}</p>
 <p>Airline pet rules change often. Always confirm with the airline before you book. Information here is not legal or veterinary advice.</p>
 <p class="disc">Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</p>
 <p>&copy; {dt.date.today().year} {e(cfg['site_name'])} &middot; <a href="{root}about.html">About &amp; disclaimer</a> &middot; <a href="{root}products/">Products</a> &middot; <a href="{root}updates.html">Updates</a> &middot; <a href="{root}advertise/">Advertise</a> &middot; <a href="{root}privacy.html">Privacy</a> &middot; <a href="{root}contact.html">Contact</a></p>
@@ -158,12 +203,86 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
 """
 
 
+HERO_MAX_W, HERO_MAX_BYTES = 1600, 200_000
+
+
+def hero_images(cfg):
+    """Convert config.json "hero_images" (paths under static/img/, or {"src","alt"} objects)
+    to optimized WebP in site/img/. Returns [(url, w, h, alt)]; [] -> non-photo hero."""
+    items = cfg.get("hero_images") or []
+    if not items:
+        return []
+    try:
+        from PIL import Image, ImageOps
+    except ImportError:
+        print("  WARNING: Pillow not installed; hero_images ignored (pip install Pillow)")
+        return []
+    out_dir = OUT / "img"
+    out_dir.mkdir(exist_ok=True)
+    res = []
+    for it in items[:3]:
+        src, alt = (it, "") if isinstance(it, str) else (it.get("src", ""), it.get("alt", ""))
+        rel = src.split("static/", 1)[-1]
+        rel = rel if rel.startswith("img/") else "img/" + rel
+        path = ROOT / "static" / rel
+        if not path.exists():
+            print(f"  WARNING: hero image not found: {path}")
+            continue
+        im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+        if im.width > HERO_MAX_W:
+            im = im.resize((HERO_MAX_W, round(im.height * HERO_MAX_W / im.width)), Image.LANCZOS)
+        dest = out_dir / (Path(rel).stem + ".webp")
+        for q in (82, 74, 66, 58, 50, 42):
+            im.save(dest, "WEBP", quality=q, method=6)
+            if dest.stat().st_size <= HERO_MAX_BYTES:
+                break
+        else:  # still too big: shrink
+            while dest.stat().st_size > HERO_MAX_BYTES and im.width > 640:
+                im = im.resize((int(im.width * .85), int(im.height * .85)), Image.LANCZOS)
+                im.save(dest, "WEBP", quality=42, method=6)
+        res.append((f"img/{dest.name}", im.width, im.height, alt))
+    return res
+
+
+# Art Nouveau botanical fill for the hero arch when no photos are configured (decorative).
+BOTANICAL = ('<svg class="botan" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">'
+    '<defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a6066"/><stop offset="1" stop-color="#143a3e"/></linearGradient></defs>'
+    '<rect width="300" height="400" fill="url(#hg)"/>'
+    '<circle cx="150" cy="150" r="104" fill="#d9b765" fill-opacity=".09"/>'
+    '<circle cx="150" cy="150" r="104" fill="none" stroke="#d9b765" stroke-opacity=".6"/>'
+    '<circle cx="150" cy="150" r="92" fill="none" stroke="#d9b765" stroke-opacity=".35" stroke-dasharray="2 5"/>'
+    '<g fill="#7d8c64"><path d="M150 400C122 342 96 304 62 262c46 30 76 72 88 138z"/><path d="M150 400c26-62 58-98 96-130-32 40-58 76-96 130z" fill="#66754f"/>'
+    '<path d="M96 400c-10-50-30-80-64-104 40 12 62 50 64 104z" fill="#5d6c48"/><path d="M206 400c8-46 30-78 66-98-34 26-50 58-66 98z" fill="#5d6c48"/></g>'
+    '<g fill="none" stroke="#a9b98a" stroke-width="2.6" stroke-linecap="round">'
+    '<path d="M150 400c0-70-28-98-14-158s22-74 14-98"/><path d="M92 400c4-58-30-86-12-138 10-28 26-44 14-64"/><path d="M212 400c-4-54 32-86 12-132-10-26-28-38-16-62"/></g>'
+    '<g fill="none" stroke="#d9b765" stroke-width="1.4" stroke-linecap="round">'
+    '<path d="M84 262c-40-6-46-50-14-56 20-3 24 22 6 24-9 1-10-10-3-11"/><path d="M220 268c40-8 42-52 10-55-20-2-22 22-4 23 9 0 9-10 2-11"/>'
+    '<path d="M140 300c-30-16-56-6-58 14"/><path d="M160 318c30-14 52-2 52 16"/></g>'
+    '<g fill="#efe3c2"><path d="M150 146c-16-24-14-50 0-66 14 16 16 42 0 66z"/><path d="M150 146c-24-8-44 4-50 26 20 0 38-8 50-26z"/>'
+    '<path d="M150 146c24-8 44 4 50 26-20 0-38-8-50-26z"/><path d="M150 146c-10 12-12 28-4 40 6-12 8-26 4-40z" fill="#d9b765"/>'
+    '<ellipse cx="94" cy="190" rx="7" ry="15" transform="rotate(-14 94 190)"/><ellipse cx="208" cy="200" rx="7" ry="15" transform="rotate(16 208 200)"/></g>'
+    '<path d="M150 146c-6 6-8 14-6 22M150 146c6 6 8 14 6 22" stroke="#b38a35" fill="none"/></svg>')
+
+
+def hero_media(imgs):
+    """Mucha-style arched frame with a halo; holds 1-3 pet photos or the botanical fill."""
+    if imgs:
+        tags = "".join(
+            f'<img class="{"main" if i == 0 else "medal m" + str(i)}" src="{e(u)}" width="{w}" height="{h}" alt="{e(alt)}" decoding="async" '
+            + ('fetchpriority="high"' if i == 0 else 'loading="lazy"') + ">"
+            for i, (u, w, h, alt) in enumerate(imgs))
+        inner, extra = tags.split(">", 1)[0] + ">", tags.split(">", 1)[1]
+    else:
+        inner, extra = BOTANICAL, ""
+    return f'<div class="hero-media n{len(imgs)}"><span class="halo" aria-hidden="true"></span><div class="arch">{inner}</div>{extra}</div>'
+
+
 def build_index(cfg, airlines):
     rows = []
     for a in airlines:
         rows.append(f"""<tr>
 <td data-l="Airline"><a href="airlines/{a['slug']}.html">{e(a['name'])}</a></td>
-<td data-l="In cabin">{e(yn(a.get('in_cabin_allowed')))}</td>
+<td data-l="In cabin">{yn_badge(a.get('in_cabin_allowed'))}</td>
 <td data-l="Max carrier">{val(a,'max_carrier_dimensions')}</td>
 <td data-l="Max weight">{val(a,'max_combined_weight')}</td>
 <td data-l="Fee (from)">{e(short_fee(a)) if a.get('fees') else val(a,'fees')}</td>
@@ -171,17 +290,24 @@ def build_index(cfg, airlines):
 <td data-l="Verified">{f'<time datetime="{e(a["last_verified"])}">{e(nice_date(a["last_verified"]))}</time>' if a.get('last_verified') else 'Not verified'}{' <span class="flag">official page blocked</span>' if a.get('fetch_status')=='blocked' else ''}</td>
 </tr>""")
     newest = max(a["last_verified"] for a in airlines if a.get("last_verified"))
+    imgs = hero_images(cfg)
     body = f"""
-<section class="hero">
+<section class="hero{' hero-photo' if imgs else ''}">
+<div class="hero-text">
 <h1>Flying with a dog or cat? Airline pet policies, verified.</h1>
-<p>{e(cfg.get('site_tagline',''))} Every airline page shows the date we last checked the <b>official</b> policy page and links to it. If we couldn't confirm a detail, we say so instead of guessing.</p>
-<p class="small">Most recent check: <time datetime="{newest}">{nice_date(newest)}</time> &middot; {len(airlines)} airlines</p>
+<p class="lead">{e(cfg.get('site_tagline',''))} Every airline page shows the date we last checked the <b>official</b> policy page and links to it. If we couldn't confirm a detail, we say so instead of guessing.</p>
+<p class="small meta"><span class="dot" aria-hidden="true"></span>Most recent check: <time datetime="{newest}">{nice_date(newest)}</time> &middot; {len(airlines)} airlines</p>
+<nav class="chips" aria-label="Airlines">{''.join(f'<a href="airlines/{a["slug"]}.html">{e(a["name"])}</a>' for a in airlines)}</nav>
+</div>
+{hero_media(imgs)}
 </section>
-<div class="tablewrap"><table class="cmp">
+<div class="tools" hidden><label for="q">Filter airlines</label><input id="q" type="search" autocomplete="off" placeholder="e.g. Delta, Air France"></div>
+<div class="tablewrap"><table class="cmp" id="cmp">
 <thead><tr><th>Airline</th><th>In cabin</th><th>Max carrier</th><th>Max weight</th><th>Fee (from)</th><th>Hold / cargo</th><th>Last verified</th></tr></thead>
 <tbody>{''.join(rows)}</tbody></table></div>
 <p class="small">"{CHECK}" means the detail was not stated on, or could not be read from, the airline's official page on the date shown.</p>
 {affiliate_box(cfg)}
+<script>(function(){{var t=document.querySelector('.tools'),q=document.getElementById('q');if(!t||!q)return;t.hidden=false;var r=document.querySelectorAll('#cmp tbody tr');q.addEventListener('input',function(){{var v=q.value.trim().toLowerCase();r.forEach(function(x){{x.hidden=v&&x.cells[0].textContent.toLowerCase().indexOf(v)<0}})}})}})();</script>
 """
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": cfg["site_name"], "url": site_base(cfg)},
           {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [
@@ -621,7 +747,7 @@ def build_guide(cfg, g, pd, lims, airlines):
 
 def build_products_index(cfg, pd, lims):
     root = "../"
-    gl = "".join(f"<li><a href='{g['slug']}.html'>{e(GUIDE_META[g['slug']][0])}</a><br><span class='small'>{e(GUIDE_META[g['slug']][1])}</span></li>" for g in pd["guides"])
+    gl = "".join(f"<li><a href='{g['slug']}.html'>{e(GUIDE_META[g['slug']][0])}</a> <span class='small'>{e(GUIDE_META[g['slug']][1])}</span></li>" for g in pd["guides"])
     secs = ""
     for c, lbl in CATS.items():
         ps = [p for p in pd["products"] if p["category"] == c]
@@ -637,12 +763,12 @@ def build_products_index(cfg, pd, lims):
                 info = f"{len(p['sizes'])} sizes, interior dimensions"
             else:
                 info = "; ".join(f"{a}: {b}" for a, b in p["spec_rows"])[:90]
-            li += f"<li><a href='{p['slug']}.html'>{e(p['name'])}</a> <span class='small'>&middot; {e(info)}</span></li>"
-        secs += f"<h2>{e(lbl)}</h2><ul class='plist'>{li}</ul>"
+            li += f"<li><a href='{p['slug']}.html'>{e(p['name'])}</a> <span class='small'>{e(info)}</span></li>"
+        secs += f"<h2>{e(lbl)}</h2><ul class='plist cards'>{li}</ul>"
     body = f"""{crumbs("{root}")}
 <h1>Pet travel gear: carriers, crates and bowls, checked against airline limits</h1>
 <p>Dimensions for each product come from the manufacturer's official page (linked and dated), and we compare them with the cabin carrier limits on our <a href="{{root}}index.html">airline pet policy pages</a>. No prices, ratings or hands-on test claims: just published numbers you can check.</p>
-<h2>Guides</h2><ul class="plist">{gl}</ul>
+<h2>Guides</h2><ul class="plist cards guides">{gl}</ul>
 {secs}
 {disclosure("{root}")}
 """
@@ -711,6 +837,7 @@ def main():
     (OUT / "advertise").mkdir()
     pd, lims = load_products(airlines)
     shutil.copy(ROOT / "static" / "style.css", OUT / "style.css")
+    shutil.copytree(ROOT / "static" / "fonts", OUT / "fonts")
     (OUT / ".nojekyll").write_text("")
     if custom_domain(cfg):
         (OUT / "CNAME").write_text(custom_domain(cfg) + "\n")
