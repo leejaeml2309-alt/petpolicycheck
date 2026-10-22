@@ -194,7 +194,7 @@ def filter_form(B, airlines):
         f'<label><span data-i18n="f.fld.{g}">{B.e(T("f.fld." + g))}</span><select name="{g}">{opts(B, g, CATS[g])}</select></label>'
         for g in FILTERS)
     al = '<option value="" data-i18n="f.any">Any</option>' + "".join(f'<option value="{a["slug"]}">{B.e(a["name"])}</option>' for a in airlines)
-    lang = f'<label><span data-i18n="f.fld.lang">{B.e(T("f.fld.lang"))}</span><select name="plang">{opts(B, "lang", CATS["lang"])}</select></label>'
+    lang = f'<label><span data-i18n="f.fld.plang">{B.e(T("f.fld.plang"))}</span><select name="plang">{opts(B, "lang", CATS["lang"])}</select></label>'
     return (f'<form class="ffilters" id="ffilters" action="index.html" method="get" role="search">'
             f'<h2 class="fh" data-i18n="f.filters">{B.e(T("f.filters"))}</h2><div class="fgrid">'
             f'<label class="wide"><span data-i18n="f.search">{B.e(T("f.search"))}</span><input type="search" name="q" maxlength="60" data-i18n-ph="f.search_ph" placeholder="{B.e(T("f.search_ph"))}"></label>'
@@ -206,7 +206,7 @@ def build_index(B, cfg, airlines, posts, paths):
     root = "../"
     cards = "".join(card(B, p, root, paths[p["id"]]) for p in posts[:30])
     lst = f'<ul class="flist" id="flist">{cards}</ul>' if cards else f'<ul class="flist" id="flist"></ul><p class="note" id="fempty">{i(B, "f.empty")}</p>'
-    body = f"""<nav class="crumbs"><a href="{{root}}index.html">Home</a> &rsaquo; Forum</nav>
+    body = f"""<nav class="crumbs"><a href="{{root}}index.html" data-i18n="f.crumb_home">Home</a> &rsaquo; <span data-i18n="nav.forum">Forum</span></nav>
 <h1 data-i18n="f.h1">{B.e(T("f.h1"))}</h1>
 {subnav(B, root, "index.html")}
 <p class="lead" data-i18n="f.lead">{B.e(T("f.lead"))}</p>
@@ -214,7 +214,7 @@ def build_index(B, cfg, airlines, posts, paths):
 <p class="small" id="fstatus" aria-live="polite"></p>
 {lst}
 <p><button type="button" class="fbtn alt" id="fmore" hidden data-i18n="f.load_more">{B.e(T("f.load_more"))}</button></p>
-<p class="small">Experiences are shared by travellers and checked by a moderator before they appear. They are personal accounts, not airline rules: always confirm with the airline or operator. See the <a href="guidelines.html">community rules</a>.</p>
+<p class="small">{i(B, "f.disclaimer")} <a href="guidelines.html" data-i18n="f.why.see_rules">{B.e(T("f.why.see_rules"))}</a></p>
 {app("index")}{scripts(root, "index")}"""
     ld = [B.bc_ld(cfg, [("Home", ""), ("Forum", "forum/")])]
     return B.page(cfg, f"Pet travel forum: flying and travelling with dogs and cats | {cfg['site_name']}",
@@ -246,7 +246,7 @@ def post_article(B, p, comments, root, airlines_by):
 def build_post_static(B, cfg, p, comments, path, airlines_by):
     root = "../../"
     art = post_article(B, p, comments, root, airlines_by)
-    body = f"""<nav class="crumbs"><a href="{{root}}index.html">Home</a> &rsaquo; <a href="{{root}}forum/">Forum</a> &rsaquo; {B.e(p["title"][:60])}</nav>
+    body = f"""<nav class="crumbs"><a href="{{root}}index.html" data-i18n="f.crumb_home">Home</a> &rsaquo; <a href="{{root}}forum/" data-i18n="nav.forum">Forum</a> &rsaquo; {B.e(p["title"][:60])}</nav>
 {subnav(B, root, "")}
 <div id="fpost-static">{art}</div>
 {app("post", post_id=p["id"], static="1")}{noscript(B)}{scripts(root, "post")}"""
@@ -264,7 +264,7 @@ def build_post_static(B, cfg, p, comments, path, airlines_by):
 
 def build_post_live(B, cfg):
     root = "../"
-    body = f"""<nav class="crumbs"><a href="{{root}}index.html">Home</a> &rsaquo; <a href="index.html">Forum</a></nav>
+    body = f"""<nav class="crumbs"><a href="{{root}}index.html" data-i18n="f.crumb_home">Home</a> &rsaquo; <a href="index.html" data-i18n="nav.forum">Forum</a></nav>
 {subnav(B, root, "")}
 <div id="fpost-static"><p class="small" data-i18n="f.loading">{B.e(T("f.loading"))}</p></div>
 {app("post")}{noscript(B)}{scripts(root, "post")}"""
@@ -300,7 +300,7 @@ def build_new(B, cfg, airlines):
 <p class="fbtns"><button type="submit" class="fbtn" data-i18n="f.submit">{B.e(T("f.submit"))}</button></p>
 <p class="small">By posting you agree to the <a href="guidelines.html" data-i18n="f.rules">{B.e(T("f.rules"))}</a>. <span data-i18n="f.pending_post">{B.e(T("f.pending_post"))}</span></p>
 </form>"""
-    body = f"""<nav class="crumbs"><a href="{{root}}index.html">Home</a> &rsaquo; <a href="index.html">Forum</a> &rsaquo; <span data-i18n="f.new">{B.e(T("f.new"))}</span></nav>
+    body = f"""<nav class="crumbs"><a href="{{root}}index.html" data-i18n="f.crumb_home">Home</a> &rsaquo; <a href="index.html" data-i18n="nav.forum">Forum</a> &rsaquo; <span data-i18n="f.new">{B.e(T("f.new"))}</span></nav>
 <h1 data-i18n="f.new">{B.e(T("f.new"))}</h1>
 {subnav(B, root, "new.html")}
 <div class="note" id="nf-signin" hidden><p data-i18n="f.need_signin">{B.e(T("f.need_signin"))}</p><p><a class="fbtn" href="account.html?next=new.html" data-i18n="f.signin">{B.e(T("f.signin"))}</a></p></div>
@@ -315,7 +315,7 @@ def build_account(B, cfg, mail_html):
     root = "../"
     inp = lambda id_, typ, key, extra="": (f'<div class="ffield"><label for="{id_}" data-i18n="{key}">{B.e(T(key))}</label>'
                                            f'<input id="{id_}" type="{typ}" {extra}></div>')
-    body = f"""<nav class="crumbs"><a href="{{root}}index.html">Home</a> &rsaquo; <a href="index.html">Forum</a> &rsaquo; <span data-i18n="f.account">{B.e(T("f.account"))}</span></nav>
+    body = f"""<nav class="crumbs"><a href="{{root}}index.html" data-i18n="f.crumb_home">Home</a> &rsaquo; <a href="index.html" data-i18n="nav.forum">Forum</a> &rsaquo; <span data-i18n="f.account">{B.e(T("f.account"))}</span></nav>
 <h1 data-i18n="f.acc.h">{B.e(T("f.acc.h"))}</h1>
 {subnav(B, root, "account.html")}
 <p class="ferr" id="acc-err" role="alert" hidden></p><p class="verified" id="acc-msg" role="status" hidden></p>

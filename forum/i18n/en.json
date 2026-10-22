@@ -173,5 +173,8 @@
   "cat.weight.w15_25": "15–25 kg (33–55 lb)",
   "cat.weight.w25_40": "25–40 kg (55–88 lb)",
   "cat.weight.w_gt40": "Over 40 kg (over 88 lb)",
-  "f.filter_btn": "Filter"
+  "f.filter_btn": "Filter",
+  "f.disclaimer": "Experiences are shared by travellers and checked by a moderator before they appear. They are personal accounts, not airline rules: always confirm with the airline or operator.",
+  "f.crumb_home": "Home",
+  "f.fld.plang": "Post language"
 }

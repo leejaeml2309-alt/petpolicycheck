@@ -189,7 +189,8 @@
         render(false);
         offset += last.length;
         show(more, last.length === PAGE_SIZE);
-        msg(status, offset ? t('f.results', { n: offset }) : t('f.no_posts'));
+        var filtered = FILTERS.some(function (k) { return form.elements[k] && form.elements[k].value.trim(); });
+        msg(status, offset ? t('f.results', { n: offset }) : t(filtered ? 'f.no_posts' : 'f.empty'));
       });
     }
     form.addEventListener('submit', function (ev) {

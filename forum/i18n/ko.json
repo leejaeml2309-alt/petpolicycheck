@@ -173,5 +173,8 @@
   "cat.weight.w15_25": "15–25 kg (33–55 lb)",
   "cat.weight.w25_40": "25–40 kg (55–88 lb)",
   "cat.weight.w_gt40": "40 kg 초과 (88 lb 초과)",
-  "f.filter_btn": "적용"
+  "f.filter_btn": "적용",
+  "f.disclaimer": "후기는 여행자가 직접 공유하고, 운영자 검토를 거친 뒤 게시돼요. 개인의 경험일 뿐 항공사 규정이 아니니, 반드시 항공사나 운영사에 확인하세요.",
+  "f.crumb_home": "홈",
+  "f.fld.plang": "글 언어"
 }

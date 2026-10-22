@@ -250,3 +250,5 @@ main>h2{clear:both}
 main [hidden]{display:none!important}
 .fadm input{font:inherit;font-size:.9rem;padding:7px 10px;border:1px solid #cfc4a8;border-radius:8px;background:#fff}
 @media (max-width:720px){.fgrid{grid-template-columns:1fr 1fr}.fgrid label{min-width:0}}
+:lang(ko){word-break:keep-all;overflow-wrap:break-word}
+.fgrid label{display:flex;flex-direction:column;justify-content:flex-end}
