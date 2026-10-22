@@ -42,6 +42,9 @@
     (scope || document).querySelectorAll('[data-i18n-ph]').forEach(function (el) {
       el.setAttribute('placeholder', t(el.getAttribute('data-i18n-ph')));
     });
+    (scope || document).querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+      el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria')));
+    });
     (scope || document).querySelectorAll('[data-i18n-html]').forEach(function (el) {
       var parts = t(el.getAttribute('data-i18n-html')).split('{email}');
       el.textContent = '';
@@ -53,6 +56,7 @@
     });
     var m = document.getElementById('main');
     if (m) m.setAttribute('lang', L);
+    document.documentElement.setAttribute('lang', L); // header/footer labels are translated too
   }
   var rerender = [];
   document.addEventListener('click', function (ev) {
@@ -132,6 +136,14 @@
     if (window.console) console.warn('forum:', err);
     return t('f.err.generic');
   }
+
+  /* ---------------------------------------------------------------- rules (static EN + KO text; show the chosen one) */
+  function initRules() {
+    var ko = L === 'ko';
+    show($('rules-en'), !ko); show($('ko'), ko);
+    ['rules-jump', 'rules-h-ko', 'rules-ko-h'].forEach(function (id) { show($(id), false); });
+  }
+  if (PAGE === 'rules') { initRules(); rerender.push(initRules); }
 
   /* ---------------------------------------------------------------- client */
   applyI18n();
@@ -313,6 +325,11 @@
     show(form, true);
     var el = form.elements;
     if (el.lang && D[L] && (C.cats.lang || []).indexOf(L) >= 0) el.lang.value = L;
+    var yr = el.trip_year, now = new Date(), cy = now.getFullYear();
+    if (yr) { // refresh years from the visitor's clock: current year and the 5 before
+      while (yr.options.length > 1) yr.remove(1);
+      for (var y = cy; y > cy - 6; y--) yr.add(new Option(String(y), String(y)));
+    }
     function syncSpecies() { el.breed.setAttribute('list', 'breeds-' + (el.species.value || 'dog')); }
     function syncTransport() { show($('subway-note'), el.transport.value === 'subway'); }
     el.species.addEventListener('change', syncSpecies);
@@ -325,7 +342,9 @@
       var row = { lang: v('lang') || L, title: v('title') || '', body: v('body') || '', transport: v('transport'), species: v('species'),
         breed: v('breed'), weight: v('weight'), carrier: v('carrier'), weather: v('weather'), season: v('season'),
         airline_slug: v('airline_slug'), operator: v('operator'), route_from: v('route_from'), route_to: v('route_to'),
-        trip_date: v('trip_date') ? v('trip_date').slice(0, 7) + '-01' : null };
+        trip_date: v('trip_month') && v('trip_year') ? v('trip_year') + '-' + v('trip_month') + '-01' : null };
+      if (!!v('trip_month') !== !!v('trip_year')) { msg(err, t('f.err.trip_date')); (v('trip_month') ? el.trip_year : el.trip_month).focus(); return; }
+      if (row.trip_date && row.trip_date.slice(0, 7) > cy + '-' + ('0' + (now.getMonth() + 1)).slice(-2)) { msg(err, t('f.err.trip_future')); el.trip_month.focus(); return; }
       if (row.title.length < 5 || row.title.length > 140) { msg(err, t('f.err.title_len')); el.title.focus(); return; }
       if (!row.transport) { msg(err, t('f.fld.transport') + ' ?'); el.transport.focus(); return; }
       if (!row.species) { msg(err, t('f.fld.species') + ' ?'); el.species.focus(); return; }
@@ -406,7 +425,7 @@
         else { show($('f-newpass'), false); msg(ok, t('f.auth.password_saved')); draw(); }
       });
     });
-    $('g-btn').addEventListener('click', function () {
+    if ($('g-btn')) $('g-btn').addEventListener('click', function () {
       sb.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: redirectTo() } }).then(function (r) { if (r.error) msg(err, r.error.message); });
     });
     $('acc-out-btn').addEventListener('click', function () { sb.auth.signOut().then(function () { session = null; draw(); updateAcctLinks(); }); });

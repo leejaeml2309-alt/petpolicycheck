@@ -66,6 +66,8 @@ Optional: edit the "Confirm signup" and "Reset password" templates (English + Ko
    - Authorized JavaScript origins: `https://petpolicycheck.com`
    - Authorized redirect URI: `https://<ref>.supabase.co/auth/v1/callback`
 3. Supabase > Authentication > Sign In / Providers > **Google**: enable, paste Client ID and Client Secret, save.
+4. Only then set `"google_enabled": true` in the `forum` block of `config.json` and rebuild: the "Continue with Google"
+   button is hidden while it is false (the default).
 
 The forum never shows the Google name: new users get the display name they typed, or `Traveller-xxxxxx`
 (Google sign-ups), which they can change in My account.

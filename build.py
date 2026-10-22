@@ -146,14 +146,20 @@ def brand_word(name):
 
 
 FORUM_NAV = ("forum/", "Forum", ("forum/",))
+
+
+def ti(key, on):
+    """data-i18n attribute for the shared header/footer on forum pages (forum.js translates it client-side)."""
+    return f' data-i18n="{key}"' if on else ""
 FORUM_ON = False  # set in main() from config.json forum.* (Forum link only when the backend is configured)
 
 
-def nav_links(root, path):
+def nav_links(root, path, i18n=False):
     out = []
     for href, label, pre in (NAV[:3] + [FORUM_NAV] + NAV[3:] if FORUM_ON else NAV):
         cur = ' aria-current="page"' if any(path.startswith(x) for x in pre) else ""
-        out.append(f'<a href="{root}{href}"{cur}>{label}</a>')
+        key = "nav.forum" if href == FORUM_NAV[0] else "site.nav." + label.lower()
+        out.append(f'<a href="{root}{href}"{cur}{ti(key, i18n)}>{label}</a>')
     return "".join(out)
 
 
@@ -217,6 +223,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
     base = site_base(cfg)
     canon = canonical or f"{base}/{path}"
     ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in (jsonld or []))
+    fi = FORUM_ON and path.startswith("forum/")  # forum pages: shared header/footer labels follow the forum language
     return f"""<!doctype html>
 <html lang="{e(cfg.get('language','en'))}">
 <head>
@@ -247,20 +254,20 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 {ld}
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main"{ti("site.skip", fi)}>Skip to content</a>
 <header class="top"><div class="wrap">
 <a class="brand" href="{root}index.html">{LOGO}{brand_word(cfg['site_name'])}</a>
-<nav class="nav" aria-label="Main">{nav_links(root, path)}</nav>
+<nav class="nav" aria-label="Main">{nav_links(root, path, fi)}</nav>
 </div></header>
 <main class="wrap" id="main">
 {body.replace('{root}', root)}
 </main>
 <footer class="foot"><div class="wrap">
-{ad_slot(cfg, "sidebar_or_footer", root)}
+{ad_slot(cfg, "sidebar_or_footer", root, fi)}
 <p class="foot-brand">{LOGO}{brand_word(cfg['site_name'])}</p>
-<p>Airline pet rules change often. Always confirm with the airline before you book. Information here is not legal or veterinary advice.</p>
-<p class="disc">Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</p>
-<p>&copy; {dt.date.today().year} {e(cfg['site_name'])} &middot; <a href="{root}about.html">About &amp; disclaimer</a> &middot; <a href="{root}products/">Products</a> &middot; <a href="{root}updates.html">Updates</a>{f' &middot; <a href="{root}forum/">Forum</a>' if FORUM_ON else ''} &middot; <a href="{root}advertise/">Advertise</a> &middot; <a href="{root}privacy.html">Privacy</a> &middot; <a href="{root}contact.html">Contact</a></p>
+<p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline before you book. Information here is not legal or veterinary advice.</p>
+<p class="disc"{ti("site.foot.aff", fi)}>Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</p>
+<p>&copy; {dt.date.today().year} {e(cfg['site_name'])} &middot; <a href="{root}about.html"{ti("site.foot.about", fi)}>About &amp; disclaimer</a> &middot; <a href="{root}products/"{ti("site.nav.products", fi)}>Products</a> &middot; <a href="{root}updates.html"{ti("site.nav.updates", fi)}>Updates</a>{f' &middot; <a href="{root}forum/"{ti("nav.forum", fi)}>Forum</a>' if FORUM_ON else ''} &middot; <a href="{root}advertise/"{ti("site.nav.advertise", fi)}>Advertise</a> &middot; <a href="{root}privacy.html"{ti("site.foot.privacy", fi)}>Privacy</a> &middot; <a href="{root}contact.html"{ti("site.foot.contact", fi)}>Contact</a></p>
 </div></footer>
 </body></html>
 """
@@ -607,14 +614,14 @@ def load_products(airlines):
     return pd, lims
 
 
-def ad_slot(cfg, key, root):
+def ad_slot(cfg, key, root, i18n=False):
     s = (cfg.get("ads") or {}).get(key) or {}
     if s.get("image_url") and s.get("link_url"):
         adv = f'<span class="small"> &middot; {e(s.get("advertiser"))}</span>' if s.get("advertiser") else ""
         return (f'<aside class="ad ad-{e(key)}"><span class="adlabel">Sponsored</span>{adv}'
                 f'<a href="{e(s["link_url"])}" rel="sponsored nofollow noopener" target="_blank">'
                 f'<img src="{e(s["image_url"])}" alt="{e(s.get("alt") or s.get("advertiser") or "Sponsor")}" loading="lazy"></a></aside>')
-    return f'<p class="adph"><a href="{root}advertise/">Advertise here</a></p>'
+    return f'<p class="adph"><a href="{root}advertise/"{ti("site.adhere", i18n)}>Advertise here</a></p>'
 
 
 def dims(s, unit=None):

@@ -56,6 +56,11 @@ def enabled(cfg):
     return fcfg(cfg)[1]
 
 
+def google_enabled(cfg):
+    """Show "Continue with Google" only when forum.google_enabled is true (the Google provider must be set up in Supabase first)."""
+    return bool(fcfg(cfg)[0].get("google_enabled", False))
+
+
 # ------------------------------------------------------------------ small render helpers
 def i(B, key, tag="span", attrs="", **kw):
     """Element whose text is translated client-side (data-i18n); English rendered statically."""
@@ -278,6 +283,18 @@ def field(B, key, control, opt=False, hint=None):
     return f'<div class="ffield"><label for="nf-{key}"><span data-i18n="f.fld.{key}">{B.e(T("f.fld." + key))}</span>{o}</label>{control}{h}</div>'
 
 
+def trip_date_control(B):
+    """Month + year selects (input type=month is unsupported or clumsy in Safari/Firefox). Years: current and the 5 before;
+    forum.js refreshes the year list from the visitor's clock so a stale build never hides the current year."""
+    y = dt.date.today().year
+    months = "".join(f'<option value="{m:02d}" data-i18n="month.{m}">{B.e(T(f"month.{m}"))}</option>' for m in range(1, 13))
+    years = "".join(f'<option value="{v}">{v}</option>' for v in range(y, y - 6, -1))
+    return (f'<span class="fmy"><select id="nf-trip_date" name="trip_month" aria-label="{B.e(T("f.month"))}" data-i18n-aria="f.month">'
+            f'<option value="">&mdash;</option>{months}</select>'
+            f'<select id="nf-trip_year" name="trip_year" aria-label="{B.e(T("f.year"))}" data-i18n-aria="f.year">'
+            f'<option value="">&mdash;</option>{years}</select></span>')
+
+
 def build_new(B, cfg, airlines):
     root = "../"
     sel = lambda g, req=False: (f'<select id="nf-{g}" name="{g}"{" required" if req else ""}><option value="">&mdash;</option>'
@@ -292,7 +309,7 @@ def build_new(B, cfg, airlines):
 <p class="small note" id="subway-note" hidden data-i18n="f.subway_note">{B.e(T("f.subway_note"))}</p>
 {field(B, "body", '<textarea id="nf-body" name="body" required minlength="30" maxlength="8000" rows="10"></textarea>', hint="f.hint.body")}
 <div class="frow">{field(B, "breed", '<input id="nf-breed" name="breed" maxlength="60" list="breeds-dog">', True, "f.hint.breed")}{field(B, "weight", sel("weight"), True)}{field(B, "carrier", sel("carrier"), True)}</div>
-<div class="frow">{field(B, "weather", sel("weather"), True)}{field(B, "season", sel("season"), True)}{field(B, "trip_date", '<input id="nf-trip_date" name="trip_date" type="month" min="2000-01">', True)}</div>
+<div class="frow">{field(B, "weather", sel("weather"), True)}{field(B, "season", sel("season"), True)}{field(B, "trip_date", trip_date_control(B), True)}</div>
 <div class="frow">{field(B, "airline", al, True)}{field(B, "operator", '<input id="nf-operator" name="operator" maxlength="80">', True, "f.hint.operator")}</div>
 <div class="frow">{field(B, "route_from", '<input id="nf-route_from" name="route_from" maxlength="60">', True)}{field(B, "route_to", '<input id="nf-route_to" name="route_to" maxlength="60">', True)}</div>
 {dl}
@@ -313,6 +330,9 @@ def build_new(B, cfg, airlines):
 
 def build_account(B, cfg, mail_html):
     root = "../"
+    google = (f'<div class="fgoogle"><p class="for"><span data-i18n="f.auth.or">{B.e(T("f.auth.or"))}</span></p>'
+              f'<button type="button" class="fbtn alt" id="g-btn" data-i18n="f.auth.google">{B.e(T("f.auth.google"))}</button></div>'
+              if google_enabled(cfg) else "")
     inp = lambda id_, typ, key, extra="": (f'<div class="ffield"><label for="{id_}" data-i18n="{key}">{B.e(T(key))}</label>'
                                            f'<input id="{id_}" type="{typ}" {extra}></div>')
     body = f"""<nav class="crumbs"><a href="{{root}}index.html" data-i18n="f.crumb_home">Home</a> &rsaquo; <a href="index.html" data-i18n="nav.forum">Forum</a> &rsaquo; <span data-i18n="f.account">{B.e(T("f.account"))}</span></nav>
@@ -331,7 +351,7 @@ def build_account(B, cfg, mail_html):
    {inp("su-name", "text", "f.auth.display_name", 'minlength="2" maxlength="40" required autocomplete="nickname"')}<p class="small fhint" data-i18n="f.auth.display_hint">{B.e(T("f.auth.display_hint"))}</p>
    {inp("su-email", "email", "f.auth.email", 'autocomplete="email" required')}
    {inp("su-pass", "password", "f.auth.password", 'autocomplete="new-password" minlength="8" required')}<p class="small fhint" data-i18n="f.auth.password_hint">{B.e(T("f.auth.password_hint"))}</p>
-   <p class="small"><span data-i18n="f.auth.agree">{B.e(T("f.auth.agree"))}</span> <a href="guidelines.html" data-i18n="f.rules">{B.e(T("f.rules"))}</a> &middot; <a href="{{root}}privacy.html#forum">Privacy</a></p>
+   <p class="small"><span data-i18n="f.auth.agree">{B.e(T("f.auth.agree"))}</span> <a href="guidelines.html" data-i18n="f.rules">{B.e(T("f.rules"))}</a> &middot; <a href="{{root}}privacy.html#forum" data-i18n="site.foot.privacy">Privacy</a></p>
    <p class="fbtns"><button class="fbtn" type="submit" data-i18n="f.auth.signup_btn">{B.e(T("f.auth.signup_btn"))}</button></p>
    <p class="small"><a href="#" data-show="f-signin" data-i18n="f.auth.to_signin">{B.e(T("f.auth.to_signin"))}</a></p>
   </form>
@@ -340,7 +360,7 @@ def build_account(B, cfg, mail_html):
    <p class="fbtns"><button class="fbtn" type="submit" data-i18n="f.auth.reset_btn">{B.e(T("f.auth.reset_btn"))}</button></p>
    <p class="small"><a href="#" data-show="f-signin" data-i18n="f.auth.to_signin">{B.e(T("f.auth.to_signin"))}</a></p>
   </form>
-  <div class="fgoogle"><p class="small" data-i18n="f.auth.or">{B.e(T("f.auth.or"))}</p><button type="button" class="fbtn alt" id="g-btn" data-i18n="f.auth.google">{B.e(T("f.auth.google"))}</button></div>
+  {google}
  </div>
 </section>
 <form class="fform" id="f-newpass" hidden><h2 class="fh" data-i18n="f.auth.new_password">{B.e(T("f.auth.new_password"))}</h2>
@@ -416,16 +436,17 @@ GUIDE_KO = [
 def build_guidelines(B, cfg, mail_html):
     root = "../"
     sec = lambda items: "".join(f"<h2>{B.e(h)}</h2><ul>" + "".join(f"<li>{B.e(x)}</li>" for x in li) + "</ul>" for h, li in items)
-    body = f"""<nav class="crumbs"><a href="{{root}}index.html">Home</a> &rsaquo; <a href="index.html">Forum</a> &rsaquo; Community rules</nav>
-<h1>Community rules <span class="small" lang="ko">커뮤니티 규칙</span></h1>
-{subnav(B, root, "guidelines.html", show_lang=False)}
-<p class="small"><a href="#ko" lang="ko">한국어로 보기 ↓</a></p>
-<section lang="en"><p class="lead">This forum is for sharing real experiences travelling with dogs and cats. Be kind, be specific, and keep it about pets and travel.</p>
+    body = f"""<nav class="crumbs"><a href="{{root}}index.html" data-i18n="f.crumb_home">Home</a> &rsaquo; <a href="index.html" data-i18n="nav.forum">Forum</a> &rsaquo; <span data-i18n="f.rules">Community rules</span></nav>
+<h1><span data-i18n="f.rules">Community rules</span> <span class="small" lang="ko" id="rules-h-ko">커뮤니티 규칙</span></h1>
+{subnav(B, root, "guidelines.html")}
+<p class="small" id="rules-jump"><a href="#ko" lang="ko">한국어로 보기 ↓</a></p>
+<section lang="en" id="rules-en"><p class="lead">This forum is for sharing real experiences travelling with dogs and cats. Be kind, be specific, and keep it about pets and travel.</p>
 {sec(GUIDE_EN)}
 <p>Questions, or a request to remove something: {mail_html}.</p></section>
-<section lang="ko" id="ko"><h2 class="fh">커뮤니티 규칙 (한국어)</h2><p class="lead">이 포럼은 강아지·고양이와 함께한 실제 여행 경험을 나누는 곳이에요. 친절하고 구체적으로, 반려동물과 여행 이야기만 나눠 주세요.</p>
+<section lang="ko" id="ko"><h2 class="fh" id="rules-ko-h">커뮤니티 규칙 (한국어)</h2><p class="lead">이 포럼은 강아지·고양이와 함께한 실제 여행 경험을 나누는 곳이에요. 친절하고 구체적으로, 반려동물과 여행 이야기만 나눠 주세요.</p>
 {sec(GUIDE_KO)}
-<p>문의나 삭제 요청: {mail_html}</p></section>"""
+<p>문의나 삭제 요청: {mail_html}</p></section>
+{app("rules")}{scripts(root, "rules")}"""
     return B.page(cfg, f"Forum community rules | {cfg['site_name']}",
                   "Community rules for the PetPolicyCheck pet travel forum: be kind, no abuse, violence, adult content, politics or spam; every post is moderated.",
                   body, "forum/guidelines.html", root, [B.bc_ld(cfg, [("Home", ""), ("Forum", "forum/"), ("Community rules", "forum/guidelines.html")])])
