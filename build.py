@@ -158,6 +158,54 @@ def css_version():
 CSS_VER = css_version()
 
 
+OG_IMAGE = "img/og-default.jpg"
+OG_SIZE = (1200, 630)
+
+
+def og_alt(cfg):
+    h = (cfg.get("hero_images") or [{}])[0]
+    return (h.get("alt") if isinstance(h, dict) else "") or cfg["site_name"]
+
+
+def verification_meta(cfg):
+    """Search-console ownership tags from config.json (empty = omitted)."""
+    out = ""
+    for key, name in (("google_site_verification", "google-site-verification"), ("bing_site_verification", "msvalidate.01")):
+        v = (cfg.get(key) or "").strip()
+        if v:
+            out += f'\n<meta name="{name}" content="{e(v)}">'
+    return out
+
+
+def build_og_image(cfg):
+    """1200x630 JPEG share image (og:image / twitter:image) from the first hero photo, metadata-free."""
+    try:
+        from PIL import Image, ImageOps
+    except ImportError:
+        print("  WARNING: Pillow not installed; og image skipped")
+        return
+    it = (cfg.get("hero_images") or [None])[0]
+    if not it:
+        return
+    src, crop = (it, None) if isinstance(it, str) else (it.get("src", ""), it.get("crop"))
+    rel = src.split("static/", 1)[-1]
+    rel = rel if rel.startswith("img/") else "img/" + rel
+    im = ImageOps.exif_transpose(Image.open(ROOT / "static" / rel)).convert("RGB")
+    W, H = im.size
+    if crop:  # keep the configured subject box, widened horizontally toward 1.9:1 if possible
+        x0, y0, x1, y1 = crop[0] * W, crop[1] * H, crop[2] * W, crop[3] * H
+        cx, ch = (x0 + x1) / 2, y1 - y0
+        cw = min(W, ch * OG_SIZE[0] / OG_SIZE[1])
+        ch = cw * OG_SIZE[1] / OG_SIZE[0]
+        cy = (y0 + y1) / 2
+        L = min(max(0, cx - cw / 2), W - cw); T = min(max(0, cy - ch / 2), H - ch)
+        im = im.crop((round(L), round(T), round(L + cw), round(T + ch)))
+    im = ImageOps.fit(im, OG_SIZE, Image.LANCZOS)
+    clean = Image.new("RGB", im.size); clean.paste(im)
+    (OUT / "img").mkdir(exist_ok=True)
+    clean.save(OUT / OG_IMAGE, "JPEG", quality=82, optimize=True, progressive=True)
+
+
 def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
     base = site_base(cfg)
     canon = canonical or f"{base}/{path}"
@@ -176,8 +224,16 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="{e(cfg['site_name'])}">
 <meta property="og:url" content="{e(canon)}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{e(base + '/' + OG_IMAGE)}">
+<meta property="og:image:width" content="{OG_SIZE[0]}">
+<meta property="og:image:height" content="{OG_SIZE[1]}">
+<meta property="og:image:alt" content="{e(og_alt(cfg))}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{e(title)}">
+<meta name="twitter:description" content="{e(desc)}">
+<meta name="twitter:image" content="{e(base + '/' + OG_IMAGE)}">{verification_meta(cfg)}
 <link rel="preload" href="{root}fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{root}fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{root}style.css?v={CSS_VER}">
@@ -911,6 +967,7 @@ def main():
     (OUT / ".nojekyll").write_text("")
     if custom_domain(cfg):
         (OUT / "CNAME").write_text(custom_domain(cfg) + "\n")
+    build_og_image(cfg)
     (OUT / "index.html").write_text(build_index(cfg, airlines))
     for a in airlines:
         (OUT / "airlines" / f"{a['slug']}.html").write_text(build_airline(cfg, a, pd, lims))
