@@ -113,6 +113,7 @@ def custom_domain(cfg):
     return host
 
 
+ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7693501377730690" crossorigin="anonymous"></script>'
 TP_DRIVE = '<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">\n  (function () {\n      var script = document.createElement("script");\n      script.async = 1;\n      script.setAttribute("data-cmp-ab","2");\n      script.src = \'https://emrldtp.cc/NTg4ODAy.js?t=588802\';\n      document.head.appendChild(script);\n  })();\n</script>'
 
 
@@ -125,6 +126,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
 <head>
 <meta charset="utf-8">
 <meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
+{ADSENSE}
 {TP_DRIVE}
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title>
@@ -734,6 +736,7 @@ def main():
     urls += [(f"{base}/airlines/{a['slug']}.html", a.get("last_verified") or a.get("last_checked") or newest) for a in airlines]
     sm = "".join(f"<url><loc>{e(u)}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n')
+    (OUT / "ads.txt").write_text("google.com, pub-7693501377730690, DIRECT, f08c47fec0942fa0\n")
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n")
     print(f"Built {len(airlines)} airline pages, {len(pd['products'])} products, {len(pd['guides'])} guides, {len(lims)} cabin limits -> {OUT}")
     for a in airlines:
