@@ -203,45 +203,87 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
 """
 
 
-HERO_MAX_W, HERO_MAX_BYTES = 1600, 200_000
+IMG_MAX_BYTES = 200_000
 
 
-def hero_images(cfg):
-    """Convert config.json "hero_images" (paths under static/img/, or {"src","alt"} objects)
-    to optimized WebP in site/img/. Returns [(url, w, h, alt)]; [] -> non-photo hero."""
-    items = cfg.get("hero_images") or []
-    if not items:
-        return []
+def pet_img(it, max_w, aspect=None, budget=IMG_MAX_BYTES):
+    """Optimize one configured photo (path under static/img/, or {"src","alt","crop"}) to a
+    metadata-free WebP in site/img/. crop = [x0,y0,x1,y1] fractions of the (EXIF-rotated) image;
+    aspect = w/h centre-trim. Returns (url, w, h, alt) or None."""
     try:
         from PIL import Image, ImageOps
     except ImportError:
-        print("  WARNING: Pillow not installed; hero_images ignored (pip install Pillow)")
-        return []
-    out_dir = OUT / "img"
-    out_dir.mkdir(exist_ok=True)
-    res = []
-    for it in items[:3]:
-        src, alt = (it, "") if isinstance(it, str) else (it.get("src", ""), it.get("alt", ""))
-        rel = src.split("static/", 1)[-1]
-        rel = rel if rel.startswith("img/") else "img/" + rel
-        path = ROOT / "static" / rel
-        if not path.exists():
-            print(f"  WARNING: hero image not found: {path}")
-            continue
-        im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
-        if im.width > HERO_MAX_W:
-            im = im.resize((HERO_MAX_W, round(im.height * HERO_MAX_W / im.width)), Image.LANCZOS)
-        dest = out_dir / (Path(rel).stem + ".webp")
-        for q in (82, 74, 66, 58, 50, 42):
-            im.save(dest, "WEBP", quality=q, method=6)
-            if dest.stat().st_size <= HERO_MAX_BYTES:
-                break
-        else:  # still too big: shrink
-            while dest.stat().st_size > HERO_MAX_BYTES and im.width > 640:
-                im = im.resize((int(im.width * .85), int(im.height * .85)), Image.LANCZOS)
-                im.save(dest, "WEBP", quality=42, method=6)
-        res.append((f"img/{dest.name}", im.width, im.height, alt))
-    return res
+        print("  WARNING: Pillow not installed; photos skipped (pip install Pillow)")
+        return None
+    src, alt, crop = (it, "", None) if isinstance(it, str) else (it.get("src", ""), it.get("alt", ""), it.get("crop"))
+    rel = src.split("static/", 1)[-1]
+    rel = rel if rel.startswith("img/") else "img/" + rel
+    path = ROOT / "static" / rel
+    if not path.exists():
+        print(f"  WARNING: image not found: {path}")
+        return None
+    im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+    if crop:
+        W, H = im.size
+        im = im.crop((round(crop[0] * W), round(crop[1] * H), round(crop[2] * W), round(crop[3] * H)))
+    if aspect:
+        W, H = im.size
+        if W / H > aspect:
+            nw = round(H * aspect); im = im.crop(((W - nw) // 2, 0, (W - nw) // 2 + nw, H))
+        else:
+            nh = round(W / aspect); im = im.crop((0, (H - nh) // 2, W, (H - nh) // 2 + nh))
+    if im.width > max_w:
+        im = im.resize((max_w, round(im.height * max_w / im.width)), Image.LANCZOS)
+    clean = Image.new("RGB", im.size)  # fresh pixels only: no EXIF/GPS, XMP or ICC carried over
+    clean.paste(im)
+    (OUT / "img").mkdir(exist_ok=True)
+    dest = OUT / "img" / f"{Path(rel).stem}-{max_w}.webp"
+    q = 80
+    while True:
+        clean.save(dest, "WEBP", quality=q, method=6)
+        if dest.stat().st_size <= budget or q <= 40:
+            break
+        q -= 8
+    while dest.stat().st_size > budget and clean.width > 480:
+        clean = clean.resize((int(clean.width * .85), int(clean.height * .85)), Image.LANCZOS)
+        clean.save(dest, "WEBP", quality=q, method=6)
+    return (f"img/{dest.name}", clean.width, clean.height, alt)
+
+
+def img_tag(t, root="", cls="", eager=False):
+    u, w, h, alt = t
+    return (f'<img{f" class={chr(34)}{cls}{chr(34)}" if cls else ""} src="{root}{e(u)}" width="{w}" height="{h}" alt="{e(alt)}" decoding="async" '
+            + ('fetchpriority="high"' if eager else 'loading="lazy"') + ">")
+
+
+def hero_images(cfg):
+    """config.json "hero_images": first = arched frame (3:4), next two = round medallions. [] -> botanical."""
+    out = []
+    for i, it in enumerate((cfg.get("hero_images") or [])[:3]):
+        r = pet_img(it, 720, 3 / 4, 120_000) if i == 0 else pet_img(it, 400, 1, 50_000)
+        if r:
+            out.append(r)
+    return out
+
+
+def family_strip(cfg):
+    """Optional home-page strip from config.json "pet_gallery": {title, text, banner, images[]}."""
+    g = cfg.get("pet_gallery") or {}
+    imgs = [r for r in (pet_img(it, 600, 3 / 4, 80_000) for it in (g.get("images") or [])[:4]) if r]
+    ban = pet_img(g["banner"], 1600, None, 160_000) if g.get("banner") else None
+    if not imgs and not ban:
+        return ""
+    figs = "".join(f'<li>{img_tag(t)}</li>' for t in imgs)
+    return (f'<section class="family" aria-labelledby="fam-h"><h2 id="fam-h">{e(g.get("title", ""))}</h2>'
+            + (f'<p>{e(g["text"])}</p>' if g.get("text") else "")
+            + (f'<div class="pano">{img_tag(ban)}</div>' if ban else "")
+            + (f'<ul class="gallery">{figs}</ul>' if figs else "") + "</section>")
+
+
+def side_photo(cfg, key, root):
+    it = cfg.get(key)
+    t = pet_img(it, 600, 3 / 4, 80_000) if it else None
+    return f'<figure class="side-arch">{img_tag(t, root, eager=True)}</figure>' if t else ""
 
 
 # Art Nouveau botanical fill for the hero arch when no photos are configured (decorative).
@@ -267,11 +309,8 @@ BOTANICAL = ('<svg class="botan" viewBox="0 0 300 400" preserveAspectRatio="xMid
 def hero_media(imgs):
     """Mucha-style arched frame with a halo; holds 1-3 pet photos or the botanical fill."""
     if imgs:
-        tags = "".join(
-            f'<img class="{"main" if i == 0 else "medal m" + str(i)}" src="{e(u)}" width="{w}" height="{h}" alt="{e(alt)}" decoding="async" '
-            + ('fetchpriority="high"' if i == 0 else 'loading="lazy"') + ">"
-            for i, (u, w, h, alt) in enumerate(imgs))
-        inner, extra = tags.split(">", 1)[0] + ">", tags.split(">", 1)[1]
+        inner = img_tag(imgs[0], cls="main", eager=True)
+        extra = "".join(img_tag(t, cls=f"medal m{i}") for i, t in enumerate(imgs[1:], 1))
     else:
         inner, extra = BOTANICAL, ""
     return f'<div class="hero-media n{len(imgs)}"><span class="halo" aria-hidden="true"></span><div class="arch">{inner}</div>{extra}</div>'
@@ -306,6 +345,7 @@ def build_index(cfg, airlines):
 <thead><tr><th>Airline</th><th>In cabin</th><th>Max carrier</th><th>Max weight</th><th>Fee (from)</th><th>Hold / cargo</th><th>Last verified</th></tr></thead>
 <tbody>{''.join(rows)}</tbody></table></div>
 <p class="small">"{CHECK}" means the detail was not stated on, or could not be read from, the airline's official page on the date shown.</p>
+{family_strip(cfg)}
 {affiliate_box(cfg)}
 <script>(function(){{var t=document.querySelector('.tools'),q=document.getElementById('q');if(!t||!q)return;t.hidden=false;var r=document.querySelectorAll('#cmp tbody tr');q.addEventListener('input',function(){{var v=q.value.trim().toLowerCase();r.forEach(function(x){{x.hidden=v&&x.cells[0].textContent.toLowerCase().indexOf(v)<0}})}})}})();</script>
 """
@@ -767,6 +807,7 @@ def build_products_index(cfg, pd, lims):
         secs += f"<h2>{e(lbl)}</h2><ul class='plist cards'>{li}</ul>"
     body = f"""{crumbs("{root}")}
 <h1>Pet travel gear: carriers, crates and bowls, checked against airline limits</h1>
+{side_photo(cfg, "products_photo", "{root}")}
 <p>Dimensions for each product come from the manufacturer's official page (linked and dated), and we compare them with the cabin carrier limits on our <a href="{{root}}index.html">airline pet policy pages</a>. No prices, ratings or hands-on test claims: just published numbers you can check.</p>
 <h2>Guides</h2><ul class="plist cards guides">{gl}</ul>
 {secs}

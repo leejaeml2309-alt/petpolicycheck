@@ -22,9 +22,13 @@ Static site: airline pet policies, each checked against the airline's official p
 The theme lives in `static/style.css` (copied to `site/` by build.py) plus small inline SVG ornaments in build.py.
 Fonts are self-hosted from `static/fonts/` (Marcellus + Inter, SIL OFL).
 
-Home hero photos: put JPG/PNG files in `static/img/` and list them in `config.json`:
+Photos (all optional, all in `config.json`; sources live in `static/img/`, stored already stripped of EXIF/GPS):
 
-    "hero_images": ["dog.jpg", {"src": "cat.jpg", "alt": "Our cat Mimi"}]
+    "hero_images": [{"src": "pets/dog.jpg", "alt": "...", "crop": [x0, y0, x1, y1]}, ...]   # 1st = arch (3:4), 2nd-3rd = medallions
+    "pet_gallery": {"title": "...", "text": "...", "banner": {...}, "images": [{...}, ...]}  # home strip, up to 4 arches
+    "products_photo": {"src": "...", "alt": "..."}                                          # arched photo on /products/
 
-Up to 3 are used (1 = arched frame, 2-3 = arch + round medallions). build.py converts them with Pillow to
-WebP (max 1600 px wide, under ~200 KB) in `site/img/`. Empty list = botanical illustration instead.
+`crop` is optional, as fractions of the upright image. build.py re-encodes every photo with Pillow to a
+metadata-free WebP in `site/img/` (EXIF orientation applied first; hero 720 px, gallery 600 px, banner 1600 px,
+each under 200 KB) with width/height attributes; only the hero photo is eager-loaded.
+Empty `hero_images` = botanical illustration in the arch instead.

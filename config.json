@@ -4,7 +4,87 @@
   "site_url": "https://petpolicycheck.com",
   "base_path": "/",
   "language": "en",
-  "hero_images": [],
+  "hero_images": [
+    {
+        "src": "pets/30e4578f.jpg",
+        "alt": "Shih Tzu sitting in a pet stroller carrier in front of a Christmas tree",
+        "crop": [
+            0.1,
+            0.28,
+            0.8,
+            0.98
+        ]
+    },
+    {
+        "src": "pets/65079981.jpg",
+        "alt": "Shih Tzu in a harness on red autumn leaves",
+        "crop": [
+            0.18,
+            0.06,
+            0.92,
+            0.62
+        ]
+    },
+    {
+        "src": "pets/3f261e7d.jpg",
+        "alt": "Two cats resting together on a bed",
+        "crop": [0.255, 0.245, 0.805, 0.655]
+    }
+],
+  "pet_gallery": {
+    "title": "Made by a pet family in Korea",
+    "text": "PetPolicyCheck is made by a family in Korea with one Shih Tzu and two cats. These are ours.",
+    "banner": {
+        "src": "pets/e9537f14.jpg",
+        "alt": "Two cats on cat-tree perches by a window with autumn trees outside"
+    },
+    "images": [
+        {
+            "src": "pets/8cba17e1.jpg",
+            "alt": "Shih Tzu in a hooded jacket, carried on a walk through the fields",
+            "crop": [
+                0.08,
+                0.1,
+                0.92,
+                0.95
+            ]
+        },
+        {
+            "src": "pets/6e21835b.jpg",
+            "alt": "Shih Tzu running on grass with a yellow leash",
+            "crop": [
+                0.05,
+                0.2,
+                0.85,
+                1.0
+            ]
+        },
+        {
+            "src": "pets/3d79ecd8.jpg",
+            "alt": "Shih Tzu in a yellow harness under white blossoms"
+        },
+        {
+            "src": "pets/d46f3411.jpg",
+            "alt": "Shih Tzu portrait at home",
+            "crop": [
+                0.05,
+                0.1,
+                0.95,
+                1.0
+            ]
+        }
+    ]
+},
+  "products_photo": {
+    "src": "pets/8a22dbff.jpg",
+    "alt": "Shih Tzu in a hooded jacket, carried on a shoulder outdoors",
+    "crop": [
+        0.1,
+        0.08,
+        0.9,
+        0.9
+    ]
+},
   "contact_email": "leejaeml2309@gmail.com",
   "name_ideas": [
     "PawBoardingPass (.com unregistered per RDAP 2026-10-22)",
