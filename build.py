@@ -94,11 +94,30 @@ def affiliate_box(cfg):
             '<a href="{root}about.html#affiliates">Disclosure</a>.</p></aside>')
 
 
+def site_base(cfg):
+    """Absolute site root WITHOUT trailing slash, e.g. https://example.com or
+    https://user.github.io/repo. Single source: config.json site_url + base_path."""
+    url = cfg.get("site_url")
+    if url is None:  # legacy config
+        return site_base(cfg)
+    bp = cfg.get("base_path", "/").strip("/")
+    return url.rstrip("/") + (f"/{bp}" if bp else "")
+
+
+def custom_domain(cfg):
+    """Host for the Pages CNAME file when serving from a custom domain root."""
+    from urllib.parse import urlparse
+    host = urlparse(cfg.get("site_url", "")).hostname or ""
+    if cfg.get("base_path", "/").strip("/") or not host or host.endswith(".github.io"):
+        return ""
+    return host
+
+
 TP_DRIVE = '<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">\n  (function () {\n      var script = document.createElement("script");\n      script.async = 1;\n      script.setAttribute("data-cmp-ab","2");\n      script.src = \'https://emrldtp.cc/NTg4ODAy.js?t=588802\';\n      document.head.appendChild(script);\n  })();\n</script>'
 
 
 def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
-    base = cfg["base_url"].rstrip("/")
+    base = site_base(cfg)
     canon = canonical or f"{base}/{path}"
     ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in (jsonld or []))
     return f"""<!doctype html>
@@ -162,13 +181,13 @@ def build_index(cfg, airlines):
 <p class="small">"{CHECK}" means the detail was not stated on, or could not be read from, the airline's official page on the date shown.</p>
 {affiliate_box(cfg)}
 """
-    ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": cfg["site_name"], "url": cfg["base_url"]},
+    ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": cfg["site_name"], "url": site_base(cfg)},
           {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [
               {"@type": "ListItem", "position": i + 1, "name": f"{a['name']} pet policy",
-               "url": f"{cfg['base_url'].rstrip('/')}/airlines/{a['slug']}.html"} for i, a in enumerate(airlines)]}]
+               "url": f"{site_base(cfg)}/airlines/{a['slug']}.html"} for i, a in enumerate(airlines)]}]
     return page(cfg, f"Airline pet policies compared (in-cabin dogs & cats): verified {nice_date(newest)}",
                 "Compare in-cabin pet rules, carrier sizes, weight limits and fees for major airlines, each checked against the official airline page with a last-verified date.",
-                body, "index.html", "", ld, canonical=cfg["base_url"].rstrip("/") + "/")
+                body, "index.html", "", ld, canonical=site_base(cfg) + "/")
 
 
 def faq(a):
@@ -436,7 +455,7 @@ def crumbs(root, name=None):
 
 
 def bc_ld(cfg, items):
-    base = cfg["base_url"].rstrip("/")
+    base = site_base(cfg)
     return {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": i + 1, "name": n, "item": f"{base}/{u}"} for i, (n, u) in enumerate(items)]}
 
@@ -627,7 +646,7 @@ def build_products_index(cfg, pd, lims):
 """
     ld = [bc_ld(cfg, [("Home", ""), ("Products", "products/")]),
           {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [
-              {"@type": "ListItem", "position": i + 1, "name": p["name"], "url": f"{cfg['base_url'].rstrip('/')}/products/{p['slug']}.html"}
+              {"@type": "ListItem", "position": i + 1, "name": p["name"], "url": f"{site_base(cfg)}/products/{p['slug']}.html"}
               for i, p in enumerate(pd["products"])]}]
     return page(cfg, f"Pet travel carriers & crates: which fit airline under-seat limits | {cfg['site_name']}",
                 "Pet carriers, hard crates and travel bowls with official manufacturer dimensions, compared with airline cabin carrier limits.",
@@ -691,6 +710,8 @@ def main():
     pd, lims = load_products(airlines)
     shutil.copy(ROOT / "static" / "style.css", OUT / "style.css")
     (OUT / ".nojekyll").write_text("")
+    if custom_domain(cfg):
+        (OUT / "CNAME").write_text(custom_domain(cfg) + "\n")
     (OUT / "index.html").write_text(build_index(cfg, airlines))
     for a in airlines:
         (OUT / "airlines" / f"{a['slug']}.html").write_text(build_airline(cfg, a, pd, lims))
@@ -704,7 +725,7 @@ def main():
         (OUT / "products" / f"{p['slug']}.html").write_text(build_product(cfg, p, pd, lims, airlines))
     for g in pd["guides"]:
         (OUT / "products" / f"{g['slug']}.html").write_text(build_guide(cfg, g, pd, lims, airlines))
-    base = cfg["base_url"].rstrip("/")
+    base = site_base(cfg)
     newest = max(a["last_verified"] for a in airlines if a.get("last_verified"))
     urls = [(f"{base}/", newest), (f"{base}/updates.html", newest), (f"{base}/about.html", newest),
             (f"{base}/privacy.html", newest), (f"{base}/contact.html", newest), (f"{base}/advertise/", newest),

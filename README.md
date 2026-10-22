@@ -15,3 +15,4 @@ Static site: airline pet policies, each checked against the airline's official p
   Then commits + pushes (no force) via `publish_hook()`; `--no-publish` to skip.
 - Cron: `0 3 * * * cd /workspace/petsite && python3 refresh.py >> reports/cron.log 2>&1`
 - Live: https://leejaeml2309-alt.github.io/petpolicycheck/ (GitHub Actions deploys `site/` on every push to main).
+- Base URL comes from `config.json` (`site_url` + `base_path`). Custom-domain switch: `./switch_domain.sh` (check DNS first with `./check_dns.sh`).
