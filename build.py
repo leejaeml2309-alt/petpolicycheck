@@ -434,6 +434,8 @@ def build_about(cfg):
 <p>Information may change at any time and may contain errors. It is provided for general guidance only and is not legal, veterinary or travel advice. <b>Always confirm with the airline before booking or travelling</b>, and check the government entry rules (e.g. CDC, USDA APHIS, CFIA, DEFRA) for every country on your route. We are not affiliated with any airline.</p>
 <h2 id="affiliates">Affiliate disclosure</h2>
 <p>Some pages may contain affiliate links (for example to pet carriers or pet insurance). If you buy through them we may earn a commission at no extra cost to you. Affiliate relationships never change the policy information we publish.</p>
+<h2 id="advertising">Advertising</h2>
+<p>The site shows ads served by Google AdSense and may load affiliate scripts such as Travelpayouts. Advertisers never change the policy information we publish. See our <a href="privacy.html">privacy policy</a> for how advertising cookies work and how to opt out of personalized ads.</p>
 <h2>Corrections</h2>
 <p>Spotted something out of date? Please tell us via our <a href="contact.html">contact page</a>.</p>"""
     return page(cfg, f"About & disclaimer | {cfg['site_name']}", "How we verify airline pet policies, our disclaimer and affiliate disclosure.", body, "about.html", "")
@@ -446,31 +448,39 @@ def obf_mail(addr):
 
 
 EFFECTIVE = "October 22, 2026"
+PRIVACY_UPDATED = "October 22, 2026"
 
 
 def build_privacy(cfg):
     mail = obf_mail(cfg["contact_email"])
     body = f"""<h1>Privacy policy</h1>
-<p class="small">Effective date: {EFFECTIVE}</p>
-<p>{e(cfg['site_name'])} is a simple static website. This page explains, in plain English, what data is and isn't collected when you visit.</p>
+<p class="small">Effective date: {EFFECTIVE} &middot; Last updated: {PRIVACY_UPDATED}</p>
+<p>{e(cfg['site_name'])} is a simple static website. This page explains, in plain English, what data is and isn't collected when you visit, including by the advertising and affiliate services we use.</p>
 <h2>No accounts, no forms</h2>
 <p>There are no user accounts, logins, comment forms or newsletters on this site. We don't ask for, and don't store, your name, email or any other personal information. If you email us, we only use your message and address to reply.</p>
 <h2>Hosting (GitHub Pages)</h2>
 <p>The site is hosted on GitHub Pages, a service of GitHub, Inc. When you load a page, GitHub's servers may log technical information such as your IP address, browser type and the page requested, for security and operations. We don't receive or control those logs. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub Privacy Statement</a>.</p>
-<h2>Analytics</h2>
-<p>We currently use <b>no analytics, tracking pixels or advertising scripts</b>, and the site itself sets no cookies.</p>
-<div class="note" id="analytics-update"><b>Update note:</b> if we add an analytics tool in the future, this section will be updated before it goes live to name the tool, what it collects, and how to opt out, and the effective date above will change.</div>
+<h2>Cookies</h2>
+<p>Our own code sets no cookies. The third-party advertising and affiliate services described below may set and read cookies, or use similar technologies such as web beacons and device identifiers, when you visit our pages or click a link. You can block or delete cookies in your browser settings.</p>
+<h2>Advertising (Google AdSense)</h2>
+<p>We use Google AdSense to show ads on this site. Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our site and/or other sites on the Internet.</p>
+<p>You may opt out of personalized advertising by visiting <a href="https://adssettings.google.com" rel="noopener" target="_blank">Google Ads Settings</a>. You can also opt out of some third-party vendors' use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" rel="noopener" target="_blank">www.aboutads.info</a>. If you opt out, you may still see ads, but they won't be personalized.</p>
+<p>To learn more, see <a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">How Google uses information from sites or apps that use our services</a>.</p>
+<h2>Travelpayouts</h2>
+<p>Our pages load a script from Travelpayouts, an affiliate network for travel brands. It may turn links to travel partners (such as airlines, hotels or booking sites) into affiliate links, and Travelpayouts or its partners may use cookies or similar technology to record that a visit or booking came from our site, so we can be paid a commission. This is governed by the <a href="https://support.travelpayouts.com/hc/en-us/articles/360004121052-Privacy-Policy" rel="noopener" target="_blank">Travelpayouts privacy policy</a>.</p>
 <h2>Affiliate links and partner cookies</h2>
-<p>Some pages may include affiliate links to partners, for example brands on the Impact network (such as Chewy, Trupanion or Lemonade) and Booking.com. If you click one, you leave our site and the partner (or its affiliate network) may set cookies or use similar technology to record that the visit came from us, so we can be paid a commission if you buy something. Those cookies are governed by the partner's own privacy policy, not ours. You can block or delete cookies in your browser settings. We don't receive personal information about you from these partners, only aggregated sales or commission reports.</p>
+<p>Some pages include affiliate links to partners, for example brands on the Impact network (such as Chewy, Trupanion or Lemonade), Booking.com and Travelpayouts partners. If you buy through one, we may earn a commission at no extra cost to you. When you click an affiliate link, you leave our site and the partner (or its affiliate network) may set cookies or use similar technology to record that the visit came from us. Those cookies are governed by the partner's own privacy policy, not ours. We don't receive personal information about you from these partners, only aggregated sales or commission reports. Affiliate relationships never change the policy information we publish.</p>
+<h2>Analytics</h2>
+<p>We don't run a separate analytics tool (such as Google Analytics) on this site. If we add one, this page will be updated first to name it, what it collects and how to opt out.</p>
 <h2>External links</h2>
 <p>We link to airline and government websites. Their privacy practices are their own.</p>
 <h2>Children</h2>
-<p>This site is not directed at children and does not knowingly collect information from anyone.</p>
+<p>This site is not directed at children under 13, and we do not knowingly collect personal information from children.</p>
 <h2>Changes</h2>
-<p>If this policy changes, we'll update this page and its effective date.</p>
+<p>If this policy changes, we'll update this page and its "last updated" date.</p>
 <h2>Contact</h2>
 <p>Questions about privacy: {mail}.</p>"""
-    return page(cfg, f"Privacy policy | {cfg['site_name']}", "Privacy policy for PetPolicyCheck: no accounts, no analytics, GitHub Pages hosting and affiliate partner cookies explained.", body, "privacy.html", "")
+    return page(cfg, f"Privacy policy | {cfg['site_name']}", "Privacy policy for PetPolicyCheck: Google AdSense advertising cookies and how to opt out, Travelpayouts and affiliate links, and GitHub Pages hosting explained.", body, "privacy.html", "")
 
 
 def build_contact(cfg):
@@ -857,7 +867,7 @@ def build_advertise(cfg):
 <tr><td data-l="Placement">Guide sponsor</td><td data-l="Where">Sponsor box in the product guides (carriers, crates, bowls)</td><td data-l="Size">300 &times; 250 px</td></tr>
 <tr><td data-l="Placement">Site-wide footer</td><td data-l="Where">Footer of every page</td><td data-l="Size">468 &times; 60 px</td></tr>
 </tbody></table></div>
-<p class="small">Every placement is clearly labelled "Sponsored" and links with rel="sponsored nofollow". One advertiser per placement at a time. Images only (PNG, JPG or WebP); no pop-ups, auto-play or tracking scripts.</p>
+<p class="small">Every placement is clearly labelled "Sponsored" and links with rel="sponsored nofollow". One advertiser per placement at a time. Sponsor creatives are images only (PNG, JPG or WebP); no pop-ups, auto-play or tracking scripts. Separately, the site also shows Google AdSense ads (see our <a href="{{root}}privacy.html">privacy policy</a>).</p>
 <h2>Good fit for</h2>
 <ul><li>Pet carrier, crate and travel gear brands</li><li>Pet insurance</li><li>Pet relocation and pet shipping services</li><li>Pet-friendly hotels and travel services</li></ul>
 <h2>Editorial independence</h2>
