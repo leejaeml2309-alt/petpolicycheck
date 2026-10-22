@@ -1,0 +1,9 @@
+{
+  "_note": "Non-secret connection settings for forum/moderate.py (direct Postgres via the Supabase session pooler). The password is read from the file named by env SUPABASE_DB_PASSWORD_FILE (default /home/box/.supabase_db_password), never stored here. Hosts are tried in order.",
+  "hosts": ["aws-1-ap-northeast-2.pooler.supabase.com", "aws-0-ap-northeast-2.pooler.supabase.com"],
+  "port": 5432,
+  "user": "postgres.uouccgyeujtmbeeneuwq",
+  "dbname": "postgres",
+  "sslmode": "require",
+  "connect_timeout": 8
+}

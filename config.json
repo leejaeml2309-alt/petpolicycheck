@@ -177,8 +177,9 @@
   },
   "forum": {
     "enabled": false,
-    "supabase_url": "",
-    "supabase_anon_key": "",
+    "supabase_url": "https://uouccgyeujtmbeeneuwq.supabase.co",
+    "supabase_anon_key": "sb_publishable_J3NaUoRdx7d5FBDfsFqGFQ__GY9uwYo",
     "contact_email": "contact@petpolicycheck.com"
-  }
+  },
+  "privacy_email": "contact@petpolicycheck.com"
 }

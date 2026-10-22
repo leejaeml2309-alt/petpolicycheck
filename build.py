@@ -527,11 +527,25 @@ def forum_privacy(cfg):
 <p><b>Processor:</b> accounts and forum content are stored by <a href="https://supabase.com/privacy" rel="noopener" target="_blank">Supabase</a> (our database and sign-in provider), which processes the data on our behalf; our project is hosted in Supabase's Northeast Asia (Seoul) region. Supabase may log technical data such as IP addresses for security. Sign-in keeps a session token in your browser's local storage (not an advertising cookie); signing out removes it.</p>
 <p><b>Moderation:</b> posts and comments are checked before publication by an automatic keyword filter and by a moderator (assisted by an AI tool that reads only the text you submitted). Published posts and comments, with your display name, are public and may be included in search engines.</p>
 <p><b>Your choices:</b> you can delete your own posts and comments at any time from <a href="forum/account.html">My account</a>, and change your display name. To delete your account and all its data, or to get a copy of it, email {fm}; we handle requests within 30 days. Your data is kept while your account exists.</p>
-<p>Forum pages for signing in and posting don't show ads or load affiliate scripts.</p>"""
+<p>Forum pages for signing in and posting don't show ads or load affiliate scripts.</p>
+<h3 id="forum-officer">Privacy officer, retention and your rights</h3>
+<ul><li><b>Privacy officer:</b> the site owner (operator of {e(cfg['site_name'])}), contact {fm}.</li>
+<li><b>Data collected for the forum:</b> email address, display name, password hash (email sign-up only), posts, comments, reports, and their dates and moderation status.</li>
+<li><b>Purpose:</b> sign-in, publishing and moderating forum content, account emails.</li>
+<li><b>Retention:</b> account data is kept until you ask us to delete it (or delete it yourself); posts and comments you delete, and accounts we delete on request, are removed from the database and from our published pages within 30 days.</li>
+<li><b>Processor and storage:</b> Supabase, Inc. (database and authentication) stores the data in its Northeast Asia (Seoul, Republic of Korea) region.</li>
+<li><b>Your rights:</b> you can ask to access, correct, delete or stop the processing of your personal data by emailing the privacy officer; we reply within 30 days.</li></ul>
+<section lang="ko" id="forum-ko"><h3>포럼 개인정보 처리 안내 (한국어)</h3>
+<ul><li><b>개인정보 보호책임자:</b> 사이트 운영자 ({e(cfg['site_name'])} 운영자), 연락처 {fm}</li>
+<li><b>수집 항목:</b> 이메일 주소, 닉네임, 비밀번호 해시 (이메일 가입 시), 작성한 글·댓글·신고 내용과 작성일, 검토 상태</li>
+<li><b>수집 목적:</b> 로그인, 포럼 글 게시 및 검토, 계정 관련 이메일 발송</li>
+<li><b>보유 기간:</b> 계정 정보는 삭제를 요청하실 때까지 (또는 직접 삭제하실 때까지) 보관합니다. 직접 삭제한 글과 댓글, 요청에 따라 삭제한 계정의 정보는 30일 이내에 데이터베이스와 게시된 페이지에서 삭제됩니다.</li>
+<li><b>처리 위탁 및 보관 위치:</b> Supabase, Inc. (데이터베이스 및 인증), 노스이스트 아시아 (대한민국 서울) 리전에 저장</li>
+<li><b>정보주체의 권리:</b> 개인정보 열람, 정정, 삭제, 처리 정지를 개인정보 보호책임자에게 이메일로 요청할 수 있으며, 30일 이내에 답변드립니다.</li></ul></section>"""
 
 
 def build_privacy(cfg):
-    mail = obf_mail(cfg["contact_email"])
+    mail = obf_mail(cfg.get("privacy_email") or cfg["contact_email"])
     body = f"""<h1>Privacy policy</h1>
 <p class="small">Effective date: {EFFECTIVE} &middot; Last updated: {PRIVACY_UPDATED}</p>
 <p>{e(cfg['site_name'])} is a simple static website. This page explains, in plain English, what data is and isn't collected when you visit, including by the advertising and affiliate services we use.</p>

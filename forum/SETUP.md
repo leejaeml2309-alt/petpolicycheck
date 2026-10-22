@@ -28,7 +28,18 @@ Already created by the owner in the Supabase dashboard (region **Northeast Asia 
 ## 2. Database
 
 SQL Editor > New query: paste and run `sql/001_forum_schema.sql`, then `sql/002_moderation_terms.sql`.
-Check: Table Editor shows `profiles, posts, comments, reports, moderation_terms`, each with RLS enabled.
+Both are idempotent (safe to re-run after an edit). Or with psql over the session pooler:
+
+    PGPASSWORD="$(cat /home/box/.supabase_db_password)" psql "host=aws-1-ap-northeast-2.pooler.supabase.com port=5432 \
+      user=postgres.uouccgyeujtmbeeneuwq dbname=postgres sslmode=require" -v ON_ERROR_STOP=1 \
+      -f forum/sql/001_forum_schema.sql -f forum/sql/002_moderation_terms.sql
+
+(The box's network currently only allows outbound HTTPS/443, so from the box use the SQL editor.)
+
+Check: run `tests/real_db_test.sql` in the SQL editor. It creates test users/posts inside a transaction that is
+always rolled back and ends with the error message `FORUM SELF-TEST: 17 passed, 0 failed` (nothing is kept).
+Then, from any machine with HTTPS: `bash forum/tests/real_rest_test.sh` (read-only checks with the public key:
+anon sees only published rows, cannot insert, cannot read roles/terms or call the admin RPC).
 
 ## 3. Auth: email + password
 
@@ -76,10 +87,18 @@ borderline words). The bot reviews `pending` + `flagged` + reported items and de
 item hide it (`flagged`) until reviewed. Authors see "Your post will appear after moderation (usually within
 30 minutes)" and, in My account, the status and a translated reason.
 
-On the box (secret key from step 1, never committed):
+moderate.py has two backends (env `FORUM_MODERATE_BACKEND` = auto | db | rest, default auto):
 
-    export SUPABASE_SERVICE_ROLE_KEY='sb_secret_...'      # or the legacy service_role JWT
-    python3 forum/moderate.py list                          # JSON queue: id, type, title, body, categories, author, reports
+- **db**: direct Postgres via the session pooler with `psql`. Non-secret settings in `forum/db.json`
+  (hosts tried in order, port 5432, user `postgres.uouccgyeujtmbeeneuwq`, db `postgres`, sslmode require);
+  password read from `SUPABASE_DB_PASSWORD_FILE` (default `/home/box/.supabase_db_password`). No API key needed.
+- **rest**: HTTPS with the secret key in env `SUPABASE_SERVICE_ROLE_KEY` (`sb_secret_...` or legacy service_role JWT).
+  Works where only port 443 is open (the box today).
+- **auto**: db when the password file exists; if it can't connect and `SUPABASE_SERVICE_ROLE_KEY` is set, falls back to rest.
+
+`python3 forum/moderate.py check` says which backend works.
+
+    python3 /workspace/petsite-forum/forum/moderate.py list   # JSON queue: id, type, title, body, categories, author, reports
     python3 forum/moderate.py set post <id> published "ok"
     python3 forum/moderate.py set comment <id> rejected "politics: mentions an election"
     python3 forum/moderate.py terms                         # current pre-filter list
