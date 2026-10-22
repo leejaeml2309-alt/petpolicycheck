@@ -1,8 +1,8 @@
 {
   "site_name": "PetPolicyCheck",
   "site_tagline": "Airline pet policies, checked against the official source, dated.",
-  "site_url": "https://leejaeml2309-alt.github.io",
-  "base_path": "/petpolicycheck/",
+  "site_url": "https://petpolicycheck.com",
+  "base_path": "/",
   "language": "en",
   "contact_email": "leejaeml2309@gmail.com",
   "name_ideas": [
