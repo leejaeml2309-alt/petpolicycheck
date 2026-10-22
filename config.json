@@ -174,5 +174,11 @@
       "alt": "",
       "advertiser": ""
     }
+  },
+  "forum": {
+    "enabled": false,
+    "supabase_url": "",
+    "supabase_anon_key": "",
+    "contact_email": "contact@petpolicycheck.com"
   }
 }

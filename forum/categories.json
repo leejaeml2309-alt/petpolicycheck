@@ -1,0 +1,14 @@
+{
+  "_note": "Category codes stored in the database. Must match the CHECK constraints in sql/001_forum_schema.sql. Labels live in i18n/<lang>.json under cat.<group>.<code>.",
+  "lang": ["en", "ko"],
+  "transport": ["plane_cabin", "plane_hold", "train", "subway", "bus_intercity", "bus_city", "car", "taxi", "ferry", "other"],
+  "weather": ["hot", "cold", "mild", "rainy", "snowy"],
+  "season": ["spring", "summer", "autumn", "winter"],
+  "carrier": ["soft_bag", "hard_crate", "none_harness", "stroller", "other"],
+  "species": ["dog", "cat"],
+  "weight": ["w_lt5", "w5_8", "w8_15", "w15_25", "w25_40", "w_gt40"],
+  "breeds": {
+    "dog": ["Shih Tzu", "Maltese", "Poodle (Toy)", "Poodle (Miniature)", "Pomeranian", "Chihuahua", "Yorkshire Terrier", "Bichon Frise", "French Bulldog", "Dachshund", "Pug", "Cavalier King Charles Spaniel", "Jindo", "Welsh Corgi", "Shiba Inu", "Beagle", "Golden Retriever", "Labrador Retriever", "Mixed breed"],
+    "cat": ["Korean Shorthair", "Domestic Shorthair", "Persian", "British Shorthair", "Scottish Fold", "Russian Blue", "Ragdoll", "Maine Coon", "Siamese", "Bengal", "Sphynx", "Mixed breed"]
+  }
+}

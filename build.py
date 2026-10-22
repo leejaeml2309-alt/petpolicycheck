@@ -9,9 +9,12 @@ import html
 import json
 import urllib.parse
 import shutil
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT / "forum"))
+import forum_pages  # noqa: E402  (forum/forum_pages.py)
 DATA = ROOT / "data" / "airlines"
 OUT = ROOT / "site"
 CHECK = "Check with airline"
@@ -142,9 +145,13 @@ def brand_word(name):
     return f'<span class="wm">{e(name)}</span>'
 
 
+FORUM_NAV = ("forum/", "Forum", ("forum/",))
+FORUM_ON = False  # set in main() from config.json forum.* (Forum link only when the backend is configured)
+
+
 def nav_links(root, path):
     out = []
-    for href, label, pre in NAV:
+    for href, label, pre in (NAV[:3] + [FORUM_NAV] + NAV[3:] if FORUM_ON else NAV):
         cur = ' aria-current="page"' if any(path.startswith(x) for x in pre) else ""
         out.append(f'<a href="{root}{href}"{cur}>{label}</a>')
     return "".join(out)
@@ -206,7 +213,7 @@ def build_og_image(cfg):
     clean.save(OUT / OG_IMAGE, "JPEG", quality=82, optimize=True, progressive=True)
 
 
-def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
+def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noindex=False, ads=True):
     base = site_base(cfg)
     canon = canonical or f"{base}/{path}"
     ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in (jsonld or []))
@@ -215,9 +222,8 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
 <head>
 <meta charset="utf-8">
 <meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
-{ADSENSE}
-{TP_DRIVE}
-<meta name="viewport" content="width=device-width,initial-scale=1">
+{ADSENSE + chr(10) + TP_DRIVE if ads else ''}
+<meta name="viewport" content="width=device-width,initial-scale=1">{chr(10) + '<meta name="robots" content="noindex">' if noindex else ''}
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{e(canon)}">
@@ -254,7 +260,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None):
 <p class="foot-brand">{LOGO}{brand_word(cfg['site_name'])}</p>
 <p>Airline pet rules change often. Always confirm with the airline before you book. Information here is not legal or veterinary advice.</p>
 <p class="disc">Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</p>
-<p>&copy; {dt.date.today().year} {e(cfg['site_name'])} &middot; <a href="{root}about.html">About &amp; disclaimer</a> &middot; <a href="{root}products/">Products</a> &middot; <a href="{root}updates.html">Updates</a> &middot; <a href="{root}advertise/">Advertise</a> &middot; <a href="{root}privacy.html">Privacy</a> &middot; <a href="{root}contact.html">Contact</a></p>
+<p>&copy; {dt.date.today().year} {e(cfg['site_name'])} &middot; <a href="{root}about.html">About &amp; disclaimer</a> &middot; <a href="{root}products/">Products</a> &middot; <a href="{root}updates.html">Updates</a>{f' &middot; <a href="{root}forum/">Forum</a>' if FORUM_ON else ''} &middot; <a href="{root}advertise/">Advertise</a> &middot; <a href="{root}privacy.html">Privacy</a> &middot; <a href="{root}contact.html">Contact</a></p>
 </div></footer>
 </body></html>
 """
@@ -458,6 +464,7 @@ def build_airline(cfg, a, pd=None, lims=None):
 <h2>Recent changes</h2>
 {f"<ul class='changes'>{ch}</ul>" if ch else "<p>No dated changes recorded yet. We log changes here when we detect them.</p>"}
 <p class="small">Before you book, re-check the <a href="{e(a['official_url'])}" rel="noopener" target="_blank">official page</a> and call the airline to reserve pet space; space is usually limited per flight.</p>
+{forum_pages.airline_link(cfg, a)}
 {affiliate_box(cfg)}
 """
     desc = f"{a['name']} pet policy: in-cabin {plain(a,'in_cabin_allowed').lower()}, carrier size, weight limit and fees. {'Verified ' + d if a.get('last_verified') else 'Not yet verified'} against the official airline page."
@@ -509,13 +516,26 @@ EFFECTIVE = "October 22, 2026"
 PRIVACY_UPDATED = "October 22, 2026"
 
 
+NO_ACCOUNTS = """<h2>No accounts, no forms</h2>
+<p>There are no user accounts, logins, comment forms or newsletters on this site. We don't ask for, and don't store, your name, email or any other personal information. If you email us, we only use your message and address to reply.</p>"""
+
+
+def forum_privacy(cfg):
+    fm = obf_mail((cfg.get("forum") or {}).get("contact_email") or cfg["contact_email"])
+    return f"""<h2 id="forum">Forum accounts</h2>
+<p>Reading the <a href="forum/">forum</a> needs no account. If you create one to post or comment, we store: your <b>email address</b> (to sign you in and for account emails such as confirmation and password reset; never shown publicly), your <b>display name</b> (public, shown next to your posts), a hashed password (if you don't use Google sign-in), and what you post: <b>posts, comments, reports</b>, their categories and dates, and the moderation status and reason. If you choose "Continue with Google", Google shares your email address and basic profile with us for sign-in; we don't use your Google name or photo publicly.</p>
+<p><b>Processor:</b> accounts and forum content are stored by <a href="https://supabase.com/privacy" rel="noopener" target="_blank">Supabase</a> (our database and sign-in provider), which processes the data on our behalf; our project is hosted in Supabase's Northeast Asia (Seoul) region. Supabase may log technical data such as IP addresses for security. Sign-in keeps a session token in your browser's local storage (not an advertising cookie); signing out removes it.</p>
+<p><b>Moderation:</b> posts and comments are checked before publication by an automatic keyword filter and by a moderator (assisted by an AI tool that reads only the text you submitted). Published posts and comments, with your display name, are public and may be included in search engines.</p>
+<p><b>Your choices:</b> you can delete your own posts and comments at any time from <a href="forum/account.html">My account</a>, and change your display name. To delete your account and all its data, or to get a copy of it, email {fm}; we handle requests within 30 days. Your data is kept while your account exists.</p>
+<p>Forum pages for signing in and posting don't show ads or load affiliate scripts.</p>"""
+
+
 def build_privacy(cfg):
     mail = obf_mail(cfg["contact_email"])
     body = f"""<h1>Privacy policy</h1>
 <p class="small">Effective date: {EFFECTIVE} &middot; Last updated: {PRIVACY_UPDATED}</p>
 <p>{e(cfg['site_name'])} is a simple static website. This page explains, in plain English, what data is and isn't collected when you visit, including by the advertising and affiliate services we use.</p>
-<h2>No accounts, no forms</h2>
-<p>There are no user accounts, logins, comment forms or newsletters on this site. We don't ask for, and don't store, your name, email or any other personal information. If you email us, we only use your message and address to reply.</p>
+{forum_privacy(cfg) if forum_pages.enabled(cfg) else NO_ACCOUNTS}
 <h2>Hosting (GitHub Pages)</h2>
 <p>The site is hosted on GitHub Pages, a service of GitHub, Inc. When you load a page, GitHub's servers may log technical information such as your IP address, browser type and the page requested, for security and operations. We don't receive or control those logs. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub Privacy Statement</a>.</p>
 <h2>Cookies</h2>
@@ -863,6 +883,7 @@ def build_guide(cfg, g, pd, lims, airlines):
 <p class="verified">&#10003; Product dimensions checked <time datetime="{v}">{nice_date(v)}</time> against each manufacturer's official page; airline limits from our dated airline pages.</p>
 {ad_slot(cfg, 'guide_sponsor', '{root}')}
 {main}
+{forum_pages.guide_link(cfg, slug)}
 <h2>More guides</h2><ul>{other}<li><a href="{{root}}products/">All pet travel products</a></li></ul>
 {disclosure("{root}")}
 """
@@ -962,6 +983,8 @@ def main():
     (OUT / "products").mkdir()
     (OUT / "advertise").mkdir()
     pd, lims = load_products(airlines)
+    global FORUM_ON
+    FORUM_ON = forum_pages.enabled(cfg)
     shutil.copy(ROOT / "static" / "style.css", OUT / "style.css")
     shutil.copytree(ROOT / "static" / "fonts", OUT / "fonts")
     (OUT / ".nojekyll").write_text("")
@@ -988,6 +1011,7 @@ def main():
             (f"{base}/products/", pd["verified"])]
     urls += [(f"{base}/products/{x['slug']}.html", pd["verified"]) for x in pd["products"] + pd["guides"]]
     urls += [(f"{base}/airlines/{a['slug']}.html", a.get("last_verified") or a.get("last_checked") or newest) for a in airlines]
+    urls += forum_pages.build(sys.modules[__name__], cfg, airlines, OUT, ROOT)  # [] while the forum is off
     sm = "".join(f"<url><loc>{e(u)}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n')
     (OUT / "ads.txt").write_text("google.com, pub-7693501377730690, DIRECT, f08c47fec0942fa0\n")
