@@ -105,45 +105,46 @@
       "url": ""
     }
   },
+  "amazon_tag": "petpolicychec-20",
   "product_links": {
     "sherpa-original-deluxe": {
-      "amazon_url": "",
+      "amazon_url": "https://www.amazon.com/s?k=Sherpa+Original+Deluxe+Pet+Carrier&tag=petpolicychec-20",
       "chewy_url": ""
     },
     "sleepypod-air": {
-      "amazon_url": "",
+      "amazon_url": "https://www.amazon.com/s?k=Sleepypod+Air&tag=petpolicychec-20",
       "chewy_url": ""
     },
     "sleepypod-atom": {
-      "amazon_url": "",
+      "amazon_url": "https://www.amazon.com/s?k=Sleepypod+Atom&tag=petpolicychec-20",
       "chewy_url": ""
     },
     "sleepypod-mini": {
-      "amazon_url": "",
+      "amazon_url": "https://www.amazon.com/s?k=Sleepypod+Mini&tag=petpolicychec-20",
       "chewy_url": ""
     },
     "sturdibag-pro": {
-      "amazon_url": "",
+      "amazon_url": "https://www.amazon.com/s?k=SturdiBag+Pro+3.0+Travel+Pet+Carrier&tag=petpolicychec-20",
       "chewy_url": ""
     },
     "sherpa-elevation-backpack": {
-      "amazon_url": "",
+      "amazon_url": "https://www.amazon.com/s?k=Sherpa+Elevation+Pet+Backpack+%28Medium%29&tag=petpolicychec-20",
       "chewy_url": ""
     },
     "petmate-sky-kennel": {
-      "amazon_url": "",
+      "amazon_url": "https://www.amazon.com/s?k=Petmate+Sky+Kennel&tag=petpolicychec-20",
       "chewy_url": ""
     },
     "petmate-ultra-vari-kennel": {
-      "amazon_url": "",
+      "amazon_url": "https://www.amazon.com/s?k=Petmate+Ultra+Vari+Kennel&tag=petpolicychec-20",
       "chewy_url": ""
     },
     "sleepypod-yummy-travel-bowls": {
-      "amazon_url": "",
+      "amazon_url": "https://www.amazon.com/s?k=Sleepypod+Yummy+Travel+Bowls&tag=petpolicychec-20",
       "chewy_url": ""
     },
     "ruffwear-quencher": {
-      "amazon_url": "",
+      "amazon_url": "https://www.amazon.com/s?k=Ruffwear+Quencher+Packable+Dog+Bowl&tag=petpolicychec-20",
       "chewy_url": ""
     }
   },

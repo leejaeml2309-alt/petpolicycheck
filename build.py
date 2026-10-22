@@ -7,6 +7,7 @@ writes the site to ./site/.  Usage:  python3 build.py
 import datetime as dt
 import html
 import json
+import urllib.parse
 import shutil
 from pathlib import Path
 
@@ -434,6 +435,7 @@ def build_about(cfg):
 <p>Information may change at any time and may contain errors. It is provided for general guidance only and is not legal, veterinary or travel advice. <b>Always confirm with the airline before booking or travelling</b>, and check the government entry rules (e.g. CDC, USDA APHIS, CFIA, DEFRA) for every country on your route. We are not affiliated with any airline.</p>
 <h2 id="affiliates">Affiliate disclosure</h2>
 <p>Some pages may contain affiliate links (for example to pet carriers or pet insurance). If you buy through them we may earn a commission at no extra cost to you. Affiliate relationships never change the policy information we publish.</p>
+<p>{AMAZON_DISCLOSURE} Product pages may link to Amazon.com through the Amazon Associates Program.</p>
 <h2 id="advertising">Advertising</h2>
 <p>The site shows ads served by Google AdSense and may load affiliate scripts such as Travelpayouts. Advertisers never change the policy information we publish. See our <a href="privacy.html">privacy policy</a> for how advertising cookies work and how to opt out of personalized ads.</p>
 <h2>Corrections</h2>
@@ -469,7 +471,8 @@ def build_privacy(cfg):
 <h2>Travelpayouts</h2>
 <p>Our pages load a script from Travelpayouts, an affiliate network for travel brands. It may turn links to travel partners (such as airlines, hotels or booking sites) into affiliate links, and Travelpayouts or its partners may use cookies or similar technology to record that a visit or booking came from our site, so we can be paid a commission. This is governed by the <a href="https://support.travelpayouts.com/hc/en-us/articles/360004121052-Privacy-Policy" rel="noopener" target="_blank">Travelpayouts privacy policy</a>.</p>
 <h2>Affiliate links and partner cookies</h2>
-<p>Some pages include affiliate links to partners, for example brands on the Impact network (such as Chewy, Trupanion or Lemonade), Booking.com and Travelpayouts partners. If you buy through one, we may earn a commission at no extra cost to you. When you click an affiliate link, you leave our site and the partner (or its affiliate network) may set cookies or use similar technology to record that the visit came from us. Those cookies are governed by the partner's own privacy policy, not ours. We don't receive personal information about you from these partners, only aggregated sales or commission reports. Affiliate relationships never change the policy information we publish.</p>
+<p>Some pages include affiliate links to partners, for example brands on the Impact network (such as Chewy, Trupanion or Lemonade), Amazon.com, Booking.com and Travelpayouts partners. If you buy through one, we may earn a commission at no extra cost to you. When you click an affiliate link, you leave our site and the partner (or its affiliate network) may set cookies or use similar technology to record that the visit came from us. Those cookies are governed by the partner's own privacy policy, not ours. We don't receive personal information about you from these partners, only aggregated sales or commission reports. Affiliate relationships never change the policy information we publish.</p>
+<p>{AMAZON_DISCLOSURE} {e(cfg['site_name'])} participates in the Amazon Services LLC Associates Program; Amazon may use cookies to record that a visit or purchase came from our links, under Amazon's own privacy notice.</p>
 <h2>Analytics</h2>
 <p>We don't run a separate analytics tool (such as Google Analytics) on this site. If we add one, this page will be updated first to name it, what it collects and how to opt out.</p>
 <h2>External links</h2>
@@ -604,11 +607,27 @@ def no_limit_note(lims, root):
             f"(see <a href='{root}products/under-seat-carrier-size-by-airline.html'>carrier size by airline</a>).</p>")
 
 
+AMAZON_DISCLOSURE = "As an Amazon Associate I earn from qualifying purchases."
+
+
+def amazon_tagged(cfg, url):
+    """Add or replace the Amazon Associates tag (config `amazon_tag`) on an amazon.com URL; other params kept."""
+    tag = cfg.get("amazon_tag")
+    if not url or not tag:
+        return url
+    u = urllib.parse.urlsplit(url)
+    host = (u.hostname or "").lower()
+    if not (host == "amazon.com" or host.endswith(".amazon.com")):
+        return url
+    q = [(k, v) for k, v in urllib.parse.parse_qsl(u.query, keep_blank_values=True) if k != "tag"] + [("tag", tag)]
+    return urllib.parse.urlunsplit((u.scheme, u.netloc, u.path, urllib.parse.urlencode(q), u.fragment))
+
+
 def buy_links(cfg, p):
     slot = (cfg.get("product_links") or {}).get(p["slug"]) or {}
     out = []
     if slot.get("amazon_url"):
-        out.append(f'<a class="btn" href="{e(slot["amazon_url"])}" rel="sponsored nofollow noopener" target="_blank">View at Amazon</a>')
+        out.append(f'<a class="btn" href="{e(amazon_tagged(cfg, slot["amazon_url"]))}" rel="sponsored nofollow noopener" target="_blank">View at Amazon</a>')
     if slot.get("chewy_url"):
         out.append(f'<a class="btn" href="{e(slot["chewy_url"])}" rel="sponsored nofollow noopener" target="_blank">View at Chewy</a>')
     if not out:
@@ -619,7 +638,7 @@ def buy_links(cfg, p):
 def disclosure(root):
     return (f'<p class="disc small">Affiliate disclosure: some links on this page may be affiliate links; if you buy through them we may earn a commission at no extra cost to you. '
             f'It never changes the dimensions or fit results shown. We have not tested these products ourselves: every figure comes from the linked manufacturer page. '
-            f'<a href="{root}about.html#affiliates">Disclosure</a>.</p>')
+            f'{AMAZON_DISCLOSURE} <a href="{root}about.html#affiliates">Disclosure</a>.</p>')
 
 
 def verified_p(p, v, root):
