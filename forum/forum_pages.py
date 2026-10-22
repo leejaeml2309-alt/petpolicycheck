@@ -298,7 +298,7 @@ def build_new(B, cfg, airlines):
 {dl}
 <p class="ferr" id="nf-err" role="alert" hidden></p>
 <p class="fbtns"><button type="submit" class="fbtn" data-i18n="f.submit">{B.e(T("f.submit"))}</button></p>
-<p class="small">By posting you agree to the <a href="guidelines.html" data-i18n="f.rules">{B.e(T("f.rules"))}</a>. <span data-i18n="f.pending_post">{B.e(T("f.pending_post"))}</span></p>
+<p class="small">{i(B, "f.agree_pre")} <a href="guidelines.html" data-i18n="f.rules">{B.e(T("f.rules"))}</a>{i(B, "f.agree_post")} {i(B, "f.mod_note")}</p>
 </form>"""
     body = f"""<nav class="crumbs"><a href="{{root}}index.html" data-i18n="f.crumb_home">Home</a> &rsaquo; <a href="index.html" data-i18n="nav.forum">Forum</a> &rsaquo; <span data-i18n="f.new">{B.e(T("f.new"))}</span></nav>
 <h1 data-i18n="f.new">{B.e(T("f.new"))}</h1>

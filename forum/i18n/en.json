@@ -176,5 +176,8 @@
   "f.filter_btn": "Filter",
   "f.disclaimer": "Experiences are shared by travellers and checked by a moderator before they appear. They are personal accounts, not airline rules: always confirm with the airline or operator.",
   "f.crumb_home": "Home",
-  "f.fld.plang": "Post language"
+  "f.fld.plang": "Post language",
+  "f.agree_pre": "By posting you agree to the",
+  "f.agree_post": ".",
+  "f.mod_note": "Posts appear after a moderator checks them (usually within 30 minutes)."
 }
