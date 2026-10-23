@@ -1244,6 +1244,109 @@ def build_partner_vets(cfg):
                 body, "partner-vets/", "../")
 
 
+def build_country_usa(cfg, airlines):
+    """US pet travel rules page (federal + per-state), from data/countries/usa.json. Every row carries its official source."""
+    d = json.loads((ROOT / "data" / "countries" / "usa.json").read_text())
+    root, chk = "../", d["checked"]
+    src = lambda u, t="Official source": f'<a href="{e(u)}" rel="noopener" target="_blank">{t}</a>'
+    checked = f'Last checked <time datetime="{chk}">{nice_date(chk)}</time>'
+
+    def agency(u):
+        h = u.split("/")[2]
+        return "CDC" if h.endswith("cdc.gov") else "USDA APHIS" if h.endswith("aphis.usda.gov") else "Official source"
+
+    def srcnote(rows):  # rows checked on another date than the page date get it next to their link
+        return lambda r: "" if r.get("checked", chk) == chk else f" <span class='small'>checked <time datetime='{r['checked']}'>{nice_date(r['checked'])}</time></span>"
+    fed = {f["topic"]: f for f in d["federal"]}
+    hi = next(s for s in d["states"] if s["code"] == "HI")
+    quick = [
+        ("Dogs entering the US", "CDC Dog Import Form receipt for every dog, plus a healthy look, age 6 months or older and a microchip. Dogs from high-risk rabies countries need extra forms (see below).", fed["Dogs entering the US"]["source_url"]),
+        ("Cats entering the US", "No federal rabies proof or USDA health requirements for pet cats; they must look healthy. State, airline, Hawaii and Guam rules still apply.", fed["Cats entering the US"]["source_url"]),
+        ("Traveling between states", "No federal rule: the destination state decides. Many states want a CVI (health certificate, usually issued within 30 days) and proof of rabies vaccination; airlines often want a certificate within 10 days.", fed["Traveling between states"]["source_url"]),
+        ("Hawaii", "Rabies-free with a quarantine program: two rabies vaccinations, a passing FAVN test and a 30-day wait are needed to qualify for direct release; otherwise up to 120 days of quarantine.", hi["source_url"]),
+    ]
+    qa = "".join(f"<li><b>{e(q)}:</b> {e(a)} {src(u, 'Source')}</li>" for q, a, u in quick)
+    fsn = srcnote(d["federal"])
+    fr = lambda t, who, way, case: (f"<tr><td data-l='Who'>{who}</td><td data-l='Direction'>{way}</td><td data-l='Case'>{case}</td>"
+                                    f"<td data-l='Rule'>{e(fed[t]['rule'])}</td><td class='usa-src' data-l='Source'>{src(fed[t]['source_url'], agency(fed[t]['source_url']))}{fsn(fed[t])}</td></tr>")
+    fed_rows = "".join([
+        fr("Dogs from rabies-free or low-risk countries", "Dogs", "Entering", "From a rabies-free or low-risk country"),
+        fr("US-vaccinated dogs returning from high-risk countries", "Dogs", "Entering", "US-vaccinated, returning from a high-risk country"),
+        fr("Foreign-vaccinated dogs from high-risk countries", "Dogs", "Entering", "Foreign-vaccinated, from a high-risk country"),
+        fr("Dogs from screwworm or FMD-affected countries (USDA)", "Dogs", "Entering", "From a screwworm- or FMD-affected country (USDA)"),
+        fr("Cats entering the US", "Cats", "Entering", "All cats"),
+        fr("Leaving the US", "Dogs &amp; cats", "Leaving", "Export to another country"),
+        fr("Traveling between states", "Dogs &amp; cats", "Between states", "Moving within the US"),
+        fr("Airline health certificate", "Dogs &amp; cats", "Flying", "Airline health certificate"),
+    ])
+    ssn = srcnote(d["states"])
+
+    def srow(s, in_diff):
+        rid = f' id="st-{e(s["code"].lower())}"' if in_diff else ""
+        cls = ' class="usa-hl"' if s["differs"] and not in_diff else ""
+        badge = f' <a class="flag" href="#st-{e(s["code"].lower())}" title="See States with different rules">Differs</a>' if s["differs"] and not in_diff else ""
+        cvi = f'<span class="flag">Check</span> {e(s["cvi"])}' if not s["verified"] else e(s["cvi"])
+        return (f"<tr{rid}{cls}><td data-l='State'><b>{e(s['name'])}</b>{badge}</td>"
+                f"<td data-l='CVI required?'>{cvi}</td><td data-l='Rabies vaccine'>{e(s['rabies'])}</td>"
+                f"<td data-l='Special notes'>{e(s['notes']) or '<span class=na>None stated</span>'}</td>"
+                f"<td class='usa-src' data-l='Source'>{src(s['source_url'])}{ssn(s)}</td></tr>")
+    head = "<thead><tr><th>State</th><th>CVI required for dogs/cats entering?</th><th>Rabies vaccine rule</th><th>Special notes</th><th>Official source</th></tr></thead>"
+    diff = sorted((s for s in d["states"] if s["differs"]), key=lambda s: (s["code"] != "HI", s["name"]))
+    nver = sum(s["verified"] for s in d["states"])
+    allrows = "".join(srow(s, False) for s in sorted(d["states"], key=lambda s: s["name"]))
+    tsn = srcnote(d["territories"])
+    terr = "".join(f"<tr><td data-l='Territory'><b>{e(t['name'])}</b></td><td data-l='Rule'>{e(t['rule'])}</td><td class='usa-src' data-l='Source'>{src(t['source_url'])}{tsn(t)}</td></tr>" for t in d["territories"])
+    links = "".join(f"<li>{src(u, e(n))}</li>" for n, u in d["links"])
+    want = ["american", "delta", "united", "alaska", "southwest", "jetblue"]
+    names = {a["slug"]: a["name"] for a in airlines}
+    al = "".join(f"<a href='{root}airlines/{s}.html'>{e(names.get(s, s.title()))}</a>" for s in want if s in names)
+    gl = "".join(f"<li><a href='{root}products/{g}.html'>{e(t)}</a></li>" for g, (t, _) in GUIDE_META.items())
+    css = """<style>
+.usa-quick{background:var(--sage-l);border:0;border-left:4px solid var(--sage);border-radius:10px;padding:14px 18px}
+.usa-quick h2{margin:0 0 .4em}.usa-quick ul{margin:0;padding-left:1.2em}.usa-quick li{margin:.35em 0}
+.usa-warn{border:0;border-left:4px solid var(--gold)}
+.usa-t .usa-src{white-space:nowrap}
+.usa-t tbody tr.usa-hl>td{background:rgba(217,183,101,.07)}
+.usa-t tbody tr.usa-hl>td:first-child{box-shadow:inset 3px 0 0 var(--gold)}
+.usa-t a.flag{text-decoration:none;margin-left:4px;white-space:nowrap}.usa-t a.flag:hover{background:var(--gold);color:#0b1719}
+.usa-t tr[id]{scroll-margin-top:calc(var(--hh, 64px) + 16px)}
+.usa-t tr[id]:target>td{background:rgba(217,183,101,.14)}
+@media (max-width:720px){.usa-t .usa-src{white-space:normal}.usa-t tbody tr.usa-hl>td:first-child{box-shadow:none}.usa-t tbody tr.usa-hl{box-shadow:inset 3px 0 0 var(--gold)}.usa-t tbody tr.usa-hl>td{background:none}}
+</style>"""
+    body = f"""{css}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; Countries &rsaquo; United States</nav>
+<h1>Pet travel rules for the USA: federal and state requirements</h1>
+<p class="lead">What you need to fly a dog or cat into, out of, or around the United States. Federal rules come from the CDC and USDA; each state sets its own entry rules.</p>
+<div class="usa-quick"><h2 id="quick">Quick answer</h2><ul>{qa}</ul></div>
+<p class="warn usa-warn">Rules change, especially New World screwworm (NWS) restrictions added by many states in 2026. Always confirm with the official source before you travel. {checked}.</p>
+<h2 id="federal">Federal rules (CDC and USDA)</h2>
+<p class="small">{checked} on the CDC and USDA APHIS pages linked in each row.</p>
+<div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Who</th><th>Direction</th><th>Case</th><th>Rule</th><th>Source</th></tr></thead><tbody>{fed_rows}</tbody></table></div>
+<h2 id="different">States with different rules</h2>
+<p>These {len(diff)} states or territories do not follow the common pattern of "CVI plus rabies vaccination at about 3 months for every pet". Some skip the CVI for pets traveling with their owner; others are stricter. <span class="small">{checked} on each state's official page.</span></p>
+<div class="tablewrap"><table class="cmp usa-t">{head}<tbody>{''.join(srow(s, True) for s in diff)}</tbody></table></div>
+<h2 id="states">All 50 states, DC and Puerto Rico</h2>
+<p class="small">{checked}. {nver} of {len(d['states'])} rows verified on official state pages; rows marked <span class="flag">Check</span> could not be confirmed, so contact that state veterinarian. States marked <span class="flag">Differs</span> are highlighted; the badge jumps to their row in the table above. CVI = Certificate of Veterinary Inspection (health certificate) from an accredited vet.</p>
+<div class="tablewrap"><table class="cmp usa-t">{head}<tbody>{allrows}</tbody></table></div>
+<h2 id="territories">Guam and other territories</h2>
+<p class="small">{checked}.</p>
+<div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Territory</th><th>Rule</th><th>Source</th></tr></thead><tbody>{terr}</tbody></table></div>
+<h2 id="official">Official links</h2>
+<ul>{links}</ul>
+<p class="note small">{checked}. Rules change; confirm with the official source before you travel. This page is a summary, not legal or veterinary advice. Airlines may require more than the state does.</p>
+<h2 id="airlines">Airline pet policies</h2>
+<div class="chips">{al}</div>
+<h2 id="gear">Product guides</h2>
+<ul>{gl}</ul>"""
+    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": qn, "acceptedAnswer": {"@type": "Answer", "text": a}}
+        for qn, (_, a, _u) in zip(["What does a dog need to enter the United States?", "What does a cat need to enter the United States?",
+                                   "What do I need to take a dog or cat between US states?", "What are the rules for bringing a dog or cat to Hawaii?"], quick)]}
+    return page(cfg, f"Pet travel rules for the USA: federal and state requirements | {cfg['site_name']}",
+                "CDC and USDA rules for dogs and cats entering or leaving the US, plus a state-by-state table of health certificate (CVI) and rabies rules, with official sources.",
+                body, "countries/usa.html", root,
+                jsonld=[bc_ld(cfg, [("Home", ""), ("United States pet travel rules", "countries/usa.html")]), faq_ld])
+
+
 def main():
     cfg, airlines, updates = load()
     if OUT.exists():
@@ -1252,6 +1355,7 @@ def main():
     (OUT / "products").mkdir()
     (OUT / "advertise").mkdir()
     (OUT / "partner-vets").mkdir()
+    (OUT / "countries").mkdir()
     pd, lims = load_products(airlines)
     global FORUM_ON
     FORUM_ON = forum_pages.enabled(cfg)
@@ -1278,6 +1382,7 @@ def main():
     (OUT / "contact.html").write_text(build_contact(cfg))
     (OUT / "advertise" / "index.html").write_text(build_advertise(cfg))
     (OUT / "partner-vets" / "index.html").write_text(build_partner_vets(cfg))
+    (OUT / "countries" / "usa.html").write_text(build_country_usa(cfg, airlines))
     (OUT / "products" / "index.html").write_text(build_products_index(cfg, pd, lims))
     for p in pd["products"]:
         (OUT / "products" / f"{p['slug']}.html").write_text(build_product(cfg, p, pd, lims, airlines))
@@ -1291,6 +1396,7 @@ def main():
     urls += [(f"{base}/products/{x['slug']}.html", pd["verified"]) for x in pd["products"] + pd["guides"]]
     urls += [(f"{base}/airlines/{a['slug']}.html", a.get("last_verified") or a.get("last_checked") or newest) for a in airlines]
     urls += forum_pages.build(sys.modules[__name__], cfg, airlines, OUT, ROOT)  # [] while the forum is off
+    urls.append((f"{base}/countries/usa.html", json.loads((ROOT / "data" / "countries" / "usa.json").read_text())["checked"]))
     sm = "".join(f"<url><loc>{e(u)}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n')
     (OUT / "ads.txt").write_text("google.com, pub-7693501377730690, DIRECT, f08c47fec0942fa0\n")
