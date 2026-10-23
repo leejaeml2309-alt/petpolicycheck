@@ -1,8 +1,10 @@
 (function(){
 var W=960,H=500,svg=d3.select('#map'),tip=document.getElementById('tip'),box=document.getElementById('mapbox');
 var countries=topojson.feature(ATLAS,ATLAS.objects.countries).features.filter(function(f){return f.id!=='010'&&f.properties.name!=='Antarctica'});
-var proj=d3.geoNaturalEarth1().fitExtent([[8,8],[W-8,H-8]],{type:'Sphere'}).rotate([-10,0]);
-proj.fitExtent([[8,8],[W-8,H-8]],{type:'Sphere'});
+var proj=d3.geoNaturalEarth1().rotate([-10,0]);
+proj.fitWidth(W-16,{type:'Sphere'});
+// crop to the inhabited latitudes (84N to 57S): no empty Antarctic band
+(function(){var tY=proj([0,84])[1],bY=proj([0,-57])[1],t=proj.translate();proj.translate([t[0]+8,t[1]-tY+8]);H=Math.round(bY-tY+16);svg.attr('viewBox','0 0 '+W+' '+H)})();
 var path=d3.geoPath(proj);
 var g=svg.append('g');
 g.append('path').attr('class','sphere').attr('d',path({type:'Sphere'}));
