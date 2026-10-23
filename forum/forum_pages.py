@@ -467,7 +467,9 @@ def story_card(B, s):
              f'(<span data-i18n="st.lang.{s["slang"]}">{B.e(T("st.lang." + s["slang"]))}</span>)</footer></blockquote>') if s["quote"] else ""
     meta = []
     if s["route"]:
-        meta.append(f'<span data-i18n="st.route">{B.e(T("st.route"))}</span>: <span lang="fr">{B.e(s["route"])}</span>')
+        rt = "".join(f'<span data-sl="{c}" lang="{s["route_lang"].get(c, "fr")}"{"" if c == "en" else " hidden"}>{B.e(s["route"][c])}</span>'
+                     for c in I18N if c in s["route"])
+        meta.append(f'<span data-i18n="st.route">{B.e(T("st.route"))}</span>: {rt}')
     meta.append(f'<span data-i18n="st.source">{B.e(T("st.source"))}</span>: {B.e(s["site"])}')
     if s["date"]:
         meta.append(f'<time datetime="{s["date"]}">{fdate(s["date"])}</time>')

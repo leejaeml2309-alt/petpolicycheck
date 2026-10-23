@@ -18,6 +18,7 @@ from pathlib import Path
 DEFAULT_SRC = "/workspace/animaux-forums/base_forums_animaux.csv"
 PRIVATE_COLS = ("Intérêt pour l'activité",)
 MAX_QUOTE_WORDS = 25
+MIN_DATE = os.environ.get("FORUM_STORIES_MIN_DATE", "2020-01-01")  # older posts stay in the CSV but are not shown
 COL_QUOTE = "Citation courte (langue d'origine)"
 
 CATEGORY = {"Voyage en avion": "air", "Papiers et vaccins": "papers", "Quarantaine": "quarantine", "Coûts": "costs",
@@ -53,7 +54,7 @@ def load(root_dir, langs):
         return [], 0
     with path.open(encoding="utf-8-sig", newline="") as f:
         rows = list(csv.DictReader(f))
-    out, skipped = [], 0
+    out, skipped, old = [], 0, 0
     for r in rows:
         rid = (r.get("ID") or "?").strip()
         link = (r.get("Lien") or "").strip()
@@ -80,10 +81,21 @@ def load(root_dir, langs):
             dt.date.fromisoformat(date)
         except ValueError:
             date = ""
+        if date and date < MIN_DATE:
+            old += 1
+            continue
+        route_fr = (r.get("Pays ou trajet concerné") or "").strip()
+        route_en = (r.get("Trajet EN") or "").strip()
+        route = {c: ((r.get(f"Trajet {c.upper()}") or "").strip() or route_en or route_fr) for c in langs}
+        route["en"] = route_en or route_fr
+        route_lang = {c: ("fr" if not ((r.get(f"Trajet {c.upper()}") or "").strip() or route_en) else c) for c in route}
+        route_lang["en"] = "en" if route_en else "fr"
         out.append({"id": rid, "tr": tr, "quote": quote, "slang": SRC_LANG.get((r.get("Langue source") or "").strip().lower(), "other"),
                     "cat": cat, "species": SPECIES.get((r.get("Espèce") or "").strip().lower(), ""),
-                    "route": (r.get("Pays ou trajet concerné") or "").strip(),
+                    "route": route if route_fr or route_en else {}, "route_lang": route_lang,
                     "site": urllib.parse.urlsplit(link).netloc.lower().removeprefix("www."),
                     "date": date, "link": link})
+    if old:
+        print(f"  stories: {old} rows older than {MIN_DATE} not shown")
     out.sort(key=lambda s: s["date"], reverse=True)
     return out, skipped
