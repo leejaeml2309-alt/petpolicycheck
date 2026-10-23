@@ -187,7 +187,7 @@
   "site.nav.advertise": "Advertise",
   "site.skip": "Skip to content",
   "site.adhere": "Advertise here",
-  "site.foot.rules": "Airline pet rules change often. Always confirm with the airline before you book. Information here is not legal or veterinary advice.",
+  "site.foot.rules": "Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.",
   "site.foot.aff": "Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.",
   "site.foot.about": "About & disclaimer",
   "site.foot.privacy": "Privacy",
@@ -250,5 +250,14 @@
   "f.intro.stories": "summaries of public discussions about flying and moving abroad with dogs and cats, with short quotes and links to the original threads.",
   "f.intro.rules": "what you can post and how moderation works.",
   "f.intro.airlines_link": "Airline pet policies",
-  "f.intro.airlines": "official cabin and hold rules for each airline we cover, checked against the airline's own page and dated."
+  "f.intro.airlines": "official cabin and hold rules for each airline we cover, checked against the airline's own page and dated.",
+  "site.nav.map": "World map",
+  "site.nav.airlines": "Airlines",
+  "site.nav.guides": "Guides",
+  "site.foot.explore": "Explore",
+  "site.foot.airlines": "Airline policies",
+  "site.foot.shop": "Shop & community",
+  "site.foot.stories": "Stories",
+  "site.foot.vets": "Partner vets",
+  "site.foot.aboutcol": "About"
 }

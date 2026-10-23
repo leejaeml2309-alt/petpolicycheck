@@ -187,7 +187,7 @@
   "site.nav.advertise": "광고 문의",
   "site.skip": "본문으로 건너뛰기",
   "site.adhere": "광고 문의하기",
-  "site.foot.rules": "항공사 반려동물 규정은 자주 바뀌어요. 예약 전에 반드시 항공사에 확인하세요. 이 사이트의 정보는 법률·수의학적 조언이 아니에요.",
+  "site.foot.rules": "항공사 반려동물 규정은 자주 바뀌어요. 예약 전에 반드시 항공사와 도착 국가의 공식 기관에 확인하세요. 이 사이트의 정보는 법률·수의학적 조언이 아니에요.",
   "site.foot.aff": "일부 링크는 제휴 링크일 수 있어요. 구매 시 추가 비용 없이 수수료를 받을 수 있지만, 정보 내용에는 영향을 주지 않아요.",
   "site.foot.about": "소개 및 면책 조항",
   "site.foot.privacy": "개인정보처리방침",
@@ -250,5 +250,14 @@
   "f.intro.stories": "강아지·고양이와 함께 비행기를 타거나 해외로 이주한 공개 토론을 요약하고, 짧은 원문 인용과 원래 글 링크를 함께 실었어요.",
   "f.intro.rules": "올릴 수 있는 글과 검토 방식 안내.",
   "f.intro.airlines_link": "항공사 반려동물 규정",
-  "f.intro.airlines": "사이트에서 다루는 각 항공사의 기내·위탁 규정을 항공사 공식 페이지와 대조하고 확인 날짜를 표시했어요."
+  "f.intro.airlines": "사이트에서 다루는 각 항공사의 기내·위탁 규정을 항공사 공식 페이지와 대조하고 확인 날짜를 표시했어요.",
+  "site.nav.map": "세계 지도",
+  "site.nav.airlines": "항공사",
+  "site.nav.guides": "가이드",
+  "site.foot.explore": "둘러보기",
+  "site.foot.airlines": "항공사 규정",
+  "site.foot.shop": "쇼핑 & 커뮤니티",
+  "site.foot.stories": "여행 이야기",
+  "site.foot.vets": "제휴 동물병원",
+  "site.foot.aboutcol": "소개"
 }

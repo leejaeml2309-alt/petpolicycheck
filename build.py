@@ -133,9 +133,13 @@ LOGO = ('<svg class="logo" viewBox="0 0 40 40" width="38" height="38" aria-hidde
         '<path d="M19 19.6c-3.4 0-6.2 3.9-6.2 6.4 0 1.8 1.3 2.6 2.9 2.6 1.3 0 2.1-.7 3.3-.7s2 .7 3.3.7c1.6 0 2.9-.8 2.9-2.6 0-2.5-2.8-6.4-6.2-6.4z"/></g>'
         '<path d="M11.2 25.6c-2.4-.5-3 2.4-.9 2.9M10.3 28.5c3.4 5 10.6 6.5 16 3.7 4.2-2.2 6.3-6.1 6.3-10.2" fill="none" stroke="#d9b765" stroke-width="1.2" stroke-linecap="round"/>'
         '<path d="M0-5l1 .6v3l4 2.4v1l-4-1.1v2.5l1.3 1v.8L0 4.8l-2.3.4v-.8l1.3-1V.8l-4 1.1v-1l4-2.4v-3z" fill="#d9b765" transform="translate(29.6 13.4) rotate(32) scale(.62)"/></svg>')
-NAV = [("index.html", "Compare", ("index.html", "airlines/")), ("products/", "Products", ("products/",)),
-       ("updates.html", "Updates", ("updates.html",)), ("about.html", "About", ("about.html",)),
-       ("advertise/", "Advertise", ("advertise/",))]
+# Main nav: identical to the design-C home header (static/home-c.html). (href, label, i18n key, aria-current path prefixes)
+# "#..." hrefs point to sections / panels of the home page ({home}#airlines opens the airline panel on load).
+NAV = [("#map", "World map", "site.nav.map", ()), ("#airlines", "Airlines", "site.nav.airlines", ("airlines/",)),
+       ("#compare", "Compare", "site.nav.compare", ()), ("products/", "Products", "site.nav.products", ("products/",)),
+       ("#gear", "Guides", "site.nav.guides", ()), ("updates.html", "Updates", "site.nav.updates", ("updates.html",)),
+       ("about.html", "About", "site.nav.about", ("about.html",)), ("advertise/", "Advertise", "site.nav.advertise", ("advertise/",))]
+LOGO_BADGE = '<span class="lbadge"><img src="{root}assets/img/logo-mark-header.png" width="62" height="48" alt="" aria-hidden="true"></span>'
 
 
 def brand_word(name):
@@ -154,18 +158,40 @@ def ti(key, on):
 FORUM_ON = False  # set in main() from config.json forum.* (Forum link only when the backend is configured)
 
 
+def home_url(root):
+    """Relative link to the home page root ("./" or "../"), never index.html (canonical is /)."""
+    return root or "./"
+
+
 def nav_links(root, path, i18n=False):
     out = []
-    for href, label, pre in (NAV[:3] + [FORUM_NAV] + NAV[3:] if FORUM_ON else NAV):
+    items = NAV[:6] + [(FORUM_NAV[0], FORUM_NAV[1], "nav.forum", FORUM_NAV[2])] + NAV[6:] if FORUM_ON else NAV
+    for href, label, key, pre in items:
         cur = ' aria-current="page"' if any(path.startswith(x) for x in pre) else ""
-        key = "nav.forum" if href == FORUM_NAV[0] else "site.nav." + label.lower()
-        out.append(f'<a href="{root}{href}"{cur}{ti(key, i18n)}>{label}</a>')
+        url = home_url(root) + href if href.startswith("#") else root + href
+        cta = ' class="cta"' if href == "advertise/" else ""
+        out.append(f'<a{cta} href="{url}"{cur}{ti(key, i18n)}>{label}</a>')
     return "".join(out)
+
+
+def site_footer(cfg, root, fi):
+    """Footer identical to the design-C home footer (4 columns), plus the sponsor slot."""
+    h = home_url(root)
+    li = lambda href, key, label: f'<li><a href="{href}"{ti(key, fi)}>{label}</a></li>'
+    forum = (li(f"{root}forum/", "nav.forum", "Forum") + li(f"{root}forum/pet-travel-stories/", "site.foot.stories", "Stories")) if FORUM_ON else ""
+    return f"""<footer class="foot">
+<div class="wrap">{ad_slot(cfg, "sidebar_or_footer", root, fi)}</div>
+<div class="wrap cols">
+<div><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
+<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(h + "#airlines", "site.foot.airlines", "Airline policies")}{li(h + "#compare", "site.nav.compare", "Compare")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
+<div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}</ul></div>
+<div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
+</div><div class="wrap"><p class="disc"><span{ti("site.foot.aff", fi)}>Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</span> &copy; {dt.date.today().year} {e(cfg['site_name'])}</p></div></footer>"""
 
 
 def css_version():
     import hashlib
-    return hashlib.sha1((ROOT / "static" / "style.css").read_bytes()).hexdigest()[:8]
+    return hashlib.sha1((ROOT / "static" / "style.css").read_bytes() + (ROOT / "static" / "assets" / "css" / "theme.css").read_bytes()).hexdigest()[:8]
 
 
 CSS_VER = css_version()
@@ -247,28 +273,24 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <meta name="twitter:title" content="{e(title)}">
 <meta name="twitter:description" content="{e(desc)}">
 <meta name="twitter:image" content="{e(base + '/' + OG_IMAGE)}">{verification_meta(cfg)}
-<link rel="preload" href="{root}fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{root}fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="{root}assets/img/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="{root}assets/img/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="{root}assets/img/apple-touch-icon-180.png">
+<link rel="preload" href="{root}assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{root}assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{root}assets/css/theme.css?v={CSS_VER}">
 <link rel="stylesheet" href="{root}style.css?v={CSS_VER}">
-<meta name="theme-color" content="#0f4c52">
+<meta name="theme-color" content="#0b1719">
 {ld}
 </head>
-<body>
+<body class="v-c">
 <a class="skip" href="#main"{ti("site.skip", fi)}>Skip to content</a>
 <header class="top"><div class="wrap">
-<a class="brand" href="{root}index.html">{LOGO}{brand_word(cfg['site_name'])}</a>
+<a class="brand" href="{home_url(root)}">{LOGO_BADGE.replace('{root}', root)}{brand_word(cfg['site_name'])}</a>
 <nav class="nav" aria-label="Main">{nav_links(root, path, fi)}</nav>
 </div></header>
 <main class="wrap" id="main">
 {body.replace('{root}', root)}
 </main>
-<footer class="foot"><div class="wrap">
-{ad_slot(cfg, "sidebar_or_footer", root, fi)}
-<p class="foot-brand">{LOGO}{brand_word(cfg['site_name'])}</p>
-<p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline before you book. Information here is not legal or veterinary advice.</p>
-<p class="disc"{ti("site.foot.aff", fi)}>Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</p>
-<p>&copy; {dt.date.today().year} {e(cfg['site_name'])} &middot; <a href="{root}about.html"{ti("site.foot.about", fi)}>About &amp; disclaimer</a> &middot; <a href="{root}products/"{ti("site.nav.products", fi)}>Products</a> &middot; <a href="{root}updates.html"{ti("site.nav.updates", fi)}>Updates</a>{f' &middot; <a href="{root}forum/"{ti("nav.forum", fi)}>Forum</a>' if FORUM_ON else ''} &middot; <a href="{root}partner-vets/">Partner vets</a> &middot; <a href="{root}advertise/"{ti("site.nav.advertise", fi)}>Advertise</a> &middot; <a href="{root}privacy.html"{ti("site.foot.privacy", fi)}>Privacy</a> &middot; <a href="{root}contact.html"{ti("site.foot.contact", fi)}>Contact</a></p>
-</div></footer>
+{site_footer(cfg, root, fi)}
 </body></html>
 """
 
