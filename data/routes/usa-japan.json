@@ -1,0 +1,79 @@
+{
+ "route": "USA to Japan",
+ "slug": "usa-to-japan",
+ "checked": "2026-10-24",
+ "sources": {
+  "aqs_other": "https://www.maff.go.jp/aqs/english/animal/dog/import-other.html",
+  "aqs_free": "https://www.maff.go.jp/aqs/english/animal/dog/import-free.html",
+  "aqs_dog": "https://www.maff.go.jp/aqs/english/animal/dog/index.html",
+  "aqs_offices": "https://www.maff.go.jp/aqs/english/officelist.html",
+  "aqs_contact": "https://www.maff.go.jp/aqs/english/contactus.html",
+  "aphis_japan": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-japan",
+  "aphis_fees": "https://www.aphis.usda.gov/pet-travel/us-to-foreign-country/cost-to-endorse",
+  "cdc_low": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+  "cdc_high": "https://www.cdc.gov/importation/dogs/high-risk-countries.html",
+  "cdc_dogs": "https://www.cdc.gov/importation/dogs/index.html",
+  "aphis_cats_us": "https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/cats"
+ },
+ "quick": [
+  ["Dogs and cats from the US mainland", "Japan treats the US (except Hawaii and Guam) as a non-designated region: ISO microchip, two rabies shots, a rabies titer (0.5 IU/ml or more) at an approved lab, then a 180-day wait before arrival. If everything is in order, quarantine is within 12 hours.", "aqs_other"],
+  ["Time windows", "Notify Japan's Animal Quarantine Service (AQS) at least 40 days before arrival; vet exam within 10 days before boarding; the titer result is valid 2 years from the blood draw.", "aqs_other"],
+  ["Paperwork", "A USDA-accredited vet completes the health certificate (Form AC) and submits it through VEHCS for USDA APHIS endorsement. APHIS endorses dog and cat certificates to Japan digitally; carry a printed copy.", "aphis_japan"],
+  ["From Hawaii or Guam", "Hawaii and Guam are rabies-free designated regions: microchip, 180 days' residence (or since birth), 40-day notice, vet exam within 10 days and Form AB. No titer test or 180-day wait.", "aqs_free"],
+  ["If something is missing", "The pet is held at an AQS facility for up to 180 days, at your cost, or sent back.", "aqs_other"],
+  ["Coming back to the US", "Japan is not on the CDC high-risk list, so a dog needs only the free CDC Dog Import Form receipt, a microchip, a healthy look and an age of 6 months or more (if it was only in low-risk countries in the past 6 months).", "cdc_low"]
+ ],
+ "rules": [
+  {"who": "Dogs & cats", "way": "US to Japan", "case": "From any US state except Hawaii (non-designated region)", "rule": "Meet all of: ISO microchip, two rabies vaccinations, rabies titer of 0.5 IU/ml or more at an approved lab, 180-day wait after the blood draw, advance notification at least 40 days ahead, vet exam within 10 days before boarding, and a government-endorsed certificate. Then quarantine on arrival is within 12 hours.", "src": "aqs_other"},
+  {"who": "Dogs & cats", "way": "US to Japan", "case": "Microchip", "rule": "ISO 11784/11785 microchip (15 digits) implanted before, or on the same day as, the first rabies shot. With a non-ISO chip, contact AQS and bring a reader. Chips starting 900 202 are not accepted for now; AQS warns of duplicate numbers for some other chips starting 900.", "src": "aqs_other"},
+  {"who": "Dogs & cats", "way": "US to Japan", "case": "Rabies vaccinations", "rule": "First shot at 91 days old or more (birth day counted as day 0) and after the microchip. Second shot at least 30 days later, within the first shot's duration of immunity. Inactivated or recombinant vaccines only; RNA and live vaccines are not accepted. Keep boosters going without a gap until arrival.", "src": "aqs_other"},
+  {"who": "Dogs & cats", "way": "US to Japan", "case": "Rabies titer (FAVN) test", "rule": "Blood drawn after the second shot (same day allowed), tested at a lab approved by Japan. APHIS lists two US labs: Kansas State University Rabies Laboratory and the DOD Veterinary Food Analysis and Diagnostic Laboratory. Result must be 0.5 IU/ml or more; valid 2 years from the blood draw.", "src": "aphis_japan"},
+  {"who": "Dogs & cats", "way": "US to Japan", "case": "180-day wait", "rule": "Arrive at least 180 days after the blood draw (draw date is day 0), and while the vaccine and the titer result are still valid. Arriving early means quarantine at AQS for the missing days.", "src": "aqs_other"},
+  {"who": "Dogs & cats", "way": "US to Japan", "case": "Advance notification", "rule": "Notify the AQS office at your arrival airport at least 40 days before arrival, online through NACCS (or by email if you can't). AQS then issues an approval; airlines or APHIS may ask to see it.", "src": "aqs_other"},
+  {"who": "Dogs & cats", "way": "US to Japan", "case": "Vet exam before departure", "rule": "Within 10 days before boarding, a vet confirms no signs of rabies (and, for dogs, leptospirosis) and checks the microchip.", "src": "aqs_other"},
+  {"who": "Dogs & cats", "way": "US to Japan", "case": "Health certificate and USDA endorsement (VEHCS)", "rule": "Form AC (or Form A plus Form C, or APHIS Form 7001 plus Form A), completed by a USDA-accredited vet and endorsed by USDA APHIS. The vet submits it through VEHCS; dog and cat certificates to Japan are digitally endorsed, and a printed paper copy must travel with the pet.", "src": "aphis_japan"},
+  {"who": "Dogs & cats", "way": "US to Japan", "case": "From Hawaii or Guam (designated region)", "rule": "ISO microchip; resident in Hawaii or Guam for at least 180 days before export, or since birth (otherwise quarantine for the missing days); 40-day advance notification; vet exam within 10 days; Form AB endorsed by APHIS. Fly direct, or have the crate officially sealed or get a transport certificate (ANNEX) if you transit elsewhere.", "src": "aqs_free"},
+  {"who": "Puppies & kittens", "way": "US to Japan", "case": "Young pets from the US mainland", "rule": "First shot at 91 days or older, second shot at least 30 days later, then 180 days after the blood draw: by our count a pet is about 301 days (10 months) old at the earliest arrival without quarantine. Younger pets are held at AQS for the missing days.", "src": "aqs_other"},
+  {"who": "Dogs & cats", "way": "US to Japan", "case": "Requirements not met", "rule": "Detention at an AQS facility for up to 180 days, or the pet is shipped back. You pay for care, feeding and all costs; you can't take the pet out during detention.", "src": "aqs_other"},
+  {"who": "Dogs", "way": "US to Japan", "case": "Arrival airport", "rule": "Dogs may enter only through designated ports. Airports: New Chitose, Narita, Haneda, Chubu, Kansai, Osaka Itami, Kobe, Kitakyushu, Fukuoka, Kagoshima and Naha. For cats arriving elsewhere, contact AQS first.", "src": "aqs_other"},
+  {"who": "Dogs & cats", "way": "US to Japan", "case": "Recommended, not required", "rule": "Japan recommends combination vaccines (dogs: distemper, hepatitis, parvovirus; cats: rhinotracheitis, calicivirus, panleukopenia) at least 30 days before arrival, and flea, tick and worm treatment no more than 4 days before boarding.", "src": "aphis_japan"},
+  {"who": "Dogs", "way": "In Japan", "case": "After arrival", "rule": "Register the dog with your city or town within 30 days, using the import quarantine certificate, and vaccinate against rabies once a year. Keep the import certificate: it can't be reissued and you need it to leave Japan.", "src": "aqs_other"},
+  {"who": "Dogs & cats", "way": "Japan to US", "case": "Leaving Japan", "rule": "Dogs and cats leaving Japan need an AQS export inspection; AQS asks you to apply at least 14 days before departure.", "src": "aqs_other"},
+  {"who": "Dogs", "way": "Japan to US", "case": "Return to the US (CDC)", "rule": "Japan is not on the CDC list of high-risk countries for dog rabies. A dog that was only in rabies-free or low-risk countries in the past 6 months needs the free CDC Dog Import Form receipt, must look healthy, be 6 months or older and have a microchip; any US airport.", "src": "cdc_low"},
+  {"who": "Cats", "way": "Japan to US", "case": "Return to the US", "rule": "No federal rabies proof or USDA health requirements for pet cats; they must look healthy. State, airline, Hawaii and Guam rules still apply.", "src": "aphis_cats_us"}
+ ],
+ "fees": [
+  {"item": "USDA APHIS endorsement, no lab tests on the certificate (e.g. Hawaii or Guam, Form AB)", "amount": "$101 per certificate", "src": "aphis_fees"},
+  {"item": "USDA APHIS endorsement, 1-2 lab tests (a rabies titer is a lab test)", "amount": "$160 for one pet; +$10 for each extra pet on the same certificate. Check with APHIS which tier your certificate falls in.", "src": "aphis_fees"},
+  {"item": "Rabies titer (FAVN) test", "amount": "Set by the lab and your vet; check with the lab.", "src": "aphis_japan", "check": true},
+  {"item": "AQS import inspection in Japan", "amount": "Check with AQS (no fee is stated on the AQS dog and cat import pages).", "src": "aqs_contact", "check": true},
+  {"item": "AQS detention (up to 180 days)", "amount": "You pay for care, feeding and all costs; caretaker companies at Narita, Haneda and Kansai. Check with AQS for amounts.", "src": "aqs_other", "check": true},
+  {"item": "Penalty for skipping import inspection", "amount": "Dogs: up to 3 years in prison or a fine of up to 3,000,000 yen. Cats: a fine of up to 300,000 yen.", "src": "aqs_dog"},
+  {"item": "CDC Dog Import Form (return to the US)", "amount": "Free", "src": "cdc_low"}
+ ],
+ "quarantine": [
+  {"item": "All requirements met", "detail": "Quarantine within 12 hours on arrival.", "src": "aqs_dog"},
+  {"item": "Requirements not met (incl. certificate errors)", "detail": "Up to 180 days at an AQS facility, or shipped back. AQS suggests sending copies of certificates in advance for checking.", "src": "aqs_other"}
+ ],
+ "offices": [
+  {"airport": "Narita (NRT)", "office": "AQS Narita Branch: Terminal 1, Terminal 2, Terminal 3 and Cargo divisions", "phone": "+81-476-32-6510 (T1), +81-476-34-2342 (T2), +81-476-32-6655 (Cargo)", "src": "aqs_offices"},
+  {"airport": "Haneda (HND)", "office": "AQS Haneda Airport Branch: Terminal 3, Terminal 2 and Cargo", "phone": "+81-3-5757-9753 (T3), +81-3-6428-9950 (T2), +81-3-5757-9755 (Cargo)", "src": "aqs_offices"},
+  {"airport": "Kansai (KIX)", "office": "AQS Kansai Airport Branch (passenger terminal)", "phone": "+81-72-455-1956 (8:30-17:00 Japan time)", "src": "aqs_offices"},
+  {"airport": "Chubu (NGO)", "office": "AQS Chubu Airport Branch", "phone": "+81-569-38-8577", "src": "aqs_offices"},
+  {"airport": "Fukuoka (FUK)", "office": "AQS Fukuoka Airport Sub-branch", "phone": "+81-92-477-0080", "src": "aqs_offices"},
+  {"airport": "Naha (OKA)", "office": "AQS Naha Airport Sub-branch", "phone": "+81-98-857-4468", "src": "aqs_offices"}
+ ],
+ "airlines": ["american", "delta", "united", "alaska"],
+ "links": [
+  ["Japan AQS (MAFF): Import from non-designated regions (US mainland)", "aqs_other"],
+  ["Japan AQS (MAFF): Import from designated regions (Hawaii, Guam)", "aqs_free"],
+  ["Japan AQS (MAFF): Quarantine for dogs and cats", "aqs_dog"],
+  ["Japan AQS (MAFF): Contact (advance notification email addresses)", "aqs_contact"],
+  ["Japan AQS (MAFF): Office list", "aqs_offices"],
+  ["USDA APHIS: Pet travel from the United States to Japan", "aphis_japan"],
+  ["USDA APHIS: Cost to endorse your pet's health certificate", "aphis_fees"],
+  ["CDC: Dogs from rabies-free or low-risk countries", "cdc_low"],
+  ["CDC: High-risk countries for dog rabies", "cdc_high"],
+  ["CDC: Bringing a dog into the United States", "cdc_dogs"]
+ ]
+}

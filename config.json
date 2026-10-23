@@ -3,7 +3,7 @@
   "site_tagline": "Airline pet policies, checked against the official source, dated.",
   "site_url": "https://petpolicycheck.com",
   "base_path": "/",
-  "language": "en",
+  "language": "en-US",
   "hero_images": [
     {
       "src": "pets/30e4578f.jpg",

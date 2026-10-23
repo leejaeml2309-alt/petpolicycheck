@@ -251,7 +251,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
     ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in (jsonld or []))
     fi = FORUM_ON and path.startswith("forum/")  # forum pages: shared header/footer labels follow the forum language
     return f"""<!doctype html>
-<html lang="{e(cfg.get('language','en'))}">
+<html lang="{e(cfg.get('language','en-US'))}">
 <head>
 <meta charset="utf-8">
 <meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
@@ -263,6 +263,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="{e(cfg['site_name'])}">
 <meta property="og:url" content="{e(canon)}">
 <meta property="og:image" content="{e(base + '/' + OG_IMAGE)}">
@@ -464,6 +465,17 @@ def faq(a):
         {"@type": "Question", "name": qq, "acceptedAnswer": {"@type": "Answer", "text": aa + note}} for qq, aa in q]}
 
 
+def sources_block(a):
+    """Optional per-airline source list + related internal pages (only rendered when the data has them)."""
+    src = a.get("sources") or []
+    rel = a.get("related") or []
+    if not src and not rel:
+        return ""
+    li = "".join(f"<li><a href='{e(x['url'])}' rel='noopener' target='_blank'>{e(x['label'])}</a></li>" for x in src)
+    li += "".join(f"<li><a href='{{root}}{e(x['path'])}'>{e(x['label'])}</a></li>" for x in rel)
+    return f"<h2>Official sources</h2><ul class='changes'>{li}</ul>"
+
+
 def build_airline(cfg, a, pd=None, lims=None):
     d = nice_date(a.get("last_verified"))
     rows = "".join(f"<tr><th scope='row'>{e(lbl)}</th><td>{val(a,k)}</td></tr>" for k, lbl in FIELDS)
@@ -491,7 +503,7 @@ def build_airline(cfg, a, pd=None, lims=None):
 {airline_carriers_block(a, pd, lims) if pd else ''}
 {airline_gear_box(cfg, a, pd, lims) if pd else ''}
 {flight_box(cfg, a)}
-{f"<h2>Good to know</h2><p>{e(a['notes'])}</p>" if a.get('notes') else ''}
+{f"<h2>Good to know</h2><p>{e(a['notes'])}</p>" if a.get('notes') else ''}{sources_block(a)}
 <h2>Recent changes</h2>
 {f"<ul class='changes'>{ch}</ul>" if ch else "<p>No dated changes recorded yet. We log changes here when we detect them.</p>"}
 <p class="small">Before you book, re-check the <a href="{e(a['official_url'])}" rel="noopener" target="_blank">official page</a> and call the airline to reserve pet space; space is usually limited per flight.</p>
@@ -1297,7 +1309,7 @@ def build_country_usa(cfg, airlines):
     tsn = srcnote(d["territories"])
     terr = "".join(f"<tr><td data-l='Territory'><b>{e(t['name'])}</b></td><td data-l='Rule'>{e(t['rule'])}</td><td class='usa-src' data-l='Source'>{src(t['source_url'])}{tsn(t)}</td></tr>" for t in d["territories"])
     links = "".join(f"<li>{src(u, e(n))}</li>" for n, u in d["links"])
-    want = ["american", "delta", "united", "alaska", "southwest", "jetblue"]
+    want = ["american", "delta", "united", "alaska", "hawaiian", "southwest", "jetblue"]
     names = {a["slug"]: a["name"] for a in airlines}
     al = "".join(f"<a href='{root}airlines/{s}.html'>{e(names.get(s, s.title()))}</a>" for s in want if s in names)
     gl = "".join(f"<li><a href='{root}products/{g}.html'>{e(t)}</a></li>" for g, (t, _) in GUIDE_META.items())
@@ -1347,6 +1359,97 @@ def build_country_usa(cfg, airlines):
                 jsonld=[bc_ld(cfg, [("Home", ""), ("United States pet travel rules", "countries/usa.html")]), faq_ld])
 
 
+def build_route_usa_japan(cfg, airlines):
+    """USA -> Japan route page (preview), from data/routes/usa-japan.json. Every row carries its official source."""
+    d = json.loads((ROOT / "data" / "routes" / "usa-japan.json").read_text())
+    root, chk, S = "../", d["checked"], d["sources"]
+    src = lambda u, t="Official source": f'<a href="{e(u)}" rel="noopener" target="_blank">{t}</a>'
+    checked = f'Last checked <time datetime="{chk}">{nice_date(chk)}</time>'
+
+    def agency(k):
+        h = S[k].split("/")[2]
+        return "Japan AQS" if h.endswith("maff.go.jp") else "CDC" if h.endswith("cdc.gov") else "USDA APHIS" if h.endswith("aphis.usda.gov") else "Official source"
+    chkflag = lambda r: '<span class="flag">Check</span> ' if r.get("check") else ""
+    qa = "".join(f"<li><b>{e(q)}:</b> {e(a)} {src(S[k], 'Source')}</li>" for q, a, k in d["quick"])
+    rows = "".join(f"<tr><td data-l='Who'>{e(r['who'])}</td><td data-l='Direction'>{e(r['way'])}</td><td data-l='Case'>{e(r['case'])}</td>"
+                   f"<td data-l='Rule'>{e(r['rule'])}</td><td class='usa-src' data-l='Source'>{src(S[r['src']], agency(r['src']))}</td></tr>" for r in d["rules"])
+    fees = "".join(f"<tr><td data-l='Item'>{e(f['item'])}</td><td data-l='Cost (USD)'>{chkflag(f)}{e(f['amount'])}</td>"
+                   f"<td class='usa-src' data-l='Source'>{src(S[f['src']], agency(f['src']))}</td></tr>" for f in d["fees"])
+    quar = "".join(f"<tr><td data-l='Situation'>{e(q['item'])}</td><td data-l='Quarantine'>{e(q['detail'])}</td>"
+                   f"<td class='usa-src' data-l='Source'>{src(S[q['src']], agency(q['src']))}</td></tr>" for q in d["quarantine"])
+    offs = "".join(f"<tr><td data-l='Airport'><b>{e(o['airport'])}</b></td><td data-l='AQS office'>{e(o['office'])}</td><td data-l='Phone'>{e(o['phone'])}</td>"
+                   f"<td class='usa-src' data-l='Source'>{src(S[o['src']], agency(o['src']))}</td></tr>" for o in d["offices"])
+    links = "".join(f"<li>{src(S[k], e(n))}</li>" for n, k in d["links"])
+    by = {a["slug"]: a for a in airlines}
+    arows = []
+    for s in d["airlines"]:
+        a = by.get(s)
+        if not a:
+            continue
+        note = (f"<b>Route limits:</b> {e(a.get('banned_routes') or 'none listed.')} "
+                f"<b>Hold or cargo:</b> {e(a.get('checked_or_cargo') or CHECK)}")
+        arows.append(f"<tr><td data-l='Airline'><a href='{root}airlines/{e(s)}.html'><b>{e(a['name'])}</b></a></td>"
+                     f"<td data-l='What our airline page says'>{note}</td>"
+                     f"<td data-l='Japan flights'><span class='flag'>Check</span> Confirm with the airline for your Japan flight</td>"
+                     f"<td class='usa-src' data-l='Checked'>{src(a['official_url'], 'Airline page')} <span class='small'>checked <time datetime='{e(a.get('last_verified') or '')}'>{nice_date(a.get('last_verified'))}</time></span></td></tr>")
+    btns = [f'<a class="btn" href="{e(f["url_template"].strip())}" rel="sponsored nofollow noopener" target="_blank">{e(f["label"])}</a>'
+            for f in cfg.get("flight_affiliates") or [] if (f.get("url_template") or "").strip() and f.get("label")]
+    fbox = ("" if not btns else
+            f'<aside class="reco flights"><h2>Book flights to Japan</h2>'
+            f'<p>Compare fares from the US to Tokyo (Narita or Haneda), Osaka (Kansai) and other Japanese airports, then arrange your pet&rsquo;s place directly with the airline before you buy: pet space is limited per flight, and your arrival airport must match your AQS notification.</p>'
+            f'<p class="buy">{" ".join(btns)}</p>'
+            f'<p class="small disc">Affiliate links: we may earn a commission at no extra cost to you. <a href="{root}about.html#affiliates">Disclosure</a>.</p></aside>')
+    gl = "".join(f"<li><a href='{root}products/{g}.html'>{e(t)}</a></li>" for g, (t, _) in GUIDE_META.items() if g != "dog-road-trip-packing-list")
+    css = """<style>
+.usa-quick{background:var(--sage-l);border:0;border-left:4px solid var(--sage);border-radius:10px;padding:14px 18px}
+.usa-quick h2{margin:0 0 .4em}.usa-quick ul{margin:0;padding-left:1.2em}.usa-quick li{margin:.35em 0}
+.usa-warn{border:0;border-left:4px solid var(--gold)}
+.usa-t .usa-src{white-space:nowrap}
+.rj-air td:nth-child(3){min-width:9em}
+.tablewrap+.tablewrap{margin-top:16px}
+@media (max-width:720px){.usa-t .usa-src{white-space:normal}}
+</style>"""
+    body = f"""{css}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; Routes &rsaquo; USA to Japan</nav>
+<h1>Flying with a dog or cat from the USA to Japan</h1>
+<p class="lead">What your dog or cat needs to fly from the United States to Japan without a long quarantine, and what you need to bring it back. Japan&rsquo;s rules come from the Animal Quarantine Service (AQS) of the Ministry of Agriculture, Forestry and Fisheries (MAFF); USDA APHIS endorses the US health certificate. By our count you need at least about 7 months from the first rabies shot to arrival (30 days between shots, then the 180-day wait), so start early.</p>
+<div class="usa-quick"><h2 id="quick">Quick answer</h2><ul>{qa}</ul></div>
+<p class="warn usa-warn">Rules change. Always confirm with Japan&rsquo;s AQS and USDA APHIS before you travel; a missing date or signature can mean up to 180 days of quarantine. {checked}.</p>
+<h2 id="rules">Rules by case</h2>
+<p class="small">{checked} on the Japan AQS, USDA APHIS and CDC pages linked in each row. Where AQS and APHIS word a rule differently, we follow Japan&rsquo;s AQS page.</p>
+<div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Who</th><th>Direction</th><th>Case</th><th>Rule</th><th>Source</th></tr></thead><tbody>{rows}</tbody></table></div>
+<h2 id="fees">Fees and quarantine</h2>
+<p class="small">{checked}. Prices in US dollars where the source gives them. Rows marked <span class="flag">Check</span> have no official amount we could confirm.</p>
+<div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Item</th><th>Cost</th><th>Source</th></tr></thead><tbody>{fees}</tbody></table></div>
+<div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Situation</th><th>Quarantine in Japan</th><th>Source</th></tr></thead><tbody>{quar}</tbody></table></div>
+<h2 id="airports">Airports and AQS offices</h2>
+<p class="small">{checked}. Send the advance notification to the AQS office at the airport where you will land; email addresses are on the <a href="{e(S['aqs_contact'])}" rel="noopener" target="_blank">AQS contact page</a>.</p>
+<div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Airport</th><th>AQS office</th><th>Phone</th><th>Source</th></tr></thead><tbody>{offs}</tbody></table></div>
+<h2 id="airlines">US airlines to Japan</h2>
+<p class="small">From our airline pages, checked on the airline&rsquo;s official site on the date shown. Airline rules are separate from Japan&rsquo;s entry rules; confirm in-cabin or cargo acceptance for your exact flight.</p>
+<div class="tablewrap"><table class="cmp usa-t rj-air"><thead><tr><th>Airline</th><th>What our airline page says</th><th>Japan flights</th><th>Source</th></tr></thead><tbody>{''.join(arows)}</tbody></table></div>
+{fbox}
+<h2 id="return">Coming back to the USA</h2>
+<p>Japan is not on the CDC list of high-risk countries for dog rabies, so a dog that was only in Japan (or other low-risk countries) in the 6 months before returning needs the free <b>CDC Dog Import Form</b> receipt, a microchip, a healthy look and an age of at least 6 months; the CDC simplified this on August 1, 2024. Cats have no federal rabies proof requirement. State and airline rules still apply. {src(S['cdc_low'], 'CDC')} &middot; {src(S['cdc_high'], 'CDC high-risk list')}</p>
+<p>Full US entry and state rules: <a href="{root}countries/usa.html">Pet travel rules for the USA</a>.</p>
+<h2 id="official">Official links</h2>
+<ul>{links}</ul>
+<p class="note small">{checked}. Rules change; confirm with the official source before you travel. This page is a summary, not legal or veterinary advice. Airlines may require more than Japan does.</p>
+<h2 id="gear">Product guides</h2>
+<ul>{gl}</ul>"""
+    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": qn, "acceptedAnswer": {"@type": "Answer", "text": a}}
+        for qn, (_, a, _k) in zip(["What does a dog or cat need to fly from the US mainland to Japan?",
+                                   "How far ahead do I need to notify Japan's Animal Quarantine Service?",
+                                   "Who endorses the US health certificate for a pet going to Japan?",
+                                   "What are the rules for taking a pet from Hawaii or Guam to Japan?",
+                                   "What happens if my pet doesn't meet Japan's requirements?",
+                                   "What does a dog need to return to the US from Japan?"], d["quick"])]}
+    return page(cfg, f"Flying with a dog or cat from the USA to Japan: rules, timeline and fees | {cfg['site_name']}",
+               "What a dog or cat needs to fly from the US to Japan: microchip, two rabies shots, titer test, 180-day wait, 40-day AQS notice, USDA APHIS endorsement, fees and how to come back, with official sources.",
+               body, "routes/usa-to-japan.html", root,
+               jsonld=[bc_ld(cfg, [("Home", ""), ("Flying with a dog or cat from the USA to Japan", "routes/usa-to-japan.html")]), faq_ld])
+
+
 def main():
     cfg, airlines, updates = load()
     if OUT.exists():
@@ -1356,6 +1459,7 @@ def main():
     (OUT / "advertise").mkdir()
     (OUT / "partner-vets").mkdir()
     (OUT / "countries").mkdir()
+    (OUT / "routes").mkdir()
     pd, lims = load_products(airlines)
     global FORUM_ON
     FORUM_ON = forum_pages.enabled(cfg)
@@ -1383,6 +1487,7 @@ def main():
     (OUT / "advertise" / "index.html").write_text(build_advertise(cfg))
     (OUT / "partner-vets" / "index.html").write_text(build_partner_vets(cfg))
     (OUT / "countries" / "usa.html").write_text(build_country_usa(cfg, airlines))
+    (OUT / "routes" / "usa-to-japan.html").write_text(build_route_usa_japan(cfg, airlines))
     (OUT / "products" / "index.html").write_text(build_products_index(cfg, pd, lims))
     for p in pd["products"]:
         (OUT / "products" / f"{p['slug']}.html").write_text(build_product(cfg, p, pd, lims, airlines))
@@ -1397,10 +1502,14 @@ def main():
     urls += [(f"{base}/airlines/{a['slug']}.html", a.get("last_verified") or a.get("last_checked") or newest) for a in airlines]
     urls += forum_pages.build(sys.modules[__name__], cfg, airlines, OUT, ROOT)  # [] while the forum is off
     urls.append((f"{base}/countries/usa.html", json.loads((ROOT / "data" / "countries" / "usa.json").read_text())["checked"]))
+    urls.append((f"{base}/routes/usa-to-japan.html", json.loads((ROOT / "data" / "routes" / "usa-japan.json").read_text())["checked"]))
     sm = "".join(f"<url><loc>{e(u)}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n')
     (OUT / "ads.txt").write_text("google.com, pub-7693501377730690, DIRECT, f08c47fec0942fa0\n")
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {base}/sitemap.xml\n")
+    for k in (ROOT / "static").glob("*.txt"):  # IndexNow key file(s): static/<32-hex key>.txt -> site root
+        if len(k.stem) == 32 and all(c in "0123456789abcdef" for c in k.stem) and k.read_text().strip() == k.stem:
+            shutil.copy(k, OUT / k.name)
     print(f"Built {len(airlines)} airline pages, {len(pd['products'])} products, {len(pd['guides'])} guides, {len(lims)} cabin limits -> {OUT}")
     for a in airlines:
         print(f"  {a['slug']:16} confirmed {confirmed_count(a)}/{len(FIELDS)}  status={a.get('fetch_status')}")

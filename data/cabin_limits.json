@@ -54,6 +54,17 @@
       "reading": "Read as L x W x H."
     },
     {
+      "airline": "hawaiian",
+      "label": "Cabin",
+      "L": 17,
+      "W": 11,
+      "H": 9.5,
+      "unit": "in",
+      "soft_only": true,
+      "quote": "17 x 11 x 9.5 in",
+      "reading": "Read as L x W x H."
+    },
+    {
       "airline": "american",
       "label": "Soft-sided (recommended)",
       "L": 18,

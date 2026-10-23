@@ -1,0 +1,74 @@
+{
+  "slug": "hawaiian",
+  "name": "Hawaiian Airlines",
+  "iata": "HA",
+  "country": "United States",
+  "official_url": "https://www.hawaiianairlines.com/content/travel-info/pets",
+  "watch_urls": [
+    "https://www.hawaiianairlines.com/content/travel-info/pets",
+    "https://www.hawaiianairlines.com/content/travel-info/policies/pets-traveling-with-pets/pets-in-cabin",
+    "https://www.hawaiianairlines.com/content/travel-info/policies/pets-traveling-with-pets/pets-in-baggage-compartment",
+    "https://www.hawaiianairlines.com/content/travel-info/policies/pets-traveling-hawaii"
+  ],
+  "fetch_status": "ok",
+  "in_cabin_allowed": true,
+  "species": "Small dogs and house cats (also domesticated rabbits and small household birds on some routes; only dogs, cats and rabbits in the cabin to Hawaii, rabbits to Honolulu only)",
+  "max_carrier_dimensions": "Soft-sided only, max 17 x 11 x 9.5 in (length x width x height); hard-sided kennels are not allowed in the cabin",
+  "max_combined_weight": "Baggage compartment: up to 150 lb (68 kg) pet + kennel combined; heavier pets via Pet Connect (Alaska and Hawaiian Air Cargo). No in-cabin weight limit stated: the pet must fit comfortably in the carrier under the seat.",
+  "fees": [
+    {
+      "route": "In cabin",
+      "amount": "$100 per carrier each way ($35 wholly within Hawaii)"
+    },
+    {
+      "route": "Baggage compartment",
+      "amount": "$200 per kennel each way ($60 wholly within Hawaii; $100 wholly within Alaska or for active-duty U.S. Military and dependents on travel orders)"
+    }
+  ],
+  "checked_or_cargo": "Yes: climate-controlled baggage compartment on your flight in a hard-sided kennel, with a vet health certificate issued within 10 days of travel; or Pet Connect via Alaska and Hawaiian Air Cargo for pets traveling without a passenger. Only dogs and cats in the baggage compartment to/from Hawaii and international locations.",
+  "banned_breeds": "Brachycephalic (short-nosed) dogs and cats and their mixes are not accepted in the baggage compartment (e.g. Boston Terrier, Boxer, Bulldog, French Bulldog, Pug, Shih Tzu; Burmese, Exotic Shorthair, Himalayan and Persian cats). They may still fly in the cabin if the carrier fits under the seat.",
+  "banned_routes": "No pets in the cabin or baggage compartment to/from Europe, London (LHR), Japan, Seoul (ICN), Belize City, Guatemala City, Pago Pago, Papeete, Rarotonga and Sydney (limited military exceptions for the baggage compartment to Japan). Pets are accepted within Hawaii and between Hawaii and the U.S. mainland, subject to Hawaii's entry rules: no animals arriving in Honolulu after 10 pm, and non-stop flights to Kona, Lihue or Kahului need a Neighbor Island Inspection Permit (dogs and cats only). No pet carriers in Business Class on A330 or 787 aircraft.",
+  "service_animal_note": "Trained service dogs travel free (up to two per guest) with the U.S. DOT Service Animal Air Transportation Form, ideally submitted 48 hours before departure. Emotional support animals travel as pets.",
+  "recent_changes": [],
+  "notes": "Hawaiian Airlines has been part of Alaska Air Group since September 18, 2024 (per Alaska's newsroom), and the two airlines now share the same pet policy pages, so the rules and fees here match our Alaska Airlines page. Hawaii is rabies-free: dogs and cats flying from the U.S. mainland need a health certificate dated no more than 14 days before arrival and must meet the State of Hawaii's Animal Quarantine rules, or they can be quarantined for up to 120 days at the owner's expense. Pet space is limited and must be reserved before the day of travel; the passenger with a pet in the cabin must be 18 or older, and the pet counts toward the carry-on allowance (except on flights within Hawaii). An older Hawaiian Pet in Cabin Travel Guide (PDF, revised December 2024) also listed JFK, BOS, AUS and SLC as routes with no in-cabin pets; the current official page does not, so confirm with the airline for those routes.",
+  "sources": [
+    {
+      "label": "Hawaiian Airlines: Pet travel overview (fees, service animals travel free)",
+      "url": "https://www.hawaiianairlines.com/content/travel-info/pets"
+    },
+    {
+      "label": "Hawaiian Airlines: Pets in cabin (species, carrier size, in-cabin fee, route restrictions, seating)",
+      "url": "https://www.hawaiianairlines.com/content/travel-info/policies/pets-traveling-with-pets/pets-in-cabin"
+    },
+    {
+      "label": "Hawaiian Airlines: Pets in baggage compartment (weight, kennel, fees, breed restrictions, health certificate)",
+      "url": "https://www.hawaiianairlines.com/content/travel-info/policies/pets-traveling-with-pets/pets-in-baggage-compartment"
+    },
+    {
+      "label": "Hawaiian Airlines: Traveling to Hawaii with pets (Honolulu hours, Neighbor Island permit, 14-day health certificate)",
+      "url": "https://www.hawaiianairlines.com/content/travel-info/policies/pets-traveling-hawaii"
+    },
+    {
+      "label": "Hawaiian Airlines: Service animals",
+      "url": "https://www.hawaiianairlines.com/content/travel-info/accessible-services/specialservices-support-animals/"
+    },
+    {
+      "label": "State of Hawaii Department of Agriculture: Animal Quarantine (entry requirements)",
+      "url": "https://dab.hawaii.gov/ai/aqs/aqs-info/"
+    },
+    {
+      "label": "Alaska Airlines newsroom: Alaska completes acquisition of Hawaiian Airlines (Sep 18, 2024)",
+      "url": "https://news.alaskaair.com/company/alaska-airlines-completes-acquisition-of-hawaiian-airlines-expanding-benefits-and-choice-for-travelers/"
+    }
+  ],
+  "related": [
+    {
+      "label": "Alaska Airlines pet policy (same group, shared pet rules)",
+      "path": "airlines/alaska.html"
+    }
+  ],
+  "last_verified": "2026-10-23",
+  "needs_review": false,
+  "content_hashes": {},
+  "last_checked": "2026-10-23"
+}
