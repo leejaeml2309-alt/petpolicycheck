@@ -267,7 +267,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <p class="foot-brand">{LOGO}{brand_word(cfg['site_name'])}</p>
 <p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline before you book. Information here is not legal or veterinary advice.</p>
 <p class="disc"{ti("site.foot.aff", fi)}>Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</p>
-<p>&copy; {dt.date.today().year} {e(cfg['site_name'])} &middot; <a href="{root}about.html"{ti("site.foot.about", fi)}>About &amp; disclaimer</a> &middot; <a href="{root}products/"{ti("site.nav.products", fi)}>Products</a> &middot; <a href="{root}updates.html"{ti("site.nav.updates", fi)}>Updates</a>{f' &middot; <a href="{root}forum/"{ti("nav.forum", fi)}>Forum</a>' if FORUM_ON else ''} &middot; <a href="{root}advertise/"{ti("site.nav.advertise", fi)}>Advertise</a> &middot; <a href="{root}privacy.html"{ti("site.foot.privacy", fi)}>Privacy</a> &middot; <a href="{root}contact.html"{ti("site.foot.contact", fi)}>Contact</a></p>
+<p>&copy; {dt.date.today().year} {e(cfg['site_name'])} &middot; <a href="{root}about.html"{ti("site.foot.about", fi)}>About &amp; disclaimer</a> &middot; <a href="{root}products/"{ti("site.nav.products", fi)}>Products</a> &middot; <a href="{root}updates.html"{ti("site.nav.updates", fi)}>Updates</a>{f' &middot; <a href="{root}forum/"{ti("nav.forum", fi)}>Forum</a>' if FORUM_ON else ''} &middot; <a href="{root}partner-vets/">Partner vets</a> &middot; <a href="{root}advertise/"{ti("site.nav.advertise", fi)}>Advertise</a> &middot; <a href="{root}privacy.html"{ti("site.foot.privacy", fi)}>Privacy</a> &middot; <a href="{root}contact.html"{ti("site.foot.contact", fi)}>Contact</a></p>
 </div></footer>
 </body></html>
 """
@@ -1081,6 +1081,43 @@ def build_advertise(cfg):
                 body, "advertise/", "../")
 
 
+def build_partner_vets(cfg):
+    import json as _j
+    mail = obf_mail(cfg["contact_email"])
+    clinics = _j.loads((ROOT / "data" / "partner_vets.json").read_text())["clinics"]
+    if clinics:
+        by = {}
+        for c in clinics:
+            by.setdefault(c["country"], {}).setdefault(c["city"], []).append(c)
+        parts = []
+        for country in sorted(by):
+            parts.append(f"<h3>{e(country)}</h3>")
+            for city in sorted(by[country]):
+                rows = []
+                for c in by[country][city]:
+                    contact = " &middot; ".join(x for x in [
+                        f'<a href="tel:{e(c["phone"])}">{e(c["phone"])}</a>' if c.get("phone") else "",
+                        f'<a href="mailto:{e(c["email"])}">{e(c["email"])}</a>' if c.get("email") else ""] if x)
+                    name = f'<a href="{e(c["url"])}" rel="noopener">{e(c["name"])}</a>' if c.get("url") else e(c["name"])
+                    rows.append(f'<tr><td data-l="Clinic">{name}</td><td data-l="City">{e(city)}</td><td data-l="Contact">{contact}</td><td data-l="Travel services">{e(", ".join(c.get("services", [])))}</td></tr>')
+                parts.append(f'<h4>{e(city)}</h4><div class="tablewrap"><table class="cmp"><thead><tr><th>Clinic</th><th>City</th><th>Contact</th><th>Travel services</th></tr></thead><tbody>{"".join(rows)}</tbody></table></div>')
+        listing = "".join(parts)
+    else:
+        listing = """<p><b>First partners coming soon.</b> We are inviting veterinary clinics in the United States first, then in South Korea. Partner clinics will be listed here by country and city, with their website, phone or email, and the travel services they offer, so you can contact them directly.</p>
+<div class="tablewrap"><table class="cmp"><thead><tr><th>Clinic</th><th>City</th><th>Contact</th><th>Travel services</th></tr></thead><tbody>
+<tr><td data-l="Clinic" colspan="4"><i>No partner clinics listed yet.</i></td></tr></tbody></table></div>"""
+    body = f"""<h1>Partner vets: travel-ready clinics</h1>
+<p>Flying with a dog or cat usually means a health certificate, up-to-date vaccinations (often a rabies titer test) and country-specific paperwork, all within strict time windows. Our partner veterinary clinics help pet owners prepare these documents ahead of the trip, so nothing is missing at check-in or at the border.</p>
+<p class="small">Partner clinics are independent practices. {e(cfg['site_name'])} does not provide veterinary advice and is not paid for referrals; always confirm requirements with the clinic and the destination country's official authority.</p>
+<h2>Partner clinics</h2>
+{listing}
+<h2>Are you a vet? Become a partner</h2>
+<p>If your clinic issues pet travel health certificates, vaccinations or export paperwork, we would be glad to list you here free of charge so pet owners planning a trip can contact you directly. Email {mail} with your clinic's name, city, website and the travel services you offer.</p>"""
+    return page(cfg, f"Partner vets for pet travel paperwork | {cfg['site_name']}",
+                "Veterinary clinics that help pet owners prepare health certificates, vaccinations and travel paperwork before flying with a dog or cat.",
+                body, "partner-vets/", "../")
+
+
 def main():
     cfg, airlines, updates = load()
     if OUT.exists():
@@ -1088,6 +1125,7 @@ def main():
     (OUT / "airlines").mkdir(parents=True)
     (OUT / "products").mkdir()
     (OUT / "advertise").mkdir()
+    (OUT / "partner-vets").mkdir()
     pd, lims = load_products(airlines)
     global FORUM_ON
     FORUM_ON = forum_pages.enabled(cfg)
@@ -1105,6 +1143,7 @@ def main():
     (OUT / "privacy.html").write_text(build_privacy(cfg))
     (OUT / "contact.html").write_text(build_contact(cfg))
     (OUT / "advertise" / "index.html").write_text(build_advertise(cfg))
+    (OUT / "partner-vets" / "index.html").write_text(build_partner_vets(cfg))
     (OUT / "products" / "index.html").write_text(build_products_index(cfg, pd, lims))
     for p in pd["products"]:
         (OUT / "products" / f"{p['slug']}.html").write_text(build_product(cfg, p, pd, lims, airlines))
@@ -1113,7 +1152,7 @@ def main():
     base = site_base(cfg)
     newest = max(a["last_verified"] for a in airlines if a.get("last_verified"))
     urls = [(f"{base}/", newest), (f"{base}/updates.html", newest), (f"{base}/about.html", newest),
-            (f"{base}/privacy.html", newest), (f"{base}/contact.html", newest), (f"{base}/advertise/", newest),
+            (f"{base}/privacy.html", newest), (f"{base}/contact.html", newest), (f"{base}/advertise/", newest), (f"{base}/partner-vets/", newest),
             (f"{base}/products/", pd["verified"])]
     urls += [(f"{base}/products/{x['slug']}.html", pd["verified"]) for x in pd["products"] + pd["guides"]]
     urls += [(f"{base}/airlines/{a['slug']}.html", a.get("last_verified") or a.get("last_checked") or newest) for a in airlines]

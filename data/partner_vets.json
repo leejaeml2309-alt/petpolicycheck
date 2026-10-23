@@ -1,0 +1,2 @@
+{"_note": "Add a clinic ONLY after it has accepted the partnership. Fields: country, city, name, url, phone, email, services (list).",
+ "clinics": []}
