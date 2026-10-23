@@ -67,6 +67,7 @@ table{border-collapse:collapse;width:100%}
 .cmp tbody tr:hover{background:var(--sage-l)}
 .cmp tbody tr:last-child td{border-bottom:0}
 .cmp td:first-child a{font-weight:600}
+.cmp.gear{table-layout:fixed;width:100%}.gear col.c-prod{width:38%}.gear col.c-for{width:12%}
 .badge{display:inline-block;padding:1px 10px;border-radius:999px;font-size:.8rem;font-weight:600;white-space:nowrap}
 .b-yes{background:var(--sage-l);color:#33461f}.b-no{background:#f3dfe0;color:var(--burg)}.b-check{background:var(--ochre-l);color:#6e5010;white-space:normal}
 .na{color:var(--mut);font-style:italic}

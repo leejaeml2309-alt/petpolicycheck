@@ -597,7 +597,22 @@ def build_contact(cfg):
 
 # ---------------------------------------------------------------- products & ads
 CATS = {"soft_carrier": "Soft & under-seat carriers", "backpack": "Carrier backpacks",
-        "hard_crate": "Hard crates for the hold / cargo", "bowl": "Travel bowls"}
+        "hard_crate": "Hard crates for the hold / cargo", "bowl": "Travel bowls & water bottles",
+        "harness": "Harnesses & leashes (including car harnesses)", "car": "Car seat belts, seat covers & boosters",
+        "bed": "Travel beds & mats", "clothing": "Coats, cooling vests, boots & life jackets",
+        "calming": "Calming aids", "potty": "Travel litter boxes & pee pads",
+        "id_gps": "ID & GPS trackers", "travel_gear": "Other travel accessories"}
+# Travel accessories: spec tables only (no airline size comparison); pages say "specs" rather than "dimensions".
+GEAR = {"harness", "car", "bed", "clothing", "calming", "potty", "id_gps", "travel_gear"}
+GEAR_REL = {"harness": ["dog-road-trip-packing-list"], "car": ["dog-road-trip-packing-list"],
+            "bed": ["dog-road-trip-packing-list"], "clothing": ["dog-road-trip-packing-list"],
+            "calming": ["dog-road-trip-packing-list", "cat-travel-checklist"], "potty": ["cat-travel-checklist", "dog-road-trip-packing-list"],
+            "id_gps": ["dog-road-trip-packing-list", "cat-travel-checklist"], "travel_gear": ["cat-travel-checklist", "dog-road-trip-packing-list"]}
+
+
+def pets_txt(p):
+    ps = p.get("pets") or []
+    return " &amp; ".join({"dog": "Dogs", "cat": "Cats"}[x] for x in ps)
 EPS = 0.05
 
 
@@ -739,7 +754,7 @@ def disclosure(root):
 
 
 def verified_p(p, v, root):
-    return (f'<p class="verified">&#10003; Dimensions checked <time datetime="{v}">{nice_date(v)}</time> against the '
+    return (f'<p class="verified">&#10003; {"Specs" if p["category"] in GEAR else "Dimensions"} checked <time datetime="{v}">{nice_date(v)}</time> against the '
             f'<a href="{e(p["official_url"])}" rel="noopener" target="_blank">official {e(p["brand"])} product page</a>. No prices shown: they change too often.</p>')
 
 
@@ -797,14 +812,17 @@ def build_product(cfg, p, pd, lims, airlines):
                  f"<h2>Airlines that take pets in the hold or as cargo</h2>{hold_table(airlines, root)}")
     rel = {"soft_carrier": ["best-airline-approved-soft-carriers", "under-seat-carrier-size-by-airline"],
            "backpack": ["pet-carrier-backpacks-for-flying", "best-airline-approved-soft-carriers"],
-           "hard_crate": ["iata-hard-crates-for-cargo"], "bowl": ["travel-water-bowls"]}[p["category"]]
+           "hard_crate": ["iata-hard-crates-for-cargo"], "bowl": ["travel-water-bowls", "dog-road-trip-packing-list"], **GEAR_REL}[p["category"]]
+    gear = p["category"] in GEAR
+    if p["slug"] == "petmate-kennel-airline-travel-kit":
+        rel = rel + ["iata-hard-crates-for-cargo"]
     rl = "".join(f"<li><a href='{g}.html'>{e(GUIDE_META[g][0])}</a></li>" for g in rel)
     sib = "".join(f"<li><a href='{q['slug']}.html'>{e(q['name'])}</a></li>" for q in pd["products"] if q["category"] == p["category"] and q is not p)
     body = f"""{crumbs("{root}", p['name'])}
-<h1>{e(p['name'])}: dimensions{' and airline under-seat fit' if p['category'] in ('soft_carrier','backpack') else ''}</h1>
+<h1>{e(p['name'])}: {'sizes and specs' if gear else 'dimensions'}{' and airline under-seat fit' if p['category'] in ('soft_carrier','backpack') else ''}</h1>
 {verified_p(p, v, root)}
-{buy_links(cfg, p)}
-<h2>Dimensions</h2>
+{buy_links(cfg, p)}{f'<p>Category: <a href="{{root}}products/#{p["category"]}">{e(CATS[p["category"]])}</a>' + (f' &middot; For: {pets_txt(p)}' if p.get("pets") else '') + '</p>' if gear else ''}
+<h2>{'Specs (per maker)' if gear else 'Dimensions'}</h2>
 {spec}
 <p class="small">{e(p.get('dims_note', ''))}{(' Construction: ' + e(p['construction']) + '.') if p.get('construction') else ''}</p>
 {f"<h2>What {e(p['brand'])} says</h2><ul>{says}</ul><p class='small'>Manufacturer claims, not verified by us.</p>" if says else ''}
@@ -816,8 +834,10 @@ def build_product(cfg, p, pd, lims, airlines):
     if faqs:
         ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]})
-    t = f"{p['name']}: dimensions" + (" & which airlines it fits under-seat" if faqs else "") + f" | {cfg['site_name']}"
+    t = f"{p['name']}: {'sizes & specs' if gear else 'dimensions'}" + (" & which airlines it fits under-seat" if faqs else "") + f" | {cfg['site_name']}"
     d = f"{p['name']} dimensions from the official {p['brand']} page" + (", compared with the cabin carrier limits of major airlines." if faqs else ", with links to airline pet rules.")
+    if gear:
+        d = f"{p['name']}: sizes and specs from the official {p['brand']} page, with what the maker says. For travelling with {pets_txt(p).replace('&amp;', 'and').lower() or 'pets'}."
     return page(cfg, t, d, body, f"products/{p['slug']}.html", root, ld)
 
 
@@ -832,7 +852,54 @@ GUIDE_META = {
         "Do pet backpack carriers fit airline under-seat limits? Official backpack dimensions compared with airline cabin limits."),
     "travel-water-bowls": ("Travel water bowls for dogs and cats: collapsible and nesting options",
         "Travel and collapsible pet bowls for trips and flights, with capacities and sizes from the manufacturers' official pages."),
+    "dog-road-trip-packing-list": ("What to pack for a road trip with your dog: a checklist with gear specs",
+        "A road trip packing list for dogs: car harnesses and tethers, seat covers, bowls, beds, weather gear, pee pads, calming aids and GPS trackers, with specs from the makers' official pages."),
+    "cat-travel-checklist": ("Cat travel checklist: carriers, litter, calming and ID",
+        "A checklist for travelling with a cat by car or plane: carriers, travel litter boxes, pads, calming wraps and sprays, GPS trackers and carrier accessories, with specs from official maker pages."),
 }
+
+ROADTRIP_LIST = ["Your dog's food for the whole trip, plus a little extra", "Water and a travel bowl", "Leash and a harness with ID tags",
+                 "Poop bags", "Any medications, and your vet's phone number", "Vaccination records (some hotels, campgrounds and borders ask for them)",
+                 "A recent photo of your dog, in case you get separated", "Bedding or a blanket that smells like home", "Towels and cleanup supplies"]
+ROADTRIP_SECS = [
+    ("harness", "Restraint: car harness and leash", "Clip a seatbelt tether to a harness rather than a collar. Crash-testing claims differ by maker and size, so read each product page before you rely on one."),
+    ("car", "In the car: tethers, booster seats and seat covers", "A tether or booster keeps your dog in one place; a cover protects the seat. Kurgo says its own seatbelt tether is not crash tested."),
+    ("bowl", "Water and food on the road", "A collapsible bowl or a bottle with a built-in cup makes rest stops easier."),
+    ("bed", "Somewhere to sleep", "A packable bed gives your dog a familiar spot in hotels, at friends' houses or at camp."),
+    ("clothing", "Weather gear: coats, cooling vests, boots and life jackets", "Pack for the weather and activities at your destination. Check the maker's size chart: most size by chest girth, boots by paw width."),
+    ("potty", "Pee pads", "Handy for long drives, hotel rooms and dogs that are still learning."),
+    ("calming", "Calming aids", "If your dog gets anxious in the car, talk to your vet; these are drug-free options the makers recommend for travel."),
+    ("id_gps", "ID and GPS trackers", "Update the contact details on your dog's tag and microchip before you leave. GPS trackers need a paid plan and cellular coverage."),
+    ("travel_gear", "Other useful extras", ""),
+]
+CAT_LIST = ["A secure carrier your cat already knows (leave it out at home for a few days before the trip)", "Travel litter box, litter, a scoop and bags",
+            "Food, water and a small bowl", "Any medications, and your vet's phone number", "Vaccination and health records (airlines and border authorities may ask for them)",
+            "Microchip details and a collar with ID", "A puppy pad or towel to line the carrier", "Something that smells like home"]
+CAT_SECS = [
+    ("potty", "Travel litter boxes and pads", "A collapsible box can sit in the car footwell or a hotel bathroom."),
+    ("calming", "Calming aids", "FELIWAY says to spray the carrier at least 15 minutes before your cat goes in, never with your cat inside."),
+    ("id_gps", "ID and GPS trackers", "GPS trackers need a paid plan and cellular coverage. Check the weight range for your cat."),
+    ("travel_gear", "Carrier accessories and organizers", "A carrier tether helps during airport security screening, when you may be asked to take your cat out of the carrier."),
+]
+
+
+def gear_table(ps, root=""):
+    tr = "".join(f"<tr><td data-l='Product'><a href='{p['slug']}.html'>{e(p['name'])}</a><br><span class='small'>{e(p['brand'])}</span></td>"
+                 f"<td data-l='Key specs'>{e(p.get('summary') or '; '.join(f'{a}: {b}' for a, b in p.get('spec_rows', []))[:120])}</td>"
+                 f"<td data-l='For'>{pets_txt(p) or '&ndash;'}</td></tr>" for p in ps)
+    return (f"<div class='tablewrap'><table class='cmp gear'><colgroup><col class='c-prod'><col><col class='c-for'></colgroup>"
+            f"<thead><tr><th>Product</th><th>Key specs (per maker)</th><th>For</th></tr></thead>"
+            f"<tbody>{tr}</tbody></table></div>")
+
+
+def checklist_main(P, items, secs, pet, root):
+    out = ("<h2>Quick checklist</h2><ul class='check'>" + "".join(f"<li>{e(x)}</li>" for x in items) + "</ul>") if items else ""
+    for cat, h, tip in secs:
+        ps = [p for p in P if p["category"] == cat and (cat == "bowl" or pet in (p.get("pets") or []))]
+        if not ps:
+            continue
+        out += f"<h2 id='{cat}'>{e(h)}</h2>" + (f"<p>{e(tip)}</p>" if tip else "") + gear_table(ps, root)
+    return out
 
 
 def build_guide(cfg, g, pd, lims, airlines):
@@ -892,16 +959,29 @@ def build_guide(cfg, g, pd, lims, airlines):
         main = f"""<p>Backpack carriers are tall, while airline under-seat limits are usually short (8 to 11 in / 20 to 27 cm high). Below, a backpack's published dimensions against each airline limit we've verified, standing upright.</p>
 {secs}
 <p>If you need a carrier for the cabin, compare the <a href="best-airline-approved-soft-carriers.html">soft under-seat carriers</a> instead.</p>"""
-    else:
+    elif k == "roadtrip":
+        main = (f"""<p>A packing list for car trips with a dog. Products are grouped by need; every spec comes from the maker's official page (linked from each product page), and we have not tested them. Rules on restraining pets in cars vary by state and country, so check the rules where you'll drive.</p>"""
+                + checklist_main(P, ROADTRIP_LIST, ROADTRIP_SECS, "dog", root)
+                + f"""<h2>Flying instead?</h2><p>See the <a href="best-airline-approved-soft-carriers.html">soft carrier guide</a>, <a href="iata-hard-crates-for-cargo.html">hard crates for the hold</a> and our <a href="{root}index.html">airline pet policy pages</a>.</p>""")
+    elif k == "cat":
+        soft = ", ".join(plink(p) for p in P if p["category"] == "soft_carrier")
+        main = (f"""<p>A checklist for travelling with a cat, by car or by plane. Every product spec below comes from the maker's official page, and we have not tested these products.</p>"""
+                + checklist_main(P, CAT_LIST, [], "cat", root)
+                + f"""<h2 id="carrier">The carrier</h2><p>For flights, the carrier usually has to fit under the seat in front of you. Compare carrier sizes with each airline's limit in <a href="under-seat-carrier-size-by-airline.html">carrier size by airline</a> and the <a href="best-airline-approved-soft-carriers.html">soft carrier guide</a>. Carriers we list: {soft}.</p>"""
+                + checklist_main(P, [], CAT_SECS, "cat", root)
+                + f"""<h2>Before you fly</h2><p>Check your airline's cabin pet rules (fees, carrier size, weight limit, breed restrictions) on our <a href="{root}index.html">airline pet policy pages</a>, each linked to the airline's official page and dated.</p>""")
+    elif k == "bowls":
         bw = [p for p in P if p["category"] == "bowl"]
         tr = "".join(f"<tr><td data-l='Bowl'>{plink(p)}</td><td data-l='Size'>{e(a)}</td><td data-l='Specs'>{e(b)}</td></tr>" for p in bw for a, b in p["spec_rows"])
         cards = "".join(f"<h3>{plink(p)}</h3><p>{e(p.get('construction') or '')}. {e(' '.join(p.get('maker_says', [])))}</p>" for p in bw)
         main = f"""<p>A collapsible or nesting bowl lets you offer water during layovers. Sizes and capacities below are from each maker's official page.</p>
 <div class="tablewrap"><table class="cmp"><thead><tr><th>Bowl</th><th>Size</th><th>Specs (per maker)</th></tr></thead><tbody>{tr}</tbody></table></div>{cards}"""
+    else:
+        raise ValueError(f"unknown guide kind {k!r}")
     other = "".join(f"<li><a href='{s}.html'>{e(GUIDE_META[s][0])}</a></li>" for s in GUIDE_META if s != slug)
     body = f"""{crumbs("{root}", title.split(':')[0])}
 <h1>{e(title)}</h1>
-<p class="verified">&#10003; Product dimensions checked <time datetime="{v}">{nice_date(v)}</time> against each manufacturer's official page; airline limits from our dated airline pages.</p>
+<p class="verified">&#10003; Product {'specs' if k in ('roadtrip', 'cat') else 'dimensions'} checked <time datetime="{v}">{nice_date(v)}</time> against each manufacturer's official page{'' if k in ('roadtrip', 'cat') else '; airline limits from our dated airline pages'}.</p>
 {ad_slot(cfg, 'guide_sponsor', '{root}')}
 {main}
 {forum_pages.guide_link(cfg, slug)}
@@ -915,7 +995,7 @@ def build_guide(cfg, g, pd, lims, airlines):
 def build_products_index(cfg, pd, lims):
     root = "../"
     gl = "".join(f"<li><a href='{g['slug']}.html'>{e(GUIDE_META[g['slug']][0])}</a> <span class='small'>{e(GUIDE_META[g['slug']][1])}</span></li>" for g in pd["guides"])
-    secs = ""
+    secs, jump = "", []
     for c, lbl in CATS.items():
         ps = [p for p in pd["products"] if p["category"] == c]
         if not ps:
@@ -925,17 +1005,22 @@ def build_products_index(cfg, pd, lims):
             if c in ("soft_carrier", "backpack"):
                 best = max((len(ok) for _, ok in fits_list(p, lims)), default=0)
                 n = len(applicable(p, lims))
-                info = f"within {best} of {n} airline cabin limits (best size)"
+                info = (f"within {best} of {n} airline cabin limits (best size)" if best
+                        else "Larger than the cabin limits we track; check the hold/cargo options")
             elif c == "hard_crate":
                 info = f"{len(p['sizes'])} sizes, interior dimensions"
+            elif p.get("summary"):
+                info = p["summary"]
             else:
                 info = "; ".join(f"{a}: {b}" for a, b in p["spec_rows"])[:90]
             li += f"<li><a href='{p['slug']}.html'>{e(p['name'])}</a> <span class='small'>{e(info)}</span></li>"
-        secs += f"<h2>{e(lbl)}</h2><ul class='plist cards'>{li}</ul>"
+        jump.append(f"<a href='#{c}'>{e(lbl)}</a>")
+        secs += f"<h2 id='{c}'>{e(lbl)}</h2><ul class='plist cards'>{li}</ul>"
     body = f"""{crumbs("{root}")}
-<h1>Pet travel gear: carriers, crates and bowls, checked against airline limits</h1>
+<h1>Pet travel gear: carriers, crates and travel accessories, checked against official specs</h1>
 {side_photo(cfg, "products_photo", "{root}")}
-<p>Dimensions for each product come from the manufacturer's official page (linked and dated), and we compare them with the cabin carrier limits on our <a href="{{root}}index.html">airline pet policy pages</a>. No prices, ratings or hands-on test claims: just published numbers you can check.</p>
+<p>Dimensions and specs for each product come from the manufacturer's official page (linked and dated). For carriers, we compare them with the cabin carrier limits on our <a href="{{root}}index.html">airline pet policy pages</a>. No prices, ratings or hands-on test claims: just published numbers you can check.</p>
+<p class="small">Jump to: {" &middot; ".join(jump)}</p>
 <h2>Guides</h2><ul class="plist cards guides">{gl}</ul>
 {secs}
 {disclosure("{root}")}
@@ -944,8 +1029,8 @@ def build_products_index(cfg, pd, lims):
           {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [
               {"@type": "ListItem", "position": i + 1, "name": p["name"], "url": f"{site_base(cfg)}/products/{p['slug']}.html"}
               for i, p in enumerate(pd["products"])]}]
-    return page(cfg, f"Pet travel carriers & crates: which fit airline under-seat limits | {cfg['site_name']}",
-                "Pet carriers, hard crates and travel bowls with official manufacturer dimensions, compared with airline cabin carrier limits.",
+    return page(cfg, f"Pet travel carriers, crates & accessories: official specs and airline under-seat fit | {cfg['site_name']}",
+                "Pet carriers, hard crates, car harnesses, seat covers, travel beds, calming aids, litter boxes and GPS trackers, with specs from official manufacturer pages; carriers compared with airline cabin limits.",
                 body, "products/", root, ld)
 
 
