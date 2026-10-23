@@ -20,6 +20,8 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+import stories as ST  # forum/stories.py (Pet Travel Stories data)
+
 HERE = Path(__file__).resolve().parent
 CATS = json.loads((HERE / "categories.json").read_text())
 FILTERS = ("transport", "weather", "season", "carrier", "species", "weight")
@@ -105,7 +107,7 @@ def author(p):
 
 
 def subnav(B, root, cur, show_lang=True):
-    items = [("index.html", "f.home"), ("new.html", "f.new"), ("guidelines.html", "f.rules"), ("account.html", "f.account")]
+    items = [("index.html", "f.home"), ("pet-travel-stories/", "f.stories"), ("new.html", "f.new"), ("guidelines.html", "f.rules"), ("account.html", "f.account")]
     links = "".join(f'<a href="{root}forum/{h}"{" aria-current=page" if h == cur else ""}'
                     f'{" data-acct" if h == "account.html" else ""} data-i18n="{k}">{B.e(T(k))}</a>' for h, k in items)
     langs = "".join(f'<button type="button" data-setlang="{c}" lang="{c}">{B.e(d.get("_lang_name", c))}</button>'
@@ -452,6 +454,62 @@ def build_guidelines(B, cfg, mail_html):
                   body, "forum/guidelines.html", root, [B.bc_ld(cfg, [("Home", ""), ("Forum", "forum/"), ("Community rules", "forum/guidelines.html")])])
 
 
+def story_card(B, s):
+    def tr(idx, tag):
+        return "".join(f'<{tag} data-sl="{c}" lang="{c}"{"" if c == "en" else " hidden"}>{B.e(s["tr"][c][idx])}</{tag}>'
+                       for c in I18N if c in s["tr"])
+    sp = s["species"]
+    sp_tag = (f'<span class="ftag" data-i18n="{"st.species.both" if sp == "both" else "cat.species." + sp}">'
+              f'{B.e(T("st.species.both" if sp == "both" else "cat.species." + sp))}</span>') if sp else ""
+    ql = s["slang"] if s["slang"] != "other" else ""
+    quote = (f'<blockquote class="squote"{f" lang={ql}" if ql else ""} cite="{B.e(s["link"])}"><p>“{B.e(s["quote"])}”</p>'
+             f'<footer class="small"><span data-i18n="st.orig_quote">{B.e(T("st.orig_quote"))}</span> '
+             f'(<span data-i18n="st.lang.{s["slang"]}">{B.e(T("st.lang." + s["slang"]))}</span>)</footer></blockquote>') if s["quote"] else ""
+    meta = []
+    if s["route"]:
+        meta.append(f'<span data-i18n="st.route">{B.e(T("st.route"))}</span>: <span lang="fr">{B.e(s["route"])}</span>')
+    meta.append(f'<span data-i18n="st.source">{B.e(T("st.source"))}</span>: {B.e(s["site"])}')
+    if s["date"]:
+        meta.append(f'<time datetime="{s["date"]}">{fdate(s["date"])}</time>')
+    return (f'<li class="scard" id="story-{B.e(s["id"])}" data-cat="{s["cat"]}" data-species="{sp}" data-slang="{s["slang"]}">'
+            f'<h2 class="sh">{tr(0, "span")}</h2>'
+            f'<span class="ftags"><span class="ftag t-transport" data-i18n="st.cat.{s["cat"]}">{B.e(T("st.cat." + s["cat"]))}</span>{sp_tag}</span>'
+            f'<p class="sx">{tr(1, "span")}</p>{quote}'
+            f'<p class="small fmeta">{" &middot; ".join(meta)}</p>'
+            f'<p class="slink"><a href="{B.e(s["link"])}" rel="nofollow noopener" target="_blank" data-i18n="st.read">{B.e(T("st.read"))}</a> ↗</p></li>')
+
+
+def build_stories(B, cfg, stories):
+    root = "../../"
+    cats = [c for c in dict.fromkeys(ST.CATEGORY.values()) if any(s["cat"] == c for s in stories)]
+    slangs = [c for c in dict.fromkeys(list(ST.SRC_LANG.values()) + ["other"]) if any(s["slang"] == c for s in stories)]
+    sel = lambda name, label, codes, key: (f'<label><span data-i18n="{label}">{B.e(T(label))}</span><select name="{name}">'
+                                           f'<option value="" data-i18n="f.any">{B.e(T("f.any"))}</option>'
+                                           + "".join(f'<option value="{c}" data-i18n="{key(c)}">{B.e(T(key(c)))}</option>' for c in codes)
+                                           + "</select></label>")
+    form = (f'<form class="ffilters" id="sfilters" role="search" onsubmit="return false">'
+            f'<h2 class="fh" data-i18n="st.filters">{B.e(T("st.filters"))}</h2><div class="fgrid">'
+            f'<label class="wide"><span data-i18n="st.search">{B.e(T("st.search"))}</span><input type="search" name="q" maxlength="60" data-i18n-ph="st.search_ph" placeholder="{B.e(T("st.search_ph"))}"></label>'
+            + sel("cat", "st.fld.cat", cats, lambda c: f"st.cat.{c}")
+            + sel("species", "st.fld.species", ["dog", "cat"], lambda c: f"cat.species.{c}")
+            + sel("slang", "st.fld.slang", slangs, lambda c: f"st.lang.{c}")
+            + f'</div><p class="fbtns"><button type="reset" class="fbtn alt" data-i18n="f.reset">{B.e(T("f.reset"))}</button></p></form>')
+    cards = "".join(story_card(B, s) for s in stories)
+    body = f"""<nav class="crumbs"><a href="{{root}}index.html" data-i18n="f.crumb_home">Home</a> &rsaquo; <a href="{{root}}forum/" data-i18n="nav.forum">Forum</a> &rsaquo; <span data-i18n="f.stories">{B.e(T("f.stories"))}</span></nav>
+<h1 data-i18n="st.title">{B.e(T("st.title"))}</h1>
+{subnav(B, root, "pet-travel-stories/")}
+<p class="lead" data-i18n="st.intro">{B.e(T("st.intro"))}</p>
+{form}
+<p class="small" id="sstatus" aria-live="polite" data-total="{len(stories)}"></p>
+<ul class="flist slist" id="slist">{cards}</ul>
+<p class="note" id="snone" hidden data-i18n="st.none">{B.e(T("st.none"))}</p>
+{app("stories")}{scripts(root, "stories")}"""
+    ld = [B.bc_ld(cfg, [("Home", ""), ("Forum", "forum/"), (T("f.stories"), "forum/pet-travel-stories/")])]
+    return B.page(cfg, f"{T('st.title')} | {cfg['site_name']}",
+                  "Summaries of public forum discussions about flying and moving abroad with dogs and cats, with short original quotes and links to the original threads. Owners' experiences, not airline rules.",
+                  body, "forum/pet-travel-stories/", root, ld)
+
+
 # ------------------------------------------------------------------ links from other pages
 GUIDE_FILTERS = {"best-airline-approved-soft-carriers": "transport=plane_cabin&carrier=soft_bag",
                  "under-seat-carrier-size-by-airline": "transport=plane_cabin",
@@ -508,6 +566,7 @@ def build(B, cfg, airlines, out_root, root_dir):
     import hashlib
     out = out_root / "forum"
     out.mkdir(exist_ok=True)
+    ST.refresh_copy(root_dir)  # keep data/forum_stories.csv current even while the forum is off
     if not enabled(cfg):
         (out / "index.html").write_text(coming_soon(B, cfg))
         return []
@@ -528,11 +587,18 @@ def build(B, cfg, airlines, out_root, root_dir):
     (out / "account.html").write_text(build_account(B, cfg, mail_html))
     (out / "admin.html").write_text(build_admin(B, cfg))
     (out / "guidelines.html").write_text(build_guidelines(B, cfg, mail_html))
+    stories, skipped = ST.load(root_dir, [c for c in I18N if c != "en"])
+    (out / "pet-travel-stories").mkdir(exist_ok=True)
+    (out / "pet-travel-stories" / "index.html").write_text(build_stories(B, cfg, stories))
+    print(f"  stories: {len(stories)} rendered, {skipped} skipped")
     (out / "p").mkdir(exist_ok=True)
     base = B.site_base(cfg)
     today = dt.date.today().isoformat()
     newest = max([p["created_at"][:10] for p in posts] + [today[:4] + "-01-01"])
     urls = [(f"{base}/forum/", newest), (f"{base}/forum/guidelines.html", "2026-10-22")]
+    st_csv = root_dir / "data" / "forum_stories.csv"
+    if st_csv.exists():
+        urls.append((f"{base}/forum/pet-travel-stories/", dt.date.fromtimestamp(st_csv.stat().st_mtime).isoformat()))
     for p in posts:
         cs = by_post.get(p["id"], [])
         (out / paths[p["id"]]).write_text(build_post_static(B, cfg, p, cs, paths[p["id"]], airlines_by))

@@ -71,6 +71,44 @@
     rerender.forEach(function (f) { f(); });
   });
 
+  /* ---------------------------------------------------------------- pet travel stories (static cards; no Supabase needed) */
+  function initStories() {
+    var list = $('slist'), form = $('sfilters'), status = $('sstatus');
+    if (!list || !form) return;
+    var cards = Array.prototype.slice.call(list.children), total = cards.length;
+    function langs() {
+      cards.forEach(function (li) {
+        var has = li.querySelector('[data-sl="' + L + '"]');
+        li.querySelectorAll('[data-sl]').forEach(function (el) { el.hidden = el.getAttribute('data-sl') !== (has ? L : 'en'); });
+        li.querySelectorAll('time[datetime]').forEach(function (el) {
+          var d = new Date(el.getAttribute('datetime') + 'T12:00:00');
+          try { el.textContent = d.toLocaleDateString(L, { year: 'numeric', month: 'short', day: 'numeric' }); } catch (e) { /* keep */ }
+        });
+      });
+      filter();
+    }
+    function filter() {
+      var q = (form.q.value || '').trim().toLowerCase(), c = form.cat.value, s = form.species.value, sl = form.slang.value, n = 0;
+      cards.forEach(function (li) {
+        var ok = (!c || li.getAttribute('data-cat') === c) &&
+          (!s || li.getAttribute('data-species') === s || li.getAttribute('data-species') === 'both') &&
+          (!sl || li.getAttribute('data-slang') === sl) &&
+          (!q || li.textContent.toLowerCase().indexOf(q) !== -1);
+        li.hidden = !ok;
+        if (ok) n++;
+      });
+      status.textContent = t('st.results', { n: n, total: total });
+      show($('snone'), n === 0);
+    }
+    form.addEventListener('input', filter);
+    form.addEventListener('change', filter);
+    form.addEventListener('reset', function () { setTimeout(filter, 0); });
+    applyI18n();
+    langs();
+    rerender.push(langs);
+  }
+  if (PAGE === 'stories') initStories();
+
   /* ---------------------------------------------------------------- DOM helpers */
   function h(tag, attrs) {
     var el = document.createElement(tag);
