@@ -230,7 +230,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <meta charset="utf-8">
 <meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
 {ADSENSE + chr(10) + TP_DRIVE if ads else ''}
-<meta name="viewport" content="width=device-width,initial-scale=1">{chr(10) + '<meta name="robots" content="noindex">' if noindex else ''}
+<meta name="viewport" content="width=device-width,initial-scale=1">{chr(10) + '<meta name="robots" content="noindex,follow">' if noindex else ''}
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{e(canon)}">
@@ -467,6 +467,8 @@ def build_airline(cfg, a, pd=None, lims=None):
 {status}{review}
 <table class="facts"><tbody>{rows}</tbody></table>
 {airline_carriers_block(a, pd, lims) if pd else ''}
+{airline_gear_box(cfg, a, pd, lims) if pd else ''}
+{flight_box(cfg, a)}
 {f"<h2>Good to know</h2><p>{e(a['notes'])}</p>" if a.get('notes') else ''}
 <h2>Recent changes</h2>
 {f"<ul class='changes'>{ch}</ul>" if ch else "<p>No dated changes recorded yet. We log changes here when we detect them.</p>"}
@@ -1057,6 +1059,108 @@ def airline_carriers_block(a, pd, lims):
             f"<a href='../products/best-airline-approved-soft-carriers.html'>Soft carrier guide</a></p></aside>")
 
 
+AMAZON_DP = "https://www.amazon.com/dp/{asin}"
+# Universal travel items offered on every airline page after the fitting carriers (slug, optional size of the ASIN).
+GEAR_FILL = [("kurgo-collaps-a-bowl", "Folds to under 1 in and holds 24 oz (per Kurgo), so it fits in a carrier pocket for water at the gate and after landing."),
+             ("ruffwear-front-range-harness", "For dogs: a padded walking harness for the airport before and after the flight (linked: X-Small, girth 17&ndash;22 in; other sizes on the same Amazon page).")]
+HOLD_CRATE = ("petmate-sky-kennel", '21"')
+
+
+def amazon_asin(p, size=None):
+    """Verified Amazon ASIN for a product (data/products.json amazon_asins), size-specific when the entry names a size."""
+    for x in p.get("amazon_asins") or []:
+        if x.get("asin") and (x.get("size") is None or x.get("size") == size):
+            return x["asin"]
+    return None
+
+
+def amazon_dp(cfg, asin):
+    return amazon_tagged(cfg, AMAZON_DP.format(asin=asin))
+
+
+def airline_gear(a, pd, lims):
+    """[(product, size or None, why_html)] for the airline gear box: up to 2 carriers whose published dimensions fit this
+    airline's cabin limits (most limits fitted first, then without length compression, then roomiest), then universal items."""
+    by = {p["slug"]: p for p in pd["products"]}
+    al = [l for l in lims if l["a"]["slug"] == a["slug"] and not l.get("hard_only")]
+    cands = []
+    for p in pd["products"]:
+        for s in p.get("sizes") or []:
+            if not amazon_asin(p, s["name"]):
+                continue
+            res = [(l, fit(s, l)[0]) for l in al if l in applicable(p, lims)]
+            ok = [(l, st) for l, st in res if st != "over"]
+            if not ok:
+                continue
+            flag = any(l.get("soft_only") for l, _ in ok) and not p.get("construction")
+            comp = any(st == "compressed" for _, st in ok)
+            cands.append((-len(ok), comp, flag, -(s["L"] * s["W"] * s["H"]), p["slug"], s, ok, [l for l, st in res if st == "over"]))
+    cands.sort(key=lambda c: c[:5])
+    out, used = [], set()
+    for *_, slug, s, ok, over in cands:
+        if slug in used or len(out) >= 2:
+            continue
+        used.add(slug)
+        p = by[slug]
+        why = f"{dims(s)}: within " + " and ".join(
+            f"the {e(l['label'])} limit ({lim_txt(l)}){' at its ' + format(s['L_min'], 'g') + ' in shortest length' if st == 'compressed' else ''}" for l, st in ok)
+        if over:
+            why += "; over the " + ", ".join(f"{e(l['label'])} limit ({lim_txt(l)})" for l in over)
+        why += "."
+        if any(l.get("soft_only") for l, _ in ok) and not p.get("construction"):
+            why += f" {e(a['name'])} accepts soft-sided carriers only and {e(p['brand'])} doesn&rsquo;t state the construction; check before you fly."
+        out.append((p, s["name"], why))
+    if not al and a.get("in_cabin_allowed") is False and HOLD_CRATE[0] in by and amazon_asin(by[HOLD_CRATE[0]], HOLD_CRATE[1]):
+        p = by[HOLD_CRATE[0]]
+        s = next(x for x in p["sizes"] if x["name"] == HOLD_CRATE[1])
+        out.append((p, s["name"], f"{e(a['name'])} carries no pets in the cabin, so pets fly in the hold in a hard kennel. Petmate says the Sky Kennel meets IATA Live Animals Regulations; "
+                                  f"the linked {e(s['name'])} size measures {dims(s)} inside (other sizes on the same Amazon page). Choose the size from your pet&rsquo;s measurements and confirm crate rules with the airline."))
+    for slug, why in GEAR_FILL:
+        if len(out) >= 3:
+            break
+        if slug in by and amazon_asin(by[slug]):
+            out.append((by[slug], None, why))
+    return out[:3]
+
+
+def airline_gear_box(cfg, a, pd, lims):
+    items = airline_gear(a, pd, lims)
+    if len(items) < 2:
+        return ""
+    li = []
+    for p, size, why in items:
+        nm = e(p["name"]) + (f" ({e(size)})" if size and len(p.get("sizes") or []) > 1 else "")
+        li.append(f'<li><p class="gear-name"><a href="../products/{e(p["slug"])}.html">{nm}</a></p><p class="small">{why}</p>'
+                  f'<p class="gear-buy"><a class="btn" href="{e(amazon_dp(cfg, amazon_asin(p, size)))}" rel="sponsored nofollow noopener" target="_blank">Check price on Amazon</a></p></li>')
+    nofit = "" if any(p["category"] in ("soft_carrier", "backpack") for p, _, _ in items) or a.get("in_cabin_allowed") is False else \
+        f"<p class='small'>No cabin carrier size is confirmed for {e(a['name'])} on this page, so we only suggest general travel items here.</p>"
+    return (f'<aside class="reco gear"><h2>Gear that fits this airline</h2>{nofit}<ul class="gear-list">{"".join(li)}</ul>'
+            f'<p class="small disc">Affiliate links: we may earn a commission at no extra cost to you. {AMAZON_DISCLOSURE} '
+            + ('Fit is based on manufacturer dimensions vs. the limits above, not a guarantee. ' if any(p["category"] in ("soft_carrier", "backpack") for p, _, _ in items) else '')
+            + f'Prices aren&rsquo;t shown because they change often. '
+            f'<a href="../about.html#affiliates">Disclosure</a>.</p></aside>')
+
+
+def flight_box(cfg, a):
+    """'Book this flight' box from config.json flight_affiliates [{label, url_template, note}]; entries with an empty
+    url_template are skipped, and the whole box is hidden when none is set. {airline} / {iata} are URL-encoded."""
+    btns, notes = [], []
+    for f in cfg.get("flight_affiliates") or []:
+        t = (f.get("url_template") or "").strip()
+        if not t or not f.get("label"):
+            continue
+        url = t.replace("{airline}", urllib.parse.quote(a["name"])).replace("{iata}", urllib.parse.quote(a.get("iata") or ""))
+        btns.append(f'<a class="btn" href="{e(url)}" rel="sponsored nofollow noopener" target="_blank">{e(f["label"])}</a>')
+        if f.get("note"):
+            notes.append(e(f["note"]))
+    if not btns:
+        return ""
+    return (f'<aside class="reco flights"><h2>Book a pet-friendly flight</h2>'
+            f'<p>Compare fares on {e(a["name"])} and other airlines, then arrange your pet&rsquo;s place directly with the airline (see the rules above): pet space is limited per flight.</p>'
+            f'<p class="buy">{" ".join(btns)}</p>{"".join(f"<p class=small>{n}</p>" for n in notes)}'
+            f'<p class="small disc">Affiliate link: we may earn a commission at no extra cost to you. <a href="../about.html#affiliates">Disclosure</a>.</p></aside>')
+
+
 def build_advertise(cfg):
     mail = obf_mail(cfg["contact_email"])
     body = f"""<h1>Advertise on {e(cfg['site_name'])}</h1>
@@ -1136,6 +1240,14 @@ def main():
         (OUT / "CNAME").write_text(custom_domain(cfg) + "\n")
     build_og_image(cfg)
     (OUT / "index.html").write_text(build_index(cfg, airlines))
+    # New home page (design C, delivered by Web Designer; frozen airline table verified 2026-10-22)
+    if (ROOT / "static" / "home-c.html").exists():
+        (OUT / "index.html").write_text((ROOT / "static" / "home-c.html").read_text())
+        shutil.copytree(ROOT / "static" / "assets", OUT / "assets")
+        shutil.copy(ROOT / "static" / "assets" / "img" / "favicon.ico", OUT / "favicon.ico")
+    (OUT / "img" / "email").mkdir(parents=True, exist_ok=True)
+    for f in (ROOT / "static" / "img-email").glob("*"):
+        shutil.copy(f, OUT / "img" / "email" / f.name)
     for a in airlines:
         (OUT / "airlines" / f"{a['slug']}.html").write_text(build_airline(cfg, a, pd, lims))
     (OUT / "updates.html").write_text(build_updates(cfg, airlines, updates))

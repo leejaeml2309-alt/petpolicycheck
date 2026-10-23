@@ -92,7 +92,7 @@
   },
   "google_site_verification": "27QQs3iqHRAV_uJ_UuaZ30vZfE1h09ym_lo6i3dGnLI",
   "bing_site_verification": "",
-  "contact_email": "leejaeml2309@gmail.com",
+  "contact_email": "contact@petpolicycheck.com",
   "name_ideas": [
     "PawBoardingPass (.com unregistered per RDAP 2026-10-22)",
     "PetPolicyCheck (.com unregistered per RDAP 2026-10-22)",
@@ -112,6 +112,23 @@
       "url": ""
     }
   },
+  "flight_affiliates": [
+    {
+      "label": "Compare flights on Aviasales",
+      "url_template": "https://aviasales.tpo.lv/t5k2EeK2",
+      "note": ""
+    },
+    {
+      "label": "Search flights on Expedia",
+      "url_template": "https://expedia.com/affiliate/jnsZjjX",
+      "note": ""
+    },
+    {
+      "label": "Find cheap flights on Kiwi.com",
+      "url_template": "https://kiwi.tpo.lv/DaCm9rd2",
+      "note": ""
+    }
+  ],
   "amazon_tag": "petpolicychec-20",
   "product_links": {
     "sherpa-original-deluxe": {

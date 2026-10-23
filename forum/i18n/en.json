@@ -239,5 +239,16 @@
   "st.lang.ja": "Japanese",
   "st.lang.it": "Italian",
   "st.lang.de": "German",
-  "st.lang.other": "Other"
+  "st.lang.other": "Other",
+  "f.intro.h": "What this forum is for",
+  "f.intro.p": "A place for pet owners to share first-hand experiences of travelling with a dog or cat, so others can prepare before their own trip. Every post and comment is checked by a moderator before it appears. Experiences are organised by:",
+  "f.intro.transport": "Transport: flights in the cabin or the hold, trains, buses, subways, taxis, cars and ferries.",
+  "f.intro.weather": "Weather and season: hot or cold days, rain or snow, and how the temperature affected the trip.",
+  "f.intro.carrier": "Carrier: soft bag, hard crate, stroller or harness only, including what fitted under the seat and what staff checked.",
+  "f.intro.breed": "Pet, breed and size: dog or cat, the breed the owner shared, and a weight band.",
+  "f.intro.start": "Start here",
+  "f.intro.stories": "summaries of public discussions about flying and moving abroad with dogs and cats, with short quotes and links to the original threads.",
+  "f.intro.rules": "what you can post and how moderation works.",
+  "f.intro.airlines_link": "Airline pet policies",
+  "f.intro.airlines": "official cabin and hold rules for each airline we cover, checked against the airline's own page and dated."
 }

@@ -7,6 +7,10 @@
       "brand": "Sherpa",
       "category": "soft_carrier",
       "official_url": "https://sherpapet.com/products/sherpa-original-deluxe-travel-bag-pet-carrier",
+      "amazon_asins": [
+        {"asin": "B07D5DFTRN", "size": "Small", "variant": "Charcoal Gray", "amazon_title": "Sherpa Original Deluxe Travel Pet Carrier, Airline Approved & Guaranteed On Board - Charcoal Gray, Small", "verified": "2026-10-23"},
+        {"asin": "B07D5FTGP7", "size": "Medium", "variant": "Charcoal Gray", "amazon_title": "Sherpa Original Deluxe Travel Pet Carrier, Airline Approved & Guaranteed On Board - Charcoal Gray, Medium", "verified": "2026-10-23"}
+      ],
       "construction": "Soft-sided (Sherpa describes it as usable as \"a soft-sided crate\")",
       "dims_note": "Sherpa lists \"Product Dimensions\" without naming the axes; we read them as length x width x height.",
       "maker_says": [
@@ -25,6 +29,9 @@
       "brand": "Sleepypod",
       "category": "soft_carrier",
       "official_url": "https://sleepypod.com/products/sleepypod-air",
+      "amazon_asins": [
+        {"asin": "B002Z6005M", "size": "One size", "variant": "Jet Black", "amazon_title": "Sleepypod Air, Airline Approved Cat/Dog Carrier, Crash Tested, Jet Black", "verified": "2026-10-23"}
+      ],
       "construction": null,
       "dims_note": "Sleepypod lists the length as adjustable from 16 to 22 in (40.64 to 55.88 cm).",
       "maker_says": [
@@ -41,6 +48,9 @@
       "brand": "Sleepypod",
       "category": "soft_carrier",
       "official_url": "https://sleepypod.com/products/atom",
+      "amazon_asins": [
+        {"asin": "B005G5WF7A", "size": "One size", "variant": "Black", "amazon_title": "Sleepypod Atom, Airline Approved Cat/Dog Carrier, Crash Tested, Black", "verified": "2026-10-23"}
+      ],
       "construction": null,
       "dims_note": "Exterior carrier dimensions as listed by Sleepypod (long x wide x tall). Interior: 16 x 8 x 9.5 in.",
       "maker_says": [
@@ -106,6 +116,10 @@
       "brand": "Petmate",
       "category": "hard_crate",
       "official_url": "https://www.petmate.com/products/petmate-sky-kennel-1",
+      "amazon_asins": [
+        {"asin": "B003WQTT1A", "size": "21\"", "variant": "Kennel Only", "amazon_title": "Petmate Sky Kennel for Air Travel, 21in Dog Crate for Pets up to 15lbs", "verified": "2026-10-23"},
+        {"asin": "B003E77OG4", "size": "36\"", "variant": "Kennel Only", "amazon_title": "Petmate Sky Kennel, for Air Travel, 36in Dog Crate for Pets 50 to 70lbs", "verified": "2026-10-23"}
+      ],
       "construction": "Hard plastic kennel",
       "dims_note": "Petmate publishes interior dimensions only (no exterior dimensions on the product page), so we don't compare it against airline size limits.",
       "maker_says": [
@@ -166,6 +180,9 @@
       "brand": "Ruffwear",
       "category": "bowl",
       "official_url": "https://ruffwear.com/products/quencher-packable-dog-bowl",
+      "amazon_asins": [
+        {"asin": "B0CLB4YPM1", "variant": "Spring Mountains, Medium", "amazon_title": "Ruffwear, Quencher Collapsible Dog Bowl, Spring Mountains, Medium", "verified": "2026-10-23"}
+      ],
       "pets": ["dog"],
       "construction": "Collapsible fabric bowl (per Ruffwear)",
       "dims_note": "Available in one size (Medium).",
@@ -249,6 +266,9 @@
       "brand": "Ruffwear",
       "category": "harness",
       "official_url": "https://ruffwear.com/products/front-range-everyday-dog-harness",
+      "amazon_asins": [
+        {"asin": "B0CLB3VFB8", "variant": "Basalt Gray, X-Small", "amazon_title": "Ruffwear, Front Range Dog Chest Harness, Basalt Gray, X-Small", "verified": "2026-10-23"}
+      ],
       "pets": ["dog"],
       "dims_note": "Girth is measured around the widest part of the rib cage. Ruffwear says: in between sizes, choose the larger size. This is a walking harness; the page does not describe it as crash tested, so for the car see the car harnesses in this section.",
       "summary": "Everyday walking harness; girth 13–42 in",
@@ -608,6 +628,9 @@
       "brand": "Kurgo",
       "category": "bowl",
       "official_url": "https://www.kurgo.com/p/collaps-a-bowl/K00098",
+      "amazon_asins": [
+        {"asin": "B003EIDR5U", "variant": "Kurgo Blue", "amazon_title": "Kurgo Collaps-A-Bowl, Blue", "verified": "2026-10-23"}
+      ],
       "pets": ["dog"],
       "construction": "Food-grade silicone, PVC and BPA free; top-rack dishwasher safe (per Kurgo)",
       "dims_note": "",

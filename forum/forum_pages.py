@@ -209,6 +209,17 @@ def filter_form(B, airlines):
             f'<p class="fbtns"><button type="submit" class="fbtn" data-i18n="f.filter_btn">{B.e(T("f.filter_btn"))}</button> <a href="index.html" class="fbtn alt" data-i18n="f.reset">{B.e(T("f.reset"))}</a></p></form>')
 
 
+def intro(B, root):
+    """Static, translatable intro for the forum index (useful content even before any post is published)."""
+    li = "".join(f"<li>{i(B, f'f.intro.{k}')}</li>" for k in ("transport", "weather", "carrier", "breed"))
+    start = (f'<li><a href="pet-travel-stories/" data-i18n="f.stories">{B.e(T("f.stories"))}</a>: {i(B, "f.intro.stories")}</li>'
+             f'<li><a href="guidelines.html" data-i18n="f.rules">{B.e(T("f.rules"))}</a>: {i(B, "f.intro.rules")}</li>'
+             f'<li><a href="{root}index.html" data-i18n="f.intro.airlines_link">{B.e(T("f.intro.airlines_link"))}</a>: {i(B, "f.intro.airlines")}</li>')
+    return (f'<section class="fintro" aria-labelledby="fintro-h"><h2 id="fintro-h" data-i18n="f.intro.h">{B.e(T("f.intro.h"))}</h2>'
+            f'<p>{i(B, "f.intro.p")}</p><ul>{li}</ul>'
+            f'<h3 data-i18n="f.intro.start">{B.e(T("f.intro.start"))}</h3><ul>{start}</ul></section>')
+
+
 def build_index(B, cfg, airlines, posts, paths):
     root = "../"
     cards = "".join(card(B, p, root, paths[p["id"]]) for p in posts[:30])
@@ -217,6 +228,7 @@ def build_index(B, cfg, airlines, posts, paths):
 <h1 data-i18n="f.h1">{B.e(T("f.h1"))}</h1>
 {subnav(B, root, "index.html")}
 <p class="lead" data-i18n="f.lead">{B.e(T("f.lead"))}</p>
+{intro(B, root)}
 {filter_form(B, airlines)}
 <p class="small" id="fstatus" aria-live="polite"></p>
 {lst}
@@ -224,9 +236,10 @@ def build_index(B, cfg, airlines, posts, paths):
 <p class="small">{i(B, "f.disclaimer")} <a href="guidelines.html" data-i18n="f.why.see_rules">{B.e(T("f.why.see_rules"))}</a></p>
 {app("index")}{scripts(root, "index")}"""
     ld = [B.bc_ld(cfg, [("Home", ""), ("Forum", "forum/")])]
+    # Indexable thanks to the static intro; ads only once published posts are pre-rendered (no ads on an empty listing).
     return B.page(cfg, f"Pet travel forum: flying and travelling with dogs and cats | {cfg['site_name']}",
                   "Real experiences travelling with dogs and cats by plane (cabin or cargo), train, bus, subway, taxi, car and ferry, in English and Korean. Filter by transport, carrier, season and pet size.",
-                  body, "forum/", root, ld)
+                  body, "forum/", root, ld, ads=bool(posts))
 
 
 def post_article(B, p, comments, root, airlines_by):
