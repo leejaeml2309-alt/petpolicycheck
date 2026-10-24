@@ -211,7 +211,7 @@ def og_alt(cfg):
 def verification_meta(cfg):
     """Search-console ownership tags from config.json (empty = omitted)."""
     out = ""
-    for key, name in (("google_site_verification", "google-site-verification"), ("bing_site_verification", "msvalidate.01")):
+    for key, name in (("google_site_verification", "google-site-verification"), ("bing_site_verification", "msvalidate.01"), ("pinterest_site_verification", "p:domain_verify")):
         v = (cfg.get(key) or "").strip()
         if v:
             out += f'\n<meta name="{name}" content="{e(v)}">'
