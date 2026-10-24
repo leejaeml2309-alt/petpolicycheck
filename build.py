@@ -202,9 +202,12 @@ def header_ad(cfg, ads=True):
         return ""  # no-AdSense pages (e.g. /pet-travel-checklist/): no ad band at all
     slot = str(cfg.get("adsense_header_slot") or "").strip()
     if slot:
-        return ('<div class="hdr-band"><div class="wrap"><div class="hdr-ad" role="complementary" aria-label="Advertisement"><div class="hdr-box"><span class="adl">Advertisement</span>'
-                f'<ins class="adsbygoogle hdr-ins" data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="{e(slot)}"></ins>'
-                '<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div></div></div></div>')
+        # Real unit: no dashed placeholder / label; the frame keeps its fixed 728x90 (320x100 phone) min-height.
+        # One push() per <ins>; adsbygoogle.js is loaded in <head> on every ads=True page (ADSENSE / home-c.html).
+        return ('<div class="hdr-band"><div class="wrap"><div class="hdr-ad live" role="complementary" aria-label="Advertisement"><div class="hdr-box">'
+                f'<ins class="adsbygoogle hdr-ins" style="display:block" data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="{e(slot)}" '
+                'data-ad-format="horizontal" data-full-width-responsive="false"></ins>'
+                '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div>')
     todo = (f'<!-- TODO header ad: create a 728x90 / responsive display unit in AdSense, put its id in config.json "adsense_header_slot" '
             f'(build.py then renders <ins class="adsbygoogle hdr-ins" data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="REPLACE_WITH_HEADER_AD_SLOT_ID">) -->')
     return f'<div class="hdr-band"><div class="wrap"><div class="hdr-ad empty" role="complementary" aria-label="Advertisement"><div class="hdr-box"><span class="adl">Advertisement</span>{todo}</div></div></div></div>'

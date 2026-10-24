@@ -59,8 +59,8 @@ h1,h2,h3{font-family:var(--disp);font-weight:var(--hw,400);color:var(--head);mar
  .top .nav.menu{right:16px;left:16px;width:auto;top:calc(100% - 2px)}}
 .hdr-band{padding:14px 0 6px}
 .hdr-ad{display:flex;justify-content:center}
-.hdr-box{position:relative;width:728px;height:90px;max-width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hdr-ins{display:block;width:728px;height:90px}
+.hdr-box{position:relative;width:728px;height:90px;min-height:90px;max-width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hdr-ins{display:block;width:728px;height:90px;min-height:90px}
 .hdr-ad .adl{position:absolute;inset:auto auto 50% 50%;transform:translate(-50%,50%);font:600 .64rem var(--text);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);opacity:.7;pointer-events:none}
 .hdr-ad.empty .hdr-box{border:1px dashed #d9b76566;border-radius:var(--r-s);background:#d9b76508}
-@media (max-width:767px){.hdr-band{padding:10px 0 4px}.hdr-box,.hdr-ins{width:320px;height:100px}}
+@media (max-width:767px){.hdr-band{padding:10px 0 4px}.hdr-box,.hdr-ins{width:320px;height:100px;min-height:100px}}
