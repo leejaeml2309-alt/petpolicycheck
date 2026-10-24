@@ -122,12 +122,22 @@
     {
       "label": "Search flights on Expedia",
       "url_template": "https://expedia.com/affiliate/jnsZjjX",
-      "note": ""
+      "note": "",
+      "dest_urls": {
+        "south-korea": "https://www.expedia.com/Cheap-Flights-To-Seoul.d6139141.Travel-Guide-Flights?clickref=1101lE3gfbRe&affcid=US.DIRECT.PHG.1011l442979.1100l68075&ref_id=1101lE3gfbRe&my_ad=AFF.US.DIRECT.PHG.1011l442979.1100l68075&afflid=1101lE3gfbRe&affdtl=PHG.1101lE3gfbRe.PZgP04p5ZC",
+        "japan": "https://www.expedia.com/Cheap-Flights-To-Tokyo.d6139132.Travel-Guide-Flights?clickref=1101lE3gfbRe&affcid=US.DIRECT.PHG.1011l442979.1100l68075&ref_id=1101lE3gfbRe&my_ad=AFF.US.DIRECT.PHG.1011l442979.1100l68075&afflid=1101lE3gfbRe&affdtl=PHG.1101lE3gfbRe.PZgP04p5ZC"
+      },
+      "_note": "url_template (jnsZjjX) opens the generic Expedia Flights page. dest_urls are Expedia destination flight-search pages with the same tracking params jnsZjjX resolves to (checked 2026-10-25)."
     },
     {
       "label": "Find cheap flights on Kiwi.com",
-      "url_template": "https://kiwi.tpo.lv/DaCm9rd2",
-      "note": ""
+      "url_template": "https://www.kiwi.com/deep?affilid=travelpayoutsdeeplink_leejaeml2309-alt.github.io_petpolicycheck-793434&from=US&to=anywhere&departure=anytime&return=no-return&lang=en",
+      "note": "",
+      "dest_urls": {
+        "south-korea": "https://www.kiwi.com/deep?affilid=travelpayoutsdeeplink_leejaeml2309-alt.github.io_petpolicycheck-793434&from=US&to=SEL&departure=anytime&return=no-return&lang=en",
+        "japan": "https://www.kiwi.com/deep?affilid=travelpayoutsdeeplink_leejaeml2309-alt.github.io_petpolicycheck-793434&from=US&to=TYO&departure=anytime&return=no-return&lang=en"
+      },
+      "_note": "Kiwi deep link (Travelpayouts affilid, marker 793434): the old kiwi.tpo.lv/DaCm9rd2 short link opened an empty search (origin/destination '--'). url_template = from US to anywhere; dest_urls per route page."
     }
   ],
   "hotel_affiliates": {
@@ -163,12 +173,36 @@
   },
   "insurance_affiliates": {
     "_note": "Pet insurance affiliate programs are NOT approved yet (research 2026-10-24). Leave url empty until a program accepts the site; an empty url shows a neutral link to the insurer's official site. Spot requires content review before publishing.",
-    "spot": {"label": "Get a quote on Spot's site", "network": "Partnerize (pending)", "url": ""},
-    "petsbest": {"label": "Get a quote on Pets Best's site", "network": "Impact (pending)", "url": ""},
-    "trupanion": {"label": "Get a quote on Trupanion's site", "network": "Impact (pending)", "url": ""},
-    "lemonade": {"label": "Get a quote on Lemonade's site", "network": "Impact (pending)", "url": ""},
-    "odie": {"label": "Get a quote on Odie's site", "network": "Awin (pending)", "url": ""},
-    "fetch": {"label": "Get a quote on Fetch's site", "network": "in-house (pending)", "url": ""}
+    "spot": {
+      "label": "Get a quote on Spot's site",
+      "network": "Partnerize (pending)",
+      "url": ""
+    },
+    "petsbest": {
+      "label": "Get a quote on Pets Best's site",
+      "network": "Impact (pending)",
+      "url": ""
+    },
+    "trupanion": {
+      "label": "Get a quote on Trupanion's site",
+      "network": "Impact (pending)",
+      "url": ""
+    },
+    "lemonade": {
+      "label": "Get a quote on Lemonade's site",
+      "network": "Impact (pending)",
+      "url": ""
+    },
+    "odie": {
+      "label": "Get a quote on Odie's site",
+      "network": "Awin (pending)",
+      "url": ""
+    },
+    "fetch": {
+      "label": "Get a quote on Fetch's site",
+      "network": "in-house (pending)",
+      "url": ""
+    }
   },
   "amazon_tag": "petpolicychec-20",
   "product_links": {

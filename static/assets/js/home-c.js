@@ -99,7 +99,7 @@ scrim.onclick=close;document.addEventListener('keydown',function(e){if(e.key==='
 function top(k,t){return '<div class="ph-top"><div><div class="k">'+k+'</div><h2 id="ptitle">'+t+'</h2></div><button class="x" type="button" aria-label="Close">\u00d7</button></div>'}
 // small SVG flag (assets/img/flags/<iso2>.svg); emoji flags render as letters ("US") on Windows
 function flag(G){return G&&G.flag_src?'<img class="flag" src="'+G.flag_src+'" width="21" height="14" alt="" aria-hidden="true">':''}
-function bookMini(){return '<section class="book" aria-labelledby="bookm-h"><h3 id="bookm-h">Book your trip</h3><p class="book-lede">Flights, pet-friendly hotels, airport rides, vet clinics and pet insurance on one page.</p><p class="book-btns"><a class="btn" href="'+LIVE+'book/">Plan and book your trip \u2192</a></p></section>'}
+function bookMini(G){return '<section class="book" aria-labelledby="bookm-h"><h3 id="bookm-h">Book your trip</h3><p class="book-lede">Flights, pet-friendly hotels, airport rides, vet clinics and pet insurance on one page.</p><p class="book-btns"><a class="btn" href="'+((G&&G.book_url)||LIVE+'book/')+'">Plan and book your trip \u2192</a></p></section>'}
 function openCountry(id){
  var f=countries.find(function(c){return c.id===id});if(!f)return;
  cg.selectAll('.country').classed('sel',function(d){return d.id===id});
@@ -109,7 +109,7 @@ function openCountry(id){
   +'<p class="lede">'+esc(G.line)+'</p>'
   +(G.summary?'<p>'+esc(G.summary)+'</p>':'')
   +(G.url?'<p><a class="btn big" href="'+G.url+'">'+esc(G.cta)+' \u2192</a></p>':'<p class="lede">Full USA guide coming soon.</p>')
-  +(G.book==='usa'&&window.BOOK_USA?window.BOOK_USA:bookMini())
+  +(G.book==='usa'&&window.BOOK_USA?window.BOOK_USA:bookMini(G))
   +'<h3>Flying there?</h3><p><a href="#airlines" data-open="airlines">Compare airline pet policies \u2708</a> \u00b7 <a href="'+LIVE+'products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a></p></div>';
  }else if(G){
   h=top('Pet import rules \u00b7 dogs &amp; cats',flag(G)+esc(G.name))+'<div class="pbody">'

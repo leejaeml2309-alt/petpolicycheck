@@ -166,12 +166,17 @@ def home_url(root):
     return root or "./"
 
 
+BOOK_NAV_LOCAL = {"routes/usa-to-south-korea.html": "#book-flights", "routes/usa-to-japan.html": "#book-flights"}
+
+
 def nav_links(root, path, i18n=False):
     out = []
     items = NAV[:7] + [(FORUM_NAV[0], FORUM_NAV[1], "nav.forum", FORUM_NAV[2])] + NAV[7:] if FORUM_ON else NAV  # Forum after Guides, before Updates
     for href, label, key, pre in items:
         cur = ' aria-current="page"' if any(path.startswith(x) for x in pre) else ""
         url = home_url(root) + href if href.startswith("#") else root + href
+        if href == "book/" and path in BOOK_NAV_LOCAL:  # /book/ is US-only: Korea/Japan guides point "Book" at their own booking box
+            url = BOOK_NAV_LOCAL[path]
         cta = ' class="cta menu-only"' if href == "advertise/" else (' class="nav-book"' if href == "book/" else "")
         out.append(f'<a{cta} href="{url}"{cur}{ti(key, i18n)}>{label}</a>')
     return "".join(out)
@@ -1335,11 +1340,12 @@ BOOK_HOME_CSS = """<style>
 </style>"""
 
 
-def flight_aff_buttons(cfg):
-    """Sponsored flight search buttons from config.json flight_affiliates (shared by booking_block and /book/)."""
+def flight_aff_buttons(cfg, dest=None):
+    """Sponsored flight search buttons from config.json flight_affiliates (shared by booking_block, /book/ and the route pages).
+    dest ('south-korea', 'japan') picks the entry's dest_urls[dest] so route pages search that country, not a generic/US page."""
     btns = []
     for f in cfg.get("flight_affiliates") or []:
-        u = (f.get("url_template") or "").strip()
+        u = ((f.get("dest_urls") or {}).get(dest) or f.get("url_template") or "").strip()
         if u and f.get("label") and "{" not in u:
             btns.append(f'<a class="btn" href="{e(u)}" rel="sponsored nofollow noopener" target="_blank">{e(f["label"])}</a>')
     return btns
@@ -1367,6 +1373,8 @@ def home_guides(cfg):
             assert g.get(k), f"data/home_guides.json {g.get('name')}: missing '{k}'"
         assert (ROOT / "static" / "assets" / "img" / "flags" / f"{g['flag']}.svg").exists(), f"missing static/assets/img/flags/{g['flag']}.svg"
         j = {k: v for k, v in g.items() if k not in ("source_page", "chip")}
+        if g.get("book_url"):  # country-specific booking box (Korea/Japan); /book/ is US-only
+            j["book_url"] = base + g["book_url"]
         j.update(kind="link", url=base + g["url"], flag_src=f"assets/img/flags/{g['flag']}.svg",
                  option=g.get("option") or f"{g['short'] if g.get('short') else g['name']} \u2605 guide")
         out[g["id"]] = j
@@ -1637,10 +1645,9 @@ def build_route_usa_japan(cfg, airlines):
                      f"<td data-l='What our airline page says'>{note}</td>"
                      f"<td data-l='Japan flights'><span class='flag'>Check</span> Confirm with the airline for your Japan flight</td>"
                      f"<td class='usa-src' data-l='Checked'>{src(a['official_url'], 'Airline page')} <span class='small'>checked <time datetime='{e(a.get('last_verified') or '')}'>{nice_date(a.get('last_verified'))}</time></span></td></tr>")
-    btns = [f'<a class="btn" href="{e(f["url_template"].strip())}" rel="sponsored nofollow noopener" target="_blank">{e(f["label"])}</a>'
-            for f in cfg.get("flight_affiliates") or [] if (f.get("url_template") or "").strip() and f.get("label")]
+    btns = flight_aff_buttons(cfg, "japan")
     fbox = ("" if not btns else
-            f'<aside class="reco flights"><h2>Book flights to Japan</h2>'
+            f'<aside class="reco flights" id="book-flights"><h2>Book flights to Japan</h2>'
             f'<p>Compare fares from the US to Tokyo (Narita or Haneda), Osaka (Kansai) and other Japanese airports, then arrange your pet&rsquo;s place directly with the airline before you buy: pet space is limited per flight, and your arrival airport must match your AQS notification.</p>'
             f'<p class="buy">{" ".join(btns)}</p>'
             f'<p class="small disc">Affiliate links: we may earn a commission at no extra cost to you. <a href="{root}about.html#affiliates">Disclosure</a>.</p></aside>')
@@ -1742,10 +1749,9 @@ def build_route_usa_korea(cfg, airlines):
                      f"<td data-l='What our airline page says'>{note}</td>"
                      f"<td data-l='Korea flights'><span class='flag'>Check</span> Confirm the airline flies your route and accepts pets on that flight</td>"
                      f"<td class='usa-src' data-l='Checked'>{src(a['official_url'], 'Airline page')} <span class='small'>checked <time datetime='{e(a.get('last_verified') or '')}'>{nice_date(a.get('last_verified'))}</time></span></td></tr>")
-    btns = [f'<a class="btn" href="{e(f["url_template"].strip())}" rel="sponsored nofollow noopener" target="_blank">{e(f["label"])}</a>'
-            for f in cfg.get("flight_affiliates") or [] if (f.get("url_template") or "").strip() and f.get("label")]
+    btns = flight_aff_buttons(cfg, "south-korea")
     fbox = ("" if not btns else
-            f'<aside class="reco flights"><h2>Book flights to South Korea</h2>'
+            f'<aside class="reco flights" id="book-flights"><h2>Book flights to South Korea</h2>'
             f'<p>Compare fares from the US to Seoul (Incheon) and other Korean airports, then arrange your pet&rsquo;s place directly with the airline before you buy: pet space is limited per flight, and in-cabin and cargo rules differ by airline.</p>'
             f'<p class="buy">{" ".join(btns)}</p>'
             f'<p class="small disc">Affiliate links: we may earn a commission at no extra cost to you. <a href="{root}about.html#affiliates">Disclosure</a>.</p></aside>')
