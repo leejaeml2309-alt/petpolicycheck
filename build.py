@@ -1724,7 +1724,7 @@ def build_route_usa_japan(cfg, airlines):
 <p>Japan is not on the CDC list of high-risk countries for dog rabies, so a dog that was only in Japan (or other low-risk countries) in the 6 months before returning needs the free <b>CDC Dog Import Form</b> receipt, a microchip, a healthy look and an age of at least 6 months; the CDC simplified this on August 1, 2024. Cats have no federal rabies proof requirement. State and airline rules still apply. {src(S['cdc_low'], 'CDC')} &middot; {src(S['cdc_high'], 'CDC high-risk list')}</p>
 <p>Full US entry and state rules: <a href="{root}countries/usa.html">Pet travel rules for the USA</a>.</p>
 <p>Staying in a US city before or after the flight? <a href="{root}hotels/">Pet-friendly hotel rules by chain</a> (fees, weight limits, number of pets), with guides for <a href="{root}hotels/pet-friendly-hotels-new-york.html">New York</a>, <a href="{root}hotels/pet-friendly-hotels-orlando.html">Orlando</a> and <a href="{root}hotels/pet-friendly-hotels-miami.html">Miami</a>.</p>
-<p>Staying in Japan? See <a href="#hotels">pet-friendly hotels in Japan</a> (Tokyo, Osaka, Kyoto and Karuizawa), with each hotel&rsquo;s official pet rules.</p>
+<p>Staying in Japan? See <a href="#hotels">pet-friendly hotels in Japan</a> (Tokyo, Osaka and Kyoto), with each hotel&rsquo;s official pet rules.</p>
 <h2 id="official">Official links</h2>
 <ul>{links}</ul>
 <p class="note small">{checked}. Rules change; confirm with the official source before you travel. This page is a summary, not legal or veterinary advice. Airlines may require more than Japan does.</p>
