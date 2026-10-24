@@ -540,7 +540,7 @@ def build_about(cfg):
 <h2>Disclaimer</h2>
 <p>Information may change at any time and may contain errors. It is provided for general guidance only and is not legal, veterinary or travel advice. <b>Always confirm with the airline before booking or travelling</b>, and check the government entry rules (e.g. CDC, USDA APHIS, CFIA, DEFRA) for every country on your route. We are not affiliated with any airline.</p>
 <h2 id="affiliates">Affiliate disclosure</h2>
-<p>Some pages may contain affiliate links (for example to pet carriers or pet insurance). If you buy through them we may earn a commission at no extra cost to you. Affiliate relationships never change the policy information we publish.</p>
+<p>Some pages may contain affiliate links (for example to pet carriers, pet insurance or hotel booking sites such as Expedia). If you buy through them we may earn a commission at no extra cost to you. Affiliate relationships never change the policy information we publish.</p>
 <p>{AMAZON_DISCLOSURE} Product pages may link to Amazon.com through the Amazon Associates Program.</p>
 <h2 id="advertising">Advertising</h2>
 <p>The site shows ads served by Google AdSense and may load affiliate scripts such as Travelpayouts. Advertisers never change the policy information we publish. See our <a href="privacy.html">privacy policy</a> for how advertising cookies work and how to opt out of personalized ads.</p>
@@ -1345,6 +1345,8 @@ def build_country_usa(cfg, airlines):
 <h2 id="official">Official links</h2>
 <ul>{links}</ul>
 <p class="note small">{checked}. Rules change; confirm with the official source before you travel. This page is a summary, not legal or veterinary advice. Airlines may require more than the state does.</p>
+<h2 id="hotels">Pet-friendly hotels</h2>
+<p>Pet fees, weight limits and number of pets at the big US hotel chains, from their official sites: <a href="{root}hotels/">pet-friendly hotel rules</a>. City guides: <a href="{root}hotels/pet-friendly-hotels-orlando.html">Orlando</a>, <a href="{root}hotels/pet-friendly-hotels-new-york.html">New York</a>, <a href="{root}hotels/pet-friendly-hotels-miami.html">Miami</a>.</p>
 <h2 id="airlines">Airline pet policies</h2>
 <div class="chips">{al}</div>
 <h2 id="gear">Product guides</h2>
@@ -1431,6 +1433,7 @@ def build_route_usa_japan(cfg, airlines):
 <h2 id="return">Coming back to the USA</h2>
 <p>Japan is not on the CDC list of high-risk countries for dog rabies, so a dog that was only in Japan (or other low-risk countries) in the 6 months before returning needs the free <b>CDC Dog Import Form</b> receipt, a microchip, a healthy look and an age of at least 6 months; the CDC simplified this on August 1, 2024. Cats have no federal rabies proof requirement. State and airline rules still apply. {src(S['cdc_low'], 'CDC')} &middot; {src(S['cdc_high'], 'CDC high-risk list')}</p>
 <p>Full US entry and state rules: <a href="{root}countries/usa.html">Pet travel rules for the USA</a>.</p>
+<p>Staying in a US city before or after the flight? <a href="{root}hotels/">Pet-friendly hotel rules by chain</a> (fees, weight limits, number of pets), with guides for <a href="{root}hotels/pet-friendly-hotels-new-york.html">New York</a>, <a href="{root}hotels/pet-friendly-hotels-orlando.html">Orlando</a> and <a href="{root}hotels/pet-friendly-hotels-miami.html">Miami</a>.</p>
 <h2 id="official">Official links</h2>
 <ul>{links}</ul>
 <p class="note small">{checked}. Rules change; confirm with the official source before you travel. This page is a summary, not legal or veterinary advice. Airlines may require more than Japan does.</p>
@@ -1450,6 +1453,144 @@ def build_route_usa_japan(cfg, airlines):
                jsonld=[bc_ld(cfg, [("Home", ""), ("Flying with a dog or cat from the USA to Japan", "routes/usa-to-japan.html")]), faq_ld])
 
 
+HOTELS_CSS = """<style>
+.usa-quick{background:var(--sage-l);border:0;border-left:4px solid var(--sage);border-radius:10px;padding:14px 18px}
+.usa-quick h2{margin:0 0 .4em}.usa-quick ul{margin:0;padding-left:1.2em}.usa-quick li{margin:.35em 0}
+.usa-warn{border:0;border-left:4px solid var(--gold)}
+.ht-warn{font-size:1.02em;padding:14px 18px}.ht-warn b{display:block;margin-bottom:.2em}
+.usa-t .usa-src{white-space:nowrap}
+.ht-t td:first-child{min-width:9em}
+.ht-ph{border:2px dashed var(--gold);border-radius:10px;padding:12px 16px;margin:.6em 0;font-size:.95em}
+.ht-ph code{word-break:break-all;font-size:.85em}
+.ht-cities{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:1em 0}
+.ht-cities a{display:block;border:1px solid var(--line,#d9d4c7);border-radius:12px;padding:14px 16px;text-decoration:none}
+.ht-cities a b{display:block;font-size:1.1em;margin-bottom:.2em}
+@media (max-width:720px){.usa-t .usa-src{white-space:normal}}
+</style>"""
+
+
+def hotels_data():
+    ch = json.loads((ROOT / "data" / "hotels" / "us-chains.json").read_text())
+    ci = json.loads((ROOT / "data" / "hotels" / "us-cities.json").read_text())
+    return ch, ci
+
+
+def hotel_chain_table(ch, root):
+    """Brand-level pet rules, one row per chain; null -> 'Varies by hotel', check -> 'Check' flag."""
+    src = lambda u, t: f'<a href="{e(u)}" rel="noopener" target="_blank">{t}</a>'
+    va = '<span class="na">Not stated: varies by hotel</span>'
+    rows = []
+    for c in ch["chains"]:
+        flag = '<span class="flag">Check</span> ' if c.get("check") else ""
+        cell = lambda k: e(c[k]) if c.get(k) else va
+        s2 = f' &middot; {src(c["source2"], "more")}' if c.get("source2") else ""
+        rows.append(f"<tr><td data-l='Chain'><b>{e(c['brand'])}</b></td><td data-l='Pet fee (USD)'>{flag}{cell('fee')}</td>"
+                    f"<td data-l='Max weight (lb)'>{cell('weight')}</td><td data-l='Max pets'>{cell('pets')}</td>"
+                    f"<td data-l='Notes'>{e(c['notes'])}</td><td class='usa-src' data-l='Source'>{src(c['source'], 'Official page')}{s2}</td></tr>")
+    return ("<div class='tablewrap'><table class='cmp usa-t ht-t'><thead><tr><th>Chain</th><th>Pet fee (USD)</th><th>Max weight (lb)</th>"
+            "<th>Max pets per room</th><th>Notes</th><th>Source</th></tr></thead><tbody>" + "".join(rows) + "</tbody></table></div>")
+
+
+def hotel_warn(chk):
+    return (f'<p class="warn usa-warn ht-warn"><b>Policies change: confirm with the hotel.</b> Pet fees, weight limits and the number of pets '
+            f'are set by each brand and often by each hotel, and can change without notice. We read every chain&rsquo;s official page on '
+            f'<time datetime="{chk}">{nice_date(chk)}</time>. Call or message the hotel to confirm before you book, and declare your pet at check-in.</p>')
+
+
+def hotel_aff_box(cfg, c):
+    """Expedia box for one city. Tracked URL comes from config.json hotel_affiliates.expedia.links[slug] (dashboard-generated);
+    empty -> clearly marked placeholder (never a guessed tracking URL)."""
+    ex = (cfg.get("hotel_affiliates") or {}).get("expedia") or {}
+    url = ((ex.get("links") or {}).get(c["slug"]) or "").strip()
+    disc = ('<p class="small disc">Affiliate disclosure: this is an affiliate link. If you book through it we may earn a commission at no extra cost to you. '
+            'It never changes the pet rules we publish. <a href="{root}about.html#affiliates">Disclosure</a>.</p>')
+    head = (f'<aside class="reco flights" id="book"><h2>Find a pet-friendly hotel in {e(c["name"])}</h2>'
+            f'<p>Search hotels in {e(c["short"])} with the pet-friendly filter on, then check the hotel&rsquo;s own pet policy (fee, weight, number of pets) before you pay.</p>')
+    if url:
+        return head + f'<p class="buy"><a class="btn" href="{e(url)}" rel="sponsored nofollow noopener" target="_blank">{e(ex.get("label") or "See pet-friendly hotels on Expedia")}</a></p>' + disc + "</aside>"
+    print(f"  WARNING: hotels/{c['slug']}: no tracked Expedia link in config.json hotel_affiliates.expedia.links -> placeholder rendered")
+    return head + (f'<div class="ht-ph" data-placeholder="expedia-{e(c["slug"])}"><b>[PLACEHOLDER: Expedia affiliate link]</b> '
+                   f'Generate a tracked link in the Expedia Group Travel Creator dashboard for this target page and paste it into '
+                   f'<code>config.json</code> &rarr; <code>hotel_affiliates.expedia.links.{e(c["slug"])}</code>:<br><code>{e(c["expedia_target"])}</code></div>') + disc + "</aside>"
+
+
+def hotel_city_links(ci, root, skip=None):
+    return "".join(f'<a href="{root}hotels/pet-friendly-hotels-{e(x["slug"])}.html"><b>{e(x["name"])}</b>Pet-friendly hotel rules and local tips</a>'
+                   for x in ci["cities"] if x["slug"] != skip)
+
+
+def build_hotel_city(cfg, c, ch, ci):
+    root, chk, S = "../", ci["checked"], ci["sources"]
+    path = f"hotels/pet-friendly-hotels-{c['slug']}.html"
+    src = lambda u, t="Source": f'<a href="{e(u)}" rel="noopener" target="_blank">{t}</a>'
+    by = {x["brand"].split(" (")[0].split(" /")[0]: x for x in ch["chains"]}
+    quick = [
+        ("No pet fee", f"Kimpton charges no pet fee and sets no size, weight or number limit; Motel 6 lets up to 2 dogs or cats stay free (150 lb combined).", by["Kimpton"]["source"]),
+        ("Budget chains", "Red Roof: first pet free, second $15 per night, 80 lb per pet. La Quinta: optional fee up to $25 per night, max $75 per stay, 2 pets.", by["Red Roof Inn"]["source"]),
+        ("Higher fees", "Drury charges a daily pet fee of at least $50 (varies by hotel), 2 pets, 80 lb combined.", by["Drury Hotels"]["source"]),
+        ("Hilton, Aloft, Four Seasons, Loews", "Their official pages give no single brand-wide pet fee or weight limit (Loews allows 2 pets): each hotel sets its own rules, so check the hotel page.", by["Hilton brands"]["source"]),
+        (c["quick_city"][0], c["quick_city"][1], S[c["quick_city"][2]]),
+    ]
+    qa = "".join(f"<li><b>{e(q)}:</b> {e(a)} {src(u)}</li>" for q, a, u in quick)
+    secs = []
+    for s in c["sections"]:
+        items = []
+        for it in s["items"]:
+            t, k = (it, None) if isinstance(it, str) else it
+            items.append(f"<li>{e(t)}{' ' + src(S[k]) if k else ''}</li>")
+        intro = f"<p>{e(s['intro'])} {src(S[s['src']], 'Official source')}</p>" if s["intro"] else ""
+        if not s["intro"] and all(not isinstance(i, str) for i in s["items"]):
+            intro = ""
+        elif not s["intro"]:
+            intro = f"<p class='small'>{src(S[s['src']], 'Official source')}</p>"
+        secs.append(f"<h2 id='{e(s['id'])}'>{e(s['h'])}</h2>{intro}" + (f"<ul>{''.join(items)}</ul>" if items else ""))
+    checked = f'Last checked <time datetime="{chk}">{nice_date(chk)}</time>'
+    body = f"""{HOTELS_CSS}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; <a href="{root}hotels/">Pet-friendly hotels</a> &rsaquo; {e(c['name'])}</nav>
+<h1>Pet-friendly hotels in {e(c['name'])}: chain pet fees, weight limits and local tips</h1>
+<p class="lead">{e(c['lead'])}</p>
+{hotel_warn(chk)}
+<div class="usa-quick"><h2 id="quick">Quick answer</h2><ul>{qa}</ul></div>
+{hotel_aff_box(cfg, c)}
+<h2 id="chains">Hotel chain pet rules (US, brand-wide)</h2>
+<p class="small">{checked} on each chain&rsquo;s official website. Fees in US dollars, weights in pounds. Brand rules are a starting point: a franchised hotel in {e(c['name'])} can differ. Rows marked <span class="flag">Check</span> could not be read on the official site.</p>
+{hotel_chain_table(ch, root)}
+{''.join(secs)}
+<h2 id="tips">Before you book</h2>
+<ul><li>Filter for pet-friendly, then open the hotel&rsquo;s own policy: fee per night or per stay, weight limit, number of pets, and whether cats are accepted.</li>
+<li>Ask whether your pet may stay alone in the room: Motel 6 and Drury say pets should not be left alone.</li>
+<li>Service animals are not pets. Ask the hotel how it handles service animals and emotional support animals rather than assuming a pet fee or limit applies.</li></ul>
+<p class="note small">{checked}. Hotel pet policies change and vary by property; confirm with the hotel before you book. This page is a summary, not legal or veterinary advice. We are not affiliated with any hotel chain.</p>
+<h2 id="more">More pet travel help</h2>
+<p>Flying there? Check the airline: <a href="{root}airlines/american.html">American</a>, <a href="{root}airlines/delta.html">Delta</a>, <a href="{root}airlines/united.html">United</a>, <a href="{root}airlines/southwest.html">Southwest</a>, <a href="{root}airlines/jetblue.html">JetBlue</a>. State entry rules: <a href="{root}countries/usa.html#states">Pet travel rules for the USA</a>.</p>
+<div class="ht-cities">{hotel_city_links(ci, root, c['slug'])}</div>"""
+    faqs = [("Which hotel chains have no pet fee?", quick[0][1]), ("What do Red Roof and La Quinta charge for pets?", quick[1][1])] + [(q, a) for q, a, _ in c["faq"]]
+    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
+    return page(cfg, f"Pet-friendly hotels in {c['name']}: chain pet fees and weight limits | {cfg['site_name']}",
+                f"Pet fees, weight limits and pet numbers at Kimpton, Motel 6, Red Roof, La Quinta, Drury, Loews, Hilton and more for {c['name']}, plus airport pet relief areas and dog parks, with official sources.",
+                body, path, root,
+                jsonld=[bc_ld(cfg, [("Home", ""), ("Pet-friendly hotels", "hotels/"), (f"Pet-friendly hotels in {c['name']}", path)]), faq_ld])
+
+
+def build_hotels_index(cfg, ch, ci):
+    root, chk = "../", ci["checked"]
+    body = f"""{HOTELS_CSS}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; Pet-friendly hotels</nav>
+<h1>Pet-friendly hotels in the US: chain pet fees, weight limits and city guides</h1>
+<p class="lead">What the big US hotel chains charge for a dog or cat, how heavy a pet they accept and how many per room, read on each chain&rsquo;s official site. Then pick a city for local tips on airport pet relief areas and dog parks.</p>
+{hotel_warn(chk)}
+<h2 id="cities">City guides</h2>
+<div class="ht-cities">{hotel_city_links(ci, root)}</div>
+<h2 id="chains">Hotel chain pet rules (US, brand-wide)</h2>
+<p class="small">Last checked <time datetime="{chk}">{nice_date(chk)}</time> on each chain&rsquo;s official website. Fees in US dollars, weights in pounds. Rows marked <span class="flag">Check</span> could not be read on the official site.</p>
+{hotel_chain_table(ch, root)}
+<p class="small disc">City pages may contain affiliate links; if you book through them we may earn a commission at no extra cost to you. It never changes the pet rules we publish. <a href="{root}about.html#affiliates">Disclosure</a>.</p>
+<p>Driving or flying between states? See <a href="{root}countries/usa.html">pet travel rules for the USA</a> for each state&rsquo;s health certificate and rabies rules.</p>"""
+    return page(cfg, f"Pet-friendly hotels in the US: chain pet fees and weight limits | {cfg['site_name']}",
+                "Pet fees, weight limits and number of pets at Kimpton, Motel 6, Red Roof, La Quinta, Drury, Loews, Hilton, Aloft and Four Seasons, from official sites, plus city guides for Orlando, New York and Miami.",
+                body, "hotels/", root, jsonld=[bc_ld(cfg, [("Home", ""), ("Pet-friendly hotels", "hotels/")])])
+
+
+
 def main():
     cfg, airlines, updates = load()
     if OUT.exists():
@@ -1460,6 +1601,7 @@ def main():
     (OUT / "partner-vets").mkdir()
     (OUT / "countries").mkdir()
     (OUT / "routes").mkdir()
+    (OUT / "hotels").mkdir()
     pd, lims = load_products(airlines)
     global FORUM_ON
     FORUM_ON = forum_pages.enabled(cfg)
@@ -1488,6 +1630,10 @@ def main():
     (OUT / "partner-vets" / "index.html").write_text(build_partner_vets(cfg))
     (OUT / "countries" / "usa.html").write_text(build_country_usa(cfg, airlines))
     (OUT / "routes" / "usa-to-japan.html").write_text(build_route_usa_japan(cfg, airlines))
+    hch, hci = hotels_data()
+    (OUT / "hotels" / "index.html").write_text(build_hotels_index(cfg, hch, hci))
+    for c in hci["cities"]:
+        (OUT / "hotels" / f"pet-friendly-hotels-{c['slug']}.html").write_text(build_hotel_city(cfg, c, hch, hci))
     (OUT / "products" / "index.html").write_text(build_products_index(cfg, pd, lims))
     for p in pd["products"]:
         (OUT / "products" / f"{p['slug']}.html").write_text(build_product(cfg, p, pd, lims, airlines))
@@ -1503,6 +1649,8 @@ def main():
     urls += forum_pages.build(sys.modules[__name__], cfg, airlines, OUT, ROOT)  # [] while the forum is off
     urls.append((f"{base}/countries/usa.html", json.loads((ROOT / "data" / "countries" / "usa.json").read_text())["checked"]))
     urls.append((f"{base}/routes/usa-to-japan.html", json.loads((ROOT / "data" / "routes" / "usa-japan.json").read_text())["checked"]))
+    urls.append((f"{base}/hotels/", hci["checked"]))
+    urls += [(f"{base}/hotels/pet-friendly-hotels-{c['slug']}.html", hci["checked"]) for c in hci["cities"]]
     sm = "".join(f"<url><loc>{e(u)}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n')
     (OUT / "ads.txt").write_text("google.com, pub-7693501377730690, DIRECT, f08c47fec0942fa0\n")

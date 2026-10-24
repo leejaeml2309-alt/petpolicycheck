@@ -1,0 +1,197 @@
+{
+ "checked": "2026-10-24",
+ "demand_note": "City order by US monthly searches for 'pet friendly hotels <city>' (kwrds.ai pet-friendly-travel keyword table, October 2026): Orlando 18,100; New York 12,100; Miami 6,600. Los Angeles was not in that table.",
+ "cities": [
+  {
+   "slug": "orlando",
+   "name": "Orlando",
+   "state": "Florida",
+   "short": "Orlando, FL",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Orlando%2C%20Florida%2C%20United%20States%20of%20America&amenities=PETS",
+   "lead": "Orlando is the most-searched US city for pet-friendly hotels. Most big chains take pets here, but fees, weight limits and the number of pets differ by brand and by hotel. Below: the brand-wide rules from each chain's official site, plus sourced Orlando tips for the airport and dog parks.",
+   "quick_city": [
+    "Orlando International Airport (MCO)",
+    "Relief areas before security at Terminals A and B (Level 2) and after security near each gate group and in Terminal C; dogs inside the terminal must be service dogs or in an airline-approved carrier.",
+    "mco"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "Orlando International Airport (MCO) pet relief areas",
+     "src": "mco",
+     "intro": "Dogs are not allowed inside MCO unless they are working dogs or in a carrier approved for the flight. Service animal relief areas, open to pets:",
+     "items": [
+      "Before security: Terminal A, Level 2, east end; Terminal B, Level 2, west end; and the east end of the North Cell Phone Lot.",
+      "After security, Terminals A and B: Gates 1-29 (on the wing for Gates 20-29), Gates 30-59 (wing for Gates 40-49), Gates 70-99 (wing for Gates 90-99), Gates 100-129 (across from Gate 121).",
+      "After security, Terminal C: Level 2 near Gates C238, C241 and C242, and Level 6 just before international bag claim.",
+      "Pets shipped as cargo are picked up at the airline's cargo facility, not in the passenger terminal."
+     ]
+    },
+    {
+     "id": "parks",
+     "h": "Off-leash dog parks in Orange County",
+     "src": "ocfl",
+     "intro": "Orange County Parks runs fenced off-leash dog parks across the Orlando area. Dogs must wear a current license and tags, be leashed going in and out, and owners must stay inside within sight and voice range. West Orange and Downey also have a small-dog area and water fountains.",
+     "items": [
+      "Barber Park, 3701 Gatlin Ave., Orlando",
+      "Barnett Park, 4801 W. Colonial Dr., Orlando",
+      "Cypress Grove Park, 290 Holden Ave., Orlando",
+      "Downey Park, 10107 Flowers Ave., Orlando",
+      "Dr. Phillips Community Park, 8249 Buenavista Woods Blvd., Orlando",
+      "Lester Mandell Park, 3500 Central Florida Pkwy., Orlando",
+      "Meadow Woods Community Park, 1751 Rhode Island Woods Cir., Orlando",
+      "Summerport Park, 14491 Bridgewater Crossings Blvd., Windermere",
+      "West Orange Park, 12400 Marshall Farms Rd., Winter Garden",
+      "Young Pine Community Park, 5201 Young Pine Rd., Orlando",
+      "Yucatan Park, 6400 Yucatan Dr., Orlando",
+      "Independence Park, 5849 New Independence Pkwy., Winter Garden",
+      "Wedgefield Park, 20425 Mansfield St., Orlando"
+     ]
+    },
+    {
+     "id": "chains-here",
+     "h": "Chain notes for Orlando",
+     "src": "loews",
+     "intro": "",
+     "items": [
+      "Loews runs the hotels at Universal Orlando Resort (Portofino Bay, Hard Rock Hotel, Royal Pacific, Sapphire Falls, Cabana Bay and others); they appear on the Loews Loves Pets page. Loews allows up to 2 pets per room with up-to-date vaccinations, and property-specific rules and cleaning fees may apply, so confirm with your Universal hotel."
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Where can my dog go to the bathroom at Orlando airport (MCO)?",
+     "MCO has relief areas before security at Terminal A and B (Level 2) and the North Cell Phone Lot, after security near Gates 20-29, 40-49, 90-99 and across from Gate 121, and in Terminal C near Gates C238, C241 and C242 and on Level 6.",
+     "mco"
+    ]
+   ]
+  },
+  {
+   "slug": "new-york",
+   "name": "New York City",
+   "state": "New York",
+   "short": "New York City",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=New%20York%2C%20New%20York%2C%20United%20States%20of%20America&amenities=PETS",
+   "lead": "New York City is the second most-searched US city for pet-friendly hotels. Space is tight and rules vary a lot by hotel, and some budget chains' NYC locations take no pets at all. Below: each chain's brand-wide rules from its official site, plus sourced NYC tips for JFK and the city's dog rules.",
+   "quick_city": [
+    "NYC dog rules",
+    "Dogs must be on a leash of 6 ft or less in city parks except in dog runs and off-leash areas (park opening to 9 a.m. and 9 p.m. to closing). NYC requires owners to carry proof of a current dog license and rabies vaccination in public.",
+    "nycparks"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "JFK Airport pet relief areas",
+     "src": "jfk",
+     "intro": "JFK says Service Animal Relief Areas are available at all terminals for service animals and pets, with indoor and outdoor spaces, artificial grass, sinks and waste stations. Use JFK's interactive map to find the one nearest your gate.",
+     "items": []
+    },
+    {
+     "id": "parks",
+     "h": "Dogs in NYC parks",
+     "src": "nycparks",
+     "intro": "NYC Parks rules for dogs, from the official NYC Parks page:",
+     "items": [
+      "Leash of no more than 6 feet at all times, except in dog runs (fenced, off-leash during park hours) and designated off-leash areas from park opening to 9 a.m. and from 9 p.m. to closing.",
+      "Carry proof of a current dog license and rabies vaccination while in public (NYC Health Code).",
+      "No dogs in playgrounds, fountains, ball fields, courts, pools or on NYC beaches in summer; dogs may go on the sand from October 2 to the Friday before Memorial Day.",
+      "Manhattan dog runs include Madison Square Park, Washington Square Park, Tribeca (Warren St), Riverside Park (W 72nd, 87th and 105th St), Theodore Roosevelt Park (CPW at W 81st St) and Hudson River Park (Pier 40 and Pier 84).",
+      "Central Park has no fenced dog run but 23 dog-friendly areas (see the Central Park Conservancy's guide linked from NYC Parks)."
+     ]
+    },
+    {
+     "id": "chains-here",
+     "h": "Chain notes for New York City",
+     "src": "laquinta",
+     "intro": "",
+     "items": [
+      "La Quinta lists these NYC-area hotels as taking no pets: La Quinta by Wyndham New York City Central Park, La Quinta Inn by Wyndham Queens (New York City), La Quinta by Wyndham Brooklyn Downtown and Brooklyn East (also White Plains - Elmsford).",
+      [
+       "Four Seasons Hotel New York Downtown welcomes dogs and cats under 25 lb.",
+       "fs_nyd"
+      ],
+      [
+       "Loews Regency New York (Park Avenue) appears on the Loews Loves Pets page: up to 2 pets, vaccinations required, property rules and fees may apply.",
+       "loews"
+      ]
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Are there pet relief areas at JFK?",
+     "Yes. JFK says Service Animal Relief Areas for service animals and pets are available at all terminals, with indoor and outdoor spaces, artificial grass, sinks and waste stations.",
+     "jfk"
+    ]
+   ]
+  },
+  {
+   "slug": "miami",
+   "name": "Miami",
+   "state": "Florida",
+   "short": "Miami, FL",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Miami%2C%20Florida%2C%20United%20States%20of%20America&amenities=PETS",
+   "lead": "Miami rounds out our top three US cities for pet-friendly hotel searches. Beach and luxury hotels often have stricter pet rules than airport and highway chains, so compare the brand rules below and confirm with your hotel. Below: each chain's brand-wide rules from its official site, plus sourced Miami tips for MIA and county dog parks.",
+   "quick_city": [
+    "Miami International Airport (MIA)",
+    "3 outdoor relief areas on Level 1 Baggage Claim/Arrivals (near D, F and J; the J area is temporarily closed for construction) and 4 indoor ones after security (D34, F7, G11, H-J connector).",
+    "mia"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "Miami International Airport (MIA) pet relief areas",
+     "src": "mia",
+     "intro": "MIA lists these service animal and pet relief areas:",
+     "items": [
+      "Outdoor, near parking (Level 1 Baggage Claim/Arrivals): west of the North (Dolphin) garage near Terminal D, across from Door 5; west of the South Short Term lot near Terminal F, across from Door 15; south of the Flamingo garage near Terminal J, across from Door 28 (temporarily closed for construction).",
+      "Indoor, after security: North Terminal (D) near Gate D34; Concourse F near Gate F7; Concourse G near Gate G11; Concourse H-J connector, across from the InMotion store."
+     ]
+    },
+    {
+     "id": "parks",
+     "h": "Miami-Dade County dog parks",
+     "src": "mdparks",
+     "intro": "Miami-Dade Parks has three kinds of dog parks. Posted rules: vaccinations up to date, a current rabies tag on the collar, leash until inside the fence, no more than 3 dogs per person, no puppies under 4 months. The county page also still lists 'Pitbulls are not allowed', citing the county ordinance.",
+     "items": [
+      "Free-roaming dog parks: Haulover Park (10800 Collins Ave.), Tropical Park (7900 SW 40 St.), Amelia Earhart Park (401 E 65 St., Hialeah), East Greynolds Park (16700 Biscayne Blvd., North Miami Beach), West Kendall District Park (11255 SW 157 Ave).",
+      "Dog run park (no water or bag dispensers): Lago Mar Park (8165 SW 162 Ave.).",
+      "Haulover Park also has a dog beach with its own rules (linked from the county page)."
+     ]
+    },
+    {
+     "id": "chains-here",
+     "h": "Chain notes for Miami",
+     "src": "loews",
+     "intro": "",
+     "items": [
+      "Loews Miami Beach Hotel (South Beach) and Loews Coral Gables Hotel appear on the Loews Loves Pets page: up to 2 pets, vaccinations required, property rules and cleaning fees may apply.",
+      [
+       "Four Seasons Hotel Miami lists pet-friendly rooms but no weight or fee on its amenities page: ask the hotel.",
+       "fs_mia"
+      ]
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Where are the pet relief areas at Miami airport (MIA)?",
+     "Outdoor on Level 1 Baggage Claim/Arrivals across from Doors 5 and 15 (the Door 28 area is temporarily closed), and indoor after security near Gates D34, F7, G11 and the H-J connector.",
+     "mia"
+    ]
+   ]
+  }
+ ],
+ "sources": {
+  "mco": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+  "ocfl": "https://www.ocfl.net/CultureParks/DogParks.aspx",
+  "loews": "https://www.loewshotels.com/loews-loves-pets",
+  "jfk": "https://www.jfkairport.com/explore-jfk/accessibility-services",
+  "nycparks": "https://www.nycgovparks.org/facilities/dogareas",
+  "laquinta": "https://www.wyndhamhotels.com/laquinta/about-us/pet-friendly/pet-policy-details",
+  "fs_nyd": "https://www.fourseasons.com/newyorkdowntown/services-and-amenities/pet-friendly-stays/",
+  "mia": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+  "mdparks": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1470943010772421",
+  "fs_mia": "https://www.fourseasons.com/miami/services-and-amenities/pet-friendly-stays/"
+ }
+}

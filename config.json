@@ -129,6 +129,17 @@
       "note": ""
     }
   ],
+  "hotel_affiliates": {
+    "expedia": {
+      "label": "See pet-friendly hotels on Expedia",
+      "_note": "One tracked link per city slug. Create each in the Expedia Group Travel Creator dashboard (Links > Create link, then Shorten) from the city's expedia_target in data/hotels/us-cities.json. Empty = a marked placeholder is rendered and build.py prints a warning.",
+      "links": {
+        "orlando": "",
+        "new-york": "",
+        "miami": ""
+      }
+    }
+  },
   "amazon_tag": "petpolicychec-20",
   "product_links": {
     "sherpa-original-deluxe": {
