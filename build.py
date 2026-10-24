@@ -2416,7 +2416,7 @@ def main():
         assert gmark in home
         home = home.replace(gmark, gjs, 1).replace(cmark, "", 1)
         assert "<!--HDR_AD-->" in home and "<!--HDR_MENU_JS-->" in home
-        home = home.replace("<!--HDR_AD-->", MENU_BTN, 1).replace("<!--HDR_MENU_JS-->", header_ad(cfg) + MENU_JS, 1)
+        home = home.replace("<!--HDR_AD-->", "", 1).replace("<!--HDR_MENU_JS-->", header_ad(cfg), 1)  # home: no menu bar, centered brand
         home = home.replace('href="assets/css/theme.css"', f'href="assets/css/theme.css?v={CSS_VER}"', 1)  # header CSS changed: bust cache on home too
         (OUT / "index.html").write_text(home)
         shutil.copytree(ROOT / "static" / "assets", OUT / "assets")
