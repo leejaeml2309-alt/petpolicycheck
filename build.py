@@ -1,10 +1,10 @@
-import hashlib
 #!/usr/bin/env python3
 """Static site generator for the airline pet policy directory.
 
 Stdlib only. Reads config.json + data/airlines/*.json + data/updates.json,
 writes the site to ./site/.  Usage:  python3 build.py
 """
+import hashlib
 import datetime as dt
 import html
 import json
