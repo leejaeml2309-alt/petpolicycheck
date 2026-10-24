@@ -102,7 +102,7 @@ th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mu
 .flag{display:inline-block;flex:none;width:21px;height:14px;border-radius:2px;object-fit:cover;vertical-align:-2px;box-shadow:0 0 0 1px #ffffff40,0 1px 2px #0006}
 .uspill .flag{box-shadow:0 0 0 1px #0b171959}
 #ptitle .flag{width:24px;height:16px;margin-right:10px;vertical-align:0}
-.gchips{display:inline-flex;flex-wrap:wrap;gap:6px}.uspill .ar{transition:transform .15s}
+.uspill .ar{transition:transform .15s}
 .uspill:hover .ar,.uspill:focus-visible .ar{transform:translateX(3px)}.uspill:focus-visible{outline:3px solid #f0d58c;outline-offset:3px}
 .uschip{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:99px;border:1px solid var(--acc);color:var(--head);background:var(--chip);font:600 .84rem var(--text);text-decoration:none}
 .uschip:hover{background:var(--pri);color:var(--on-pri)}
