@@ -1329,6 +1329,7 @@ BOOK_HOME_CSS = """<style>
 .book-home .bh-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
 .book-home .book-g{border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:var(--r-m);padding:18px 18px 14px;background:var(--paper);box-shadow:var(--shadow-s);display:flex;flex-direction:column}
 .book-home .book-g h3{font-size:.82rem;margin:0 0 10px}
+.book-home .book-g h3 svg{width:1.15em;height:1.15em;fill:var(--acc);vertical-align:-0.2em;margin-right:0.4em}
 .book-home .book-g>p{font-size:.9rem;color:var(--ink)}
 .book-home .bh-p{margin:0 0 10px;font-size:.9rem;line-height:1.45}
 .book-home .bh-lux{margin-top:14px}
@@ -1398,8 +1399,12 @@ def booking_block(cfg, root, full=False, home=False):
     # (a) flights
     btns = flight_aff_buttons(cfg)
     fl = ""
+    _ip='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>'
+    _ih='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2h12v6h4v14H4zm2 2v16h3v-3h2v3h3V4zm10 6v10h2V10zM8 6h2v2H8zm4 0h2v2h-2zM8 10h2v2H8zm4 0h2v2h-2zM8 14h2v2H8zm4 0h2v2h-2z"/></svg>'
+    _ic='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6v3h1.6c.9 0 1.6.6 1.9 1.4L20 11c1.1.2 2 1.2 2 2.4V19h-2v2h-3v-2H7v2H4v-2H2v-5.6c0-1.2.9-2.2 2-2.4l1.5-4.6C5.8 5.6 6.5 5 7.4 5H9zM7.6 7 6.4 11h11.2l-1.2-4zM6 14a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm12 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg>'
+    _ip,_ih,_ic=(_ip,_ih,_ic) if home else ('&#9992; ','&#127976; ','&#128661; ')
     if btns:
-        fl = (f'<div class="book-g"><{hx}>&#9992; Flights</{hx}>'
+        fl = (f'<div class="book-g"><{hx}>{_ip}Flights</{hx}>'
               + ('<p style="margin:0 0 8px;font-size:.9rem">Compare fares, then book your pet&rsquo;s spot directly with the airline: in-cabin pet space is limited per flight. '
                  f'<a href="{root}products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a>.</p>' if (full or home) else "")
               + f'<p class="book-btns">{"".join(btns)}</p>'
@@ -1408,13 +1413,13 @@ def booking_block(cfg, root, full=False, home=False):
     cities = "".join(f'<li><a href="{root}hotels/pet-friendly-hotels-{e(c["slug"])}.html">{e(c["short"])}</a></li>' for c in ci["cities"])
     if home:
         lux = "".join(f'<li><a href="{root}hotels/pet-friendly-hotels-{e(c["slug"])}.html#luxury">{e(c["short"])}</a></li>' for c in ci["cities"] if c.get("luxury"))
-        ho = (f'<div class="book-g"><{hx}>&#127976; Pet-friendly hotels</{hx}>'
+        ho = (f'<div class="book-g"><{hx}>{_ih}Pet-friendly hotels</{hx}>'
               '<p class="bh-p">Chain pet fees, weight limits and number of pets, plus airport pet relief areas and dog parks, from official sources. Pick a city:</p>'
               f'<ul class="book-cities">{cities}<li><a class="all" href="{root}hotels/">All chains: fees &amp; weight limits</a></li></ul>'
               f'<p class="bh-p bh-lux"><b>Luxury hotels</b> set pet rules hotel by hotel:</p>'
               f'<ul class="book-cities">{lux}<li><a class="all" href="{root}hotels/#luxury">Luxury brands</a></li></ul></div>')
     else:
-        ho = (f'<div class="book-g"><{hx}>&#127976; Pet-friendly hotels by city</{hx}>'
+        ho = (f'<div class="book-g"><{hx}>{_ih}Pet-friendly hotels by city</{hx}>'
               + ('<p style="margin:0 0 8px;font-size:.9rem">Each city guide has the chain pet rules (fee, weight, number of pets), luxury hotels&rsquo; own pet policies, airport pet relief areas and dog parks, all from official sources.</p>' if full else "")
               + f'<ul class="book-cities">{cities}<li><a class="all" href="{root}hotels/">All chains: fees &amp; weight limits</a></li></ul></div>')
     # (c) airport to hotel
@@ -1434,13 +1439,13 @@ def booking_block(cfg, root, full=False, home=False):
         rnames = ", ".join(r["name"] for r in rs["robotaxis"][:-1]) + " and " + rs["robotaxis"][-1]["name"]
         rlinks = " &middot; ".join(ext(r["src"][1], r["name"]) for r in rs["robotaxis"])
         li += f'<li><b>Robotaxis:</b> {e(rnames)} do not take pets; service animals only. {rlinks}</li>'
-        ride = (f'<div class="book-g"><{hx}>&#128661; {"Airport rides with your pet" if home else "Airport to hotel with your pet"}</{hx}><ul class="book-ride">{li}</ul>'
+        ride = (f'<div class="book-g"><{hx}>{_ic}{"Airport rides with your pet" if home else "Airport to hotel with your pet"}</{hx}><ul class="book-ride">{li}</ul>'
                 f'<p class="book-disc">{e(rs["service_animals_note"])} Official pages checked {chk}; no affiliate links. <a href="{root}countries/usa.html#book">Details</a>.</p></div>')
     if home:
         return ('<section class="blk wrap book-home" id="plan-trip" aria-labelledby="plan-trip-h">'
                 '<h2 id="plan-trip-h">Plan and book your whole pet trip in one place</h2>'
                 '<p class="sub">Flights, pet-friendly hotels and airport rides with your dog or cat: everything ready before you go.</p>'
-                f'<div class="bh-grid">{fl}{ho}{ride}</div></section>')
+                f'<div class="bh-grid">{ride}{fl}{ho}</div></section>')
     h = "h2" if full else "h3"
     lede = "Flights, pet-friendly hotels by city, and a ride from the airport with your pet." if full else "Flights, hotels by city and pet-friendly rides."
     return f'<section class="book" id="book" aria-labelledby="book-h"><{h} id="book-h">Book your trip</{h}><p class="book-lede">{lede}</p>{fl}{ho}{ride}</section>'
