@@ -160,6 +160,15 @@
       "_note_hotels": "One tracked link per luxury hotel id (data/hotels/us-cities.json cities[].luxury[].expedia_target). Empty = plain untracked link to expedia_target."
     }
   },
+  "insurance_affiliates": {
+    "_note": "Pet insurance affiliate programs are NOT approved yet (research 2026-10-24). Leave url empty until a program accepts the site; an empty url shows a neutral link to the insurer's official site. Spot requires content review before publishing.",
+    "spot": {"label": "Get a quote on Spot's site", "network": "Partnerize (pending)", "url": ""},
+    "petsbest": {"label": "Get a quote on Pets Best's site", "network": "Impact (pending)", "url": ""},
+    "trupanion": {"label": "Get a quote on Trupanion's site", "network": "Impact (pending)", "url": ""},
+    "lemonade": {"label": "Get a quote on Lemonade's site", "network": "Impact (pending)", "url": ""},
+    "odie": {"label": "Get a quote on Odie's site", "network": "Awin (pending)", "url": ""},
+    "fetch": {"label": "Get a quote on Fetch's site", "network": "in-house (pending)", "url": ""}
+  },
   "amazon_tag": "petpolicychec-20",
   "product_links": {
     "sherpa-original-deluxe": {

@@ -1,0 +1,129 @@
+{
+ "title": "Pet Insurance for Travelers (US)",
+ "slug": "pet-insurance-for-travelers",
+ "checked": "2026-10-24",
+ "note": "Facts only from each insurer's own website or sample policy, read 2026-10-24. 'check' lists fields we could not confirm or where the insurer's pages disagree or vary by state/carrier. No prices, no rankings.",
+ "insurers": [
+  {
+   "key": "spot", "name": "Spot", "official_url": "https://spotpet.com/",
+   "territory": "United States, its territories (Guam, Puerto Rico, US Virgin Islands) and Canada. Care elsewhere is not covered.",
+   "abroad": "no",
+   "waiting": "14 days for accidents and illnesses, including knee and ligament conditions. Preventive care (optional) starts the next day.",
+   "age": "From 8 weeks. No upper age limit.",
+   "reimb": "70%, 80% or 90%.",
+   "extra": "Curable conditions cured and free of treatment and symptoms for 180 days are no longer treated as pre-existing (not knee or ligament conditions).",
+   "check": [],
+   "sources": [["Sample policy (Territory, Waiting periods)", "https://spotpet.com/spot-sample-policy.pdf"], ["FAQ", "https://spotpet.com/commonly-asked-questions"], ["Reimbursement", "https://spotpet.com/compare-pet-insurance"]]
+  },
+  {
+   "key": "petsbest", "name": "Pets Best", "official_url": "https://www.petsbest.com/",
+   "territory": "United States, Canada, and regions under US government control, such as territories or US military bases in other countries.",
+   "abroad": "no",
+   "waiting": "In the Virginia sample policy: 3 days for injuries, 14 days for illnesses, 6 months for cruciate ligament events. Pets Best says waiting periods vary by state.",
+   "age": "From 7 weeks. No upper age limit.",
+   "reimb": "70%, 80% or 90%.",
+   "extra": "Optional Vet Direct Pay sends the covered amount straight to the vet.",
+   "check": ["waiting"],
+   "sources": [["Sample policy, Virginia (Treatment locations, Waiting periods)", "https://www.petsbest.com/download.ashx?file=Policies%2FPOL_IAIC_1_PETS_PolicyBookletAnnualIllness_VA_Sample_v1.pdf"], ["FAQ", "https://www.petsbest.com/faq"]]
+  },
+  {
+   "key": "trupanion", "name": "Trupanion", "official_url": "https://www.trupanion.com/",
+   "territory": "United States, Canada and Puerto Rico, plus US and Canadian territories and military bases worldwide. Care elsewhere is not covered. (The sample policy PDF says only the US or Canada.)",
+   "abroad": "no",
+   "waiting": "5 days for injuries, 30 days for illnesses.",
+   "age": "Enroll before the pet's 14th birthday. Coverage then continues for life.",
+   "reimb": "Up to 90% of eligible costs, with no payout limits.",
+   "extra": "Many US and Canadian vets can be paid directly by Trupanion.",
+   "check": [],
+   "sources": [["Travel FAQ", "https://www.trupanion.com/pet-insurance-faq/article/is-my-pet-covered-while-traveling"], ["Waiting periods", "https://www.trupanion.com/pet-insurance-faq/article/when-does-my-coverage-begin"], ["Age limits", "https://www.trupanion.com/pet-insurance-faq/article/the-oldest-age-a-pet-can-be-enrolled"], ["Sample policy", "https://content.trupanion.com/files/policydocs_510/TrupanionPolicy.pdf"]]
+  },
+  {
+   "key": "lemonade", "name": "Lemonade", "official_url": "https://www.lemonade.com/pet",
+   "territory": "Any licensed vet in the United States, even in a state where Lemonade isn't sold. Treatment outside the US is not covered (this includes Canada).",
+   "abroad": "no",
+   "waiting": "14 days for illnesses, 30 days for orthopedic conditions. Depending on your state, Lemonade lists 0 or 2 days for accidents and 6 months for cruciate ligament events.",
+   "age": "Check",
+   "reimb": "70%, 80% or 90%.",
+   "extra": "Sold in 41 states and DC (per Lemonade's FAQ).",
+   "check": ["waiting", "age"],
+   "sources": [["Pet FAQ", "https://www.lemonade.com/pet/insurance-guide/lemonade-pet-insurance-faq/"], ["Waiting periods", "https://www.lemonade.com/pet/insurance-guide/waiting-periods/"], ["General FAQ (state waiting periods)", "https://www.lemonade.com/faq"]]
+  },
+  {
+   "key": "odie", "name": "Odie", "official_url": "https://getodie.com/",
+   "territory": "United States or Canada (FAQ). The sample policy covers Canada only for temporary stays of 90 days or less and pays in US dollars.",
+   "abroad": "no",
+   "waiting": "Depends on the underwriting carrier and your state: 0 to 15 days for injuries, 14 to 15 days for illnesses, and up to 6 months for cruciate ligament events on one product.",
+   "age": "Depends on the product: from 7 weeks with no upper limit, or 8 weeks to 14 years.",
+   "reimb": "70% to 90% (one product offers 70% or 90%).",
+   "extra": "Odie sells policies from more than one insurance company, so read the policy you are offered.",
+   "check": ["waiting", "age", "reimb"],
+   "sources": [["Help Center", "https://getodie.com/help-center/"], ["FAQ", "https://getodie.com/frequently-asked-questions-about-pet-insurance/"], ["Sample policy", "https://getodie.com/wp-content/uploads/2025/12/Odie-Sample-Doc.pdf"]]
+  },
+  {
+   "key": "fetch", "name": "Fetch", "official_url": "https://www.fetchpet.com/",
+   "territory": "Any licensed vet in the United States or Canada, including during a trip.",
+   "abroad": "no",
+   "waiting": "Up to 15 days. Fetch's pages differ on accidents: the Help Center gives 15 days for injury and illness; the reimbursement page says accidents have no waiting period. 6-month exclusion for hip dysplasia, cruciates and patellas (the knee period can be waived with a vet exam).",
+   "age": "From 6 weeks. No upper age limit.",
+   "reimb": "70%, 80% or 90%.",
+   "extra": "Lists cover for canceled vacation costs if your pet gets sick or injured before or during a trip (read the policy for limits).",
+   "check": ["waiting"],
+   "sources": [["Help Center: Policy & coverage", "https://help-center.fetchpet.com/en/articles/5297124-policy-coverage"], ["Waiting period", "https://www.fetchpet.com/faqs/waiting-period"], ["Reimbursement", "https://www.fetchpet.com/claims/reimbursement"], ["Buyer's guide (age)", "https://www.fetchpet.com/compare/buyers-guide-pet-insurance"]]
+  },
+  {
+   "key": "healthypaws", "name": "Healthy Paws", "official_url": "https://www.healthypawspetinsurance.com/",
+   "territory": "United States, and Canada only while you are temporarily traveling there.",
+   "abroad": "no",
+   "waiting": "15 days for accidents and illnesses. 12 months for hip dysplasia if enrolled at age 5 or under. Several states have different rules.",
+   "age": "From 8 weeks. Upper age limit: Check.",
+   "reimb": "Up to 90%. Exact options: Check.",
+   "extra": "Optional direct payment to any licensed US vet on covered claims.",
+   "check": ["age", "reimb"],
+   "sources": [["FAQ", "https://www.healthypawspetinsurance.com/faq"], ["Home page (any licensed vet, ages)", "https://www.healthypawspetinsurance.com/"], ["Sample policy (Washington)", "https://www.healthypawspetinsurance.com/content/dam/healthypaws/documents/policies/WA/westchester-sample-policy.pdf"]]
+  },
+  {
+   "key": "embrace", "name": "Embrace", "official_url": "https://www.embracepetinsurance.com/",
+   "territory": "Embrace says travel with your pet is covered for up to 6 consecutive months per trip, including outside the US and Canada.",
+   "abroad": "yes",
+   "waiting": "14 days for illnesses. Accidents are covered from the policy effective date. Some states also have orthopedic waiting periods.",
+   "age": "Accident and illness plans: under 15. Pets 15 and older: accident-only plan. Minimum age: Check.",
+   "reimb": "70%, 80% or 90%.",
+   "extra": "We found the international wording on an Embrace comparison page, not in a policy document: confirm with Embrace before you rely on it.",
+   "check": ["territory", "age"],
+   "sources": [["Comparison page (international coverage, reimbursement)", "https://embracepetinsurance.com/compare/embrace-vs-pumpkin"], ["Waiting periods", "https://www.embracepetinsurance.com/coverage/waiting-period"], ["FAQ (accident-only plan, age 15+)", "https://www.embracepetinsurance.com/coverage/faq"]]
+  },
+  {
+   "key": "pumpkin", "name": "Pumpkin", "official_url": "https://www.pumpkin.care/",
+   "territory": "Any licensed vet in the United States or Canada. Care in other countries: Check.",
+   "abroad": "check",
+   "waiting": "14 days or less for all conditions, including knee injuries and hip dysplasia.",
+   "age": "From 8 weeks. No upper age limit.",
+   "reimb": "80% or 90%.",
+   "extra": "",
+   "check": ["territory"],
+   "sources": [["Home page and FAQ", "https://www.pumpkin.care/"], ["Plan summary", "https://www.pumpkin.care/ai-info"]]
+  },
+  {
+   "key": "aspca", "name": "ASPCA Pet Health Insurance", "official_url": "https://www.aspcapetinsurance.com/",
+   "territory": "Any licensed vet in the United States or Canada. Care in other countries: Check.",
+   "abroad": "check",
+   "waiting": "Check",
+   "age": "Check",
+   "reimb": "Up to 90%. Exact options: Check.",
+   "extra": "",
+   "check": ["territory", "waiting", "age", "reimb"],
+   "sources": [["Top questions", "https://www.aspcapetinsurance.com/customer-community/top-questions"], ["Home page", "https://www.aspcapetinsurance.com/"]]
+  },
+  {
+   "key": "nationwide", "name": "Nationwide", "official_url": "https://www.petinsurance.com/",
+   "territory": "Any licensed vet, anywhere in the world (Nationwide FAQ). The buyer's guide says the same applies \"in the U.S. or abroad\".",
+   "abroad": "yes",
+   "waiting": "Most plans start 14 days after your application is approved and payment is received.",
+   "age": "Enrollment ages: Check. Cats 8 and older cannot enroll in hereditary coverage.",
+   "reimb": "Depends on the plan: some pay a percentage, others pay set benefit amounts. Check.",
+   "extra": "",
+   "check": ["age", "reimb"],
+   "sources": [["FAQ", "https://www.petinsurance.com/faq/"], ["Buyer's guide", "https://www.petinsurance.com/pet-insurance/buying/"]]
+  }
+ ]
+}

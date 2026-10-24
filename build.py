@@ -8,6 +8,7 @@ import hashlib
 import datetime as dt
 import html
 import json
+import re
 import urllib.parse
 import shutil
 import sys
@@ -1454,6 +1455,7 @@ def build_country_usa(cfg, airlines):
 <p class="note small">{checked}. Rules change; confirm with the official source before you travel. This page is a summary, not legal or veterinary advice. Airlines may require more than the state does.</p>
 <h2 id="hotels">Pet-friendly hotels</h2>
 <p>Pet fees, weight limits and number of pets at the big US hotel chains, from their official sites: <a href="{root}hotels/">pet-friendly hotel rules</a>. City guides: <a href="{root}hotels/pet-friendly-hotels-orlando.html">Orlando</a>, <a href="{root}hotels/pet-friendly-hotels-new-york.html">New York</a>, <a href="{root}hotels/pet-friendly-hotels-miami.html">Miami</a>.</p>
+{insurance_teaser(root, "usa")}
 <h2 id="airlines">Airline pet policies</h2>
 <div class="chips">{al}</div>
 <h2 id="gear">Product guides</h2>
@@ -1537,6 +1539,7 @@ def build_route_usa_japan(cfg, airlines):
 <p class="small">From our airline pages, checked on the airline&rsquo;s official site on the date shown. Airline rules are separate from Japan&rsquo;s entry rules; confirm in-cabin or cargo acceptance for your exact flight.</p>
 <div class="tablewrap"><table class="cmp usa-t rj-air"><thead><tr><th>Airline</th><th>What our airline page says</th><th>Japan flights</th><th>Source</th></tr></thead><tbody>{''.join(arows)}</tbody></table></div>
 {fbox}
+{insurance_teaser(root, "japan")}
 <h2 id="return">Coming back to the USA</h2>
 <p>Japan is not on the CDC list of high-risk countries for dog rabies, so a dog that was only in Japan (or other low-risk countries) in the 6 months before returning needs the free <b>CDC Dog Import Form</b> receipt, a microchip, a healthy look and an age of at least 6 months; the CDC simplified this on August 1, 2024. Cats have no federal rabies proof requirement. State and airline rules still apply. {src(S['cdc_low'], 'CDC')} &middot; {src(S['cdc_high'], 'CDC high-risk list')}</p>
 <p>Full US entry and state rules: <a href="{root}countries/usa.html">Pet travel rules for the USA</a>.</p>
@@ -1785,6 +1788,144 @@ def build_hotels_index(cfg, ch, ci):
 
 
 
+INS_SLUG = "insurance/pet-insurance-for-travelers.html"
+INS_NOT_AGENT = ("PetPolicyCheck is not a licensed insurance agent or broker and does not sell, solicit or negotiate insurance. "
+                 "We provide general information only, not insurance advice. Coverage, availability and prices vary by state and are set by the insurer. "
+                 "Always read the policy documents and confirm details with the insurer.")
+
+
+def load_insurers():
+    return json.loads((ROOT / "data" / "insurance" / "us-pet-insurers.json").read_text())
+
+
+def ins_affiliate_url(cfg, key):
+    """config.json insurance_affiliates.<key>.url; empty until a program accepts the site (then the page shows a sponsored quote link)."""
+    v = (cfg.get("insurance_affiliates") or {}).get(key) or {}
+    return (v.get("url") or "").strip(), v.get("label") or ""
+
+
+def ins_disclosure(cfg, root):
+    live = any(ins_affiliate_url(cfg, k)[0] for k in (cfg.get("insurance_affiliates") or {}) if not k.startswith("_"))
+    ftc = ("<b>Disclosure:</b> PetPolicyCheck may earn a fee if you request a quote or buy a policy through links marked &ldquo;sponsored&rdquo; on this page. "
+           "This doesn&rsquo;t change what you pay or how we describe products." if live else
+           "<b>Disclosure:</b> we have no affiliate relationship with any insurer on this page today, and every link goes to the insurer&rsquo;s own site. "
+           "If that changes, quote links will be marked &ldquo;sponsored&rdquo;; PetPolicyCheck may then earn a fee if you request a quote or buy a policy through them. "
+           "That won&rsquo;t change what you pay or how we describe products.")
+    return (f'<div class="note ins-disc"><p>{ftc} <a href="{root}about.html#affiliates">Affiliate disclosure</a>.</p>'
+            f'<p><b>Not advice:</b> {e(INS_NOT_AGENT)}</p></div>')
+
+
+def insurance_teaser(root, where):
+    """Small linked block for /countries/usa.html ('usa') and /routes/usa-to-japan.html ('japan'), counts taken from the insurer data."""
+    d = load_insurers()
+    ins = d["insurers"]
+    abroad = [i["name"] for i in ins if i["abroad"] == "yes"]
+    url = f"{root}{INS_SLUG}"
+    chk = f'<time datetime="{d["checked"]}">{nice_date(d["checked"])}</time>'
+    if where == "japan":
+        h = "Will your US pet insurance work in Japan?"
+        p = (f"Often not. Of the {len(ins)} US insurers we checked, most limit coverage to the US and Canada (some add US territories or military bases); "
+             f"only {' and '.join(abroad)} say they cover vet care abroad, and terms apply. Policies reimburse you after you pay the vet, so keep itemized invoices and records.")
+    else:
+        h = "Pet insurance while traveling in the US"
+        p = (f"Most US pet insurance policies reimburse care at any licensed vet in the US, and many also in Canada, so an emergency vet on a road trip can be covered. "
+             f"Waiting periods (up to 30 days for illnesses among the {len(ins)} insurers we checked) mean a policy bought just before a trip may not cover it yet.")
+    return (f'<aside class="reco ins-tease"><h2>{h}</h2><p>{p}</p>'
+            f'<p><a href="{url}"><b>Compare what {len(ins)} US insurers say about travel coverage</b></a> &rsaquo;</p>'
+            f'<p class="small disc">Checked on insurers&rsquo; official sites {chk}. General information, not insurance advice; PetPolicyCheck is not a licensed insurance agent.</p></aside>')
+
+
+def build_insurance_travel(cfg):
+    """Pet Insurance for Travelers (US), from data/insurance/us-pet-insurers.json. Facts only from insurers' own sites; 'Check' where unverified."""
+    d = load_insurers()
+    root, chk, ins = "../", d["checked"], d["insurers"]
+    src = lambda u, t="Official source": f'<a href="{e(u)}" rel="noopener" target="_blank">{t}</a>'
+    checked = f'Last checked <time datetime="{chk}">{nice_date(chk)}</time>'
+    CHK = '<span class="flag">Check</span>'
+
+    def cell(i, k):
+        v = i[k]
+        if v.strip() == "Check":
+            return f"{CHK} Confirm with the insurer"
+        v = re.sub(r"\bCheck\b\.?", CHK, e(v))
+        return (CHK + " " + v) if k in i["check"] and CHK not in v else v
+
+    abroad_lbl = {"yes": "<b>Yes</b>, per insurer (terms apply)", "no": "No", "check": f"{CHK} Not stated"}
+    rows = []
+    for i in ins:
+        aurl, alabel = ins_affiliate_url(cfg, i["key"])
+        link = (f'<a class="btn" href="{e(aurl)}" rel="sponsored nofollow noopener" target="_blank">{e(alabel)}</a> <span class="small">sponsored</span>' if aurl
+                else src(i["official_url"], "Official site"))
+        srcs = "<br>".join(src(u, e(t)) for t, u in i["sources"])
+        extra = f"<br><span class='small'>{e(i['extra'])}</span>" if i.get("extra") else ""
+        rows.append(f"<tr><td data-l='Insurer'><b>{e(i['name'])}</b><br>{link}</td>"
+                    f"<td data-l='Outside US &amp; Canada?' style='min-height:2.6rem'>{abroad_lbl[i['abroad']]}</td>"
+                    f"<td data-l='Where covered'>{cell(i, 'territory')}{extra}</td>"
+                    f"<td data-l='Waiting periods'>{cell(i, 'waiting')}</td>"
+                    f"<td data-l='Age limits'>{cell(i, 'age')}</td>"
+                    f"<td data-l='Reimbursement'>{cell(i, 'reimb')}</td>"
+                    f"<td class='ins-src' data-l='Sources'>{srcs}<br><span class='small'>checked <time datetime='{chk}'>{nice_date(chk)}</time></span></td></tr>")
+    n = len(ins)
+    yes = [i["name"] for i in ins if i["abroad"] == "yes"]
+    us_only = [i["name"] for i in ins if "outside the US is not covered" in i["territory"]]
+    nchk = sum(1 for i in ins if i["check"])
+    css = """<style>
+.usa-quick{background:var(--sage-l);border:0;border-left:4px solid var(--sage);border-radius:10px;padding:14px 18px}
+.usa-quick h2{margin:0 0 .4em}.usa-quick ul{margin:0;padding-left:1.2em}.usa-quick li{margin:.35em 0}
+.usa-warn{border:0;border-left:4px solid var(--gold)}
+.ins-disc p{margin:.3em 0}
+.ins-t td{vertical-align:top}.ins-t td:first-child{min-width:8.5em}.ins-t td:nth-child(3),.ins-t td:nth-child(4){min-width:13em}
+.ins-t .ins-src{min-width:11em;font-size:.86rem}
+.ins-t .btn{margin-top:6px}
+@media (max-width:720px){.ins-t td{min-width:0!important}}
+</style>"""
+    body = f"""{css}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; Insurance &rsaquo; Pet insurance for travelers</nav>
+<h1>Pet insurance for travelers (US): what policies cover away from home</h1>
+<p class="lead">If your dog or cat gets sick or hurt on a trip, will your US pet insurance pay? It depends on where you are, how long you&rsquo;ve had the policy and what it excludes. Below: what to check, and what {n} US insurers say on their own websites about travel coverage, waiting periods, age limits and reimbursement.</p>
+{ins_disclosure(cfg, root)}
+<div class="usa-quick"><h2 id="quick">Quick answer</h2><ul>
+<li><b>US and Canada:</b> most policies we checked reimburse care at any licensed vet in the US, and most also in Canada (some only during a temporary stay). {(' and '.join(us_only) + ' covers the US only.') if us_only else ''}</li>
+<li><b>Outside the US and Canada:</b> only {' and '.join(yes)} say their policies cover vet care abroad. The rest limit cover to the US (and usually Canada), sometimes adding US territories or military bases, or their sites don&rsquo;t say (marked &ldquo;Check&rdquo; in the table).</li>
+<li><b>Waiting periods:</b> illness cover usually starts only after a waiting period of up to 30 days (14 or 15 days at most insurers we checked), so a policy bought the week before a trip may not cover that trip.</li>
+<li><b>Pre-existing conditions</b> are generally not covered, and that includes anything that first shows up during a waiting period.</li>
+<li><b>You pay first:</b> pet insurance usually reimburses you after you pay the vet, so budget for the full bill on the road.</li>
+</ul></div>
+<p class="warn usa-warn">Policies differ by state, product and underwriting company, and insurers change their terms. Confirm every detail with the insurer before you buy or travel. {checked}.</p>
+<h2 id="why">Why insurance matters when you travel with a pet</h2>
+<p>Trips bring new risks: heat, unfamiliar food and water, other animals, car and airport stress. If your pet needs an emergency vet away from home, you usually don&rsquo;t know the clinic, you normally pay the bill yourself first, and it can be large. Abroad, it may come in another currency and language.</p>
+<p>Pet insurance doesn&rsquo;t change what the vet charges, but it can pay back part of a covered bill afterwards. Separate travel insurance for people usually doesn&rsquo;t cover pets (Trupanion notes this on its travel FAQ), so check your pet&rsquo;s policy before you go.</p>
+<h2 id="where">Where coverage applies: US only, US and Canada, or abroad</h2>
+<ul>
+<li><b>US only:</b> {', '.join(us_only) or 'none in our table'}. Care in Canada or abroad is not covered.</li>
+<li><b>US and Canada:</b> most insurers below. Some limit Canada to a temporary stay (Healthy Paws: &ldquo;temporarily traveling&rdquo;; Odie&rsquo;s sample policy: 90 days or less). Trupanion and Pets Best also name US territories and US military bases abroad.</li>
+<li><b>Abroad:</b> {' and '.join(yes)} say coverage applies outside the US and Canada. Embrace says up to 6 consecutive months per trip; Nationwide says any licensed vet anywhere. Confirm the exact policy wording before an international trip.</li>
+</ul>
+<h2 id="waiting">Waiting periods and pre-existing conditions</h2>
+<p>A waiting period is the time after the policy starts before claims are paid. Anything that starts during it is usually treated as pre-existing and never covered. Among the insurers below, accident waiting periods range from none to 15 days, and illness waiting periods from 14 days or less to 30 days. Orthopedic or knee (cruciate ligament) conditions can wait up to 6 months, or 12 months for hip dysplasia at Healthy Paws. Some insurers shorten these after a vet exam. If you&rsquo;re planning a trip, compare start dates early.</p>
+<p>Pre-existing conditions are excluded. Some insurers will cover a curable condition again once it has been cured and symptom-free for a set time (Spot: 180 days; Lemonade, in most states: 12 months), but not knee or ligament conditions.</p>
+<h2 id="compare">What {n} US pet insurers say about travel coverage</h2>
+<p class="small">{checked}, on each insurer&rsquo;s own website or sample policy (linked in each row). Facts only, no prices and no rankings. Cells marked {CHK} could not be confirmed, or the insurer&rsquo;s pages disagree or vary by state or carrier ({nchk} of {n} insurers have at least one). Your actual policy decides.</p>
+<div class="tablewrap"><table class="cmp ins-t"><thead><tr><th>Insurer</th><th>Covers care outside the US and Canada?</th><th>Where covered</th><th>Waiting periods</th><th>Age limits</th><th>Reimbursement options</th><th>Sources</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div>
+<p class="note small">Confirm with the insurer: this table summarizes the insurers&rsquo; public pages as read on <time datetime="{chk}">{nice_date(chk)}</time>. Terms vary by state and can change at any time, and the policy document always decides. Found something out of date? <a href="{root}contact.html">Tell us</a>.</p>
+<h2 id="before">Before you travel: a short checklist</h2>
+<ul>
+<li>Read the <b>territory</b> clause in your policy (often called &ldquo;Territory&rdquo; or &ldquo;Treatment locations&rdquo;) for every country on your route.</li>
+<li>Check that your <b>waiting periods</b> will be over before you leave.</li>
+<li>Save your policy number and the insurer&rsquo;s claims phone number or app on your phone.</li>
+<li>Carry your pet&rsquo;s medical and vaccination records. Insurers usually ask for them with a claim.</li>
+<li>Keep <b>itemized invoices</b> and payment receipts from any vet you visit; abroad, ask for an English version if possible.</li>
+<li>Look up an emergency vet near where you&rsquo;ll stay.</li>
+</ul>
+<h2 id="related">Related pages</h2>
+<ul><li><a href="{root}countries/usa.html">Pet travel rules for the USA: federal and state requirements</a></li>
+<li><a href="{root}routes/usa-to-japan.html">Flying with a dog or cat from the USA to Japan</a></li></ul>
+<p class="note small">{checked}. {e(INS_NOT_AGENT)} Prices are set by insurers in US dollars and are not shown here.</p>"""
+    return page(cfg, f"Pet insurance for travelers (US): coverage away from home compared | {cfg['site_name']}",
+                f"Does US pet insurance cover your dog or cat while traveling? Where {n} US insurers cover care (US, Canada, abroad), plus waiting periods, age limits and reimbursement, from their official sites.",
+                body, INS_SLUG, root,
+                jsonld=[bc_ld(cfg, [("Home", ""), ("Pet insurance for travelers (US)", INS_SLUG)])])
+
+
 def main():
     cfg, airlines, updates = load()
     if OUT.exists():
@@ -1796,6 +1937,7 @@ def main():
     (OUT / "countries").mkdir()
     (OUT / "routes").mkdir()
     (OUT / "hotels").mkdir()
+    (OUT / "insurance").mkdir()
     pd, lims = load_products(airlines)
     global FORUM_ON
     FORUM_ON = forum_pages.enabled(cfg)
@@ -1837,6 +1979,7 @@ def main():
     (OUT / "hotels" / "index.html").write_text(build_hotels_index(cfg, hch, hci))
     for c in hci["cities"]:
         (OUT / "hotels" / f"pet-friendly-hotels-{c['slug']}.html").write_text(build_hotel_city(cfg, c, hch, hci))
+    (OUT / "insurance" / "pet-insurance-for-travelers.html").write_text(build_insurance_travel(cfg))
     (OUT / "products" / "index.html").write_text(build_products_index(cfg, pd, lims))
     for p in pd["products"]:
         (OUT / "products" / f"{p['slug']}.html").write_text(build_product(cfg, p, pd, lims, airlines))
@@ -1854,6 +1997,7 @@ def main():
     urls.append((f"{base}/routes/usa-to-japan.html", json.loads((ROOT / "data" / "routes" / "usa-japan.json").read_text())["checked"]))
     urls.append((f"{base}/hotels/", hci["checked"]))
     urls += [(f"{base}/hotels/pet-friendly-hotels-{c['slug']}.html", hci["checked"]) for c in hci["cities"]]
+    urls.append((f"{base}/{INS_SLUG}", load_insurers()["checked"]))
     sm = "".join(f"<url><loc>{e(u)}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n')
     (OUT / "ads.txt").write_text("google.com, pub-7693501377730690, DIRECT, f08c47fec0942fa0\n")
