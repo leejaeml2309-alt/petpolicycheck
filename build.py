@@ -198,8 +198,10 @@ def header_ad(cfg, ads=True):
     """Leaderboard ad band below the header line (728x90 desktop and tablet, 320x100 phone; fixed min-height = no layout shift).
     config.json "adsense_header_slot": AdSense ad-unit id for this slot. Empty -> clean placeholder (dashed gold box,
     'Advertisement' label) and the <ins> kept as a commented TODO. Pages built with ads=False always get the placeholder."""
+    if not ads:
+        return ""  # no-AdSense pages (e.g. /pet-travel-checklist/): no ad band at all
     slot = str(cfg.get("adsense_header_slot") or "").strip()
-    if ads and slot:
+    if slot:
         return ('<div class="hdr-band"><div class="wrap"><div class="hdr-ad" role="complementary" aria-label="Advertisement"><div class="hdr-box"><span class="adl">Advertisement</span>'
                 f'<ins class="adsbygoogle hdr-ins" data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="{e(slot)}"></ins>'
                 '<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div></div></div></div>')
