@@ -1,3 +1,4 @@
+import hashlib
 #!/usr/bin/env python3
 """Static site generator for the airline pet policy directory.
 
@@ -1782,7 +1783,7 @@ def main():
         js_tag = '<script src="assets/js/home-c.js"></script>'
         assert js_tag in home and "</head>" in home
         book = json.dumps(booking_block(cfg, site_base(cfg) + "/")).replace("</", "<\\/")
-        home = home.replace("</head>", BOOK_CSS + "</head>", 1).replace(js_tag, f"<script>var BOOK_USA={book};</script>" + js_tag, 1)
+        home = home.replace("</head>", BOOK_CSS + "</head>", 1).replace(js_tag, f"<script>var BOOK_USA={book};</script>" + js_tag.replace("home-c.js", "home-c.js?v=" + hashlib.md5((ROOT / "static" / "assets" / "js" / "home-c.js").read_bytes()).hexdigest()[:8]), 1)
         (OUT / "index.html").write_text(home)
         shutil.copytree(ROOT / "static" / "assets", OUT / "assets")
         shutil.copy(ROOT / "static" / "assets" / "img" / "favicon.ico", OUT / "favicon.ico")
