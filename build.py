@@ -1419,7 +1419,7 @@ def build_checklist(cfg):
     return page(cfg, f"Free Pet Travel Checklist USA (printable PDF) | {cfg['site_name']}",
                 "A free 2-page printable checklist for US pet travel: documents, airline cabin vs. hold, carrier size, Amtrak, hotels and departure day. No sign-up.",
                 body, "pet-travel-checklist/", root,
-                jsonld=[bc_ld(cfg, [("Home", ""), ("Pet travel checklist", "pet-travel-checklist/")])])
+                jsonld=[bc_ld(cfg, [("Home", ""), ("Pet travel checklist", "pet-travel-checklist/")])], ads=False)
 
 
 def build_country_usa(cfg, airlines):
