@@ -1,5 +1,5 @@
 (function(){
-var W=960,H=500,svg=d3.select('#map'),tip=document.getElementById('tip'),box=document.getElementById('mapbox');
+var W=960,H=500,VH=H,marks=[],svg=d3.select('#map'),tip=document.getElementById('tip'),box=document.getElementById('mapbox');
 var countries=topojson.feature(ATLAS,ATLAS.objects.countries).features.filter(function(f){return f.id!=='010'&&f.properties.name!=='Antarctica'});
 var proj=d3.geoNaturalEarth1().rotate([-10,0]);
 proj.fitWidth(W-16,{type:'Sphere'});
@@ -25,22 +25,64 @@ routes.forEach(function(r){rg.append('path').attr('class','arc').attr('d',path({
 Object.keys(hubs).forEach(function(k){var p=proj(hubs[k]);rg.append('circle').attr('class','hub').attr('cx',p[0]).attr('cy',p[1]).attr('r',2.2)});
 // pins for countries with a guide
 Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return c.id===id});if(!f)return;var c=GUIDES[id].pin?proj(GUIDES[id].pin):path.centroid(f);
- var pin=g.append('g').attr('class','pin').attr('transform','translate('+c+')').style('cursor','pointer').on('click',function(){openCountry(id)});
+ var pin=g.append('g').attr('class','pin').attr('transform','translate('+c+')');marks.push([pin,c]);pin.style('cursor','pointer').on('click',function(){openCountry(id)});
  pin.append('circle').attr('class','ring').attr('r',6);pin.append('circle').attr('class','p').attr('r',5);
  pin.append('text').attr('x',GUIDES[id].label_left?-9:9).attr('text-anchor',GUIDES[id].label_left?'end':null).attr('y',4).text((GUIDES[id].short||GUIDES[id].name)+' guide')});
 // airplane button (Pacific)
 var pp=proj([-40,14]);
-var pb=g.append('g').attr('class','planebtn').attr('transform','translate('+pp+')').attr('tabindex',0).attr('role','button').attr('aria-label','Open airline pet policies')
+var pb=g.append('g').attr('class','planebtn').attr('transform','translate('+pp+')');marks.push([pb,pp]);pb.attr('tabindex',0).attr('role','button').attr('aria-label','Open airline pet policies')
  .on('click',function(){openAirlines()}).on('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openAirlines()}});
 pb.append('circle').attr('r',24);
 pb.append('g').attr('transform','translate(-14,-14) scale(1.17) rotate(45 12 12)').html(PLANE);
 pb.append('text').attr('y',42).attr('text-anchor','middle').text('Airline policies');
-// zoom
-var zoom=d3.zoom().scaleExtent([1,8]).translateExtent([[0,0],[W,H]]).filter(function(e){return !e.button&&e.type!=='wheel'&&e.type.indexOf('touch')!==0}).on('zoom',function(e){g.attr('transform',e.transform)});
-svg.call(zoom).on('wheel.zoom',null);
-document.getElementById('zin').onclick=function(){svg.transition().call(zoom.scaleBy,1.6)};
-document.getElementById('zout').onclick=function(){svg.transition().call(zoom.scaleBy,1/1.6)};
-var ms=document.getElementById('mapscroll');if(ms.scrollWidth>ms.clientWidth)ms.scrollLeft=(ms.scrollWidth-ms.clientWidth)*0.97;
+// zoom & pan (d3-zoom, already loaded): mouse drag, Ctrl/Cmd + wheel (and trackpad pinch), +/-/reset buttons.
+// Touch is handled below so one-finger vertical swipes keep scrolling the page (#map has touch-action:pan-y):
+// one finger sideways = move the map, two fingers = pinch-zoom + move, double-tap = zoom in.
+// Phones: the viewport is as tall as the old 760px-wide scroller (whole height of the map at the default zoom);
+// zooming out to 1x shows the whole world.
+var node=svg.node(),bw=W,kHome=1,MAXZ=8;
+function ext(){return [[0,0],[W,VH]]}
+var zoom=d3.zoom().extent(ext).translateExtent([[0,0],[W,H]])
+ .filter(function(e){if(e.type==='wheel')return e.ctrlKey||e.metaKey;return !e.button&&e.type.indexOf('touch')!==0})
+ .on('zoom',function(e){g.attr('transform',e.transform);restyle(e.transform.k);tip.style.opacity=0});
+// keep pins, labels, the plane button and strokes the same size on screen at any zoom
+function restyle(k){var f=Math.max(1,0.85*W/bw)/k;
+ marks.forEach(function(m){m[0].attr('transform','translate('+m[1]+') scale('+f+')')});
+ cg.style('--csw',0.5/k);
+ g.selectAll('.grat').style('stroke-width',0.4/k);g.selectAll('.sphere').style('stroke-width',1/k);
+ rg.selectAll('.arc').style('stroke-width',1.2/k).style('stroke-dasharray',(3/k)+' '+(4/k));
+ rg.selectAll('.hub').attr('r',2.2/Math.sqrt(k));
+ svg.attr('data-k',k.toFixed(3))}
+function layout(){bw=box.clientWidth||W;
+ kHome=bw<760?760/bw:1;VH=Math.round(H*kHome);svg.attr('viewBox','0 0 '+W+' '+VH);
+ zoom.scaleExtent([1,MAXZ*kHome])}
+function home(){return kHome>1?d3.zoomIdentity.translate(-(W*kHome-W)*0.97,0).scale(kHome):d3.zoomIdentity}
+function fit(t){return zoom.constrain()(t,ext(),zoom.translateExtent())}
+layout();svg.call(zoom).call(zoom.transform,home());
+var lastW=bw;window.addEventListener('resize',function(){layout();if(bw===lastW)return;lastW=bw;svg.call(zoom.transform,home())});
+document.getElementById('zin').onclick=function(){svg.transition().duration(250).call(zoom.scaleBy,1.6)};
+document.getElementById('zout').onclick=function(){svg.transition().duration(250).call(zoom.scaleBy,1/1.6)};
+document.getElementById('zreset').onclick=function(){svg.transition().duration(300).call(zoom.transform,home())};
+(function(){var mode=null,T0,P0,s0,c0;
+ function pt(t){return d3.pointer(t,node)}
+ function dist(a,b){return Math.hypot(a[0]-b[0],a[1]-b[1])||1}
+ function setT(t){svg.interrupt().call(zoom.transform,fit(t))}
+ function pinch(e){var a=pt(e.touches[0]),b=pt(e.touches[1]);T0=d3.zoomTransform(node);P0={d:dist(a,b),w:T0.invert([(a[0]+b[0])/2,(a[1]+b[1])/2])};mode='pinch'}
+ function pan(t){T0=d3.zoomTransform(node);s0=pt(t);mode='pan'}
+ node.addEventListener('touchstart',function(e){var n=e.touches.length;
+  if(n>=2){pinch(e)}else if(n===1){mode='maybe';c0=[e.touches[0].clientX,e.touches[0].clientY]}},{passive:true});
+ node.addEventListener('touchmove',function(e){
+  if(mode==='pinch'&&e.touches.length>=2){if(!e.cancelable)return;e.preventDefault();
+   var a=pt(e.touches[0]),b=pt(e.touches[1]),k=Math.max(1,Math.min(MAXZ*kHome,T0.k*dist(a,b)/P0.d));
+   setT(d3.zoomIdentity.translate((a[0]+b[0])/2-P0.w[0]*k,(a[1]+b[1])/2-P0.w[1]*k).scale(k));return}
+  if(mode==='maybe'){var t=e.touches[0],dx=t.clientX-c0[0],dy=t.clientY-c0[1];
+   if(Math.abs(dx)<8&&Math.abs(dy)<8)return;
+   if(Math.abs(dx)>Math.abs(dy)&&e.cancelable)pan(t);else{mode='scroll';return}}
+  if(mode==='pan'){if(!e.cancelable)return;e.preventDefault();var p=pt(e.touches[0]);
+   setT(T0.translate((p[0]-s0[0])/T0.k,(p[1]-s0[1])/T0.k))}},{passive:false});
+ function end(e){var n=e.touches.length;if(n===0)mode=null;else if(n===1&&mode==='pinch')pan(e.touches[0])}
+ node.addEventListener('touchend',end);node.addEventListener('touchcancel',end);
+})();
 // select list (accessible alternative)
 var pick=document.getElementById('pick');
 var og=document.createElement('optgroup');og.label='Country guides';pick.appendChild(og);
