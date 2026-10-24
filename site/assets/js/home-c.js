@@ -28,13 +28,6 @@ Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return
  var pin=g.append('g').attr('class','pin').attr('transform','translate('+c+')');marks.push([pin,c]);pin.style('cursor','pointer').on('click',function(){openCountry(id)});
  pin.append('circle').attr('class','ring').attr('r',6);pin.append('circle').attr('class','p').attr('r',5);
  pin.append('text').attr('x',GUIDES[id].label_left?-9:9).attr('text-anchor',GUIDES[id].label_left?'end':null).attr('y',4).text((GUIDES[id].short||GUIDES[id].name)+' guide')});
-// airplane button (Pacific)
-var pp=proj([-40,14]);
-var pb=g.append('g').attr('class','planebtn').attr('transform','translate('+pp+')');marks.push([pb,pp]);pb.attr('tabindex',0).attr('role','button').attr('aria-label','Open airline pet policies')
- .on('click',function(){openAirlines()}).on('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openAirlines()}});
-pb.append('circle').attr('r',24);
-pb.append('g').attr('transform','translate(-14,-14) scale(1.17) rotate(45 12 12)').html(PLANE);
-pb.append('text').attr('y',42).attr('text-anchor','middle').text('Airline policies');
 // zoom & pan (d3-zoom, already loaded): mouse drag, Ctrl/Cmd + wheel (and trackpad pinch), +/-/reset buttons.
 // Touch is handled below so one-finger vertical swipes keep scrolling the page (#map has touch-action:pan-y):
 // one finger sideways = move the map, two fingers = pinch-zoom + move, double-tap = zoom in.
