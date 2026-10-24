@@ -75,5 +75,148 @@
   ["CDC: Dogs from rabies-free or low-risk countries", "cdc_low"],
   ["CDC: High-risk countries for dog rabies", "cdc_high"],
   ["CDC: Bringing a dog into the United States", "cdc_dogs"]
- ]
+ ],
+ "hotels": {
+  "checked": "2026-10-25",
+  "intro": [
+   "Japanese hotels that take pets usually do it through a few dedicated pet rooms or a pet plan, and most accept dogs only, often small dogs only. Cats are accepted at only a few of the hotels below. Book the pet room or pet plan directly, well ahead of time, and tell the hotel your pet’s breed and weight; several hotels ask for a signed consent form before arrival.",
+   "Bring your pet’s rabies vaccination certificate. Many Japanese hotels also ask for proof of a combination vaccine (for dogs, usually 5-in-1 or more) given at least two weeks and less than a year before the stay. Expect a carrier or cart in public areas, no pets in restaurants or spas, and a rule against leaving your pet alone in the room."
+  ],
+  "cities": [
+   {
+    "city": "Tokyo",
+    "search": "Tokyo, Tokyo Prefecture, Japan",
+    "hotels": [
+     {
+      "name": "Kimpton Shinjuku Tokyo",
+      "area": "Nishi-Shinjuku",
+      "species": "Pets of any kind on the hotel’s IHG page (“all pets allowed”); tell the hotel the type and breed",
+      "weight": "No weight limit; pets of 11 kg (24 lb) or more need a Premium King or a Suite",
+      "pets": "1 per guest",
+      "fee": "No pet fee (IHG hotel page)",
+      "conditions": "Pet rooms only: Essential Corner King or higher. Give your pet’s name, type/breed and size when you book or in advance. Optional Pet Perks package.",
+      "url": "https://www.kimptonshinjuku.com/pet-stay/"
+     },
+     {
+      "name": "The Peninsula Tokyo",
+      "area": "Yurakucho (Marunouchi)",
+      "species": "Dogs only",
+      "weight": "Up to 15 kg (33 lb)",
+      "pets": "1 per room",
+      "fee": "Not stated: confirm with hotel",
+      "conditions": "Suites only, and the hotel takes a limited number of dogs per day. Show proof of all rabies vaccinations required by Japanese law. Carry your dog or use a carrier in public areas; a dog left in the room must be in a crate or carrier, for 2 hours at most. Book through reservations: +81 3 6270 2288.",
+      "url": "https://www.peninsula.com/en/tokyo/dog-stay-program"
+     },
+     {
+      "name": "Hotel Chinzanso Tokyo",
+      "area": "Mejiro (Bunkyo)",
+      "species": "Dogs or cats",
+      "weight": "Up to 10 kg (22 lb); up to 13 kg (28 lb) in suites",
+      "pets": "1 per room",
+      "fee": "JPY 11,385 per room per night, tax and service included",
+      "conditions": "The hotel chooses the room type. Pets must be registered and vaccinated as Japanese law requires. Keep your pet in a cage outside the room; no restaurants or shops. Read the pet policy and call reservations before booking: +81 3 3943 0996. Private dog park for guests.",
+      "url": "https://hotel-chinzanso-tokyo.jp/stay/pet_friendly/"
+     },
+     {
+      "name": "1 Hotel Tokyo",
+      "area": "Akasaka",
+      "species": "Small dogs; for any other pet, contact the hotel before your stay",
+      "weight": "Up to 10 kg (22 lb)",
+      "pets": "1 per room",
+      "fee": "JPY 30,000 cleaning fee (the Japanese page says per night; the English page says per stay): confirm with hotel",
+      "conditions": "Pets must be on a leash or in a carrier in public areas, and never left alone. Only service animals in restaurants.",
+      "url": "https://www.1hotels.com/tokyo/pet-friendly"
+     }
+    ]
+   },
+   {
+    "city": "Osaka",
+    "search": "Osaka, Osaka Prefecture, Japan",
+    "hotels": [
+     {
+      "name": "Patina Osaka",
+      "area": "Osaka Castle area (Chuo)",
+      "species": "Dogs only (no cats or other pets)",
+      "weight": "Up to 15 kg (33 lb) per dog",
+      "pets": "2 per room",
+      "fee": "JPY 10,000 per dog per night, tax and service included",
+      "conditions": "Deluxe, Premier and Junior Suite rooms. You must tell reservations in advance (+81 6 6941 8888, reservations.osaka@patinahotels.com), or you may be refused at arrival.",
+      "url": "https://patinahotels.com/osaka/en/dog-friendly-stay"
+     },
+     {
+      "name": "OMO7 Osaka by Hoshino Resorts",
+      "area": "Shin-Imamiya (Naniwa)",
+      "species": "Dogs (the dog-stay page covers dogs only; cats: confirm with hotel)",
+      "weight": "Up to 20 kg (44 lb) per dog",
+      "pets": "2 per room",
+      "fee": "No separate pet fee on the dog-stay page; book a dog-friendly room plan",
+      "conditions": "Dog-friendly Twin or Dog-friendly Idobata Suite only. Dogs can walk the lobby and public areas on a leash, and sit at dog seats in the hotel restaurant and café.",
+      "url": "https://hoshinoresorts.com/ja/hotels/omo7osaka/sp/dog-stay/"
+     },
+     {
+      "name": "Hilton Osaka",
+      "area": "Umeda",
+      "species": "Dogs only",
+      "weight": "Up to 10 kg (22 lb) combined",
+      "pets": "2 per room",
+      "fee": "Included in the Happy Paws Stay dog-room plan rate (no separate fee listed)",
+      "conditions": "Book the plan at least 3 days ahead; stays of up to 4 nights. Before arrival, email or fax the signed consent form with copies of rabies and 5-in-1 (or more) vaccine certificates. Dogs 6 months or older; carrier outside the room; don’t leave your dog alone.",
+      "url": "https://osaka.hiltonjapan.co.jp/plans/rooms/10393"
+     }
+    ]
+   },
+   {
+    "city": "Kyoto",
+    "search": "Kyoto, Japan",
+    "hotels": [
+     {
+      "name": "Four Seasons Hotel Kyoto",
+      "area": "Higashiyama",
+      "species": "Dogs and cats",
+      "weight": "Up to 7 kg (15 lb)",
+      "pets": "1 per room",
+      "fee": "JPY 18,975 cleaning fee per room, tax and service included",
+      "conditions": "Deluxe, Premier or Premier Heritage Garden View rooms. Fully vaccinated; sign a consent form. Pet cart or carrier outside the room; don’t leave your pet alone (pet sitter on request). Book through the hotel: +81 75 541 8288.",
+      "url": "https://www.fourseasons.com/kyoto/services-and-amenities/pet-friendly-stays/"
+     },
+     {
+      "name": "Ace Hotel Kyoto",
+      "area": "Karasuma (Nakagyo)",
+      "species": "Dogs only",
+      "weight": "Up to 15 kg (33 lb)",
+      "pets": "2 per room",
+      "fee": "JPY 11,000 per dog per night, tax included",
+      "conditions": "Book the Fetch pet package. Bring your dog’s rabies vaccination certificate and sign a waiver at check-in. Carry your dog or keep it on a leash in the lobby; dogs allowed at Stumptown Coffee and the rooftop bar at lunchtime.",
+      "url": "https://jp.acehotel.com/kyoto/offers/fetch/"
+     },
+     {
+      "name": "Hilton Garden Inn Kyoto Shijo Karasuma",
+      "area": "Shijo Karasuma (Shimogyo)",
+      "species": "Dogs only",
+      "weight": "Up to 12 kg (26 lb) combined",
+      "pets": "2 per room",
+      "fee": "Included in the Dog Friendly plan rate (Family Room; no separate fee listed)",
+      "conditions": "Book at least 3 days ahead and send the signed consent form beforehand. Show rabies and 5-in-1 (or more) vaccine certificates at arrival. Your dog must be in your own cage everywhere outside the room.",
+      "url": "https://hiltongardeninn-kyoto.hiltonjapan.co.jp/plans/rooms/9167"
+     }
+    ]
+   },
+   {
+    "city": "Karuizawa",
+    "search": "Karuizawa, Nagano, Japan",
+    "hotels": [
+     {
+      "name": "Karuizawa Marriott Hotel",
+      "area": "Naka-Karuizawa (resort area about 1 hour from Tokyo by Shinkansen)",
+      "species": "Dogs only (indoor dogs; no other animals)",
+      "weight": "Small dogs (about 10 kg) to large dogs (about 25 kg or more), depending on the cottage room",
+      "pets": "1 to 3 by room type (up to 3 small or 2 large dogs)",
+      "fee": "JPY 5,500 for the first dog and JPY 2,200 for each extra dog, per night, tax included",
+      "conditions": "Dog cottages only (10 rooms). At least 1 week before arrival, email or fax the consent form with copies of rabies and 5-in-1 (or more) vaccine certificates. Dogs 4 months or older. Some breeds are refused (the hotel’s list includes Akita, German Shepherd, Doberman, Boxer and Bulldog).",
+      "url": "https://www.karuizawa-marriott.com/rooms/dogcottage.html"
+     }
+    ]
+   }
+  ]
+ }
 }

@@ -1651,12 +1651,50 @@ def build_route_usa_japan(cfg, airlines):
             f'<p>Compare fares from the US to Tokyo (Narita or Haneda), Osaka (Kansai) and other Japanese airports, then arrange your pet&rsquo;s place directly with the airline before you buy: pet space is limited per flight, and your arrival airport must match your AQS notification.</p>'
             f'<p class="buy">{" ".join(btns)}</p>'
             f'<p class="small disc">Affiliate links: we may earn a commission at no extra cost to you. <a href="{root}about.html#affiliates">Disclosure</a>.</p></aside>')
+    jh = d.get("hotels")
+    jp_hotels = ""
+    if jh:
+        from urllib.parse import quote as _q
+        ex = next((f for f in cfg.get("flight_affiliates", []) if "expedia" in f.get("url_template", "")), {})
+        trk = next(iter((ex.get("dest_urls") or {}).values()), "").partition("?")[2]  # Expedia Creator tracking params (same as jnsZjjX)
+        def jp_card(h):
+            trs = "".join(f"<tr><th>{k}</th><td>{e(h[f])}</td></tr>" for k, f in
+                          (("Species", "species"), ("Weight limit", "weight"), ("Max pets", "pets"), ("Fee", "fee"), ("Conditions", "conditions")))
+            return (f'<article class="ht-card"><h4>{e(h["name"])}</h4><p class="ht-sub">{e(h["area"])}</p><table>{trs}</table>'
+                    f'<p class="ht-foot"><a href="{e(h["url"])}" rel="noopener" target="_blank">Pet policy (official site) &#8599;</a></p></article>')
+        def jp_city(c):
+            srch = ""
+            if trk and c.get("search"):
+                u = f'https://www.expedia.com/Hotel-Search?destination={_q(c["search"])}&amenities=PETS&{trk}'
+                srch = (f'<p class="buy jp-hs"><a class="btn" href="{e(u)}" rel="sponsored noopener" target="_blank">'
+                        f'Search pet-friendly hotels in {e(c["city"])} on Expedia &#8599;</a></p>')
+            return (f'<h3 id="hotels-{e(c["city"].lower())}">{e(c["city"])}</h3>{srch}'
+                    f'<div class="kr-ht">{"".join(jp_card(h) for h in c["hotels"])}</div>')
+        jchk = f'<time datetime="{e(jh["checked"])}">{nice_date(jh["checked"])}</time>'
+        jp_hotels = (f'<h2 id="hotels">Pet-friendly hotels in Japan</h2>'
+                     + "".join(f"<p>{e(t)}</p>" for t in jh["intro"])
+                     + f'<p class="warn usa-warn">Policies checked {jchk} on each hotel&rsquo;s official site; confirm with the hotel before booking. Fees are in Japanese yen. '
+                     f'Where a card says &ldquo;confirm with hotel&rdquo;, the official page is unclear or its pages disagree.</p>'
+                     + "".join(jp_city(c) for c in jh["cities"])
+                     + f'<p class="small">Each card links to the hotel&rsquo;s own pet policy or pet plan page. The Expedia buttons open a hotel search for that city with Expedia&rsquo;s pet-friendly filter; '
+                     f'pet rules on booking sites can be incomplete, so book the pet room or plan with the hotel. Affiliate links: we may earn a commission at no extra cost to you. '
+                     f'<a href="{root}about.html#affiliates">Disclosure</a>.</p>')
     gl = "".join(f"<li><a href='{root}products/{g}.html'>{e(t)}</a></li>" for g, (t, _) in GUIDE_META.items() if g != "dog-road-trip-packing-list")
     css = """<style>
 .usa-quick{background:var(--sage-l);border:0;border-left:4px solid var(--sage);border-radius:10px;padding:14px 18px}
 .usa-quick h2{margin:0 0 .4em}.usa-quick ul{margin:0;padding-left:1.2em}.usa-quick li{margin:.35em 0}
 .usa-warn{border:0;border-left:4px solid var(--gold)}
 .usa-t .usa-src{white-space:nowrap}
+.kr-ht{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px;margin:.6em 0 1.2em}
+.kr-ht .ht-card{border:1px solid var(--line,#d9d4c7);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column}
+.kr-ht h4{margin:0 0 .15em;font-size:1.08em}.kr-ht .ht-sub{margin:0 0 .6em;font-size:.9em;opacity:.8}
+.kr-ht table{width:100%;border-collapse:collapse;font-size:.92em;margin:0 0 .6em}
+.kr-ht th{text-align:left;vertical-align:top;padding:4px 8px 4px 0;width:6.5em;font-weight:600}
+.kr-ht .ht-foot .small{font-weight:400;opacity:.8}
+.kr-ht td{vertical-align:top;padding:4px 0}.kr-ht tr+tr th,.kr-ht tr+tr td{border-top:1px solid var(--line,#ece8de)}
+.kr-ht .ht-foot{margin:auto 0 0;font-size:.92em;font-weight:600}
+.jp-hs{margin:.2em 0 .4em}
+.kr-ht td{overflow-wrap:anywhere}
 .rj-air td:nth-child(3){min-width:9em}
 .tablewrap+.tablewrap{margin-top:16px}
 @media (max-width:720px){.usa-t .usa-src{white-space:normal}}
@@ -1681,10 +1719,12 @@ def build_route_usa_japan(cfg, airlines):
 <div class="tablewrap"><table class="cmp usa-t rj-air"><thead><tr><th>Airline</th><th>What our airline page says</th><th>Japan flights</th><th>Source</th></tr></thead><tbody>{''.join(arows)}</tbody></table></div>
 {fbox}
 {insurance_teaser(root, "japan")}
+{jp_hotels}
 <h2 id="return">Coming back to the USA</h2>
 <p>Japan is not on the CDC list of high-risk countries for dog rabies, so a dog that was only in Japan (or other low-risk countries) in the 6 months before returning needs the free <b>CDC Dog Import Form</b> receipt, a microchip, a healthy look and an age of at least 6 months; the CDC simplified this on August 1, 2024. Cats have no federal rabies proof requirement. State and airline rules still apply. {src(S['cdc_low'], 'CDC')} &middot; {src(S['cdc_high'], 'CDC high-risk list')}</p>
 <p>Full US entry and state rules: <a href="{root}countries/usa.html">Pet travel rules for the USA</a>.</p>
 <p>Staying in a US city before or after the flight? <a href="{root}hotels/">Pet-friendly hotel rules by chain</a> (fees, weight limits, number of pets), with guides for <a href="{root}hotels/pet-friendly-hotels-new-york.html">New York</a>, <a href="{root}hotels/pet-friendly-hotels-orlando.html">Orlando</a> and <a href="{root}hotels/pet-friendly-hotels-miami.html">Miami</a>.</p>
+<p>Staying in Japan? See <a href="#hotels">pet-friendly hotels in Japan</a> (Tokyo, Osaka, Kyoto and Karuizawa), with each hotel&rsquo;s official pet rules.</p>
 <h2 id="official">Official links</h2>
 <ul>{links}</ul>
 <p class="note small">{checked}. Rules change; confirm with the official source before you travel. This page is a summary, not legal or veterinary advice. Airlines may require more than Japan does.</p>
