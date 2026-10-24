@@ -137,7 +137,27 @@
         "orlando": "",
         "new-york": "",
         "miami": ""
-      }
+      },
+      "hotel_links": {
+        "ritz-carlton-orlando-grande-lakes": "",
+        "waldorf-astoria-orlando": "",
+        "four-seasons-orlando": "",
+        "peninsula-new-york": "",
+        "ritz-carlton-new-york-central-park": "",
+        "aman-new-york": "",
+        "mandarin-oriental-new-york": "",
+        "faena-new-york": "",
+        "four-seasons-new-york-downtown": "",
+        "1-hotel-brooklyn-bridge": "",
+        "faena-miami-beach": "",
+        "1-hotel-south-beach": "",
+        "ritz-carlton-south-beach": "",
+        "miami-beach-edition": "",
+        "kimpton-epic-miami": "",
+        "loews-miami-beach": "",
+        "four-seasons-miami": ""
+      },
+      "_note_hotels": "One tracked link per luxury hotel id (data/hotels/us-cities.json cities[].luxury[].expedia_target). Empty = plain untracked link to expedia_target."
     }
   },
   "amazon_tag": "petpolicychec-20",

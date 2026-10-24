@@ -1465,6 +1465,16 @@ HOTELS_CSS = """<style>
 .ht-cities{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:1em 0}
 .ht-cities a{display:block;border:1px solid var(--line,#d9d4c7);border-radius:12px;padding:14px 16px;text-decoration:none}
 .ht-cities a b{display:block;font-size:1.1em;margin-bottom:.2em}
+.ht-lux{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:1em 0}
+.ht-card{border:1px solid var(--line,#d9d4c7);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column}
+.ht-card h3{margin:0 0 .15em;font-size:1.12em}.ht-card .ht-sub{margin:0 0 .6em;font-size:.9em;opacity:.8}
+.ht-card table{width:100%;border-collapse:collapse;font-size:.93em;margin:0 0 .6em}
+.ht-card th{text-align:left;vertical-align:top;padding:4px 8px 4px 0;width:7.5em;font-weight:600}
+.ht-card td{vertical-align:top;padding:4px 0}.ht-card tr+tr th,.ht-card tr+tr td{border-top:1px solid var(--line,#ece8de)}
+.ht-card .ht-note{font-size:.9em;border-left:3px solid var(--gold);padding:4px 10px;margin:0 0 .6em}
+.ht-card .ht-foot{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:.9em}
+.ht-card .btn{margin:0}
+.ht-no{font-size:.95em}
 @media (max-width:720px){.usa-t .usa-src{white-space:normal}}
 </style>"""
 
@@ -1518,6 +1528,77 @@ def hotel_city_links(ci, root, skip=None):
                    for x in ci["cities"] if x["slug"] != skip)
 
 
+def hotel_lux_link(cfg, h):
+    """Booking button for one luxury hotel. Tracked URL from config.json hotel_affiliates.expedia.hotel_links[id]
+    (made in the Expedia Creator dashboard); empty -> plain untracked link to expedia_target (never a placeholder)."""
+    ex = (cfg.get("hotel_affiliates") or {}).get("expedia") or {}
+    url = ((ex.get("hotel_links") or {}).get(h["id"]) or "").strip()
+    label = "Check rates on Expedia" if h.get("expedia_is_property") else "Search this hotel on Expedia"
+    if url:
+        return f'<a class="btn" href="{e(url)}" rel="sponsored nofollow noopener" target="_blank">{label}</a>', True
+    print(f"  NOTE: luxury {h['id']}: no tracked Expedia link yet -> plain expedia_target link")
+    return f'<a class="btn" href="{e(h["expedia_target"])}" rel="nofollow noopener" target="_blank">{label}</a>', False
+
+
+def hotel_lux_section(cfg, c):
+    lux = c.get("luxury") or []
+    if not lux:
+        return ""
+    src = lambda u, t: f'<a href="{e(u)}" rel="noopener" target="_blank">{t}</a>'
+    na = '<span class="na">Not stated on the official page</span>'
+    chk_flag = '<span class="flag">Check</span> '
+    cards, tracked = [], False
+    for h in lux:
+        flag = chk_flag if h.get("check") else ""
+        rows = [("Pet fee", h.get("fee")), ("Deposit", h.get("deposit")), ("Max weight", h.get("weight")),
+                ("Pets", h.get("pets")), ("Species", h.get("species")), ("Amenities", h.get("amenities")),
+                ("Rules", h.get("restrictions"))]
+        trs = []
+        for k, v in rows:
+            if k == "Deposit" and not v:
+                continue  # only shown when the hotel names one
+            if k in ("Amenities", "Rules") and not v:
+                continue
+            trs.append(f"<tr><th>{k}</th><td>{(flag if k == 'Pet fee' else '')}{e(v) if v else na}</td></tr>")
+        note = f'<p class="ht-note">{e(h["note"])}</p>' if h.get("note") else ""
+        btn, t = hotel_lux_link(cfg, h)
+        tracked = tracked or t
+        s2 = f' &middot; {src(h["source2"], "more")}' if h.get("source2") else ""
+        cards.append(f'<article class="ht-card" id="{e(h["id"])}"><h3>{e(h["name"])}</h3>'
+                     f'<p class="ht-sub">{e(h["brand"])} &middot; {e(h["area"])}</p>'
+                     f'<table>{"".join(trs)}</table>{note}'
+                     f'<p class="ht-foot">{btn}<span>{src(h["source"], "Hotel pet policy")}{s2} &middot; checked <time datetime="{e(h["checked"])}">{nice_date(h["checked"])}</time></span></p></article>')
+    no = "".join(f'<li><b>{e(x["name"])}:</b> {e(x["text"])} {src(x["source"], "Official page")}</li>' for x in c.get("luxury_not") or [])
+    no = f'<p class="ht-no"><b>Not pet-friendly:</b></p><ul class="ht-no">{no}</ul>' if no else ""
+    disc = ('<p class="small disc">Affiliate disclosure: some booking buttons are affiliate links. If you book through them we may earn a commission at no extra cost to you. '
+            'It never changes the pet rules we publish. <a href="{root}about.html#affiliates">Disclosure</a>.</p>') if tracked else ""
+    return (f'<h2 id="luxury">Luxury pet-friendly hotels in {e(c["name"])}</h2>'
+            f'<p>Luxury hotels set their own pet rules, so we read each hotel&rsquo;s official pet policy rather than the brand&rsquo;s. Fees in US dollars, weights in pounds. '
+            f'<span class="flag">Check</span> means the official page leaves something unclear or another source disagrees: call the hotel before you book. '
+            f'</p>'
+            f'<div class="ht-lux">{"".join(cards)}</div>{no}{disc}')
+
+
+def hotel_lux_brands(ci):
+    src = lambda u: f'<a href="{e(u)}" rel="noopener" target="_blank">Official page</a>'
+    rows = "".join(f"<tr><td data-l='Brand'><b>{e(b['brand'])}</b></td><td data-l='Pet rules'>{e(b['text'])}</td><td class='usa-src' data-l='Source'>{src(b['source'])}</td></tr>"
+                   for b in ci.get("luxury_brands") or [])
+    return ("<div class='tablewrap'><table class='cmp usa-t ht-t'><thead><tr><th>Brand</th><th>Pet rules</th><th>Source</th></tr></thead><tbody>"
+            + rows + "</tbody></table></div>")
+
+
+def hotel_lux_faq(c):
+    ok = [h for h in c.get("luxury") or [] if not h.get("check") and (h.get("fee") or h.get("weight"))]
+    if not ok:
+        return None
+    parts = []
+    for h in ok:
+        bits = [x for x in (h.get("fee") and f"pet fee {h['fee']}", h.get("weight") and f"max {h['weight']}", h.get("pets") and f"{h['pets']} pets") if x]
+        parts.append(f"{h['name']} ({', '.join(bits)})")
+    return (f"Which luxury hotels in {c['name']} accept pets?",
+            "From each hotel's official pet policy: " + "; ".join(parts) + ". Confirm with the hotel before you book.")
+
+
 def build_hotel_city(cfg, c, ch, ci):
     root, chk, S = "../", ci["checked"], ci["sources"]
     path = f"hotels/pet-friendly-hotels-{c['slug']}.html"
@@ -1545,7 +1626,7 @@ def build_hotel_city(cfg, c, ch, ci):
         secs.append(f"<h2 id='{e(s['id'])}'>{e(s['h'])}</h2>{intro}" + (f"<ul>{''.join(items)}</ul>" if items else ""))
     checked = f'Last checked <time datetime="{chk}">{nice_date(chk)}</time>'
     body = f"""{HOTELS_CSS}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; <a href="{root}hotels/">Pet-friendly hotels</a> &rsaquo; {e(c['name'])}</nav>
-<h1>Pet-friendly hotels in {e(c['name'])}: chain pet fees, weight limits and local tips</h1>
+<h1>Pet-friendly hotels in {e(c['name'])}: chain and luxury hotel pet fees, weight limits and local tips</h1>
 <p class="lead">{e(c['lead'])}</p>
 {hotel_warn(chk)}
 <div class="usa-quick"><h2 id="quick">Quick answer</h2><ul>{qa}</ul></div>
@@ -1553,6 +1634,7 @@ def build_hotel_city(cfg, c, ch, ci):
 <h2 id="chains">Hotel chain pet rules (US, brand-wide)</h2>
 <p class="small">{checked} on each chain&rsquo;s official website. Fees in US dollars, weights in pounds. Brand rules are a starting point: a franchised hotel in {e(c['name'])} can differ. Rows marked <span class="flag">Check</span> could not be read on the official site.</p>
 {hotel_chain_table(ch, root)}
+{hotel_lux_section(cfg, c)}
 {''.join(secs)}
 <h2 id="tips">Before you book</h2>
 <ul><li>Filter for pet-friendly, then open the hotel&rsquo;s own policy: fee per night or per stay, weight limit, number of pets, and whether cats are accepted.</li>
@@ -1563,10 +1645,13 @@ def build_hotel_city(cfg, c, ch, ci):
 <p>Flying there? Check the airline: <a href="{root}airlines/american.html">American</a>, <a href="{root}airlines/delta.html">Delta</a>, <a href="{root}airlines/united.html">United</a>, <a href="{root}airlines/southwest.html">Southwest</a>, <a href="{root}airlines/jetblue.html">JetBlue</a>. State entry rules: <a href="{root}countries/usa.html#states">Pet travel rules for the USA</a>.</p>
 <div class="ht-cities">{hotel_city_links(ci, root, c['slug'])}</div>"""
     faqs = [("Which hotel chains have no pet fee?", quick[0][1]), ("What do Red Roof and La Quinta charge for pets?", quick[1][1])] + [(q, a) for q, a, _ in c["faq"]]
+    lf = hotel_lux_faq(c)
+    if lf:
+        faqs.append(lf)
     faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
     return page(cfg, f"Pet-friendly hotels in {c['name']}: chain pet fees and weight limits | {cfg['site_name']}",
-                f"Pet fees, weight limits and pet numbers at Kimpton, Motel 6, Red Roof, La Quinta, Drury, Loews, Hilton and more for {c['name']}, plus airport pet relief areas and dog parks, with official sources.",
+                f"Pet fees, weight limits and pet numbers at chains and at {len(c.get('luxury') or [])} luxury hotels in {c['name']}, each from its official pet policy, plus airport pet relief areas and dog parks.",
                 body, path, root,
                 jsonld=[bc_ld(cfg, [("Home", ""), ("Pet-friendly hotels", "hotels/"), (f"Pet-friendly hotels in {c['name']}", path)]), faq_ld])
 
@@ -1582,6 +1667,9 @@ def build_hotels_index(cfg, ch, ci):
 <h2 id="chains">Hotel chain pet rules (US, brand-wide)</h2>
 <p class="small">Last checked <time datetime="{chk}">{nice_date(chk)}</time> on each chain&rsquo;s official website. Fees in US dollars, weights in pounds. Rows marked <span class="flag">Check</span> could not be read on the official site.</p>
 {hotel_chain_table(ch, root)}
+<h2 id="luxury">Luxury hotel brands: pet rules are set per hotel</h2>
+<p>At luxury brands there is rarely one brand-wide pet policy: fees, weight limits and even whether pets are allowed change from hotel to hotel. Each city guide lists luxury hotels with their own published pet rules (checked <time datetime="{chk}">{nice_date(chk)}</time>) and a booking link.</p>
+{hotel_lux_brands(ci)}
 <p class="small disc">City pages may contain affiliate links; if you book through them we may earn a commission at no extra cost to you. It never changes the pet rules we publish. <a href="{root}about.html#affiliates">Disclosure</a>.</p>
 <p>Driving or flying between states? See <a href="{root}countries/usa.html">pet travel rules for the USA</a> for each state&rsquo;s health certificate and rabies rules.</p>"""
     return page(cfg, f"Pet-friendly hotels in the US: chain pet fees and weight limits | {cfg['site_name']}",
