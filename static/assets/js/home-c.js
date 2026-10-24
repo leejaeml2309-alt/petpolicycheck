@@ -64,6 +64,7 @@ function openCountry(id){
   +'<p class="lede">'+esc(G.line)+'</p>'
   +(G.summary?'<p>'+esc(G.summary)+'</p>':'')
   +(G.url?'<p><a class="btn big" href="'+G.url+'">'+esc(G.cta)+' \u2192</a></p>':'<p class="lede">Full USA guide coming soon.</p>')
+  +(G.short==='USA'&&window.BOOK_USA?window.BOOK_USA:'')
   +'<h3>Flying there?</h3><p><a href="#airlines" data-open="airlines">Compare airline pet policies \u2708</a> \u00b7 <a href="'+LIVE+'products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a></p></div>';
  }else if(G){
   h=top('Pet import rules \u00b7 dogs &amp; cats',G.flag+' '+esc(G.name))+'<div class="pbody">'

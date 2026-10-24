@@ -1,0 +1,106 @@
+{
+ "checked": "2026-10-24",
+ "note": "Every fact below was read on the official Uber, Lyft, Waymo, Zoox and Tesla help/support pages on the 'checked' date. Do not add facts from third-party sites.",
+ "services": [
+  {
+   "id": "uber",
+   "name": "Uber Pet",
+   "short": "1 pet (a small animal such as a dog or cat); extra pets at the driver's discretion; no breed or size limits. Costs more than other ride options (shown in the upfront fare); a cleaning fee may apply for waste, hair or damage.",
+   "facts": [
+    [
+     "Pets",
+     "One pet per trip: a small animal such as a dog or a cat. Additional pets are at the driver's discretion. No breed or size restrictions.",
+     "rider"
+    ],
+    [
+     "Fee",
+     "Uber Pet costs more than other vehicle options: an Uber Pet surcharge is included in the upfront fare when you select it. A cleaning fee may be charged if your pet leaves waste, excessive hair or damages the vehicle. Uber's driver page says drivers earn an extra Uber Pet fee of $4 in the US ($5 in Canada).",
+     "fees"
+    ],
+    [
+     "Where",
+     "Choose Uber Pet in the vehicle options of the Uber app where it is offered. It is an UberX option served by drivers who opt in (not UberXL or Uber Black); in some areas you can reserve it in advance (reservation fee in the upfront fare).",
+     "driver"
+    ],
+    [
+     "Tips",
+     "Restrain your pet with a leash, harness or crate/carrier, bring a blanket or towel for the seat, and ask the driver where the pet should sit.",
+     "rider"
+    ]
+   ],
+   "sources": {
+    "rider": [
+     "Uber Help: Uber Pet (riders)",
+     "https://help.uber.com/en/riders/article/pet-friendly-rides?nodeId=e4468070-c193-41cf-b792-fa66ecfb1163"
+    ],
+    "driver": [
+     "Uber Help: Uber Pet (drivers)",
+     "https://help.uber.com/en/driving-and-delivering/article/uber-pet?nodeId=0c8c3925-97df-4822-839b-fd78470e1a42"
+    ],
+    "fees": [
+     "Uber Help: Tolls, surcharges and fees",
+     "https://help.uber.com/en/riders/article/tolls-surcharges-and-fees?nodeId=d0fe8866-7948-49cc-a051-97bfef62562d"
+    ]
+   }
+  },
+  {
+   "id": "lyft",
+   "name": "Lyft Pet",
+   "short": "1 well-behaved animal, up to 4 people, U.S. only. Additional fee that goes to the driver (Lyft's driver page: $4 bonus per Pet ride). Pet in a carrier, on a blanket or at your feet.",
+   "facts": [
+    [
+     "Pets",
+     "One well-behaved animal, plus up to four people. As a courtesy, the pet should ride in a carrier, on a blanket or at your feet.",
+     "rider"
+    ],
+    [
+     "Fee",
+     "An additional fee that goes directly to the driver. Lyft's driver page says drivers earn a $4 bonus for every Pet ride.",
+     "rider"
+    ],
+    [
+     "Where",
+     "U.S. only. Select the Pet ride option in the Lyft app.",
+     "rider"
+    ]
+   ],
+   "sources": {
+    "rider": [
+     "Lyft Help: Pet rides for riders",
+     "https://help.lyft.com/hc/en-us/all/articles/8559088908-Pet-rides-for-riders"
+    ],
+    "driver": [
+     "Lyft Help: Pet rides for drivers",
+     "https://help.lyft.com/hc/en-us/all/articles/6797064954-pet-rides-for-drivers"
+    ]
+   }
+  }
+ ],
+ "service_animals_note": "Service animals ride on Uber and Lyft at no extra charge even without a Pet ride (Uber and Lyft help pages).",
+ "robotaxis": [
+  {
+   "name": "Waymo",
+   "rule": "No pets. Service animals small enough to fit ride with riders with disabilities; emotional support and therapy animals are not allowed.",
+   "src": [
+    "Waymo Help: Service animals",
+    "https://support.google.com/waymo/answer/9059341?hl=en"
+   ]
+  },
+  {
+   "name": "Zoox",
+   "rule": "No pets or emotional support animals. Trained service dogs are welcome (kept on the floor during the ride).",
+   "src": [
+    "Zoox Support FAQ",
+    "https://zoox.com/support"
+   ]
+  },
+  {
+   "name": "Tesla Robotaxi",
+   "rule": "No pets. Disabled riders may bring service animals. Service in limited areas of Miami, Orlando and Tampa (FL) and Austin, Dallas and Houston (TX).",
+   "src": [
+    "Tesla Support: Robotaxi",
+    "https://www.tesla.com/support/robotaxi"
+   ]
+  }
+ ]
+}

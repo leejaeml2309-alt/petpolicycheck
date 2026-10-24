@@ -1256,6 +1256,80 @@ def build_partner_vets(cfg):
                 body, "partner-vets/", "../")
 
 
+BOOK_CSS = """<style>
+.book{margin:20px 0 6px;padding:16px 16px 6px;border:1px solid var(--line2);border-top:3px solid var(--acc);border-radius:var(--r-m);background:var(--chip)}
+.book>h2,.book>h3{margin:0 0 4px;font-size:1.2rem;color:var(--head)}
+.book .book-lede{margin:0 0 10px;font-size:.9rem;color:var(--mut)}
+.book-g{padding:10px 0 12px;border-top:1px solid var(--line)}
+.book-g h4,.book-g h3{margin:0 0 8px;font:700 .78rem var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+.book-btns{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.book-btns .btn{padding:10px 14px;font-size:.74rem;letter-spacing:.06em;white-space:normal;text-align:center;border-radius:99px;max-width:100%}
+.book-cities{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.book-cities a{display:inline-block;padding:7px 12px;border-radius:99px;border:1px solid var(--line2);color:var(--head);text-decoration:none;font-size:.88rem;background:var(--paper)}
+.book-cities a:hover{border-color:var(--acc);color:var(--acc)}
+.book-cities a.all{border-style:dashed}
+.book-ride{margin:0;padding:0;list-style:none}
+.book-ride li{margin:0 0 10px;font-size:.88rem;line-height:1.45;overflow-wrap:anywhere}
+.book-ride b{color:var(--head)}
+.book .book-disc{font-size:.75rem;color:var(--mut);margin:8px 0 0;line-height:1.4}
+.book a{overflow-wrap:anywhere}
+.book dl{margin:0 0 10px;display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;font-size:.9rem}
+.book dt{font-weight:700;color:var(--head)}.book dd{margin:0}
+.book .book-svc{margin:0 0 12px}.book .book-svc h4{margin:0 0 6px;font-size:1rem;color:var(--head);text-transform:none;letter-spacing:0}
+@media (max-width:480px){.book{padding:14px 12px 4px}.book dl{grid-template-columns:1fr}.book dt{margin-top:6px}}
+</style>"""
+
+
+def booking_block(cfg, root, full=False):
+    """'Book your trip' block (USA): flights from config.json flight_affiliates, pet-friendly hotel city guides from
+    data/hotels/us-cities.json (new cities appear automatically) and Uber/Lyft pet ride rules from data/rideshare/us.json
+    (official help pages only). full=True is the longer version for /countries/usa.html; False is the compact home-panel one."""
+    rs = json.loads((ROOT / "data" / "rideshare" / "us.json").read_text())
+    _, ci = hotels_data()
+    hx = "h3" if full else "h4"
+    ext = lambda u, t: f'<a href="{e(u)}" rel="noopener" target="_blank">{e(t)} &#8599;</a>'
+    # (a) flights
+    btns = []
+    for f in cfg.get("flight_affiliates") or []:
+        u = (f.get("url_template") or "").strip()
+        if u and f.get("label") and "{" not in u:
+            btns.append(f'<a class="btn" href="{e(u)}" rel="sponsored nofollow noopener" target="_blank">{e(f["label"])}</a>')
+    fl = ""
+    if btns:
+        fl = (f'<div class="book-g"><{hx}>&#9992; Flights</{hx}>'
+              + ('<p style="margin:0 0 8px;font-size:.9rem">Compare fares, then book your pet&rsquo;s spot directly with the airline: in-cabin pet space is limited per flight. '
+                 f'<a href="{root}products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a>.</p>' if full else "")
+              + f'<p class="book-btns">{"".join(btns)}</p>'
+              f'<p class="book-disc">Affiliate links: we may earn a commission at no extra cost to you. <a href="{root}about.html#affiliates">Disclosure</a>.</p></div>')
+    # (b) hotels by city
+    cities = "".join(f'<li><a href="{root}hotels/pet-friendly-hotels-{e(c["slug"])}.html">{e(c["short"])}</a></li>' for c in ci["cities"])
+    ho = (f'<div class="book-g"><{hx}>&#127976; Pet-friendly hotels by city</{hx}>'
+          + ('<p style="margin:0 0 8px;font-size:.9rem">Each city guide has the chain pet rules (fee, weight, number of pets), luxury hotels&rsquo; own pet policies, airport pet relief areas and dog parks, all from official sources.</p>' if full else "")
+          + f'<ul class="book-cities">{cities}<li><a class="all" href="{root}hotels/">All chains: fees &amp; weight limits</a></li></ul></div>')
+    # (c) airport to hotel
+    chk = f'<time datetime="{rs["checked"]}">{nice_date(rs["checked"])}</time>'
+    if full:
+        svc = ""
+        for s in rs["services"]:
+            dl = "".join(f'<dt>{e(k)}</dt><dd>{e(v)}</dd>' for k, v, _ in s["facts"])
+            srcs = " &middot; ".join(ext(u, t) for t, u in s["sources"].values())
+            svc += f'<div class="book-svc"><h4>{e(s["name"])}</h4><dl>{dl}</dl><p class="book-disc">Source: {srcs}</p></div>'
+        rob = "".join(f'<li><b>{e(r["name"])}:</b> {e(r["rule"])} {ext(r["src"][1], r["src"][0])}</li>' for r in rs["robotaxis"])
+        ride = (f'<div class="book-g"><h3>&#128661; Airport to hotel with your pet</h3>{svc}'
+                f'<p style="font-size:.9rem;margin:0 0 6px"><b>Robotaxis: service animals only.</b></p><ul class="book-ride">{rob}</ul>'
+                f'<p class="book-disc">{e(rs["service_animals_note"])} Plain links to the official pages (no affiliate). Checked on the official Uber, Lyft, Waymo, Zoox and Tesla pages on {chk}; fees and availability change, so check the app before you ride.</p></div>')
+    else:
+        li = "".join(f'<li><b>{e(s["name"])}:</b> {e(s["short"])} {ext(s["sources"]["rider"][1], s["name"].split()[0] + " help")}</li>' for s in rs["services"])
+        rnames = ", ".join(r["name"] for r in rs["robotaxis"][:-1]) + " and " + rs["robotaxis"][-1]["name"]
+        rlinks = " &middot; ".join(ext(r["src"][1], r["name"]) for r in rs["robotaxis"])
+        li += f'<li><b>Robotaxis:</b> {e(rnames)} do not take pets; service animals only. {rlinks}</li>'
+        ride = (f'<div class="book-g"><h4>&#128661; Airport to hotel with your pet</h4><ul class="book-ride">{li}</ul>'
+                f'<p class="book-disc">{e(rs["service_animals_note"])} Official pages checked {chk}; no affiliate links. <a href="{root}countries/usa.html#book">Details</a>.</p></div>')
+    h = "h2" if full else "h3"
+    lede = "Flights, pet-friendly hotels by city, and a ride from the airport with your pet." if full else "Flights, hotels by city and pet-friendly rides."
+    return f'<section class="book" id="book" aria-labelledby="book-h"><{h} id="book-h">Book your trip</{h}><p class="book-lede">{lede}</p>{fl}{ho}{ride}</section>'
+
+
 def build_country_usa(cfg, airlines):
     """US pet travel rules page (federal + per-state), from data/countries/usa.json. Every row carries its official source."""
     d = json.loads((ROOT / "data" / "countries" / "usa.json").read_text())
@@ -1325,11 +1399,13 @@ def build_country_usa(cfg, airlines):
 .usa-t tr[id]:target>td{background:rgba(217,183,101,.14)}
 @media (max-width:720px){.usa-t .usa-src{white-space:normal}.usa-t tbody tr.usa-hl>td:first-child{box-shadow:none}.usa-t tbody tr.usa-hl{box-shadow:inset 3px 0 0 var(--gold)}.usa-t tbody tr.usa-hl>td{background:none}}
 </style>"""
+    css += BOOK_CSS
     body = f"""{css}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; Countries &rsaquo; United States</nav>
 <h1>Pet travel rules for the USA: federal and state requirements</h1>
 <p class="lead">What you need to fly a dog or cat into, out of, or around the United States. Federal rules come from the CDC and USDA; each state sets its own entry rules.</p>
 <div class="usa-quick"><h2 id="quick">Quick answer</h2><ul>{qa}</ul></div>
 <p class="warn usa-warn">Rules change, especially New World screwworm (NWS) restrictions added by many states in 2026. Always confirm with the official source before you travel. {checked}.</p>
+{booking_block(cfg, root, full=True)}
 <h2 id="federal">Federal rules (CDC and USDA)</h2>
 <p class="small">{checked} on the CDC and USDA APHIS pages linked in each row.</p>
 <div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Who</th><th>Direction</th><th>Case</th><th>Rule</th><th>Source</th></tr></thead><tbody>{fed_rows}</tbody></table></div>
@@ -1701,7 +1777,13 @@ def main():
     (OUT / "index.html").write_text(build_index(cfg, airlines))
     # New home page (design C, delivered by Web Designer; frozen airline table verified 2026-10-22)
     if (ROOT / "static" / "home-c.html").exists():
-        (OUT / "index.html").write_text((ROOT / "static" / "home-c.html").read_text())
+        home = (ROOT / "static" / "home-c.html").read_text()
+        # USA side panel: 'Book your trip' block (rendered by assets/js/home-c.js from window.BOOK_USA)
+        js_tag = '<script src="assets/js/home-c.js"></script>'
+        assert js_tag in home and "</head>" in home
+        book = json.dumps(booking_block(cfg, site_base(cfg) + "/")).replace("</", "<\\/")
+        home = home.replace("</head>", BOOK_CSS + "</head>", 1).replace(js_tag, f"<script>var BOOK_USA={book};</script>" + js_tag, 1)
+        (OUT / "index.html").write_text(home)
         shutil.copytree(ROOT / "static" / "assets", OUT / "assets")
         shutil.copy(ROOT / "static" / "assets" / "img" / "favicon.ico", OUT / "favicon.ico")
     (OUT / "img" / "email").mkdir(parents=True, exist_ok=True)
