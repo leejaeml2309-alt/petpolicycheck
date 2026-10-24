@@ -134,28 +134,28 @@
       "label": "See pet-friendly hotels on Expedia",
       "_note": "One tracked link per city slug. Create each in the Expedia Group Travel Creator dashboard (Links > Create link, then Shorten) from the city's expedia_target in data/hotels/us-cities.json. Empty = a marked placeholder is rendered and build.py prints a warning.",
       "links": {
-        "orlando": "",
-        "new-york": "",
-        "miami": ""
+        "orlando": "https://expedia.com/affiliate/qv1MwKc",
+        "new-york": "https://expedia.com/affiliate/XuC5FQA",
+        "miami": "https://expedia.com/affiliate/g3j20Y7"
       },
       "hotel_links": {
-        "ritz-carlton-orlando-grande-lakes": "",
-        "waldorf-astoria-orlando": "",
-        "four-seasons-orlando": "",
-        "peninsula-new-york": "",
-        "ritz-carlton-new-york-central-park": "",
-        "aman-new-york": "",
-        "mandarin-oriental-new-york": "",
-        "faena-new-york": "",
-        "four-seasons-new-york-downtown": "",
-        "1-hotel-brooklyn-bridge": "",
-        "faena-miami-beach": "",
-        "1-hotel-south-beach": "",
-        "ritz-carlton-south-beach": "",
-        "miami-beach-edition": "",
-        "kimpton-epic-miami": "",
-        "loews-miami-beach": "",
-        "four-seasons-miami": ""
+        "ritz-carlton-orlando-grande-lakes": "https://expedia.com/affiliate/nFMfc4k",
+        "waldorf-astoria-orlando": "https://expedia.com/affiliate/8XQ3Lpx",
+        "four-seasons-orlando": "https://expedia.com/affiliate/0PTny6Q",
+        "peninsula-new-york": "https://expedia.com/affiliate/SsYGDm1",
+        "ritz-carlton-new-york-central-park": "https://expedia.com/affiliate/4i5vvcb",
+        "aman-new-york": "https://expedia.com/affiliate/qUF0sWL",
+        "mandarin-oriental-new-york": "https://expedia.com/affiliate/hNx136t",
+        "faena-new-york": "https://expedia.com/affiliate/18JSIHJ",
+        "four-seasons-new-york-downtown": "https://expedia.com/affiliate/4tvpEPO",
+        "1-hotel-brooklyn-bridge": "https://expedia.com/affiliate/4gCHByu",
+        "faena-miami-beach": "https://expedia.com/affiliate/ncuRAfq",
+        "1-hotel-south-beach": "https://expedia.com/affiliate/s9NoeXP",
+        "ritz-carlton-south-beach": "https://expedia.com/affiliate/cvD7L9D",
+        "miami-beach-edition": "https://expedia.com/affiliate/NOFY5ez",
+        "kimpton-epic-miami": "https://expedia.com/affiliate/0YHP2Po",
+        "loews-miami-beach": "https://expedia.com/affiliate/HuQsMGr",
+        "four-seasons-miami": "https://expedia.com/affiliate/v1VCVCZ"
       },
       "_note_hotels": "One tracked link per luxury hotel id (data/hotels/us-cities.json cities[].luxury[].expedia_target). Empty = plain untracked link to expedia_target."
     }
