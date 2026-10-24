@@ -1281,13 +1281,30 @@ BOOK_CSS = """<style>
 </style>"""
 
 
-def booking_block(cfg, root, full=False):
+BOOK_HOME_CSS = """<style>
+.book-home .bh-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.book-home .book-g{border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:var(--r-m);padding:18px 18px 14px;background:var(--paper);box-shadow:var(--shadow-s);display:flex;flex-direction:column}
+.book-home .book-g h3{font-size:.82rem;margin:0 0 10px}
+.book-home .book-g>p{font-size:.9rem;color:var(--ink)}
+.book-home .bh-p{margin:0 0 10px;font-size:.9rem;line-height:1.45}
+.book-home .bh-lux{margin-top:14px}
+.book-home .book-btns{flex-direction:column}
+.book-home .book-btns .btn{width:100%}
+.book-home .book-disc{font-size:.75rem;color:var(--mut);margin:auto 0 0;padding-top:10px;line-height:1.4}
+.book-home a{overflow-wrap:anywhere}
+@media (max-width:900px){.book-home .bh-grid{grid-template-columns:1fr;gap:14px}}
+@media (max-width:480px){.book-home .book-g{padding:14px 14px 12px}}
+</style>"""
+
+
+def booking_block(cfg, root, full=False, home=False):
     """'Book your trip' block (USA): flights from config.json flight_affiliates, pet-friendly hotel city guides from
     data/hotels/us-cities.json (new cities appear automatically) and Uber/Lyft pet ride rules from data/rideshare/us.json
-    (official help pages only). full=True is the longer version for /countries/usa.html; False is the compact home-panel one."""
+    (official help pages only). full=True is the longer version for /countries/usa.html; False is the compact home-panel one.
+    home=True is the server-rendered three-column homepage section ('Plan and book your whole pet trip in one place')."""
     rs = json.loads((ROOT / "data" / "rideshare" / "us.json").read_text())
     _, ci = hotels_data()
-    hx = "h3" if full else "h4"
+    hx = "h3" if (full or home) else "h4"
     ext = lambda u, t: f'<a href="{e(u)}" rel="noopener" target="_blank">{e(t)} &#8599;</a>'
     # (a) flights
     btns = []
@@ -1299,14 +1316,22 @@ def booking_block(cfg, root, full=False):
     if btns:
         fl = (f'<div class="book-g"><{hx}>&#9992; Flights</{hx}>'
               + ('<p style="margin:0 0 8px;font-size:.9rem">Compare fares, then book your pet&rsquo;s spot directly with the airline: in-cabin pet space is limited per flight. '
-                 f'<a href="{root}products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a>.</p>' if full else "")
+                 f'<a href="{root}products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a>.</p>' if (full or home) else "")
               + f'<p class="book-btns">{"".join(btns)}</p>'
               f'<p class="book-disc">Affiliate links: we may earn a commission at no extra cost to you. <a href="{root}about.html#affiliates">Disclosure</a>.</p></div>')
     # (b) hotels by city
     cities = "".join(f'<li><a href="{root}hotels/pet-friendly-hotels-{e(c["slug"])}.html">{e(c["short"])}</a></li>' for c in ci["cities"])
-    ho = (f'<div class="book-g"><{hx}>&#127976; Pet-friendly hotels by city</{hx}>'
-          + ('<p style="margin:0 0 8px;font-size:.9rem">Each city guide has the chain pet rules (fee, weight, number of pets), luxury hotels&rsquo; own pet policies, airport pet relief areas and dog parks, all from official sources.</p>' if full else "")
-          + f'<ul class="book-cities">{cities}<li><a class="all" href="{root}hotels/">All chains: fees &amp; weight limits</a></li></ul></div>')
+    if home:
+        lux = "".join(f'<li><a href="{root}hotels/pet-friendly-hotels-{e(c["slug"])}.html#luxury">{e(c["short"])}</a></li>' for c in ci["cities"] if c.get("luxury"))
+        ho = (f'<div class="book-g"><{hx}>&#127976; Pet-friendly hotels</{hx}>'
+              '<p class="bh-p">Chain pet fees, weight limits and number of pets, plus airport pet relief areas and dog parks, from official sources. Pick a city:</p>'
+              f'<ul class="book-cities">{cities}<li><a class="all" href="{root}hotels/">All chains: fees &amp; weight limits</a></li></ul>'
+              f'<p class="bh-p bh-lux"><b>Luxury hotels</b> set pet rules hotel by hotel:</p>'
+              f'<ul class="book-cities">{lux}<li><a class="all" href="{root}hotels/#luxury">Luxury brands</a></li></ul></div>')
+    else:
+        ho = (f'<div class="book-g"><{hx}>&#127976; Pet-friendly hotels by city</{hx}>'
+              + ('<p style="margin:0 0 8px;font-size:.9rem">Each city guide has the chain pet rules (fee, weight, number of pets), luxury hotels&rsquo; own pet policies, airport pet relief areas and dog parks, all from official sources.</p>' if full else "")
+              + f'<ul class="book-cities">{cities}<li><a class="all" href="{root}hotels/">All chains: fees &amp; weight limits</a></li></ul></div>')
     # (c) airport to hotel
     chk = f'<time datetime="{rs["checked"]}">{nice_date(rs["checked"])}</time>'
     if full:
@@ -1324,8 +1349,13 @@ def booking_block(cfg, root, full=False):
         rnames = ", ".join(r["name"] for r in rs["robotaxis"][:-1]) + " and " + rs["robotaxis"][-1]["name"]
         rlinks = " &middot; ".join(ext(r["src"][1], r["name"]) for r in rs["robotaxis"])
         li += f'<li><b>Robotaxis:</b> {e(rnames)} do not take pets; service animals only. {rlinks}</li>'
-        ride = (f'<div class="book-g"><h4>&#128661; Airport to hotel with your pet</h4><ul class="book-ride">{li}</ul>'
+        ride = (f'<div class="book-g"><{hx}>&#128661; {"Airport rides with your pet" if home else "Airport to hotel with your pet"}</{hx}><ul class="book-ride">{li}</ul>'
                 f'<p class="book-disc">{e(rs["service_animals_note"])} Official pages checked {chk}; no affiliate links. <a href="{root}countries/usa.html#book">Details</a>.</p></div>')
+    if home:
+        return ('<section class="blk wrap book-home" id="plan-trip" aria-labelledby="plan-trip-h">'
+                '<h2 id="plan-trip-h">Plan and book your whole pet trip in one place</h2>'
+                '<p class="sub">Flights, pet-friendly hotels and airport rides with your dog or cat: everything ready before you go.</p>'
+                f'<div class="bh-grid">{fl}{ho}{ride}</div></section>')
     h = "h2" if full else "h3"
     lede = "Flights, pet-friendly hotels by city, and a ride from the airport with your pet." if full else "Flights, hotels by city and pet-friendly rides."
     return f'<section class="book" id="book" aria-labelledby="book-h"><{h} id="book-h">Book your trip</{h}><p class="book-lede">{lede}</p>{fl}{ho}{ride}</section>'
@@ -1783,7 +1813,10 @@ def main():
         js_tag = '<script src="assets/js/home-c.js"></script>'
         assert js_tag in home and "</head>" in home
         book = json.dumps(booking_block(cfg, site_base(cfg) + "/")).replace("</", "<\\/")
-        home = home.replace("</head>", BOOK_CSS + "</head>", 1).replace(js_tag, f"<script>var BOOK_USA={book};</script>" + js_tag.replace("home-c.js", "home-c.js?v=" + hashlib.md5((ROOT / "static" / "assets" / "js" / "home-c.js").read_bytes()).hexdigest()[:8]), 1)
+        # Homepage 'Plan and book your whole pet trip in one place' section (static HTML, right after the map)
+        mark = next(l for l in home.splitlines() if l.startswith("<!--BOOK_HOME"))
+        home = home.replace(mark, booking_block(cfg, site_base(cfg) + "/", home=True), 1)
+        home = home.replace("</head>", BOOK_CSS + BOOK_HOME_CSS + "</head>", 1).replace(js_tag, f"<script>var BOOK_USA={book};</script>" + js_tag.replace("home-c.js", "home-c.js?v=" + hashlib.md5((ROOT / "static" / "assets" / "js" / "home-c.js").read_bytes()).hexdigest()[:8]), 1)
         (OUT / "index.html").write_text(home)
         shutil.copytree(ROOT / "static" / "assets", OUT / "assets")
         shutil.copy(ROOT / "static" / "assets" / "img" / "favicon.ico", OUT / "favicon.ico")
