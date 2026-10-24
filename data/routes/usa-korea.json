@@ -3,9 +3,9 @@
  "slug": "usa-to-south-korea",
  "checked": "2026-10-24",
  "sources": {
-  "qia_import": "https://www.qia.go.kr/english/html/Animal_livestock/02AnimalLivestock_007-8.jsp",
-  "qia_faq": "https://www.qia.go.kr/english/html/Animal_livestock/02AnimalLivestock_007-8_FAQ.jsp",
-  "qia_contact": "https://www.qia.go.kr/english/html/Contact_us/Contact_us_004.jsp",
+  "qia_import": "https://www.apqa.go.kr/english/html/Animal_livestock/02AnimalLivestock_007-8.jsp",
+  "qia_faq": "https://www.apqa.go.kr/english/html/Animal_livestock/02AnimalLivestock_007-8_FAQ.jsp",
+  "qia_contact": "https://www.apqa.go.kr/english/html/Contact_us/Contact_us_004.jsp",
   "icn_quarantine": "https://airport.kr/ap_en/1443/subview.do",
   "aphis_korea": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-korea",
   "aphis_fees": "https://www.aphis.usda.gov/pet-travel/us-to-foreign-country/cost-to-endorse",

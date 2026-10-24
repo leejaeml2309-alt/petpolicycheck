@@ -218,7 +218,7 @@ def header_ad(cfg, ads=True):
     return f'<div class="hdr-band"><div class="wrap"><div class="hdr-ad empty" role="complementary" aria-label="Advertisement"><div class="hdr-box"><span class="adl">Advertisement</span>{todo}</div></div></div></div>'
 
 
-def site_footer(cfg, root, fi):
+def site_footer(cfg, root, fi, path=""):
     """Footer identical to the design-C home footer (4 columns), plus the sponsor slot."""
     h = home_url(root)
     li = lambda href, key, label: f'<li><a href="{href}"{ti(key, fi)}>{label}</a></li>'
@@ -227,7 +227,7 @@ def site_footer(cfg, root, fi):
 <div class="wrap">{ad_slot(cfg, "sidebar_or_footer", root, fi)}</div>
 <div class="wrap cols">
 <div><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
-<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(root + "book/", "site.nav.book", "Book your trip")}{li(h + "#airlines", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(h + "#compare", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
+<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.nav.book", "Book your trip")}{li(h + "#airlines", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(h + "#compare", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
 <div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div><div class="wrap"><p class="disc"><span{ti("site.foot.aff", fi)}>Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</span> &copy; {dt.date.today().year} {e(cfg['site_name'])}</p></div></footer>"""
@@ -335,7 +335,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <main class="wrap" id="main">
 {body.replace('{root}', root)}
 </main>
-{site_footer(cfg, root, fi)}
+{site_footer(cfg, root, fi, path)}
 </body></html>
 """
 
@@ -1458,7 +1458,7 @@ CHECKLIST_CSS = """<style>
 def checklist_cta(root):
     """Compact box linking to /pet-travel-checklist/ (USA rules page and homepage)."""
     return (f'{CHECKLIST_CSS}<aside class="ck-cta" id="free-checklist" aria-label="Free pet travel checklist">'
-            f'<img src="{root}assets/img/checklist-thumb.webp" width="64" height="83" alt="" loading="lazy">'
+            f'<img src="{root}assets/img/checklist-thumb.webp" width="64" height="83" alt="Cover of the free Pet Travel Checklist USA (PDF)" loading="lazy">'
             f'<div><p class="ck-t">Free printable: Pet Travel Checklist USA (PDF)</p>'
             f'<p class="ck-s">Documents, airline cabin vs. hold, Amtrak, hotels and a departure-day list on 2 pages. No sign-up.</p></div>'
             f'<a class="btn" href="{root}pet-travel-checklist/">Get the checklist</a></aside>')
@@ -1713,7 +1713,7 @@ def build_route_usa_korea(cfg, airlines):
 
     def agency(k):
         h = S[k].split("/")[2]
-        return ("APQA" if h.endswith("qia.go.kr") else "CDC" if h.endswith("cdc.gov") else "USDA APHIS" if h.endswith("aphis.usda.gov")
+        return ("APQA" if h.endswith(("qia.go.kr", "apqa.go.kr")) else "CDC" if h.endswith("cdc.gov") else "USDA APHIS" if h.endswith("aphis.usda.gov")
                 else "Incheon Airport" if h.endswith("airport.kr") else "Korail" if h.endswith("korail.com") else "Easy Law (MOLEG)" if h.endswith("easylaw.go.kr") else "Official source")
     chkflag = lambda r: '<span class="flag">Check</span> ' if r.get("check") else ""
     qa = "".join(f"<li><b>{e(q)}:</b> {e(a)} {src(S[k], 'Source')}</li>" for q, a, k in d["quick"])
