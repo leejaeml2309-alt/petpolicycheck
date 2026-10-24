@@ -245,7 +245,7 @@ main [hidden]{display:none!important}
 .gear-buy{margin-top:.5em!important}
 /* design C additions for build.py pages */
 main.wrap{padding-bottom:8px}
-.foot .adph{text-align:left;margin:0 0 18px}
+.foot .adph{text-align:left;margin:22px 0 0}
 .foot .disc{opacity:.75;font-style:normal;margin-top:22px}
 .cmp tbody tr:nth-child(even){background:var(--zebra)}
 .cmp tbody tr{background:var(--paper)}
@@ -267,3 +267,4 @@ img{max-width:100%}
 /* fix6 v3: header is one 59px row up to 820px (nav collapsed into the Menu dropdown) */
 @media (max-width:820px){:root{--hh:60px}}
 @media (max-width:720px){p.book-btns,p.buy{flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:center}p.book-btns .btn,p.buy .btn{width:100%;max-width:340px;margin-left:0;margin-right:0;justify-content:center;text-align:center;box-sizing:border-box}}
+@media (max-width:820px){.foot .cols{grid-template-columns:1fr!important;gap:18px}}
