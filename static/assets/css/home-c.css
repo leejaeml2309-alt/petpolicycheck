@@ -103,3 +103,7 @@ th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mu
 .uschip:hover{background:var(--pri);color:var(--on-pri)}
 .btn.big{font-size:.95rem;padding:16px 26px;border-radius:99px}
 .pbody .lede{font-size:1.05rem;color:var(--head);margin-top:0}
+/* hero illustration (pet passport): stacked below the text on small screens, right column on desktop */
+.hero-art{max-width:520px;margin:26px auto 0}.hero-art img{display:block;width:100%;height:auto}
+@media (max-width:700px){.hero-art{max-width:440px;margin-top:22px}}
+@media (min-width:901px){.hero{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:36px;align-items:center;text-align:left;padding-top:56px}.hero h1{font-size:clamp(2.4rem,4.4vw,3.7rem);margin-left:0}.hero .lead{margin-left:0}.hero .acts{justify-content:flex-start}.hero-art{max-width:none;margin:0}}
