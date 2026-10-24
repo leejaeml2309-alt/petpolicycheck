@@ -1,0 +1,68 @@
+/* Variant B (chosen): travel journal / scrapbook. Load after story.css */
+.vb .book{background:radial-gradient(120% 90% at 30% 0%,#3a2a1a 0%,#2a1d12 50%,#170f09 100%);box-shadow:inset 0 0 0 1px #5a432a,inset 0 0 0 6px #22170e,0 40px 70px -20px #000c,0 14px 24px #0007}
+.vb .bk-page{--bk-paper:#f3ead6;--bk-paper2:#e9dcc0;background-color:var(--bk-paper)}
+.vb .bk-left,.vb .bk-right{background-image:radial-gradient(circle,#b9a98455 1px,#0000 1.4px),linear-gradient(90deg,var(--bk-paper2),#f8f1e2 14%,var(--bk-paper) 70%);background-size:18px 18px,auto}
+.vb .bk-right{background-image:radial-gradient(circle,#b9a98455 1px,#0000 1.4px),linear-gradient(270deg,var(--bk-paper2),#f8f1e2 14%,var(--bk-paper) 70%)}
+.vb .bk-left{box-shadow:-1px 1px 0 #e3d6b8,-2px 2px 0 #d8c8a4,-3px 3px 0 #e8dcc0,-4px 4px 0 #cdbb92,-6px 7px 12px #0006}
+.vb .bk-right{box-shadow:1px 1px 0 #e3d6b8,2px 2px 0 #d8c8a4,3px 3px 0 #e8dcc0,4px 4px 0 #cdbb92,6px 7px 12px #0006}
+.vb .bk-c,.vb .bk-ribbon,.vb .bk-curl,.vb .bk-pawmark{display:none}
+.vb .book::after{content:"";position:absolute;top:-4px;bottom:-4px;right:46px;width:14px;border-radius:3px;background:linear-gradient(90deg,#0b3b40,#1f6c74 50%,#0f4a50);box-shadow:2px 0 4px #0006;z-index:6}
+.vb .bk-kick{display:inline-block;padding:5px 14px;color:#13303d;background:#d9b765b8;transform:rotate(-2deg);box-shadow:0 1px 2px #0002;letter-spacing:.24em}
+.vb .bk-kick-r{float:right;margin-bottom:0}
+.vb .bk-rule{display:none}
+.vb .bk-title{margin-top:6px;padding-bottom:12px;border-bottom:2px dashed #b38a3599;margin-bottom:16px}
+.vb .bk-drop{border-radius:50%;background:#13303d}
+.vb .bk-quote{border-left:0;padding:10px 16px;background:#fffaf0;box-shadow:0 1px 2px #0002,0 6px 12px -6px #3a2a1255;transform:rotate(-.8deg);font-family:var(--bk-hand);font-size:1.6rem;line-height:1.15;color:#1b2f5c}
+.vb .bk-quote::before{content:"";position:absolute;top:-9px;left:24px;width:64px;height:18px;background:#9fc6c4b3;transform:rotate(-5deg)}
+.vb .bk-sigimg{display:block;margin:0 0 -2px -8px;line-height:0}.vb .bk-sigimg img{width:240px;height:auto}
+.vb .bk-folio{font-family:var(--bk-hand);font-size:1.2rem}
+/* scrapbook right page: the cats dominate */
+.vb .bk-album{clear:both;min-height:660px;margin:6px 0 14px}
+.vb .pol{padding:8px 8px 32px;box-shadow:0 1px 1px #0002,0 8px 16px -6px #3a2a1266}
+.vb .pol img{height:auto}
+.vb .pol figcaption{font-size:1.3rem;bottom:4px}
+.vb .tape::before,.vb .tape::after{content:"";position:absolute;width:64px;height:19px;background:#d9b765a6;box-shadow:0 1px 2px #0002;z-index:2}
+.vb .tape::before{top:-8px;left:-16px;transform:rotate(-38deg)}
+.vb .tape::after{top:-8px;right:-16px;transform:rotate(38deg);background:#9fc6c4a6}
+.vb .pplant{left:-2%;top:8px;width:55%;transform:rotate(-2.5deg);z-index:2}.vb .pplant img{aspect-ratio:876/900}
+.vb .pbed2{right:-1%;top:58px;width:49%;transform:rotate(3deg);z-index:1}.vb .pbed2 img{aspect-ratio:900/804}
+.vb .pcab{right:1%;bottom:0;width:41%;transform:rotate(-2deg);z-index:3}.vb .pcab img{aspect-ratio:619/900}
+.vb .pf{left:0;bottom:10px;width:25%;transform:rotate(4deg);z-index:3;padding:6px 6px 26px}.vb .pf img{aspect-ratio:3/4}
+.vb .pf figcaption{font-size:.98rem;bottom:3px;white-space:nowrap}
+.vb .pli{left:27%;bottom:44px;width:27%;transform:rotate(-3deg);z-index:2;padding:6px 6px 26px}.vb .pli img{aspect-ratio:1}
+.vb .pli figcaption{font-size:1.05rem;bottom:3px}
+.vb .pf.tape::after,.vb .pli.tape::after{display:none}
+.vb .pf.tape::before,.vb .pli.tape::before{width:48px;height:15px;left:50%;top:-8px;transform:translateX(-50%) rotate(-4deg)}
+/* ticket stub */
+.vb .tix{position:absolute;left:5%;top:338px;z-index:4;display:grid;grid-template-columns:1fr 30px;width:190px;transform:rotate(-5deg);filter:drop-shadow(0 4px 6px #3a2a1255);color:#13303d}
+.vb .tix-main{background:#fbf3df;border-radius:6px 0 0 6px;padding:9px 12px 8px;border-right:2px dashed #b38a35;-webkit-mask:radial-gradient(circle at 0 50%,#0000 7px,#000 7.5px);mask:radial-gradient(circle at 0 50%,#0000 7px,#000 7.5px)}
+.vb .tix-k{font:700 .55rem var(--text);letter-spacing:.22em;color:#9a722b;text-transform:uppercase}
+.vb .tix-r{display:flex;align-items:center;gap:6px;font:400 1.15rem var(--disp);letter-spacing:.04em;margin:2px 0;white-space:nowrap}
+.vb .tix-r svg{width:15px;height:15px;fill:#9a722b;flex:none}
+.vb .tix-s{font:600 .6rem var(--text);letter-spacing:.12em;text-transform:uppercase;color:#4c5a5e}
+.vb .tix-stub{background:#13303d;border-radius:0 6px 6px 0;display:grid;place-items:center}
+.vb .tix-stub svg{width:18px;height:18px;fill:#d9b765}
+/* fictional ink stamps (no real logos, no airport codes) */
+.vb .stamp{position:absolute;z-index:5;pointer-events:none;mix-blend-mode:multiply;opacity:.8}
+.vb .st1{left:47%;top:262px;width:104px;height:104px;transform:rotate(-12deg)}
+.vb .st2{right:3%;top:412px;width:104px;height:54px;transform:rotate(7deg)}
+.vb .bk-note{left:8%;right:auto;top:418px;bottom:auto;font-size:1.45rem!important;transform:rotate(-5deg);z-index:4}
+.vb .bk-cta{border-top:2px dashed #b38a3599}
+/* mobile */
+@media (max-width:820px){
+ .vb .book::after{right:18px}
+ .vb .bk-kick-r{float:none}
+ .vb .bk-album{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"plant plant" "bed bed" "cab lili" "cab fut" "tix tix" "note note";gap:22px 14px;min-height:0;position:relative;padding-top:10px}
+ .vb .pol{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:auto;padding:7px 7px 30px}
+ .vb .pplant{grid-area:plant;justify-self:center;width:88%}
+ .vb .pbed2{grid-area:bed;justify-self:center;width:82%}
+ .vb .pcab{grid-area:cab;align-self:start}
+ .vb .pli{grid-area:lili;align-self:start}
+ .vb .pf{grid-area:fut;align-self:start;justify-self:center;width:78%}
+ .vb .pf,.vb .pli{padding:6px 6px 26px}
+ .vb .tix{position:relative;left:auto;top:auto;grid-area:tix;justify-self:center;margin:4px 0}
+ .vb .bk-note{position:static;grid-area:note;text-align:right;margin:-6px 4px 0 0!important}
+ .vb .st1{left:-4px;right:auto;top:auto;bottom:-22px;width:76px;height:76px}
+ .vb .st2{right:0;top:-18px;width:84px;height:44px}
+ .vb .pol figcaption{font-size:1.1rem}.vb .pf figcaption{font-size:.9rem}
+}
