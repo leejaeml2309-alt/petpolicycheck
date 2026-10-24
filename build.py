@@ -1371,6 +1371,57 @@ def booking_block(cfg, root, full=False, home=False):
     return f'<section class="book" id="book" aria-labelledby="book-h"><{h} id="book-h">Book your trip</{h}><p class="book-lede">{lede}</p>{fl}{ho}{ride}</section>'
 
 
+CHECKLIST_PDF = "downloads/pet-travel-checklist-usa.pdf"
+CHECKLIST_CSS = """<style>
+.ck-cta{display:flex;align-items:center;gap:16px;background:var(--paper,#11252a);border:1px solid #d9b76555;border-left:4px solid var(--gold,#d9b765);border-radius:10px;padding:12px 16px;margin:18px 0}
+.ck-cta img{flex:none;width:64px;height:auto;border-radius:4px;box-shadow:0 2px 10px #0006}
+.ck-cta p{margin:0}.ck-cta .ck-t{font-family:var(--disp);color:var(--head);font-size:1.12rem;line-height:1.25}.ck-cta .ck-s{font-size:.9rem;color:var(--mut)}
+.ck-cta .btn{margin-left:auto;flex:none}
+.ck-cta>div{flex:1 1 200px;min-width:0}
+@media (max-width:640px){.ck-cta{flex-wrap:wrap}.ck-cta img{width:48px}.ck-cta .btn{margin-left:0;width:100%;justify-content:center}}
+</style>"""
+
+
+def checklist_cta(root):
+    """Compact box linking to /pet-travel-checklist/ (USA rules page and homepage)."""
+    return (f'{CHECKLIST_CSS}<aside class="ck-cta" id="free-checklist" aria-label="Free pet travel checklist">'
+            f'<img src="{root}assets/img/checklist-thumb.webp" width="64" height="83" alt="" loading="lazy">'
+            f'<div><p class="ck-t">Free printable: Pet Travel Checklist USA (PDF)</p>'
+            f'<p class="ck-s">Documents, airline cabin vs. hold, Amtrak, hotels and a departure-day list on 2 pages. No sign-up.</p></div>'
+            f'<a class="btn" href="{root}pet-travel-checklist/">Get the checklist</a></aside>')
+
+
+def build_checklist(cfg):
+    """/pet-travel-checklist/: landing page for the free PDF (static/downloads/, made by checklist/make_checklist_pdf.py)."""
+    root = "../"
+    pdf = ROOT / "static" / CHECKLIST_PDF
+    kb = round(pdf.stat().st_size / 1024) if pdf.exists() else 0
+    css = """<style>
+.ck-hero{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:32px;align-items:start;margin:8px 0 24px}
+.ck-hero img{width:100%;height:auto;border-radius:6px;box-shadow:0 0 0 1px #d9b76566,0 12px 32px #0008}
+.ck-hero ul{padding-left:1.2em}.ck-hero li{margin:.3em 0}
+.ck-dl{margin:18px 0 6px}.ck-note{color:var(--mut);font-size:.92rem;margin:6px 0 0}
+@media (max-width:720px){.ck-hero{grid-template-columns:1fr}.ck-hero .ck-img{max-width:240px}}
+</style>"""
+    body = f"""{css}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; Pet travel checklist</nav>
+<h1>Free Pet Travel Checklist USA (printable PDF)</h1>
+<div class="ck-hero"><div>
+<p class="lead">A 2-page checklist for traveling in the US with a dog or cat, built from the rules on this site. Every section links back to the page where we cite the official source.</p>
+<ul><li><b>Documents:</b> vet health certificate, USDA APHIS endorsement for international trips, rabies certificate, microchip, CDC Dog Import Form</li>
+<li><b>Flying:</b> cabin or hold by airline, under-seat carrier sizes</li>
+<li><b>Amtrak:</b> weight, carrier, trip length and check-in rules</li>
+<li><b>Hotels:</b> what to confirm before you book</li>
+<li><b>Departure day:</b> what to pack and when to arrive</li></ul>
+<p class="ck-dl"><a class="btn book-cta" href="{root}{CHECKLIST_PDF}" download>Download the free PDF</a></p>
+<p class="ck-note">No sign-up needed. Free to share. US Letter, 2 pages{f", {kb} KB" if kb else ""}. Last checked: Oct 2026.{f' Saving ink? <a href="{root}{CHECKLIST_PDF.replace(".pdf", "-print.pdf")}" download>Light print version</a>.' if (ROOT / "static" / CHECKLIST_PDF.replace(".pdf", "-print.pdf")).exists() else ""}</p>
+</div><div class="ck-img"><a href="{root}{CHECKLIST_PDF}" download><img src="{root}assets/img/checklist-thumb.webp" width="480" height="621" alt="Page 1 of the Pet Travel Checklist USA: documents and flying sections"></a></div></div>
+<p class="warn usa-warn">Rules change; always confirm with the airline and official sources. For the full details see <a href="{root}countries/usa.html">pet travel rules for the USA</a>, the <a href="{root}products/under-seat-carrier-size-by-airline.html">carrier size by airline</a> guide and <a href="{root}hotels/">pet-friendly hotel rules</a>.</p>"""
+    return page(cfg, f"Free Pet Travel Checklist USA (printable PDF) | {cfg['site_name']}",
+                "A free 2-page printable checklist for US pet travel: documents, airline cabin vs. hold, carrier size, Amtrak, hotels and departure day. No sign-up.",
+                body, "pet-travel-checklist/", root,
+                jsonld=[bc_ld(cfg, [("Home", ""), ("Pet travel checklist", "pet-travel-checklist/")])])
+
+
 def build_country_usa(cfg, airlines):
     """US pet travel rules page (federal + per-state), from data/countries/usa.json. Every row carries its official source."""
     d = json.loads((ROOT / "data" / "countries" / "usa.json").read_text())
@@ -1453,6 +1504,7 @@ def build_country_usa(cfg, airlines):
 <p class="lead">What you need to fly a dog or cat into, out of, or around the United States. Federal rules come from the CDC and USDA; each state sets its own entry rules.</p>
 <div class="usa-quick"><h2 id="quick">Quick answer</h2><ul>{qa}</ul></div>
 <p class="warn usa-warn">Rules change, especially New World screwworm (NWS) restrictions added by many states in 2026. Always confirm with the official source before you travel. {checked}.</p>
+{checklist_cta(root)}
 {booking_block(cfg, root, full=True)}
 <h2 id="federal">Federal rules (CDC and USDA)</h2>
 <p class="small">{checked} on the CDC and USDA APHIS pages linked in each row.</p>
@@ -2214,11 +2266,14 @@ def main():
     (OUT / "hotels").mkdir()
     (OUT / "insurance").mkdir()
     (OUT / "book").mkdir()
+    (OUT / "pet-travel-checklist").mkdir()
     pd, lims = load_products(airlines)
     global FORUM_ON
     FORUM_ON = forum_pages.enabled(cfg)
     shutil.copy(ROOT / "static" / "style.css", OUT / "style.css")
     shutil.copytree(ROOT / "static" / "fonts", OUT / "fonts")
+    if (ROOT / "static" / "downloads").exists():  # free PDFs (checklist/make_checklist_pdf.py)
+        shutil.copytree(ROOT / "static" / "downloads", OUT / "downloads")
     (OUT / ".nojekyll").write_text("")
     if custom_domain(cfg):
         (OUT / "CNAME").write_text(custom_domain(cfg) + "\n")
@@ -2235,6 +2290,7 @@ def main():
         mark = next(l for l in home.splitlines() if l.startswith("<!--BOOK_HOME"))
         home = home.replace(mark, booking_block(cfg, site_base(cfg) + "/", home=True), 1)
         home = home.replace("</head>", BOOK_CSS + BOOK_HOME_CSS + "</head>", 1).replace(js_tag, f"<script>var BOOK_USA={book};</script>" + js_tag.replace("home-c.js", "home-c.js?v=" + hashlib.md5((ROOT / "static" / "assets" / "js" / "home-c.js").read_bytes()).hexdigest()[:8]), 1)
+        home = home.replace("<!--CHECKLIST_CTA-->", checklist_cta(""), 1)
         (OUT / "index.html").write_text(home)
         shutil.copytree(ROOT / "static" / "assets", OUT / "assets")
         shutil.copy(ROOT / "static" / "assets" / "img" / "favicon.ico", OUT / "favicon.ico")
@@ -2258,6 +2314,7 @@ def main():
         (OUT / "hotels" / f"pet-friendly-hotels-{c['slug']}.html").write_text(build_hotel_city(cfg, c, hch, hci))
     (OUT / "insurance" / "pet-insurance-for-travelers.html").write_text(build_insurance_travel(cfg))
     (OUT / "book" / "index.html").write_text(build_book(cfg, airlines))
+    (OUT / "pet-travel-checklist" / "index.html").write_text(build_checklist(cfg))
     (OUT / "products" / "index.html").write_text(build_products_index(cfg, pd, lims))
     for p in pd["products"]:
         (OUT / "products" / f"{p['slug']}.html").write_text(build_product(cfg, p, pd, lims, airlines))
@@ -2279,6 +2336,7 @@ def main():
     urls.append((f"{base}/{INS_SLUG}", load_insurers()["checked"]))
     urls.append((f"{base}/book/", max(hci["checked"], json.loads((ROOT / "data" / "rideshare" / "us.json").read_text())["checked"],
                                       json.loads((ROOT / "data" / "partner_vets.json").read_text()).get("tools_checked") or "", load_insurers()["checked"])))
+    urls.append((f"{base}/pet-travel-checklist/", "2026-10-24"))
     sm = "".join(f"<url><loc>{e(u)}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n')
     (OUT / "ads.txt").write_text("google.com, pub-7693501377730690, DIRECT, f08c47fec0942fa0\n")
