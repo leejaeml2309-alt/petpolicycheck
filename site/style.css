@@ -112,7 +112,7 @@ table{border-collapse:collapse;width:100%}
  .medal{border-width:3px}
 }
 @media (max-width:720px){
- :root{--hh:112px}
+ :root{--hh:60px}
  body{font-size:16px}
  .tablewrap{background:none;border:0;box-shadow:none;overflow:visible}
  .cmp thead{display:none}
@@ -264,3 +264,5 @@ select option{background:var(--field);color:var(--ink)}
 .fbtn.warnbtn{color:#2a0d12}
 img{max-width:100%}
 @media (max-width:720px){main.wrap{padding:0 16px}}
+/* fix6 v3: header is one 59px row up to 820px (nav collapsed into the Menu dropdown) */
+@media (max-width:820px){:root{--hh:60px}}

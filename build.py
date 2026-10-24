@@ -138,6 +138,7 @@ LOGO = ('<svg class="logo" viewBox="0 0 40 40" width="38" height="38" aria-hidde
 # Main nav: identical to the design-C home header (static/home-c.html). (href, label, i18n key, aria-current path prefixes)
 # "#..." hrefs point to sections / panels of the home page ({home}#airlines opens the airline panel on load).
 NAV = [("#map", "World map", "site.nav.map", ()), ("book/", "Book", "site.nav.book", ("book/",)), ("#airlines", "Airlines", "site.nav.airlines", ("airlines/",)),
+       ("countries/usa.html#federal", "Health certificate", "site.nav.health", ()),  # no dedicated page yet: USA federal rules (CDC/USDA) section, leads to the state CVI table
        ("#compare", "Compare", "site.nav.compare", ()), ("products/", "Products", "site.nav.products", ("products/",)),
        ("#gear", "Guides", "site.nav.guides", ()), ("updates.html", "Updates", "site.nav.updates", ("updates.html",)),
        ("about.html", "About", "site.nav.about", ("about.html",)), ("advertise/", "Advertise", "site.nav.advertise", ("advertise/",))]
@@ -167,13 +168,44 @@ def home_url(root):
 
 def nav_links(root, path, i18n=False):
     out = []
-    items = NAV[:7] + [(FORUM_NAV[0], FORUM_NAV[1], "nav.forum", FORUM_NAV[2])] + NAV[7:] if FORUM_ON else NAV  # Forum after Updates
+    items = NAV[:7] + [(FORUM_NAV[0], FORUM_NAV[1], "nav.forum", FORUM_NAV[2])] + NAV[7:] if FORUM_ON else NAV  # Forum after Guides, before Updates
     for href, label, key, pre in items:
         cur = ' aria-current="page"' if any(path.startswith(x) for x in pre) else ""
         url = home_url(root) + href if href.startswith("#") else root + href
-        cta = ' class="cta"' if href == "advertise/" else (' class="nav-book"' if href == "book/" else "")
+        cta = ' class="cta menu-only"' if href == "advertise/" else (' class="nav-book"' if href == "book/" else "")
         out.append(f'<a{cta} href="{url}"{cur}{ti(key, i18n)}>{label}</a>')
     return "".join(out)
+
+
+# Header (fix6 v3): logo + horizontal nav (10 links) in the header row; under ~1100px the nav collapses into the "Menu" dropdown
+# (which also shows Advertise). A leaderboard ad band sits below the header line, site-wide.
+ADSENSE_CLIENT = "ca-pub-7693501377730690"
+MENU_BTN = ('<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">'
+            '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>'
+            '<span>Menu</span></button>')
+MENU_JS = """<script>(function(){function init(){var m=document.getElementById('site-menu');if(!m)return;
+var T=[].slice.call(document.querySelectorAll('.top .menu-btn,[data-menu-trigger]')),last=null;if(!T.length)return;
+function set(o,f,t){m.classList.toggle('open',o);T.forEach(function(x){x.setAttribute('aria-expanded',o?'true':'false')});if(o){last=t||T[0];if(f){var a=m.querySelector('a');if(a)a.focus({preventScroll:true})}}else if(f&&last)last.focus()}
+T.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var o=!m.classList.contains('open');set(o,e.detail===0||!b.classList.contains('menu-btn'),b)})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))set(false,true)});
+document.addEventListener('click',function(e){if(m.classList.contains('open')&&!m.contains(e.target))set(false)});
+m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+m.addEventListener('focusout',function(e){var r=e.relatedTarget;if(m.classList.contains('open')&&r&&!m.contains(r)&&T.indexOf(r)<0)set(false)})}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script>"""
+
+
+def header_ad(cfg, ads=True):
+    """Leaderboard ad band below the header line (728x90 desktop and tablet, 320x100 phone; fixed min-height = no layout shift).
+    config.json "adsense_header_slot": AdSense ad-unit id for this slot. Empty -> clean placeholder (dashed gold box,
+    'Advertisement' label) and the <ins> kept as a commented TODO. Pages built with ads=False always get the placeholder."""
+    slot = str(cfg.get("adsense_header_slot") or "").strip()
+    if ads and slot:
+        return ('<div class="hdr-band"><div class="wrap"><div class="hdr-ad" role="complementary" aria-label="Advertisement"><div class="hdr-box"><span class="adl">Advertisement</span>'
+                f'<ins class="adsbygoogle hdr-ins" data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="{e(slot)}"></ins>'
+                '<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div></div></div></div>')
+    todo = (f'<!-- TODO header ad: create a 728x90 / responsive display unit in AdSense, put its id in config.json "adsense_header_slot" '
+            f'(build.py then renders <ins class="adsbygoogle hdr-ins" data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="REPLACE_WITH_HEADER_AD_SLOT_ID">) -->')
+    return f'<div class="hdr-band"><div class="wrap"><div class="hdr-ad empty" role="complementary" aria-label="Advertisement"><div class="hdr-box"><span class="adl">Advertisement</span>{todo}</div></div></div></div>'
 
 
 def site_footer(cfg, root, fi):
@@ -185,7 +217,7 @@ def site_footer(cfg, root, fi):
 <div class="wrap">{ad_slot(cfg, "sidebar_or_footer", root, fi)}</div>
 <div class="wrap cols">
 <div><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
-<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(h + "#airlines", "site.foot.airlines", "Airline policies")}{li(h + "#compare", "site.nav.compare", "Compare")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
+<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(root + "book/", "site.nav.book", "Book your trip")}{li(h + "#airlines", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(h + "#compare", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
 <div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div><div class="wrap"><p class="disc"><span{ti("site.foot.aff", fi)}>Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</span> &copy; {dt.date.today().year} {e(cfg['site_name'])}</p></div></footer>"""
@@ -288,8 +320,8 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <a class="skip" href="#main"{ti("site.skip", fi)}>Skip to content</a>
 <header class="top"><div class="wrap">
 <a class="brand" href="{home_url(root)}">{LOGO_BADGE.replace('{root}', root)}{brand_word(cfg['site_name'])}</a>
-<nav class="nav" aria-label="Main">{nav_links(root, path, fi)}</nav>
-</div></header>
+<nav class="nav menu" id="site-menu" aria-label="Main">{nav_links(root, path, fi)}</nav>{MENU_BTN}
+</div></header>{header_ad(cfg, ads)}{MENU_JS}
 <main class="wrap" id="main">
 {body.replace('{root}', root)}
 </main>
@@ -1311,6 +1343,34 @@ def flight_aff_buttons(cfg):
 FLIGHT_DISC = 'Affiliate links: we may earn a commission at no extra cost to you. <a href="{root}about.html#affiliates">Disclosure</a>.'
 
 
+
+def home_guides(cfg):
+    """Country guides on the home map (static/home-c.html), from data/home_guides.json (one source of truth).
+    Returns (guides_js, chips_html). Fails the build if a published guide page (data/routes/*.json,
+    data/countries/*.json) has no entry, or an entry has no flag SVG / summary / guide page."""
+    d = json.loads((ROOT / "data" / "home_guides.json").read_text())
+    gs = d["guides"]
+    urls = {g["url"] for g in gs}
+    pages = [f"routes/{json.loads(f.read_text())['slug']}.html" for f in sorted((ROOT / "data" / "routes").glob("*.json"))]
+    pages += [f"countries/{f.stem}.html" for f in sorted((ROOT / "data" / "countries").glob("*.json"))]
+    missing = [u for u in pages if u not in urls]
+    assert not missing, f"data/home_guides.json: add a home-map entry for {missing} (see fix4 HANDOFF.md)"
+    base = site_base(cfg) + "/"
+    out, chips = {}, []
+    for g in gs:
+        for k in ("id", "flag", "name", "title", "line", "cta", "url", "summary"):
+            assert g.get(k), f"data/home_guides.json {g.get('name')}: missing '{k}'"
+        assert (ROOT / "static" / "assets" / "img" / "flags" / f"{g['flag']}.svg").exists(), f"missing static/assets/img/flags/{g['flag']}.svg"
+        j = {k: v for k, v in g.items() if k not in ("source_page", "chip")}
+        j.update(kind="link", url=base + g["url"], flag_src=f"assets/img/flags/{g['flag']}.svg",
+                 option=g.get("option") or f"{g['short'] if g.get('short') else g['name']} \u2605 guide")
+        out[g["id"]] = j
+        chips.append(f'<a class="uschip gchip" href="{e(base + g["url"])}" data-country="{e(g["id"])}">'
+                     f'<img class="flag" src="assets/img/flags/{e(g["flag"])}.svg" width="21" height="14" alt="" aria-hidden="true">'
+                     f'{e(g.get("chip") or g.get("short") or g["name"])}</a>')
+    js = "var GUIDES=" + json.dumps(out, ensure_ascii=False).replace("</", "<\\/") + ";"
+    return js, '<span class="gchips" role="group" aria-label="Country guides">' + "".join(chips) + "</span>"
+
 def booking_block(cfg, root, full=False, home=False):
     """'Book your trip' block (USA): flights from config.json flight_affiliates, pet-friendly hotel city guides from
     data/hotels/us-cities.json (new cities appear automatically) and Uber/Lyft pet ride rules from data/rideshare/us.json
@@ -2291,6 +2351,15 @@ def main():
         home = home.replace(mark, booking_block(cfg, site_base(cfg) + "/", home=True), 1)
         home = home.replace("</head>", BOOK_CSS + BOOK_HOME_CSS + "</head>", 1).replace(js_tag, f"<script>var BOOK_USA={book};</script>" + js_tag.replace("home-c.js", "home-c.js?v=" + hashlib.md5((ROOT / "static" / "assets" / "js" / "home-c.js").read_bytes()).hexdigest()[:8]), 1)
         home = home.replace("<!--CHECKLIST_CTA-->", checklist_cta(""), 1)
+        # Country guides (map panel, pins, chips, flags) from data/home_guides.json
+        gjs, gchips = home_guides(cfg)
+        gmark = "/*GUIDES: generated by build.py from data/home_guides.json*/"
+        cmark = next(l for l in home.splitlines() if l.strip().startswith("<!--GUIDE_CHIPS"))
+        assert gmark in home
+        home = home.replace(gmark, gjs, 1).replace(cmark, "  " + gchips, 1)
+        assert "<!--HDR_AD-->" in home and "<!--HDR_MENU_JS-->" in home
+        home = home.replace("<!--HDR_AD-->", MENU_BTN, 1).replace("<!--HDR_MENU_JS-->", header_ad(cfg) + MENU_JS, 1)
+        home = home.replace('href="assets/css/theme.css"', f'href="assets/css/theme.css?v={CSS_VER}"', 1)  # header CSS changed: bust cache on home too
         (OUT / "index.html").write_text(home)
         shutil.copytree(ROOT / "static" / "assets", OUT / "assets")
         shutil.copy(ROOT / "static" / "assets" / "img" / "favicon.ico", OUT / "favicon.ico")

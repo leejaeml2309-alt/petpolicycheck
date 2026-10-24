@@ -97,7 +97,12 @@ th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mu
 .ph-top{border-bottom:1px solid var(--acc)}
 .ad-slot{position:relative;margin:28px auto;max-width:970px;min-height:0}.ad-slot:empty{display:none}/* USA call-to-action (hero pill, map chip, panel button) */
 .uspill{display:inline-flex;align-items:center;gap:10px;margin:0 auto 18px;padding:10px 20px 10px 14px;border-radius:99px;background:linear-gradient(120deg,#b38a35,#f0d58c);color:#0b1719;font:700 .95rem var(--text);letter-spacing:.02em;text-decoration:none;box-shadow:0 0 0 1px #f0d58c,0 0 0 5px #d9b76533,0 10px 26px #0007}
-.uspill .fl{font-size:1.3rem;line-height:1}.uspill .ar{transition:transform .15s}
+.uspill .fl{font-size:1.3rem;line-height:1}
+/* small SVG flags (assets/img/flags), replace emoji flags that Windows shows as letters */
+.flag{display:inline-block;flex:none;width:21px;height:14px;border-radius:2px;object-fit:cover;vertical-align:-2px;box-shadow:0 0 0 1px #ffffff40,0 1px 2px #0006}
+.uspill .flag{box-shadow:0 0 0 1px #0b171959}
+#ptitle .flag{width:24px;height:16px;margin-right:10px;vertical-align:0}
+.gchips{display:inline-flex;flex-wrap:wrap;gap:6px}.uspill .ar{transition:transform .15s}
 .uspill:hover .ar,.uspill:focus-visible .ar{transform:translateX(3px)}.uspill:focus-visible{outline:3px solid #f0d58c;outline-offset:3px}
 .uschip{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:99px;border:1px solid var(--acc);color:var(--head);background:var(--chip);font:600 .84rem var(--text);text-decoration:none}
 .uschip:hover{background:var(--pri);color:var(--on-pri)}
@@ -107,3 +112,20 @@ th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mu
 .hero-art{max-width:520px;margin:26px auto 0}.hero-art img{display:block;width:100%;height:auto}
 @media (max-width:700px){.hero-art{max-width:440px;margin-top:22px}}
 @media (min-width:901px){.hero{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:36px;align-items:center;text-align:left;padding-top:56px}.hero h1{font-size:clamp(2.4rem,4.4vw,3.7rem);margin-left:0}.hero .lead{margin-left:0}.hero .acts{justify-content:flex-start}.hero-art{max-width:none;margin:0}}
+
+/* Hero CTAs as paw prints (fix5): cat / dog / cat; label font = hero h1 (var(--disp), Marcellus) */
+.hero .acts.paws{gap:10px;align-items:flex-end;margin-top:22px}
+.paw-defs{position:absolute;width:0;height:0;overflow:hidden}
+.paw{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;width:89px;height:75px;padding:0 8px 7px;text-decoration:none;color:var(--head);border-radius:42% 42% 38% 38%;transition:transform .18s ease,filter .18s ease;-webkit-tap-highlight-color:transparent}
+.paw-bg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transition:filter .18s}
+.paw-in{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;min-height:38px;justify-content:center;text-align:center}
+.paw-ic{width:13px;height:13px;fill:currentColor;flex:none}
+.paw-t{font:400 12px/1.04 var(--disp);letter-spacing:0;max-width:6.4em;text-wrap:balance}
+.paw-gold{color:var(--on-pri)}.paw-gold .paw-bg{fill:url(#pawGold);stroke:#f3dc98;stroke-width:2.5;filter:drop-shadow(0 6px 10px #d9b76533)}
+.paw .claw{fill:none;stroke:#a8812f;stroke-width:5;stroke-linecap:round;opacity:.75}
+.paw-cat:hover,.paw-cat:focus-visible{transform:translateY(-2px) rotate(-3deg)}
+.paw-dog:hover,.paw-dog:focus-visible{transform:translateY(-2px) rotate(3deg)}
+.paw-gold:hover .paw-bg{filter:brightness(1.07) drop-shadow(0 8px 14px #d9b76555)}
+.paw:focus{outline:none}.paw:focus-visible{outline:3px solid #f0d58c;outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.paw,.paw-bg{transition:none}.paw:hover,.paw:focus-visible{transform:none}}
+@media (max-width:600px){.hero .acts.paws{display:flex;flex-wrap:nowrap;justify-content:flex-start;gap:10px}}

@@ -1,0 +1,74 @@
+{
+ "_doc": "Home map country guides (static/home-c.html). One entry per published guide page; build.py turns this into window.GUIDES (map pins, highlighted countries, side panel, dropdown), the map-legend chips and the flag images. Every data/routes/*.json and data/countries/*.json must have an entry here (build fails otherwise) and every entry needs static/assets/img/flags/<flag>.svg. 'summary' must only restate facts already published on the guide page ('source_page'), with that page's 'Last checked' date. See HANDOFF in the fix4 patch / docs.",
+ "guides": [
+  {
+   "id": "840",
+   "flag": "us",
+   "name": "United States",
+   "short": "USA",
+   "slug": "USA",
+   "aliases": [
+    "US",
+    "U.S.",
+    "United States of America",
+    "America"
+   ],
+   "pin": [
+    -98.5,
+    39.5
+   ],
+   "title": "United States",
+   "line": "Federal (CDC & USDA) rules and state-by-state differences",
+   "cta": "See USA pet travel rules",
+   "url": "countries/usa.html",
+   "chip": "USA",
+   "source_page": "countries/usa.html (data/countries/usa.json)",
+   "book": "usa",
+   "summary": "Dogs entering the U.S. need a CDC Dog Import Form receipt, must be at least 6 months old, microchipped and healthy (extra steps from high-risk rabies countries). Cats have no federal rabies or USDA entry requirement but must look healthy. Between states, the destination state sets the rules (often a health certificate and rabies vaccination); Hawaii requires a FAVN test and a 30-day wait or up to 120 days of quarantine. Checked against official CDC, USDA and state sources on Oct 23, 2026."
+  },
+  {
+   "id": "410",
+   "flag": "kr",
+   "name": "South Korea",
+   "short": "South Korea",
+   "slug": "South Korea",
+   "aliases": [
+    "Korea",
+    "KOR",
+    "Republic of Korea"
+   ],
+   "pin": [
+    127.8,
+    36.3
+   ],
+   "label_left": true,
+   "title": "South Korea",
+   "line": "Bringing a dog or cat from the USA to South Korea: entry rules, paperwork and what happens on arrival",
+   "cta": "See the South Korea guide",
+   "url": "routes/usa-to-south-korea.html",
+   "chip": "South Korea",
+   "source_page": "routes/usa-to-south-korea.html (data/routes/usa-korea.json)",
+   "book": "generic",
+   "summary": "Dogs and cats 90 days or older arriving from the U.S. need an ISO 11784/11785 microchip, a current rabies vaccination and a rabies antibody (FAVN) result of 0.5 IU/ml or more, with the blood drawn within 24 months. They also need a health certificate from a USDA-accredited vet, endorsed by USDA APHIS within 30 days of export. If everything checks out, the pet can be released on the day of arrival. Checked against official APQA (Korea) and USDA APHIS sources on Oct 24, 2026."
+  },
+  {
+   "id": "392",
+   "flag": "jp",
+   "name": "Japan",
+   "short": "Japan",
+   "slug": "Japan",
+   "aliases": [
+    "JPN",
+    "Nippon"
+   ],
+   "title": "Japan",
+   "line": "Bringing a dog or cat from the USA to Japan: entry rules, paperwork and what happens on arrival",
+   "cta": "See the Japan guide",
+   "url": "routes/usa-to-japan.html",
+   "chip": "Japan",
+   "source_page": "routes/usa-to-japan.html (data/routes/usa-japan.json)",
+   "book": "generic",
+   "summary": "Japan treats the US mainland (except Hawaii and Guam) as a non-designated region: dogs and cats need an ISO microchip, two rabies shots, a rabies titer of 0.5 IU/ml or more at an approved lab, then a 180-day wait before arrival. Notify Japan's Animal Quarantine Service (AQS) at least 40 days before arrival and have a vet exam within 10 days before boarding; a USDA-accredited vet completes the health certificate (Form AC) for USDA APHIS endorsement. If everything is in order, quarantine is within 12 hours; if something is missing, the pet is held for up to 180 days at your cost, or sent back. Checked against official Japan AQS and USDA APHIS sources on Oct 24, 2026."
+  }
+ ]
+}
