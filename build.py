@@ -1620,6 +1620,19 @@ def build_route_usa_korea(cfg, airlines):
             f'<p>Compare fares from the US to Seoul (Incheon) and other Korean airports, then arrange your pet&rsquo;s place directly with the airline before you buy: pet space is limited per flight, and in-cabin and cargo rules differ by airline.</p>'
             f'<p class="buy">{" ".join(btns)}</p>'
             f'<p class="small disc">Affiliate links: we may earn a commission at no extra cost to you. <a href="{root}about.html#affiliates">Disclosure</a>.</p></aside>')
+    kh = d["hotels"]
+    hchk = f'<time datetime="{e(kh["checked"])}">{nice_date(kh["checked"])}</time>'
+    def kr_card(h):
+        trs = "".join(f"<tr><th>{k}</th><td>{e(h[f])}</td></tr>" for k, f in
+                      (("Species", "species"), ("Weight limit", "weight"), ("Max pets", "pets"), ("Fee", "fee"), ("Conditions", "conditions")))
+        return (f'<article class="ht-card"><h4>{e(h["name"])}</h4><p class="ht-sub">{e(h["area"])}</p><table>{trs}</table>'
+                f'<p class="ht-foot"><a href="{e(h["url"])}" rel="noopener" target="_blank">Pet policy &amp; booking &#8599;</a></p></article>')
+    kr_hotels = (f'<h2 id="hotels">Pet-friendly hotels in South Korea</h2>'
+                 + "".join(f"<p>{e(t)}</p>" for t in kh["intro"])
+                 + f'<p class="warn usa-warn">Policies checked {hchk}; confirm with the hotel before booking. Fees in Korean won with approximate US dollars '
+                 f'({e(kh["usd_rate"])}). Where a card says &ldquo;confirm with hotel&rdquo;, the official page is unclear or sources disagree.</p>'
+                 + "".join(f'<h3 id="hotels-{e(c["city"].lower())}">{e(c["city"])}</h3><div class="kr-ht">{"".join(kr_card(h) for h in c["hotels"])}</div>' for c in kh["cities"])
+                 + f'<p class="small">Each link goes to the hotel&rsquo;s own pet policy or pet package page. Staying in a US city before or after the flight? See <a href="{root}hotels/">pet-friendly hotel rules by chain</a>.</p>')
     gl = "".join(f"<li><a href='{root}products/{g}.html'>{e(t)}</a></li>" for g, (t, _) in GUIDE_META.items() if g != "dog-road-trip-packing-list")
     css = """<style>
 .usa-quick{background:var(--sage-l);border:0;border-left:4px solid var(--sage);border-radius:10px;padding:14px 18px}
@@ -1628,6 +1641,13 @@ def build_route_usa_korea(cfg, airlines):
 .usa-t .usa-src{white-space:nowrap}
 .rj-air td:nth-child(3){min-width:9em}
 .tablewrap+.tablewrap{margin-top:16px}
+.kr-ht{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:.6em 0 1.2em}
+.kr-ht .ht-card{border:1px solid var(--line,#d9d4c7);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column}
+.kr-ht h4{margin:0 0 .15em;font-size:1.08em}.kr-ht .ht-sub{margin:0 0 .6em;font-size:.9em;opacity:.8}
+.kr-ht table{width:100%;border-collapse:collapse;font-size:.92em;margin:0 0 .6em}
+.kr-ht th{text-align:left;vertical-align:top;padding:4px 8px 4px 0;width:6.5em;font-weight:600}
+.kr-ht td{vertical-align:top;padding:4px 0}.kr-ht tr+tr th,.kr-ht tr+tr td{border-top:1px solid var(--line,#ece8de)}
+.kr-ht .ht-foot{margin:auto 0 0;font-size:.92em;font-weight:600}
 @media (max-width:720px){.usa-t .usa-src{white-space:normal}}
 </style>"""
     body = f"""{css}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; Routes &rsaquo; USA to South Korea</nav>
@@ -1652,7 +1672,7 @@ def build_route_usa_korea(cfg, airlines):
 <h2 id="getting-around">Getting around Korea with a pet</h2>
 <p class="small">{checked}. Korean-language official sources, summarized in English.</p>
 <div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Mode</th><th>Rule</th><th>Source</th></tr></thead><tbody>{trans}</tbody></table></div>
-<p><b>Hotels in Korea:</b> we don&rsquo;t have Korea hotel guides yet. Pet policies (fees, size or weight limits, number of pets) are set by each property, so confirm in writing with the hotel before you book. Staying in a US city before or after the flight? See <a href="{root}hotels/">pet-friendly hotel rules by chain</a>.</p>
+{kr_hotels}
 <h2 id="return">Coming back to the USA</h2>
 <p>South Korea is not on the CDC list of high-risk countries for dog rabies (North Korea is), so a dog that was only in South Korea (or other low-risk countries) in the 6 months before returning needs the free <b>CDC Dog Import Form</b> receipt, a microchip, a healthy look and an age of at least 6 months. Cats have no federal rabies proof requirement. State and airline rules still apply. {src(S['cdc_low'], 'CDC')} &middot; {src(S['cdc_high'], 'CDC high-risk list')}</p>
 <p>Full US entry and state rules: <a href="{root}countries/usa.html">Pet travel rules for the USA</a>.</p>

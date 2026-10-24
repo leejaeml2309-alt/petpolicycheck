@@ -225,6 +225,131 @@
    "easylaw_transit"
   ]
  ],
+ "hotels": {
+  "checked": "2026-10-24",
+  "usd_rate": "1 USD ≈ 1,325 KRW (Oct 24, 2026)",
+  "intro": [
+   "Most Korean hotels that take pets have only a few dedicated pet rooms or a pet package, and many accept only small dogs. Book the pet room or package directly with the hotel, well ahead of time: some take pet bookings by phone only, and several hotels with pet rooms are listed as “no pets” on booking sites.",
+   "Bring your pet’s rabies vaccination certificate dated within the last year (the same records you use for entry). Expect a carrier or stroller in public areas, no pets in restaurants, pools or spas, and a rule against leaving your pet alone in the room. Some hotels ban the breeds Korea classes as dangerous (Tosa, American Pit Bull Terrier, American Staffordshire Terrier, Staffordshire Bull Terrier, Rottweiler and their mixes)."
+  ],
+  "cities": [
+   {
+    "city": "Seoul",
+    "hotels": [
+     {
+      "name": "Four Seasons Hotel Seoul",
+      "area": "Jongno (Gwanghwamun)",
+      "species": "Pets (species not stated; cats: confirm with hotel)",
+      "weight": "Up to 10 kg (22 lb) combined",
+      "pets": "1",
+      "fee": "KRW 250,000 per room, tax and service included (approx. US$189)",
+      "conditions": "Pets must be fully vaccinated; you sign a consent form. Cart or carrier outside the room, leash in public areas; no restaurants, spa or pool. Don’t leave your pet alone (the concierge can arrange a pet sitter in advance). Book by contacting the hotel: +82 2 6388 5000.",
+      "url": "https://www.fourseasons.com/seoul/services-and-amenities/pet-friendly-retreats/"
+     },
+     {
+      "name": "Vista Walkerhill Seoul",
+      "area": "Gwangjin (east Seoul, Han River)",
+      "species": "Dogs or cats",
+      "weight": "Under 15 kg (33 lb)",
+      "pets": "1",
+      "fee": "“Oh My Pet” package from KRW 589,000 per night (approx. US$445) for 2 people + 1 pet; no separate pet fee stated",
+      "conditions": "Documents: not stated, confirm with hotel. Carrier in public areas; no restaurants or bars; bring your own pet food. Whether pets may be left alone: confirm with hotel. Book the package (VISTA Pet Concept Room; phone booking available). The neighboring Grand Walkerhill does not take pets.",
+      "url": "https://www.walkerhill.com/vistawalkerhillseoul/en/Package/3268"
+     },
+     {
+      "name": "RYSE, Autograph Collection",
+      "area": "Hongdae (Mapo)",
+      "species": "Pets (species not stated)",
+      "weight": "Not stated: confirm with hotel",
+      "pets": "2",
+      "fee": "“Pet Project” package (price not shown: confirm with hotel), includes a KRW 65,000 cleaning fee (approx. US$49); KRW 400,000 refundable deposit (approx. US$302)",
+      "conditions": "You sign a waiver at check-in; vaccination proof: confirm with hotel. Pets must stay with you at all times (no pet sitting); leash in public areas; no gym or restaurants. Pet package only, on the pet-friendly floor: +82 2 330 7700.",
+      "url": "https://rysehotel.com/petproject/"
+     },
+     {
+      "name": "Mondrian Seoul Itaewon",
+      "area": "Itaewon (Yongsan)",
+      "species": "Dogs only",
+      "weight": "13 kg (29 lb) max for two dogs (combined or each: confirm with hotel)",
+      "pets": "2",
+      "fee": "KRW 100,000 cleaning fee (approx. US$75); per stay or per night: confirm with hotel",
+      "conditions": "Documents and public-area rules are not stated on the official page: confirm with hotel. Book the Pet-Stay offer.",
+      "url": "https://mondrianhotels.com/seoul-itaewon/offers/pet-stay/"
+     },
+     {
+      "name": "Hotel Cappuccino",
+      "area": "Gangnam (Eonju)",
+      "species": "Dogs only",
+      "weight": "Under 15 kg (33 lb) and under 40 cm tall",
+      "pets": "2 (extra charge for the 2nd dog; amount: confirm with hotel)",
+      "fee": "Bark Room rate; no separate pet fee stated. US$250 charge for soiled linens or a mess in the corridor",
+      "conditions": "Rabies certificate dated within 1 year plus vaccination copies, and pet registration by QR code; without them the stay is refused with no refund. Dog carried or in a carrier in the hotel; never left alone in the room; Korean dangerous breeds banned. Book a Bark Room.",
+      "url": "https://hotelcappuccino.co.kr/en/pet-policy/"
+     }
+    ]
+   },
+   {
+    "city": "Busan",
+    "hotels": [
+     {
+      "name": "Grand Josun Busan",
+      "area": "Haeundae Beach",
+      "species": "Dogs",
+      "weight": "Up to 10 kg (22 lb)",
+      "pets": "2 (1 included)",
+      "fee": "“Meongcance” pet package: the hotel site showed KRW 1,320,000 per night (approx. US$996) tax included, but 2026 press quoted from KRW 770,000 (approx. US$581): confirm with hotel. Includes a KRW 55,000/night cleaning fee; 2nd dog KRW 100,000 + tax (approx. US$75)",
+      "conditions": "You sign a rules agreement at check-in; vaccination proof: confirm with hotel. Cage or stroller when moving through the hotel; dogs only in the lobby, elevators and room; dangerous dogs may be refused. Phone booking only (+82 51 922 5000); say how many dogs when you book.",
+      "url": "https://gjb.josunhotel.com/package/get.do?packageId=280&propertyId=4"
+     },
+     {
+      "name": "Ananti at Busan Cove",
+      "area": "Gijang (oceanfront)",
+      "species": "Dogs only (no cats or rabbits)",
+      "weight": "Under 15 kg (33 lb)",
+      "pets": "2",
+      "fee": "Pet-room rate; no separate pet fee stated",
+      "conditions": "Documents: not stated, confirm with hotel. No dogs in restaurants or other facilities outside the room. Book the pet room by phone (1877-5707) about 3 weeks before check-in; it can sell out. An undeclared dog means a cleaning charge and you may be asked to leave.",
+      "url": "https://ananti.kr/ko/busan/journey/petfriendly"
+     },
+     {
+      "name": "Sunset Hotel",
+      "area": "Haeundae (about 100 m from the beach)",
+      "species": "Pets (species not stated)",
+      "weight": "Up to 10 kg (22 lb)",
+      "pets": "Not stated: confirm with hotel",
+      "fee": "KRW 30,000 per pet per night (approx. US$23)",
+      "conditions": "Proof of rabies vaccination. Never leave your pet alone in the room; diaper (manner belt) required. Pet stays only in Deluxe Family, Family Queen Twin or Superior Suite rooms. Ask the hotel and reserve in advance: +82 51 730 9900.",
+      "url": "http://www.sunsethotel.co.kr/bbs/board.php?bo_table=tl_faq"
+     }
+    ]
+   },
+   {
+    "city": "Jeju",
+    "hotels": [
+     {
+      "name": "Somerset Jeju Shinhwa World",
+      "area": "Seogwipo (Shinhwa World resort)",
+      "species": "Dogs",
+      "weight": "Under 10 kg (22 lb) (the rules PDF says up to 10 kg: confirm with hotel)",
+      "pets": "2 (1 included)",
+      "fee": "Pet-room rate; 2nd dog KRW 55,000 per stay (approx. US$42); KRW 300,000 refundable deposit (approx. US$226)",
+      "conditions": "Rabies certificate dated within 1 year required at check-in; dogs fully vaccinated and at least 3 months old. Stroller or cage inside buildings; no pool, sauna or restaurant; Korean dangerous breeds and mixes banned. Whether dogs may be left alone: confirm with hotel. Book the Pet Friendly Room (reservations@shinhwaworld.com).",
+      "url": "https://www.shinhwaworld.com/roomsm/38559.jhtml"
+     },
+     {
+      "name": "The Best Jeju Seongsan Hotel",
+      "area": "Seongsan (east coast)",
+      "species": "Dogs",
+      "weight": "Up to 15 kg (33 lb)",
+      "pets": "1",
+      "fee": "Pet-room rate; no separate pet fee stated",
+      "conditions": "Rabies and combination vaccines within the last year: bring the certificate. Carrier, stroller or carried in the lobby, corridors and elevators; no restaurants, cafés or pool; never leave your dog alone. Book a Pet Double or Pet Family Twin room on the official site: +82 64 784 0550.",
+      "url": "https://www.seanhotelgroup.com/hotels/jeju/ko/packages?cmd=view&idx=511"
+     }
+    ]
+   }
+  ]
+ },
  "airlines": [
   "korean-air",
   "delta",
