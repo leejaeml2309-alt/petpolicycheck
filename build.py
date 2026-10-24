@@ -1572,6 +1572,101 @@ def build_route_usa_japan(cfg, airlines):
                jsonld=[bc_ld(cfg, [("Home", ""), ("Flying with a dog or cat from the USA to Japan", "routes/usa-to-japan.html")]), faq_ld])
 
 
+def build_route_usa_korea(cfg, airlines):
+    """USA -> South Korea route page / main Korea guide (preview), from data/routes/usa-korea.json. Every row carries its official source."""
+    d = json.loads((ROOT / "data" / "routes" / "usa-korea.json").read_text())
+    root, chk, S = "../", d["checked"], d["sources"]
+    src = lambda u, t="Official source": f'<a href="{e(u)}" rel="noopener" target="_blank">{t}</a>'
+    checked = f'Last checked <time datetime="{chk}">{nice_date(chk)}</time>'
+
+    def agency(k):
+        h = S[k].split("/")[2]
+        return ("APQA" if h.endswith("qia.go.kr") else "CDC" if h.endswith("cdc.gov") else "USDA APHIS" if h.endswith("aphis.usda.gov")
+                else "Incheon Airport" if h.endswith("airport.kr") else "Korail" if h.endswith("korail.com") else "Easy Law (MOLEG)" if h.endswith("easylaw.go.kr") else "Official source")
+    chkflag = lambda r: '<span class="flag">Check</span> ' if r.get("check") else ""
+    qa = "".join(f"<li><b>{e(q)}:</b> {e(a)} {src(S[k], 'Source')}</li>" for q, a, k in d["quick"])
+    rows = "".join(f"<tr><td data-l='Who'>{e(r['who'])}</td><td data-l='Direction'>{e(r['way'])}</td><td data-l='Case'>{e(r['case'])}</td>"
+                   f"<td data-l='Rule'>{e(r['rule'])}</td><td class='usa-src' data-l='Source'>{src(S[r['src']], agency(r['src']))}</td></tr>" for r in d["rules"])
+    fees = "".join(f"<tr><td data-l='Item'>{e(f['item'])}</td><td data-l='Cost (USD)'>{chkflag(f)}{e(f['amount'])}</td>"
+                   f"<td class='usa-src' data-l='Source'>{src(S[f['src']], agency(f['src']))}</td></tr>" for f in d["fees"])
+    offs = "".join(f"<tr><td data-l='Airport'><b>{e(o['airport'])}</b></td><td data-l='APQA office'>{e(o['office'])}</td><td data-l='Phone'>{e(o['phone'])}</td>"
+                   f"<td class='usa-src' data-l='Source'>{src(S[o['src']], agency(o['src']))}</td></tr>" for o in d["offices"])
+    trans = "".join(f"<tr><td data-l='Mode'><b>{e(m)}</b></td><td data-l='Rule'>{e(t)}</td><td class='usa-src' data-l='Source'>{src(S[k], agency(k))}</td></tr>" for m, t, k in d["transit"])
+    links = "".join(f"<li>{src(S[k], e(n))}</li>" for n, k in d["links"])
+    by = {a["slug"]: a for a in airlines}
+    arows = []
+    for s in d["airlines"]:
+        a = by.get(s)
+        if not a:
+            continue
+        note = (f"<b>Route limits:</b> {e(a.get('banned_routes') or 'none listed.')} "
+                f"<b>Hold or cargo:</b> {e(a.get('checked_or_cargo') or CHECK)}")
+        arows.append(f"<tr><td data-l='Airline'><a href='{root}airlines/{e(s)}.html'><b>{e(a['name'])}</b></a></td>"
+                     f"<td data-l='What our airline page says'>{note}</td>"
+                     f"<td data-l='Korea flights'><span class='flag'>Check</span> Confirm the airline flies your route and accepts pets on that flight</td>"
+                     f"<td class='usa-src' data-l='Checked'>{src(a['official_url'], 'Airline page')} <span class='small'>checked <time datetime='{e(a.get('last_verified') or '')}'>{nice_date(a.get('last_verified'))}</time></span></td></tr>")
+    btns = [f'<a class="btn" href="{e(f["url_template"].strip())}" rel="sponsored nofollow noopener" target="_blank">{e(f["label"])}</a>'
+            for f in cfg.get("flight_affiliates") or [] if (f.get("url_template") or "").strip() and f.get("label")]
+    fbox = ("" if not btns else
+            f'<aside class="reco flights"><h2>Book flights to South Korea</h2>'
+            f'<p>Compare fares from the US to Seoul (Incheon) and other Korean airports, then arrange your pet&rsquo;s place directly with the airline before you buy: pet space is limited per flight, and in-cabin and cargo rules differ by airline.</p>'
+            f'<p class="buy">{" ".join(btns)}</p>'
+            f'<p class="small disc">Affiliate links: we may earn a commission at no extra cost to you. <a href="{root}about.html#affiliates">Disclosure</a>.</p></aside>')
+    gl = "".join(f"<li><a href='{root}products/{g}.html'>{e(t)}</a></li>" for g, (t, _) in GUIDE_META.items() if g != "dog-road-trip-packing-list")
+    css = """<style>
+.usa-quick{background:var(--sage-l);border:0;border-left:4px solid var(--sage);border-radius:10px;padding:14px 18px}
+.usa-quick h2{margin:0 0 .4em}.usa-quick ul{margin:0;padding-left:1.2em}.usa-quick li{margin:.35em 0}
+.usa-warn{border:0;border-left:4px solid var(--gold)}
+.usa-t .usa-src{white-space:nowrap}
+.rj-air td:nth-child(3){min-width:9em}
+.tablewrap+.tablewrap{margin-top:16px}
+@media (max-width:720px){.usa-t .usa-src{white-space:normal}}
+</style>"""
+    body = f"""{css}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; Routes &rsaquo; USA to South Korea</nav>
+<h1>Traveling to South Korea with your dog or cat</h1>
+<p class="lead">What your dog or cat needs to fly from the United States to South Korea, how to get around Korea with it, and what you need to bring it back. Korea&rsquo;s import rules come from the Animal and Plant Quarantine Agency (APQA); USDA APHIS endorses the US health certificate. Book the rabies antibody (FAVN) test early: the result has to be on the health certificate.</p>
+<div class="usa-quick"><h2 id="quick">Quick answer</h2><ul>{qa}</ul></div>
+<p class="warn usa-warn">Rules change. Always confirm with APQA and USDA APHIS before you travel; a missing microchip, test result or endorsement can mean quarantine at your cost, or your pet being sent back. {checked}.</p>
+<h2 id="rules">Rules by case</h2>
+<p class="small">{checked} on the APQA, USDA APHIS, Incheon Airport and CDC pages linked in each row. Where APQA and APHIS word a rule differently, we follow APQA&rsquo;s page.</p>
+<div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Who</th><th>Direction</th><th>Case</th><th>Rule</th><th>Source</th></tr></thead><tbody>{rows}</tbody></table></div>
+<h2 id="fees">Fees</h2>
+<p class="small">{checked}. Prices in US dollars where the source gives them. Rows marked <span class="flag">Check</span> have no official amount we could confirm.</p>
+<div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Item</th><th>Cost</th><th>Source</th></tr></thead><tbody>{fees}</tbody></table></div>
+<h2 id="airports">Arrival airports and APQA offices</h2>
+<p class="small">{checked}. Phone numbers as listed on APQA&rsquo;s English import page; APQA&rsquo;s <a href="{e(S['qia_contact'])}" rel="noopener" target="_blank">contact page</a> lists all regional offices.</p>
+<div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Airport</th><th>APQA office</th><th>Phone</th><th>Source</th></tr></thead><tbody>{offs}</tbody></table></div>
+<h2 id="airlines">Airlines between the US and Korea</h2>
+<p class="small">From our airline pages, checked on the airline&rsquo;s official site on the date shown. Airline rules are separate from Korea&rsquo;s entry rules; confirm in-cabin or cargo acceptance for your exact flight.</p>
+<div class="tablewrap"><table class="cmp usa-t rj-air"><thead><tr><th>Airline</th><th>What our airline page says</th><th>Korea flights</th><th>Source</th></tr></thead><tbody>{''.join(arows)}</tbody></table></div>
+{fbox}
+{insurance_teaser(root, "korea")}
+<h2 id="getting-around">Getting around Korea with a pet</h2>
+<p class="small">{checked}. Korean-language official sources, summarized in English.</p>
+<div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Mode</th><th>Rule</th><th>Source</th></tr></thead><tbody>{trans}</tbody></table></div>
+<p><b>Hotels in Korea:</b> we don&rsquo;t have Korea hotel guides yet. Pet policies (fees, size or weight limits, number of pets) are set by each property, so confirm in writing with the hotel before you book. Staying in a US city before or after the flight? See <a href="{root}hotels/">pet-friendly hotel rules by chain</a>.</p>
+<h2 id="return">Coming back to the USA</h2>
+<p>South Korea is not on the CDC list of high-risk countries for dog rabies (North Korea is), so a dog that was only in South Korea (or other low-risk countries) in the 6 months before returning needs the free <b>CDC Dog Import Form</b> receipt, a microchip, a healthy look and an age of at least 6 months. Cats have no federal rabies proof requirement. State and airline rules still apply. {src(S['cdc_low'], 'CDC')} &middot; {src(S['cdc_high'], 'CDC high-risk list')}</p>
+<p>Full US entry and state rules: <a href="{root}countries/usa.html">Pet travel rules for the USA</a>.</p>
+<h2 id="official">Official links</h2>
+<ul>{links}</ul>
+<p class="note small">{checked}. Rules change; confirm with the official source before you travel. This page is a summary, not legal or veterinary advice. Airlines may require more than Korea does.</p>
+<h2 id="gear">Product guides</h2>
+<ul>{gl}</ul>"""
+    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": qn, "acceptedAnswer": {"@type": "Answer", "text": a}}
+        for qn, (_, a, _k) in zip(["What does a dog or cat need to travel from the US to South Korea?",
+                                   "Who endorses the US health certificate for a pet going to South Korea?",
+                                   "What are the rules for puppies and kittens under 90 days going to South Korea?",
+                                   "Do I need to notify Korea's quarantine agency before I arrive with my pet?",
+                                   "What happens if my pet doesn't meet South Korea's requirements?",
+                                   "What does a dog need to return to the US from South Korea?"], d["quick"])]}
+    return page(cfg, f"Traveling to South Korea with your dog or cat: USA to Korea rules | {cfg['site_name']}",
+               "What a dog or cat needs to travel from the US to South Korea: ISO microchip, rabies vaccination, FAVN antibody test, USDA APHIS-endorsed health certificate, Incheon arrival, getting around Korea and coming back, with official sources.",
+               body, "routes/usa-to-south-korea.html", root,
+               jsonld=[bc_ld(cfg, [("Home", ""), ("Traveling to South Korea with your dog or cat", "routes/usa-to-south-korea.html")]), faq_ld])
+
+
 HOTELS_CSS = """<style>
 .usa-quick{background:var(--sage-l);border:0;border-left:4px solid var(--sage);border-radius:10px;padding:14px 18px}
 .usa-quick h2{margin:0 0 .4em}.usa-quick ul{margin:0;padding-left:1.2em}.usa-quick li{margin:.35em 0}
@@ -1830,7 +1925,7 @@ def ins_disclosure(cfg, root):
 
 
 def insurance_teaser(root, where):
-    """Small linked block for /countries/usa.html ('usa') and /routes/usa-to-japan.html ('japan'), counts taken from the insurer data."""
+    """Small linked block for /countries/usa.html ('usa'), /routes/usa-to-japan.html ('japan') and /routes/usa-to-south-korea.html ('korea'), counts taken from the insurer data."""
     d = load_insurers()
     ins = d["insurers"]
     abroad = [i["name"] for i in ins if i["abroad"] == "yes"]
@@ -1838,6 +1933,10 @@ def insurance_teaser(root, where):
     chk = f'<time datetime="{d["checked"]}">{nice_date(d["checked"])}</time>'
     if where == "japan":
         h = "Will your US pet insurance work in Japan?"
+        p = (f"Often not. Of the {len(ins)} US insurers we checked, most limit coverage to the US and Canada (some add US territories or military bases); "
+             f"only {' and '.join(abroad)} say they cover vet care abroad, and terms apply. Policies reimburse you after you pay the vet, so keep itemized invoices and records.")
+    elif where == "korea":
+        h = "Will your US pet insurance work in South Korea?"
         p = (f"Often not. Of the {len(ins)} US insurers we checked, most limit coverage to the US and Canada (some add US territories or military bases); "
              f"only {' and '.join(abroad)} say they cover vet care abroad, and terms apply. Policies reimburse you after you pay the vet, so keep itemized invoices and records.")
     else:
@@ -1932,7 +2031,8 @@ def build_insurance_travel(cfg):
 </ul>
 <h2 id="related">Related pages</h2>
 <ul><li><a href="{root}countries/usa.html">Pet travel rules for the USA: federal and state requirements</a></li>
-<li><a href="{root}routes/usa-to-japan.html">Flying with a dog or cat from the USA to Japan</a></li></ul>
+<li><a href="{root}routes/usa-to-japan.html">Flying with a dog or cat from the USA to Japan</a></li>
+<li><a href="{root}routes/usa-to-south-korea.html">Traveling to South Korea with your dog or cat</a></li></ul>
 <p class="note small">{checked}. {e(INS_NOT_AGENT)} Prices are set by insurers in US dollars and are not shown here.</p>"""
     return page(cfg, f"Pet insurance for travelers (US): coverage away from home compared | {cfg['site_name']}",
                 f"Does US pet insurance cover your dog or cat while traveling? Where {n} US insurers cover care (US, Canada, abroad), plus waiting periods, age limits and reimbursement, from their official sites.",
@@ -2044,6 +2144,7 @@ def build_book(cfg, airlines):
 <h3>Paperwork by destination</h3><ul class="bk-links">
 <li><a href="{root}countries/usa.html">Pet travel rules for the USA</a>: federal rules and each state&rsquo;s health certificate and rabies rules.</li>
 <li><a href="{root}routes/usa-to-japan.html">USA to Japan</a>: the Japan health certificate (Form AC) completed by a USDA-accredited vet, microchip, rabies titer test and the 180-day wait.</li>
+<li><a href="{root}routes/usa-to-south-korea.html">USA to South Korea</a>: ISO microchip, rabies vaccination, a rabies antibody (FAVN) test and a health certificate endorsed by USDA APHIS within 30 days of export.</li>
 <li><a href="{root}partner-vets/">Are you a vet? Become a partner clinic</a> (free listing).</li></ul></section>"""
     # insurance
     insurance = f"""<section class="bk-sec" id="insurance" aria-labelledby="ins-h"><span class="bk-k">Peace of mind</span><h2 id="ins-h">Pet insurance for the trip</h2>
@@ -2110,6 +2211,7 @@ def main():
     (OUT / "partner-vets" / "index.html").write_text(build_partner_vets(cfg))
     (OUT / "countries" / "usa.html").write_text(build_country_usa(cfg, airlines))
     (OUT / "routes" / "usa-to-japan.html").write_text(build_route_usa_japan(cfg, airlines))
+    (OUT / "routes" / "usa-to-south-korea.html").write_text(build_route_usa_korea(cfg, airlines))
     hch, hci = hotels_data()
     (OUT / "hotels" / "index.html").write_text(build_hotels_index(cfg, hch, hci))
     for c in hci["cities"]:
@@ -2131,6 +2233,7 @@ def main():
     urls += forum_pages.build(sys.modules[__name__], cfg, airlines, OUT, ROOT)  # [] while the forum is off
     urls.append((f"{base}/countries/usa.html", json.loads((ROOT / "data" / "countries" / "usa.json").read_text())["checked"]))
     urls.append((f"{base}/routes/usa-to-japan.html", json.loads((ROOT / "data" / "routes" / "usa-japan.json").read_text())["checked"]))
+    urls.append((f"{base}/routes/usa-to-south-korea.html", json.loads((ROOT / "data" / "routes" / "usa-korea.json").read_text())["checked"]))
     urls.append((f"{base}/hotels/", hci["checked"]))
     urls += [(f"{base}/hotels/pet-friendly-hotels-{c['slug']}.html", hci["checked"]) for c in hci["cities"]]
     urls.append((f"{base}/{INS_SLUG}", load_insurers()["checked"]))

@@ -1,0 +1,280 @@
+{
+ "route": "USA to South Korea",
+ "slug": "usa-to-south-korea",
+ "checked": "2026-10-24",
+ "sources": {
+  "qia_import": "https://www.qia.go.kr/english/html/Animal_livestock/02AnimalLivestock_007-8.jsp",
+  "qia_faq": "https://www.qia.go.kr/english/html/Animal_livestock/02AnimalLivestock_007-8_FAQ.jsp",
+  "qia_contact": "https://www.qia.go.kr/english/html/Contact_us/Contact_us_004.jsp",
+  "icn_quarantine": "https://airport.kr/ap_en/1443/subview.do",
+  "aphis_korea": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-korea",
+  "aphis_fees": "https://www.aphis.usda.gov/pet-travel/us-to-foreign-country/cost-to-endorse",
+  "cdc_low": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+  "cdc_high": "https://www.cdc.gov/importation/dogs/high-risk-countries.html",
+  "cdc_dogs": "https://www.cdc.gov/importation/dogs/index.html",
+  "aphis_cats_us": "https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/cats",
+  "korail_faq": "https://info.korail.com/info/selectBbsNttList.do?bbsNo=205&key=817&pageIndex=8",
+  "easylaw_transit": "https://www.easylaw.go.kr/CSP/CnpClsMain.laf?ccfNo=2&cciNo=2&cnpClsNo=2&csmSeq=1809"
+ },
+ "quick": [
+  [
+   "Dogs and cats 90 days or older from the US",
+   "ISO 11784/11785 microchip, current rabies vaccination given before arrival, and a rabies-neutralizing antibody (FAVN) result of 0.5 IU/ml or more from an internationally approved lab, with the blood drawn within 24 months. If everything checks out, the pet can be released on the day of arrival.",
+   "qia_import"
+  ],
+  [
+   "Paperwork",
+   "A health certificate issued by a USDA-accredited vet and endorsed by USDA APHIS within 30 days of export. The vet can submit it through VEHCS, but APHIS must ink-sign and emboss it, and the original must travel with your pet.",
+   "aphis_korea"
+  ],
+  [
+   "Puppies and kittens under 90 days",
+   "No rabies vaccination or antibody test needed, but they still need an ISO microchip and a certificate showing the chip number and birth date.",
+   "qia_import"
+  ],
+  [
+   "Advance notice",
+   "Only needed when you bring 10 or more dogs and/or cats: send APQA an advance notification and get approval for a quarantine facility first.",
+   "qia_import"
+  ],
+  [
+   "If something is missing",
+   "No microchip, a chip number that doesn't match, no antibody test or a result under 0.5 IU/ml: the pet is held in quarantine at your expense (APQA says 10 days on average, sometimes longer). With no health certificate, the pet is sent back at your cost.",
+   "qia_import"
+  ],
+  [
+   "Coming back to the US",
+   "South Korea is not on the CDC high-risk list for dog rabies, so a dog that was only in low-risk countries in the past 6 months needs the free CDC Dog Import Form receipt, a microchip, a healthy look and an age of 6 months or more.",
+   "cdc_high"
+  ]
+ ],
+ "rules": [
+  {
+   "who": "Dogs & cats",
+   "way": "US to Korea",
+   "case": "Microchip",
+   "rule": "Required at every age. The chip must meet ISO 11784/11785 (implanted or necklace type). With any other chip, bring your own scanner. The chip number must match the health certificate.",
+   "src": "qia_import"
+  },
+  {
+   "who": "Dogs & cats",
+   "way": "US to Korea",
+   "case": "Rabies vaccination",
+   "rule": "Must be current and given before arrival in Korea. Not required for pets under 90 days old.",
+   "src": "aphis_korea"
+  },
+  {
+   "who": "Dogs & cats",
+   "way": "US to Korea",
+   "case": "Rabies antibody (FAVN) test",
+   "rule": "Required for pets 90 days or older from countries that are not rabies-free; APHIS lists it as required for US dogs and cats. Done by an internationally approved lab or the exporting country's authority; result 0.5 IU/ml or more; valid for 24 months from the blood draw. Pets from areas on APQA's rabies-free list are exempt, so if you fly from Hawaii or Guam, check that list with APQA. The APQA and APHIS pages we checked don't list a waiting period after the draw; confirm with APQA.",
+   "src": "qia_import"
+  },
+  {
+   "who": "Dogs & cats",
+   "way": "US to Korea",
+   "case": "Test or chip done after arrival",
+   "rule": "If the antibody test or microchip can't be done before you fly (or the test is more than 24 months old), it can be done after arrival in Korea, but the pet will likely be held in quarantine at your expense until it is complete, and a valid USDA-endorsed certificate is still required.",
+   "src": "aphis_korea"
+  },
+  {
+   "who": "Dogs & cats",
+   "way": "US to Korea",
+   "case": "Health certificate and USDA endorsement (VEHCS)",
+   "rule": "Issued by a USDA-accredited vet (electronic signature accepted) and endorsed by USDA APHIS within 30 days of export. Submission can be via VEHCS; APHIS ink-signs and embosses the certificate, and the endorsed original must accompany the pet. You can have it returned by mail with a prepaid label.",
+   "src": "aphis_korea"
+  },
+  {
+   "who": "Dogs & cats",
+   "way": "US to Korea",
+   "case": "What the certificate must show",
+   "rule": "Date of birth, microchip number, the antibody test result, test date and lab, the issuing agency, issue date, and the issuer's name and signature, plus a statement that the animal is healthy.",
+   "src": "qia_faq"
+  },
+  {
+   "who": "Dogs & cats",
+   "way": "US to Korea",
+   "case": "Advance notification",
+   "rule": "Required only for 10 or more dogs and/or cats: submit an advance notification form to APQA and get prior approval to use an animal quarantine facility.",
+   "src": "qia_import"
+  },
+  {
+   "who": "Dogs & cats",
+   "way": "US to Korea",
+   "case": "On arrival at Incheon (ICN)",
+   "rule": "Tick the animal box on the customs declaration and present it, with the quarantine certificate from the departure country, to the quarantine officer.",
+   "src": "icn_quarantine"
+  },
+  {
+   "who": "Dogs & cats",
+   "way": "US to Korea",
+   "case": "Release",
+   "rule": "Once the documents are verified and a clinical exam at the port of entry confirms the pet is healthy, it may be released on the day of arrival.",
+   "src": "qia_import"
+  },
+  {
+   "who": "Dogs & cats",
+   "way": "US to Korea",
+   "case": "Requirements not met",
+   "rule": "Extended quarantine at your expense until the chip is implanted or the antibody titer reaches 0.5 IU/ml (APQA says 10 days on average, longer in some cases). Without a health certificate, the pet is returned to the exporting country at your cost.",
+   "src": "qia_import"
+  },
+  {
+   "who": "Dogs & cats",
+   "way": "US to Korea",
+   "case": "Military personnel",
+   "rule": "If you travel under official orders, APHIS points to the US Army Medical Department Korea site for extra information.",
+   "src": "aphis_korea"
+  },
+  {
+   "who": "Dogs",
+   "way": "Korea to US",
+   "case": "Return to the US (CDC)",
+   "rule": "South Korea is not on the CDC list of high-risk countries for dog rabies (North Korea is). A dog that was only in rabies-free or low-risk countries in the past 6 months needs the free CDC Dog Import Form receipt, must look healthy, be 6 months or older and have a microchip.",
+   "src": "cdc_low"
+  },
+  {
+   "who": "Cats",
+   "way": "Korea to US",
+   "case": "Return to the US",
+   "rule": "No federal rabies proof or USDA health requirements for pet cats; they must look healthy. State, airline, Hawaii and Guam rules still apply.",
+   "src": "aphis_cats_us"
+  }
+ ],
+ "fees": [
+  {
+   "item": "USDA APHIS endorsement, 1-2 lab tests on the certificate",
+   "amount": "$160 for one pet; +$10 for each extra pet on the same certificate. Check with APHIS which tier your certificate falls in.",
+   "src": "aphis_fees"
+  },
+  {
+   "item": "Rabies antibody (FAVN) test",
+   "amount": "Set by the lab and your vet; check with the lab.",
+   "src": "aphis_korea",
+   "check": true
+  },
+  {
+   "item": "Quarantine in Korea if requirements aren't met",
+   "amount": "Paid by the owner; APQA's English page gives no amount. Check with APQA.",
+   "src": "qia_import",
+   "check": true
+  },
+  {
+   "item": "CDC Dog Import Form (return to the US)",
+   "amount": "Free",
+   "src": "cdc_low"
+  }
+ ],
+ "offices": [
+  {
+   "airport": "Incheon (ICN) Terminal 1",
+   "office": "APQA, Incheon International Airport",
+   "phone": "+82-32-740-2660~1",
+   "src": "qia_import"
+  },
+  {
+   "airport": "Incheon (ICN) Terminal 2",
+   "office": "APQA, Incheon International Airport",
+   "phone": "+82-32-740-2028",
+   "src": "qia_import"
+  },
+  {
+   "airport": "Incheon (ICN) Cargo Terminal",
+   "office": "APQA, Incheon International Airport (pets shipped as cargo)",
+   "phone": "+82-32-740-2680",
+   "src": "qia_import"
+  },
+  {
+   "airport": "Gimpo (GMP)",
+   "office": "APQA, Gimpo International Airport",
+   "phone": "+82-2-2664-2601",
+   "src": "qia_import"
+  },
+  {
+   "airport": "Gimhae (PUS)",
+   "office": "APQA, Gimhae Airport",
+   "phone": "+82-51-971-1925",
+   "src": "qia_import"
+  },
+  {
+   "airport": "Jeju (CJU)",
+   "office": "APQA, Jeju Airport",
+   "phone": "+82-64-746-0761",
+   "src": "qia_import"
+  }
+ ],
+ "transit": [
+  [
+   "Korail trains (KTX and others)",
+   "Korail's FAQ: keep your pet in a dedicated carrier so it doesn't bother other passengers; pets may travel if they have the necessary vaccinations, such as rabies. If your pet needs its own seat, you buy an adult fare for it.",
+   "korail_faq"
+  ],
+  [
+   "Trains: Korean law",
+   "Korea's official legal information site adds that the pet and its carrier must not take up a seat or the aisle and must stay inside the carrier, out of sight. A passenger who breaks the rules and harms others can be removed from the train or fined.",
+   "easylaw_transit"
+  ],
+  [
+   "Taxis",
+   "Whether a taxi takes your pet is up to each taxi company's terms of carriage, so ask before you ride. Registered assistance dogs with their handler can't be refused without a lawful reason.",
+   "easylaw_transit"
+  ],
+  [
+   "Subway, buses",
+   "Subways: the pet must be in a carrier, out of sight and without unpleasant odor. City and express buses: rules vary by bus company, and most accept small pets in a carrier within weight and size limits; check with the company first.",
+   "easylaw_transit"
+  ]
+ ],
+ "airlines": [
+  "korean-air",
+  "delta",
+  "united",
+  "american"
+ ],
+ "links": [
+  [
+   "APQA: Bring a dog or a cat to Korea",
+   "qia_import"
+  ],
+  [
+   "APQA: Bring a dog or a cat to Korea (FAQ)",
+   "qia_faq"
+  ],
+  [
+   "APQA: Contact information (regional offices)",
+   "qia_contact"
+  ],
+  [
+   "Incheon International Airport: Animal quarantine information",
+   "icn_quarantine"
+  ],
+  [
+   "USDA APHIS: Pet travel from the United States to Korea",
+   "aphis_korea"
+  ],
+  [
+   "USDA APHIS: Cost to endorse your pet's health certificate",
+   "aphis_fees"
+  ],
+  [
+   "CDC: Dogs from rabies-free or low-risk countries",
+   "cdc_low"
+  ],
+  [
+   "CDC: High-risk countries for dog rabies",
+   "cdc_high"
+  ],
+  [
+   "CDC: Bringing a dog into the United States",
+   "cdc_dogs"
+  ],
+  [
+   "Korail: FAQ (pets on trains, in Korean)",
+   "korail_faq"
+  ],
+  [
+   "Easy Law (Korea Ministry of Government Legislation): pets on public transport, in Korean",
+   "easylaw_transit"
+  ]
+ ]
+}
