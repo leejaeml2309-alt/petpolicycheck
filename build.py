@@ -1428,6 +1428,13 @@ def build_country_usa(cfg, airlines):
     names = {a["slug"]: a["name"] for a in airlines}
     al = "".join(f"<a href='{root}airlines/{s}.html'>{e(names.get(s, s.title()))}</a>" for s in want if s in names)
     gl = "".join(f"<li><a href='{root}products/{g}.html'>{e(t)}</a></li>" for g, (t, _) in GUIDE_META.items())
+    tr = d.get("train")
+    train = ""
+    if tr:  # 'By train (Amtrak)' section, from data/countries/usa.json "train"
+        tli = "".join(f"<li><b>{e(k)}:</b> {e(v)}</li>" for k, v in tr["rules"])
+        train = (f'<h2 id="train">{e(tr["heading"])}</h2><div class="usa-quick usa-train"><ul>{tli}</ul></div>'
+                 f'<p class="small">{e(tr["service_animals_note"])} Source: {src(tr["source_url"], e(tr["source_name"]) + " &#8599;")}, '
+                 f'checked <time datetime="{e(tr["checked"])}">{nice_date(tr["checked"])}</time>.</p>')
     css = """<style>
 .usa-quick{background:var(--sage-l);border:0;border-left:4px solid var(--sage);border-radius:10px;padding:14px 18px}
 .usa-quick h2{margin:0 0 .4em}.usa-quick ul{margin:0;padding-left:1.2em}.usa-quick li{margin:.35em 0}
@@ -1450,6 +1457,7 @@ def build_country_usa(cfg, airlines):
 <h2 id="federal">Federal rules (CDC and USDA)</h2>
 <p class="small">{checked} on the CDC and USDA APHIS pages linked in each row.</p>
 <div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Who</th><th>Direction</th><th>Case</th><th>Rule</th><th>Source</th></tr></thead><tbody>{fed_rows}</tbody></table></div>
+{train}
 <h2 id="different">States with different rules</h2>
 <p>These {len(diff)} states or territories do not follow the common pattern of "CVI plus rabies vaccination at about 3 months for every pet". Some skip the CVI for pets traveling with their owner; others are stricter. <span class="small">{checked} on each state's official page.</span></p>
 <div class="tablewrap"><table class="cmp usa-t">{head}<tbody>{''.join(srow(s, True) for s in diff)}</tbody></table></div>

@@ -49,6 +49,35 @@
    "source_url": "https://www.aphis.usda.gov/pet-travel/pets-on-planes/preparing-pets-air-travel"
   }
  ],
+ "train": {
+  "heading": "By train (Amtrak)",
+  "source_url": "https://www.amtrak.com/pets",
+  "source_name": "Amtrak: Pets on trains",
+  "checked": "2026-10-24",
+  "rules": [
+   [
+    "Who",
+    "Dogs and cats only, at least 8 weeks old with vaccinations current; one pet per passenger and one pet per carrier."
+   ],
+   [
+    "Weight and carrier",
+    "20 lb max, pet plus carrier combined. Leak-proof, ventilated carrier, max 19 x 14 x 10.5 in, under your own seat; it counts as a carry-on."
+   ],
+   [
+    "Trips",
+    "Up to 7 hours, including connections. Coach and Acela Business only (not First Class, sleeping cars or food service cars; not the Quiet Car on Keystone and Pennsylvanian)."
+   ],
+   [
+    "Booking",
+    "Reserve a spot for your pet; the fee varies by route. Sign the Pet Release online and check in 45 minutes before departure at staffed stations."
+   ],
+   [
+    "No pets",
+    "Auto Train, Gold Runner and Amtrak Connection services, or to Canada on the Adirondack, Maple Leaf and Amtrak Cascades."
+   ]
+  ],
+  "service_animals_note": "Service animals are accepted on all trains."
+ },
  "territories": [
   {
    "name": "Guam",
