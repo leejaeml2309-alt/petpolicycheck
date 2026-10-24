@@ -203,28 +203,146 @@
    "src": "qia_import"
   }
  ],
- "transit": [
-  [
-   "Korail trains (KTX and others)",
-   "Korail's FAQ: keep your pet in a dedicated carrier so it doesn't bother other passengers; pets may travel if they have the necessary vaccinations, such as rabies. If your pet needs its own seat, you buy an adult fare for it.",
-   "korail_faq"
+ "transport": {
+  "checked": "2026-10-24",
+  "usd_rate": "1 USD ≈ 1,325 KRW (Oct 24, 2026)",
+  "intro": [
+   "Most of Korea's public transport takes small pets in a closed carrier, and nothing else. On trains, subways and buses the usual limit is 10 kg (22 lb) for pet and carrier together, and the pet must stay inside, out of sight. A large dog is harder: a pet taxi, a ferry pet room or driving are usually the options.",
+   "Rules come from each operator. Most official pages are in Korean; we summarize them in English."
   ],
-  [
-   "Trains: Korean law",
-   "Korea's official legal information site adds that the pet and its carrier must not take up a seat or the aisle and must stay inside the carrier, out of sight. A passenger who breaks the rules and harms others can be removed from the train or fined.",
-   "easylaw_transit"
-  ],
-  [
-   "Taxis",
-   "Whether a taxi takes your pet is up to each taxi company's terms of carriage, so ask before you ride. Registered assistance dogs with their handler can't be refused without a lawful reason.",
-   "easylaw_transit"
-  ],
-  [
-   "Subway, buses",
-   "Subways: the pet must be in a carrier, out of sight and without unpleasant odor. City and express buses: rules vary by bus company, and most accept small pets in a carrier within weight and size limits; check with the company first.",
-   "easylaw_transit"
+  "cards": [
+   {
+    "mode": "KTX & Korail trains",
+    "sub": "KTX, ITX, Mugunghwa and other Korail services",
+    "species": "Dogs, cats and birds. Wild animals and birds of prey not allowed.",
+    "carrier": "Required: a separate carrying container that keeps the pet out of sight. Pet under 10 kg (22 lb); container no more than 100 cm combined (example: 45 × 30 × 25 cm). Pet and carrier must not take a seat or block the aisle.",
+    "fee": "No pet fee stated for a carrier on your lap or at your feet. If you want a seat for the pet, you pay an adult fare.",
+    "booking": "No pet booking needed; just your own ticket (plus an adult ticket if the pet gets a seat).",
+    "rules": "All pets must be vaccinated (Korail names rabies). Under Korean rail law, a pet without these safety measures that harms other passengers can get you removed from the train or fined up to KRW 500,000 (approx. US$377).",
+    "service": "Not stated on Korail's pet page. Korean law bars refusing a disabled person's assistance dog that wears the official assistance-dog mark (see the Taxis card).",
+    "tourist": "Korail has an English booking site and an English call center: +82 1599-7777 (8 am–8 pm Korea time). Whether your US card works on the site: not stated; confirm with Korail.",
+    "url": "https://www.korail.com/global/eng/passengerGuide/info/otherInfo",
+    "link_text": "Korail: pets on trains (English)"
+   },
+   {
+    "mode": "SRT high-speed trains",
+    "sub": "SR's trains from Suseo (southeast Seoul) to Busan, Mokpo and more",
+    "species": "Small pets such as dogs and cats. Fighting-dog breeds (SR names Tosa, Doberman, Shepherd and Pit bull), birds of prey, rodents, reptiles, poultry and livestock not allowed.",
+    "carrier": "Required. Pet under 60 cm long; pet plus carrier no more than 10 kg (22 lb). It travels as carry-on and must not take a seat or block the aisle.",
+    "fee": "No pet fee stated.",
+    "booking": "You cannot book a seat for a pet on SRT. No separate pet ticket is mentioned.",
+    "rules": "Pets need their vaccinations, including rabies.",
+    "service": "Assistance dogs for people with visual, hearing or physical disabilities may ride without a carrier.",
+    "tourist": "SRT sells tickets on its own website and app. English booking and foreign cards: not stated in SR's pet notice; confirm with SR.",
+    "url": "https://www.srail.or.kr/cms/article/view.do?pageId=KR0502000000&postNo=792",
+    "link_text": "SR notice on pets (Korean)"
+   },
+   {
+    "mode": "Seoul subway",
+    "sub": "Seoul Metro, Lines 1–8 (other cities and lines have their own terms)",
+    "species": "Small pets. Seoul Metro's terms also allow a small number of birds or insects.",
+    "carrier": "Required: a dedicated carrier that keeps the pet out of sight and stops any unpleasant smell. No size or weight limit given.",
+    "fee": "No fare for the pet; you pay your own fare (from KRW 1,550 with a transit card, approx. US$1.17).",
+    "booking": "None.",
+    "rules": "Staff can refuse boarding or remove you if the rules aren't met. Seoul Metro's terms also list a KRW 10,000 (approx. US$8) surcharge per item for carrying a non-hazardous prohibited item.",
+    "service": "Allowed: assistance dogs that wear the assistance-dog mark.",
+    "tourist": "No pet paperwork. Pay with a T-money card or a single-journey ticket from the station machines.",
+    "url": "http://www.seoulmetro.co.kr/kr/page.do?menuIdx=528",
+    "link_text": "Seoul Metro terms of carriage, Art. 35 (Korean)"
+   },
+   {
+    "mode": "City & intercity buses",
+    "sub": "City buses, express (Kobus-type) and intercity buses",
+    "species": "Small pets in a carrier. Busan Central Bus Terminal also lists fighting-dog breeds, birds of prey, rodents and reptiles as not allowed.",
+    "carrier": "Required. Each bus company sets weight and size limits. Example: for express buses at Busan Central Bus Terminal, the carrier must be under 50 × 40 × 20 cm and pet plus carrier no more than 10 kg (22 lb).",
+    "fee": "No pet fee stated. At Busan Central Bus Terminal you can buy the seat next to you for the pet (one adult ticket).",
+    "booking": "Ask the bus company before you travel; rules vary by company.",
+    "rules": "Keep the pet in the carrier on the platform and on the bus. Busan's terminal says you can be refused if other passengers complain.",
+    "service": "Assistance dogs are accepted (Busan Central Bus Terminal; Korean law also protects marked assistance dogs).",
+    "tourist": "Rules are posted in Korean only. Show the carrier at the ticket counter or to the driver before you board.",
+    "url": "http://www.bxt.co.kr/pet.html",
+    "link_text": "Busan Central Bus Terminal: pets (Korean)"
+   },
+   {
+    "mode": "Regular taxis",
+    "sub": "Street-hail and app taxis",
+    "species": "Up to each taxi operator.",
+    "carrier": "Expected: Korea's tourism board (VisitKorea) says your pet should be in a carrier and that rules vary by company. No size limit given.",
+    "fee": "No pet fee stated; drivers can refuse.",
+    "booking": "None; ask the driver before you get in.",
+    "rules": "Korean law leaves pets in taxis to each operator's terms of carriage.",
+    "service": "A disabled person with an assistance dog that wears the official mark can't be refused without a lawful reason; the fine is up to KRW 3,000,000 (approx. US$2,264).",
+    "tourist": "A carrier makes a yes much more likely. If you need a guaranteed ride, book a pet taxi (next card).",
+    "url": "https://www.easylaw.go.kr/CSP/CnpClsMain.laf?ccfNo=2&cciNo=2&cnpClsNo=2&csmSeq=1809",
+    "link_text": "Easy Law: pets on public transport (Korean)"
+   },
+   {
+    "mode": "Pet taxi: Kakao T Pet",
+    "sub": "Kakao Mobility's pet-only ride service",
+    "species": "Pets (species not stated). Up to 3 people and 3 pets per ride.",
+    "carrier": "Not stated.",
+    "fee": "One-way fare set by start and end point, shown in the app before you book; or hourly hire (minimum 1 hour). Cancellation: 10% from 24 to 9 hours before (max KRW 8,000), 50% from 9 to 1 hour before (max KRW 8,000), 100% within 1 hour (max KRW 15,000, approx. US$11), no-show 100% (max KRW 30,000, approx. US$23).",
+    "booking": "In the Kakao T app under 펫 (Pet), from 2 weeks to 30 minutes ahead; no phone booking. If no driver accepts, the booking fails.",
+    "rules": "Rides must start in Seoul, Incheon, Gyeonggi, Daejeon, Sejong, Chungcheong (North and South), Daegu, Gyeongbuk, Busan, Ulsan or Gyeongnam. Jeju, Gangwon and Jeolla are not listed. Kakao says drivers are licensed for animal transport, pet injury insurance is included, and cleaning fees are covered.",
+    "service": "Not stated.",
+    "tourist": "The pet service is in the Korean Kakao T app. Kakao says Visa, Mastercard, JCB and AMEX cards issued abroad work for pet rides. Signing up with a US phone number: not stated; confirm. Kakao's English app for visitors (k.ride) doesn't mention pets.",
+    "url": "https://service.kakaomobility.com/cs/faqs/content/?category=106",
+    "link_text": "Kakao T Pet FAQ (Korean)"
+   },
+   {
+    "mode": "Domestic flights (e.g. to Jeju)",
+    "sub": "Cabin rules on Korean airlines' domestic flights",
+    "species": "Dogs, cats and birds on Asiana, Jeju Air and Trinity Airways (formerly T'way); Jeju Air and Trinity require pets at least 8 weeks old, Asiana at least 16 weeks. Asiana and Trinity ban dangerous or fighting breeds.",
+    "carrier": "Asiana: pet plus carrier no more than 7 kg (15 lb) in the cabin, carrier up to 45 × 32 × 21 cm. Jeju Air: no more than 9 kg (20 lb), carrier up to 100 cm combined (width 37, height 23 cm). Trinity: no more than 9 kg, hard carrier width 37, height 23 cm, combined 115 cm. Korean Air: 7 kg in the cabin (2019 Korean Air newsroom figure; confirm).",
+    "fee": "Asiana: KRW 30,000 (approx. US$23) up to 32 kg, KRW 60,000 (approx. US$45) for 32–45 kg in the hold. Jeju Air: KRW 25,000 (approx. US$19) per flight, cabin only. Trinity: KRW 30,000 (approx. US$23), paid at the airport, cabin only. Korean Air and Jin Air: confirm with airline.",
+    "booking": "Required. Asiana: at least 24 hours (business days) ahead through its reservation center (US 1-800-227-4262). Jeju Air: on its website or app, or call 1599-1500. Trinity: online up to 1 day before, by phone up to 2½ hours before.",
+    "rules": "1 pet per adult; Jeju Air and Trinity cap it at 6 pets per flight. Jeju Air and Trinity: check in at the counter, no online check-in. Asiana: children can't take a pet in the cabin; no sedated or pregnant pets; no snub-nosed pets in the hold.",
+    "service": "Asiana: service dogs with an ID tag or harness ride at your feet. Other airlines: confirm.",
+    "tourist": "Book the pet when you book your seat, then check in at the counter with the carrier. Asiana sells carriers at Gimpo and Jeju airports (KRW 45,000, approx. US$34).",
+    "url": "https://flyasiana.com/C/US/EN/contents/traveling-with-pets",
+    "link_text": "Asiana: traveling with pets"
+   },
+   {
+    "mode": "Ferry to Jeju: Seaworld Express",
+    "sub": "Mokpo ↔ Jeju (Queen Jenuvia II, Queen Mary) and Jindo ↔ Jeju (Santa Monica)",
+    "species": "Pets (species not stated).",
+    "carrier": "Required: a dedicated soft or hard carrier, or boarding may be refused. Medium and large dogs also need a muzzle and a leash or harness, and you still bring a carrier.",
+    "fee": "Pets only in pet rooms or seats. The operator's FAQ lists Pet Suite (private, up to 4 people) at KRW 268,000 weekdays / 294,200 weekends (approx. US$202 / US$222), and Pet Standard (pets under 10 kg, sold as a 2-bed set) at KRW 124,000 / 136,000 (approx. US$94 / US$103). Fares vary; confirm at booking.",
+    "booking": "Book a pet room or seat with your ticket. Pet-conomy: pets under 4 kg, 1 per person. On the Santa Monica, pet premium and business seats have no weight limit, but the pet stays in its carrier.",
+    "rules": "Outside pet areas the pet must stay in its carrier; restaurants may be off-limits. A free \"pet passport\" with stamps is optional (apply 7 days before) and is not a ticket.",
+    "service": "Not stated; confirm with Seaworld (1577-3567).",
+    "tourist": "Korean-language booking. Hotline 1577-3567.",
+    "url": "https://www.seaferry.co.kr/bbs/content.php?co_id=p201&device=pc&tab=pet",
+    "link_text": "Seaworld Express: pets (Korean)"
+   },
+   {
+    "mode": "Ferry to Jeju: Hanil Express",
+    "sub": "Wando ↔ Jeju (Silver Cloud and other ships)",
+    "species": "Dogs, cats, rabbits, birds, reptiles, rodents and more. Animals other than dogs and cats must be in an escape-proof carrier. Dangerous breeds, aggressive or venomous animals may be refused.",
+    "carrier": "Required: a carrier your pet fits in completely, for boarding, leaving the ship and moving around. Medium and large dogs may walk with a muzzle and leash, but you must still bring a carrier.",
+    "fee": "Pet room price shown at booking; confirm. One pet-room ticket = 1 passenger + 1 pet.",
+    "booking": "Pets travel only in the Pet Room (shared, 18 or 35 people) or Special Pet Room (private, 4 or 6 people). Book online, by phone (1688-2100) or at the terminal.",
+    "rules": "1 pet per passenger; no pets in regular cabins, the lobby or restaurants. Using a regular cabin can mean a room change and extra charges. A pet that stays in your car on the car deck needs no pet room, but you can't visit it while sailing; tell staff and arrive 1 hour before departure.",
+    "service": "Not stated on the pet rules; Hanil has a separate disability service page. Confirm with Hanil.",
+    "tourist": "Korean-language site; booking asks for name, sex, date of birth and phone. Hanil sells carriers, muzzles and leashes at its offices.",
+    "url": "https://www.hanilexpress.co.kr/custCenter/faq.do",
+    "link_text": "Hanil Express: FAQ and pet rules (Korean)"
+   },
+   {
+    "mode": "Driving & rental cars",
+    "sub": "Your own or a rental car",
+    "species": "Any.",
+    "carrier": "Recommended. Korean law bans driving with a pet in your arms or on your lap.",
+    "fee": "Fine for driving with a pet in your arms: up to KRW 200,000 (approx. US$151); on-the-spot penalty KRW 40,000 (approx. US$30) for cars, KRW 50,000 (approx. US$38) for vans. Rental pet fees: confirm with rental company.",
+    "booking": "Ask the rental company whether pets are allowed; rules vary by company.",
+    "rules": "Pets of 20 kg (44 lb) or more may ride with their owner in a van-type cargo vehicle (a pet-moving service), an option when public transport won't take them.",
+    "service": "Not applicable.",
+    "tourist": "Car ferries to Jeju carry cars; Hanil allows a pet to stay in your car on the car deck (see above).",
+    "url": "https://www.easylaw.go.kr/CSP/CnpClsMain.laf?ccfNo=2&cciNo=2&cnpClsNo=2&csmSeq=1809",
+    "link_text": "Easy Law: pets on public transport (Korean)"
+   }
   ]
- ],
+ },
  "hotels": {
   "checked": "2026-10-24",
   "usd_rate": "1 USD ≈ 1,325 KRW (Oct 24, 2026)",

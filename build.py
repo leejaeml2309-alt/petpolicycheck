@@ -1599,7 +1599,19 @@ def build_route_usa_korea(cfg, airlines):
                    f"<td class='usa-src' data-l='Source'>{src(S[f['src']], agency(f['src']))}</td></tr>" for f in d["fees"])
     offs = "".join(f"<tr><td data-l='Airport'><b>{e(o['airport'])}</b></td><td data-l='APQA office'>{e(o['office'])}</td><td data-l='Phone'>{e(o['phone'])}</td>"
                    f"<td class='usa-src' data-l='Source'>{src(S[o['src']], agency(o['src']))}</td></tr>" for o in d["offices"])
-    trans = "".join(f"<tr><td data-l='Mode'><b>{e(m)}</b></td><td data-l='Rule'>{e(t)}</td><td class='usa-src' data-l='Source'>{src(S[k], agency(k))}</td></tr>" for m, t, k in d["transit"])
+    kt = d["transport"]
+    tchk = f'<time datetime="{e(kt["checked"])}">{nice_date(kt["checked"])}</time>'
+    def tr_card(c):
+        trs = "".join(f"<tr><th>{k}</th><td>{e(c[f])}</td></tr>" for k, f in
+                      (("Species", "species"), ("Carrier", "carrier"), ("Fee", "fee"), ("Booking", "booking"),
+                       ("Rules", "rules"), ("Service dogs", "service"), ("For tourists", "tourist")))
+        return (f'<article class="ht-card"><h4>{e(c["mode"])}</h4><p class="ht-sub">{e(c["sub"])}</p><table>{trs}</table>'
+                f'<p class="ht-foot"><a href="{e(c["url"])}" rel="noopener" target="_blank">{e(c["link_text"])} &#8599;</a>'
+                f' <span class="small">&middot; checked {tchk}</span></p></article>')
+    trans = ("".join(f"<p>{e(t)}</p>" for t in kt["intro"])
+             + f'<p class="warn usa-warn">Rules checked {tchk} on each operator&rsquo;s official page; confirm with the operator before you travel. Fees in Korean won with approximate US dollars '
+             f'({e(kt["usd_rate"])}). &ldquo;Not stated&rdquo; or &ldquo;confirm&rdquo; means the official page doesn&rsquo;t say or we couldn&rsquo;t open it.</p>'
+             + f'<div class="kr-ht">{"".join(tr_card(c) for c in kt["cards"])}</div>')
     links = "".join(f"<li>{src(S[k], e(n))}</li>" for n, k in d["links"])
     by = {a["slug"]: a for a in airlines}
     arows = []
@@ -1646,6 +1658,7 @@ def build_route_usa_korea(cfg, airlines):
 .kr-ht h4{margin:0 0 .15em;font-size:1.08em}.kr-ht .ht-sub{margin:0 0 .6em;font-size:.9em;opacity:.8}
 .kr-ht table{width:100%;border-collapse:collapse;font-size:.92em;margin:0 0 .6em}
 .kr-ht th{text-align:left;vertical-align:top;padding:4px 8px 4px 0;width:6.5em;font-weight:600}
+.kr-ht .ht-foot .small{font-weight:400;opacity:.8}
 .kr-ht td{vertical-align:top;padding:4px 0}.kr-ht tr+tr th,.kr-ht tr+tr td{border-top:1px solid var(--line,#ece8de)}
 .kr-ht .ht-foot{margin:auto 0 0;font-size:.92em;font-weight:600}
 @media (max-width:720px){.usa-t .usa-src{white-space:normal}}
@@ -1669,9 +1682,8 @@ def build_route_usa_korea(cfg, airlines):
 <div class="tablewrap"><table class="cmp usa-t rj-air"><thead><tr><th>Airline</th><th>What our airline page says</th><th>Korea flights</th><th>Source</th></tr></thead><tbody>{''.join(arows)}</tbody></table></div>
 {fbox}
 {insurance_teaser(root, "korea")}
-<h2 id="getting-around">Getting around Korea with a pet</h2>
-<p class="small">{checked}. Korean-language official sources, summarized in English.</p>
-<div class="tablewrap"><table class="cmp usa-t"><thead><tr><th>Mode</th><th>Rule</th><th>Source</th></tr></thead><tbody>{trans}</tbody></table></div>
+<h2 id="getting-around">Getting around South Korea with your pet</h2>
+{trans}
 {kr_hotels}
 <h2 id="return">Coming back to the USA</h2>
 <p>South Korea is not on the CDC list of high-risk countries for dog rabies (North Korea is), so a dog that was only in South Korea (or other low-risk countries) in the 6 months before returning needs the free <b>CDC Dog Import Form</b> receipt, a microchip, a healthy look and an age of at least 6 months. Cats have no federal rabies proof requirement. State and airline rules still apply. {src(S['cdc_low'], 'CDC')} &middot; {src(S['cdc_high'], 'CDC high-risk list')}</p>
