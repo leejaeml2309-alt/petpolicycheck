@@ -1508,10 +1508,9 @@ def hotel_aff_box(cfg, c):
             f'<p>Search hotels in {e(c["short"])} with the pet-friendly filter on, then check the hotel&rsquo;s own pet policy (fee, weight, number of pets) before you pay.</p>')
     if url:
         return head + f'<p class="buy"><a class="btn" href="{e(url)}" rel="sponsored nofollow noopener" target="_blank">{e(ex.get("label") or "See pet-friendly hotels on Expedia")}</a></p>' + disc + "</aside>"
-    print(f"  WARNING: hotels/{c['slug']}: no tracked Expedia link in config.json hotel_affiliates.expedia.links -> placeholder rendered")
-    return head + (f'<div class="ht-ph" data-placeholder="expedia-{e(c["slug"])}"><b>[PLACEHOLDER: Expedia affiliate link]</b> '
-                   f'Generate a tracked link in the Expedia Group Travel Creator dashboard for this target page and paste it into '
-                   f'<code>config.json</code> &rarr; <code>hotel_affiliates.expedia.links.{e(c["slug"])}</code>:<br><code>{e(c["expedia_target"])}</code></div>') + disc + "</aside>"
+    # No tracked link yet: plain Expedia search with the pet-friendly filter (untracked; swapped for a tracked link later).
+    print(f"  NOTE: hotels/{c['slug']}: no tracked Expedia link yet -> plain expedia_target link")
+    return head + f'<p class="buy"><a class="btn" href="{e(c["expedia_target"])}" rel="nofollow noopener" target="_blank">{e(ex.get("label") or "See pet-friendly hotels on Expedia")}</a></p>' + "</aside>"
 
 
 def hotel_city_links(ci, root, skip=None):
