@@ -1,2 +1,18 @@
 {"_note": "Add a clinic ONLY after it has accepted the partnership. Fields: country, city, name, url, phone, email, services (list).",
- "clinics": []}
+ "clinics": [],
+ "_note_tools": "Official government tools shown on /book/ while no partner clinic is listed. Only real official pages, each opened on the 'checked' date. Never add a clinic or booking link here.",
+ "tools_checked": "2026-10-24",
+ "official_tools": [
+  {"label": "USDA APHIS: Find an accredited veterinarian (search by state and county)",
+   "url": "https://vsapps.aphis.usda.gov/vsps/public/VetSearch.do",
+   "text": "The official NVAP search tool. Choose your state and county and Category I (dogs and cats). Not every accredited vet chooses to be listed, so you can also ask your own vet whether someone in the practice is USDA-accredited."},
+  {"label": "USDA APHIS: How do I find a USDA-accredited veterinarian?",
+   "url": "https://www.aphis.usda.gov/pet-travel/how-do-i-find-usda-accredited-veterinarian-complete-my-animals-health-certificate",
+   "text": "Most countries require the health certificate to be issued by a USDA-accredited vet and then endorsed by APHIS. Accreditation is state-specific: the vet must be accredited in the state where you see them."},
+  {"label": "USDA APHIS: Take a pet from the US to another country",
+   "url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export",
+   "text": "Step-by-step export process and each destination country's requirements. Contact an accredited vet as soon as you decide to travel."},
+  {"label": "USDA APHIS: Pet travel (all topics)",
+   "url": "https://www.aphis.usda.gov/pet-travel",
+   "text": "Domestic and international pet travel, including which animals count as pets and the CDC rules for dogs."}
+ ]}
