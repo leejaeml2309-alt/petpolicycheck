@@ -27,7 +27,7 @@ Object.keys(hubs).forEach(function(k){var p=proj(hubs[k]);rg.append('circle').at
 Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return c.id===id});if(!f)return;var c=GUIDES[id].pin?proj(GUIDES[id].pin):path.centroid(f);
  var pin=g.append('g').attr('class','pin').attr('transform','translate('+c+')').style('cursor','pointer').on('click',function(){openCountry(id)});
  pin.append('circle').attr('class','ring').attr('r',6);pin.append('circle').attr('class','p').attr('r',5);
- pin.append('text').attr('x',9).attr('y',4).text((GUIDES[id].short||GUIDES[id].name)+' guide')});
+ pin.append('text').attr('x',GUIDES[id].label_left?-9:9).attr('text-anchor',GUIDES[id].label_left?'end':null).attr('y',4).text((GUIDES[id].short||GUIDES[id].name)+' guide')});
 // airplane button (Pacific)
 var pp=proj([-40,14]);
 var pb=g.append('g').attr('class','planebtn').attr('transform','translate('+pp+')').attr('tabindex',0).attr('role','button').attr('aria-label','Open airline pet policies')
