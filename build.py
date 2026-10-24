@@ -1333,6 +1333,7 @@ BOOK_HOME_CSS = """<style>
 .book-home .bh-lux{margin-top:14px}
 .book-home .book-btns{flex-direction:column}
 .book-home .book-btns .btn{width:100%}
+@media (max-width:720px){.book-btns,.buy{flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:center}.book-btns .btn,.buy .btn{width:100%;max-width:340px;margin-left:0;margin-right:0;justify-content:center;text-align:center;box-sizing:border-box}}
 .book-home .book-disc{font-size:.75rem;color:var(--mut);margin:auto 0 0;padding-top:10px;line-height:1.4}
 .book-home a{overflow-wrap:anywhere}
 @media (max-width:900px){.book-home .bh-grid{grid-template-columns:1fr;gap:14px}}
