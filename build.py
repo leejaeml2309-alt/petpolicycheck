@@ -241,19 +241,56 @@ def home_footer_ad(cfg):
     )
 
 
-def site_footer(cfg, root, fi, path=""):
-    """Footer identical to the design-C home footer (4 columns), plus the sponsor slot."""
+SITE_FOOTER_SLOT_PLACEHOLDER = "SITE_FOOTER_SLOT_TBD"
+RESERVED_AD_SLOTS = {"4584637408": "header", "9881497431": "home bottom"}
+
+
+def site_footer_ad(cfg, root, fi):
+    """Large AdSense band in the shared site footer (unit "PPC site footer"). config.json ads.site_footer.adsense_slot.
+    Placeholder SITE_FOOTER_SLOT_TBD / empty -> dashed 'Advertisement' frame (same size, no <ins>).
+    Same collapse fix as home_footer_ad: invisible sibling spacer keeps the min height because
+    AdSense injects min-height:0 !important on ancestors of <ins>. A discreet 'Advertise here' sits under the panel."""
+    slot = str(((cfg.get("ads") or {}).get("site_footer") or {}).get("adsense_slot") or "").strip()
+    if slot in RESERVED_AD_SLOTS:
+        print(f"  WARNING: ads.site_footer.adsense_slot reuses the {RESERVED_AD_SLOTS[slot]} slot {slot}; rendering placeholder")
+        slot = ""
+    live = slot and slot != SITE_FOOTER_SLOT_PLACEHOLDER
+    adv = f'<p class="sfad-adv"><a href="{root}advertise/"{ti("site.adhere", fi)}>Advertise here</a></p>'
+    if live:
+        inner = ('<div class="sfad-box">'
+                 f'<ins class="adsbygoogle" style="display:block" data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="{e(slot)}" '
+                 'data-ad-format="auto" data-full-width-responsive="true"></ins>'
+                 '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>')
+        cls = "sfad"
+    else:
+        inner = ('<span class="adl" aria-hidden="true">Advertisement</span>'
+                 f'<!-- TODO site footer ad: put the "PPC site footer" AdSense slot id in config.json ads.site_footer.adsense_slot (now {SITE_FOOTER_SLOT_PLACEHOLDER}) -->')
+        cls = "sfad sfad-empty"
+    return (f'<div class="wrap sfad-wrap"><aside class="{cls}" role="complementary" aria-label="Advertisement">'
+            f'<div class="sfad-min" aria-hidden="true"></div>{inner}</aside>{adv}</div>')
+
+
+def site_footer(cfg, root, fi, path="", ads=True):
+    """Compact shared footer (brand + Explore / Shop / About), then on ads=True pages a large AdSense band
+    (site_footer_ad). ads=False pages (checklist, forum app pages) get no ad, only the sponsor link / slot.
+    The homepage has its own footer in static/home-c.html and keeps home_footer_ad (9881497431)."""
     h = home_url(root)
     li = lambda href, key, label: f'<li><a href="{href}"{ti(key, fi)}>{label}</a></li>'
     forum = (li(f"{root}forum/", "nav.forum", "Forum") + li(f"{root}forum/pet-travel-stories/", "site.foot.stories", "Stories")) if FORUM_ON else ""
-    return f"""<footer class="foot">
+    s = (cfg.get("ads") or {}).get("sidebar_or_footer") or {}
+    sponsor = s.get("image_url") and s.get("link_url")
+    if ads:
+        band = (f'<div class="wrap">{ad_slot(cfg, "sidebar_or_footer", root, fi)}</div>' if sponsor else "") + site_footer_ad(cfg, root, fi)
+    else:
+        band = f'<div class="wrap">{ad_slot(cfg, "sidebar_or_footer", root, fi)}</div>'
+    return f"""<footer class="foot foot-compact">
 <div class="wrap cols">
-<div><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
+<div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
 <div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.nav.book", "Book your trip")}{li(h + "#airlines", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(h + "#compare", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
 <div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
-<div class="wrap">{ad_slot(cfg, "sidebar_or_footer", root, fi)}</div>
+{band}
 <div class="wrap"><p class="disc"><span{ti("site.foot.aff", fi)}>Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</span> &copy; {dt.date.today().year} {e(cfg['site_name'])}</p></div></footer>"""
 
 
@@ -359,7 +396,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <main class="wrap" id="main">
 {body.replace('{root}', root)}
 </main>
-{site_footer(cfg, root, fi, path)}
+{site_footer(cfg, root, fi, path, ads)}
 </body></html>
 """
 

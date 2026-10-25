@@ -396,6 +396,10 @@
       "link_url": "",
       "alt": "",
       "advertiser": ""
+    },
+    "site_footer": {
+      "adsense_slot": "SITE_FOOTER_SLOT_TBD",
+      "_note": "AdSense unit 'PPC site footer' (client ca-pub-7693501377730690). Replace SITE_FOOTER_SLOT_TBD with the real data-ad-slot id from AdSense. Do NOT reuse header 4584637408 or home bottom 9881497431. Placeholder/empty = dashed 'Advertisement' frame, no <ins>. Rendered in the shared site footer on ads=True pages only (home has its own footer + home_footer_ad)."
     }
   },
   "forum": {
