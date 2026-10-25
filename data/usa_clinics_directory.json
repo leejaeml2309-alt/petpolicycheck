@@ -1,0 +1,526 @@
+{
+ "clinics": [
+  {
+   "name": "Hillside Pet Clinic",
+   "city": "Anchorage",
+   "state": "AK",
+   "url": "https://www.hillsidepetclinic.com/services/international-health-certificates"
+  },
+  {
+   "name": "Anchorage Pet Travel Certificates",
+   "city": "Anchorage",
+   "state": "AK",
+   "url": "https://www.anchoragepettravelcertificates.com/our-services"
+  },
+  {
+   "name": "Auburn Bailey Small Animal Teaching Hospital",
+   "city": "Auburn",
+   "state": "AL",
+   "url": "https://www.vetmed.auburn.edu/clinical-services/bailey-small-animal-teaching-hospital/"
+  },
+  {
+   "name": "New Kelley Animal Hospital",
+   "city": "Birmingham",
+   "state": "AL",
+   "url": "https://newkelleyah.com/pet-health-certificates-birmingham-tarrant/"
+  },
+  {
+   "name": "Hillcrest Animal Hospital",
+   "city": "Little Rock",
+   "state": "AR",
+   "url": "https://www.hillcrestanimalhospital.org/services/international-health-certificates"
+  },
+  {
+   "name": "Alta Vista Veterinary Hospital",
+   "city": "Phoenix",
+   "state": "AZ",
+   "url": "https://www.altavistavet.com/internationalhealthcertificate"
+  },
+  {
+   "name": "Palm Glen Animal Hospital",
+   "city": "Phoenix (metro)",
+   "state": "AZ",
+   "url": "https://www.palmglenanimalhospital.com/services/international-health-certificates"
+  },
+  {
+   "name": "UC Davis Veterinary Medical Teaching Hospital \u2013 Small Animal Hospital",
+   "city": "Davis",
+   "state": "CA",
+   "url": "https://www.vetmed.ucdavis.edu/hospital"
+  },
+  {
+   "name": "VCA West Los Angeles Animal Hospital",
+   "city": "Los Angeles",
+   "state": "CA",
+   "url": "https://vcahospitals.com/west-los-angeles"
+  },
+  {
+   "name": "Beverly Robertson Veterinary Clinic",
+   "city": "Los Angeles",
+   "state": "CA",
+   "url": "https://beverlyrobertsonvet.com/travel-and-health-certificate-for-dogs-and-cats/"
+  },
+  {
+   "name": "Amici Pet Hospital",
+   "city": "San Diego",
+   "state": "CA",
+   "url": "https://amicipethospital.com/services/pet-health-certificates"
+  },
+  {
+   "name": "San Francisco SPCA \u2013 Veterinary Hospital",
+   "city": "San Francisco",
+   "state": "CA",
+   "url": "https://www.sfspca.org/veterinary-care/hospital/"
+  },
+  {
+   "name": "CSU Veterinary Teaching Hospital (Colorado State University)",
+   "city": "Fort Collins",
+   "state": "CO",
+   "url": "https://csuveterinaryhealth.org/"
+  },
+  {
+   "name": "East Brook Animal Hospital",
+   "city": "Mansfield Center",
+   "state": "CT",
+   "url": "https://www.eastbrookanimalhospital.com/services/international-health-certificates"
+  },
+  {
+   "name": "Friendship Hospital for Animals",
+   "city": "Washington",
+   "state": "DC",
+   "url": "https://friendshiphospital.com/"
+  },
+  {
+   "name": "Middletown Veterinary Hospital",
+   "city": "Middletown",
+   "state": "DE",
+   "url": "https://bestvetyet.com/pet-travel/"
+  },
+  {
+   "name": "Doral Centre Animal Hospital",
+   "city": "Doral",
+   "state": "FL",
+   "url": "https://doralvet.com/"
+  },
+  {
+   "name": "UF Small Animal Hospital",
+   "city": "Gainesville",
+   "state": "FL",
+   "url": "https://smallanimal.vethospital.ufl.edu/clinical-services/emergency-critical-care/"
+  },
+  {
+   "name": "UGA Veterinary Teaching Hospital",
+   "city": "Athens",
+   "state": "GA",
+   "url": "https://vet.uga.edu/hospital-and-primary-care/hospital/emergencies/"
+  },
+  {
+   "name": "Beyond Pets Animal Hospital",
+   "city": "Atlanta",
+   "state": "GA",
+   "url": "https://beyondpets.com/pet-services/usda-travel-certificates/"
+  },
+  {
+   "name": "Ali'i Animal Hospital",
+   "city": "Honolulu",
+   "state": "HI",
+   "url": "https://aliianimal.com/services/pet-health-certificates"
+  },
+  {
+   "name": "Animal Clinic of Honolulu",
+   "city": "Honolulu",
+   "state": "HI",
+   "url": "https://achonolulu.com/services/pet-health-certificates"
+  },
+  {
+   "name": "Iowa State Lloyd Veterinary Medical Center",
+   "city": "Ames",
+   "state": "IA",
+   "url": "https://vetmed.iastate.edu/vmc/"
+  },
+  {
+   "name": "Foothills Veterinary Hospital",
+   "city": "Meridian",
+   "state": "ID",
+   "url": "https://foothillsveterinary.com/services/health-certificates-usda-certified/"
+  },
+  {
+   "name": "MedVet Chicago",
+   "city": "Chicago",
+   "state": "IL",
+   "url": "https://www.medvet.com/location/chicago/"
+  },
+  {
+   "name": "Burnham Park Animal Hospital",
+   "city": "Chicago",
+   "state": "IL",
+   "url": "https://www.burnhamparkvet.com/services/international-health-certificates"
+  },
+  {
+   "name": "Partners Animal Hospital West Loop",
+   "city": "Chicago",
+   "state": "IL",
+   "url": "https://partnersvetwl.com/international-pet-certificates/"
+  },
+  {
+   "name": "University of Illinois Veterinary Teaching Hospital",
+   "city": "Urbana",
+   "state": "IL",
+   "url": "https://vetmed.illinois.edu/hospital/veterinary-teaching-hospital/"
+  },
+  {
+   "name": "Purdue University Veterinary Teaching Hospital",
+   "city": "West Lafayette",
+   "state": "IN",
+   "url": "https://purdue.vet/hospital/"
+  },
+  {
+   "name": "K-State Veterinary Health Center",
+   "city": "Manhattan",
+   "state": "KS",
+   "url": "https://www.ksvhc.org/about/"
+  },
+  {
+   "name": "Plantation Animal Clinic",
+   "city": "Louisville",
+   "state": "KY",
+   "url": "https://plantationanimalclinic.com/services/pet-health-certificates"
+  },
+  {
+   "name": "LSU Veterinary Teaching Hospital",
+   "city": "Baton Rouge",
+   "state": "LA",
+   "url": "https://www.lsu.edu/vetmed/veterinary_hospital/index.php"
+  },
+  {
+   "name": "Prytania Veterinary Hospital",
+   "city": "New Orleans",
+   "state": "LA",
+   "url": "https://prytaniavet.com/service/international-health-certificates-new-orleans-la/"
+  },
+  {
+   "name": "Angell Animal Medical Center (MSPCA-Angell)",
+   "city": "Boston",
+   "state": "MA",
+   "url": "https://www.mspca.org/veterinarycare/"
+  },
+  {
+   "name": "Tufts \u2013 Foster Hospital for Small Animals",
+   "city": "North Grafton",
+   "state": "MA",
+   "url": "https://vet.tufts.edu/foster-hospital-small-animals"
+  },
+  {
+   "name": "Forestville Veterinary and Bird Hospital",
+   "city": "Forestville",
+   "state": "MD",
+   "url": "https://www.forestvillevet.org/diagnostics-and-travel"
+  },
+  {
+   "name": "Brackett Street Veterinary Clinic",
+   "city": "Portland",
+   "state": "ME",
+   "url": "https://brackettstveterinaryclinic.com/services/pet-health-certificates"
+  },
+  {
+   "name": "MSU Veterinary Medical Center",
+   "city": "East Lansing",
+   "state": "MI",
+   "url": "https://cvm.msu.edu/hospital"
+  },
+  {
+   "name": "University of Minnesota Veterinary Medical Center",
+   "city": "St. Paul",
+   "state": "MN",
+   "url": "https://vmc.umn.edu/about/about-us"
+  },
+  {
+   "name": "MU Veterinary Health Center",
+   "city": "Columbia",
+   "state": "MO",
+   "url": "https://vhc.missouri.edu/"
+  },
+  {
+   "name": "Heritage Veterinary Hospital",
+   "city": "Creve Coeur (St. Louis)",
+   "state": "MO",
+   "url": "https://heritageveterinary.com/services/pet-health-certificates"
+  },
+  {
+   "name": "Mississippi State Animal Health Center",
+   "city": "Starkville",
+   "state": "MS",
+   "url": "https://www.vethospitals.msstate.edu/"
+  },
+  {
+   "name": "Caring Hands Veterinary",
+   "city": "Billings",
+   "state": "MT",
+   "url": "https://www.caringhandsbillings.com/pet-travel/"
+  },
+  {
+   "name": "NC State Veterinary Hospital",
+   "city": "Raleigh",
+   "state": "NC",
+   "url": "https://hospital.cvm.ncsu.edu/clients/emergency/"
+  },
+  {
+   "name": "CareVet of West Fargo",
+   "city": "West Fargo",
+   "state": "ND",
+   "url": "https://www.carevet.com/west-fargo/health-certificates/"
+  },
+  {
+   "name": "Nebraska Animal Medical Center",
+   "city": "Lincoln",
+   "state": "NE",
+   "url": "https://www.namcvet.com/services/international-health-certificates"
+  },
+  {
+   "name": "Omaha Vets Group",
+   "city": "Omaha",
+   "state": "NE",
+   "url": "https://omahavetsgroup.com/services/healthcertificates"
+  },
+  {
+   "name": "Hillsborough County Veterinary Hospital",
+   "city": "Amherst",
+   "state": "NH",
+   "url": "https://hillsboroughcountyvet.com/services/pet-health-certificates"
+  },
+  {
+   "name": "City by the Sea Veterinary Hospital",
+   "city": "Asbury Park",
+   "state": "NJ",
+   "url": "https://www.citybytheseavet.com/services-international-pet-travel-usda-certified-dvm"
+  },
+  {
+   "name": "Packanack Animal Hospital",
+   "city": "Wayne",
+   "state": "NJ",
+   "url": "https://www.packanackanimalhospital.com/travel-health-certificates"
+  },
+  {
+   "name": "West Orange Animal Hospital",
+   "city": "West Orange",
+   "state": "NJ",
+   "url": "https://www.westorangeanimalhospital.com/services/health-certificates/"
+  },
+  {
+   "name": "Manzano Animal Clinic",
+   "city": "Albuquerque",
+   "state": "NM",
+   "url": "https://www.manzanoanimalclinic.com/services/international-health-certificates"
+  },
+  {
+   "name": "La Cueva Animal Hospital",
+   "city": "Albuquerque",
+   "state": "NM",
+   "url": "https://lacuevavet.com/health-certificates"
+  },
+  {
+   "name": "Cheyenne Tonopah Animal Hospital",
+   "city": "Las Vegas",
+   "state": "NV",
+   "url": "https://www.ctanimalhospital.com/services/domestic-health-certificates"
+  },
+  {
+   "name": "Rainbow Animal Hospital",
+   "city": "Las Vegas",
+   "state": "NV",
+   "url": "https://www.rainbowanimalhospital.com/services/international-health-certificates"
+  },
+  {
+   "name": "Cornell University Hospital for Animals (Companion Animal Hospital)",
+   "city": "Ithaca",
+   "state": "NY",
+   "url": "https://www.vet.cornell.edu/hospitals/companion-animal-hospital"
+  },
+  {
+   "name": "The Animal Medical Center (AMC)",
+   "city": "New York",
+   "state": "NY",
+   "url": "https://www.amcny.org/"
+  },
+  {
+   "name": "University Animal Hospital",
+   "city": "New York",
+   "state": "NY",
+   "url": "https://www.universityanimalhospital.com/services/usda-travel-certificates/"
+  },
+  {
+   "name": "One Love Animal Hospital",
+   "city": "New York",
+   "state": "NY",
+   "url": "https://www.onelovevet.com/services/pets/international-pet-travel"
+  },
+  {
+   "name": "Ohio State Veterinary Medical Center",
+   "city": "Columbus",
+   "state": "OH",
+   "url": "https://vmc.vet.osu.edu/about"
+  },
+  {
+   "name": "Quail Creek Veterinary Clinic",
+   "city": "Oklahoma City",
+   "state": "OK",
+   "url": "https://quailcreekvet.com/international-pet-travel-oklahoma-city-ok/"
+  },
+  {
+   "name": "OSU Boren Veterinary Medical Teaching Hospital",
+   "city": "Stillwater",
+   "state": "OK",
+   "url": "https://vethospital-cs.okstate.edu/"
+  },
+  {
+   "name": "OSU Lois Bates Acheson Veterinary Teaching Hospital",
+   "city": "Corvallis",
+   "state": "OR",
+   "url": "https://vetmed.oregonstate.edu/hospital/small-animal-services/small-animal-emergency-and-critical-care"
+  },
+  {
+   "name": "Penn Vet \u2013 Ryan Veterinary Hospital",
+   "city": "Philadelphia",
+   "state": "PA",
+   "url": "https://www.vet.upenn.edu/ryan-hospital/"
+  },
+  {
+   "name": "Lincoln Animal Hospital",
+   "city": "Lincoln",
+   "state": "RI",
+   "url": "https://lincolnanimalhospital.org/services/pet-health-certificates"
+  },
+  {
+   "name": "All Creatures Animal Hospital",
+   "city": "Charleston",
+   "state": "SC",
+   "url": "https://allcreatureschs.com/services/pet-health-certificates"
+  },
+  {
+   "name": "VCA Charles Towne Animal Hospital",
+   "city": "Charleston",
+   "state": "SC",
+   "url": "https://vcahospitals.com/charles-towne/services/primary-care/health-certificates"
+  },
+  {
+   "name": "Two Notch Road Animal Clinic",
+   "city": "Columbia",
+   "state": "SC",
+   "url": "https://petfriendsvet.com/services/pet-health-certificates"
+  },
+  {
+   "name": "Heather Ridge Pet Hospital",
+   "city": "Sioux Falls",
+   "state": "SD",
+   "url": "https://www.heatherridgepet.com/services/domestic-health-certificates"
+  },
+  {
+   "name": "UT Veterinary Medical Center",
+   "city": "Knoxville",
+   "state": "TN",
+   "url": "https://vetmed.tennessee.edu/vmc/"
+  },
+  {
+   "name": "Shelby Center Veterinary",
+   "city": "Memphis",
+   "state": "TN",
+   "url": "https://shelbycentervet.com/services/pet-health-certificates"
+  },
+  {
+   "name": "South Park Animal Hospital",
+   "city": "Austin",
+   "state": "TX",
+   "url": "https://www.southparkaustin.com/services/international-health-certificates"
+  },
+  {
+   "name": "Texas A&M Small Animal Teaching Hospital",
+   "city": "College Station",
+   "state": "TX",
+   "url": "https://vetmed.tamu.edu/"
+  },
+  {
+   "name": "VCA Preston Park Animal Hospital",
+   "city": "Dallas",
+   "state": "TX",
+   "url": "https://vcahospitals.com/preston-park/services/primary-care/health-certificates"
+  },
+  {
+   "name": "Gulf Coast Veterinary Specialists (GCVS)",
+   "city": "Houston",
+   "state": "TX",
+   "url": "https://www.gcvs.com/"
+  },
+  {
+   "name": "CAWLM Veterinary Hospital + Spa",
+   "city": "Houston",
+   "state": "TX",
+   "url": "https://www.cawlmvet.com/international-health-certificate"
+  },
+  {
+   "name": "Washington Heights Veterinary Clinic",
+   "city": "Houston",
+   "state": "TX",
+   "url": "https://www.whvetclinic.com/services/international-and-domestic-travel-certificates-houston"
+  },
+  {
+   "name": "MedVet Northern Utah",
+   "city": "Sunset (Salt Lake metro)",
+   "state": "UT",
+   "url": "https://www.medvet.com/location/northern-utah/"
+  },
+  {
+   "name": "Virginia Tech Veterinary Teaching Hospital",
+   "city": "Blacksburg",
+   "state": "VA",
+   "url": "https://vth.vetmed.vt.edu/small-animal-services.html"
+  },
+  {
+   "name": "Dorset Street Animal Hospital",
+   "city": "South Burlington",
+   "state": "VT",
+   "url": "https://dorsetstreetanimalhospital.com/south-burlington-vt/international-health-certificates-for-pet-travel/"
+  },
+  {
+   "name": "BluePearl Pet Hospital Kirkland (ex-Seattle Veterinary Specialists)",
+   "city": "Kirkland",
+   "state": "WA",
+   "url": "https://bluepearlvet.com/hospital/kirkland-wa/"
+  },
+  {
+   "name": "WSU Veterinary Teaching Hospital",
+   "city": "Pullman",
+   "state": "WA",
+   "url": "https://hospital.vetmed.wsu.edu/"
+  },
+  {
+   "name": "The Family Pet",
+   "city": "Seattle",
+   "state": "WA",
+   "url": "https://www.thefamilypet.org/services/health-certificates/"
+  },
+  {
+   "name": "UW Veterinary Care",
+   "city": "Madison",
+   "state": "WI",
+   "url": "https://uwveterinarycare.wisc.edu/"
+  },
+  {
+   "name": "CCAH",
+   "city": "Morgantown",
+   "state": "WV",
+   "url": "https://ccahvet.com/services"
+  },
+  {
+   "name": "Paw Prints Veterinary Clinic",
+   "city": "Westover",
+   "state": "WV",
+   "url": "https://www.pawprintswv.com/services/international-health-certificates"
+  },
+  {
+   "name": "Altitude Veterinary Hospital",
+   "city": "Casper",
+   "state": "WY",
+   "url": "https://altitudevet.com/services/pet-health-certificates"
+  }
+ ]
+}

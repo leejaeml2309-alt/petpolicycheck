@@ -1264,6 +1264,29 @@ def build_advertise(cfg):
                 body, "advertise/", "../")
 
 
+def build_clinics_usa(cfg):
+    import json as _j
+    cl = _j.loads((ROOT / "data" / "usa_clinics_directory.json").read_text())["clinics"]
+    by = {}
+    for c in cl:
+        by.setdefault(c["state"], []).append(c)
+    groups = []
+    for st in sorted(by):
+        cards = "".join(f'<li class="clin"><a href="{e(c["url"])}" rel="noopener" target="_blank">{e(c["name"])}</a><span>{e(c["city"])}, {e(st)}</span></li>' for c in sorted(by[st], key=lambda c: (c["city"], c["name"])))
+        groups.append(f'<section class="stgrp" data-st="{e(st)}"><h2>{e(st)} <small>({len(by[st])})</small></h2><ul class="clins">{cards}</ul></section>')
+    opts = "".join(f'<option value="{e(s)}">{e(s)}</option>' for s in sorted(by))
+    body = f"""<nav class="crumbs"><a href="../index.html">Home</a> &rsaquo; Clinics &rsaquo; United States</nav>
+<style>.cdisc{{border:1px solid var(--acc,#d9b765);border-radius:10px;padding:12px 16px;margin:14px 0}}.clins{{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}}.clin{{border:1px solid rgba(217,183,101,.3);border-radius:10px;padding:10px 14px}}.clin a{{color:var(--acc,#d9b765);font-weight:600;display:block}}.clin span{{font-size:.9em;opacity:.8}}.stgrp h2 small{{opacity:.6;font-weight:400}}</style>
+<h1>US veterinary clinics for pet travel certificates</h1>
+<p><b>{len(cl)} clinics</b> across {len(by)} states that appear to offer pet travel or health-certificate related services.</p>
+<div class="cdisc small"><b>Informational listing only.</b> This is not a partnership: {e(cfg['site_name'])} is not affiliated with, endorsed by or paid by any clinic listed here. Always verify services, accreditation and fees directly with the clinic, and check the official USDA APHIS and CDC rules for your trip. Links may change.</div>
+<p><label>Filter by state: <select id="stf" onchange="for(const g of document.querySelectorAll('.stgrp'))g.hidden=this.value&&g.dataset.st!==this.value"><option value="">All states</option>{opts}</select></label></p>
+{"".join(groups)}"""
+    return page(cfg, f"US veterinary clinics for pet travel certificates | {cfg['site_name']}",
+                "Informational directory of US veterinary clinics that appear to offer pet travel health-certificate services. Not affiliated; verify with the clinic and USDA/CDC.",
+                body, "clinics/usa.html", "../")
+
+
 def build_partner_vets(cfg):
     import json as _j
     mail = obf_mail(cfg["contact_email"])
@@ -2432,6 +2455,8 @@ def main():
     (OUT / "contact.html").write_text(build_contact(cfg))
     (OUT / "advertise" / "index.html").write_text(build_advertise(cfg))
     (OUT / "partner-vets" / "index.html").write_text(build_partner_vets(cfg))
+    (OUT / "clinics").mkdir(parents=True, exist_ok=True)
+    (OUT / "clinics" / "usa.html").write_text(build_clinics_usa(cfg))
     (OUT / "countries" / "usa.html").write_text(build_country_usa(cfg, airlines))
     (OUT / "routes" / "usa-to-japan.html").write_text(build_route_usa_japan(cfg, airlines))
     (OUT / "routes" / "usa-to-south-korea.html").write_text(build_route_usa_korea(cfg, airlines))
