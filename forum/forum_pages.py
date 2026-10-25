@@ -107,7 +107,7 @@ def author(p):
 
 
 def subnav(B, root, cur, show_lang=True):
-    items = [("index.html", "f.home"), ("pet-travel-stories/", "f.stories"), ("new.html", "f.new"), ("guidelines.html", "f.rules"), ("account.html", "f.account")]
+    items = [("index.html", "f.home"), ("pet-travel-stories/", "f.stories"), ("new.html", "f.new"), ("guidelines.html", "f.rules"), ("partners.html", "f.partners"), ("account.html", "f.account")]
     links = "".join(f'<a href="{root}forum/{h}"{" aria-current=page" if h == cur else ""}'
                     f'{" data-acct" if h == "account.html" else ""} data-i18n="{k}">{B.e(T(k))}</a>' for h, k in items)
     langs = "".join(f'<button type="button" data-setlang="{c}" lang="{c}">{B.e(d.get("_lang_name", c))}</button>'
@@ -457,14 +457,65 @@ def build_guidelines(B, cfg, mail_html):
 <p class="small" id="rules-jump"><a href="#ko" lang="ko">한국어로 보기 ↓</a></p>
 <section lang="en" id="rules-en"><p class="lead">This forum is for sharing real experiences travelling with dogs and cats. Be kind, be specific, and keep it about pets and travel.</p>
 {sec(GUIDE_EN)}
+<p>Brand and partner promotions belong only in <a href="partners.html">Partners &amp; Products</a> and must follow its <a href="partners.html">posting rules</a>.</p>
 <p>Questions, or a request to remove something: {mail_html}.</p></section>
 <section lang="ko" id="ko"><h2 class="fh" id="rules-ko-h">커뮤니티 규칙 (한국어)</h2><p class="lead">이 포럼은 강아지·고양이와 함께한 실제 여행 경험을 나누는 곳이에요. 친절하고 구체적으로, 반려동물과 여행 이야기만 나눠 주세요.</p>
 {sec(GUIDE_KO)}
+<p>브랜드·파트너 홍보는 <a href="partners.html">Partners &amp; Products</a>에서만 가능하며 해당 <a href="partners.html">게시 규칙</a>(영어)을 따라야 해요.</p>
 <p>문의나 삭제 요청: {mail_html}</p></section>
 {app("rules")}{scripts(root, "rules")}"""
     return B.page(cfg, f"Forum community rules | {cfg['site_name']}",
                   "Community rules for the PetPolicyCheck pet travel forum: be kind, no abuse, violence, adult content, politics or spam; every post is moderated.",
                   body, "forum/guidelines.html", root, [B.bc_ld(cfg, [("Home", ""), ("Forum", "forum/"), ("Community rules", "forum/guidelines.html")])])
+
+
+def build_partners(B, cfg, mail_html):
+    root = "../"
+    ul = lambda li: "<ul>" + "".join(f"<li>{x}</li>" for x in li) + "</ul>"
+    site = '<a href="https://petpolicycheck.com">https://petpolicycheck.com</a>'
+    body = f"""<nav class="crumbs"><a href="{{root}}index.html" data-i18n="f.crumb_home">Home</a> &rsaquo; <a href="index.html" data-i18n="nav.forum">Forum</a> &rsaquo; <span>Partners &amp; Products</span></nav>
+<h1>Partners &amp; Products — Posting Rules</h1>
+{subnav(B, root, "partners.html")}
+<section lang="en" id="partners-en"><p class="lead">Welcome to the <strong>Partners &amp; Products</strong> section of the PetPolicyCheck forum. This space lets pet-related brands and companies introduce themselves to our community of pet travelers — for free — in exchange for a link back to <a href="https://petpolicycheck.com">PetPolicyCheck</a>. These rules keep the arrangement fair for partners and useful for members.</p>
+<h2>1. Who can apply</h2>
+<p>Eligible:</p>
+{ul(["Pet products (food, gear, carriers, crates, accessories, health products)",
+     "Pet travel (pet-friendly airlines, hotels, transport, relocation services)",
+     "Pet services (vets, insurers, sitters, groomers, trainers, boarding)"])}
+<p>Not eligible:</p>
+{ul(["Adult content, illegal products or services",
+     "Crypto, gambling, MLM, or get-rich-quick offers",
+     "Spam, link farms, or businesses unrelated to pets"])}
+<h2>2. What you get</h2>
+{ul(["<strong>One</strong> promotional thread in <strong>Partners &amp; Products</strong>, approved and pinned (sticky) or featured by the moderators",
+     "A place to present your brand, answer questions, and share genuinely useful information with pet owners"])}
+<h2>3. What we ask in return</h2>
+{ul([f"A <strong>public, dofollow link on your own website</strong> pointing to {site} (or a specific, relevant PetPolicyCheck page).",
+     "Preferred placements: site footer, a “Resources” page, or a “Partners” page.",
+     "The link must stay live for as long as your thread is active. A link placed only inside your forum post or forum profile <strong>does not count</strong>.",
+     "If the link is removed or changed to nofollow, your thread may be unpinned or archived."])}
+<h2>4. Thread rules</h2>
+{ul(["<strong>One thread per brand.</strong> Updates go in the same thread, not new ones.",
+     "<strong>Stay engaged:</strong> reply to member questions in a reasonable time. Inactive threads may be archived.",
+     "<strong>Disclose your affiliation</strong> clearly (e.g. “I work for / represent [Brand]”).",
+     "<strong>No fake reviews</strong>, sock-puppet accounts, or paid testimonials presented as independent opinions.",
+     "<strong>No attacks on competitors.</strong> Compare factually and respectfully, or not at all.",
+     "Keep promotions honest: accurate prices, clear terms, no misleading claims.",
+     "Outside your own thread, normal <a href=\"guidelines.html\">forum rules</a> apply — no self-promotion in other sections unless directly relevant and disclosed."])}
+<h2>5. Approval and moderation</h2>
+{ul(["<strong>Approval is required before posting.</strong> Unapproved promotional threads will be removed.",
+     "Marc / PetPolicyCheck may edit, unpin, archive, or remove any partner thread at any time, with or without notice, especially in case of rule violations or member complaints.",
+     "Participation does not imply endorsement by PetPolicyCheck."])}
+<h2>6. Note for moderators</h2>
+<p>Sponsored/partner threads must remain a <strong>clear minority</strong> of forum activity. Community questions and discussions come first. If partner content starts to dominate, pause new approvals and archive the least active partner threads.</p>
+<h2>7. How to apply</h2>
+<p>Email {mail_html} with:</p>
+<ol><li>Brand name</li><li>Website URL</li><li>Proposed link placement — URL of the page and/or a screenshot showing the dofollow link to PetPolicyCheck</li><li>A short pitch (2–4 sentences): what you offer and why it helps pet owners or pet travelers</li></ol>
+<p>We review every application and reply as soon as we can. Thank you for helping pet owners travel better!</p></section>
+{app("partners")}{scripts(root, "partners")}"""
+    return B.page(cfg, f"Partners & Products — Posting Rules | {cfg['site_name']}",
+                  "How pet brands and companies can get one approved Partners & Products thread on the PetPolicyCheck pet travel forum in exchange for a dofollow link, and the rules they must follow.",
+                  body, "forum/partners.html", root, [B.bc_ld(cfg, [("Home", ""), ("Forum", "forum/"), ("Partners & Products", "forum/partners.html")])])
 
 
 def story_card(B, s):
@@ -602,6 +653,7 @@ def build(B, cfg, airlines, out_root, root_dir):
     (out / "account.html").write_text(build_account(B, cfg, mail_html))
     (out / "admin.html").write_text(build_admin(B, cfg))
     (out / "guidelines.html").write_text(build_guidelines(B, cfg, mail_html))
+    (out / "partners.html").write_text(build_partners(B, cfg, mail_html))
     stories, skipped = ST.load(root_dir, [c for c in I18N if c != "en"])
     (out / "pet-travel-stories").mkdir(exist_ok=True)
     (out / "pet-travel-stories" / "index.html").write_text(build_stories(B, cfg, stories))
@@ -610,7 +662,7 @@ def build(B, cfg, airlines, out_root, root_dir):
     base = B.site_base(cfg)
     today = dt.date.today().isoformat()
     newest = max([p["created_at"][:10] for p in posts] + [today[:4] + "-01-01"])
-    urls = [(f"{base}/forum/", newest), (f"{base}/forum/guidelines.html", "2026-10-22")]
+    urls = [(f"{base}/forum/", newest), (f"{base}/forum/guidelines.html", "2026-10-25"), (f"{base}/forum/partners.html", "2026-10-25")]
     st_csv = root_dir / "data" / "forum_stories.csv"
     if st_csv.exists():
         urls.append((f"{base}/forum/pet-travel-stories/", dt.date.fromtimestamp(st_csv.stat().st_mtime).isoformat()))
