@@ -218,6 +218,29 @@ def header_ad(cfg, ads=True):
     return f'<div class="hdr-band"><div class="wrap"><div class="hdr-ad empty" role="complementary" aria-label="Advertisement"><div class="hdr-box"><span class="adl">Advertisement</span>{todo}</div></div></div></div>'
 
 
+def home_footer_ad(cfg):
+    """Homepage-only bottom ad (970x250 frame). config.json "adsense_home_footer_slot".
+    Empty -> dashed placeholder + label. Live -> <ins> in a frame; a sibling spacer keeps
+    min height because AdSense injects min-height:0 !important on ancestors of <ins>."""
+    slot = str(cfg.get("adsense_home_footer_slot") or "").strip()
+    if slot:
+        return (
+            '<div class="wrap"><aside class="home-bottom-ad" role="complementary" aria-label="Advertisement">'
+            '<div class="home-bottom-ad-min" aria-hidden="true"></div>'
+            '<div class="home-bottom-ad-box">'
+            f'<ins class="adsbygoogle" style="display:block" data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="{e(slot)}" '
+            'data-ad-format="horizontal" data-full-width-responsive="false"></ins>'
+            '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>'
+            '</div></aside></div>'
+        )
+    return (
+        '<div class="wrap"><aside class="home-bottom-ad home-bottom-ad-empty" role="complementary" aria-label="Advertisement">'
+        '<div class="home-bottom-ad-min" aria-hidden="true"></div>'
+        '<span class="adl" aria-hidden="true">Advertisement</span>'
+        '</aside></div>'
+    )
+
+
 def site_footer(cfg, root, fi, path=""):
     """Footer identical to the design-C home footer (4 columns), plus the sponsor slot."""
     h = home_url(root)
@@ -2438,6 +2461,8 @@ def main():
         cmark = next(l for l in home.splitlines() if l.strip().startswith("<!--GUIDE_CHIPS"))
         assert gmark in home
         home = home.replace(gmark, gjs, 1).replace(cmark, "", 1)
+        assert "<!--HOME_FOOTER_AD-->" in home
+        home = home.replace("<!--HOME_FOOTER_AD-->", home_footer_ad(cfg), 1)
         assert "<!--HDR_AD-->" in home and "<!--HDR_MENU_JS-->" in home
         home = home.replace("<!--HDR_AD-->", "", 1).replace("<!--HDR_MENU_JS-->", header_ad(cfg), 1)  # home: no menu bar, centered brand
         home = home.replace('href="assets/css/theme.css"', f'href="assets/css/theme.css?v={CSS_VER}"', 1)  # header CSS changed: bust cache on home too
