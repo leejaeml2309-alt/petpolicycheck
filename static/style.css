@@ -291,6 +291,6 @@ img{max-width:100%}
 .foot-compact ul{display:flex;flex-wrap:wrap;gap:4px 16px}
 .foot-compact li{margin:0}
 .sfad-wrap{margin-top:18px}
-.sfad-min{height:280px}
+.sfad-min{height:120px}
 .sfad-adv{text-align:center}
 }
