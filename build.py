@@ -227,7 +227,7 @@ def site_footer(cfg, root, fi, path=""):
 <div class="wrap cols">
 <div><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
 <div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.nav.book", "Book your trip")}{li(h + "#airlines", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(h + "#compare", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
-<div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}</ul></div>
+<div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
 <div class="wrap">{ad_slot(cfg, "sidebar_or_footer", root, fi)}</div>
@@ -2489,6 +2489,7 @@ def main():
     urls.append((f"{base}/book/", max(hci["checked"], json.loads((ROOT / "data" / "rideshare" / "us.json").read_text())["checked"],
                                       json.loads((ROOT / "data" / "partner_vets.json").read_text()).get("tools_checked") or "", load_insurers()["checked"])))
     urls.append((f"{base}/pet-travel-checklist/", "2026-10-24"))
+    urls.append((f"{base}/clinics/usa.html", "2026-10-25"))
     sm = "".join(f"<url><loc>{e(u)}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n')
     (OUT / "ads.txt").write_text("google.com, pub-7693501377730690, DIRECT, f08c47fec0942fa0\n")
