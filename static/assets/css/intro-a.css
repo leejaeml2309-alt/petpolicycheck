@@ -237,15 +237,19 @@ html:not(.intro-lock) .mapcard{min-height:100vh;min-height:100dvh;margin-top:0;b
  .intro .va-hero img{width:auto;max-width:100%;height:auto;max-height:min(46svh,380px)}
  .intro .intro-story{max-width:640px}
 }
-/* Open Fold / large mobile. Phone ≤599 stays on the 328px passport. Desktop ≥1100 untouched.
-   Story measure is capped. The stray gold mini-paw sits top-left on a wide screen, so it is hidden here. */
+/* Open Fold / large mobile, bloc ~00:55. Phone ≤599 stays on the 328px passport. Desktop ≥1100 untouched.
+   Story is 560px (~75 characters at 13px). Hero ~45svh so 906×986 is about 446px. Begin ~104×98.
+   The gold mini-paw is recentered; max-width was pinning it to the left. */
 @media (min-width:600px) and (max-width:1099px){
- .intro .intro-rule{display:none}
- .intro .intro-story{max-width:min(560px,40ch);width:100%;margin-inline:auto;margin-left:auto;margin-right:auto}
- .intro .va-hero img{width:auto;max-width:min(92vw,720px);height:auto;max-height:min(40svh,520px)}
- .intro .paw.paw-real{width:clamp(96px,12svh,140px);height:clamp(90px,11.2svh,130px);min-width:96px;min-height:48px}
- .intro .intro-story .body p{line-height:1.22;margin-bottom:.12em}
+ .intro .intro-rule{display:flex;justify-content:center;align-self:center;max-width:none;width:auto;margin:2px auto 0}
+ .intro .intro-story{max-width:560px;width:100%;margin-inline:auto;margin-left:auto;margin-right:auto}
+ .intro .intro-story .body p{font-size:13px;line-height:1.35;margin:0 0 .22em}
+ .intro .va-hero img{width:auto;max-width:min(92vw,720px);height:auto;max-height:min(45.2svh,520px)}
+ .intro .paw.paw-real{width:104px;height:98px;min-width:96px;min-height:48px;padding:0 0 14px}
+ .intro .paw.paw-real .paw-t{font-size:12px}
 }
-@media (min-width:600px) and (max-width:1099px) and (min-height:860px){
- .intro .va-hero img{max-height:min(42svh,520px)}
+/* Shorter Folds (853×790) cannot hold a 45svh passport plus the 13px story. */
+@media (min-width:600px) and (max-width:1099px) and (max-height:860px){
+ .intro .va-hero img{max-height:min(36svh,340px)}
+ .intro .intro-story .body p{line-height:1.28;margin-bottom:.16em}
 }
