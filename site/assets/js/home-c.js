@@ -94,9 +94,9 @@ function top(k,t){return '<div class="ph-top"><div><div class="k">'+k+'</div><h2
 function flag(G){return G&&G.flag_src?'<img class="flag" src="'+G.flag_src+'" width="21" height="14" alt="" aria-hidden="true">':''}
 function bookMini(G){return '<section class="book" aria-labelledby="bookm-h"><h3 id="bookm-h">Book your trip</h3><p class="book-lede">Flights, pet-friendly hotels, airport rides, vet clinics and pet insurance on one page.</p><p class="book-btns"><a class="btn" href="'+((G&&G.book_url)||LIVE+'book/')+'">Plan and book your trip \u2192</a></p></section>'}
 function openCountry(id){
- var f=countries.find(function(c){return c.id===id});if(!f)return;
  var G=GUIDES[id];
  if(G&&G.map_url){window.location.href=G.map_url;return}
+ var f=countries.find(function(c){return c.id===id});if(!f)return;
  cg.selectAll('.country').classed('sel',function(d){return d.id===id});
  var h;
  if(G&&G.kind==='link'){

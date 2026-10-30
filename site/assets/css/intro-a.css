@@ -47,7 +47,7 @@ html{scroll-padding-top:0}
 .paw.paw-real .paw-t{font-size:13.5px;line-height:1.06;max-width:5.4em;letter-spacing:0;color:#1a1608}
 .paw.paw-real .paw-bg{stroke:#f3dc98;stroke-width:2.5;filter:drop-shadow(0 6px 12px #d9b76540) drop-shadow(0 1px 0 #8a6524)}
 
-/* Marc [t424u] 30/10 ~22:42 KST: DESKTOP = logo+title, image LEFT | story RIGHT, Begin CENTERED BELOW both cols.
+/* Marc 30/10 ~23:35: desktop = story LEFT | image RIGHT, Begin centered under that right image.
    Mobile (<=980) unchanged: logo→image→Begin→story stack. Live selectors prefixed .intro. */
 @media (min-width:1100px){
  .intro .brandbar{padding:clamp(8px,1.4vh,18px) 0 0;gap:14px}
@@ -58,20 +58,20 @@ html{scroll-padding-top:0}
  .intro .wrap{max-width:1360px}
  .intro .vas-grid{
   display:grid;
-  grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
-  grid-template-areas:"hero story" "cta cta";
+  grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  grid-template-areas:"story art";
   column-gap:40px;row-gap:10px;
   align-items:start;
   margin-top:clamp(4px,1vh,12px);margin-bottom:28px;
  }
- .intro .vas-art{display:contents!important}
- .intro .va-hero{grid-area:hero;margin:0;width:100%}
+ .intro .vas-art{grid-area:art;display:flex!important;flex-direction:column;align-items:center;justify-content:flex-start;max-width:none;width:100%;margin:0;gap:clamp(6px,1.2vh,14px);position:static}
+ .intro .va-hero{margin:0;width:100%}
  .intro .va-hero img{max-height:calc(100vh - 300px);width:auto;max-width:100%;margin:0 auto;object-fit:contain;display:block}
- .intro .vas-enter{grid-area:cta;display:flex;justify-content:center;margin:0;padding:0;background:none;position:static}
+ .intro .vas-enter{display:flex;justify-content:center;margin:0;padding:0;background:none;position:static}
  .intro .intro-story{
   grid-area:story;width:100%;max-width:none;margin:0;
-  border-top:0;border-left:0;padding:0 0 0 30px;
-  background:linear-gradient(#d9b76500,#d9b76555 18%,#d9b76555 82%,#d9b76500) left/1px 100% no-repeat;
+  border-top:0;border-left:0;padding:0 30px 0 0;
+  background:linear-gradient(#d9b76500,#d9b76555 18%,#d9b76555 82%,#d9b76500) right/1px 100% no-repeat;
  }
  .intro .intro-story h2{font-size:clamp(1.55rem,2.8vh,1.95rem);margin-bottom:8px;padding-bottom:8px}
  .intro .intro-story .body p{font-size:clamp(.86rem,1.7vh,1.0rem);line-height:1.52;margin:0 0 .42em}
@@ -130,7 +130,7 @@ html{scroll-padding-top:0}
  .intro .intro-story .sig{font-size:1.4rem;margin-top:2px}
 }
 
-/* Page 1 lock is only html.intro-lock (removed when Begin is clicked). Desktop grid above is unchanged. */
+/* Page 1 lock is only html.intro-lock. Removed for #map and other in-page links. */
 html:not(.intro-lock) .mapcard{min-height:100vh;min-height:100dvh;margin-top:0;box-sizing:border-box}
 
 /* ==== Marc [t435u] 30/10 ~23:20 KST — 1st page WITHOUT scroll on mobile/tablet ====
@@ -166,4 +166,27 @@ html:not(.intro-lock) .mapcard{min-height:100vh;min-height:100dvh;margin-top:0;b
  .intro .va-hero img{max-height:clamp(64px,13vh,120px);max-height:clamp(64px,13svh,120px)}
  .intro .paw.paw-real{width:72px;height:68px;padding-bottom:11px}
  .intro .intro-story .body p{line-height:1.34}
+}
+/* ==== Marc 30/10 ~23:35 KST — Begin under the right-hand image. Last so it beats the generic brand sizes. ====
+   Story left, image right, paw centered under that image. .mock-map is not copied. */
+@media (min-width:1100px){
+ .intro .brandbar{padding:clamp(6px,1.2vh,16px) 0 0;gap:16px}
+ .intro .brandbar img{height:clamp(56px,8.2vh,96px)}
+ .intro .brandbar h1{font-size:clamp(2.3rem,4.6vh,3.6rem)}
+ .intro .brandbar .brand-sub{font-size:.72rem;margin-top:4px}
+ .intro .intro-rule{margin-top:2px}
+ .intro .vas-grid{margin-top:clamp(4px,1vh,12px);row-gap:clamp(6px,1.2vh,14px);margin-bottom:12px}
+ .intro .va-hero img{max-height:calc(100vh - 290px)}
+ .intro .intro-story h2{padding-bottom:8px}
+}
+@media (min-width:1100px) and (max-height:820px){
+ .intro .brandbar img{height:clamp(50px,7.4vh,64px)}
+ .intro .brandbar h1{font-size:clamp(2.1rem,4.4vh,2.6rem)}
+ .intro .brandbar .brand-sub{font-size:.66rem;margin-top:2px}
+ .intro .va-hero img{max-height:calc(100vh - 250px)}
+ .intro .intro-story h2{font-size:clamp(1.35rem,2.8vh,1.6rem);margin-bottom:6px;padding-bottom:6px}
+ .intro .intro-story .body p{font-size:clamp(.8rem,1.8vh,.9rem);line-height:1.46;margin:0 0 .36em}
+ .intro .intro-story .sig{font-size:1.15rem}
+ .intro .paw.paw-real{width:100px;height:95px;padding:0 0 15px}
+ .intro .paw.paw-real .paw-t{font-size:11.5px}
 }
