@@ -1,5 +1,30 @@
 <!doctype html>
 <html lang="en-US"><head><meta charset="utf-8">
+<script>
+/* /#map on a fresh load must not jump to the map. The card has no id=map until a
+   Begin / World map click, so the browser has nothing to scroll to on arrival.
+   scrollRestoration manual stops a reload from restoring a previous map scroll. */
+(function () {
+  try { history.scrollRestoration = 'manual'; } catch (e) {}
+  if (location.hash === '#map') {
+    history.replaceState(null, '', location.pathname + location.search);
+    window.scrollTo(0, 0);
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('a[href="#map"]');
+    if (!a || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var card = document.querySelector('.mapcard');
+    if (card) card.id = 'map';
+  }, true);
+})();
+</script>
+<!-- intro-fold:20261030g -->
+<style id="intro-fold-critical">
+/* First screen is the intro even if intro-a.css is slow or an older copy. */
+body.intro-home{display:block !important}
+.intro{display:flex !important;flex-direction:column;flex:0 0 auto !important;min-height:100vh !important;min-height:100svh !important;min-height:100dvh !important;min-height:100lvh !important;box-sizing:border-box}
+body.intro-home .mapcard{position:static !important;top:auto !important}
+</style>
 <meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7693501377730690" crossorigin="anonymous"></script>
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
@@ -27,7 +52,7 @@
 <link rel="stylesheet" href="assets/css/home-c.css?v=20261025r2">
 <link rel="stylesheet" href="assets/css/story.css?v=20261024">
 <link rel="stylesheet" href="assets/css/story-b.css?v=20261024">
-<link rel="stylesheet" href="assets/css/intro-a.css?v=20261030e">
+<link rel="stylesheet" href="assets/css/intro-a.css?v=20261030g">
 <link rel="preload" as="image" href="assets/img/hero-passport-desktop.webp" imagesrcset="assets/img/hero-passport-desktop.webp 1x, assets/img/hero-passport-desktop@1.5x.webp 1.5x" media="(min-width: 701px)" fetchpriority="high">
 <style>
 .book{margin:20px 0 6px;padding:16px 16px 6px;border:1px solid var(--line2);border-top:3px solid var(--acc);border-radius:var(--r-m);background:var(--chip)}
@@ -82,7 +107,7 @@
 <footer class="intro-id"><div class="wrap"><span class="as-fbrand">PetPolicyCheck</span><span class="dot">&middot;</span><a href="https://petpolicycheck.com/">petpolicycheck.com</a><span class="dot">&middot;</span><span>Dog &amp; cat travel rules, verified at the official source</span></div></footer>
 </section>
 <main id="main">
-<div class="wrap"><div class="mapcard" id="map">
+<div class="wrap"><div class="mapcard" id="trip-map">
  <div class="maphead"><h2>Where are you flying with your pet?</h2>
   <div class="legend"><span><i style="background:var(--land-data)"></i>Country guide available</span><span><i style="background:var(--land)"></i>Coming soon</span>
 
