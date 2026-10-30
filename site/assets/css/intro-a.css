@@ -129,3 +129,22 @@ html{scroll-padding-top:0}
  .intro .intro-story .body p{font-size:.97rem;line-height:1.62;margin:0 0 .7em}
  .intro .intro-story .sig{font-size:1.4rem;margin-top:2px}
 }
+
+/* Page 1 lock: the intro is the only screen until Begin your trip. */
+html.intro-lock .intro .brandbar,html.intro-lock .intro .intro-rule{flex:0 0 auto}
+html.intro-lock .intro > .wrap{max-width:1360px}
+@media (min-width:1100px){
+ html.intro-lock .intro .vas-grid{grid-template-rows:minmax(0,1fr) auto;align-items:center;align-content:stretch;margin-bottom:0;height:100%}
+ html.intro-lock .intro .va-hero{min-height:0;overflow:hidden}
+ html.intro-lock .intro .va-hero img{max-height:min(42vh,calc(100dvh - 230px))}
+ html.intro-lock .intro .intro-story{min-height:0;max-height:100%;overflow:hidden}
+ html.intro-lock .intro .vas-enter{align-self:end;padding-bottom:max(12px,2vh)}
+}
+@media (max-width:1099.98px){
+ html.intro-lock .intro .vas-grid{display:flex;flex-direction:column;gap:8px;margin:4px 0 0}
+ html.intro-lock .intro .vas-art{display:flex;flex-direction:column;align-items:center;flex:0 0 auto;max-width:560px}
+ html.intro-lock .intro .va-hero img{max-height:min(26vh,210px)}
+ html.intro-lock .intro .vas-enter{margin:4px 0}
+ html.intro-lock .intro .intro-story{flex:1 1 auto;min-height:0;overflow:hidden;padding-top:10px}
+}
+html:not(.intro-lock) .mapcard{min-height:100vh;min-height:100dvh;margin-top:0;box-sizing:border-box}

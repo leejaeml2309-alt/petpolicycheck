@@ -1,30 +1,35 @@
 <!doctype html>
-<html lang="en-US"><head><meta charset="utf-8">
+<html class="intro-lock" lang="en-US"><head><meta charset="utf-8">
 <script>
-/* /#map on a fresh load must not jump to the map. The card has no id=map until a
-   Begin / World map click, so the browser has nothing to scroll to on arrival.
-   scrollRestoration manual stops a reload from restoring a previous map scroll. */
+/* Page 1 is the intro only. Begin your trip unlocks page 2, the map.
+   A load of /#map stays on page 1 until that click. */
 (function () {
   try { history.scrollRestoration = 'manual'; } catch (e) {}
-  if (location.hash === '#map') {
-    history.replaceState(null, '', location.pathname + location.search);
-    window.scrollTo(0, 0);
-  }
+  if (location.hash === '#map') history.replaceState(null, '', location.pathname + location.search);
+  window.scrollTo(0, 0);
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest && e.target.closest('a[href="#map"]');
     if (!a || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
     var card = document.querySelector('.mapcard');
-    if (card) card.id = 'map';
+    document.documentElement.classList.remove('intro-lock');
+    if (!card) return;
+    card.id = 'map';
+    history.pushState(null, '', '#map');
+    requestAnimationFrame(function () {
+      window.scrollTo(0, card.getBoundingClientRect().top + window.scrollY);
+    });
   }, true);
 })();
 </script>
-<!-- intro-fold:20261030h -->
+<!-- intro-fold:20261030i -->
 <style id="intro-fold-critical">
-/* Intro fills the first screen even if intro-a.css is slow or stale. The spacer eats leftover height so #map starts below the fold. */
-html body.intro-home{display:block !important;height:auto !important}
-html body.intro-home > section.intro{display:flex !important;flex-direction:column !important;flex-shrink:0 !important;box-sizing:border-box !important;min-height:100vh !important;min-height:100dvh !important;min-height:max(100vh,100dvh,100svh,100lvh) !important}
-html body.intro-home > section.intro > .intro-spacer{flex:1 1 auto !important;width:100%;min-height:0 !important}
-html body.intro-home .mapcard{position:static !important;top:auto !important}
+/* Page 1 cannot scroll and cannot show the map, even if intro-a.css is late. */
+html.intro-lock,html.intro-lock body.intro-home{height:100vh !important;height:100dvh !important;max-height:100dvh !important;overflow:hidden !important;overscroll-behavior:none !important}
+html.intro-lock body.intro-home > section.intro{position:fixed !important;inset:0 !important;z-index:5 !important;display:flex !important;flex-direction:column !important;box-sizing:border-box !important;height:100vh !important;height:100dvh !important;max-height:100dvh !important;overflow:hidden !important;background:#0b1719 !important}
+html.intro-lock body.intro-home > main,html.intro-lock .intro-spacer,html.intro-lock .intro-id{display:none !important}
+html.intro-lock .intro > .wrap{flex:1 1 auto !important;min-height:0 !important;display:flex !important;flex-direction:column !important;width:100%}
+html.intro-lock .vas-grid{flex:1 1 auto !important;min-height:0 !important;overflow:hidden !important}
 </style>
 <meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7693501377730690" crossorigin="anonymous"></script>
@@ -53,7 +58,7 @@ html body.intro-home .mapcard{position:static !important;top:auto !important}
 <link rel="stylesheet" href="assets/css/home-c.css?v=20261025r2">
 <link rel="stylesheet" href="assets/css/story.css?v=20261024">
 <link rel="stylesheet" href="assets/css/story-b.css?v=20261024">
-<link rel="stylesheet" href="assets/css/intro-a.css?v=20261030h">
+<link rel="stylesheet" href="assets/css/intro-a.css?v=20261030i">
 <link rel="preload" as="image" href="assets/img/hero-passport-desktop.webp" imagesrcset="assets/img/hero-passport-desktop.webp 1x, assets/img/hero-passport-desktop@1.5x.webp 1.5x" media="(min-width: 701px)" fetchpriority="high">
 <style>
 .book{margin:20px 0 6px;padding:16px 16px 6px;border:1px solid var(--line2);border-top:3px solid var(--acc);border-radius:var(--r-m);background:var(--chip)}
