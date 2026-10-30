@@ -59,6 +59,25 @@ main.wrap:has(#usa-map){max-width:1320px}
 #usa-map .ct:hover circle, #usa-map .ct.sel circle{fill:#fff;r:6}
 #usa-map .ct:focus{outline:none}#usa-map .ct:focus-visible circle{stroke:var(--gold-l);stroke-width:3}
 #usa-map .ct.hide-lbl text{display:none}
+#usa-map .ap-link{fill:none;stroke:#d9b765;stroke-width:1;stroke-dasharray:2.4 2.2;opacity:.55;pointer-events:none}
+#usa-map .ap-link.hot{opacity:1;stroke-width:1.5}
+#usa-map .ap-link.dim{opacity:.12}
+#usa-map .ap-link.placeholder{stroke-dasharray:1.2 2.6;opacity:.4}
+#usa-map .ap{cursor:pointer}
+#usa-map .ap .pad{fill:#0b1719;stroke:#7ec8e3;stroke-width:1.3}
+#usa-map .ap .glyph{fill:#d9b765}
+#usa-map .ap text{font:700 calc(9px*var(--k,1)) var(--text);fill:#f0d58c;paint-order:stroke;stroke:#0b1719;stroke-width:3px;stroke-linejoin:round}
+#usa-map .ap.hot .pad{stroke:#f0d58c;stroke-width:1.7}
+#usa-map .ap.sel .pad{fill:#6d5a2c;stroke:#f0d58c;stroke-width:2}
+#usa-map .ap.dim{opacity:.28}
+#usa-map .ap.placeholder .pad{stroke-dasharray:2 1.6}
+#usa-map .ap:focus{outline:none}#usa-map .ap:focus-visible .pad{stroke:#f0d58c;stroke-width:2.2}
+#usa-map .legend .lg-ap{color:#7ec8e3;font-style:normal;font-weight:700;margin-right:4px}
+#usa-map .ap-badge{flex:none;width:64px;height:64px;border-radius:50%;border:2px solid #d9b765;background:#10282e;display:grid;place-items:center;text-align:center;line-height:1}
+#usa-map .ap-badge b{display:block;font:700 .68rem var(--text);letter-spacing:.06em;color:#f0d58c;margin-top:1px}
+#usa-map .citylist button.apbtn{border-color:#7ec8e3;color:var(--head)}
+#usa-map .citylist button.apbtn::before{content:"✈ ";color:#7ec8e3}
+#usa-map .citylist button.apbtn.placeholder{border-style:dashed;color:#e8c9c9}
 #usa-map .mapnote{font-size:.75rem;color:var(--mut);margin:6px 6px 0}
 /* panel */
 #usa-map .panel{padding:18px 18px 16px;position:sticky;top:calc(var(--hh, 67px) + 10px);max-height:calc(100vh - var(--hh, 67px) - 24px);overflow:auto;scrollbar-color:#3a5a56 transparent}
@@ -123,4 +142,5 @@ main.wrap:has(#usa-map){max-width:1320px}
  #usa-map .steps{flex-wrap:nowrap;overflow-x:auto;gap:6px;margin:10px 0}#usa-map .steps li{flex:none}
  #usa-map .mapcard{padding:8px 6px 6px}#usa-map .legend{font-size:.72rem;gap:8px}#usa-map .maptools{gap:6px}
  #usa-map .ct text{font-size:calc(14px*var(--k,1))}#usa-map .ct circle{r:calc(4px*var(--k,1))}#usa-map .ct.sample circle{r:calc(6.5px*var(--k,1))}#usa-map .ct.sample circle.ring{r:calc(10px*var(--k,1))}#usa-map .ct:hover circle, #usa-map .ct.sel circle{r:calc(7px*var(--k,1))}
+ #usa-map .ap text{font-size:calc(12px*var(--k,1))}}
 }

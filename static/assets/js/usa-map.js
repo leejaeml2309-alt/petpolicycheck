@@ -55,6 +55,75 @@ const SAMPLE={
  "GA|Atlanta":{q:"Atlanta, GA",amtrak:["atl","Atlanta Peachtree (ATL)"],
   taxi:[],transit:[["🚇","MARTA","Rail to ATL airport and buses","https://www.itsmarta.com/","off"]],rail:[]},
 };
+/* Airports for the 8 sample metros, plus two placeholder hubs (SFO, DFW).
+   metroCity/metroState is the booking panel. placeState is where the dot sits
+   (EWR is in New Jersey and still belongs to New York City). pets:null = placeholder. */
+const PLANE="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5z";
+const AIRPORTS=[
+ {code:"LGA", name:"LaGuardia", metroCity:"New York City", metroState:"NY", placeState:"NY", x:912, y:184, ldx:8, ldy:3, anchor:"start",
+  site:["https://www.laguardiaairport.com/","LaGuardia Airport official site"],
+  pets:["https://www.laguardiaairport.com/explore-lga/services","LGA pet and service-animal relief","Listed with airport services"]},
+ {code:"EWR", name:"Newark Liberty International", metroCity:"New York City", metroState:"NY", placeState:"NJ", localCity:"Newark", x:818, y:188, ldx:-8, ldy:3, anchor:"end",
+  site:["https://www.newarkairport.com/","Newark Liberty official site"],
+  pets:["https://www.newarkairport.com/explore-ewr/services","EWR pet and service-animal relief","Listed with airport services"]},
+ {code:"JFK", name:"John F. Kennedy International", metroCity:"New York City", metroState:"NY", placeState:"NY", x:918, y:252, ldx:8, ldy:3, anchor:"start",
+  site:["https://www.jfkairport.com/","JFK Airport official site"],
+  pets:["https://www.jfkairport.com/explore-jfk/accessibility-services","JFK pet and service-animal relief","Same page cited on the New York hotel guide"]},
+ {code:"LAX", name:"Los Angeles International", metroCity:"Los Angeles", metroState:"CA", placeState:"CA", x:68, y:378, ldx:-8, ldy:3, anchor:"end",
+  site:["https://www.flylax.com/","LAX official site"],
+  pets:["https://www.flylax.com/sites/lax/files/documents/LAX%20Pet%20Relief%20Locations.pdf","LAX animal relief stations map","Official LAX pet-relief map (PDF)"]},
+ {code:"SFO", name:"San Francisco International", metroCity:"San Francisco", metroState:"CA", placeState:"CA", x:22, y:286, ldx:8, ldy:3, anchor:"start",
+  site:["https://www.flysfo.com/","SFO official site"], pets:null},
+ {code:"ORD", name:"O'Hare International", metroCity:"Chicago", metroState:"IL", placeState:"IL", x:616, y:206, ldx:0, ldy:-12, anchor:"middle",
+  site:["https://www.flychicago.com/ohare/home/pages/default.aspx","O'Hare official site"],
+  pets:["https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx","O'Hare service-animal relief areas","On the O'Hare accessibility page"]},
+ {code:"MDW", name:"Midway International", metroCity:"Chicago", metroState:"IL", placeState:"IL", x:622, y:246, ldx:-8, ldy:3, anchor:"end",
+  site:["https://www.flychicago.com/midway/home/pages/default.aspx","Midway official site"],
+  pets:["https://www.flychicago.com/midway/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx","Midway service-animal relief area","On the Midway accessibility page"]},
+ {code:"MIA", name:"Miami International", metroCity:"Miami", metroState:"FL", placeState:"FL", x:798, y:558, ldx:-8, ldy:3, anchor:"end",
+  site:["https://www.miami-airport.com/","Miami International official site"],
+  pets:["https://www.miami-airport.com/map-animal-relief-areas.asp","MIA animal relief areas","Same page cited on the Miami hotel guide"]},
+ {code:"IAH", name:"George Bush Intercontinental", metroCity:"Houston", metroState:"TX", placeState:"TX", x:496, y:486, ldx:0, ldy:-12, anchor:"middle",
+  site:["https://www.fly2houston.com/iah/","IAH official site"],
+  pets:["https://www.fly2houston.com/iah/accessibility/travelingwithpets/","IAH traveling with pets","Houston Airport System pet-relief page"]},
+ {code:"HOU", name:"William P. Hobby", metroCity:"Houston", metroState:"TX", placeState:"TX", x:528, y:526, ldx:8, ldy:3, anchor:"start",
+  site:["https://www.fly2houston.com/hou/","Hobby Airport official site"],
+  pets:["https://www.fly2houston.com/hou/visitor-information/hou-travel-with-pets/","Hobby traveling with pets","Houston Airport System pet-relief page"]},
+ {code:"DFW", name:"Dallas/Fort Worth International", metroCity:"Dallas", metroState:"TX", placeState:"TX", x:464, y:422, ldx:-8, ldy:3, anchor:"end",
+  site:["https://www.dfwairport.com/","DFW official site"], pets:null},
+ {code:"SEA", name:"Seattle-Tacoma International", metroCity:"Seattle", metroState:"WA", placeState:"WA", x:140, y:92, ldx:8, ldy:3, anchor:"start",
+  site:["https://www.flysea.org/","SEA official site"],
+  pets:["https://www.portseattle.org/services-amenities/traveling-pets","SEA traveling with pets","Port of Seattle pet-relief page"]},
+ {code:"DEN", name:"Denver International", metroCity:"Denver", metroState:"CO", placeState:"CO", x:372, y:262, ldx:8, ldy:3, anchor:"start",
+  site:["https://www.flydenver.com/","DEN official site"],
+  pets:["https://www.flydenver.com/at-the-airport/services-and-amenities/traveling-with-pets/","DEN traveling with pets","Denver International pet-relief page"]},
+ {code:"ATL", name:"Hartsfield-Jackson Atlanta International", metroCity:"Atlanta", metroState:"GA", placeState:"GA", x:706, y:430, ldx:0, ldy:16, anchor:"middle",
+  site:["https://www.atl.com/","ATL official site"],
+  pets:["https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/","ATL pet relief areas","Hartsfield-Jackson official page"]},
+];
+function cityXY(state, name){
+ const list=(GEO[state]&&GEO[state].cities)||[];
+ const c=list.find(x=>x.n===name);
+ if(c) return [c.x,c.y];
+ if(GEO[state]) return GEO[state].c;
+ return null;
+}
+function airportsFor(state, city){
+ const seen=new Set();
+ return AIRPORTS.filter(ap=>{
+  const hit=city
+    ? (ap.metroCity===city && ap.metroState===state) || (ap.localCity===city && ap.placeState===state)
+    : ap.placeState===state || ap.metroState===state;
+  if(!hit || seen.has(ap.code)) return false;
+  seen.add(ap.code); return true;
+ });
+}
+function airportByCode(code){return AIRPORTS.find(ap=>ap.code===code)}
+const HD=`style="font:600 .72rem var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:8px 0 0"`;
+function airportChips(list, heading){
+ if(!list.length) return "";
+ return `<h4 ${HD}>${esc(heading)}</h4><div class="citylist">${list.map(ap=>`<button type="button" class="apbtn${ap.pets?"":" placeholder"}" data-ap="${esc(ap.code)}" aria-label="${esc(ap.code)}, ${esc(ap.metroCity)}">${esc(ap.code)} — ${esc(ap.metroCity)}</button>`).join("")}</div>`;
+}
 /* ---------- distinct state marks ---------- */
 const GLYPH=[
  "M32 14l4.7 9.6 10.6 1.5-7.7 7.5 1.8 10.5L32 38.1l-9.4 5 1.8-10.5-7.7-7.5 10.6-1.5z",
@@ -124,6 +193,31 @@ function buildMap(){
  const dc=GEO.DC.city;const g=el("g",{class:"ct cap",role:"button",tabindex:-1,"aria-label":"Washington, DC"});
  g.appendChild(el("circle",{cx:dc.x,cy:dc.y,r:3}));const tt=el("title",{});tt.textContent="Washington, DC (District of Columbia)";g.appendChild(tt);
  g.addEventListener("click",e=>{e.stopPropagation();selectDC()});gc.appendChild(g);
+ buildAirports();
+}
+function buildAirports(){
+ let ga=$("#g-ap");
+ if(!ga){ga=el("g",{id:"g-ap"}); $("#map").appendChild(ga);}
+ for(const ap of AIRPORTS){
+  const xy=cityXY(ap.metroState, ap.metroCity); if(!xy) continue;
+  const states=[ap.metroState, ap.placeState].filter((v,i,a)=>a.indexOf(v)===i).join(" ");
+  const citykey=ap.metroState+"|"+ap.metroCity;
+  ga.appendChild(el("line",{class:"ap-link"+(ap.pets?"":" placeholder"),x1:xy[0],y1:xy[1],x2:ap.x,y2:ap.y,"data-states":states,"data-citykey":citykey,"data-code":ap.code}));
+ }
+ for(const ap of AIRPORTS){
+  const states=[ap.metroState, ap.placeState].filter((v,i,a)=>a.indexOf(v)===i).join(" ");
+  const citykey=ap.metroState+"|"+ap.metroCity;
+  const g=el("g",{class:"ap"+(ap.pets?"":" placeholder"),role:"button",tabindex:0,"data-code":ap.code,"data-states":states,"data-citykey":citykey,"aria-label":ap.code+", "+ap.metroCity});
+  g.appendChild(el("rect",{class:"pad",x:-8,y:-8,width:16,height:16,rx:2,transform:"rotate(45)"}));
+  g.appendChild(el("path",{class:"glyph",d:PLANE,transform:"translate(-6.2,-6.2) scale(.52)"}));
+  g.setAttribute("transform","translate("+ap.x+" "+ap.y+")");
+  const tx=el("text",{x:ap.ldx||0,y:ap.ldy==null?14:ap.ldy,"text-anchor":ap.anchor||"middle"});
+  tx.textContent=ap.code; g.appendChild(tx);
+  const tt=el("title",{}); tt.textContent=ap.code+" — "+ap.metroCity+" ("+ap.name+")"; g.appendChild(tt);
+  g.addEventListener("click",e=>{e.stopPropagation(); selectAirport(ap.code)});
+  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault(); selectAirport(ap.code)}});
+  ga.appendChild(g);
+ }
 }
 /* ---------- panel ---------- */
 let step=1,cur=null;
@@ -153,8 +247,38 @@ function roadSection(a,city){
  else s+=city;
  return s+`</section>`;
 }
-function planeSection(a){
- return `<section class="sec" data-sec="3"><h3><span class="n">3</span>Plane</h3><p>Book your pet's in-cabin or cargo spot directly with the airline (pet space per flight is limited). Many airlines ask for a health certificate issued within 10 days.</p><div class="links">${lk("✈️","Search flights on Expedia","Then add the pet with the airline","https://expedia.com/affiliate/jnsZjjX","aff")}${lk("🧳","Airline pet policies","Fees, carrier sizes, breed bans","../index.html#airlines","off").replace('Official','Site')}${lk("🇺🇸","PetPolicyCheck: USA pet travel guide","Full federal and state table (source for this map)",SITE+"/countries/usa.html","off").replace('Official','Site')}${fed("aphisAir")}${fed("dot","🦮")}</div><div class="stubbox"><b>Placeholder:</b> ${a==="HI"?"Honolulu (HNL) direct-release window & neighbor-island rules; ":""}main airports in ${esc(a==="DC"?"DC":GEO[a].name)}, airport pet-relief areas, cargo drop-off hours.</div></section>`;
+function airFedLinks(){
+ return lk("✈️","Search flights on Expedia","Then add the pet with the airline","https://expedia.com/affiliate/jnsZjjX","aff")
+  +lk("🧳","Airline pet policies","Fees, carrier sizes, breed bans","../index.html#airlines","off").replace("Official","Site")
+  +lk("🇺🇸","PetPolicyCheck: USA pet travel guide","Full federal and state table (source for this map)",SITE+"/countries/usa.html","off").replace("Official","Site")
+  +fed("aphisAir")+fed("cdc","🐕")+fed("dot","🦮");
+}
+function planeSection(a, cityName){
+ const list=airportsFor(a, cityName||null);
+ const nm=cityName||(a==="DC"?"Washington, DC":(GEO[a]?GEO[a].name:a));
+ let s=`<section class="sec" data-sec="3"><h3><span class="n">3</span>Plane</h3><p>Book your pet's in-cabin or cargo spot directly with the airline (pet space per flight is limited). Many airlines ask for a health certificate issued within 10 days.</p>`;
+ if(list.length){
+  s+=`<h4>${cityName?`Airports serving ${esc(cityName)}`:"Airports on this map"}</h4><div class="citylist">${list.map(ap=>`<button type="button" class="apbtn${ap.pets?"":" placeholder"}" data-ap="${esc(ap.code)}" aria-label="${esc(ap.code)}, ${esc(ap.metroCity)}">${esc(ap.code)} — ${esc(ap.metroCity)}</button>`).join("")}</div>`;
+  s+=`<p class="disc">Open an airport for its relief page. The dashed line on the map ties it to ${cityName?esc(cityName):"its city"}.</p>`;
+ }
+ s+=`<div class="links">${airFedLinks()}</div>`;
+ if(!list.length) s+=`<div class="stubbox"><b>Placeholder:</b> ${a==="HI"?"Honolulu (HNL) direct-release window and neighbor-island rules; ":""}airports in ${esc(nm)} are not on this preview map yet.</div>`;
+ else if(!cityName) s+=`<p class="disc">Only mapped airports are listed. Any other airport in ${esc(nm)} is still a placeholder.</p>`;
+ return s+`</section>`;
+}
+function airportPlane(ap){
+ const sibs=airportsFor(ap.metroState, ap.metroCity).filter(x=>x.code!==ap.code);
+ let s=`<section class="sec" data-sec="3"><h3><span class="n">3</span>Plane</h3><h4>${esc(ap.code)} · ${esc(ap.name)}</h4><p>${esc(ap.code)} serves ${esc(ap.metroCity)}. Relief areas are the airport’s; the airline still sets cabin and cargo rules.</p><div class="links">`;
+ s+=lk("🛫", ap.site[1], ap.name, ap.site[0], "off");
+ if(ap.pets) s+=lk("🐾", ap.pets[1], ap.pets[2]||"Official pet or relief page", ap.pets[0], "off");
+ else s+=`</div><div class="stubbox"><b>Placeholder:</b> a pet-relief or traveling-with-pets page for ${esc(ap.code)} is not verified on this preview. Use the official airport site and confirm before you fly.</div><div class="links">`;
+ s+=airFedLinks()+`</div>`;
+ if(ap.placeState!==ap.metroState) s+=`<p class="disc">${esc(ap.code)} is in ${esc(GEO[ap.placeState].name)}. Taxis and hotels continue on the ${esc(ap.metroCity)} panel.</p>`;
+ if(sibs.length) s+=`<h4>Other airports for ${esc(ap.metroCity)}</h4><div class="citylist">${sibs.map(x=>`<button type="button" class="apbtn${x.pets?"":" placeholder"}" data-ap="${esc(x.code)}">${esc(x.code)} — ${esc(x.metroCity)}</button>`).join("")}</div>`;
+ return s+`</section>`;
+}
+function airportRoad(ap){
+ return `<section class="sec" data-sec="2"><h3><span class="n">2</span>Road / rail</h3><p>After landing, taxis, trains and hotels continue on the ${esc(ap.metroCity)} city panel.</p><div class="btnrow"><button type="button" class="btn ghost" data-s="${ap.metroState}" data-city="${esc(ap.metroCity)}">Open ${esc(ap.metroCity)}: taxis, rail, hotels</button></div><h4>Rides from the airport</h4><div class="links">${RIDES}</div></section>`;
 }
 function hotelSection(q,extra){
  return `<section class="sec" data-sec="4"><h3><span class="n">4</span>Hotel</h3><div class="links">${extra||""}${lk("🏨","Pet-friendly hotels on Expedia",q+" · pets-allowed filter",expHotels(q),"srch")}${lk("🛏","Pet-friendly stays on Booking.com",q+" · pets-allowed filter",bkgHotels(q),"srch")}${lk("📋","Hotel chains: pet fees & weight limits","PetPolicyCheck",SITE+"/hotels/","off").replace('Official','Site')}</div><p class="disc">“Search” links are plain search URLs: swap for affiliate deep links before publish. “Affiliate” links may earn a commission at no extra cost to you.</p></section>`;
@@ -162,6 +286,7 @@ function hotelSection(q,extra){
 function render(html){const p=$("#panel");p.innerHTML=html;p.scrollTop=0;applyStep(false);
  p.querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
  p.querySelectorAll("[data-state]").forEach(b=>b.onclick=()=>selectState(b.dataset.state));
+ p.querySelectorAll("[data-ap]").forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
  if(innerWidth<=900&&cur)p.scrollIntoView({behavior:"smooth",block:"start"});
 }
 const FULL=[0,0,975,610];let vb=FULL.slice();
@@ -169,13 +294,21 @@ function zoomTo(a){const m=$("#map");let t=FULL;
  if(a&&innerWidth<=900){const b=$("#s-"+a).getBBox();const w=Math.max(b.width*1.5,220),h=Math.max(b.height*1.5,150);const sc=Math.max(w/975,h/610);const W=975*sc,H=610*sc;t=[b.x+b.width/2-W/2,b.y+b.height/2-H/2,W,H];}
  $("#reset").hidden=t===FULL;const f=vb.slice(),t0=performance.now();
  (function an(n){const k=Math.min(1,(n-t0)/350),e=k*(2-k);vb=f.map((v,i)=>v+(t[i]-v)*e);m.setAttribute("viewBox",vb.join(" "));m.style.setProperty("--k",(vb[2]/975).toFixed(3));if(k<1)requestAnimationFrame(an)})(t0);}
-function hilite(a,key){zoomTo(a&&a!=="DC"?a:null);
- document.querySelectorAll(".st.sel,.lbl.sel,.ct.sel").forEach(e=>e.classList.remove("sel"));
+function hilite(a,key,apCode){zoomTo(a&&a!=="DC"?a:null);
+ document.querySelectorAll(".st.sel,.lbl.sel,.ct.sel,.ap.sel").forEach(e=>e.classList.remove("sel"));
  document.querySelectorAll("#grid button.sel").forEach(e=>e.classList.remove("sel"));
  document.querySelectorAll(".ct[data-s]").forEach(e=>{if(!e.classList.contains("sample"))e.classList.toggle("hide-lbl",e.dataset.s!==a)});
  TINY.forEach(t=>{const r=$("#cb-"+t);r&&r.setAttribute("fill",t===a?"#6d5a2c":"#16302f")});
  if(a){$("#s-"+a)?.classList.add("sel");$("#l-"+a)?.classList.add("sel");document.querySelector(`#grid button[data-a="${a}"]`)?.classList.add("sel")}
  if(key)document.querySelector(`.ct[data-k="${CSS.escape(key)}"]`)?.classList.add("sel");
+ document.querySelectorAll(".ap,.ap-link").forEach(el=>{
+  const mine=!a || (el.dataset.states||"").split(" ").includes(a);
+  el.classList.toggle("dim", !!a && !mine);
+  const cityHot=!!(key && el.dataset.citykey===key);
+  const stateHot=!!a && !key && mine;
+  el.classList.toggle("hot", cityHot || stateHot);
+ });
+ if(apCode) document.querySelector(`.ap[data-code="${CSS.escape(apCode)}"]`)?.classList.add("sel");
  $("#pick").value=a&&a!=="DC"?a:"";
 }
 function cityButtons(a){return `<div class="citylist">${GEO[a].cities.map(c=>`<button data-s="${a}" data-city="${esc(c.n)}" class="${SAMPLE[a+'|'+c.n]?'sample':''}">${esc(c.n)}${c.cap?" ★cap":""}</button>`).join("").replace(/ ★cap/g," (capital)")}</div>`}
@@ -192,28 +325,53 @@ function selectState(a){
 }
 function selectDC(){cur={a:"DC"};hilite(null);setHash("DC");
  render(header("DC","Washington, DC","DC · "+ruleKind("DC")+" · state law portal")+lawSection("DC")+roadSection("DC")+planeSection("DC")+hotelSection("Washington, DC"));}
+function cityHotelExtra(a,n){
+ const S=SAMPLE[a+"|"+n]; if(!S) return "";
+ let extra="";
+ if(S.guide) extra+=lk("📍","PetPolicyCheck: pet-friendly hotels in "+n,"Chain rules, luxury hotels, dog parks",SITE+S.guide,"off").replace("Official","Site");
+ if(S.exp) extra+=lk("🏨","See pet-friendly hotels on Expedia","Live affiliate link from the site",S.exp,"aff");
+ extra+=lk("🐕","BringFido: pet-friendly places",S.q,`https://www.bringfido.com/lodging/?q=${enc(S.q)}`,"srch");
+ return extra;
+}
 function selectCity(a,n){
  const key=a+"|"+n, S=SAMPLE[key], st=GEO[a];cur={a,n};hilite(a,key);setHash(a,n);
  const crumbs=`<p class="crumbs"><button data-state="${a}">← ${esc(st.name)}</button> · ${esc(n)}</p>`;
+ const chips=airportChips(airportsFor(a,n), "Airports serving "+n);
  if(!S){
-  render(crumbs+header(a,n,`${esc(st.name)} · city`)+`<div class="stubbox"><b>Placeholder:</b> the full city booking panel (local taxis, transit, stations, hotels) is built for 8 sample cities in this preview. State-level links shown below.</div>`+lawSection(a,true)+roadSection(a)+planeSection(a)+hotelSection(n+", "+a));
+  render(crumbs+header(a,n,`${esc(st.name)} · city`)+chips+`<div class="stubbox"><b>Placeholder:</b> the full city booking panel (local taxis, transit, stations, hotels) is built for 8 sample cities in this preview. State-level links shown below.</div>`+lawSection(a,true)+roadSection(a)+planeSection(a,n)+hotelSection(n+", "+a));
   return;
  }
  const L=arr=>arr.map(x=>lk(...x)).join("");
  const city=`<h4>Taxis &amp; rideshare</h4><div class="links">${L(S.taxi)}${RIDES}</div>`+
   `<h4>Trains</h4><p>${AMTRAK_NOTE}</p><div class="links">${lk("🚆","Amtrak: "+S.amtrak[1],"Station page · then book on amtrak.com","https://www.amtrak.com/stations/"+S.amtrak[0],"off")}${lk("🐾","Amtrak: Pets on trains","Reserve the pet spot when you book","https://www.amtrak.com/pets","off")}${L(S.rail)}</div>`+
   `<h4>Buses &amp; local transit</h4><div class="links">${L(S.transit)}${lk("🚌","Greyhound","Service animals only, no pets (carrier policy; verify)","https://www.greyhound.com/","off")}</div><div class="stubbox"><b>Placeholder:</b> local transit pet rules (carrier size, fares, rush-hour limits) to be verified per agency.</div>`;
- let extra="";
- if(S.guide)extra+=lk("📍","PetPolicyCheck: pet-friendly hotels in "+n,"Chain rules, luxury hotels, dog parks",SITE+S.guide,"off").replace('Official','Site');
- if(S.exp)extra+=lk("🏨","See pet-friendly hotels on Expedia","Live affiliate link from the site",S.exp,"aff");
- extra+=lk("🐕","BringFido: pet-friendly places",S.q,`https://www.bringfido.com/lodging/?q=${enc(S.q)}`,"srch");
  render(crumbs+header(a,n,`${esc(st.name)} · city booking guide`)+
   `<div class="btnrow" style="margin:0 0 4px"><button class="btn ghost" data-state="${a}">State laws for ${esc(st.name)}</button></div>`+
-  lawSection(a,true)+roadSection(a,city)+planeSection(a)+hotelSection(S.q,extra));
+  chips+lawSection(a,true)+roadSection(a,city)+planeSection(a,n)+hotelSection(S.q,cityHotelExtra(a,n)));
+}
+function airHead(ap){
+ const tag=ap.pets?"":` · <b style="color:#f0a3a3">Placeholder hub</b>`;
+ return `<div class="ph"><div class="ap-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><path fill="#d9b765" d="${PLANE}"/></svg><b>${esc(ap.code)}</b></div><div><h2>${esc(ap.code)} — ${esc(ap.metroCity)}</h2><div class="sub">${esc(ap.name)} · ${esc(GEO[ap.placeState].name)}${tag}</div></div></div>`;
+}
+function selectAirport(code){
+ const ap=airportByCode(code); if(!ap) return;
+ step=3;
+ const key=ap.metroState+"|"+ap.metroCity;
+ cur={a:ap.metroState, n:ap.metroCity, ap:code};
+ hilite(ap.metroState, key, code);
+ setHash(ap.metroState, code);
+ const st=GEO[ap.metroState];
+ const crumbs=`<p class="crumbs"><button type="button" data-state="${ap.metroState}">← ${esc(st.name)}</button> · <button type="button" data-s="${ap.metroState}" data-city="${esc(ap.metroCity)}">${esc(ap.metroCity)}</button> · ${esc(ap.code)}</p>`;
+ const q=SAMPLE[key]?SAMPLE[key].q:ap.metroCity+", "+ap.placeState;
+ render(crumbs+airHead(ap)+
+  `<div class="btnrow" style="margin:0 0 4px"><button type="button" class="btn" data-s="${ap.metroState}" data-city="${esc(ap.metroCity)}">City panel: taxis and hotels in ${esc(ap.metroCity)}</button></div>`+
+  lawSection(ap.placeState,true)+airportRoad(ap)+airportPlane(ap)+hotelSection(q,cityHotelExtra(ap.metroState, ap.metroCity)));
+ applyStep(true);
 }
 function empty(){
- $("#panel").innerHTML=`<div class="empty"><div class="big">Pick a state or city</div><p>Click any of the 50 states on the map (or use the list) to open its law portal. Gold cities have the full booking guide:</p><div class="citylist">${Object.keys(SAMPLE).map(k=>{const[a,n]=k.split("|");return `<button class="sample" data-s="${a}" data-city="${esc(n)}">${esc(n)}</button>`}).join("")}</div><p class="disc">Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel.</p></div>`;
+ $("#panel").innerHTML=`<div class="empty"><div class="big">Pick a state or city</div><p>Click any of the 50 states on the map (or use the list) to open its law portal. Gold cities have the full booking guide. Plane marks are that city’s airports:</p><div class="citylist">${Object.keys(SAMPLE).map(k=>{const[a,n]=k.split("|");return `<button class="sample" data-s="${a}" data-city="${esc(n)}">${esc(n)}</button>`}).join("")}</div><div class="citylist">${AIRPORTS.filter(ap=>ap.pets&&SAMPLE[ap.metroState+"|"+ap.metroCity]).map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.metroCity)}</button>`).join("")}</div><p class="disc">Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel. Dashed plane marks (SFO, DFW) are placeholder hubs.</p></div>`;
  $("#panel").querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
+ $("#panel").querySelectorAll("[data-ap]").forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
 }
 function applyStep(scroll){
  document.querySelectorAll("#steps button").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.step===step));
@@ -231,10 +389,12 @@ $("#grid").querySelectorAll("button").forEach(b=>b.onclick=()=>{b.dataset.a==="D
 const raw=decodeURIComponent((location.hash||"").replace(/^#/,"").replace(/\+/g," "));
 const slash=raw.indexOf("/");
 if(slash>0){const a=raw.slice(0,slash), n=raw.slice(slash+1);
- if(GEO[a]&&(GEO[a].cities||[]).some(c=>c.n===n)) selectCity(a,n);
+ if(airportByCode(n)) selectAirport(n);
+ else if(GEO[a]&&(GEO[a].cities||[]).some(c=>c.n===n)) selectCity(a,n);
  else if(a==="DC") selectDC();
  else if(GEO[a]) selectState(a);
  else empty();
-}else if(raw==="DC") selectDC();
+}else if(airportByCode(raw)) selectAirport(raw);
+else if(raw==="DC") selectDC();
 else if(GEO[raw]) selectState(raw);
 else empty();
