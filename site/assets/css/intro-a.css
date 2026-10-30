@@ -47,7 +47,7 @@ html{scroll-padding-top:0}
 .paw.paw-real .paw-t{font-size:13.5px;line-height:1.06;max-width:5.4em;letter-spacing:0;color:#1a1608}
 .paw.paw-real .paw-bg{stroke:#f3dc98;stroke-width:2.5;filter:drop-shadow(0 6px 12px #d9b76540) drop-shadow(0 1px 0 #8a6524)}
 
-/* Marc 30/10 ~23:35: desktop = story LEFT | image RIGHT, Begin centered under that right image.
+/* Marc: desktop = image LEFT | story RIGHT, Begin centered under the left image.
    Mobile (<=980) unchanged: logo→image→Begin→story stack. Live selectors prefixed .intro. */
 @media (min-width:1100px){
  .intro .brandbar{padding:clamp(8px,1.4vh,18px) 0 0;gap:14px}
@@ -58,8 +58,8 @@ html{scroll-padding-top:0}
  .intro .wrap{max-width:1360px}
  .intro .vas-grid{
   display:grid;
-  grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
-  grid-template-areas:"story art";
+  grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);
+  grid-template-areas:"art story";
   column-gap:40px;row-gap:10px;
   align-items:start;
   margin-top:clamp(4px,1vh,12px);margin-bottom:28px;
@@ -70,8 +70,8 @@ html{scroll-padding-top:0}
  .intro .vas-enter{display:flex;justify-content:center;margin:0;padding:0;background:none;position:static}
  .intro .intro-story{
   grid-area:story;width:100%;max-width:none;margin:0;
-  border-top:0;border-left:0;padding:0 30px 0 0;
-  background:linear-gradient(#d9b76500,#d9b76555 18%,#d9b76555 82%,#d9b76500) right/1px 100% no-repeat;
+  border-top:0;border-left:0;padding:0 0 0 30px;
+  background:linear-gradient(#d9b76500,#d9b76555 18%,#d9b76555 82%,#d9b76500) left/1px 100% no-repeat;
  }
  .intro .intro-story h2{font-size:clamp(1.55rem,2.8vh,1.95rem);margin-bottom:8px;padding-bottom:8px}
  .intro .intro-story .body p{font-size:clamp(.86rem,1.7vh,1.0rem);line-height:1.52;margin:0 0 .42em}
@@ -167,8 +167,8 @@ html:not(.intro-lock) .mapcard{min-height:100vh;min-height:100dvh;margin-top:0;b
  .intro .paw.paw-real{width:72px;height:68px;padding-bottom:11px}
  .intro .intro-story .body p{line-height:1.34}
 }
-/* ==== Marc 30/10 ~23:35 KST — Begin under the right-hand image. Last so it beats the generic brand sizes. ====
-   Story left, image right, paw centered under that image. .mock-map is not copied. */
+/* ==== Marc 30/10 ~23:35 KST — compact desktop header so Begin stays inside the fold. Last so it beats generic brand sizes. ====
+   Image stays on the left; the paw stays centered under that image. .mock-map is not copied. */
 @media (min-width:1100px){
  .intro .brandbar{padding:clamp(6px,1.2vh,16px) 0 0;gap:16px}
  .intro .brandbar img{height:clamp(56px,8.2vh,96px)}
