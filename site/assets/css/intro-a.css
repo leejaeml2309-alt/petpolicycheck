@@ -1,0 +1,83 @@
+/* Paw Passport intro (validated A-side v5). Load after theme.css, home-c.css, story.css.
+   Design C: #0b1719 / #d9b765. No ad slots in .intro.
+   Desktop (min-width 1100px) keeps the full 2016 story inside the first screen. */
+
+html{scroll-padding-top:0}
+#map{scroll-margin-top:0}
+
+.intro{position:relative}
+.intro .hdr-band,.intro .home-bottom-ad,.intro ins.adsbygoogle{display:none}
+
+.brandbar{display:flex;justify-content:center;align-items:center;gap:22px;padding:30px 0 6px}
+.brandbar img{height:112px;width:auto;filter:drop-shadow(0 8px 20px #000a)}
+.brandbar>div{display:flex;flex-direction:column;align-items:center;text-align:center}
+.brandbar h1{font-size:clamp(3rem,5vw,4.4rem);line-height:1;letter-spacing:.015em;color:#f4efe2;text-shadow:0 2px 18px #d9b76522}
+.brandbar h1 span{color:#d9b765}
+.brandbar .brand-sub{margin:10px 0 0;font:600 .86rem/1.3 var(--text);letter-spacing:.3em;text-transform:uppercase;color:#cfc6b0}
+
+.intro-rule{display:flex;justify-content:center;margin:10px auto 0}
+.intro-rule svg{width:22px;height:18px;fill:#d9b765}
+
+.vas-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:start;margin:30px 0 60px}
+.vas-art{position:sticky;top:24px;display:flex;flex-direction:column;align-items:center}
+.va-hero{position:relative;margin:0;max-width:900px}
+.va-hero.glow::before{content:"";position:absolute;left:6%;right:6%;top:10%;bottom:6%;background:radial-gradient(ellipse at center,#d9b76533,transparent 70%);filter:blur(8px);z-index:0;pointer-events:none}
+.va-hero picture,.va-hero img{display:block;width:100%;height:auto;position:relative;z-index:1;filter:drop-shadow(0 30px 40px #000b)}
+.vas-enter{display:flex;justify-content:center;margin:22px 0 10px}
+
+.intro-story{background:none;box-shadow:none;border-radius:0;color:#e3c27a;padding:6px 0 0 34px;border-left:1px solid #d9b76540}
+.intro-story h2{position:relative;margin:0 0 22px;padding-bottom:12px;color:#f3dc98;font-size:clamp(2rem,3vw,2.6rem);line-height:1.1}
+.intro-story h2::after{content:"";position:absolute;left:0;bottom:0;width:72px;height:1px;background:linear-gradient(90deg,#d9b765,transparent)}
+.intro-story .body p{margin:0 0 .75em;color:#e3c27a;font-size:1.05rem;line-height:1.82}
+.intro-story .body p:first-child::first-letter{float:left;font-family:var(--disp);font-size:2.9em;line-height:.78;padding:4px 8px 0 0;color:#d9b765}
+.intro-story .sig{margin-top:4px;font-family:"Caveat",cursive;font-size:1.7rem;line-height:1;color:#f3dc98}
+.intro-story .sig svg{width:16px;height:14px;fill:#d9b765;vertical-align:-1px;margin-left:3px}
+
+.intro-id{margin:0;padding:20px 0 26px;border-top:1px solid #d9b76526;background:linear-gradient(180deg,#0b171900,#07101299);font-size:.78rem;color:#8f978b}
+.intro-id .wrap{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;align-items:center}
+.intro-id a{color:#c9b37a;text-decoration:none}
+.intro-id a:hover{color:#f3dc98}
+.intro-id .as-fbrand{font-family:var(--disp);font-size:.95rem;color:#d9b765;letter-spacing:.03em}
+.intro-id .dot{opacity:.5}
+
+.paw.paw-real{width:124px;height:118px;padding:0 0 19px;border-radius:45%}
+.paw.paw-real .paw-in{min-height:0;gap:0}
+.paw.paw-real .paw-t{font-size:13.5px;line-height:1.06;max-width:5.4em;letter-spacing:0;color:#1a1608}
+.paw.paw-real .paw-bg{stroke:#f3dc98;stroke-width:2.5;filter:drop-shadow(0 6px 12px #d9b76540) drop-shadow(0 1px 0 #8a6524)}
+
+/* Whole story on the first screen at 1440x900 and 1366x768. Mobile stacks. */
+@media (min-width:1100px){
+ .intro .brandbar{padding:clamp(12px,2.2vh,26px) 0 0;gap:20px}
+ .intro .brandbar img{height:clamp(84px,11vh,104px)}
+ .intro .brandbar h1{font-size:clamp(3rem,6.2vh,3.9rem)}
+ .intro .brandbar .brand-sub{margin-top:6px;font-size:.8rem}
+ .intro .intro-rule{margin-top:6px}
+ .intro .wrap{max-width:1360px}
+ .intro .vas-grid{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:44px;margin-top:clamp(8px,1.6vh,20px);margin-bottom:34px;align-items:center}
+ .intro .vas-art{position:static}
+ .intro .vas-art .va-hero picture{width:auto;max-width:100%;margin:0 auto}
+ .intro .vas-art .va-hero img{max-height:calc(100vh - 290px);width:auto;max-width:100%;margin:0 auto}
+ .intro .vas-enter{margin:6px 0 0}
+ .intro .intro-story{border-left:0;padding:0 0 0 34px;background:linear-gradient(#d9b76500,#d9b76555 18%,#d9b76555 82%,#d9b76500) left/1px 100% no-repeat}
+ .intro .intro-story h2{font-size:clamp(1.7rem,3.4vh,2.1rem);margin-bottom:10px}
+ .intro .intro-story .body p{font-size:clamp(.9rem,2vh,1.06rem);line-height:1.6;margin:0 0 .55em}
+ .intro .intro-story .sig{font-size:1.45rem;margin-top:4px}
+ .intro .intro-id{padding:14px 0 16px}
+}
+
+@media (max-width:980px){
+ .vas-grid{grid-template-columns:1fr;gap:26px}
+ .vas-art{position:relative;top:0;max-width:760px;margin:0 auto}
+ .intro-story{padding:26px 0 0;border-left:0;border-top:1px solid #d9b76540}
+}
+@media (max-width:700px){
+ .brandbar{flex-direction:column;gap:6px;padding:26px 0 0}
+ .brandbar img{height:86px}
+ .brandbar h1{font-size:2.7rem}
+ .brandbar .brand-sub{font-size:.7rem;letter-spacing:.2em}
+ .vas-grid{margin-top:12px}
+ .va-hero{margin-top:14px}
+ .intro-id .wrap{flex-direction:column;gap:2px}
+ .intro-id .dot{display:none}
+ .intro-story h2{font-size:2rem}
+}

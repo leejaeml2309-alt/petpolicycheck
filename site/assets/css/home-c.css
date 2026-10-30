@@ -15,7 +15,7 @@
 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
 .pick{font:500 .9rem var(--text);padding:8px 10px;border-radius:var(--r-s);border:1px solid var(--line2);background:var(--bg);color:var(--ink);max-width:220px}
 .mapbox{position:relative;background:var(--ocean)}
-#map{display:block;width:100%;height:auto;touch-action:pan-y}
+#world-map{display:block;width:100%;height:auto;touch-action:pan-y}
 .country{fill:var(--land);stroke:var(--border);stroke-width:var(--csw,.5);cursor:pointer;transition:fill .15s}
 .country:hover,.country:focus{fill:var(--land-h);outline:none}
 .country.has{fill:var(--land-data)}.country.has:hover{fill:var(--land-data-h)}

@@ -49,6 +49,14 @@
 .vb .bk-note{left:8%;right:auto;top:418px;bottom:auto;font-size:1.45rem!important;transform:rotate(-5deg);z-index:4}
 .vb .bk-cta{border-top:2px dashed #b38a3599}
 /* mobile */
+/* Single scrapbook page: photos only. The 2016 story lives in the Paw Passport intro. */
+.vb.album-only .book{grid-template-columns:minmax(0,760px);justify-content:center}
+.vb.album-only .book::after{display:none}
+.vb.album-only .bk-right{border-radius:10px}
+@media (max-width:820px){
+ .vb.album-only .book{grid-template-columns:1fr;padding-left:12px}
+ .vb.album-only .bk-right{border-radius:3px 10px 10px 3px}
+}
 @media (max-width:820px){
  .vb .book::after{right:18px}
  .vb .bk-kick-r{float:none}

@@ -1,5 +1,5 @@
 (function(){
-var W=960,H=500,VH=H,marks=[],svg=d3.select('#map'),tip=document.getElementById('tip'),box=document.getElementById('mapbox');
+var W=960,H=500,VH=H,marks=[],svg=d3.select('#world-map'),tip=document.getElementById('tip'),box=document.getElementById('mapbox');
 var countries=topojson.feature(ATLAS,ATLAS.objects.countries).features.filter(function(f){return f.id!=='010'&&f.properties.name!=='Antarctica'});
 var proj=d3.geoNaturalEarth1().rotate([-10,0]);
 proj.fitWidth(W-16,{type:'Sphere'});
@@ -29,7 +29,7 @@ Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return
  pin.append('circle').attr('class','ring').attr('r',6);pin.append('circle').attr('class','p').attr('r',5);
  pin.append('text').attr('x',GUIDES[id].label_left?-9:9).attr('text-anchor',GUIDES[id].label_left?'end':null).attr('y',4).text((GUIDES[id].short||GUIDES[id].name)+' guide')});
 // zoom & pan (d3-zoom, already loaded): mouse drag, Ctrl/Cmd + wheel (and trackpad pinch), +/-/reset buttons.
-// Touch is handled below so one-finger vertical swipes keep scrolling the page (#map has touch-action:pan-y):
+// Touch is handled below so one-finger vertical swipes keep scrolling the page (#world-map has touch-action:pan-y):
 // one finger sideways = move the map, two fingers = pinch-zoom + move, double-tap = zoom in.
 // Phones: the viewport is as tall as the old 760px-wide scroller (whole height of the map at the default zoom);
 // zooming out to 1x shows the whole world.
