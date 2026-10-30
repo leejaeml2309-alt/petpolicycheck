@@ -95,8 +95,10 @@ function flag(G){return G&&G.flag_src?'<img class="flag" src="'+G.flag_src+'" wi
 function bookMini(G){return '<section class="book" aria-labelledby="bookm-h"><h3 id="bookm-h">Book your trip</h3><p class="book-lede">Flights, pet-friendly hotels, airport rides, vet clinics and pet insurance on one page.</p><p class="book-btns"><a class="btn" href="'+((G&&G.book_url)||LIVE+'book/')+'">Plan and book your trip \u2192</a></p></section>'}
 function openCountry(id){
  var f=countries.find(function(c){return c.id===id});if(!f)return;
+ var G=GUIDES[id];
+ if(G&&G.map_url){window.location.href=G.map_url;return}
  cg.selectAll('.country').classed('sel',function(d){return d.id===id});
- var G=GUIDES[id],h;
+ var h;
  if(G&&G.kind==='link'){
   h=top('Pet travel rules \u00b7 dogs &amp; cats',flag(G)+esc(G.title||G.name))+'<div class="pbody">'
   +'<p class="lede">'+esc(G.line)+'</p>'
