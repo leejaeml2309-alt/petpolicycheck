@@ -18,12 +18,13 @@
   }, true);
 })();
 </script>
-<!-- intro-fold:20261030g -->
+<!-- intro-fold:20261030h -->
 <style id="intro-fold-critical">
-/* First screen is the intro even if intro-a.css is slow or an older copy. */
-body.intro-home{display:block !important}
-.intro{display:flex !important;flex-direction:column;flex:0 0 auto !important;min-height:100vh !important;min-height:100svh !important;min-height:100dvh !important;min-height:100lvh !important;box-sizing:border-box}
-body.intro-home .mapcard{position:static !important;top:auto !important}
+/* Intro fills the first screen even if intro-a.css is slow or stale. The spacer eats leftover height so #map starts below the fold. */
+html body.intro-home{display:block !important;height:auto !important}
+html body.intro-home > section.intro{display:flex !important;flex-direction:column !important;flex-shrink:0 !important;box-sizing:border-box !important;min-height:100vh !important;min-height:100dvh !important;min-height:max(100vh,100dvh,100svh,100lvh) !important}
+html body.intro-home > section.intro > .intro-spacer{flex:1 1 auto !important;width:100%;min-height:0 !important}
+html body.intro-home .mapcard{position:static !important;top:auto !important}
 </style>
 <meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7693501377730690" crossorigin="anonymous"></script>
@@ -52,7 +53,7 @@ body.intro-home .mapcard{position:static !important;top:auto !important}
 <link rel="stylesheet" href="assets/css/home-c.css?v=20261025r2">
 <link rel="stylesheet" href="assets/css/story.css?v=20261024">
 <link rel="stylesheet" href="assets/css/story-b.css?v=20261024">
-<link rel="stylesheet" href="assets/css/intro-a.css?v=20261030g">
+<link rel="stylesheet" href="assets/css/intro-a.css?v=20261030h">
 <link rel="preload" as="image" href="assets/img/hero-passport-desktop.webp" imagesrcset="assets/img/hero-passport-desktop.webp 1x, assets/img/hero-passport-desktop@1.5x.webp 1.5x" media="(min-width: 701px)" fetchpriority="high">
 </head>
 <body class="v-c intro-home">
@@ -68,6 +69,7 @@ body.intro-home .mapcard{position:static !important;top:auto !important}
 <div class="sig">Marc LEVRAT <svg viewBox="0 0 200 170" aria-hidden="true"><use href="#paw-cat"/></svg><svg viewBox="0 0 200 170" aria-hidden="true"><use href="#paw-cat"/></svg></div>
 </aside>
 </div></div>
+<div class="intro-spacer" aria-hidden="true"></div>
 <footer class="intro-id"><div class="wrap"><span class="as-fbrand">PetPolicyCheck</span><span class="dot">&middot;</span><a href="https://petpolicycheck.com/">petpolicycheck.com</a><span class="dot">&middot;</span><span>Dog &amp; cat travel rules, verified at the official source</span></div></footer>
 </section>
 <main id="main">
