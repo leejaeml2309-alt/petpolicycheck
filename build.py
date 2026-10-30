@@ -1667,7 +1667,7 @@ def build_country_usa(cfg, airlines):
     body = f"""{css}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; Countries &rsaquo; United States</nav>
 <h1>Pet travel rules for the USA: federal and state requirements</h1>
 <p class="lead">What you need to fly a dog or cat into, out of, or around the United States. Federal rules come from the CDC and USDA; each state sets its own entry rules.</p>
-<aside class="usa-map-tease" aria-label="USA pet-travel map preview"><p><b>Preview:</b> interactive map of all 50 states. Open a state for its entry rules (state and federal), then a city for taxis, buses, trains and pet-friendly hotels. Eight cities have booking links in this preview; the rest are marked placeholder.</p><p><a class="btn" href="usa-map.html">Open the USA pet-travel map</a></p></aside>
+<aside class="usa-map-tease" aria-label="USA pet-travel map"><p>Interactive map of all 50 states. Open a state for its entry rules (state and federal), then a city for taxis, buses, trains, flights and pet-friendly hotels.</p><p><a class="btn" href="usa-map.html">Open the USA pet-travel map</a></p></aside>
 <div class="usa-quick"><h2 id="quick">Quick answer</h2><ul>{qa}</ul></div>
 <p class="warn usa-warn">Rules change, especially New World screwworm (NWS) restrictions added by many states in 2026. Always confirm with the official source before you travel. {checked}.</p>
 {checklist_cta(root)}
@@ -2458,8 +2458,7 @@ def build_book(cfg, airlines):
 
 
 def build_usa_map(cfg):
-    """Preview-only interactive USA pet-travel map. noindex and omitted from sitemap.xml
-    so a merge does not submit it to search or IndexNow. Not a published guide."""
+    """Interactive USA pet-travel map. Indexable; listed in sitemap.xml."""
     root = "../"
     rules_js = (ROOT / "static" / "assets" / "js" / "usa-map-rules.js").read_text()
     published = {s["code"] for s in json.loads((ROOT / "data" / "countries" / "usa.json").read_text())["states"] if s["code"] != "PR"}
@@ -2467,7 +2466,6 @@ def build_usa_map(cfg):
     assert not missing, f"static/assets/js/usa-map-rules.js is missing {missing}; regenerate it from data/countries/usa.json"
     body = """<link rel="stylesheet" href="{root}assets/css/usa-map.css">
 <div id="usa-map">
-<p class="preview-pill">Preview · not published</p>
 <section class="intro">
  <div><h1>Travel the USA with your pet</h1>
  <p>Pick a state for its animal-entry rules (state and federal), then a city or one of its airports. Plan in order: vet and laws, road or rail, plane, hotel. <a href="usa.html">Full federal and state table</a>.</p></div>
@@ -2502,12 +2500,12 @@ def build_usa_map(cfg):
 <script src="{root}assets/js/usa-map.js"></script>"""
     return page(
         cfg,
-        f"USA pet-travel map (preview) | {cfg['site_name']}",
-        "Preview: click a US state for pet entry rules, then a city for taxis, trains and pet-friendly hotels. Not published.",
+        f"USA pet-travel map | {cfg['site_name']}",
+        "Click a US state for pet entry rules, then a city for taxis, trains, flights and pet-friendly hotels.",
         body,
         "countries/usa-map.html",
         root,
-        noindex=True,
+        noindex=False,
         ads=False,
     )
 
@@ -2578,7 +2576,6 @@ def main():
     (OUT / "clinics").mkdir(parents=True, exist_ok=True)
     (OUT / "clinics" / "usa.html").write_text(build_clinics_usa(cfg))
     (OUT / "countries" / "usa.html").write_text(build_country_usa(cfg, airlines))
-    # Preview only: noindex page, deliberately left out of sitemap.xml / IndexNow.
     (OUT / "countries" / "usa-map.html").write_text(build_usa_map(cfg))
     (OUT / "routes" / "usa-to-japan.html").write_text(build_route_usa_japan(cfg, airlines))
     (OUT / "routes" / "usa-to-south-korea.html").write_text(build_route_usa_korea(cfg, airlines))
@@ -2603,6 +2600,7 @@ def main():
     urls += [(f"{base}/airlines/{a['slug']}.html", a.get("last_verified") or a.get("last_checked") or newest) for a in airlines]
     urls += forum_pages.build(sys.modules[__name__], cfg, airlines, OUT, ROOT)  # [] while the forum is off
     urls.append((f"{base}/countries/usa.html", json.loads((ROOT / "data" / "countries" / "usa.json").read_text())["checked"]))
+    urls.append((f"{base}/countries/usa-map.html", "2026-10-30"))
     urls.append((f"{base}/routes/usa-to-japan.html", json.loads((ROOT / "data" / "routes" / "usa-japan.json").read_text())["checked"]))
     urls.append((f"{base}/routes/usa-to-south-korea.html", json.loads((ROOT / "data" / "routes" / "usa-korea.json").read_text())["checked"]))
     urls.append((f"{base}/hotels/", hci["checked"]))

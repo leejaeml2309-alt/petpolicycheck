@@ -101,7 +101,7 @@ function openCountry(id){
   h=top('Pet travel rules \u00b7 dogs &amp; cats',flag(G)+esc(G.title||G.name))+'<div class="pbody">'
   +'<p class="lede">'+esc(G.line)+'</p>'
   +(G.summary?'<p>'+esc(G.summary)+'</p>':'')
-  +(G.map_url?'<p><a class="btn big" href="'+esc(G.map_url)+'">'+esc(G.map_cta||'Explore the map')+' \u2192</a></p><p class="note">Preview: click a state for entry rules, then a city for taxis, trains and pet-friendly hotels. Not in the public sitemap.</p>':'')
+  +(G.map_url?'<p><a class="btn big" href="'+esc(G.map_url)+'">'+esc(G.map_cta||'Explore the map')+' \u2192</a></p><p class="note">Click a state for entry rules, then a city for taxis, trains, flights and pet-friendly hotels.</p>':'')
   +(G.url?'<p><a class="'+(G.map_url?'btn ghost':'btn big')+'" href="'+G.url+'">'+esc(G.cta)+' \u2192</a></p>':'<p class="lede">Full USA guide coming soon.</p>')
   +(G.book==='usa'&&window.BOOK_USA?window.BOOK_USA:bookMini(G))
   +'<h3>Flying there?</h3><p><a href="#airlines" data-open="airlines">Compare airline pet policies \u2708</a> \u00b7 <a href="'+LIVE+'products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a></p></div>';
