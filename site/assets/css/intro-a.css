@@ -232,8 +232,20 @@ html:not(.intro-lock) .mapcard{min-height:100vh;min-height:100dvh;margin-top:0;b
  .intro .va-hero img{width:auto;max-width:100%;height:auto;max-height:min(22svh,140px)}
  .intro .intro-story .body p{font-size:10.5px;line-height:1.25;margin-bottom:.16em}
 }
-/* 500 and the open Fold stay at the larger live size (46svh, about 373px and 363px). */
-@media (min-width:480px) and (max-width:1099px) and (min-height:781px){
+/* 500-wide tall phones keep the larger passport. The open Fold is the next block. */
+@media (min-width:480px) and (max-width:599px) and (min-height:781px){
  .intro .va-hero img{width:auto;max-width:100%;height:auto;max-height:min(46svh,380px)}
  .intro .intro-story{max-width:640px}
+}
+/* Open Fold / large mobile. Phone ≤599 stays on the 328px passport. Desktop ≥1100 untouched.
+   Story measure is capped. The stray gold mini-paw sits top-left on a wide screen, so it is hidden here. */
+@media (min-width:600px) and (max-width:1099px){
+ .intro .intro-rule{display:none}
+ .intro .intro-story{max-width:min(560px,40ch);width:100%;margin-inline:auto;margin-left:auto;margin-right:auto}
+ .intro .va-hero img{width:auto;max-width:min(92vw,720px);height:auto;max-height:min(40svh,520px)}
+ .intro .paw.paw-real{width:clamp(96px,12svh,140px);height:clamp(90px,11.2svh,130px);min-width:96px;min-height:48px}
+ .intro .intro-story .body p{line-height:1.22;margin-bottom:.12em}
+}
+@media (min-width:600px) and (max-width:1099px) and (min-height:860px){
+ .intro .va-hero img{max-height:min(42svh,520px)}
 }
