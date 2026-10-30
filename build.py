@@ -1659,12 +1659,15 @@ def build_country_usa(cfg, airlines):
 .usa-t a.flag{text-decoration:none;margin-left:4px;white-space:nowrap}.usa-t a.flag:hover{background:var(--gold);color:#0b1719}
 .usa-t tr[id]{scroll-margin-top:calc(var(--hh, 64px) + 16px)}
 .usa-t tr[id]:target>td{background:rgba(217,183,101,.14)}
+.usa-map-tease{margin:16px 0;padding:14px 16px;border:1px solid #d9b76555;border-left:4px solid var(--gold);border-radius:10px;background:var(--paper)}
+.usa-map-tease p{margin:.35em 0}
 @media (max-width:720px){.usa-t .usa-src{white-space:normal}.usa-t tbody tr.usa-hl>td:first-child{box-shadow:none}.usa-t tbody tr.usa-hl{box-shadow:inset 3px 0 0 var(--gold)}.usa-t tbody tr.usa-hl>td{background:none}}
 </style>"""
     css += BOOK_CSS
     body = f"""{css}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; Countries &rsaquo; United States</nav>
 <h1>Pet travel rules for the USA: federal and state requirements</h1>
 <p class="lead">What you need to fly a dog or cat into, out of, or around the United States. Federal rules come from the CDC and USDA; each state sets its own entry rules.</p>
+<aside class="usa-map-tease" aria-label="USA pet-travel map preview"><p><b>Preview:</b> interactive map of all 50 states. Open a state for its entry rules (state and federal), then a city for taxis, buses, trains and pet-friendly hotels. Eight cities have booking links in this preview; the rest are marked placeholder.</p><p><a class="btn" href="usa-map.html">Open the USA pet-travel map</a></p></aside>
 <div class="usa-quick"><h2 id="quick">Quick answer</h2><ul>{qa}</ul></div>
 <p class="warn usa-warn">Rules change, especially New World screwworm (NWS) restrictions added by many states in 2026. Always confirm with the official source before you travel. {checked}.</p>
 {checklist_cta(root)}
@@ -2454,6 +2457,61 @@ def build_book(cfg, airlines):
                 body, "book/", root, jsonld=[bc_ld(cfg, [("Home", ""), ("Book your trip", "book/")])])
 
 
+def build_usa_map(cfg):
+    """Preview-only interactive USA pet-travel map. noindex and omitted from sitemap.xml
+    so a merge does not submit it to search or IndexNow. Not a published guide."""
+    root = "../"
+    rules_js = (ROOT / "static" / "assets" / "js" / "usa-map-rules.js").read_text()
+    published = {s["code"] for s in json.loads((ROOT / "data" / "countries" / "usa.json").read_text())["states"] if s["code"] != "PR"}
+    missing = [c for c in sorted(published) if f'"{c}":' not in rules_js]
+    assert not missing, f"static/assets/js/usa-map-rules.js is missing {missing}; regenerate it from data/countries/usa.json"
+    body = """<link rel="stylesheet" href="{root}assets/css/usa-map.css">
+<div id="usa-map">
+<p class="preview-pill">Preview · not published</p>
+<section class="intro">
+ <div><h1>Travel the USA with your pet</h1>
+ <p>Pick a state for its animal-entry rules (state and federal), then a city for rides, trains and pet-friendly hotels. Plan in order: vet and laws, road or rail, plane, hotel. <a href="usa.html">Full federal and state table</a>.</p></div>
+</section>
+<ol class="steps" id="steps" aria-label="Journey order">
+ <li><button type="button" data-step="1" aria-pressed="true"><b>1</b>Vet + laws</button></li><li class="arr" aria-hidden="true">→</li>
+ <li><button type="button" data-step="2" aria-pressed="false"><b>2</b>Road / rail</button></li><li class="arr" aria-hidden="true">→</li>
+ <li><button type="button" data-step="3" aria-pressed="false"><b>3</b>Plane</button></li><li class="arr" aria-hidden="true">→</li>
+ <li><button type="button" data-step="4" aria-pressed="false"><b>4</b>Hotel</button></li>
+</ol>
+<div class="app">
+ <section class="card mapcard" aria-label="Map of the United States">
+  <div class="maptools">
+   <label for="pick">State</label>
+   <select id="pick"><option value="">Choose a state…</option></select>
+   <div class="legend"><span><i style="background:#1d3a35;border:1px solid #3a5a56"></i>Special entry rules</span><span><i style="background:#d9b765"></i>City booking guide</span><span><i style="background:#9fb59a"></i>Capital</span><span><i style="background:#e9dfc6"></i>Main city</span></div>
+  </div>
+  <button class="btn ghost" type="button" id="reset" hidden>Show all states</button>
+  <svg id="map" viewBox="0 0 975 610" role="group" aria-label="US states and main cities"><g id="g-st"></g><g id="g-lb"></g><g id="g-ct"></g></svg>
+  <p class="mapnote">Alaska and Hawaii are insets. Gold cities have the full booking panel in this preview. Other cities open a placeholder.</p>
+ </section>
+ <aside class="card panel" id="panel" aria-live="polite"></aside>
+</div>
+<section class="portal" aria-labelledby="portal-h">
+ <h2 id="portal-h">State law portals</h2>
+ <p>Every state has its own mark. Open one for its entry rules, the federal rules that apply everywhere, and the plane and health-certificate steps.</p>
+ <div class="grid" id="grid"></div>
+</section>
+</div>
+<script src="{root}assets/js/usa-map-geo.js"></script>
+<script src="{root}assets/js/usa-map-rules.js"></script>
+<script src="{root}assets/js/usa-map.js"></script>"""
+    return page(
+        cfg,
+        f"USA pet-travel map (preview) | {cfg['site_name']}",
+        "Preview: click a US state for pet entry rules, then a city for taxis, trains and pet-friendly hotels. Not published.",
+        body,
+        "countries/usa-map.html",
+        root,
+        noindex=True,
+        ads=False,
+    )
+
+
 def main():
     cfg, airlines, updates = load()
     if OUT.exists():
@@ -2520,6 +2578,8 @@ def main():
     (OUT / "clinics").mkdir(parents=True, exist_ok=True)
     (OUT / "clinics" / "usa.html").write_text(build_clinics_usa(cfg))
     (OUT / "countries" / "usa.html").write_text(build_country_usa(cfg, airlines))
+    # Preview only: noindex page, deliberately left out of sitemap.xml / IndexNow.
+    (OUT / "countries" / "usa-map.html").write_text(build_usa_map(cfg))
     (OUT / "routes" / "usa-to-japan.html").write_text(build_route_usa_japan(cfg, airlines))
     (OUT / "routes" / "usa-to-south-korea.html").write_text(build_route_usa_korea(cfg, airlines))
     hch, hci = hotels_data()

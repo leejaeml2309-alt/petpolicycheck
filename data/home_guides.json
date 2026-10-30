@@ -21,6 +21,8 @@
    "line": "Federal (CDC & USDA) rules and state-by-state differences",
    "cta": "See USA pet travel rules",
    "url": "countries/usa.html",
+   "map_url": "countries/usa-map.html",
+   "map_cta": "Explore the 50-state pet-travel map",
    "chip": "USA",
    "source_page": "countries/usa.html (data/countries/usa.json)",
    "book": "usa",
