@@ -1,25 +1,58 @@
 <!doctype html>
 <html class="intro-lock" lang="en-US"><head><meta charset="utf-8">
 <script>
-/* Page 1 is the intro only. Begin your trip opens the USA pet-travel map.
-   Other #map links unlock page 2, the world map.
-   A load of /#map stays on page 1 until that click. */
+/* Page 1 is the intro only when there is no destination hash.
+   Begin your trip is a normal link to the USA map (not handled here).
+   #map and every other in-page hash leave the intro and open that section.
+   A load of /#map opens the world map, not page 1. */
 (function () {
   try { history.scrollRestoration = 'manual'; } catch (e) {}
-  if (location.hash === '#map') history.replaceState(null, '', location.pathname + location.search);
-  window.scrollTo(0, 0);
-  document.addEventListener('click', function (e) {
-    var a = e.target && e.target.closest && e.target.closest('a[href="#map"]');
-    if (!a || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    e.preventDefault();
-    var card = document.querySelector('.mapcard');
+  function normPath(p) { return (p || '/').replace(/\/index\.html$/, '/') || '/'; }
+  function samePageHash(href) {
+    if (!href) return '';
+    if (href.charAt(0) === '#') return href.length > 1 ? href : '';
+    try {
+      var u = new URL(href, location.href);
+      if (u.origin === location.origin && normPath(u.pathname) === normPath(location.pathname) && u.hash.length > 1) return u.hash;
+    } catch (e) {}
+    return '';
+  }
+  function reveal(hash) {
     document.documentElement.classList.remove('intro-lock');
-    if (!card) return;
-    card.id = 'map';
-    history.pushState(null, '', '#map');
+    var card = document.querySelector('.mapcard');
+    if (hash === '#map' && card) card.id = 'map';
     requestAnimationFrame(function () {
-      window.scrollTo(0, card.getBoundingClientRect().top + window.scrollY);
+      requestAnimationFrame(function () {
+        var el = null;
+        if (hash === '#map') el = document.getElementById('map') || card;
+        else if (hash && hash.charAt(0) === '#') {
+          var id = decodeURIComponent(hash.slice(1)).split(/[=&?]/)[0];
+          if (id) el = document.getElementById(id);
+        }
+        if (el) window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY);
+      });
     });
+  }
+  if (location.hash && location.hash.length > 1) document.documentElement.classList.remove('intro-lock');
+  function boot() {
+    if (location.hash && location.hash.length > 1) reveal(location.hash);
+    else window.scrollTo(0, 0);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('a[href]');
+    if (!a || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var href = a.getAttribute('href') || '';
+    if (href.indexOf('usa-map') !== -1) return;
+    var hash = samePageHash(href);
+    if (!hash) return;
+    var locked = document.documentElement.classList.contains('intro-lock');
+    if (!locked && hash !== '#map') return;
+    e.preventDefault();
+    if (location.hash !== hash) history.pushState(null, '', hash);
+    reveal(hash);
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
   }, true);
 })();
 </script>
