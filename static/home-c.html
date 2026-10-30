@@ -19,14 +19,18 @@
   }
   function reveal(hash) {
     if (hash === '#airlines') hash = '#compare';
+    var map = hash === '#map';
+    document.documentElement.classList.toggle('map-view', map);
     document.documentElement.classList.remove('intro-lock');
-    var card = document.querySelector('.mapcard');
-    if (hash === '#map' && card) card.id = 'map';
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
+        if (map) {
+          window.scrollTo(0, 0);
+          window.dispatchEvent(new Event('resize'));
+          return;
+        }
         var el = null;
-        if (hash === '#map') el = document.getElementById('map') || card;
-        else if (hash && hash.charAt(0) === '#') {
+        if (hash && hash.charAt(0) === '#') {
           var id = decodeURIComponent(hash.slice(1)).split(/[=&?]/)[0];
           if (id) el = document.getElementById(id);
         }
@@ -37,7 +41,20 @@
   if (location.hash === '#airlines') {
     try { history.replaceState(null, '', location.pathname + location.search + '#compare'); } catch (e) {}
   }
+  if (location.hash === '#map') document.documentElement.classList.add('map-view');
   if (location.hash && location.hash.length > 1) document.documentElement.classList.remove('intro-lock');
+  window.addEventListener('hashchange', function () {
+    var hash = location.hash === '#airlines' ? '#compare' : (location.hash || '');
+    var map = hash === '#map';
+    document.documentElement.classList.toggle('map-view', map);
+    if (map) document.documentElement.classList.remove('intro-lock');
+    else if (!hash) {
+      document.documentElement.classList.add('intro-lock');
+      window.scrollTo(0, 0);
+    }
+    var wm = document.querySelector('.map-nav a[href="#map"]');
+    if (wm) { if (map) wm.setAttribute('aria-current', 'page'); else wm.removeAttribute('aria-current'); }
+  });
   function boot() {
     if (location.hash && location.hash.length > 1) reveal(location.hash);
     else window.scrollTo(0, 0);
@@ -52,6 +69,7 @@
     var hash = samePageHash(href);
     if (hash === '#airlines') hash = '#compare';
     if (!hash) return;
+    if (hash !== '#map') document.documentElement.classList.remove('map-view');
     var locked = document.documentElement.classList.contains('intro-lock');
     if (!locked && hash !== '#map') return;
     e.preventDefault();
@@ -69,6 +87,11 @@ html.intro-lock body.intro-home > section.intro{position:fixed !important;inset:
 html.intro-lock body.intro-home > main,html.intro-lock .intro-spacer,html.intro-lock .intro-id{display:none !important}
 html.intro-lock body.intro-home > section.intro > div.wrap{flex:1 1 auto !important;min-height:0 !important;display:flex !important;flex-direction:column !important;width:100%}
 html.intro-lock .vas-grid{flex:1 1 auto !important;min-height:0 !important;overflow:hidden !important}
+/* After the intro unlocks, hide only the Paw Passport block and show the site header.
+   Homepage sections under the map stay in the page. */
+.map-nav{display:none !important}
+html:not(.intro-lock) .map-nav{display:block !important}
+html:not(.intro-lock) body.intro-home > section.intro{display:none !important}
 </style>
 <meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7693501377730690" crossorigin="anonymous"></script>
@@ -98,6 +121,29 @@ html.intro-lock .vas-grid{flex:1 1 auto !important;min-height:0 !important;overf
 <link rel="stylesheet" href="assets/css/story.css?v=20261024">
 <link rel="stylesheet" href="assets/css/story-b.css?v=20261024">
 <link rel="stylesheet" href="assets/css/intro-a.css?v=20261030n">
+<style id="map-view-layout">
+html:not(.intro-lock){--hdr-h:66px}
+@media (max-width:820px){html:not(.intro-lock){--hdr-h:104px}}
+html.map-view .mapcard{display:flex;flex-direction:column;height:calc(100dvh - var(--hdr-h) - 28px) !important;min-height:420px !important;margin:14px auto 0;box-sizing:border-box}
+html.map-view .mapbox{flex:1 1 auto;min-height:0}
+html.map-view .mapscroll{position:absolute;inset:0}
+html.map-view #world-map{width:100%;height:100%}
+.map-nav .wm small{display:block;font:600 .6rem var(--text);letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.map-nav .lbadge{transform:scale(.8);margin:0 -7px}
+.map-nav .nav{display:flex;gap:6px;margin-left:auto;overflow-x:auto;scrollbar-width:none;flex-wrap:nowrap;-webkit-overflow-scrolling:touch}
+.map-nav .nav::-webkit-scrollbar{display:none}
+.map-nav .nav a{border-radius:99px;border:1px solid transparent;padding:7px 12px}
+.map-nav .nav a[aria-current="page"]{border-color:#d9b765;background:var(--chip);color:var(--head)}
+.map-nav .nav a.cta{background:#d9b765;color:#0b1719;font-weight:600}
+.planefab{position:absolute;left:12px;top:12px;z-index:2;display:inline-flex;align-items:center;gap:6px;border-radius:99px;padding:8px 13px;background:#d9b765;color:#0b1719;font:700 .8rem var(--text);text-decoration:none;box-shadow:0 4px 12px #0004}
+.planefab svg{width:16px;height:16px;fill:currentColor}
+@media (max-width:820px){
+ .map-nav .wrap{flex-wrap:wrap;align-content:center;min-height:var(--hdr-h);padding-top:8px;padding-bottom:8px}
+ .map-nav .nav{order:2;flex:1 0 100%;width:auto;margin:0}
+ .map-nav .nav a{font-size:.82rem;padding:6px 11px;border-color:var(--line2);background:#0f2226}
+ .map-nav .nav a[aria-current="page"]{background:#d9b765;color:#0b1719;border-color:#d9b765}
+}
+</style>
 <link rel="preload" as="image" href="assets/img/hero-passport-desktop.webp" imagesrcset="assets/img/hero-passport-desktop.webp 1x, assets/img/hero-passport-desktop@1.5x.webp 1.5x" media="(min-width: 701px)" fetchpriority="high">
 </head>
 <body class="v-c intro-home">
@@ -117,12 +163,16 @@ html.intro-lock .vas-grid{flex:1 1 auto !important;min-height:0 !important;overf
 <footer class="intro-id"><div class="wrap"><span class="as-fbrand">PetPolicyCheck</span><span class="dot">&middot;</span><a href="https://petpolicycheck.com/">petpolicycheck.com</a><span class="dot">&middot;</span><span>Dog &amp; cat travel rules, verified at the official source</span></div></footer>
 </section>
 <main id="main">
-<div class="wrap"><div class="mapcard" id="map">
+<header class="top map-nav" id="map"><div class="wrap">
+<a class="brand" href="/"><span class="lbadge"><img src="assets/img/logo-mark-header.png" width="62" height="48" alt="" aria-hidden="true"></span><span class="wm">PetPolicy<span>Check</span><small>Paw Passport</small></span></a>
+<nav class="nav" aria-label="Main"><a href="#map" aria-current="page">World map</a><a href="#compare">Airlines</a><a href="#compare">Compare</a><a href="products/">Products</a><a href="#gear">Guides</a><a href="updates.html">Updates</a><a href="forum/">Forum</a><a href="about.html">About</a><a class="cta" href="advertise/">Advertise</a></nav>
+</div></header>
+<div class="wrap map-stage"><div class="mapcard">
  <div class="maphead"><h2>Where are you flying with your pet?</h2>
   <div class="legend"><span><i style="background:var(--land-data)"></i>Country guide available</span><span><i style="background:var(--land)"></i>Coming soon</span>
   <!--GUIDE_CHIPS: one chip per country guide, generated by build.py from data/home_guides.json-->
   <select class="pick" id="pick" aria-label="Choose a country"><option value="">Choose a country&hellip;</option></select></div></div>
- <div class="mapbox" id="mapbox"><div class="mapscroll" id="mapscroll"><svg id="world-map" viewBox="0 0 960 426" role="img" aria-label="Interactive world map: select a country"></svg></div><div class="tip" id="tip"></div>
+ <div class="mapbox" id="mapbox"><div class="mapscroll" id="mapscroll"><svg id="world-map" viewBox="0 0 960 426" role="img" aria-label="Interactive world map: select a country"></svg></div><a class="planefab" href="#compare"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>Airline policies</a><div class="tip" id="tip"></div>
   <div class="zoom" role="group" aria-label="Map zoom"><button type="button" id="zin" aria-label="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out">&minus;</button><button type="button" id="zreset" aria-label="Reset map view" title="Reset map view">&#8634;</button></div></div>
  <div class="mapfoot"><span class="mhint">Pinch with two fingers to zoom, swipe sideways to move the map. </span><span class="dhint">Drag to move, Ctrl/&#8984; + scroll to zoom. </span>Click a country for its dog &amp; cat import rules. <a href="countries/usa-map.html">United States: open the 50-state pet-travel map</a>. Map: Natural Earth via world-atlas (public domain).</div>
 </div></div>

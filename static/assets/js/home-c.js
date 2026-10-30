@@ -130,8 +130,12 @@ function showCompare(){
  panel.classList.remove('on');scrim.classList.remove('on');
  cg.selectAll('.country').classed('sel',false);
  if(location.hash!=='#compare')history.replaceState(null,'','#compare');
- var el=document.getElementById('compare');
- if(el)requestAnimationFrame(function(){window.scrollTo(0, el.getBoundingClientRect().top+window.scrollY)});
+  var el=document.getElementById('compare');
+  if(el)requestAnimationFrame(function(){
+   var head=document.querySelector('header.map-nav');
+   var pad=head && getComputedStyle(head).display!=='none' ? head.offsetHeight+12 : 0;
+   window.scrollTo(0, Math.max(0, el.getBoundingClientRect().top+window.scrollY-pad));
+  });
 }
 function openAirlines(){showCompare()}
 document.addEventListener('click',function(e){
