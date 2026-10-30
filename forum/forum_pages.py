@@ -220,6 +220,11 @@ def intro(B, root):
             f'<h3 data-i18n="f.intro.start">{B.e(T("f.intro.start"))}</h3><ul>{start}</ul></section>')
 
 
+def pub_ad(B, cfg, keep=False):
+    """Empty (or future AdSense) frame for public forum list/thread views. Account, admin, and new-post stay clean."""
+    return B.ad_frame(cfg, "forum_public", "{root}", True, 'data-ad-keep="1"' if keep else "")
+
+
 def build_index(B, cfg, airlines, posts, paths):
     root = "../"
     cards = "".join(card(B, p, root, paths[p["id"]]) for p in posts[:30])
@@ -229,17 +234,21 @@ def build_index(B, cfg, airlines, posts, paths):
 {subnav(B, root, "index.html")}
 <p class="lead" data-i18n="f.lead">{B.e(T("f.lead"))}</p>
 {intro(B, root)}
+{pub_ad(B, cfg)}
 {filter_form(B, airlines)}
 <p class="small" id="fstatus" aria-live="polite"></p>
 {lst}
 <p><button type="button" class="fbtn alt" id="fmore" hidden data-i18n="f.load_more">{B.e(T("f.load_more"))}</button></p>
+{pub_ad(B, cfg)}
 <p class="small">{i(B, "f.disclaimer")} <a href="guidelines.html" data-i18n="f.why.see_rules">{B.e(T("f.why.see_rules"))}</a></p>
 {app("index")}{scripts(root, "index")}"""
     ld = [B.bc_ld(cfg, [("Home", ""), ("Forum", "forum/")])]
-    # Indexable thanks to the static intro; ads only once published posts are pre-rendered (no ads on an empty listing).
+    # Indexable thanks to the static intro; the live header unit only once published posts are pre-rendered.
+    # Empty frames stay either way. No posts: skip the footer sponsor line so the page isn't only ads.
     return B.page(cfg, f"Pet travel forum: flying and travelling with dogs and cats | {cfg['site_name']}",
                   "Real experiences travelling with dogs and cats by plane (cabin or cargo), train, bus, subway, taxi, car and ferry, in English and Korean. Filter by transport, carrier, season and pet size.",
-                  body, "forum/", root, ld, ads=bool(posts))
+                  body, "forum/", root, ld, ads=bool(posts), sponsor="auto" if posts else "off",
+                  extra_ad_keys=() if posts else ("forum_public",))
 
 
 def post_article(B, p, comments, root, airlines_by):
@@ -266,9 +275,12 @@ def post_article(B, p, comments, root, airlines_by):
 def build_post_static(B, cfg, p, comments, path, airlines_by):
     root = "../../"
     art = post_article(B, p, comments, root, airlines_by)
+    mid = pub_ad(B, cfg, keep=True)
+    art = art.replace('<section class="fcomments"', mid + '<section class="fcomments"', 1)
     body = f"""<nav class="crumbs"><a href="{{root}}index.html" data-i18n="f.crumb_home">Home</a> &rsaquo; <a href="{{root}}forum/" data-i18n="nav.forum">Forum</a> &rsaquo; {B.e(p["title"][:60])}</nav>
 {subnav(B, root, "")}
 <div id="fpost-static">{art}</div>
+{pub_ad(B, cfg)}
 {app("post", post_id=p["id"], static="1")}{noscript(B)}{scripts(root, "post")}"""
     base = B.site_base(cfg)
     ld = [B.bc_ld(cfg, [("Home", ""), ("Forum", "forum/"), (p["title"][:80], f"forum/{path}")]),
@@ -286,10 +298,12 @@ def build_post_live(B, cfg):
     root = "../"
     body = f"""<nav class="crumbs"><a href="{{root}}index.html" data-i18n="f.crumb_home">Home</a> &rsaquo; <a href="index.html" data-i18n="nav.forum">Forum</a></nav>
 {subnav(B, root, "")}
-<div id="fpost-static"><p class="small" data-i18n="f.loading">{B.e(T("f.loading"))}</p></div>
+<div id="fpost-static">{pub_ad(B, cfg, keep=True)}<p class="small" data-i18n="f.loading">{B.e(T("f.loading"))}</p></div>
+{pub_ad(B, cfg)}
 {app("post")}{noscript(B)}{scripts(root, "post")}"""
+    # ads=False: no live header unit. Frames sit outside the comment form (JS moves the kept one between the story and the comments).
     return B.page(cfg, f"Forum post | {cfg['site_name']}", "A traveller's experience with a dog or cat.", body,
-                  "forum/post.html", root, noindex=True, ads=False)
+                  "forum/post.html", root, noindex=True, ads=False, sponsor="off", extra_ad_keys=("forum_public",))
 
 
 def field(B, key, control, opt=False, hint=None):
@@ -340,7 +354,7 @@ def build_new(B, cfg, airlines):
 {form}
 {app("new")}{noscript(B)}{scripts(root, "new")}"""
     return B.page(cfg, f"Share your pet travel experience | {cfg['site_name']}", "Share a trip with your dog or cat.", body,
-                  "forum/new.html", root, noindex=True, ads=False)
+                  "forum/new.html", root, noindex=True, ads=False, sponsor="off")
 
 
 def build_account(B, cfg, mail_html):
@@ -393,7 +407,7 @@ def build_account(B, cfg, mail_html):
 </section>
 {app("account")}{noscript(B)}{scripts(root, "account")}"""
     return B.page(cfg, f"My forum account | {cfg['site_name']}", "Sign in or create an account for the PetPolicyCheck forum.", body,
-                  "forum/account.html", root, noindex=True, ads=False)
+                  "forum/account.html", root, noindex=True, ads=False, sponsor="off")
 
 
 def build_admin(B, cfg):
@@ -407,7 +421,7 @@ def build_admin(B, cfg):
 <p class="small">Normal flow: the moderator bot (forum/moderate.py) reviews the queue about every 30 minutes. This page is the manual fallback.</p>
 </section>
 {app("admin")}{noscript(B)}{scripts(root, "admin")}"""
-    return B.page(cfg, f"Forum moderation | {cfg['site_name']}", "Forum moderation.", body, "forum/admin.html", root, noindex=True, ads=False)
+    return B.page(cfg, f"Forum moderation | {cfg['site_name']}", "Forum moderation.", body, "forum/admin.html", root, noindex=True, ads=False, sponsor="off")
 
 
 GUIDE_EN = [
@@ -565,9 +579,11 @@ def build_stories(B, cfg, stories):
 <h1 data-i18n="st.title">{B.e(T("st.title"))}</h1>
 {subnav(B, root, "pet-travel-stories/")}
 <p class="lead" data-i18n="st.intro">{B.e(T("st.intro"))}</p>
+{pub_ad(B, cfg)}
 {form}
 <p class="small" id="sstatus" aria-live="polite" data-total="{len(stories)}"></p>
 <ul class="flist slist" id="slist">{cards}</ul>
+{pub_ad(B, cfg)}
 <p class="note" id="snone" hidden data-i18n="st.none">{B.e(T("st.none"))}</p>
 {app("stories")}{scripts(root, "stories")}"""
     ld = [B.bc_ld(cfg, [("Home", ""), ("Forum", "forum/"), (T("f.stories"), "forum/pet-travel-stories/")])]

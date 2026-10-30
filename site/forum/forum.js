@@ -313,12 +313,14 @@
       ]).then(function (res) {
         if (res[0].error && !res[0].data) { return; } // network problem: keep the static copy
         var p = res[0].data;
+        var kept = holder.querySelector('[data-ad-keep]');
         holder.textContent = '';
         if (!p) {
           holder.appendChild(h('p', { 'class': 'note' }, t('f.post_gone') + ' ', h('a', { href: BASE + 'index.html', text: t('f.back') })));
           return;
         }
         holder.appendChild(article(p));
+        if (kept) holder.appendChild(kept);
         var cs = (res[1].data || []).filter(function (c) { return c.status === 'published' || (user() && c.author_id === user().id); });
         var ul = h('ul', { 'class': 'fclist', id: 'fclist' }, cs.map(function (c) { return commentLi(c, p); }));
         var sec = h('section', { 'class': 'fcomments' }, h('h2', { text: t('f.comments') }), ul, cs.length ? null : h('p', { 'class': 'small', id: 'fcnone', text: t('f.no_comments') }));

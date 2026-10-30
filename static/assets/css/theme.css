@@ -64,3 +64,33 @@ h1,h2,h3{font-family:var(--disp);font-weight:var(--hw,400);color:var(--head);mar
 .hdr-ad .adl{position:absolute;inset:auto auto 50% 50%;transform:translate(-50%,50%);font:600 .64rem var(--text);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);opacity:.7;pointer-events:none}
 .hdr-ad.empty .hdr-box{border:1px dashed #d9b76566;border-radius:var(--r-s);background:#d9b76508}
 @media (max-width:767px){.hdr-band{padding:10px 0 4px}.hdr-box,.hdr-ins{width:320px;height:100px;min-height:100px}}
+/* Content-width empty ad frames (728 max, fixed min-height). Not used inside the Paw Passport intro. */
+.adframe{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;max-width:728px;min-height:90px;margin:28px auto;padding:12px 16px;box-sizing:border-box;border:1px dashed #d9b76599;border-radius:var(--r-s,10px);background:#d9b7650d;text-align:center;overflow:hidden}
+.adframe .adl{font:600 .64rem var(--text,inherit);letter-spacing:.16em;text-transform:uppercase;color:var(--mut,#a7b0a2);opacity:.8;pointer-events:none}
+.adframe-cta{font-weight:600;text-decoration:none;border-bottom:1px dotted currentColor}
+.adframe-cta:hover{border-bottom-style:solid}
+.adframe img{max-width:100%;height:auto;display:block;margin:4px auto 0}
+.adframe-live{display:grid;grid-template-columns:1fr;align-items:center;justify-items:center;padding:0}
+.adframe-min{grid-area:1/1;width:100%;height:90px;visibility:hidden;pointer-events:none}
+.adframe-box{grid-area:1/1;display:flex;align-items:center;justify-content:center;width:100%;z-index:1}
+.adframe-box ins.adsbygoogle{width:100%}
+.foot .adframe{margin:14px auto 6px}
+.foot .adframe .adl{color:var(--foot-ink);opacity:.6}
+.home-mid-ad{margin:4px auto 8px}
+.home-mid-ad .adframe{margin:12px auto}
+html.intro-lock .adframe,.intro .adframe{display:none !important}
+.adframe-live{border:0;background:transparent;padding:0;overflow:visible}
+.adframe-ia.adframe-live{max-width:728px;min-height:250px}
+.adframe-ia.adframe-live .adframe-min{height:250px;min-height:250px}
+.adframe-mid{max-width:728px}
+.adframe-ck{max-width:336px;min-height:280px}
+.adframe-ck .adframe-min{height:280px;min-height:280px}
+.adframe-fo{max-width:300px;min-height:250px}
+.adframe-fo .adframe-min{height:250px;min-height:250px}
+@media (max-width:767px){
+ .adframe:not(.adframe-ck):not(.adframe-fo):not(.adframe-ia),
+ .adframe:not(.adframe-ck):not(.adframe-fo):not(.adframe-ia) .adframe-min{min-height:100px}
+ .adframe:not(.adframe-ck):not(.adframe-fo):not(.adframe-ia) .adframe-min{height:100px}
+ .adframe-ia.adframe-live,.adframe-ia.adframe-live .adframe-min{min-height:200px;height:200px}
+ .adframe{margin:18px auto}
+}
