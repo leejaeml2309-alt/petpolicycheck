@@ -260,7 +260,7 @@ function roadSection(a,city){
 }
 function airFedLinks(){
  return lk("✈️","Search flights on Expedia","Then add the pet with the airline","https://expedia.com/affiliate/jnsZjjX","aff")
-  +lk("🧳","Airline pet policies","Fees, carrier sizes, breed bans","../index.html#airlines","off").replace("Official","Site")
+  +lk("🧳","Airline pet policies","Cabin, fees, hold","../#compare","off").replace("Official","Site").replace(' target="_blank"','')
   +lk("🇺🇸","PetPolicyCheck: USA pet travel guide","Full federal and state table (source for this map)",SITE+"/countries/usa.html","off").replace("Official","Site")
   +fed("aphisAir")+fed("cdc","🐕")+fed("dot","🦮");
 }

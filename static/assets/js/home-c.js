@@ -106,7 +106,7 @@ function openCountry(id){
   +(G.map_url?'<p><a class="btn big" href="'+esc(G.map_url)+'">'+esc(G.map_cta||'Explore the map')+' \u2192</a></p><p class="note">Click a state for entry rules, then a city for taxis, trains, flights and pet-friendly hotels.</p>':'')
   +(G.url?'<p><a class="'+(G.map_url?'btn ghost':'btn big')+'" href="'+G.url+'">'+esc(G.cta)+' \u2192</a></p>':'<p class="lede">Full USA guide coming soon.</p>')
   +(G.book==='usa'&&window.BOOK_USA?window.BOOK_USA:bookMini(G))
-  +'<h3>Flying there?</h3><p><a href="#airlines" data-open="airlines">Compare airline pet policies \u2708</a> \u00b7 <a href="'+LIVE+'products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a></p></div>';
+  +'<h3>Flying there?</h3><p><a href="#compare">Compare airline pet policies \u2708</a> \u00b7 <a href="'+LIVE+'products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a></p></div>';
  }else if(G){
   h=top('Pet import rules \u00b7 dogs &amp; cats',flag(G)+esc(G.name))+'<div class="pbody">'
   +'<p style="margin-top:0;color:var(--mut);font-size:.9rem">'+esc(G.scope)+'</p>'
@@ -116,31 +116,39 @@ function openCountry(id){
   +'<h3>Veterinary clinics (Tokyo, English-speaking)</h3>'
   +G.vets.map(function(v){return '<div class="vet"><strong>'+esc(v.name)+'</strong><div>'+esc(v.addr)+'</div><div>Tel: <a href="tel:+81'+v.tel.replace(/^0|-/g,'')+'">'+esc(v.tel)+'</a>'+(v.mail?' \u00b7 <a href="mailto:'+v.mail+'">'+esc(v.mail)+'</a>':'')+'</div>'+(v.hours?'<div>'+esc(v.hours)+'</div>':'')+'<div>'+esc(v.note)+' \u00b7 <a href="'+v.url+'" target="_blank" rel="noopener">Website / source \u2197</a></div></div>'}).join('')
   +'<p class="note">Clinic details copied from each clinic\'s own website (accessed Oct 23, 2026). Listing is not an endorsement; call ahead to confirm hours and services.</p>'
-  +'<h3>Flying there?</h3><p><a href="#airlines" data-open="airlines">Compare airline pet policies \u2708</a> \u00b7 <a href="'+LIVE+'products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a></p></div>';
+  +'<h3>Flying there?</h3><p><a href="#compare">Compare airline pet policies \u2708</a> \u00b7 <a href="'+LIVE+'products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a></p></div>';
  }else{
   h=top('Pet import rules',esc(f.properties.name))+'<div class="pbody"><p><b>We haven\'t verified '+esc(f.properties.name)+' yet.</b></p>'
   +'<p>Every country guide on PetPolicyCheck is checked against the official government source and dated, so we only publish a country once that is done. Guides so far: '+Object.keys(GUIDES).map(function(k){return esc(GUIDES[k].name)}).join(', ')+'.</p>'
   +'<p><a class="btn" href="mailto:contact@petpolicycheck.com?subject='+encodeURIComponent('Country guide request: '+f.properties.name)+'">Request this country</a></p>'
-  +'<p><a href="'+LIVE+'forum/">Ask the community in the forum</a> \u00b7 <a href="#airlines" data-open="airlines">Airline pet policies \u2708</a></p></div>';
+  +'<p><a href="'+LIVE+'forum/">Ask the community in the forum</a> \u00b7 <a href="#compare">Airline pet policies \u2708</a></p></div>';
  }
  show(h);history.replaceState(null,'','#country='+encodeURIComponent(G?(G.slug||G.name):f.properties.name));
 }
-function openAirlines(){
- var na='<span class="na">Check with airline</span>';
- var h=top('\u2708 Dogs &amp; cats on board','Airline pet policies')+'<div class="pbody"><p style="margin-top:0;color:var(--mut);font-size:.9rem">'+AIRLINES.length+' airlines, each checked against its official pet policy page. Tap an airline for carrier sizes, all fees and route bans.</p>'
- +AIRLINES.map(function(a){var b=a.cabin===true?'<span class="badge yes">In cabin: yes</span>':a.cabin===false?'<span class="badge no">In cabin: no</span>':'<span class="badge na">Unconfirmed</span>';
-  return '<div class="al"><div class="row"><strong>'+esc(a.name)+'</strong><span class="iata">'+a.iata+'</span>'+b+'</div><dl><dt>Fee from</dt><dd>'+(a.fee?esc(a.fee):na)+'</dd><dt>Max weight</dt><dd>'+(a.weight?esc(a.weight):na)+'</dd><dt>Hold/cargo</dt><dd>'+(a.cargo?esc(a.cargo):na)+'</dd><dt>Verified</dt><dd>'+(a.verified?esc(a.verified):'Official page unreachable on last check')+'</dd></dl>'
-  +'<div class="lk"><a href="'+a.url+'">Full policy \u2192</a><a href="'+a.official+'" target="_blank" rel="noopener">Official page \u2197</a></div></div>'}).join('')
- +'<p class="note">"Check with airline" = not stated on, or not readable from, the official page on the date shown.</p></div>';
- show(h);history.replaceState(null,'','#airlines');
+function showCompare(){
+ document.documentElement.classList.remove('intro-lock');
+ panel.classList.remove('on');scrim.classList.remove('on');
+ cg.selectAll('.country').classed('sel',false);
+ if(location.hash!=='#compare')history.replaceState(null,'','#compare');
+ var el=document.getElementById('compare');
+ if(el)requestAnimationFrame(function(){window.scrollTo(0, el.getBoundingClientRect().top+window.scrollY)});
 }
-document.addEventListener('click',function(e){var a=e.target.closest('[data-open="airlines"]');if(a){e.preventDefault();openAirlines();return}
+function openAirlines(){showCompare()}
+document.addEventListener('click',function(e){
+ var a=e.target.closest('[data-open="airlines"]');
+ if(a){e.preventDefault();showCompare();return}
+ var link=e.target.closest('a[href]');
+ if(link&&!(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey||e.button)){
+  var href=link.getAttribute('href')||'';
+  if(href==='#compare'||href==='#airlines'){e.preventDefault();showCompare();return}
+ }
  var c=e.target.closest('a[data-country]');if(c&&GUIDES[c.getAttribute('data-country')]&&!(e.ctrlKey||e.metaKey||e.shiftKey||e.button)){e.preventDefault();openCountry(c.getAttribute('data-country'))}});
 // table filter
 var q=document.getElementById('q'),rows=document.querySelectorAll('#cmp tbody tr');
 q.addEventListener('input',function(){var v=q.value.trim().toLowerCase();rows.forEach(function(r){r.hidden=v&&r.cells[0].textContent.toLowerCase().indexOf(v)<0})});
 // deep links
-// #airlines, #country=Japan, #country=USA, #country=United%20States, #country-392 (legacy numeric id)
+// #airlines (legacy panel) and #compare open the airline policy table.
+// #country=Japan, #country=USA, #country=United%20States, #country-392 (legacy numeric id)
 function findCountry(v){
  v=decodeURIComponent(v||'').replace(/\+/g,' ').trim().toLowerCase();if(!v)return null;
  if(/^\d+$/.test(v)){while(v.length<3)v='0'+v;return countries.some(function(c){return c.id===v})?v:null}
@@ -149,7 +157,7 @@ function findCountry(v){
  var f=countries.find(function(c){return c.properties.name.toLowerCase()===v});return f?f.id:null}
 function route(){
  var hs=location.hash||'',m;
- if(hs==='#airlines')openAirlines();
+ if(hs==='#airlines'||hs==='#compare')showCompare();
  else if((m=hs.match(/^#country[=\-](.+)$/))){var id=findCountry(m[1]);if(id)openCountry(id)}
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',route);else route();

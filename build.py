@@ -136,8 +136,8 @@ LOGO = ('<svg class="logo" viewBox="0 0 40 40" width="38" height="38" aria-hidde
         '<path d="M11.2 25.6c-2.4-.5-3 2.4-.9 2.9M10.3 28.5c3.4 5 10.6 6.5 16 3.7 4.2-2.2 6.3-6.1 6.3-10.2" fill="none" stroke="#d9b765" stroke-width="1.2" stroke-linecap="round"/>'
         '<path d="M0-5l1 .6v3l4 2.4v1l-4-1.1v2.5l1.3 1v.8L0 4.8l-2.3.4v-.8l1.3-1V.8l-4 1.1v-1l4-2.4v-3z" fill="#d9b765" transform="translate(29.6 13.4) rotate(32) scale(.62)"/></svg>')
 # Main nav: identical to the design-C home header (static/home-c.html). (href, label, i18n key, aria-current path prefixes)
-# "#..." hrefs point to sections / panels of the home page ({home}#airlines opens the airline panel on load).
-NAV = [("#map", "World map", "site.nav.map", ()), ("book/", "Book", "site.nav.book", ("book/",)), ("#airlines", "Airlines", "site.nav.airlines", ("airlines/",)),
+# "#..." hrefs point to sections of the home page. Airlines opens {home}#compare (cabin, fees, hold table).
+NAV = [("#map", "World map", "site.nav.map", ()), ("book/", "Book", "site.nav.book", ("book/",)), ("#compare", "Airlines", "site.nav.airlines", ("airlines/",)),
        ("countries/usa.html#federal", "Health certificate", "site.nav.health", ()),  # no dedicated page yet: USA federal rules (CDC/USDA) section, leads to the state CVI table
        ("#compare", "Compare", "site.nav.compare", ()), ("products/", "Products", "site.nav.products", ("products/",)),
        ("#gear", "Guides", "site.nav.guides", ()), ("updates.html", "Updates", "site.nav.updates", ("updates.html",)),
@@ -286,7 +286,7 @@ def site_footer(cfg, root, fi, path="", ads=True):
     return f"""<footer class="foot foot-compact">
 <div class="wrap cols">
 <div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
-<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.nav.book", "Book your trip")}{li(h + "#airlines", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(h + "#compare", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
+<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.nav.book", "Book your trip")}{li(h + "#compare", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(h + "#compare", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
 <div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
