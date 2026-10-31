@@ -253,3 +253,50 @@ html:not(.intro-lock) .mapcard{min-height:100vh;min-height:100dvh;margin-top:0;b
  .intro .va-hero img{max-height:min(36svh,340px)}
  .intro .intro-story .body p{line-height:1.28;margin-bottom:.16em}
 }
+
+/* ==== Fold clip fix 31/10 ~12:30 KST (Asia/Seoul) — paste at the END of intro-a.css ====
+   Marc: « Réduire la police pour garder des proportions justes. »
+   1) Smaller story type (h2 + body + signature) on phones and Fold.
+   2) Safety net: when the full story still does not fit, the passport image shrinks
+      (flex-shrink + object-fit:contain), never the story. No page scroll. Begin always whole.
+   Every rule is inside max-width:1099px. Desktop >=1100 untouched. */
+
+/* --- 1. Story type: phones <=599 --- */
+@media (max-width:1099px){
+ .intro .intro-story h2{font-size:.84rem;margin:0 0 1px;padding-bottom:2px}
+ .intro .intro-story .body p{font-size:clamp(9.5px,3vw,10.5px);line-height:1.27;margin:0 0 .18em}
+ .intro .intro-story .sig{font-size:.84rem}
+}
+@media (max-width:1099px) and (max-height:780px){
+ .intro .intro-story .body p{font-size:clamp(9.5px,2.9vw,10px);line-height:1.25;margin-bottom:.16em}
+}
+/* --- 1b. Story type: open Fold / tablets 600-1099 (560px column) --- */
+@media (min-width:600px) and (max-width:1099px){
+ .intro .intro-story h2{font-size:.9rem}
+ .intro .intro-story .body p{font-size:12px;line-height:1.32;margin:0 0 .2em}
+ .intro .intro-story .sig{font-size:.9rem}
+}
+@media (min-width:600px) and (max-width:1099px) and (max-height:900px){
+ .intro .intro-story .body p{font-size:11.5px;line-height:1.28;margin-bottom:.16em}
+}
+@media (min-width:600px) and (max-width:1099px) and (max-height:760px){
+ .intro .intro-story .body p{font-size:10.5px;line-height:1.26}
+}
+
+/* --- 2. Safety net: the image gives way, the story never does --- */
+@media (max-width:1099px){
+ html.intro-lock .vas-grid{display:flex !important;flex-direction:column !important}
+ html.intro-lock .vas-art{flex:0 1 auto;min-height:0;display:flex;flex-direction:column}
+ html.intro-lock .va-hero{flex:0 1 auto;min-height:0;display:flex;flex-direction:column}
+ html.intro-lock .va-hero picture{flex:0 1 auto;min-height:0;display:flex;flex-direction:column;align-items:center}
+ html.intro-lock .va-hero img{flex:0 1 auto;min-height:64px;object-fit:contain}
+ html.intro-lock .vas-enter,html.intro-lock .intro-story{flex:0 0 auto}
+}
+
+/* --- 3. Last resort, landscape phones only (height <=480px, e.g. 653x280):
+   the story alone gets its own scroll inside the page. Page 1 still does not scroll.
+   No Galaxy Fold portrait size (folded or open) reaches this rule. --- */
+@media (max-width:1099px) and (max-height:480px){
+ html.intro-lock .intro-story{flex:0 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+}
+/* ==== END Fold clip fix 31/10 ==== */
