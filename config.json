@@ -385,7 +385,7 @@
       "alt": "",
       "advertiser": "",
       "adsense_slot": "",
-      "_note": "Airline pages, under the breadcrumb. Sponsor creative (image_url + link_url) wins; otherwise a dedicated AdSense unit id in adsense_slot. Empty image and empty/non-numeric adsense_slot render a content-width dashed gold Advertise-here frame (min-height 90px / 100px phone). Do NOT paste header 4584637408, home footer 9881497431, or site footer 2114688057."
+      "_note": "Airline pages, under the breadcrumb. Three 300×250 cells (one column under 700px). Sponsor creative (image_url + link_url) wins; otherwise a dedicated AdSense unit id in adsense_slot, repeated. Empty image and empty/non-numeric adsense_slot render three dashed Advertise-here cells. Do NOT paste header 4584637408, home footer 9881497431, or site footer 2114688057."
     },
     "guide_sponsor": {
       "image_url": "",
@@ -393,7 +393,7 @@
       "alt": "",
       "advertiser": "",
       "adsense_slot": "",
-      "_note": "Guide pages, under the verified line. Same rules as airline_top: image, else adsense_slot, else the Advertise-here frame. Do NOT reuse 4584637408, 9881497431, or 2114688057."
+      "_note": "Guide pages, under the verified line. Same rules as airline_top: three 300×250 cells. Image, else adsense_slot, else dashed Advertise here. Do NOT reuse 4584637408, 9881497431, or 2114688057."
     },
     "sidebar_or_footer": {
       "image_url": "",
@@ -401,11 +401,11 @@
       "alt": "",
       "advertiser": "",
       "adsense_slot": "",
-      "_note": "Content-width frame in the shared footer, above the live site-footer unit on ads=True pages. Same fill order: sponsor image, else adsense_slot, else Advertise here. The checklist page does not use this key; it uses ads.checklist. Do NOT reuse 4584637408, 9881497431, or 2114688057."
+      "_note": "Three 300×250 cells in the shared footer, above the live site-footer row on ads=True pages. Same fill order: sponsor image, else adsense_slot, else dashed Advertise here. The checklist page does not use this key; it uses ads.checklist. Do NOT reuse 4584637408, 9881497431, or 2114688057."
     },
     "site_footer": {
       "adsense_slot": "2114688057",
-      "_note": "AdSense unit 'PPC site footer' (client ca-pub-7693501377730690, slot 2114688057, delivered by Web Designer 2026-10-25). Fixed frame: data-ad-format=horizontal, full-width-responsive=false, spacer 250px desktop / 120px mobile (same pattern as home bottom). Do NOT reuse header 4584637408 or home bottom 9881497431. Empty/SITE_FOOTER_SLOT_TBD = dashed placeholder. Shared site footer on ads=True pages only (home keeps its own footer + home_footer_ad). Exclusive to this placement."
+      "_note": "AdSense unit 'PPC site footer' (client ca-pub-7693501377730690, slot 2114688057). Three 300×250 cells; the same slot id is repeated on each ins (one column under 700px). Do NOT reuse header 4584637408 or home bottom 9881497431. Empty/SITE_FOOTER_SLOT_TBD = three dashed Advertise-here cells. Shared site footer on ads=True pages only (home keeps its own footer + home_footer_ad). Exclusive to this placement."
     },
     "inarticle": {
       "adsense_slot": "7716801850",

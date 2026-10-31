@@ -200,45 +200,32 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 
 def header_ad(cfg, ads=True):
-    """Leaderboard ad band below the header line (728x90 desktop and tablet, 320x100 phone; fixed min-height = no layout shift).
-    config.json "adsense_header_slot": AdSense ad-unit id for this slot. Empty -> clean placeholder (dashed gold box,
-    'Advertisement' label) and the <ins> kept as a commented TODO. Pages built with ads=False always get the placeholder."""
+    """Three 300×250 units under the header (one column under 700px). config.json "adsense_header_slot"
+    is repeated on each <ins>, same pattern as mid-home. ads=False pages get no band.
+    Empty slot -> three dashed Advertise-here cells."""
     if not ads:
         return ""  # no-AdSense pages (e.g. /pet-travel-checklist/): no ad band at all
-    slot = str(cfg.get("adsense_header_slot") or "").strip()
+    slot = ad_unit_id(cfg.get("adsense_header_slot"))
     if slot:
-        # Real unit: no dashed placeholder / label; the frame keeps its fixed 728x90 (320x100 phone) min-height.
-        # One push() per <ins>; adsbygoogle.js is loaded in <head> on every ads=True page (ADSENSE / home-c.html).
-        return ('<div class="hdr-band"><div class="wrap"><div class="hdr-ad live" role="complementary" aria-label="Advertisement"><div class="hdr-box">'
-                f'<ins class="adsbygoogle hdr-ins" style="display:block" data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="{e(slot)}" '
-                'data-ad-format="horizontal" data-full-width-responsive="false"></ins>'
-                '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div>')
-    todo = (f'<!-- TODO header ad: create a 728x90 / responsive display unit in AdSense, put its id in config.json "adsense_header_slot" '
-            f'(build.py then renders <ins class="adsbygoogle hdr-ins" data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="REPLACE_WITH_HEADER_AD_SLOT_ID">) -->')
-    return f'<div class="hdr-band"><div class="wrap"><div class="hdr-ad empty" role="complementary" aria-label="Advertisement"><div class="hdr-box"><span class="adl">Advertisement</span>{todo}</div></div></div></div>'
+        grid = medium_rect_grid(slot, "header")
+    else:
+        grid = medium_rect_empty_grid(
+            "", "header", False,
+            '<!-- TODO header ad: put a numeric id in config.json "adsense_header_slot" -->')
+    return f'<div class="hdr-band"><div class="wrap">{grid}</div></div>'
 
 
 def home_footer_ad(cfg):
-    """Homepage-only bottom ad (970x250 frame). config.json "adsense_home_footer_slot".
-    Empty -> dashed placeholder + label. Live -> <ins> in a frame; a sibling spacer keeps
-    min height because AdSense injects min-height:0 !important on ancestors of <ins>."""
-    slot = str(cfg.get("adsense_home_footer_slot") or "").strip()
+    """Homepage bottom band: three 300×250 units. config.json "adsense_home_footer_slot" on each <ins>.
+    Empty -> three dashed Advertise-here cells."""
+    slot = ad_unit_id(cfg.get("adsense_home_footer_slot"))
     if slot:
-        return (
-            '<div class="wrap"><aside class="home-bottom-ad" role="complementary" aria-label="Advertisement">'
-            '<div class="home-bottom-ad-min" aria-hidden="true"></div>'
-            '<div class="home-bottom-ad-box">'
-            f'<ins class="adsbygoogle" style="display:block" data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="{e(slot)}" '
-            'data-ad-format="horizontal" data-full-width-responsive="false"></ins>'
-            '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>'
-            '</div></aside></div>'
-        )
-    return (
-        '<div class="wrap"><aside class="home-bottom-ad home-bottom-ad-empty" role="complementary" aria-label="Advertisement">'
-        '<div class="home-bottom-ad-min" aria-hidden="true"></div>'
-        '<span class="adl" aria-hidden="true">Advertisement</span>'
-        '</aside></div>'
-    )
+        grid = medium_rect_grid(slot, "home_bottom")
+    else:
+        grid = medium_rect_empty_grid(
+            "", "home_bottom", False,
+            '<!-- TODO home bottom ad: put a numeric id in config.json "adsense_home_footer_slot" -->')
+    return f'<div class="wrap home-bottom-ad">{grid}</div>'
 
 
 SITE_FOOTER_SLOT_PLACEHOLDER = "SITE_FOOTER_SLOT_TBD"
@@ -246,34 +233,28 @@ RESERVED_AD_SLOTS = {"4584637408": "header", "9881497431": "home bottom"}
 
 
 def site_footer_ad(cfg, root, fi):
-    """Large AdSense band in the shared site footer (unit "PPC site footer"). config.json ads.site_footer.adsense_slot.
-    Placeholder SITE_FOOTER_SLOT_TBD / empty -> dashed 'Advertisement' frame (same size, no <ins>).
-    Same collapse fix as home_footer_ad: invisible sibling spacer keeps the min height because
-    AdSense injects min-height:0 !important on ancestors of <ins>. A discreet 'Advertise here' sits under the panel."""
+    """Three 300×250 units in the shared site footer (unit "PPC site footer"). config.json ads.site_footer.adsense_slot
+    is repeated on each <ins>. Empty, SITE_FOOTER_SLOT_TBD, or a reused header/home-bottom id -> dashed Advertise-here cells.
+    A discreet 'Advertise here' link stays under the row."""
     slot = str(((cfg.get("ads") or {}).get("site_footer") or {}).get("adsense_slot") or "").strip()
     if slot in RESERVED_AD_SLOTS:
         print(f"  WARNING: ads.site_footer.adsense_slot reuses the {RESERVED_AD_SLOTS[slot]} slot {slot}; rendering placeholder")
         slot = ""
-    live = slot and slot != SITE_FOOTER_SLOT_PLACEHOLDER
+    live = ad_unit_id(slot)
     adv = f'<p class="sfad-adv"><a href="{root}advertise/"{ti("site.adhere", fi)}>Advertise here</a></p>'
     if live:
-        inner = ('<div class="sfad-box">'
-                 f'<ins class="adsbygoogle" style="display:block" data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="{e(slot)}" '
-                 'data-ad-format="horizontal" data-full-width-responsive="false"></ins>'
-                 '<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>')
-        cls = "sfad"
+        inner = medium_rect_grid(slot, "site_footer")
     else:
-        inner = ('<span class="adl" aria-hidden="true">Advertisement</span>'
-                 f'<!-- TODO site footer ad: put the "PPC site footer" AdSense slot id in config.json ads.site_footer.adsense_slot (now {SITE_FOOTER_SLOT_PLACEHOLDER}) -->')
-        cls = "sfad sfad-empty"
-    return (f'<div class="wrap sfad-wrap"><aside class="{cls}" role="complementary" aria-label="Advertisement">'
-            f'<div class="sfad-min" aria-hidden="true"></div>{inner}</aside>{adv}</div>')
+        inner = medium_rect_empty_grid(
+            root, "site_footer", fi,
+            f'<!-- TODO site footer ad: put the "PPC site footer" AdSense slot id in config.json ads.site_footer.adsense_slot (now {SITE_FOOTER_SLOT_PLACEHOLDER}) -->')
+    return f'<div class="wrap sfad-wrap">{inner}{adv}</div>'
 
 
 def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
     """Compact shared footer (brand + Explore / Shop / About), then on ads=True pages a large AdSense band
     (site_footer_ad). sponsor: auto | frame | ph | off.
-    auto: ads=True gets the sidebar_or_footer frame (empty → dashed Advertise box) above the live site-footer unit;
+    auto: ads=True gets the sidebar_or_footer row (three 300×250 cells; empty → dashed Advertise here) above the live site-footer units;
     ads=False keeps the small Advertise link (map, coming soon).
     frame: the dashed box only (checklist; no live header and no site-footer unit).
     off: nothing (forum account / admin / new-post).
@@ -288,7 +269,7 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
     elif sponsor == "ph":
         slot_html = f'<div class="wrap">{ad_ph(root, fi)}</div>'
     else:
-        slot_html = f'<div class="wrap">{ad_frame(cfg, "sidebar_or_footer", root, fi)}</div>'
+        slot_html = f'<div class="wrap">{ad_grid(cfg, "sidebar_or_footer", root, fi)}</div>'
     if ads:
         band = slot_html + site_footer_ad(cfg, root, fi)
     else:
@@ -796,6 +777,8 @@ EXCLUSIVE_AD_UNITS = {
     "9881497431": "home bottom (adsense_home_footer_slot)",
     "2114688057": "site footer (ads.site_footer.adsense_slot)",
 }
+# 300×250 flex cells. Checklist (336×280) and forum (one 300×250, not a row of three) stay out.
+RECT_300 = ("inarticle", "home_mid", "airline_top", "guide_sponsor", "sidebar_or_footer", "header", "home_bottom", "site_footer")
 AD_PUSH = "<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>"
 _BREAK_TAG = re.compile(r"<(/?)(h2|aside|section|div|table|ul|ol|li|style|script)\b([^>]*)>", re.I)
 
@@ -827,9 +810,9 @@ def ad_ph(root, i18n=False):
 
 
 def live_ins(slot, key):
-    """AdSense <ins> for a new unit. Markup follows the unit type; the three existing units are not used here."""
+    """AdSense <ins>. Medium-rectangle bands (including the three exclusive units, repeated) are fixed 300×250."""
     client = f'data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="{e(slot)}"'
-    if key in ("inarticle", "home_mid"):
+    if key in RECT_300:
         return (f'<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px;max-width:100%" {client}></ins>{AD_PUSH}')
     if key == "checklist":
         return (f'<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px;max-width:100%" {client}></ins>{AD_PUSH}')
@@ -849,7 +832,7 @@ def ad_frame(cfg, key, root, i18n=False, attrs=""):
 
     def open_tag(cls):
         k = f" {kind}" if kind else ""
-        if key in ("inarticle", "home_mid"):
+        if key in RECT_300:
             k += " adframe-rect"
         return (f'<aside class="adframe {cls}{k} ad-{key_e}" data-ad-key="{key_e}"{extra} '
                 f'role="complementary" aria-label="Advertisement">')
@@ -870,14 +853,34 @@ def ad_frame(cfg, key, root, i18n=False, attrs=""):
 
 
 def ad_slot(cfg, key, root, i18n=False):
-    """airline_top / guide_sponsor / sidebar_or_footer. Empty creative renders the dashed gold frame, not a tiny link."""
-    return ad_frame(cfg, key, root, i18n)
+    """airline_top / guide_sponsor / sidebar_or_footer: three 300×250 cells. Empty creative stays Advertise here."""
+    return ad_grid(cfg, key, root, i18n)
 
 
 def ad_grid(cfg, key, root, i18n=False, n=3):
     """Flex-wrap row of medium rectangles (300×250). Same slot id is repeated; empty slots stay Advertise-here boxes."""
     cells = "".join(ad_frame(cfg, key, root, i18n) for _ in range(n))
     return f'<div class="adgrid adgrid-{e(key)}">{cells}</div>'
+
+
+def medium_rect_grid(slot, key, n=3):
+    """Three (or n) live 300×250 cells repeating one exclusive slot id. One push() per <ins>."""
+    key_e = e(key)
+    cell = (f'<aside class="adframe adframe-live adframe-rect ad-{key_e}" data-ad-key="{key_e}" '
+            f'role="complementary" aria-label="Advertisement">'
+            f'<div class="adframe-min" aria-hidden="true"></div>'
+            f'<div class="adframe-box">{live_ins(slot, key)}</div></aside>')
+    return f'<div class="adgrid adgrid-{key_e}">{cell * n}</div>'
+
+
+def medium_rect_empty_grid(root, key, i18n=False, todo="", n=3):
+    """Dashed 300×250 Advertise-here cells when an exclusive slot id is missing."""
+    key_e = e(key)
+    cell = (f'<aside class="adframe adframe-empty adframe-rect ad-{key_e}" data-ad-key="{key_e}" '
+            f'role="complementary" aria-label="Advertisement">'
+            f'<span class="adl" aria-hidden="true">Advertisement</span>'
+            f'<a class="adframe-cta" href="{root}advertise/"{ti("site.adhere", i18n)}>Advertise here</a></aside>')
+    return f'<div class="adgrid adgrid-{key_e}">{todo}{cell * n}</div>'
 
 
 def h2_breaks(html):
