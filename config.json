@@ -409,11 +409,11 @@
     },
     "inarticle": {
       "adsense_slot": "7716801850",
-      "_note": "PPC in-article (client ca-pub-7693501377730690, slot 7716801850). Markup: data-ad-layout=in-article, data-ad-format=fluid. One frame between major H2 blocks on guides, the USA country page, airline detail, hotel pages, and the US clinics directory. Max-width 728px, centered. Empty or non-numeric = dashed Advertise-here placeholder. Do NOT reuse header 4584637408, home footer 9881497431, or site footer 2114688057."
+      "_note": "PPC in-article (client ca-pub-7693501377730690, slot 7716801850). Three 300×250 medium rectangles in a flex wrap (2–3 across on desktop, 1 column on mobile) between major H2 blocks on guides, the USA country page, airline detail, hotel pages, and clinics. The same slot id is repeated. Empty or non-numeric = dashed Advertise-here boxes of the same size. Do NOT reuse header 4584637408, home footer 9881497431, or site footer 2114688057."
     },
     "home_mid": {
       "adsense_slot": "3852085178",
-      "_note": "PPC mid-home (slot 3852085178). Responsive display unit with data-ad-format=auto and data-full-width-responsive=false, CSS max-width 728px centered. Two bands AFTER the Paw Passport intro only: between Compare and Gear, and between Gear and Community. Never inside intro page 1. Empty = Advertise here. Do NOT reuse 4584637408, 9881497431, or 2114688057."
+      "_note": "PPC mid-home (slot 3852085178). Three 300×250 medium rectangles in a flex wrap (2–3 across on desktop, 1 column on mobile). Two bands AFTER the Paw Passport intro only: between Compare and Gear, and between Gear and Community. Never inside intro page 1. The same slot id is repeated. Empty = Advertise here. Do NOT reuse 4584637408, 9881497431, or 2114688057."
     },
     "checklist": {
       "adsense_slot": "7196433815",

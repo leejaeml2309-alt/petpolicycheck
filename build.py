@@ -635,7 +635,7 @@ def build_airline(cfg, a, pd=None, lims=None):
 {affiliate_box(cfg)}
 """
     desc = f"{a['name']} pet policy: in-cabin {plain(a,'in_cabin_allowed').lower()}, carrier size, weight limit and fees. {'Verified ' + d if a.get('last_verified') else 'Not yet verified'} against the official airline page."
-    body = insert_between_h2(body, ad_frame(cfg, "inarticle", "{root}"), f"airline {a['slug']}")
+    body = insert_between_h2(body, ad_grid(cfg, "inarticle", "{root}"), f"airline {a['slug']}")
     return page(cfg, title, desc[:300], body, f"airlines/{a['slug']}.html", "../", [faq(a)] if confirmed_count(a) else [])
 
 
@@ -829,12 +829,8 @@ def ad_ph(root, i18n=False):
 def live_ins(slot, key):
     """AdSense <ins> for a new unit. Markup follows the unit type; the three existing units are not used here."""
     client = f'data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="{e(slot)}"'
-    if key == "inarticle":
-        return (f'<ins class="adsbygoogle" style="display:block;text-align:center" {client} '
-                f'data-ad-layout="in-article" data-ad-format="fluid"></ins>{AD_PUSH}')
-    if key == "home_mid":
-        return (f'<ins class="adsbygoogle" style="display:block" {client} '
-                f'data-ad-format="auto" data-full-width-responsive="false"></ins>{AD_PUSH}')
+    if key in ("inarticle", "home_mid"):
+        return (f'<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px;max-width:100%" {client}></ins>{AD_PUSH}')
     if key == "checklist":
         return (f'<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px;max-width:100%" {client}></ins>{AD_PUSH}')
     if key == "forum_public":
@@ -853,6 +849,8 @@ def ad_frame(cfg, key, root, i18n=False, attrs=""):
 
     def open_tag(cls):
         k = f" {kind}" if kind else ""
+        if key in ("inarticle", "home_mid"):
+            k += " adframe-rect"
         return (f'<aside class="adframe {cls}{k} ad-{key_e}" data-ad-key="{key_e}"{extra} '
                 f'role="complementary" aria-label="Advertisement">')
 
@@ -874,6 +872,12 @@ def ad_frame(cfg, key, root, i18n=False, attrs=""):
 def ad_slot(cfg, key, root, i18n=False):
     """airline_top / guide_sponsor / sidebar_or_footer. Empty creative renders the dashed gold frame, not a tiny link."""
     return ad_frame(cfg, key, root, i18n)
+
+
+def ad_grid(cfg, key, root, i18n=False, n=3):
+    """Flex-wrap row of medium rectangles (300×250). Same slot id is repeated; empty slots stay Advertise-here boxes."""
+    cells = "".join(ad_frame(cfg, key, root, i18n) for _ in range(n))
+    return f'<div class="adgrid adgrid-{e(key)}">{cells}</div>'
 
 
 def h2_breaks(html):
@@ -1301,7 +1305,7 @@ def build_guide(cfg, g, pd, lims, airlines):
 <h2>More guides</h2><ul>{other}<li><a href="{{root}}products/">All pet travel products</a></li></ul>
 {disclosure("{root}")}
 """
-    body = insert_between_h2(body, ad_frame(cfg, "inarticle", "{root}"), f"guide {slug}")
+    body = insert_between_h2(body, ad_grid(cfg, "inarticle", "{root}"), f"guide {slug}")
     ld = [bc_ld(cfg, [("Home", ""), ("Products", "products/"), (title.split(':')[0], f"products/{slug}.html")])]
     return page(cfg, f"{title} | {cfg['site_name']}", desc, body, f"products/{slug}.html", root, ld)
 
@@ -1515,7 +1519,7 @@ def build_clinics_usa(cfg):
 <div class="cdisc small"><b>Informational listing only.</b> This is not a partnership: {e(cfg['site_name'])} is not affiliated with, endorsed by or paid by any clinic listed here. Always verify services, accreditation and fees directly with the clinic, and check the official USDA APHIS and CDC rules for your trip. Links may change.</div>
 <p><label>Filter by state: <select id="stf" onchange="for(const g of document.querySelectorAll('.stgrp'))g.hidden=this.value&&g.dataset.st!==this.value"><option value="">All states</option>{opts}</select></label></p>
 {"".join(groups)}"""
-    body = insert_between_h2(body, ad_frame(cfg, "inarticle", "../"), "clinics")
+    body = insert_between_h2(body, ad_grid(cfg, "inarticle", "../"), "clinics")
     return page(cfg, f"US veterinary clinics for pet travel certificates | {cfg['site_name']}",
                 "Informational directory of US veterinary clinics that appear to offer pet travel health-certificate services. Not affiliated; verify with the clinic and USDA/CDC.",
                 body, "clinics/usa.html", "../")
@@ -1873,7 +1877,7 @@ def build_country_usa(cfg, airlines):
 <div class="chips">{al}</div>
 <h2 id="gear">Product guides</h2>
 <ul>{gl}</ul>"""
-    body = insert_between_h2(body, ad_frame(cfg, "inarticle", root), "usa")
+    body = insert_between_h2(body, ad_grid(cfg, "inarticle", root), "usa")
     faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": qn, "acceptedAnswer": {"@type": "Answer", "text": a}}
         for qn, (_, a, _u) in zip(["What does a dog need to enter the United States?", "What does a cat need to enter the United States?",
@@ -2338,7 +2342,7 @@ def build_hotel_city(cfg, c, ch, ci):
 <h2 id="more">More pet travel help</h2>
 <p>Flying there? Check the airline: <a href="{root}airlines/american.html">American</a>, <a href="{root}airlines/delta.html">Delta</a>, <a href="{root}airlines/united.html">United</a>, <a href="{root}airlines/southwest.html">Southwest</a>, <a href="{root}airlines/jetblue.html">JetBlue</a>. State entry rules: <a href="{root}countries/usa.html#states">Pet travel rules for the USA</a>.</p>
 <div class="ht-cities">{hotel_city_links(ci, root, c['slug'])}</div>"""
-    body = insert_between_h2(body, ad_frame(cfg, "inarticle", root), f"hotel {c['slug']}")
+    body = insert_between_h2(body, ad_grid(cfg, "inarticle", root), f"hotel {c['slug']}")
     faqs = [("Which hotel chains have no pet fee?", quick[0][1]), ("What do Red Roof and La Quinta charge for pets?", quick[1][1])] + [(q, a) for q, a, _ in c["faq"]]
     lf = hotel_lux_faq(c)
     if lf:
@@ -2367,7 +2371,7 @@ def build_hotels_index(cfg, ch, ci):
 {hotel_lux_brands(ci)}
 <p class="small disc">City pages may contain affiliate links; if you book through them we may earn a commission at no extra cost to you. It never changes the pet rules we publish. <a href="{root}about.html#affiliates">Disclosure</a>.</p>
 <p>Driving or flying between states? See <a href="{root}countries/usa.html">pet travel rules for the USA</a> for each state&rsquo;s health certificate and rabies rules.</p>"""
-    body = insert_between_h2(body, ad_frame(cfg, "inarticle", root), "hotels")
+    body = insert_between_h2(body, ad_grid(cfg, "inarticle", root), "hotels")
     return page(cfg, f"Pet-friendly hotels in the US: chain pet fees and weight limits | {cfg['site_name']}",
                 "Pet fees, weight limits and number of pets at Kimpton, Motel 6, Red Roof, La Quinta, Drury, Loews, Hilton, Aloft and Four Seasons, from official sites, plus city guides for Orlando, New York and Miami.",
                 body, "hotels/", root, jsonld=[bc_ld(cfg, [("Home", ""), ("Pet-friendly hotels", "hotels/")])])
@@ -2737,13 +2741,13 @@ def main():
         home = home.replace(gmark, gjs, 1).replace(cmark, "", 1)
         assert "<!--HOME_FOOTER_AD-->" in home
         home = home.replace("<!--HOME_FOOTER_AD-->", home_footer_ad(cfg), 1)
-        mid_ad = f'<div class="wrap home-mid-ad">{ad_frame(cfg, "home_mid", "")}</div>'
+        mid_ad = f'<div class="wrap home-mid-ad">{ad_grid(cfg, "home_mid", "")}</div>'
         for n in ("1", "2"):
             mark = f"<!--HOME_MID_AD:{n}-->"
             assert mark in home, mark
             home = home.replace(mark, mid_ad, 1)
         intro = home.split('<section class="intro"', 1)[1].split("</section>", 1)[0]
-        if "adframe" in intro or "hdr-ad" in intro or "adsbygoogle" in intro or "Advertise here" in intro:
+        if any(x in intro for x in ("adframe", "adgrid", "hdr-ad", "adsbygoogle", "Advertise here")):
             raise SystemExit("Paw Passport intro must stay ad-free")
         assert "<!--HDR_AD-->" in home and "<!--HDR_MENU_JS-->" in home
         home = home.replace("<!--HDR_AD-->", "", 1).replace("<!--HDR_MENU_JS-->", header_ad(cfg), 1)  # home: no menu bar, centered brand
