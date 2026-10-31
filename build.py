@@ -270,19 +270,29 @@ def site_footer_ad(cfg, root, fi):
             f'<div class="sfad-min" aria-hidden="true"></div>{inner}</aside>{adv}</div>')
 
 
-def site_footer(cfg, root, fi, path="", ads=True):
+def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
     """Compact shared footer (brand + Explore / Shop / About), then on ads=True pages a large AdSense band
-    (site_footer_ad). ads=False pages (checklist, forum app pages) get no ad, only the sponsor link / slot.
+    (site_footer_ad). sponsor: auto | frame | ph | off.
+    auto: ads=True gets the sidebar_or_footer frame (empty → dashed Advertise box) above the live site-footer unit;
+    ads=False keeps the small Advertise link (map, coming soon).
+    frame: the dashed box only (checklist; no live header and no site-footer unit).
+    off: nothing (forum account / admin / new-post).
     The homepage has its own footer in static/home-c.html and keeps home_footer_ad (9881497431)."""
     h = home_url(root)
     li = lambda href, key, label: f'<li><a href="{href}"{ti(key, fi)}>{label}</a></li>'
     forum = (li(f"{root}forum/", "nav.forum", "Forum") + li(f"{root}forum/pet-travel-stories/", "site.foot.stories", "Stories")) if FORUM_ON else ""
-    s = (cfg.get("ads") or {}).get("sidebar_or_footer") or {}
-    sponsor = s.get("image_url") and s.get("link_url")
-    if ads:
-        band = (f'<div class="wrap">{ad_slot(cfg, "sidebar_or_footer", root, fi)}</div>' if sponsor else "") + site_footer_ad(cfg, root, fi)
+    if sponsor == "auto":
+        sponsor = "frame" if ads else "ph"
+    if sponsor == "off":
+        slot_html = ""
+    elif sponsor == "ph":
+        slot_html = f'<div class="wrap">{ad_ph(root, fi)}</div>'
     else:
-        band = f'<div class="wrap">{ad_slot(cfg, "sidebar_or_footer", root, fi)}</div>'
+        slot_html = f'<div class="wrap">{ad_frame(cfg, "sidebar_or_footer", root, fi)}</div>'
+    if ads:
+        band = slot_html + site_footer_ad(cfg, root, fi)
+    else:
+        band = slot_html
     return f"""<footer class="foot foot-compact">
 <div class="wrap cols">
 <div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
@@ -350,17 +360,26 @@ def build_og_image(cfg):
     clean.save(OUT / OG_IMAGE, "JPEG", quality=82, optimize=True, progressive=True)
 
 
-def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noindex=False, ads=True):
+def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noindex=False, ads=True, sponsor="auto", extra_ad_keys=()):
     base = site_base(cfg)
     canon = canonical or f"{base}/{path}"
     ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in (jsonld or []))
     fi = FORUM_ON and path.startswith("forum/")  # forum pages: shared header/footer labels follow the forum language
+    # ads=False pages (checklist, forum forms) do not get the live header unit. If a new slot id is
+    # later pasted into one of extra_ad_keys, load adsbygoogle.js so that frame can go live without the header unit.
+    extra_live = any(unit_configured(cfg, k) for k in extra_ad_keys)
+    if ads:
+        ads_head = ADSENSE + "\n" + TP_DRIVE + "\n"
+    elif extra_live:
+        ads_head = ADSENSE + "\n"
+    else:
+        ads_head = ""
     return f"""<!doctype html>
 <html lang="{e(cfg.get('language','en-US'))}">
 <head>
 <meta charset="utf-8">
 <meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
-{ADSENSE + chr(10) + TP_DRIVE if ads else ''}
+{ads_head}
 <meta name="viewport" content="width=device-width,initial-scale=1">{chr(10) + '<meta name="robots" content="noindex,follow">' if noindex else ''}
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
@@ -396,7 +415,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <main class="wrap" id="main">
 {body.replace('{root}', root)}
 </main>
-{site_footer(cfg, root, fi, path, ads)}
+{site_footer(cfg, root, fi, path, ads, sponsor)}
 </body></html>
 """
 
@@ -616,6 +635,7 @@ def build_airline(cfg, a, pd=None, lims=None):
 {affiliate_box(cfg)}
 """
     desc = f"{a['name']} pet policy: in-cabin {plain(a,'in_cabin_allowed').lower()}, carrier size, weight limit and fees. {'Verified ' + d if a.get('last_verified') else 'Not yet verified'} against the official airline page."
+    body = insert_between_h2(body, ad_grid(cfg, "inarticle", "{root}"), f"airline {a['slug']}")
     return page(cfg, title, desc[:300], body, f"airlines/{a['slug']}.html", "../", [faq(a)] if confirmed_count(a) else [])
 
 
@@ -770,14 +790,170 @@ def load_products(airlines):
     return pd, lims
 
 
-def ad_slot(cfg, key, root, i18n=False):
+# Units already wired. New frames must not reuse them (header, home bottom, site footer).
+EXCLUSIVE_AD_UNITS = {
+    "4584637408": "header (adsense_header_slot)",
+    "9881497431": "home bottom (adsense_home_footer_slot)",
+    "2114688057": "site footer (ads.site_footer.adsense_slot)",
+}
+AD_PUSH = "<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>"
+_BREAK_TAG = re.compile(r"<(/?)(h2|aside|section|div|table|ul|ol|li|style|script)\b([^>]*)>", re.I)
+
+
+def ad_unit_id(raw):
+    """Numeric AdSense unit id, or '' for empty / SITE_*_SLOT_TBD / other notes."""
+    slot = str(raw or "").strip()
+    return slot if slot.isdigit() else ""
+
+
+def usable_unit(raw, where):
+    slot = ad_unit_id(raw)
+    owner = EXCLUSIVE_AD_UNITS.get(slot)
+    if owner:
+        print(f"  WARNING: {where} reuses the {owner} unit {slot}; showing the Advertise placeholder")
+        return ""
+    return slot
+
+
+def unit_configured(cfg, key):
+    """True when ads.<key>.adsense_slot is a new numeric unit (not one of the three exclusive units)."""
+    slot = ad_unit_id(((cfg.get("ads") or {}).get(key) or {}).get("adsense_slot"))
+    return bool(slot) and slot not in EXCLUSIVE_AD_UNITS
+
+
+def ad_ph(root, i18n=False):
+    """Small Advertise link kept for ads=False pages that are not getting a framed slot (map, coming soon)."""
+    return f'<p class="adph"><a href="{root}advertise/"{ti("site.adhere", i18n)}>Advertise here</a></p>'
+
+
+def live_ins(slot, key):
+    """AdSense <ins> for a new unit. Markup follows the unit type; the three existing units are not used here."""
+    client = f'data-ad-client="{ADSENSE_CLIENT}" data-ad-slot="{e(slot)}"'
+    if key in ("inarticle", "home_mid"):
+        return (f'<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px;max-width:100%" {client}></ins>{AD_PUSH}')
+    if key == "checklist":
+        return (f'<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px;max-width:100%" {client}></ins>{AD_PUSH}')
+    if key == "forum_public":
+        return (f'<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px;max-width:100%" {client}></ins>{AD_PUSH}')
+    return (f'<ins class="adsbygoogle" style="display:block" {client} '
+            f'data-ad-format="horizontal" data-full-width-responsive="false"></ins>{AD_PUSH}')
+
+
+def ad_frame(cfg, key, root, i18n=False, attrs=""):
+    """Content-width frame. Sponsor image wins, then a dedicated adsense_slot, else Advertise here.
+    attrs is extra attributes on the <aside> (forum uses data-ad-keep so JS can put the frame back)."""
     s = (cfg.get("ads") or {}).get(key) or {}
+    key_e = e(key)
+    kind = {"inarticle": "adframe-ia", "home_mid": "adframe-mid", "checklist": "adframe-ck", "forum_public": "adframe-fo"}.get(key, "")
+    extra = (f' data-ad-kind="{key_e}"' if kind else "") + (f" {attrs}" if attrs else "")
+
+    def open_tag(cls):
+        k = f" {kind}" if kind else ""
+        if key in ("inarticle", "home_mid"):
+            k += " adframe-rect"
+        return (f'<aside class="adframe {cls}{k} ad-{key_e}" data-ad-key="{key_e}"{extra} '
+                f'role="complementary" aria-label="Advertisement">')
+
     if s.get("image_url") and s.get("link_url"):
         adv = f'<span class="small"> &middot; {e(s.get("advertiser"))}</span>' if s.get("advertiser") else ""
-        return (f'<aside class="ad ad-{e(key)}"><span class="adlabel">Sponsored</span>{adv}'
+        return (open_tag("adframe-sponsor") + f'<span class="adlabel">Sponsored</span>{adv}'
                 f'<a href="{e(s["link_url"])}" rel="sponsored nofollow noopener" target="_blank">'
                 f'<img src="{e(s["image_url"])}" alt="{e(s.get("alt") or s.get("advertiser") or "Sponsor")}" loading="lazy"></a></aside>')
-    return f'<p class="adph"><a href="{root}advertise/"{ti("site.adhere", i18n)}>Advertise here</a></p>'
+    slot = usable_unit(s.get("adsense_slot"), f"ads.{key}.adsense_slot")
+    if slot:
+        ins = live_ins(slot, key)
+        return (open_tag("adframe-live") + '<div class="adframe-min" aria-hidden="true"></div>'
+                f'<div class="adframe-box">{ins}</div></aside>')
+    return (open_tag("adframe-empty") + '<span class="adl" aria-hidden="true">Advertisement</span>'
+            f'<a class="adframe-cta" href="{root}advertise/"{ti("site.adhere", i18n)}>Advertise here</a>'
+            f'<!-- TODO ads.{key_e}: placeholder until a sponsor image or a new numeric AdSense unit id is set on ads.{key_e}.adsense_slot. --></aside>')
+
+
+def ad_slot(cfg, key, root, i18n=False):
+    """airline_top / guide_sponsor / sidebar_or_footer. Empty creative renders the dashed gold frame, not a tiny link."""
+    return ad_frame(cfg, key, root, i18n)
+
+
+def ad_grid(cfg, key, root, i18n=False, n=3):
+    """Flex-wrap row of medium rectangles (300×250). Same slot id is repeated; empty slots stay Advertise-here boxes."""
+    cells = "".join(ad_frame(cfg, key, root, i18n) for _ in range(n))
+    return f'<div class="adgrid adgrid-{e(key)}">{cells}</div>'
+
+
+def h2_breaks(html):
+    """Offsets of major H2 blocks. A heading inside a box, list, or table is not a break;
+    the surrounding <aside>/<section> is, when that container itself contains an H2."""
+    div = aside = section = table = lst = item = lock = 0
+    stack = []
+    points = []
+    for m in _BREAK_TAG.finditer(html):
+        closing, name, attrs = bool(m.group(1)), m.group(2).lower(), m.group(3) or ""
+        selfclose = (not closing) and attrs.rstrip().endswith("/")
+        if name in ("style", "script"):
+            if not closing and not selfclose:
+                lock += 1
+            elif closing and lock:
+                lock -= 1
+            continue
+        if lock:
+            continue
+        if name == "h2" and not closing:
+            if div == aside == section == table == lst == item == 0:
+                points.append(m.start())
+            continue
+        if selfclose or name == "h2":
+            continue
+        if not closing:
+            if name in ("aside", "section") and div == aside == section == table == lst == item == 0:
+                stack.append((name, m.start()))
+            if name == "div":
+                div += 1
+            elif name == "aside":
+                aside += 1
+            elif name == "section":
+                section += 1
+            elif name == "table":
+                table += 1
+            elif name in ("ul", "ol"):
+                lst += 1
+            elif name == "li":
+                item += 1
+        else:
+            if name == "div":
+                div = max(0, div - 1)
+            elif name == "aside":
+                aside = max(0, aside - 1)
+            elif name == "section":
+                section = max(0, section - 1)
+            elif name == "table":
+                table = max(0, table - 1)
+            elif name in ("ul", "ol"):
+                lst = max(0, lst - 1)
+            elif name == "li":
+                item = max(0, item - 1)
+            if stack and stack[-1][0] == name and div == aside == section == table == lst == item == 0:
+                _n, start = stack.pop()
+                if re.search(r"<h2\b", html[start:m.end()], re.I):
+                    points.append(start)
+    return sorted(set(points))
+
+
+def insert_between_h2(html, frame, label="page"):
+    """One in-article frame before a middle H2 block. Skips pages with no safe break."""
+    if not frame:
+        return html
+    pts = h2_breaks(html)
+    if not pts:
+        print(f"  WARNING: no in-article slot on {label} (no H2 break)")
+        return html
+    if len(pts) == 1:
+        if pts[0] < 500:
+            print(f"  WARNING: in-article slot skipped on {label} (only heading is near the top)")
+            return html
+        pos = pts[0]
+    else:
+        pos = pts[len(pts) // 2]
+    return html[:pos] + frame + "\n" + html[pos:]
 
 
 def dims(s, unit=None):
@@ -1129,6 +1305,7 @@ def build_guide(cfg, g, pd, lims, airlines):
 <h2>More guides</h2><ul>{other}<li><a href="{{root}}products/">All pet travel products</a></li></ul>
 {disclosure("{root}")}
 """
+    body = insert_between_h2(body, ad_grid(cfg, "inarticle", "{root}"), f"guide {slug}")
     ld = [bc_ld(cfg, [("Home", ""), ("Products", "products/"), (title.split(':')[0], f"products/{slug}.html")])]
     return page(cfg, f"{title} | {cfg['site_name']}", desc, body, f"products/{slug}.html", root, ld)
 
@@ -1342,6 +1519,7 @@ def build_clinics_usa(cfg):
 <div class="cdisc small"><b>Informational listing only.</b> This is not a partnership: {e(cfg['site_name'])} is not affiliated with, endorsed by or paid by any clinic listed here. Always verify services, accreditation and fees directly with the clinic, and check the official USDA APHIS and CDC rules for your trip. Links may change.</div>
 <p><label>Filter by state: <select id="stf" onchange="for(const g of document.querySelectorAll('.stgrp'))g.hidden=this.value&&g.dataset.st!==this.value"><option value="">All states</option>{opts}</select></label></p>
 {"".join(groups)}"""
+    body = insert_between_h2(body, ad_grid(cfg, "inarticle", "../"), "clinics")
     return page(cfg, f"US veterinary clinics for pet travel certificates | {cfg['site_name']}",
                 "Informational directory of US veterinary clinics that appear to offer pet travel health-certificate services. Not affiliated; verify with the clinic and USDA/CDC.",
                 body, "clinics/usa.html", "../")
@@ -1578,11 +1756,15 @@ def build_checklist(cfg):
 <p class="ck-dl"><a class="btn book-cta" href="{root}{CHECKLIST_PDF}" download>Download the free PDF</a></p>
 <p class="ck-note">No sign-up needed. Free to share. US Letter, 2 pages{f", {kb} KB" if kb else ""}. Last checked: Oct 2026.{f' Saving ink? <a href="{root}{CHECKLIST_PDF.replace(".pdf", "-print.pdf")}" download>Light print version</a>.' if (ROOT / "static" / CHECKLIST_PDF.replace(".pdf", "-print.pdf")).exists() else ""}</p>
 </div><div class="ck-img"><a href="{root}{CHECKLIST_PDF}" download><img src="{root}assets/img/checklist-thumb.webp" width="480" height="621" alt="Page 1 of the Pet Travel Checklist USA: documents and flying sections"></a></div></div>
-<p class="warn usa-warn">Rules change; always confirm with the airline and official sources. For the full details see <a href="{root}countries/usa.html">pet travel rules for the USA</a>, the <a href="{root}products/under-seat-carrier-size-by-airline.html">carrier size by airline</a> guide and <a href="{root}hotels/">pet-friendly hotel rules</a>.</p>"""
+{ad_frame(cfg, "checklist", root)}
+<p class="warn usa-warn">Rules change; always confirm with the airline and official sources. For the full details see <a href="{root}countries/usa.html">pet travel rules for the USA</a>, the <a href="{root}products/under-seat-carrier-size-by-airline.html">carrier size by airline</a> guide and <a href="{root}hotels/">pet-friendly hotel rules</a>.</p>
+{ad_frame(cfg, "checklist", root)}"""
+    # ads=False: no live header unit and no site-footer unit. Mid frame under the PDF hero, bottom frame after the note.
     return page(cfg, f"Free Pet Travel Checklist USA (printable PDF) | {cfg['site_name']}",
                 "A free 2-page printable checklist for US pet travel: documents, airline cabin vs. hold, carrier size, Amtrak, hotels and departure day. No sign-up.",
                 body, "pet-travel-checklist/", root,
-                jsonld=[bc_ld(cfg, [("Home", ""), ("Pet travel checklist", "pet-travel-checklist/")])], ads=False)
+                jsonld=[bc_ld(cfg, [("Home", ""), ("Pet travel checklist", "pet-travel-checklist/")])],
+                ads=False, sponsor="off", extra_ad_keys=("checklist",))
 
 
 def build_country_usa(cfg, airlines):
@@ -1695,6 +1877,7 @@ def build_country_usa(cfg, airlines):
 <div class="chips">{al}</div>
 <h2 id="gear">Product guides</h2>
 <ul>{gl}</ul>"""
+    body = insert_between_h2(body, ad_grid(cfg, "inarticle", root), "usa")
     faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": qn, "acceptedAnswer": {"@type": "Answer", "text": a}}
         for qn, (_, a, _u) in zip(["What does a dog need to enter the United States?", "What does a cat need to enter the United States?",
@@ -2159,6 +2342,7 @@ def build_hotel_city(cfg, c, ch, ci):
 <h2 id="more">More pet travel help</h2>
 <p>Flying there? Check the airline: <a href="{root}airlines/american.html">American</a>, <a href="{root}airlines/delta.html">Delta</a>, <a href="{root}airlines/united.html">United</a>, <a href="{root}airlines/southwest.html">Southwest</a>, <a href="{root}airlines/jetblue.html">JetBlue</a>. State entry rules: <a href="{root}countries/usa.html#states">Pet travel rules for the USA</a>.</p>
 <div class="ht-cities">{hotel_city_links(ci, root, c['slug'])}</div>"""
+    body = insert_between_h2(body, ad_grid(cfg, "inarticle", root), f"hotel {c['slug']}")
     faqs = [("Which hotel chains have no pet fee?", quick[0][1]), ("What do Red Roof and La Quinta charge for pets?", quick[1][1])] + [(q, a) for q, a, _ in c["faq"]]
     lf = hotel_lux_faq(c)
     if lf:
@@ -2187,6 +2371,7 @@ def build_hotels_index(cfg, ch, ci):
 {hotel_lux_brands(ci)}
 <p class="small disc">City pages may contain affiliate links; if you book through them we may earn a commission at no extra cost to you. It never changes the pet rules we publish. <a href="{root}about.html#affiliates">Disclosure</a>.</p>
 <p>Driving or flying between states? See <a href="{root}countries/usa.html">pet travel rules for the USA</a> for each state&rsquo;s health certificate and rabies rules.</p>"""
+    body = insert_between_h2(body, ad_grid(cfg, "inarticle", root), "hotels")
     return page(cfg, f"Pet-friendly hotels in the US: chain pet fees and weight limits | {cfg['site_name']}",
                 "Pet fees, weight limits and number of pets at Kimpton, Motel 6, Red Roof, La Quinta, Drury, Loews, Hilton, Aloft and Four Seasons, from official sites, plus city guides for Orlando, New York and Miami.",
                 body, "hotels/", root, jsonld=[bc_ld(cfg, [("Home", ""), ("Pet-friendly hotels", "hotels/")])])
@@ -2556,6 +2741,14 @@ def main():
         home = home.replace(gmark, gjs, 1).replace(cmark, "", 1)
         assert "<!--HOME_FOOTER_AD-->" in home
         home = home.replace("<!--HOME_FOOTER_AD-->", home_footer_ad(cfg), 1)
+        mid_ad = f'<div class="wrap home-mid-ad">{ad_grid(cfg, "home_mid", "")}</div>'
+        for n in ("1", "2"):
+            mark = f"<!--HOME_MID_AD:{n}-->"
+            assert mark in home, mark
+            home = home.replace(mark, mid_ad, 1)
+        intro = home.split('<section class="intro"', 1)[1].split("</section>", 1)[0]
+        if any(x in intro for x in ("adframe", "adgrid", "hdr-ad", "adsbygoogle", "Advertise here")):
+            raise SystemExit("Paw Passport intro must stay ad-free")
         assert "<!--HDR_AD-->" in home and "<!--HDR_MENU_JS-->" in home
         home = home.replace("<!--HDR_AD-->", "", 1).replace("<!--HDR_MENU_JS-->", header_ad(cfg), 1)  # home: no menu bar, centered brand
         home = home.replace('href="assets/css/theme.css"', f'href="assets/css/theme.css?v={CSS_VER}"', 1)  # header CSS changed: bust cache on home too
