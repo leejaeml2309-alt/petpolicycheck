@@ -90,7 +90,93 @@ html.intro-lock .adframe,html.intro-lock .adgrid,.intro .adframe,.intro .adgrid{
 .adframe-fo .adframe-min{height:250px;min-height:250px}
 .home-mid-ad .adgrid{margin:8px auto 12px}
 @media (max-width:700px){
- .adgrid{flex-direction:column;align-items:center}
+ /* Mobile adgrids v3 20261101 — 3-en-ligne, collapse unfilled, tighter hdr */
+ .adgrid{
+  display:flex !important;
+  flex-direction:row !important;
+  flex-wrap:nowrap !important;
+  justify-content:center !important;
+  align-items:stretch !important;
+  gap:6px !important;
+  margin:8px auto !important;
+  max-width:100% !important;
+  padding:0 6px !important;
+  min-height:0 !important;
+  box-sizing:border-box;
+ }
+ .adgrid .adframe-rect{
+  flex:1 1 0 !important;
+  width:auto !important;
+  min-width:0 !important;
+  max-width:none !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  aspect-ratio:300 / 250;
+  margin:0 !important;
+  padding:4px !important;
+  box-sizing:border-box;
+  overflow:hidden !important;
+ }
+ .adgrid .adframe-rect .adframe-min{
+  display:none !important;
+  height:0 !important;
+  min-height:0 !important;
+ }
+ .adgrid .adframe-empty{
+  min-height:0 !important;
+  gap:1px !important;
+  padding:4px 2px !important;
+ }
+ .adgrid .adframe-empty .adl{font-size:.5rem;letter-spacing:.08em}
+ .adgrid .adframe-empty .adframe-cta{font-size:.72rem}
+ .adgrid .adframe-live{
+  aspect-ratio:auto !important;
+  min-height:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  background:transparent !important;
+ }
+ .adgrid .adframe-live:has(ins.adsbygoogle:not([data-ad-status="filled"])),
+ .adgrid .adframe-live:has(ins.adsbygoogle[data-ad-status="unfilled"]),
+ .adgrid .adframe-live:has(ins.adsbygoogle:not([data-ad-status])){
+  display:none !important;
+  flex:0 0 0 !important;
+  width:0 !important;
+  max-width:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  border:0 !important;
+ }
+ .adgrid .adframe-live:has(ins.adsbygoogle[data-ad-status="filled"]){
+  display:flex !important;
+  flex:1 1 0 !important;
+  aspect-ratio:300 / 250 !important;
+ }
+ .hdr-band{
+  padding:2px 0 0 !important;
+  min-height:0 !important;
+  margin:0 !important;
+ }
+ .hdr-band .adgrid{margin:0 auto 2px !important}
+ .hdr-band:not(:has(.adframe-empty)):not(:has(.adframe-live:has(ins.adsbygoogle[data-ad-status="filled"]))){
+  display:none !important;
+  height:0 !important;
+  padding:0 !important;
+  margin:0 !important;
+ }
+ .foot .adgrid,
+ .sfad-wrap .adgrid{margin:8px auto 4px !important}
+ .sfad-wrap{margin-top:2px !important;min-height:0 !important}
+ .sfad-wrap .sfad-adv{margin:4px 0 !important}
+ main, .wrap > .crumbs, .crumbs, .breadcrumb, nav.crumbs{
+  margin-top:0 !important;
+ }
+}
+@media (max-width:360px){
+ .adgrid{gap:4px !important;padding:0 4px !important}
+ .adgrid .adframe-empty .adframe-cta{font-size:.65rem}
 }
 @media (max-width:767px){
  .adframe:not(.adframe-ck):not(.adframe-fo):not(.adframe-rect),
