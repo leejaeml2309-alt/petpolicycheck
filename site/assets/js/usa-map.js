@@ -303,7 +303,7 @@ function render(html){const p=$("#panel");p.innerHTML=html;p.scrollTop=0;applySt
 const FULL=[0,0,975,610];let vb=FULL.slice();
 function zoomTo(a){const m=$("#map");let t=FULL;
  if(a&&innerWidth<=900){const b=$("#s-"+a).getBBox();const w=Math.max(b.width*1.5,220),h=Math.max(b.height*1.5,150);const sc=Math.max(w/975,h/610);const W=975*sc,H=610*sc;t=[b.x+b.width/2-W/2,b.y+b.height/2-H/2,W,H];}
- $("#reset").hidden=t===FULL;const f=vb.slice(),t0=performance.now();
+ $("#reset").hidden=!cur;const f=vb.slice(),t0=performance.now();
  (function an(n){const k=Math.min(1,(n-t0)/350),e=k*(2-k);vb=f.map((v,i)=>v+(t[i]-v)*e);m.setAttribute("viewBox",vb.join(" "));m.style.setProperty("--k",(vb[2]/975).toFixed(3));if(k<1)requestAnimationFrame(an)})(t0);}
 function hilite(a,key,apCode){zoomTo(a&&a!=="DC"?a:null);
  document.querySelectorAll(".st.sel,.lbl.sel,.ct.sel,.ap.sel").forEach(e=>e.classList.remove("sel"));
@@ -392,7 +392,20 @@ function applyStep(scroll){
 }
 document.querySelectorAll("#steps button").forEach(b=>b.onclick=()=>{step=+b.dataset.step;if(!cur)selectCity("NY","New York City");applyStep(true)});
 /* ---------- init ---------- */
-$("#reset").onclick=()=>zoomTo(null);
+/* Back to the full multi-state view: clear selection, zoom, hash and panel. */
+function showAllStates(){
+ cur=null;hilite(null);/* hilite(null) also runs zoomTo(null) */
+ if(location.hash)try{history.replaceState(null,"",location.pathname+location.search)}catch(_){location.hash=""}
+ empty();$("#reset").hidden=true;$("#pick").value="";
+}
+{const r=$("#reset");r.classList.remove("ghost");r.classList.add("reset-all");r.onclick=showAllStates;}
+/* capture phase: runs before the site-menu Escape handler, so an open menu keeps Escape */
+window.addEventListener("keydown",e=>{
+ if(e.key!=="Escape"||!cur||e.defaultPrevented)return;
+ const sm=document.getElementById("site-menu");if(sm&&sm.classList.contains("open"))return;
+ showAllStates();
+},true);
+$("#map").addEventListener("click",e=>{if(cur&&e.target===e.currentTarget)showAllStates()});
 buildMap();
 const pick=$("#pick");ABBRS.forEach(a=>pick.add(new Option(GEO[a].name,a)));pick.onchange=()=>pick.value&&selectState(pick.value);
 $("#grid").innerHTML=ABBRS.map(a=>`<button data-a="${a}">${mark(a)}<span>${esc(GEO[a].name)}</span></button>`).join("")+`<button data-a="DC">${mark("DC")}<span>Washington, DC</span></button>`;

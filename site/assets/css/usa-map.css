@@ -143,4 +143,11 @@ main.wrap:has(#usa-map){max-width:1320px}
  #usa-map .mapcard{padding:8px 6px 6px}#usa-map .legend{font-size:.72rem;gap:8px}#usa-map .maptools{gap:6px}
  #usa-map .ct text{font-size:calc(14px*var(--k,1))}#usa-map .ct circle{r:calc(4px*var(--k,1))}#usa-map .ct.sample circle{r:calc(6.5px*var(--k,1))}#usa-map .ct.sample circle.ring{r:calc(10px*var(--k,1))}#usa-map .ct:hover circle, #usa-map .ct.sel circle{r:calc(7px*var(--k,1))}
  #usa-map .ap text{font-size:calc(12px*var(--k,1))}}
-}
+/* (removed stray "}" from live file: it swallowed the next rule) */
+
+/* "Show all states": ghost size; brick #8B3A2A + ← (Marc 02/11) */
+#usa-map #reset.reset-all{background:#8B3A2A;color:#f5ecd6;box-shadow:inset 0 0 0 1.5px #8B3A2A}
+#usa-map #reset.reset-all::before{content:"\2190\00a0";font-weight:600}
+#usa-map #reset.reset-all::after{content:none}
+#usa-map #reset.reset-all:hover,#usa-map #reset.reset-all:focus-visible{background:#9a4634;color:#f5ecd6;box-shadow:inset 0 0 0 1.5px #9a4634}
+#usa-map #reset.reset-all[hidden]{display:none}
