@@ -248,6 +248,18 @@ function clinicCard(state, city){
  if(!c) return `<h4>Clinic for ${esc(city)}</h4><div class="stubbox"><b>Placeholder:</b> no verified clinic for ${esc(city)} on this preview. Use the directory or the USDA accredited-vet search, then confirm with the clinic.</div><div class="links">${dir}${lk("🏛","USDA: find an accredited vet","Search by state and county","https://vsapps.aphis.usda.gov/vsps/public/VetSearch.do","off")}</div>`;
  return `<h4>Clinic for ${esc(city)}</h4><div class="links">${lk("🩺",c.name,c.place+" · "+c.source,c.url,c.tag)}${dir}</div><p class="disc">One clinic for this city. Informational only, not a partner. Confirm services, USDA accreditation and fees with the clinic.</p>`;
 }
+function clinicsForState(a){
+ const p=a+"|";
+ return Object.keys(CLINICS).filter(k=>k.startsWith(p)).sort((x,y)=>x.localeCompare(y)).map(k=>({city:k.slice(p.length),c:CLINICS[k]}));
+}
+function stateClinics(a){
+ const list=clinicsForState(a);
+ const dir=lk("📋","USA clinics directory","Informational list, not a partnership",SITE+"/clinics/usa.html","off").replace("Official","Site");
+ const usda=lk("🏛","USDA: find an accredited vet","Search by state and county","https://vsapps.aphis.usda.gov/vsps/public/VetSearch.do","off");
+ const hi=a==="HI"?`<p class="disc">Hawaii trips also need the FAVN rabies test and the quarantine steps above.</p>`:"";
+ if(!list.length) return `<h4>Clinics in this state</h4><div class="stubbox"><b>No clinic listed for this state yet.</b> Use the directory or the USDA accredited-vet search, then confirm with the clinic.</div>${hi}<div class="links">${dir}${usda}</div>`;
+ return `<h4>Clinics in this state (${list.length})</h4>${hi}<div class="links">${list.map(({c})=>lk("🩺",c.name,c.place+" · "+c.source,c.url,c.tag)).join("")}${dir}${usda}</div><p class="disc">One clinic per listed city. Informational only, not a partner. Confirm services, USDA accreditation and fees with the clinic.</p>`;
+}
 function lawSection(a,compact,cityName,clinicState){
  const r=RULES[a], nm=a==="DC"?"District of Columbia":GEO[a].name;
  let s=`<section class="sec" data-sec="1"><h3><span class="n">1</span>Vet + laws</h3><h4>${esc(nm)} entry rules</h4>`;
@@ -260,7 +272,7 @@ function lawSection(a,compact,cityName,clinicState){
  s+=`<details class="fd"${compact?"":" open"}><summary>Federal rules (apply in every state)</summary><div class="links">${fed("aphisSS")}${fed("cdc","🐕")}${fed("aphisIn")}${fed("aphisOut")}</div><p class="disc">Same CDC and USDA pages as <a href="usa.html#federal">the USA federal table</a>. State rules still decide travel between states.</p></details>`;
  s+=`<h4>Sanitary / vet visit</h4><p>Airlines may ask for a health and acclimation certificate signed by a licensed vet within 10 days. Book a USDA-accredited vet for the CVI and rabies certificate; keep paper and photo copies.</p>`;
  if(cityName) s+=clinicCard(clinicState||a, cityName);
- else s+=`<p class="disc">Open a city for its clinic.${a==="HI"?" Hawaii trips also need the FAVN and quarantine steps above.":""} A full clinic list for every town in the state is still a placeholder.</p><div class="links">${lk("🩺","PetPolicyCheck: USA pet-travel clinics","Directory of clinics that list health-certificate services",SITE+"/clinics/usa.html","off").replace("Official","Site")}${fed("aphisAir")}</div>`;
+ else s+=stateClinics(a);
  return s+`</section>`;
 }
 function roadSection(a,city){
@@ -441,7 +453,8 @@ window.addEventListener("keydown",e=>{
 },true);
 $("#map").addEventListener("click",e=>{if(cur&&e.target===e.currentTarget)showAllStates()});
 /* ---------- free zoom & pan (mirrors the world map) ----------
-   Desktop: Ctrl/Cmd + wheel (also trackpad pinch) zooms toward the cursor; drag moves the map.
+   Desktop: mouse wheel over the map (no modifier needed; trackpad pinch too) zooms toward the cursor; drag moves the map.
+   Wheel outside the map scrolls the page as usual (the listener sits on the map SVG only).
    Touch: two fingers pinch-zoom + move; one finger sideways moves the map; one finger vertical keeps page scroll.
    +/- buttons zoom around the view center; the reset-view button returns to the full map without clearing the selection. */
 (function initFreeZoom(){const m=$("#map");if(!m)return;
@@ -456,7 +469,7 @@ $("#map").addEventListener("click",e=>{if(cur&&e.target===e.currentTarget)showAl
  $("#zreset").onclick=()=>animateTo(FULL,300);/* view only: selection stays (Show all states clears it) */
  /* usage hint (only if the page HTML does not already carry it) */
  const note=document.querySelector("#usa-map .mapnote");
- if(note&&!note.querySelector(".mhint")){note.insertAdjacentHTML("afterbegin",'<span class="mhint">Pinch with two fingers to zoom, swipe sideways to move the map. </span><span class="dhint">Ctrl/&#8984; + scroll to zoom, drag to move. </span>')}
+ if(note&&!note.querySelector(".mhint")){note.insertAdjacentHTML("afterbegin",'<span class="mhint">Pinch with two fingers to zoom, swipe sideways to move the map. </span><span class="dhint">Scroll over the map to zoom, drag to move. </span>')}
  syncZoomUI();
  const toSVG=(cx,cy)=>{const r=m.getBoundingClientRect();return [vb[0]+(cx-r.left)*vb[2]/r.width,vb[1]+(cy-r.top)*vb[3]/r.height]};
  const perPx=()=>vb[2]/(m.getBoundingClientRect().width||975);
@@ -464,8 +477,9 @@ $("#map").addEventListener("click",e=>{if(cur&&e.target===e.currentTarget)showAl
  let eatClick=false;
  m.addEventListener("click",e=>{if(eatClick){eatClick=false;e.stopPropagation();e.preventDefault()}},true);
  const armEat=()=>{eatClick=true;setTimeout(()=>{eatClick=false},350)};
- /* wheel: only with Ctrl/Cmd (trackpad pinch sends ctrlKey) so normal scrolling still scrolls the page */
- m.addEventListener("wheel",e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();
+ /* wheel over the map zooms (no Ctrl/Cmd needed). Bound to the map SVG only, so the page still scrolls elsewhere.
+    Zooming out while already at the full view is let through so the page can scroll past the map. */
+ m.addEventListener("wheel",e=>{if(e.deltaY>0&&isFull()&&!(e.ctrlKey||e.metaKey))return;e.preventDefault();
   const dy=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?400:1);const p=toSVG(e.clientX,e.clientY);
   zoomAt(p[0],p[1],Math.exp(-Math.max(-300,Math.min(300,dy))*0.0025))},{passive:false});
  /* mouse / pen drag (touch handled below) */
