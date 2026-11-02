@@ -100,6 +100,14 @@ const AIRPORTS=[
  {code:"ATL", name:"Hartsfield-Jackson Atlanta International", metroCity:"Atlanta", metroState:"GA", placeState:"GA", x:706, y:430, ldx:0, ldy:16, anchor:"middle",
   site:["https://www.atl.com/","ATL official site"],
   pets:["https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/","ATL pet relief areas","Hartsfield-Jackson official page"]},
+ {code:"ANC", name:"Ted Stevens Anchorage International", metroCity:"Anchorage", metroState:"AK", placeState:"AK", x:128, y:528, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"ANC · Anchorage", mapName:"Ted Stevens",
+  site:["https://www.ancairport.com/","Ted Stevens Anchorage International official site"],
+  pets:["https://www.ancairport.com/traveler-info/accessibility","ANC accessibility & pet relief","Airport traveler accessibility page"]},
+ {code:"HNL", name:"Daniel K. Inouye International", metroCity:"Honolulu", metroState:"HI", placeState:"HI", x:248, y:562, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"HNL · Honolulu", mapName:"Daniel K. Inouye",
+  site:["https://airports.hawaii.gov/hnl/","Daniel K. Inouye International official site"],
+  pets:["https://airports.hawaii.gov/hnl/at-the-airport/animal-relief-areas/","HNL animal relief areas","Hawaii airports official page"]},
 ];
 function cityXY(state, name){
  const list=(GEO[state]&&GEO[state].cities)||[];
@@ -211,9 +219,12 @@ function buildAirports(){
   g.appendChild(el("rect",{class:"pad",x:-8,y:-8,width:16,height:16,rx:2,transform:"rotate(45)"}));
   g.appendChild(el("path",{class:"glyph",d:PLANE,transform:"translate(-6.2,-6.2) scale(.52)"}));
   g.setAttribute("transform","translate("+ap.x+" "+ap.y+")");
-  const tx=el("text",{x:ap.ldx||0,y:ap.ldy==null?14:ap.ldy,"text-anchor":ap.anchor||"middle"});
-  tx.textContent=ap.code; g.appendChild(tx);
+  const ax=ap.ldx||0, ay=ap.ldy==null?14:ap.ldy, ta=ap.anchor||"middle";
+  const tx=el("text",{x:ax,y:ay,"text-anchor":ta,class:ap.mapLabel?"map-label":""});
+  tx.textContent=ap.mapLabel||ap.code; g.appendChild(tx);
+  if(ap.mapName){const t2=el("text",{x:ax,y:ay+11,"text-anchor":ta,class:"map-name"});t2.textContent=ap.mapName;g.appendChild(t2)}
   const tt=el("title",{}); tt.textContent=ap.code+" — "+ap.metroCity+" ("+ap.name+")"; g.appendChild(tt);
+  g.setAttribute("aria-label",ap.code+", "+ap.name+", "+ap.metroCity);
   g.addEventListener("click",e=>{e.stopPropagation(); selectAirport(ap.code)});
   g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault(); selectAirport(ap.code)}});
   ga.appendChild(g);
@@ -273,7 +284,7 @@ function planeSection(a, cityName){
   s+=`<p class="disc">Open an airport for its relief page. The dashed line on the map ties it to ${cityName?esc(cityName):"its city"}.</p>`;
  }
  s+=`<div class="links">${airFedLinks()}</div>`;
- if(!list.length) s+=`<div class="stubbox"><b>Placeholder:</b> ${a==="HI"?"Honolulu (HNL) direct-release window and neighbor-island rules; ":""}airports in ${esc(nm)} are not on this preview map yet.</div>`;
+ if(!list.length) s+=`<div class="stubbox"><b>Placeholder:</b> ${a==="HI"?"Honolulu (HNL) direct-release window and neighbor-island rules. ":a==="AK"?"Anchorage (ANC) is marked on the map. ":"Airports in "+esc(nm)+" are not all listed on this map yet. "}${a==="HI"||a==="AK"?"":""}</div>`;
  else if(!cityName) s+=`<p class="disc">Only mapped airports are listed. Any other airport in ${esc(nm)} is still a placeholder.</p>`;
  return s+`</section>`;
 }
@@ -300,11 +311,34 @@ function render(html){const p=$("#panel");p.innerHTML=html;p.scrollTop=0;applySt
  p.querySelectorAll("[data-ap]").forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
  if(innerWidth<=900&&cur)p.scrollIntoView({behavior:"smooth",block:"start"});
 }
-const FULL=[0,0,975,610];let vb=FULL.slice();
-function zoomTo(a){const m=$("#map");let t=FULL;
+/* ---------- view box: zoomTo (state select on phones) + free zoom/pan (no d3) ---------- */
+const FULL=[0,0,975,610],MAXZ=8,MINW=975/MAXZ;let vb=FULL.slice(),animId=0;
+/* clamp: never wider than FULL, never closer than 8x, keep the 975:610 ratio, no panning into empty space */
+function clampVB(v){const w=Math.min(975,Math.max(MINW,v[2])),h=w*610/975;
+ const cx=v[0]+v[2]/2,cy=v[1]+v[3]/2;let x=cx-w/2,y=cy-h/2;
+ x=Math.max(0,Math.min(975-w,x));y=Math.max(0,Math.min(610-h,y));return [x,y,w,h]}
+function applyViewBox(v){vb=v.slice();const m=$("#map");if(!m)return;
+ const k=vb[2]/975;m.setAttribute("viewBox",vb.map(n=>+n.toFixed(2)).join(" "));m.style.setProperty("--k",k.toFixed(3));m.style.setProperty("--kt",Math.sqrt(k).toFixed(3));
+ /* airport marks keep their screen size: scale each group around its own point (labels: fixed px in CSS) */
+ m.querySelectorAll("#g-ap .ap").forEach(g=>{const b=g.dataset.at||(g.dataset.at=g.getAttribute("transform"));g.setAttribute("transform",k>0.999?b:b+" scale("+k.toFixed(4)+")")});
+ syncZoomUI()}
+function isFull(){return vb[2]>=974.5}
+function syncZoomUI(){const m=$("#map");if(!m)return;const full=isFull();m.classList.toggle("is-zoomed",!full);
+ const zi=$("#zin"),zo=$("#zout"),zr=$("#zreset");
+ if(zi)zi.disabled=vb[2]<=MINW+0.5;if(zo)zo.disabled=full;if(zr)zr.disabled=full}
+function stopAnim(){if(animId){cancelAnimationFrame(animId);animId=0}}
+function animateTo(t,ms){stopAnim();t=clampVB(t);const f=vb.slice(),t0=performance.now();ms=ms||350;
+ (function an(n){const k=Math.min(1,(n-t0)/ms),e=k*(2-k);applyViewBox(f.map((v,i)=>v+(t[i]-v)*e));animId=k<1?requestAnimationFrame(an):0})(t0)}
+/* zoomTo(a): phones (<=900) zoom to the selected state as before. With no state and no selection
+   (Show all states) the view goes back to FULL. On desktop a selection keeps the user's free-zoom view. */
+function zoomTo(a){let t=null;
  if(a&&innerWidth<=900){const b=$("#s-"+a).getBBox();const w=Math.max(b.width*1.5,220),h=Math.max(b.height*1.5,150);const sc=Math.max(w/975,h/610);const W=975*sc,H=610*sc;t=[b.x+b.width/2-W/2,b.y+b.height/2-H/2,W,H];}
- $("#reset").hidden=!cur;const f=vb.slice(),t0=performance.now();
- (function an(n){const k=Math.min(1,(n-t0)/350),e=k*(2-k);vb=f.map((v,i)=>v+(t[i]-v)*e);m.setAttribute("viewBox",vb.join(" "));m.style.setProperty("--k",(vb[2]/975).toFixed(3));if(k<1)requestAnimationFrame(an)})(t0);}
+ else if(!cur)t=FULL;
+ $("#reset").hidden=!cur;
+ if(t)animateTo(t,350);}
+/* zoom by factor f (>1 = in) keeping SVG point (px,py) under the same screen spot */
+function zoomAt(px,py,f,ms){const w=Math.min(975,Math.max(MINW,vb[2]/f)),s=w/vb[2];
+ const t=[px-(px-vb[0])*s,py-(py-vb[1])*s,w,w*610/975];if(ms)animateTo(t,ms);else{stopAnim();applyViewBox(clampVB(t))}}
 function hilite(a,key,apCode){zoomTo(a&&a!=="DC"?a:null);
  document.querySelectorAll(".st.sel,.lbl.sel,.ct.sel,.ap.sel").forEach(e=>e.classList.remove("sel"));
  document.querySelectorAll("#grid button.sel").forEach(e=>e.classList.remove("sel"));
@@ -406,6 +440,61 @@ window.addEventListener("keydown",e=>{
  showAllStates();
 },true);
 $("#map").addEventListener("click",e=>{if(cur&&e.target===e.currentTarget)showAllStates()});
+/* ---------- free zoom & pan (mirrors the world map) ----------
+   Desktop: Ctrl/Cmd + wheel (also trackpad pinch) zooms toward the cursor; drag moves the map.
+   Touch: two fingers pinch-zoom + move; one finger sideways moves the map; one finger vertical keeps page scroll.
+   +/- buttons zoom around the view center; the reset-view button returns to the full map without clearing the selection. */
+(function initFreeZoom(){const m=$("#map");if(!m)return;
+ /* wrapper so the zoom buttons can sit over the map (injected: no HTML change needed) */
+ let wrap=m.parentNode;if(!wrap.classList.contains("mapwrap")){wrap=document.createElement("div");wrap.className="mapwrap";m.parentNode.insertBefore(wrap,m);wrap.appendChild(m)}
+ if(!$("#zin")){const z=document.createElement("div");z.className="zoom";z.setAttribute("role","group");z.setAttribute("aria-label","Map zoom");
+  z.innerHTML='<button type="button" id="zin" aria-label="Zoom in" title="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out" title="Zoom out">&minus;</button><button type="button" id="zreset" aria-label="Reset map view" title="Reset map view">&#8634;</button>';
+  wrap.appendChild(z)}
+ const ctr=()=>[vb[0]+vb[2]/2,vb[1]+vb[3]/2];
+ $("#zin").onclick=()=>{const c=ctr();zoomAt(c[0],c[1],1.6,250)};
+ $("#zout").onclick=()=>{const c=ctr();zoomAt(c[0],c[1],1/1.6,250)};
+ $("#zreset").onclick=()=>animateTo(FULL,300);/* view only: selection stays (Show all states clears it) */
+ /* usage hint (only if the page HTML does not already carry it) */
+ const note=document.querySelector("#usa-map .mapnote");
+ if(note&&!note.querySelector(".mhint")){note.insertAdjacentHTML("afterbegin",'<span class="mhint">Pinch with two fingers to zoom, swipe sideways to move the map. </span><span class="dhint">Ctrl/&#8984; + scroll to zoom, drag to move. </span>')}
+ syncZoomUI();
+ const toSVG=(cx,cy)=>{const r=m.getBoundingClientRect();return [vb[0]+(cx-r.left)*vb[2]/r.width,vb[1]+(cy-r.top)*vb[3]/r.height]};
+ const perPx=()=>vb[2]/(m.getBoundingClientRect().width||975);
+ /* swallow the click that ends a drag, so it neither selects a state nor runs Show all states */
+ let eatClick=false;
+ m.addEventListener("click",e=>{if(eatClick){eatClick=false;e.stopPropagation();e.preventDefault()}},true);
+ const armEat=()=>{eatClick=true;setTimeout(()=>{eatClick=false},350)};
+ /* wheel: only with Ctrl/Cmd (trackpad pinch sends ctrlKey) so normal scrolling still scrolls the page */
+ m.addEventListener("wheel",e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();
+  const dy=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?400:1);const p=toSVG(e.clientX,e.clientY);
+  zoomAt(p[0],p[1],Math.exp(-Math.max(-300,Math.min(300,dy))*0.0025))},{passive:false});
+ /* mouse / pen drag (touch handled below) */
+ let drag=null;const TH=6;
+ m.addEventListener("pointerdown",e=>{if(e.pointerType==="touch"||e.button)return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,v:vb.slice(),k:perPx(),on:false}});
+ m.addEventListener("pointermove",e=>{if(!drag||e.pointerId!==drag.id)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;
+  if(!drag.on){if(Math.hypot(dx,dy)<TH)return;drag.on=true;stopAnim();m.classList.add("is-panning");try{m.setPointerCapture(e.pointerId)}catch(_){}}
+  applyViewBox(clampVB([drag.v[0]-dx*drag.k,drag.v[1]-dy*drag.k,drag.v[2],drag.v[3]]))});
+ const endDrag=e=>{if(!drag||e.pointerId!==drag.id)return;if(drag.on){armEat();m.classList.remove("is-panning");try{m.releasePointerCapture(e.pointerId)}catch(_){}}drag=null};
+ m.addEventListener("pointerup",endDrag);m.addEventListener("pointercancel",endDrag);
+ /* touch: #map has touch-action:pan-y, so the browser only scrolls vertically; we handle pinch and sideways pan */
+ let mode=null,T0,c0,P0;
+ const mid=(a,b)=>[(a.clientX+b.clientX)/2,(a.clientY+b.clientY)/2],dist=(a,b)=>Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY)||1;
+ function pinch(e){const a=e.touches[0],b=e.touches[1],c=mid(a,b);T0=vb.slice();P0={d:dist(a,b),w:toSVG(c[0],c[1])};mode="pinch";stopAnim()}
+ function pan(t){T0=vb.slice();c0=[t.clientX,t.clientY];P0={k:perPx()};mode="pan";stopAnim()}
+ m.addEventListener("touchstart",e=>{const n=e.touches.length;if(n>=2)pinch(e);else if(n===1){mode="maybe";c0=[e.touches[0].clientX,e.touches[0].clientY]}},{passive:true});
+ m.addEventListener("touchmove",e=>{
+  if(mode==="pinch"&&e.touches.length>=2){if(!e.cancelable)return;e.preventDefault();
+   const a=e.touches[0],b=e.touches[1],c=mid(a,b),r=m.getBoundingClientRect();
+   const w=Math.min(975,Math.max(MINW,T0[2]*P0.d/dist(a,b))),h=w*610/975;
+   applyViewBox(clampVB([P0.w[0]-(c[0]-r.left)*w/r.width,P0.w[1]-(c[1]-r.top)*h/r.height,w,h]));return}
+  if(mode==="maybe"){const t=e.touches[0],dx=t.clientX-c0[0],dy=t.clientY-c0[1];
+   if(Math.abs(dx)<8&&Math.abs(dy)<8)return;
+   if(Math.abs(dx)>Math.abs(dy)&&e.cancelable)pan(t);else{mode="scroll";return}}
+  if(mode==="pan"){if(!e.cancelable)return;e.preventDefault();const t=e.touches[0];
+   applyViewBox(clampVB([T0[0]-(t.clientX-c0[0])*P0.k,T0[1]-(t.clientY-c0[1])*P0.k,T0[2],T0[3]]))}},{passive:false});
+ const tend=e=>{const n=e.touches.length;if(mode==="pan"||mode==="pinch")armEat();if(n===0)mode=null;else if(n===1&&mode==="pinch")pan(e.touches[0])};
+ m.addEventListener("touchend",tend);m.addEventListener("touchcancel",tend);
+})();
 buildMap();
 const pick=$("#pick");ABBRS.forEach(a=>pick.add(new Option(GEO[a].name,a)));pick.onchange=()=>pick.value&&selectState(pick.value);
 $("#grid").innerHTML=ABBRS.map(a=>`<button data-a="${a}">${mark(a)}<span>${esc(GEO[a].name)}</span></button>`).join("")+`<button data-a="DC">${mark("DC")}<span>Washington, DC</span></button>`;
