@@ -41,24 +41,31 @@ main.wrap:has(#usa-map){max-width:1320px}
 #usa-map .maptools select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line2);border-radius:999px;padding:6px 12px}
 #usa-map .legend{display:flex;gap:14px;font-size:.8rem;color:var(--mut);margin-left:auto;flex-wrap:wrap}
 #usa-map .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
-#usa-map svg#map{display:block;width:100%;height:auto;touch-action:manipulation}
+#usa-map svg#map{display:block;width:100%;height:auto;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
 #usa-map .st{fill:#16302f;stroke:#0b1719;stroke-width:.9;cursor:pointer;transition:fill .15s}
 #usa-map .st:hover{fill:#24494a}
 #usa-map .st.rule{fill:#1d3a35}
 #usa-map .st.rule:hover{fill:#2a5149}
 #usa-map .st.sel{fill:#6d5a2c;stroke:var(--gold-l);stroke-width:1.6}
 #usa-map .st:focus{outline:none}#usa-map .st:focus-visible{stroke:var(--gold-l);stroke-width:2.2}
-#usa-map .lbl{font:600 calc(10px*var(--k,1)) var(--text);fill:#cdbf9a;pointer-events:none;text-anchor:middle;dominant-baseline:central;letter-spacing:.04em}
+#usa-map .lbl{font:600 calc(10px*var(--kt,1)) var(--text);fill:#cdbf9a;pointer-events:none;text-anchor:middle;dominant-baseline:central;letter-spacing:.04em}
 #usa-map .lbl.sel{fill:#fff7df}
 #usa-map .ct{cursor:pointer}
 #usa-map .ct circle{fill:#e9dfc6;stroke:#0b1719;stroke-width:1}
 #usa-map .ct.cap circle{fill:#9fb59a}
 #usa-map .ct.sample circle{fill:var(--gold);stroke:#0b1719;stroke-width:1.4}
 #usa-map .ct.sample .ring{fill:none;stroke:var(--gold);stroke-width:1;opacity:.55}
-#usa-map .ct text{font:600 calc(10.5px*var(--k,1)) var(--text);fill:var(--head);paint-order:stroke;stroke:#0b1719;stroke-width:3px;stroke-linejoin:round}
+#usa-map .ct text{font:600 calc(10.5px*var(--kt,1)) var(--text);fill:var(--head);paint-order:stroke;stroke:#0b1719;stroke-width:3px;stroke-linejoin:round}
 #usa-map .ct:hover circle, #usa-map .ct.sel circle{fill:#fff;r:6}
 #usa-map .ct:focus{outline:none}#usa-map .ct:focus-visible circle{stroke:var(--gold-l);stroke-width:3}
 #usa-map .ct.hide-lbl text{display:none}
+/* free zoom: marks and strokes keep their on-screen size at any zoom (--k = viewBox width / 975);
+   state and city labels use --kt = sqrt(--k) so they grow a little when zoomed in (readable on phones) */
+#usa-map .st,#usa-map .ap-link,#usa-map .ct circle{vector-effect:non-scaling-stroke}
+#usa-map .ct circle{r:calc(3px*var(--k,1))}#usa-map .ct.sample circle{r:calc(5px*var(--k,1))}#usa-map .ct.sample circle.ring{r:calc(8.5px*var(--k,1))}
+#usa-map .ct:hover circle,#usa-map .ct.sel circle{r:calc(6px*var(--k,1))}
+#usa-map .ct text{stroke-width:calc(3px*var(--kt,1));transform:translate(calc(8px*(var(--k,1) - 1)),calc(3.5px*(var(--k,1) - 1)))}
+#usa-map .ct text[text-anchor=end]{transform:translate(calc(-8px*(var(--k,1) - 1)),calc(3.5px*(var(--k,1) - 1)))}
 #usa-map .ap-link{fill:none;stroke:#d9b765;stroke-width:1;stroke-dasharray:2.4 2.2;opacity:.55;pointer-events:none}
 #usa-map .ap-link.hot{opacity:1;stroke-width:1.5}
 #usa-map .ap-link.dim{opacity:.12}
@@ -66,7 +73,7 @@ main.wrap:has(#usa-map){max-width:1320px}
 #usa-map .ap{cursor:pointer}
 #usa-map .ap .pad{fill:#0b1719;stroke:#7ec8e3;stroke-width:1.3}
 #usa-map .ap .glyph{fill:#d9b765}
-#usa-map .ap text{font:700 calc(9px*var(--k,1)) var(--text);fill:#f0d58c;paint-order:stroke;stroke:#0b1719;stroke-width:3px;stroke-linejoin:round}
+#usa-map .ap text{font:700 9px var(--text);fill:#f0d58c;paint-order:stroke;stroke:#0b1719;stroke-width:3px;stroke-linejoin:round}
 #usa-map .ap.hot .pad{stroke:#f0d58c;stroke-width:1.7}
 #usa-map .ap.sel .pad{fill:#6d5a2c;stroke:#f0d58c;stroke-width:2}
 #usa-map .ap.dim{opacity:.28}
@@ -135,14 +142,14 @@ main.wrap:has(#usa-map){max-width:1320px}
  #usa-map .panel{position:static;max-height:none}
  #usa-map .legend{margin-left:0}
  #usa-map .steps button{font-size:.8rem;padding:6px 10px 6px 6px}#usa-map .steps .arr{display:none}
- #usa-map .lbl{font-size:calc(12px*var(--k,1))}
+ #usa-map .lbl{font-size:calc(12px*var(--kt,1))}
  #usa-map .top .r{display:none}
  #usa-map .wrap{padding:0 12px}#usa-map .pill{font-size:.6rem;padding:1px 8px}#usa-map .wm{font-size:1.1rem}
  #usa-map .intro{padding:14px 0 2px}#usa-map .intro p{font-size:.88rem}
  #usa-map .steps{flex-wrap:nowrap;overflow-x:auto;gap:6px;margin:10px 0}#usa-map .steps li{flex:none}
  #usa-map .mapcard{padding:8px 6px 6px}#usa-map .legend{font-size:.72rem;gap:8px}#usa-map .maptools{gap:6px}
- #usa-map .ct text{font-size:calc(14px*var(--k,1))}#usa-map .ct circle{r:calc(4px*var(--k,1))}#usa-map .ct.sample circle{r:calc(6.5px*var(--k,1))}#usa-map .ct.sample circle.ring{r:calc(10px*var(--k,1))}#usa-map .ct:hover circle, #usa-map .ct.sel circle{r:calc(7px*var(--k,1))}
- #usa-map .ap text{font-size:calc(12px*var(--k,1))}}
+ #usa-map .ct text{font-size:calc(14px*var(--kt,1))}#usa-map .ct circle{r:calc(4px*var(--k,1))}#usa-map .ct.sample circle{r:calc(6.5px*var(--k,1))}#usa-map .ct.sample circle.ring{r:calc(10px*var(--k,1))}#usa-map .ct:hover circle, #usa-map .ct.sel circle{r:calc(7px*var(--k,1))}
+ #usa-map .ap text{font-size:12px}}
 /* (removed stray "}" from live file: it swallowed the next rule) */
 
 /* "Show all states": ghost size; brick #8B3A2A + ← (Marc 02/11) */
@@ -151,3 +158,24 @@ main.wrap:has(#usa-map){max-width:1320px}
 #usa-map #reset.reset-all::after{content:none}
 #usa-map #reset.reset-all:hover,#usa-map #reset.reset-all:focus-visible{background:#9a4634;color:#f5ecd6;box-shadow:inset 0 0 0 1.5px #9a4634}
 #usa-map #reset.reset-all[hidden]{display:none}
+
+/* Free zoom & pan (Marc 02/11): viewBox zoom, controls injected by usa-map.js */
+#usa-map .mapwrap{position:relative}
+#usa-map svg#map.is-panning,#usa-map svg#map.is-panning *{cursor:grabbing}
+#usa-map .zoom{position:absolute;right:8px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;z-index:2}
+#usa-map .zoom button{width:36px;height:36px;display:grid;place-items:center;padding:0;line-height:1;border-radius:9px;border:1px solid var(--line2);background:var(--paper);color:var(--ink);font:700 18px var(--text);cursor:pointer;box-shadow:0 4px 12px #0005;transition:opacity .15s,border-color .15s}
+#usa-map .zoom button:hover:not(:disabled){border-color:var(--gold);color:var(--gold-l)}
+#usa-map .zoom button:focus-visible{outline:2px solid var(--gold-l);outline-offset:2px}
+#usa-map .zoom button:disabled{opacity:.4;cursor:default}
+#usa-map .mapnote .mhint{display:none}
+@media (hover:none) and (pointer:coarse){#usa-map .mapnote .mhint{display:inline}#usa-map .mapnote .dhint{display:none}}
+/* phones: buttons in a row under the map so they never cover New England / Florida */
+@media (max-width:900px){#usa-map .zoom{position:static;transform:none;flex-direction:row;justify-content:flex-end;gap:6px;margin:6px 2px 0}#usa-map .zoom button{width:34px;height:34px;font-size:17px;border-radius:8px;box-shadow:none}}
+
+/* Named labels on inset airports (ANC / HNL) — readable name under code·city */
+#usa-map .ap text.map-label{font-size:8.5px;letter-spacing:.02em}
+#usa-map .ap text.map-name{font:600 7.5px var(--text);fill:#cdbf9a;paint-order:stroke;stroke:#0b1719;stroke-width:2.5px;stroke-linejoin:round}
+@media (max-width:900px){
+ #usa-map .ap text.map-label{font-size:11px}
+ #usa-map .ap text.map-name{font-size:10px}
+}
