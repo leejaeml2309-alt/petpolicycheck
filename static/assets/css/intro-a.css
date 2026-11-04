@@ -300,3 +300,13 @@ html:not(.intro-lock) .mapcard{min-height:100vh;min-height:100dvh;margin-top:0;b
  html.intro-lock .intro-story{flex:0 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
 }
 /* ==== END Fold clip fix 31/10 ==== */
+
+/* intro vertical balance desk — 2026-11-04 Marc OK */
+@media (min-width:1100px){
+ html.intro-lock body.intro-home > section.intro{padding-bottom:0!important;justify-content:center!important;align-items:stretch!important}
+ html.intro-lock body.intro-home > section.intro > div.wrap{flex:0 1 auto!important;height:auto!important;max-height:100%!important;min-height:0!important;width:100%!important;display:flex!important;flex-direction:column!important;justify-content:flex-start!important}
+ html.intro-lock .vas-grid{flex:0 0 auto!important;overflow:visible!important}
+ .intro .vas-grid{align-items:center!important;margin-top:0!important;margin-bottom:0!important}
+ .intro .brandbar{padding-top:0!important}
+ .intro .intro-rule{margin-top:0!important}
+}
