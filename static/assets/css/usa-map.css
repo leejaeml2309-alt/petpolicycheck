@@ -179,3 +179,11 @@ main.wrap:has(#usa-map){max-width:1320px}
  #usa-map .ap text.map-label{font-size:11px}
  #usa-map .ap text.map-name{font-size:10px}
 }
+
+/* zoom SE Atlantic — 2026-11-04 Marc OK v5 */
+@media (min-width:901px){
+ #usa-map .mapwrap{position:relative!important}
+ html body #usa-map .mapwrap > .zoom, html body #usa-map .zoom{
+  position:absolute!important;right:6px!important;left:auto!important;
+  top:auto!important;bottom:18%!important;transform:none!important;z-index:5!important}
+}
