@@ -125,6 +125,33 @@ def custom_domain(cfg):
 
 
 ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7693501377730690" crossorigin="anonymous"></script>'
+
+
+def ga4_measurement_id(cfg):
+    """GA4 measurement id from config.json. Blank means do not emit the tag."""
+    return str((cfg or {}).get("ga4_measurement_id") or "").strip()
+
+
+def ga4_head(cfg):
+    """Standard Google tag (gtag.js). Omitted when ga4_measurement_id is empty.
+    The id is restricted to the GA4 measurement-id alphabet so it can be placed in the script URL and config call."""
+    mid = ga4_measurement_id(cfg)
+    if not mid:
+        return ""
+    if not re.fullmatch(r"G-[A-Za-z0-9]+", mid):
+        print(f"  WARNING: ga4_measurement_id {mid!r} is not a GA4 measurement id; analytics tag skipped")
+        return ""
+    return (
+        f'<script async src="https://www.googletagmanager.com/gtag/js?id={mid}"></script>\n'
+        "<script>\n"
+        "  window.dataLayer = window.dataLayer || [];\n"
+        "  function gtag(){dataLayer.push(arguments);}\n"
+        "  gtag('js', new Date());\n"
+        f"  gtag('config', '{mid}');\n"
+        "</script>"
+    )
+
+
 TP_DRIVE = '<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">\n  (function () {\n      var script = document.createElement("script");\n      script.async = 1;\n      script.setAttribute("data-cmp-ab","2");\n      script.src = \'https://emrldtp.cc/NTg4ODAy.js?t=588802\';\n      document.head.appendChild(script);\n  })();\n</script>'
 
 
@@ -349,12 +376,15 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
     # ads=False pages (checklist, forum forms) do not get the live header unit. If a new slot id is
     # later pasted into one of extra_ad_keys, load adsbygoogle.js so that frame can go live without the header unit.
     extra_live = any(unit_configured(cfg, k) for k in extra_ad_keys)
+    # GA4 is sitewide (including pages that do not load AdSense). Empty measurement id skips the tag.
+    ga = ga4_head(cfg)
+    ga_nl = (ga + "\n") if ga else ""
     if ads:
-        ads_head = ADSENSE + "\n" + TP_DRIVE + "\n"
+        ads_head = ga_nl + ADSENSE + "\n" + TP_DRIVE + "\n"
     elif extra_live:
-        ads_head = ADSENSE + "\n"
+        ads_head = ga_nl + ADSENSE + "\n"
     else:
-        ads_head = ""
+        ads_head = ga_nl
     return f"""<!doctype html>
 <html lang="{e(cfg.get('language','en-US'))}">
 <head>
@@ -662,7 +692,19 @@ def obf_mail(addr):
 
 
 EFFECTIVE = "October 22, 2026"
-PRIVACY_UPDATED = "October 22, 2026"
+PRIVACY_UPDATED = "November 5, 2026"
+
+
+def analytics_privacy(cfg):
+    """Analytics section. Names GA4 when ga4_measurement_id is set; otherwise keeps the 'we don't run one' line."""
+    mid = ga4_measurement_id(cfg)
+    if not mid:
+        return """<h2>Analytics</h2>
+<p>We don't run a separate analytics tool (such as Google Analytics) on this site. If we add one, this page will be updated first to name it, what it collects and how to opt out.</p>"""
+    host = (cfg.get("site_url") or "").split("://", 1)[-1].strip("/") or "this site"
+    return f"""<h2>Analytics</h2>
+<p>We use Google Analytics 4 to see which pages people open. The measurement stream is for {e(host)} (measurement ID {e(mid)}). It collects page views and events, such as the page you opened. Google may process that data, including technical details such as your IP address, browser and device. See <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Google's Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">How Google uses information from sites or apps that use our services</a>.</p>
+<p>You can opt out of Google Analytics with the <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener" target="_blank">Google Analytics Opt-out Browser Add-on</a>, or by blocking cookies in your browser. If we add another analytics tool, this page will be updated first to name it, what it collects and how to opt out.</p>"""
 
 
 NO_ACCOUNTS = """<h2>No accounts, no forms</h2>
@@ -695,14 +737,20 @@ def forum_privacy(cfg):
 
 def build_privacy(cfg):
     mail = obf_mail(cfg.get("privacy_email") or cfg["contact_email"])
+    ga_on = bool(ga4_measurement_id(cfg))
+    services = "advertising, analytics and affiliate" if ga_on else "advertising and affiliate"
+    cookie_parties = "advertising, analytics and affiliate" if ga_on else "advertising and affiliate"
+    desc = ("Privacy policy for PetPolicyCheck: Google AdSense advertising cookies and how to opt out, Google Analytics 4, Travelpayouts and affiliate links, and GitHub Pages hosting explained."
+            if ga_on else
+            "Privacy policy for PetPolicyCheck: Google AdSense advertising cookies and how to opt out, Travelpayouts and affiliate links, and GitHub Pages hosting explained.")
     body = f"""<h1>Privacy policy</h1>
 <p class="small">Effective date: {EFFECTIVE} &middot; Last updated: {PRIVACY_UPDATED}</p>
-<p>{e(cfg['site_name'])} is a simple static website. This page explains, in plain English, what data is and isn't collected when you visit, including by the advertising and affiliate services we use.</p>
+<p>{e(cfg['site_name'])} is a simple static website. This page explains, in plain English, what data is and isn't collected when you visit, including by the {services} services we use.</p>
 {forum_privacy(cfg) if forum_pages.enabled(cfg) else NO_ACCOUNTS}
 <h2>Hosting (GitHub Pages)</h2>
 <p>The site is hosted on GitHub Pages, a service of GitHub, Inc. When you load a page, GitHub's servers may log technical information such as your IP address, browser type and the page requested, for security and operations. We don't receive or control those logs. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub Privacy Statement</a>.</p>
 <h2>Cookies</h2>
-<p>Our own code sets no cookies. The third-party advertising and affiliate services described below may set and read cookies, or use similar technologies such as web beacons and device identifiers, when you visit our pages or click a link. You can block or delete cookies in your browser settings.</p>
+<p>Our own code sets no cookies. The third-party {cookie_parties} services described below may set and read cookies, or use similar technologies such as web beacons and device identifiers, when you visit our pages or click a link. You can block or delete cookies in your browser settings.</p>
 <h2>Advertising (Google AdSense)</h2>
 <p>We use Google AdSense to show ads on this site. Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our site and/or other sites on the Internet.</p>
 <p>You may opt out of personalized advertising by visiting <a href="https://adssettings.google.com" rel="noopener" target="_blank">Google Ads Settings</a>. You can also opt out of some third-party vendors' use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" rel="noopener" target="_blank">www.aboutads.info</a>. If you opt out, you may still see ads, but they won't be personalized.</p>
@@ -712,8 +760,7 @@ def build_privacy(cfg):
 <h2>Affiliate links and partner cookies</h2>
 <p>Some pages include affiliate links to partners, for example brands on the Impact network (such as Chewy, Trupanion or Lemonade), Amazon.com, Booking.com and Travelpayouts partners. If you buy through one, we may earn a commission at no extra cost to you. When you click an affiliate link, you leave our site and the partner (or its affiliate network) may set cookies or use similar technology to record that the visit came from us. Those cookies are governed by the partner's own privacy policy, not ours. We don't receive personal information about you from these partners, only aggregated sales or commission reports. Affiliate relationships never change the policy information we publish.</p>
 <p>{AMAZON_DISCLOSURE} {e(cfg['site_name'])} participates in the Amazon Services LLC Associates Program; Amazon may use cookies to record that a visit or purchase came from our links, under Amazon's own privacy notice.</p>
-<h2>Analytics</h2>
-<p>We don't run a separate analytics tool (such as Google Analytics) on this site. If we add one, this page will be updated first to name it, what it collects and how to opt out.</p>
+{analytics_privacy(cfg)}
 <h2>External links</h2>
 <p>We link to airline and government websites. Their privacy practices are their own.</p>
 <h2>Children</h2>
@@ -722,7 +769,7 @@ def build_privacy(cfg):
 <p>If this policy changes, we'll update this page and its "last updated" date.</p>
 <h2>Contact</h2>
 <p>Questions about privacy: {mail}.</p>"""
-    return page(cfg, f"Privacy policy | {cfg['site_name']}", "Privacy policy for PetPolicyCheck: Google AdSense advertising cookies and how to opt out, Travelpayouts and affiliate links, and GitHub Pages hosting explained.", body, "privacy.html", "")
+    return page(cfg, f"Privacy policy | {cfg['site_name']}", desc, body, "privacy.html", "")
 
 
 def build_contact(cfg):
@@ -2755,6 +2802,12 @@ def main():
         assert "<!--HDR_AD-->" in home and "<!--HDR_MENU_JS-->" in home
         home = home.replace("<!--HDR_AD-->", "", 1).replace("<!--HDR_MENU_JS-->", header_ad(cfg), 1)  # home: no menu bar, centered brand
         home = home.replace('href="assets/css/theme.css"', f'href="assets/css/theme.css?v={CSS_VER}"', 1)  # header CSS changed: bust cache on home too
+        ga = ga4_head(cfg)  # home is static HTML, not page(); still sitewide, still from config
+        if ga and "googletagmanager.com/gtag/js" not in home:
+            if ADSENSE in home:
+                home = home.replace(ADSENSE, ga + "\n" + ADSENSE, 1)
+            else:
+                home = home.replace("</head>", ga + "\n</head>", 1)
         (OUT / "index.html").write_text(home)
         shutil.copytree(ROOT / "static" / "assets", OUT / "assets")
         shutil.copy(ROOT / "static" / "assets" / "img" / "favicon.ico", OUT / "favicon.ico")
