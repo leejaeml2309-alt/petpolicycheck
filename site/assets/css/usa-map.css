@@ -51,10 +51,10 @@ main.wrap:has(#usa-map){max-width:1320px}
 #usa-map .lbl{font:600 calc(10px*var(--kt,1)) var(--text);fill:#cdbf9a;pointer-events:none;text-anchor:middle;dominant-baseline:central;letter-spacing:.04em}
 #usa-map .lbl.sel{fill:#fff7df}
 #usa-map .ct{cursor:pointer}
-#usa-map .ct circle{fill:#e9dfc6;stroke:#0b1719;stroke-width:1}
-#usa-map .ct.cap circle{fill:#9fb59a}
-#usa-map .ct.sample circle{fill:var(--gold);stroke:#0b1719;stroke-width:1.4}
-#usa-map .ct.sample .ring{fill:none;stroke:var(--gold);stroke-width:1;opacity:.55}
+#usa-map .ct circle{fill:#f2ede2;stroke:#0b1719;stroke-width:1}
+#usa-map .ct.cap circle{fill:#dce6f5;stroke:#1f4fa3;stroke-width:1.2}
+#usa-map .ct.sample circle{fill:#b22234;stroke:#f4efe6;stroke-width:1.5}
+#usa-map .ct.sample .ring{fill:none;stroke:#e0485a;stroke-width:1.2;opacity:.75}
 #usa-map .ct text{font:600 calc(10.5px*var(--kt,1)) var(--text);fill:var(--head);paint-order:stroke;stroke:#0b1719;stroke-width:3px;stroke-linejoin:round}
 #usa-map .ct:hover circle, #usa-map .ct.sel circle{fill:#fff;r:6}
 #usa-map .ct:focus{outline:none}#usa-map .ct:focus-visible circle{stroke:var(--gold-l);stroke-width:3}
@@ -95,8 +95,8 @@ main.wrap:has(#usa-map){max-width:1320px}
 #usa-map .crumbs{font-size:.82rem;margin:0 0 8px}#usa-map .crumbs button{all:unset;cursor:pointer;color:var(--gold-l);text-decoration:underline;text-underline-offset:3px}
 #usa-map .citylist{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px}
 #usa-map .citylist button{all:unset;cursor:pointer;font-size:.83rem;padding:4px 11px;border-radius:999px;border:1px solid var(--line2);color:var(--ink)}
-#usa-map .citylist button.sample{border-color:var(--gold);color:var(--head)}
-#usa-map .citylist button.sample::before{content:"★ ";color:var(--gold)}
+#usa-map .citylist button.sample{border-color:#b22234;color:var(--head)}
+#usa-map .citylist button.sample::before{content:"★ ";color:#b22234}
 #usa-map .citylist button:hover{background:#1a3236}
 #usa-map .sec{border-top:1px solid var(--line);padding:12px 0 4px;margin-top:10px}
 #usa-map .sec h3{font-size:1.08rem;display:flex;align-items:center;gap:9px;margin-bottom:6px}
@@ -197,10 +197,10 @@ main.wrap:has(#usa-map){max-width:1320px}
   color:var(--ink);text-decoration:none;font:600 .85rem var(--text);
 }
 #map-switch .msw-tab i,.map-switch .msw-tab i{width:10px;height:10px;border-radius:50%;background:#5a6a6e;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #5a6a6e55}
-#map-switch .msw-tab.accent-usa i{background:#d9b765;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #d9b76555}
-#map-switch .msw-tab.accent-maple i{background:#b5473a;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #b5473a55}
+#map-switch .msw-tab.accent-usa i{background:#b22234;box-shadow:0 0 0 2px #0b1719,0 0 0 3px rgba(178,34,52,.55)}
+#map-switch .msw-tab.accent-maple i{background:#edeae2;box-shadow:inset 0 0 0 1.8px #b5473a,0 0 0 2px #0b1719,0 0 0 3px rgba(181,71,58,.55)}
 #map-switch .msw-tab.accent-mxgreen i{background:#3f7a5a;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #3f7a5a55}
 #map-switch .msw-tab.is-current{color:var(--head)}
-#map-switch .msw-tab.accent-usa.is-current{border-color:#d9b765;background:#1a3236}
+#map-switch .msw-tab.accent-usa.is-current{border-color:#b22234;background:color-mix(in srgb,#b22234 14%,#0f2226)}
 #map-switch .msw-tab.accent-maple.is-current{border-color:#b5473a;background:color-mix(in srgb,#b5473a 14%,#0f2226)}
 #map-switch .msw-tab.accent-mxgreen.is-current{border-color:#3f7a5a;background:color-mix(in srgb,#3f7a5a 14%,#0f2226)}

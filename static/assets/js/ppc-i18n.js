@@ -179,24 +179,59 @@
 
   function ensureSwitcher() {
     var html = switcherHTML();
-    /* Header switcher (unlocked homepage + all interior pages) */
-    var host = document.querySelector('header.top .wrap, header.map-nav .wrap, .top .wrap');
-    if (host && !host.querySelector('.ppc-lang-sw')) host.insertAdjacentHTML('beforeend', html);
-    /* Intro splash: header.map-nav is display:none while intro-lock — mount a visible switcher on intro */
-    var intro = document.querySelector('section.intro .wrap, section.intro');
-    if (intro && !document.querySelector('.ppc-lang-sw.ppc-lang-intro')) {
-      var box = document.createElement('div');
-      box.className = 'ppc-lang-intro-wrap';
-      box.innerHTML = html.replace('class="ppc-lang-sw"', 'class="ppc-lang-sw ppc-lang-intro"');
-      intro.insertAdjacentElement('afterbegin', box);
+    /* Remove any switcher wrongly parked inside header.top (crowds Book/Advertise) */
+    document.querySelectorAll('header.top .ppc-lang-sw, header.map-nav .ppc-lang-sw, .top > .wrap > .ppc-lang-sw').forEach(function (el) {
+      var bar = el.closest('.ppc-lang-bar');
+      if (bar) return;
+      el.remove();
+    });
+    document.querySelectorAll('.ppc-lang-fixed').forEach(function (el) { el.remove(); });
+
+    function mountBar(afterEl, extraClass) {
+      if (!afterEl) return null;
+      var existing = document.querySelector('.ppc-lang-bar' + (extraClass ? '.' + extraClass.replace(/\s+/g, '.') : ''));
+      if (existing && existing.querySelector('.ppc-lang-sw')) {
+        existing.querySelector('.ppc-lang-sw').outerHTML = html.replace('class="ppc-lang-sw"', 'class="ppc-lang-sw' + (extraClass && extraClass.indexOf('intro') >= 0 ? ' ppc-lang-intro' : '') + '"');
+        return existing;
+      }
+      var bar = document.createElement('div');
+      bar.className = 'ppc-lang-bar' + (extraClass ? ' ' + extraClass : '');
+      bar.innerHTML = '<div class="wrap">' + html.replace('class="ppc-lang-sw"', 'class="ppc-lang-sw' + (extraClass && extraClass.indexOf('intro') >= 0 ? ' ppc-lang-intro' : '') + '"') + '</div>';
+      afterEl.insertAdjacentElement('afterend', bar);
+      return bar;
     }
-    /* Fallback fixed corner if still nothing visible */
-    if (!document.querySelector('.ppc-lang-sw')) {
-      var fix = document.createElement('div');
-      fix.className = 'ppc-lang-fixed';
-      fix.innerHTML = html;
-      document.body.appendChild(fix);
+
+    var introLocked = document.documentElement.classList.contains('intro-lock');
+    var intro = document.querySelector('section.intro');
+    var brandbar = document.querySelector('section.intro header.brandbar, section.intro .brandbar');
+    if (introLocked && (brandbar || intro)) {
+      /* Page 1: stable bar directly below brandbar — never fixed, never in header.top */
+      if (brandbar) mountBar(brandbar, 'ppc-lang-bar-intro');
+      else {
+        var iw = intro.querySelector('.wrap') || intro;
+        if (!document.querySelector('.ppc-lang-bar-intro')) {
+          var box = document.createElement('div');
+          box.className = 'ppc-lang-bar ppc-lang-bar-intro';
+          box.innerHTML = '<div class="wrap">' + html.replace('class="ppc-lang-sw"', 'class="ppc-lang-sw ppc-lang-intro"') + '</div>';
+          if (brandbar) brandbar.insertAdjacentElement('afterend', box);
+          else iw.insertAdjacentElement('afterbegin', box);
+        }
+      }
+      /* Hide legacy floating intro wrap if present */
+      document.querySelectorAll('.ppc-lang-intro-wrap').forEach(function (el) { el.style.display = 'none'; });
+    } else {
+      /* Unlocked / interior: sub-bar directly below header.top / header.map-nav */
+      var hdr = document.querySelector('header.top, header.map-nav, header.top.map-nav');
+      if (hdr) mountBar(hdr, '');
+      document.querySelectorAll('.ppc-lang-bar-intro, .ppc-lang-intro-wrap').forEach(function (el) { el.style.display = 'none'; });
     }
+
+    /* Hide duplicate in-header page-local language switchers (pro/field-guides/forum) */
+    document.querySelectorAll('header.top .lang-sw, header.top .langsw, header.map-nav .lang-sw, header.map-nav .langsw').forEach(function (sw) {
+      if (sw.classList.contains('ppc-lang-sw')) return;
+      sw.setAttribute('hidden', '');
+      sw.style.display = 'none';
+    });
   }
 
   function syncLocalSwitchers() {

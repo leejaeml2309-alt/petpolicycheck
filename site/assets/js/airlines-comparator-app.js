@@ -67,7 +67,7 @@ render();
     lab.innerHTML='<input type="checkbox" id="fMilitary"> <span data-i18n="compare.military">Military & Service Dog</span>';
     filters.insertBefore(lab, filters.firstChild);
     var note=document.createElement('div');
-    note.id='milNote'; note.className='gcard'; note.style.cssText='display:none;margin:10px 0;padding:10px 12px;border:1px solid rgba(217,183,101,.3);border-radius:10px;background:rgba(17,37,42,.7);color:#e8e0d0';
+    note.id='milNote'; note.className='gcard'; note.style.cssText='display:none;margin:10px 0;padding:10px 12px;border:1px solid rgba(212,175,55,.35);border-radius:10px;background:linear-gradient(165deg,rgba(0,31,63,.92),rgba(3,40,79,.88));color:#f4f6fa';
     note.innerHTML='<b>Military / Service Dog view</b>: Highlights carriers often used on PCS orders (Delta, United, American, Alaska). DOT service dogs: $0 cabin under 14 CFR Part 382. Canada CTA may require ADI/IGDF school certification. AMC Space-A: leisure pets generally barred — service dogs / Patriot Express PCS slots differ. JTR pet reimbursement overview: up to $550 CONUS / $2,000 OCONUS (confirm on dfas.mil / defense.gov). See <a href="../../veterans/">Veterans hub</a> · <a href="../../military-pcs/">PCS kit</a>.';
     filters.parentNode.insertBefore(note, filters.nextSibling);
     var milSlugs={delta:1,united:1,american:1,alaska:1,'air-canada':1};

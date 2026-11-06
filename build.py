@@ -169,9 +169,10 @@ NAV = [("?view=map", "World map", "site.nav.map", ()), ("book/", "Book", "site.n
        ("airlines/compare/", "Compare", "site.nav.compare", ("airlines/compare/",)), ("products/", "Products", "site.nav.products", ("products/",)),
        ("#gear", "Guides", "site.nav.guides", ()), ("updates.html", "Updates", "site.nav.updates", ("updates.html",)),
        ("about.html", "About", "site.nav.about", ("about.html",)),
+       ("veterans/", "Veterans", "site.nav.veterans", ("veterans/",)),
        ("pro/", "For Business", "site.nav.pro", ("pro/", "extension/", "b2b-pet-desk/")),  # briefcase pastille via pastilles.js theme-b2b
        ("advertise/", "Advertise", "site.nav.advertise", ("advertise/",))]
-LOGO_BADGE = '<span class="lbadge"><img src="{root}assets/img/logo-mark-header.png" width="62" height="48" alt="" aria-hidden="true"></span>'
+LOGO_BADGE = '<span class="lbadge"><img src="{root}assets/img/logo-mark-header.png" width="62" height="48" alt="PetPolicyCheck"></span>'
 
 
 def brand_word(name):
@@ -208,6 +209,8 @@ def nav_links(root, path, i18n=False):
             url = BOOK_NAV_LOCAL[path]
         cta = (' class="cta menu-only"' if href == "advertise/"
                else ' class="nav-book"' if href == "book/"
+               else ' class="nav-vet"' if href == "veterans/"
+               else ' class="nav-vet"' if href == "veterans/"
                else ' class="nav-biz"' if href == "pro/"
                else "")
         out.append(f'<a{cta} href="{url}"{cur}{ti(key, i18n)}>{label}</a>')
@@ -471,9 +474,9 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <link rel="preload" href="{root}assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{root}assets/css/theme.css?v={CSS_VER}">
 <link rel="stylesheet" href="{root}style.css?v={CSS_VER}">
-<link rel="stylesheet" href="{root}assets/css/ppc-i18n.css?v=20261107a">
-<script src="{root}assets/i18n/ui.js?v=20261107a" defer></script>
-<script src="{root}assets/js/ppc-i18n.js?v=20261107a" defer></script>
+<link rel="stylesheet" href="{root}assets/css/ppc-i18n.css?v=20261107c">
+<script src="{root}assets/i18n/ui.js?v=20261107c" defer></script>
+<script src="{root}assets/js/ppc-i18n.js?v=20261107c" defer></script>
 <script src="{root}assets/js/pastilles.js?v={PST_VER}" defer></script>
 <meta name="theme-color" content="#0b1719">
 {ld}
@@ -481,7 +484,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <body class="v-c">
 <a class="skip" href="#main"{ti("site.skip", fi)}>Skip to content</a>
 <header class="top"><div class="wrap">
-<a class="brand" href="{home_url(root)}">{LOGO_BADGE.replace('{root}', root)}{brand_word(cfg['site_name'])}</a>
+<a class="brand" href="{home_url(root)}" aria-label="PetPolicyCheck — Home">{LOGO_BADGE.replace('{root}', root)}</a>
 <nav class="nav menu" id="site-menu" aria-label="Main">{nav_links(root, path, fi)}</nav>{MENU_BTN}
 </div></header>{partner_banner(root)}{header_ad(cfg, ads)}{MENU_JS}<script src="{root}assets/js/partner-banner.js" defer data-partner-root="{root}assets/partners/"></script>
 <main class="wrap" id="main">
@@ -2882,7 +2885,7 @@ def build_canada_map(cfg):
   <div class="maptools">
    <label for="pick">Province / territory</label>
    <select id="pick"><option value="">Choose a province…</option></select>
-   <div class="legend"><span><i style="background:#1d3a35;border:1px solid #3a5a56"></i>Breed / entry alert</span><span><i style="background:#2a2420;border:1px solid #b5473a55"></i>Hub province</span><span><i style="background:#b5473a"></i>Selected (maple)</span><span><i style="background:#9fb59a"></i>Capital</span><span><b class="lg-ap">✈</b>Airport hub</span></div>
+   <div class="legend"><span><i style="background:#1d3a35;border:1px solid #3a5a56"></i>Breed / entry alert</span><span><i style="background:#2a2420;border:1px solid #b5473a55"></i>Hub province</span><span><i style="background:#edeae2;box-shadow:inset 0 0 0 2px #b5473a"></i>Verified hub</span><span><i style="background:#edeae2;box-shadow:inset 0 0 0 1.5px #b5473a"></i>Capital</span><span><b class="lg-ap">✈</b>Airport hub</span></div>
   </div>
   <button class="btn ghost" type="button" id="reset" hidden>Show all provinces</button>
   <svg id="map" viewBox="0 0 975 610" role="group" aria-label="Canadian provinces, territories, and airport hubs"><g id="g-st"></g><g id="g-lb"></g><g id="g-ct"></g><g id="g-ap"></g></svg>
@@ -3138,11 +3141,11 @@ def build_usa_map(cfg):
   <div class="maptools">
    <label for="pick">State</label>
    <select id="pick"><option value="">Choose a state…</option></select>
-   <div class="legend"><span><i style="background:#1d3a35;border:1px solid #3a5a56"></i>Special entry rules</span><span><i style="background:#d9b765"></i>City booking guide</span><span><i style="background:#9fb59a"></i>Capital</span><span><i style="background:#e9dfc6"></i>Main city</span><span><b class="lg-ap">✈</b>Airport, linked to its city</span></div>
+   <div class="legend"><span><i style="background:#1d3a35;border:1px solid #3a5a56"></i>Special entry rules</span><span><i style="background:#b22234;box-shadow:0 0 0 1px #f4efe6"></i>City booking guide</span><span><i style="background:#dce6f5;box-shadow:inset 0 0 0 1.5px #1f4fa3"></i>Capital</span><span><i style="background:#f2ede2"></i>Main city</span><span><b class="lg-ap">✈</b>Airport, linked to its city</span></div>
   </div>
   <button class="btn ghost" type="button" id="reset" hidden>Show all states</button>
   <svg id="map" viewBox="0 0 975 610" role="group" aria-label="US states, main cities, and airports"><g id="g-st"></g><g id="g-lb"></g><g id="g-ct"></g><g id="g-ap"></g></svg>
-  <p class="mapnote">Alaska and Hawaii are insets. A dashed line ties each airport to its city. Gold cities have the full booking panel. Dashed plane marks (SFO, DFW) are placeholder hubs.</p>
+  <p class="mapnote">Alaska and Hawaii are insets. A dashed line ties each airport to its city. US-red cities have the full booking panel. Dashed plane marks (SFO, DFW) are placeholder hubs.</p>
  </section>
  <aside class="card panel" id="panel" aria-live="polite"></aside>
 </div>

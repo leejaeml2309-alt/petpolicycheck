@@ -7,17 +7,35 @@
   .ppc-lang-sw{margin-left:6px}
   .ppc-lang-sw button{padding:.34rem .42rem;font-size:.62rem;min-width:1.7rem}
 }
-/* Keep header from overflowing on 390px */
-header.top .wrap, header.map-nav .wrap{display:flex;align-items:center;flex-wrap:nowrap;gap:6px;max-width:100%}
-header.top .ppc-lang-sw, header.map-nav .ppc-lang-sw{order:3}
-.ppc-ref-notice{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;margin:0 0 14px;padding:10px 14px;border:1px solid rgba(217,183,101,.35);border-radius:12px;background:linear-gradient(180deg,rgba(217,183,101,.12),rgba(11,23,25,.35));color:#e8e0d0;font:500 .86rem/1.45 Inter,system-ui,sans-serif}
-.ppc-ref-notice a{color:#d9b765;font-weight:600;text-decoration:none}
-.ppc-ref-notice a:hover{text-decoration:underline}
-.ppc-ref-msg{flex:1 1 220px}
-.ppc-ref-links{flex:0 0 auto;white-space:nowrap;font-size:.82rem}
 
-.ppc-lang-intro-wrap{display:flex;justify-content:flex-end;padding:8px 4px 0;position:relative;z-index:6}
-html.intro-lock .ppc-lang-intro-wrap{display:flex}
-html:not(.intro-lock) .ppc-lang-intro-wrap{display:none !important}
-.ppc-lang-fixed{position:fixed;top:10px;right:10px;z-index:9999}
-html.intro-lock header.map-nav .ppc-lang-sw{display:none}
+
+/* Logo-only brand safety (shared with theme.css) */
+header.top a.brand .wm, header.map-nav a.brand .wm{display:none!important}
+header.top .nav a.sec .lbl, header.map-nav .nav a.sec .lbl{white-space:nowrap;overflow:visible;text-overflow:clip;flex-shrink:0}
+header.top .nav, header.map-nav .nav{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex:1 1 auto;min-width:0}
+header.top .nav::-webkit-scrollbar, header.map-nav .nav::-webkit-scrollbar{display:none}
+
+/* ---- Language sub-bar BELOW header.top (Marc 2026-11-07) — never inside header, never fixed ---- */
+header.top, header.map-nav, header.top.map-nav{position:sticky;top:0;z-index:60}
+.ppc-lang-bar{position:relative;z-index:40;background:rgba(11,23,25,.92);border-bottom:1px solid rgba(217,183,101,.22);padding:6px 0;flex:none}
+.ppc-lang-bar .wrap{display:flex;justify-content:flex-end;align-items:center;max-width:1200px;margin:0 auto;padding:0 24px}
+.ppc-lang-bar .ppc-lang-sw{margin-left:0}
+.ppc-lang-bar-intro{background:transparent;border-bottom:0;padding:8px 0 0}
+.ppc-lang-bar-intro .wrap{justify-content:flex-end}
+/* Kill legacy floating / in-header switchers */
+.ppc-lang-fixed{display:none!important}
+.ppc-lang-intro-wrap{display:none!important}
+header.top .ppc-lang-sw, header.map-nav .ppc-lang-sw{display:none!important}
+header.top .lang-sw[hidden], header.top .langsw[hidden]{display:none!important}
+.partner-slot, .partner-top, .biz-banner, .hdr-band{position:relative;z-index:10}
+@media (max-width:820px){
+  .ppc-lang-bar .wrap{padding:0 16px;justify-content:center}
+}
+/* CJK: disable awkward Latin drop-cap on intro story */
+html[data-ppc-lang="ko"] .intro-story .body p:first-child::first-letter,
+html[data-ppc-lang="ja"] .intro-story .body p:first-child::first-letter,
+html[lang^="ko"] .intro-story .body p:first-child::first-letter,
+html[lang^="ja"] .intro-story .body p:first-child::first-letter{
+  float:none!important;font-size:inherit!important;line-height:inherit!important;
+  padding:0!important;margin:0!important;color:inherit!important;font-weight:inherit!important
+}

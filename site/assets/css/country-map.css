@@ -297,11 +297,11 @@ main.wrap:has(#country-map){max-width:1320px}
   color:var(--ink);text-decoration:none;font:600 .85rem var(--text);
 }
 #map-switch .msw-tab i{width:10px;height:10px;border-radius:50%;background:#5a6a6e;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #5a6a6e55}
-#map-switch .msw-tab.accent-usa i{background:#d9b765;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #d9b76555}
-#map-switch .msw-tab.accent-maple i{background:#b5473a;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #b5473a55}
+#map-switch .msw-tab.accent-usa i{background:#b22234;box-shadow:0 0 0 2px #0b1719,0 0 0 3px rgba(178,34,52,.55)}
+#map-switch .msw-tab.accent-maple i{background:#edeae2;box-shadow:inset 0 0 0 1.8px #b5473a,0 0 0 2px #0b1719,0 0 0 3px rgba(181,71,58,.55)}
 #map-switch .msw-tab.accent-mxgreen i{background:#3f7a5a;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #3f7a5a55}
 #map-switch .msw-tab.is-current{color:var(--head)}
-#map-switch .msw-tab.accent-usa.is-current{border-color:#d9b765;background:#1a3236}
+#map-switch .msw-tab.accent-usa.is-current{border-color:#b22234;background:color-mix(in srgb,#b22234 14%,#0f2226)}
 #map-switch .msw-tab.accent-maple.is-current{border-color:#b5473a;background:color-mix(in srgb,#b5473a 14%,#0f2226)}
 #map-switch .msw-tab.accent-mxgreen.is-current{border-color:#3f7a5a;background:color-mix(in srgb,#3f7a5a 14%,#0f2226)}
 
@@ -312,8 +312,9 @@ html.accent-maple #country-map{
 html.accent-maple #country-map .st.hub{fill:#2a2420}
 html.accent-maple #country-map .st.rule{fill:#1d3a35} /* keep deep teal for alerts, Option B */
 html.accent-maple #country-map .st.sel{fill:#6b3a32;stroke:#d4a090;stroke-width:1.7}
-html.accent-maple #country-map .ct.sample circle{fill:#c4786a}
-html.accent-maple #country-map .ct.sample .ring{stroke:#c4786a}
+html.accent-maple #country-map .ct.sample circle{fill:#edeae2;stroke:#b5473a;stroke-width:1.8}
+html.accent-maple #country-map .ct.sample .ring{stroke:#b5473a;opacity:.75}
+html.accent-maple #country-map .ct.cap circle{fill:#edeae2;stroke:#b5473a;stroke-width:1.4}
 html.accent-maple #country-map .ap.sel .pad{fill:#6b3a32;stroke:#f0e2d0}
 html.accent-maple #country-map .ap .glyph{fill:#e8c9b4}
 html.accent-maple #country-map .ph .mark{border-color:#b5473a;color:#f0e2d0;background:#1a1412}
