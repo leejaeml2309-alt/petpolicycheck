@@ -39,3 +39,20 @@ html[lang^="ja"] .intro-story .body p:first-child::first-letter{
   float:none!important;font-size:inherit!important;line-height:inherit!important;
   padding:0!important;margin:0!important;color:inherit!important;font-weight:inherit!important
 }
+
+/* Marc: language switcher ONLY on Page 1 intro-lock */
+html:not(.intro-lock) .ppc-lang-sw,
+html:not(.intro-lock) .ppc-lang-bar,
+html:not(.intro-lock) .ppc-lang-fixed,
+html:not(.intro-lock) .ppc-lang-intro-wrap,
+html:not(.intro-lock) header .lang-sw,
+html:not(.intro-lock) header .langsw,
+html:not(.intro-lock) .langsw:not(.bill-sw),
+html:not(.intro-lock) main .lang-sw:not(.bill-sw){display:none!important;visibility:hidden!important}
+html.intro-lock .ppc-lang-bar-intro{display:block;position:relative;z-index:5}
+html.intro-lock header.top .ppc-lang-sw,
+html.intro-lock header.map-nav .ppc-lang-sw,
+html.intro-lock .ppc-lang-fixed{display:none!important}
+
+/* Hide forum top-nav language pills outside Page 1 (translation still via localStorage) */
+html:not(.intro-lock) .flang[role="group"]{display:none!important}

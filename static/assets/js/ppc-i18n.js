@@ -179,62 +179,70 @@
 
   function ensureSwitcher() {
     var html = switcherHTML();
-    /* Remove any switcher wrongly parked inside header.top (crowds Book/Advertise) */
-    document.querySelectorAll('header.top .ppc-lang-sw, header.map-nav .ppc-lang-sw, .top > .wrap > .ppc-lang-sw').forEach(function (el) {
-      var bar = el.closest('.ppc-lang-bar');
-      if (bar) return;
-      el.remove();
-    });
-    document.querySelectorAll('.ppc-lang-fixed').forEach(function (el) { el.remove(); });
-
-    function mountBar(afterEl, extraClass) {
-      if (!afterEl) return null;
-      var existing = document.querySelector('.ppc-lang-bar' + (extraClass ? '.' + extraClass.replace(/\s+/g, '.') : ''));
-      if (existing && existing.querySelector('.ppc-lang-sw')) {
-        existing.querySelector('.ppc-lang-sw').outerHTML = html.replace('class="ppc-lang-sw"', 'class="ppc-lang-sw' + (extraClass && extraClass.indexOf('intro') >= 0 ? ' ppc-lang-intro' : '') + '"');
-        return existing;
-      }
-      var bar = document.createElement('div');
-      bar.className = 'ppc-lang-bar' + (extraClass ? ' ' + extraClass : '');
-      bar.innerHTML = '<div class="wrap">' + html.replace('class="ppc-lang-sw"', 'class="ppc-lang-sw' + (extraClass && extraClass.indexOf('intro') >= 0 ? ' ppc-lang-intro' : '') + '"') + '</div>';
-      afterEl.insertAdjacentElement('afterend', bar);
-      return bar;
-    }
-
     var introLocked = document.documentElement.classList.contains('intro-lock');
-    var intro = document.querySelector('section.intro');
-    var brandbar = document.querySelector('section.intro header.brandbar, section.intro .brandbar');
-    if (introLocked && (brandbar || intro)) {
-      /* Page 1: stable bar directly below brandbar — never fixed, never in header.top */
-      if (brandbar) mountBar(brandbar, 'ppc-lang-bar-intro');
-      else {
-        var iw = intro.querySelector('.wrap') || intro;
-        if (!document.querySelector('.ppc-lang-bar-intro')) {
-          var box = document.createElement('div');
-          box.className = 'ppc-lang-bar ppc-lang-bar-intro';
-          box.innerHTML = '<div class="wrap">' + html.replace('class="ppc-lang-sw"', 'class="ppc-lang-sw ppc-lang-intro"') + '</div>';
-          if (brandbar) brandbar.insertAdjacentElement('afterend', box);
-          else iw.insertAdjacentElement('afterbegin', box);
-        }
-      }
-      /* Hide legacy floating intro wrap if present */
-      document.querySelectorAll('.ppc-lang-intro-wrap').forEach(function (el) { el.style.display = 'none'; });
-    } else {
-      /* Unlocked / interior: sub-bar directly below header.top / header.map-nav */
-      var hdr = document.querySelector('header.top, header.map-nav, header.top.map-nav');
-      if (hdr) mountBar(hdr, '');
-      document.querySelectorAll('.ppc-lang-bar-intro, .ppc-lang-intro-wrap').forEach(function (el) { el.style.display = 'none'; });
+    var onHomeIntro = introLocked && !!document.querySelector('section.intro');
+
+    /* Marc 2026-11-07: visible language switcher ONLY on Page 1 intro.
+       All other pages keep ui.js + apply() via localStorage — zero switcher UI. */
+    function stripAllSwitchers() {
+      document.querySelectorAll('.ppc-lang-sw, .ppc-lang-bar, .ppc-lang-fixed, .ppc-lang-intro-wrap').forEach(function (el) { el.remove(); });
+      document.querySelectorAll('.lang-sw, .langsw').forEach(function (sw) {
+        if (sw.classList.contains('ppc-lang-sw')) return;
+        /* Keep billing switchers; hide language UIs only */
+        if (sw.classList.contains('bill-sw')) return;
+        sw.setAttribute('hidden', '');
+        sw.style.display = 'none';
+        sw.setAttribute('aria-hidden', 'true');
+      });
     }
 
-    /* Hide duplicate in-header page-local language switchers (pro/field-guides/forum) */
-    document.querySelectorAll('header.top .lang-sw, header.top .langsw, header.map-nav .lang-sw, header.map-nav .langsw').forEach(function (sw) {
-      if (sw.classList.contains('ppc-lang-sw')) return;
+    if (!onHomeIntro) {
+      stripAllSwitchers();
+      return;
+    }
+
+    /* Page 1 only: mount stable bar below brandbar */
+    document.querySelectorAll('header.top .ppc-lang-sw, header.map-nav .ppc-lang-sw, .ppc-lang-fixed').forEach(function (el) { el.remove(); });
+    var brandbar = document.querySelector('section.intro header.brandbar, section.intro .brandbar');
+    var existing = document.querySelector('.ppc-lang-bar-intro');
+    if (existing) {
+      var sw = existing.querySelector('.ppc-lang-sw');
+      if (sw) sw.outerHTML = html.replace('class="ppc-lang-sw"', 'class="ppc-lang-sw ppc-lang-intro"');
+      else existing.innerHTML = '<div class="wrap">' + html.replace('class="ppc-lang-sw"', 'class="ppc-lang-sw ppc-lang-intro"') + '</div>';
+    } else if (brandbar) {
+      var bar = document.createElement('div');
+      bar.className = 'ppc-lang-bar ppc-lang-bar-intro';
+      bar.innerHTML = '<div class="wrap">' + html.replace('class="ppc-lang-sw"', 'class="ppc-lang-sw ppc-lang-intro"') + '</div>';
+      brandbar.insertAdjacentElement('afterend', bar);
+    } else {
+      var intro = document.querySelector('section.intro .wrap, section.intro');
+      if (intro) {
+        var bar2 = document.createElement('div');
+        bar2.className = 'ppc-lang-bar ppc-lang-bar-intro';
+        bar2.innerHTML = '<div class="wrap">' + html.replace('class="ppc-lang-sw"', 'class="ppc-lang-sw ppc-lang-intro"') + '</div>';
+        intro.insertAdjacentElement('afterbegin', bar2);
+      }
+    }
+    document.querySelectorAll('.ppc-lang-intro-wrap').forEach(function (el) { el.remove(); });
+    /* Hide any non-intro page-local switchers that might still be in DOM */
+    document.querySelectorAll('.lang-sw, .langsw').forEach(function (sw) {
+      if (sw.closest && sw.closest('section.intro')) return;
+      if (sw.classList.contains('bill-sw')) return;
       sw.setAttribute('hidden', '');
       sw.style.display = 'none';
     });
   }
 
   function syncLocalSwitchers() {
+    /* Hide all non-intro language UIs (Marc: switcher only on Page 1) */
+    if (!document.documentElement.classList.contains('intro-lock')) {
+      document.querySelectorAll('.ppc-lang-sw, .ppc-lang-bar, .ppc-lang-fixed, .ppc-lang-intro-wrap').forEach(function (el) { el.remove(); });
+      document.querySelectorAll('.lang-sw, .langsw').forEach(function (sw) {
+        if (sw.classList.contains('bill-sw')) return;
+        sw.setAttribute('hidden', '');
+        sw.style.display = 'none';
+      });
+    }
     /* pro/ uses data-lang; field-guides uses data-lang; forum uses data-setlang */
     document.querySelectorAll('.lang-sw [data-lang], .langsw [data-lang], [data-lang]').forEach(function (b) {
       if (b.closest && b.closest('.ppc-lang-sw')) return;

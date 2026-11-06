@@ -474,9 +474,9 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <link rel="preload" href="{root}assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{root}assets/css/theme.css?v={CSS_VER}">
 <link rel="stylesheet" href="{root}style.css?v={CSS_VER}">
-<link rel="stylesheet" href="{root}assets/css/ppc-i18n.css?v=20261107c">
-<script src="{root}assets/i18n/ui.js?v=20261107c" defer></script>
-<script src="{root}assets/js/ppc-i18n.js?v=20261107c" defer></script>
+<link rel="stylesheet" href="{root}assets/css/ppc-i18n.css?v=20261107d">
+<script src="{root}assets/i18n/ui.js?v=20261107d" defer></script>
+<script src="{root}assets/js/ppc-i18n.js?v=20261107d" defer></script>
 <script src="{root}assets/js/pastilles.js?v={PST_VER}" defer></script>
 <meta name="theme-color" content="#0b1719">
 {ld}
