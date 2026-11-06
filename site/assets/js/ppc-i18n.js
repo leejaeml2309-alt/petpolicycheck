@@ -185,7 +185,7 @@
     /* Marc 2026-11-07: visible language switcher ONLY on Page 1 intro.
        All other pages keep ui.js + apply() via localStorage — zero switcher UI. */
     function stripAllSwitchers() {
-      document.querySelectorAll('.ppc-lang-sw, .ppc-lang-bar, .ppc-lang-fixed, .ppc-lang-intro-wrap').forEach(function (el) { el.remove(); });
+      document.querySelectorAll('.ppc-lang-sw, .ppc-lang-bar, .ppc-lang-fixed, .ppc-lang-intro-wrap, .flang').forEach(function (el) { el.remove(); });
       document.querySelectorAll('.lang-sw, .langsw').forEach(function (sw) {
         if (sw.classList.contains('ppc-lang-sw')) return;
         /* Keep billing switchers; hide language UIs only */
@@ -236,7 +236,7 @@
   function syncLocalSwitchers() {
     /* Hide all non-intro language UIs (Marc: switcher only on Page 1) */
     if (!document.documentElement.classList.contains('intro-lock')) {
-      document.querySelectorAll('.ppc-lang-sw, .ppc-lang-bar, .ppc-lang-fixed, .ppc-lang-intro-wrap').forEach(function (el) { el.remove(); });
+      document.querySelectorAll('.ppc-lang-sw, .ppc-lang-bar, .ppc-lang-fixed, .ppc-lang-intro-wrap, .flang').forEach(function (el) { el.remove(); });
       document.querySelectorAll('.lang-sw, .langsw').forEach(function (sw) {
         if (sw.classList.contains('bill-sw')) return;
         sw.setAttribute('hidden', '');

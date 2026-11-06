@@ -35,9 +35,18 @@
   }
   function applyI18n(scope) {
     (scope || document).querySelectorAll('[data-i18n]').forEach(function (el) {
+      /* Never rewrite site chrome — pastilles.js / ppc-i18n.js own header/footer icons+labels */
+      if (!scope && el.closest && el.closest('header.top, header.map-nav, #site-menu, .sec-eyebrow, footer.foot, .ppc-lang-bar, .state-picker')) return;
+      var k = el.getAttribute('data-i18n');
       var v = {};
       if (el.getAttribute('data-i18n-name')) v.name = el.getAttribute('data-i18n-name');
-      el.textContent = t(el.getAttribute('data-i18n'), v);
+      var out = t(k, v);
+      /* Skip unresolved site.* keys (would paint raw "site.nav.pro" over icons) */
+      if (out === k && k && k.indexOf('site.') === 0) return;
+      var lbl = el.querySelector && el.querySelector(':scope > .lbl, :scope > span:not(.pst)');
+      if (lbl && el.querySelector(':scope > .pst, :scope > svg')) { lbl.textContent = out; return; }
+      if (el.querySelector && el.querySelector('svg, .pst, img')) return;
+      el.textContent = out;
     });
     (scope || document).querySelectorAll('[data-i18n-ph]').forEach(function (el) {
       el.setAttribute('placeholder', t(el.getAttribute('data-i18n-ph')));

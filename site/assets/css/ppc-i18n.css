@@ -56,3 +56,5 @@ html.intro-lock .ppc-lang-fixed{display:none!important}
 
 /* Hide forum top-nav language pills outside Page 1 (translation still via localStorage) */
 html:not(.intro-lock) .flang[role="group"]{display:none!important}
+
+.flang,.flang[role="group"]{display:none!important}
