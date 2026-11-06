@@ -164,7 +164,7 @@ LOGO = ('<svg class="logo" viewBox="0 0 40 40" width="38" height="38" aria-hidde
         '<path d="M0-5l1 .6v3l4 2.4v1l-4-1.1v2.5l1.3 1v.8L0 4.8l-2.3.4v-.8l1.3-1V.8l-4 1.1v-1l4-2.4v-3z" fill="#d9b765" transform="translate(29.6 13.4) rotate(32) scale(.62)"/></svg>')
 # Main nav: identical to the design-C home header (static/home-c.html). (href, label, i18n key, aria-current path prefixes)
 # "#..." hrefs point to sections of the home page. Airlines opens {home}#compare (cabin, fees, hold table).
-NAV = [("#map", "World map", "site.nav.map", ()), ("book/", "Book", "site.nav.book", ("book/",)), ("#compare", "Airlines", "site.nav.airlines", ("airlines/",)),
+NAV = [("?view=map", "World map", "site.nav.map", ()), ("book/", "Book", "site.nav.book", ("book/",)), ("#compare", "Airlines", "site.nav.airlines", ("airlines/",)),
        ("countries/usa.html#federal", "Health certificate", "site.nav.health", ()),  # no dedicated page yet: USA federal rules (CDC/USDA) section, leads to the state CVI table
        ("airlines/compare/", "Compare", "site.nav.compare", ("airlines/compare/",)), ("products/", "Products", "site.nav.products", ("products/",)),
        ("#gear", "Guides", "site.nav.guides", ()), ("updates.html", "Updates", "site.nav.updates", ("updates.html",)),
@@ -203,7 +203,7 @@ def nav_links(root, path, i18n=False):
     items = NAV[:7] + [(FORUM_NAV[0], FORUM_NAV[1], "nav.forum", FORUM_NAV[2])] + NAV[7:] if FORUM_ON else NAV  # Forum after Guides, before Updates
     for href, label, key, pre in items:
         cur = ' aria-current="page"' if any(path.startswith(x) for x in pre) else ""
-        url = home_url(root) + href if href.startswith("#") else root + href
+        url = home_url(root) + href if href.startswith(("#", "?")) else root + href
         if href == "book/" and path in BOOK_NAV_LOCAL:  # /book/ is US-only: Korea/Japan guides point "Book" at their own booking box
             url = BOOK_NAV_LOCAL[path]
         cta = (' class="cta menu-only"' if href == "advertise/"
@@ -309,7 +309,7 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
     return f"""<footer class="foot foot-compact">
 <div class="wrap cols">
 <div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
-<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.nav.book", "Book your trip")}{li(h + "#compare", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
+<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.nav.book", "Book your trip")}{li(h + "#compare", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
 <div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{li(root + "extension/", "site.foot.extension", "Chrome Extension")}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "terms.html", "site.foot.terms", "Terms")}{li(root + "refund-policy.html", "site.foot.refund", "Refund policy")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
@@ -2796,7 +2796,7 @@ def _map_switcher_html(current):
         ("mx", "mexico-map.html", "Mexico Map", "mxgreen"),
     ]
     bits = [
-        '<a class="msw-tab world-back" href="../#map" style="touch-action:manipulation;position:relative;z-index:5">'
+        '<a class="msw-tab world-back" href="../?view=map" style="touch-action:manipulation;position:relative;z-index:5">'
         '<i aria-hidden="true"></i><span>← World Map</span></a>'
     ]
     for tid, href, label, accent in tabs:

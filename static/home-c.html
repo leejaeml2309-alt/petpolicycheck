@@ -1,47 +1,49 @@
 <!doctype html>
 <html class="intro-lock" lang="en-US"><head><meta charset="utf-8">
 <script>
-/* Page 1 is the intro only when there is no destination hash.
-   Begin your trip is a normal link to the USA map (not handled here).
-   #map / #world-map and every other in-page hash leave the intro and open that section.
-   A load of /#map opens the world map, not page 1. */
+/* Homepage unlock:
+   - Plain / → Paw Passport intro splash (intro-lock)
+   - /?view=map → unlocked homepage at scrollY=0 (NO #hash → no native anchor scroll)
+   - Legacy /#map or /#world-map → strip hash to ?view=map in <head> before #id can scroll */
 (function () {
   try { history.scrollRestoration = 'manual'; } catch (e) {}
+  try { document.documentElement.style.scrollBehavior = 'auto'; } catch (e) {}
   function normPath(p) { return (p || '/').replace(/\/index\.html$/, '/') || '/'; }
-  function isMapHash(h) { return h === '#map' || h === '#world-map'; }
-  function samePageHash(href) {
-    if (!href) return '';
-    if (href.charAt(0) === '#') return href.length > 1 ? href : '';
+  function wantsMap() {
+    try { if (new URLSearchParams(location.search).get('view') === 'map') return true; } catch (e) {}
+    var h = location.hash || '';
+    return h === '#map' || h === '#world-map';
+  }
+  function stripLegacyMapHash() {
+    var h = location.hash || '';
+    if (h !== '#map' && h !== '#world-map') return;
+    var q = location.search || '';
     try {
-      var u = new URL(href, location.href);
-      if (u.origin === location.origin && normPath(u.pathname) === normPath(location.pathname) && u.hash.length > 1) return u.hash;
-    } catch (e) {}
-    return '';
+      var sp = new URLSearchParams(q);
+      sp.set('view', 'map');
+      q = '?' + sp.toString();
+    } catch (e) { q = '?view=map'; }
+    try { history.replaceState(null, '', location.pathname + q); } catch (e) {}
   }
   function unlockMap() {
     document.documentElement.classList.add('map-view');
     document.documentElement.classList.remove('intro-lock');
     if (document.body) document.body.classList.remove('intro-home');
   }
-  function reveal(hash) {
+  function pinTop() {
+    try { document.documentElement.style.scrollBehavior = 'auto'; } catch (e) {}
+    window.scrollTo(0, 0);
+    try { if (document.documentElement) document.documentElement.scrollTop = 0; } catch (e) {}
+    try { if (document.body) document.body.scrollTop = 0; } catch (e) {}
+  }
+  function revealHash(hash) {
     if (hash === '#airlines') hash = '#compare';
-    if (hash === '#world-map') hash = '#map';
-    var map = isMapHash(hash);
-    if (map) unlockMap();
-    else {
-      document.documentElement.classList.remove('map-view');
-      document.documentElement.classList.remove('intro-lock');
-      if (document.body) document.body.classList.remove('intro-home');
-    }
+    if (hash === '#world-map' || hash === '#map') { unlockMap(); pinTop(); return; }
+    document.documentElement.classList.remove('map-view');
+    document.documentElement.classList.remove('intro-lock');
+    if (document.body) document.body.classList.remove('intro-home');
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-        if (map) {
-          window.scrollTo(0, 0);
-          window.dispatchEvent(new Event('resize'));
-          var box = document.getElementById('mapbox') || document.getElementById('world-map');
-          if (box && box.focus) try { box.focus({preventScroll:true}); } catch (e) {}
-          return;
-        }
         var el = null;
         if (hash && hash.charAt(0) === '#') {
           var id = decodeURIComponent(hash.slice(1)).split(/[=&?]/)[0];
@@ -51,74 +53,88 @@
       });
     });
   }
-  function applyHashNow() {
-    var hash = location.hash || '';
-    if (hash === '#airlines') {
-      try { history.replaceState(null, '', location.pathname + location.search + '#compare'); } catch (e) {}
-      hash = '#compare';
-    }
-    if (hash === '#world-map') {
-      try { history.replaceState(null, '', location.pathname + location.search + '#map'); } catch (e) {}
-      hash = '#map';
-    }
-    if (isMapHash(hash)) unlockMap();
-    else if (hash && hash.length > 1) {
+  function applyNow() {
+    stripLegacyMapHash();
+    if (wantsMap()) {
+      unlockMap();
+      pinTop();
+    } else if (location.hash && location.hash.length > 1) {
       document.documentElement.classList.remove('intro-lock');
       if (document.body) document.body.classList.remove('intro-home');
     }
   }
-  applyHashNow();
-  window.addEventListener('hashchange', function () {
-    var hash = location.hash === '#airlines' ? '#compare' : (location.hash === '#world-map' ? '#map' : (location.hash || ''));
-    if (isMapHash(hash)) { unlockMap(); reveal('#map'); }
-    else if (!hash) {
-      document.documentElement.classList.add('intro-lock');
-      document.documentElement.classList.remove('map-view');
-      if (document.body) document.body.classList.add('intro-home');
-      window.scrollTo(0, 0);
-    } else {
-      document.documentElement.classList.remove('map-view');
-      document.documentElement.classList.remove('intro-lock');
-      if (document.body) document.body.classList.remove('intro-home');
-      reveal(hash);
-    }
-    var wm = document.querySelector('.map-nav a[href="#map"], #site-menu a[href="#map"]');
-    if (wm) { if (isMapHash(hash)) wm.setAttribute('aria-current', 'page'); else wm.removeAttribute('aria-current'); }
-  });
+  applyNow();
   function boot() {
-    applyHashNow();
-    if (location.hash && location.hash.length > 1) reveal(location.hash === '#world-map' ? '#map' : location.hash);
-    else window.scrollTo(0, 0);
+    applyNow();
+    if (wantsMap()) {
+      unlockMap();
+      pinTop();
+      window.dispatchEvent(new Event('resize'));
+      var box = document.getElementById('mapbox') || document.getElementById('world-map');
+      if (box && box.focus) try { box.focus({preventScroll:true}); } catch (e) {}
+    } else if (location.hash && location.hash.length > 1) {
+      revealHash(location.hash);
+    } else {
+      pinTop();
+    }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
-  window.addEventListener('pageshow', function () { applyHashNow(); if (isMapHash(location.hash)) reveal('#map'); });
+  window.addEventListener('load', function () { if (wantsMap()) pinTop(); });
+  window.addEventListener('pageshow', function () { applyNow(); if (wantsMap()) pinTop(); });
+  window.addEventListener('hashchange', function () {
+    if (location.hash === '#map' || location.hash === '#world-map') {
+      stripLegacyMapHash();
+      unlockMap();
+      pinTop();
+      return;
+    }
+    if (!location.hash) {
+      if (!wantsMap()) {
+        document.documentElement.classList.add('intro-lock');
+        document.documentElement.classList.remove('map-view');
+        if (document.body) document.body.classList.add('intro-home');
+        pinTop();
+      }
+      return;
+    }
+    document.documentElement.classList.remove('map-view');
+    document.documentElement.classList.remove('intro-lock');
+    if (document.body) document.body.classList.remove('intro-home');
+    revealHash(location.hash);
+  });
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest && e.target.closest('a[href]');
     if (!a || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     var href = a.getAttribute('href') || '';
     if (href.indexOf('usa-map') !== -1 || href.indexOf('canada-map') !== -1 || href.indexOf('mexico-map') !== -1) return;
-    var hash = samePageHash(href);
-    if (hash === '#airlines') hash = '#compare';
-    if (hash === '#world-map') hash = '#map';
-    if (!hash) {
-      /* Cross-path link already on homepage that ends with #map (rare) */
-      try {
-        var u = new URL(href, location.href);
-        if (u.origin === location.origin && normPath(u.pathname) === normPath(location.pathname) && isMapHash(u.hash)) hash = '#map';
-      } catch (err) {}
-    }
-    if (!hash) return;
-    if (!isMapHash(hash)) document.documentElement.classList.remove('map-view');
-    var locked = document.documentElement.classList.contains('intro-lock');
-    if (!locked && !isMapHash(hash)) return;
-    e.preventDefault();
-    if (location.hash !== hash) history.pushState(null, '', hash);
-    reveal(hash);
-    window.dispatchEvent(new HashChangeEvent('hashchange'));
+    try {
+      var u = new URL(href, location.href);
+      if (u.origin === location.origin && normPath(u.pathname) === normPath(location.pathname)) {
+        var sp = new URLSearchParams(u.search);
+        if (sp.get('view') === 'map' || u.hash === '#map' || u.hash === '#world-map') {
+          e.preventDefault();
+          try { history.pushState(null, '', location.pathname + '?view=map'); } catch (err) {}
+          unlockMap();
+          pinTop();
+          window.dispatchEvent(new Event('resize'));
+          return;
+        }
+        if (u.hash && u.hash.length > 1) {
+          var hash = u.hash === '#airlines' ? '#compare' : u.hash;
+          var locked = document.documentElement.classList.contains('intro-lock');
+          if (!locked && hash !== '#compare' && hash !== '#gear') return;
+          e.preventDefault();
+          if (location.hash !== hash) history.pushState(null, '', hash);
+          revealHash(hash);
+          return;
+        }
+      }
+    } catch (err) {}
   }, true);
 })();
 </script>
+
 <!-- intro-fold:20261030i -->
 <style id="intro-fold-critical">
 /* Page 1 cannot scroll and cannot show the map, even if intro-a.css is late. */
@@ -131,7 +147,7 @@ html.intro-lock .vas-grid{flex:1 1 auto !important;min-height:0 !important;overf
    Homepage sections under the map stay in the page. */
 .map-nav{display:none !important}
 html:not(.intro-lock) .map-nav{display:block !important}
-html:not(.intro-lock) body.intro-home > section.intro{display:none !important}
+html:not(.intro-lock) section.intro,html:not(.intro-lock) .intro-spacer,html:not(.intro-lock) .intro-id{display:none !important}
 </style>
 <meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7693501377730690" crossorigin="anonymous"></script>
@@ -157,14 +173,14 @@ html:not(.intro-lock) body.intro-home > section.intro{display:none !important}
 <link rel="icon" href="assets/img/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon-180.png">
 <link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/theme.css">
-<link rel="stylesheet" href="assets/css/home-c.css?v=20261106flag">
+<link rel="stylesheet" href="assets/css/home-c.css?v=20261106viewmap">
 <link rel="stylesheet" href="assets/css/story.css?v=20261024">
 <link rel="stylesheet" href="assets/css/story-b.css?v=20261024">
 <link rel="stylesheet" href="assets/css/intro-a.css?v=20261030v">
 <style id="map-view-layout">
 html:not(.intro-lock){--hdr-h:66px}
 @media (max-width:820px){html:not(.intro-lock){--hdr-h:104px}}
-html.map-view .mapcard{display:flex;flex-direction:column;height:calc(100dvh - var(--hdr-h) - 28px) !important;min-height:420px !important;margin:14px auto 0;box-sizing:border-box}
+html.map-view .mapcard{display:flex;flex-direction:column;min-height:min(640px, calc(100dvh - var(--hdr-h) - 48px));height:auto;margin:14px auto 0;box-sizing:border-box}
 html.map-view .mapbox{flex:1 1 auto;min-height:0}
 html.map-view .mapscroll{position:absolute;inset:0}
 html.map-view #world-map{width:100%;height:100%}
@@ -205,9 +221,9 @@ html.map-view #world-map{width:100%;height:100%}
 <footer class="intro-id"><div class="wrap"><span class="as-fbrand">PetPolicyCheck</span><span class="dot">&middot;</span><a href="https://petpolicycheck.com/">petpolicycheck.com</a><span class="dot">&middot;</span><span>Dog &amp; cat travel rules, verified at the official source</span></div></footer>
 </section>
 <main id="main">
-<header class="top map-nav" id="map"><div class="wrap">
+<header class="top map-nav"><div class="wrap">
 <a class="brand" href="/"><span class="lbadge"><img src="assets/img/logo-mark-header.png" width="62" height="48" alt="" aria-hidden="true"></span><span class="wm">PetPolicy<span>Check</span><small>Paw Passport</small></span></a>
-<nav class="nav menu" id="site-menu" aria-label="Main"><a href="#map" aria-current="page">World map</a><a href="#compare">Airlines</a><a href="airlines/compare/">Compare</a><a href="products/">Products</a><a href="#gear">Guides</a><a href="updates.html">Updates</a><a href="forum/">Forum</a><a href="about.html">About</a><a class="nav-biz" href="pro/">For Business</a><a class="cta" href="advertise/">Advertise</a></nav>
+<nav class="nav menu" id="site-menu" aria-label="Main"><a href="?view=map" aria-current="page">World map</a><a href="#compare">Airlines</a><a href="airlines/compare/">Compare</a><a href="products/">Products</a><a href="#gear">Guides</a><a href="updates.html">Updates</a><a href="forum/">Forum</a><a href="about.html">About</a><a class="nav-biz" href="pro/">For Business</a><a class="cta" href="advertise/">Advertise</a></nav>
 </div></header>
 
 <aside class="partner-slot partner-top" data-partner-slot="top-partner" data-partner-live="0" aria-label="Partner"><div class="partner-card"><span class="partner-label">Partner</span><div class="partner-ph"><span class="pst-mini" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="12" rx="1.5"/><path d="M8 7V5.8A2.2 2.2 0 0 1 10.2 3.6h3.6A2.2 2.2 0 0 1 16 5.8V7M3.5 12h17"/></svg></span><p><b>Your brand here</b> · Become a PetPolicyCheck partner</p><a class="partner-cta" href="advertise/">Partner with us <span aria-hidden="true">→</span></a></div></div></aside>
@@ -307,7 +323,7 @@ html.map-view #world-map{width:100%;height:100%}
   </div>
   <div class="bk-cta">
    <p>Planning a trip with your own pet?</p>
-   <div class="bk-acts"><a class="btn" href="#map">Open the world map</a><a class="bk-link" href="#compare">Airline pet policies &rarr;</a></div>
+   <div class="bk-acts"><a class="btn" href="?view=map">Open the world map</a><a class="bk-link" href="#compare">Airline pet policies &rarr;</a></div>
    <a class="bk-about" href="https://petpolicycheck.com/about.html">About us &amp; disclaimer</a>
   </div>
   <span class="bk-curl" aria-hidden="true"></span>
@@ -318,7 +334,7 @@ html.map-view #world-map{width:100%;height:100%}
 </main>
 <footer class="foot"><div class="wrap cols">
 <div><p class="wm">PetPolicyCheck</p><p>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
-<div><h4>Explore</h4><ul><li><a href="#map">World map</a></li><li><a href="https://petpolicycheck.com/book/">Book your trip</a></li><li><a href="#compare">Airline policies</a></li><li><a href="https://petpolicycheck.com/countries/usa.html#federal">Health certificate</a></li><li><a href="#compare">Compare</a></li><li><a href="#gear">Guides</a></li><li><a href="https://petpolicycheck.com/updates.html">Updates</a></li></ul></div>
+<div><h4>Explore</h4><ul><li><a href="?view=map">World map</a></li><li><a href="https://petpolicycheck.com/book/">Book your trip</a></li><li><a href="#compare">Airline policies</a></li><li><a href="https://petpolicycheck.com/countries/usa.html#federal">Health certificate</a></li><li><a href="#compare">Compare</a></li><li><a href="#gear">Guides</a></li><li><a href="https://petpolicycheck.com/updates.html">Updates</a></li></ul></div>
 <div><h4>Shop &amp; community</h4><ul><li><a href="https://petpolicycheck.com/products/">Products</a></li><li><a href="https://petpolicycheck.com/forum/">Forum</a></li><li><a href="https://petpolicycheck.com/forum/pet-travel-stories/">Stories</a></li><li><a href="https://petpolicycheck.com/pro/">B2B Pet Desk</a></li><li><a href="https://petpolicycheck.com/extension/">Chrome Extension</a></li><li><a href="https://petpolicycheck.com/advertise/">Advertise</a></li><li><a href="https://petpolicycheck.com/partner-vets/">Partner vets</a></li></ul></div>
 <div><h4>About</h4><ul><li><a href="https://petpolicycheck.com/about.html">About &amp; disclaimer</a></li><li><a href="https://petpolicycheck.com/terms.html">Terms</a></li><li><a href="https://petpolicycheck.com/refund-policy.html">Refund policy</a></li><li><a href="https://petpolicycheck.com/privacy.html">Privacy</a></li><li><a href="https://petpolicycheck.com/contact.html">Contact</a></li></ul></div>
 </div><div class="wrap"><p class="disc" style="color:inherit;opacity:.7">Some links may be affiliate links; we may earn a commission at no extra cost to you. &copy; 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See <a href="terms.html">Terms</a>.</p></div></footer>

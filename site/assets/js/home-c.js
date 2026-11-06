@@ -170,18 +170,31 @@ function unlockHomeMap(){
  document.documentElement.classList.add('map-view');
  document.documentElement.classList.remove('intro-lock');
  if(document.body) document.body.classList.remove('intro-home');
+ try{document.documentElement.style.scrollBehavior='auto'}catch(e){}
+ window.scrollTo(0,0);
  window.dispatchEvent(new Event('resize'));
+}
+function wantsMapView(){
+ try{ if(new URLSearchParams(location.search).get('view')==='map') return true; }catch(e){}
+ var hs=location.hash||'';
+ return hs==='#map'||hs==='#world-map';
 }
 function route(){
  var hs=location.hash||'',m;
- if(hs==='#world-map'){try{history.replaceState(null,'',location.pathname+location.search+'#map')}catch(e){} hs='#map'}
- if(hs==='#map'){unlockHomeMap();return}
+ if(wantsMapView()){
+  /* Prefer clean ?view=map URL; strip legacy #map so no native anchor scroll */
+  if(hs==='#map'||hs==='#world-map'){
+   try{ history.replaceState(null,'',location.pathname+'?view=map'); }catch(e){}
+  }
+  unlockHomeMap();
+  return;
+ }
  if(hs==='#airlines'||hs==='#compare')showCompare();
  else if((m=hs.match(/^#country[=\-](.+)$/))){var id=findCountry(m[1]);if(id)openCountry(id)}
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',route);else route();
-window.addEventListener('hashchange',function(){ if(location.hash==='#map'||location.hash==='#world-map') unlockHomeMap(); });
-window.addEventListener('pageshow',function(){ if(location.hash==='#map'||location.hash==='#world-map') unlockHomeMap(); });
+window.addEventListener('hashchange',function(){ if(wantsMapView()) unlockHomeMap(); });
+window.addEventListener('pageshow',function(){ if(wantsMapView()) unlockHomeMap(); });
 window.addEventListener('hashchange',route);
 window.PPC={openCountry:openCountry,openAirlines:openAirlines};
 })();

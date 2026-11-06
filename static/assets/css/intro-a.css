@@ -131,7 +131,7 @@ html{scroll-padding-top:0}
 }
 
 /* Page 1 lock is only html.intro-lock. Removed for #map and other in-page links. */
-html:not(.intro-lock) .mapcard{min-height:100vh;min-height:100dvh;margin-top:0;box-sizing:border-box}
+html:not(.intro-lock) .mapcard{min-height:min(640px, calc(100dvh - 120px));margin-top:0;box-sizing:border-box}
 
 /* ==== Marc [t435u] 30/10 ~23:20 KST — 1st page WITHOUT scroll on mobile/tablet ====
    SCOPE: no-scroll ONLY while html.intro-lock (the intro). #map and the rest scroll after Begin.

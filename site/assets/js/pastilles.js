@@ -21,7 +21,12 @@ function pst(k,cls){return '<span class="pst theme-'+k+(cls?' '+cls:'')+'" aria-
 window.PPC_PST=pst;
 function boot(){
  document.body.insertAdjacentHTML('afterbegin',sp);
- var path=location.pathname, up=path.split('/').length>2?'../':'';
+ var path=location.pathname || '/';
+ /* Exact relative root: /countries/usa-map.html → '../'; /airlines/compare/ → '../../' */
+ var segs=path.replace(/\/+$/,'').split('/').filter(Boolean);
+ /* Drop the file segment when path ends with a filename (*.html) */
+ if(segs.length && /\.[a-z0-9]+$/i.test(segs[segs.length-1])) segs=segs.slice(0,-1);
+ var up=segs.length ? '../'.repeat(segs.length) : '';
  /* Country sub-maps (usa/canada/mexico-map) must NOT mark World map as current. */
  var onCountryMap=/\/countries\/(?:usa|canada|mexico)-map\.html$/.test(path);
  var cur=document.documentElement.dataset.section||(
@@ -29,9 +34,12 @@ function boot(){
   /\/products\//.test(path)?'shop':/\/countries\/usa\.html/.test(path)?'law':/\/forum\//.test(path)?'forum':/\/grooming\//.test(path)?'grooming':
   /\/(?:pro|extension|b2b-pet-desk)\/?$|\/(?:terms|refund-policy|privacy)\.html/.test(path)?'b2b':
   onCountryMap?'':(/usa-map|\/map/.test(path)?'map':''));
+ /* Homepage unlocked world-map view (?view=map) marks World map current */
+ try{ if((path==='/'||/\/(index\.html)?$/.test(path)) && new URLSearchParams(location.search).get('view')==='map') cur='map'; }catch(e){}
  var V=(new URLSearchParams(location.search).get('nav'))||document.documentElement.dataset.nav||'8';
  /* '8' = 8 liens (Rides garde sa place) ; '7g' (reco) = Rides fusionne dans Book (hub de réservation), Grooming prend sa place */
- var S=[['map','World map',up+'#map'],['flight','Airlines',up+'airlines/united.html'],['hotel','Hotels',up+'hotels/'],
+ /* World map uses ?view=map (NO #hash) so browsers never native-scroll to an id */
+ var S=[['map','World map',up+'?view=map'],['flight','Airlines',up+'airlines/united.html'],['hotel','Hotels',up+'hotels/'],
         ['grooming','Grooming',up+'grooming/'],['ground','Rides',up+'book/#rides'],['shop','Products',up+'products/'],['law','Rules',up+'countries/usa.html#federal'],['forum','Forum',up+'forum/'],['b2b','For Business',up+'pro/']];
  if(V==='7g') S=S.filter(function(x){return x[0]!=='ground'});
  document.documentElement.classList.add('nav-v'+V);
@@ -48,7 +56,7 @@ function boot(){
  var h1=document.querySelector('main h1, #main h1, h1');
  /* Country maps: clickable back-link to the homepage World map (never a dead div). */
  if(onCountryMap&&h1&&!document.querySelector('.sec-eyebrow')){
-  h1.insertAdjacentHTML('beforebegin','<a class="sec-eyebrow theme-map" href="'+up+'#map" style="text-decoration:none;cursor:pointer;pointer-events:auto;touch-action:manipulation">'+pst('map','pst-lg')+'<span>\u2190 World map</span></a>');
+  h1.insertAdjacentHTML('beforebegin','<a class="sec-eyebrow theme-map" href="'+up+'?view=map" style="text-decoration:none;cursor:pointer;pointer-events:auto;touch-action:manipulation">'+pst('map','pst-lg')+'<span>\u2190 World map</span></a>');
  }else if(cur&&h1&&!document.querySelector('.sec-eyebrow')){
   var L={map:'World map',flight:'Airlines',hotel:'Hotels',ground:'Rides',shop:'Products',law:'Rules & health certificate',forum:'Forum',grooming:'Care & Grooming (Travel + Expat)',b2b:'B2B Pet Desk'};
   h1.insertAdjacentHTML('beforebegin','<div class="sec-eyebrow theme-'+cur+'">'+pst(cur,'pst-lg')+'<span>'+L[cur]+'</span></div>');

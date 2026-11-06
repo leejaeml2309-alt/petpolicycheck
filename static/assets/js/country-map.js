@@ -38,7 +38,7 @@ function buildSwitcher(){
     {id:'mx', href:'mexico-map.html', label:'Mexico Map', accent:'mxgreen'}
   ];
   const cur = DATA.country === 'CA' ? 'ca' : (DATA.country === 'MX' ? 'mx' : 'usa');
-  const back = `<a class="msw-tab world-back" href="../#map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>← World Map</span></a>`;
+  const back = `<a class="msw-tab world-back" href="../?view=map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>← World Map</span></a>`;
   host.innerHTML = back + tabs.map(t =>
     `<a class="msw-tab accent-${t.accent}${t.id===cur?' is-current':''}" href="${t.href}"${t.id===cur?' aria-current="page"':''} style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${t.label}</span></a>`
   ).join('');
