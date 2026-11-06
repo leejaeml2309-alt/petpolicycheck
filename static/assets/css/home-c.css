@@ -148,3 +148,13 @@ th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mu
 @media (max-width:600px){.hero .acts.paws{display:flex;flex-wrap:nowrap;justify-content:flex-start;gap:10px}}
 
 .intro-biz{margin:12px 0 0;text-align:center}.intro-biz a{color:var(--gold-l);font:600 .9rem var(--text);text-decoration:none;border:1px solid var(--gold);border-radius:999px;padding:6px 14px;display:inline-block}.intro-biz a:hover{background:#1a3236;color:#f8e7b5}
+
+/* Entry chips into the veterans/military navy section (page itself uses theme-navy.css) */
+a.btn.btn-navy,a.btn-navy{
+  background:#03284f !important;color:#e2c275 !important;
+  border:1px solid rgba(217,183,101,.45) !important;
+  box-shadow:inset 0 0 0 1px rgba(0,31,63,.55);
+}
+a.btn.btn-navy:hover,a.btn-navy:hover{
+  background:#001f3f !important;color:#f4f6fa !important;
+}

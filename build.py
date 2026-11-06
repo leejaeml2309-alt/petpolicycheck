@@ -428,7 +428,7 @@ def partner_banner(root, slot="top-partner"):
 
 
 
-def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noindex=False, ads=True, sponsor="auto", extra_ad_keys=()):
+def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noindex=False, ads=True, sponsor="auto", extra_ad_keys=(), body_class="v-c", theme_color="#0b1719", extra_css=()):
     base = site_base(cfg)
     canon = canonical or f"{base}/{path}"
     ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in (jsonld or []))
@@ -445,6 +445,11 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
         ads_head = ga_nl + ADSENSE + "\n"
     else:
         ads_head = ga_nl
+    extra_css_links = "".join(
+        f'<link rel="stylesheet" href="{root}{href}">\n' for href in (extra_css or ())
+    )
+    body_class = body_class or "v-c"
+    theme_color = theme_color or "#0b1719"
     return f"""<!doctype html>
 <html lang="{e(cfg.get('language','en-US'))}">
 <head>
@@ -478,10 +483,10 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <script src="{root}assets/i18n/ui.js?v=20261107e" defer></script>
 <script src="{root}assets/js/ppc-i18n.js?v=20261107e" defer></script>
 <script src="{root}assets/js/pastilles.js?v={PST_VER}" defer></script>
-<meta name="theme-color" content="#0b1719">
+{extra_css_links}<meta name="theme-color" content="{theme_color}">
 {ld}
 </head>
-<body class="v-c">
+<body class="{body_class}">
 <a class="skip" href="#main"{ti("site.skip", fi)}>Skip to content</a>
 <header class="top"><div class="wrap">
 <a class="brand" href="{home_url(root)}" aria-label="PetPolicyCheck — Home">{LOGO_BADGE.replace('{root}', root)}</a>
@@ -3221,7 +3226,7 @@ def build_airlines_compare(cfg):
 def build_passport(cfg):
     """Idea #1 — Pet Travel Passport at /passport/."""
     root = "../"
-    body = f"""<link rel="stylesheet" href="{root}assets/css/passport.css?v=20261107e">
+    body = f"""<link rel="stylesheet" href="{root}assets/css/passport.css?v=20261107n">
 <section class="wrap" id="ppc-passport" style="padding:18px 0 40px;max-width:1200px;margin:0 auto">
 <p class="eyebrow" style="color:var(--gold,#d9b765);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px">Trip planner</p>
 <h1 style="font-family:var(--disp,Marcellus,serif);font-weight:400;color:var(--head,#f5efe0);margin:0 0 8px" data-i18n="passport.h1">Pet Travel Passport</h1>
@@ -3256,6 +3261,9 @@ def build_passport(cfg):
         root,
         jsonld=[bc_ld(cfg, [("Home", ""), ("Pet Travel Passport", "passport/")])],
         ads=False,
+        body_class="v-c theme-navy",
+        theme_color="#001f3f",
+        extra_css=("assets/css/theme-navy.css?v=20261107n",),
     )
 
 

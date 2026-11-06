@@ -5,12 +5,12 @@
 @media(max-width:860px){#ppc-passport .pp-grid{grid-template-columns:1fr}}
 #ppc-passport form{background:var(--paper,#12292e);border:1px solid var(--line,#2a4548);border-radius:14px;padding:14px;align-self:start;position:sticky;top:10px;max-width:100%;overflow:hidden}
 #ppc-passport form label{display:block;font-size:.82rem;color:var(--mut,#a9b3a4);margin:10px 0 4px}
-#ppc-passport form select,#ppc-passport form input{width:100%;max-width:100%;min-width:0;padding:7px 8px;border:1px solid var(--line2,#3a5a56);border-radius:8px;font:inherit;background:#0b1719;color:var(--ink,#e8dfc8)}
+#ppc-passport form select,#ppc-passport form input{width:100%;max-width:100%;min-width:0;padding:7px 8px;border:1px solid var(--line2,#3a5a56);border-radius:8px;font:inherit;background:var(--field,#0b1719);color:var(--ink,#e8dfc8)}
 #ppc-passport form input[type="date"]{font-size:.88rem;padding:7px 6px}
 #ppc-passport .row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
 #ppc-passport .row>*{min-width:0;max-width:100%}
 @media(max-width:380px){#ppc-passport .row{grid-template-columns:1fr}}
-#ppc-passport form button{background:var(--gold,#d9b765);color:#0b1719;border:0;border-radius:999px;padding:10px 14px;font-weight:700;cursor:pointer;margin-top:12px;width:100%;max-width:100%}
+#ppc-passport form button{background:var(--gold,#d9b765);color:var(--on-pri,#0b1719);border:0;border-radius:999px;padding:10px 14px;font-weight:700;cursor:pointer;margin-top:12px;width:100%;max-width:100%}
 #ppc-passport .card{background:var(--paper,#12292e);border:1px solid var(--line,#2a4548);border-radius:14px;padding:14px;margin-bottom:12px;color:var(--ink,#e8dfc8)}
 #ppc-passport .card h2{margin:0 0 8px;font-size:1.05rem;font-family:var(--disp,Marcellus,serif);color:var(--gold,#d9b765);font-weight:400}
 #ppc-passport .trap{border-left:5px solid var(--p-high);background:#2a2418;padding:9px 11px;border-radius:8px;margin:8px 0;color:var(--ink,#e8dfc8)}
@@ -24,7 +24,7 @@
 #ppc-passport .warn{color:var(--p-crit);font-weight:600}
 #ppc-passport .partners{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:560px){#ppc-passport .partners{grid-template-columns:1fr}}
-#ppc-passport .partner-slot-pp{border:1px dashed #3a5a56;border-radius:10px;padding:12px;background:#0f2226;font-size:.88rem;color:var(--mut,#a9b3a4)}
+#ppc-passport .partner-slot-pp{border:1px dashed #3a5a56;border-radius:10px;padding:12px;background:var(--paper,#0f2226);font-size:.88rem;color:var(--mut,#a9b3a4)}
 #ppc-passport #pass{display:none}
 @media print{
   body *{visibility:hidden!important}
