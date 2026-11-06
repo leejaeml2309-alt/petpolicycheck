@@ -47,7 +47,8 @@ function boot(){
  if(cur) document.documentElement.classList.add('theme-'+cur);
  if(onCountryMap) document.documentElement.classList.add('theme-map');
  var m=document.getElementById('site-menu')||document.querySelector('.map-nav nav.nav, header.map-nav nav'); if(!m) return;
- var h=S.map(function(s){var extra=s[0]==='b2b'?' nav-biz':'';return '<a class="sec theme-'+s[0]+extra+'" href="'+s[2]+'"'+(s[0]===cur?' aria-current="page"':'')+'>'+pst(s[0])+'<span class="lbl">'+s[1]+'</span></a>'}).join('');
+ var NAV_I18N={map:'site.nav.map',flight:'site.nav.airlines',hotel:'site.nav.hotels',grooming:'site.nav.grooming',ground:'site.nav.rides',shop:'site.nav.products',law:'site.nav.rules',forum:'site.nav.forum',b2b:'site.nav.pro'};
+ var h=S.map(function(s){var extra=s[0]==='b2b'?' nav-biz':'';var ik=NAV_I18N[s[0]]||'';return '<a class="sec theme-'+s[0]+extra+'" href="'+s[2]+'"'+(s[0]===cur?' aria-current="page"':'')+(ik?' data-i18n="'+ik+'"':'')+'>'+pst(s[0])+'<span class="lbl">'+s[1]+'</span></a>'}).join('');
  h+='<span class="menu-sep menu-only" aria-hidden="true"></span>'+
     ['Compare|'+up+'#compare','Guides|'+up+'#gear','Updates|'+up+'updates.html','About|'+up+'about.html'].map(function(x){x=x.split('|');return '<a class="menu-only sub" href="'+x[1]+'">'+x[0]+'</a>'}).join('')+
     (V==='7g'?'<a class="nav-book"'+(bookCur?' aria-current="page"':'')+' href="'+up+'book/" title="Flights, hotels, rides, vets, insurance">Book<span class="bk-sub"> · rides</span></a>':'<a class="nav-book" href="'+up+'book/">Book</a>')+'<a class="cta" href="'+up+'advertise/">Advertise</a>';
@@ -56,11 +57,12 @@ function boot(){
  var h1=document.querySelector('main h1, #main h1, h1');
  /* Country maps: clickable back-link to the homepage World map (never a dead div). */
  if(onCountryMap&&h1&&!document.querySelector('.sec-eyebrow')){
-  h1.insertAdjacentHTML('beforebegin','<a class="sec-eyebrow theme-map" href="'+up+'?view=map" style="text-decoration:none;cursor:pointer;pointer-events:auto;touch-action:manipulation">'+pst('map','pst-lg')+'<span>\u2190 World map</span></a>');
+  h1.insertAdjacentHTML('beforebegin','<a class="sec-eyebrow theme-map" href="'+up+'?view=map" style="text-decoration:none;cursor:pointer;pointer-events:auto;touch-action:manipulation">'+pst('map','pst-lg')+'<span data-i18n="site.nav.world_back">\u2190 World map</span></a>');
  }else if(cur&&h1&&!document.querySelector('.sec-eyebrow')){
   var L={map:'World map',flight:'Airlines',hotel:'Hotels',ground:'Rides',shop:'Products',law:'Rules & health certificate',forum:'Forum',grooming:'Care & Grooming (Travel + Expat)',b2b:'B2B Pet Desk'};
   h1.insertAdjacentHTML('beforebegin','<div class="sec-eyebrow theme-'+cur+'">'+pst(cur,'pst-lg')+'<span>'+L[cur]+'</span></div>');
  }
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+window.addEventListener('ppc:lang',function(){ if(window.PPC_LANG&&window.PPC_LANG.t){ document.querySelectorAll('#site-menu [data-i18n], .sec-eyebrow [data-i18n]').forEach(function(el){var v=window.PPC_LANG.t(el.getAttribute('data-i18n')); if(v){ var lbl=el.querySelector('.lbl'); if(lbl) lbl.textContent=v; else if(el.tagName==='SPAN'||!el.querySelector('svg')) el.textContent=v; }}); }});
 })();

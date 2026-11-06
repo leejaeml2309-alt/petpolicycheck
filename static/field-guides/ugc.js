@@ -4,7 +4,7 @@
    (no auto-send). Moderators still export approved JSON for the static site merge. */
 (function(){
 'use strict';
-var KEY='ppc_hub_v3', LKEY='ppc_hub_lang';
+var KEY='ppc_hub_v3', LKEY='ppc_lang';
 var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 var MONTHS={
@@ -57,13 +57,46 @@ c_pdept:'Für Heimtiermarken · native, geprüfte Platzierungen',c_ph:'Episode s
 c_pp:'Eine Marke pro Episode als „Pet Tip präsentiert von …“ unterhalb des echten Praxistipps — niemals innerhalb der offiziellen Regel.',
 c_pl1:'Start: Win-Win-Ausstattungspartnerschaft (Produkt für ehrliche Praxistests + Nennung)',c_pl2:'Danach: bezahltes Episoden-Sponsoring auf manuelle Rechnung',c_pl3:'Immer als „Gesponsert“ gekennzeichnet; Regelwerke bleiben unabhängig',
 c_pcta:'Episode sponsern · Partner werden →',
-c_disc:'Vorschau: Beispielepisoden auf Basis echter Wave-A-Regeln; @Handles sind generische Platzhalter. Genannte Marken dienen nur als Beispiel.'}};
+c_disc:'Vorschau: Beispielepisoden auf Basis echter Wave-A-Regeln; @Handles sind generische Platzhalter. Genannte Marken dienen nur als Beispiel.'},
+ko:{tab_gallery:'필드 가이드',tab_submit:'팁 보내기',nav_fg:'필드 가이드',nav_adv:'광고',
+a_dept:'커뮤니티 · 현장 점검 & City Scouts 허브 · 계정 없이 한 곳에서',a_ttl:'반려동물과 실제로 겪은 일을 공유해 주세요',
+a_lead:'30초 클립을 올리거나, 공식 규정과 달랐던 점을 알려 주거나, Founding City Scout이 되어 보세요. 약 60초, 계정 불필요. 사람이 공식 규정과 대조한 뒤 게시하며 크레딧을 남겨 드려요.',
+a_s1:'클립',a_up:'≤ 30초 영상 업로드',a_ln:'기존 클립 링크',a_drop:'세로 클립을 여기로 드래그',a_or:'또는',a_browse:'찾아보기',a_dropn:'최대 30초 (35초 허용) · 9:16 권장',
+a_s2:'무엇을 보여 주나요? (Wave A)',a_type:'유형',a_guse:'그루밍 용도',a_g1:'여행 중 / 호텔 모바일 그루밍',a_g1s:'비행 후 목욕, 숙박 중 그루밍, 호텔 모바일 밴',a_g2:'거주·주재원 신뢰 살롱',a_g2s:'Fear-free · EN/FR · 진정제 없는 고양이 · 견종 노하우',
+a_ctry:'Wave A 국가 / 코리도',a_date:'여행 날짜',a_ent:'정확한 항공사 / 호텔 / 도시 / 살롱',a_s3:'한 문장 현장 팁',a_tipl:'공식 사이트에 없는 실제 체크인·정책 디테일',a_bag:'이동장 / 체중 (선택)',
+a_s4:'크레딧 & 권리',a_handle:'@핸들 (클립에 표시)',a_social:'크레딧용 프로필 링크',a_send:'검토용 30초 팁 보내기',a_sendn:'사람 모더레이터에게 전달 · 자동 게시 없음',
+c_dept:'Paw Passport 필드 가이드 · 반려 여행자가 촬영',c_ttl:'30초 실제 펫 정책 필드 가이드 — <span>Wave A 코리도</span>',
+c_lead:'방금 겪은 사람들의 세로 클립: 카운터, 국경, 페리 줄, 미용사. 모든 클립은 공식 규정과 대조해 사람이 확인하고 현장 노트로 날짜를 남깁니다.',
+c_submit:'30초 팁 보내기',c_submitn:'계정 불필요 · 사람 검토',c_more:'승인된 모든 에피소드',
+c_pdept:'펫 브랜드용 · 네이티브, 사람 검토 플레이스먼트',c_ph:'에피소드 스폰서 · 파트너 되기',
+c_pp:'에피소드당 브랜드 하나, 실제 현장 팁 아래 “Pet Tip presented by …”로 표시 — 정책 사실 안에는 넣지 않아요.',
+c_pl1:'런칭: 윈윈 장비 파트너십 (정직한 현장 테스트용 제품 + 크레딧)',c_pl2:'이후: 유료 에피소드 스폰서십, 수동 청구',c_pl3:'항상 “Sponsored” 표기; 정책 콘텐츠는 독립 유지',
+c_pcta:'에피소드 스폰서 · 파트너 되기 →',
+c_disc:'예시 에피소드는 실제 Wave A 규칙을 보여 주며, @핸들은 일반 예시입니다.'},
+ja:{tab_gallery:'フィールドガイド',tab_submit:'ヒントを送る',nav_fg:'フィールドガイド',nav_adv:'広告',
+a_dept:'コミュニティ・現地チェック＆City Scoutsハブ · アカウント不要の一窓口',a_ttl:'ペットとの実体験を共有してください',
+a_lead:'30秒クリップの投稿、公式ルールとの違いの報告、Founding City Scoutへの応募。約60秒、アカウント不要。人が公式ルールと照合してから公開し、クレジットを付けます。',
+a_s1:'クリップ',a_up:'≤30秒の動画をアップロード',a_ln:'既存クリップのリンク',a_drop:'縦型クリップをここにドラッグ',a_or:'または',a_browse:'参照',a_dropn:'最大30秒（35秒許容）· 9:16推奨',
+a_s2:'何を示しますか？（Wave A）',a_type:'種類',a_guse:'グルーミング用途',a_g1:'旅中 / ホテル・モバイル',a_g1s:'到着後の入浴、滞在中のグルーム、ホテルのモバイルバン',a_g2:'住民・駐在員向け信頼サロン',a_g2s:'Fear-free · EN/FR · 鎮静なし猫 · 犬種ノウハウ',
+a_ctry:'Wave A 国 / 回廊',a_date:'旅行日',a_ent:'正確な航空会社 / ホテル / 都市 / サロン',a_s3:'一文の現地ヒント',a_tipl:'公式サイトにない実際のチェックインやポリシーの詳細',a_bag:'キャリア / 体重（任意）',
+a_s4:'クレジット＆権利',a_handle:'@ハンドル（クリップ表示）',a_social:'クレジット用プロフィールURL',a_send:'審査用30秒ヒントを送る',a_sendn:'人のモデレーターへ · 自動公開なし',
+c_dept:'Paw Passport フィールドガイド · ペット旅行者が撮影',c_ttl:'30秒リアル・ペット政策フィールドガイド — <span>Wave A回廊</span>',
+c_lead:'ついさっき体験した人の縦型クリップ：カウンター、国境、フェリー列、グルーマー。すべて公式ルールと人が照合し、現地メモとして日付付きです。',
+c_submit:'30秒ヒントを送る',c_submitn:'アカウント不要 · 人が確認',c_more:'承認済みエピソード一覧',
+c_pdept:'ペットブランド向け · ネイティブ、人確認の掲載',c_ph:'エピソードをスポンサー · パートナーになる',
+c_pp:'エピソードにつき1ブランド。「Pet Tip presented by …」として実ヒントの下に表示 — 政策本文の中には入れません。',
+c_pl1:'ローンチ：ウィンウィン器材提携（正直な現地テスト用製品＋クレジット）',c_pl2:'その後：有料エピソードスポンサー、手動請求',c_pl3:'常に「Sponsored」表示；政策コンテンツは独立',
+c_pcta:'エピソードをスポンサー · パートナーになる →',
+c_disc:'サンプルエピソードは実在のWave Aルールを示し、@ハンドルは一般例です。'}
+};
 var UI={
 en:{filmed:'Filmed by',presented:'Pet Tip presented by',visit:'Visit Partner ↗',sponsored:'Sponsored · Example',fv:'Field-Verified',official:'Official rule ↗',openslot:'Open sponsor slot on this episode.',opencta:'Sponsor an episode / Become a partner →',all:'All Wave A',airlines:'Airlines',ferries:'Ferries & Trains',hotels:'Hotels & Cities',groom:'Grooming & Care',country:'Country',type:'Type',episodes:'episodes',featured:'Featured episode',vbadge:'✓ Verified Corridor Traveler',vtip:'Earned by a traveler whose clip or rule check passed human review. Share your episode — your @handle links back to your profile.',nores:'No approved episode for this filter yet — be the first to submit one.',trip:'Trip',brandother:'Your brand on another episode?',reported:'Reported by',seatopen:'Seat open — apply →'},
 fr:{filmed:'Filmé par',presented:'Pet Tip présenté par',visit:'Voir le partenaire ↗',sponsored:'Sponsorisé · Exemple',fv:'Vérifié terrain',official:'Règle officielle ↗',openslot:'Emplacement sponsor libre sur cet épisode.',opencta:'Sponsoriser un épisode / Devenir partenaire →',all:'Toute la Vague A',airlines:'Compagnies',ferries:'Ferries & trains',hotels:'Hôtels & villes',groom:'Toilettage & soins',country:'Pays',type:'Type',episodes:'épisodes',featured:'Épisode à la une',vbadge:'✓ Verified Corridor Traveler',vtip:'Obtenu par un voyageur dont le clip ou la vérif de règle a passé la relecture humaine. Partagez votre épisode : votre @pseudo renvoie vers votre profil.',nores:'Aucun épisode approuvé pour ce filtre — soyez le premier à en envoyer un.',trip:'Voyage',brandother:'Votre marque ici sur un autre épisode ?',reported:'Signalé par',seatopen:'Poste ouvert →'},
 es:{filmed:'Grabado por',presented:'Pet Tip presentado por',visit:'Ver socio ↗',sponsored:'Patrocinado · Ejemplo',fv:'Verificado en campo',official:'Regla oficial ↗',openslot:'Espacio patrocinador libre en este episodio.',opencta:'Patrocinar un episodio / Ser socio →',all:'Toda la Ola A',airlines:'Aerolíneas',ferries:'Ferries y trenes',hotels:'Hoteles y ciudades',groom:'Peluquería y cuidados',country:'País',type:'Tipo',episodes:'episodios',featured:'Episodio destacado',vbadge:'✓ Verified Corridor Traveler',vtip:'Otorgado al viajero cuyo clip o verificación superó la revisión humana. Tu @usuario enlaza a tu perfil.',nores:'Aún no hay episodios aprobados para este filtro.',trip:'Viaje',brandother:'¿Tu marca en otro episodio?',reported:'Reportado por',seatopen:'Plaza abierta →'},
-de:{filmed:'Gefilmt von',presented:'Pet Tip präsentiert von',visit:'Partner ansehen ↗',sponsored:'Gesponsert · Beispiel',fv:'Praxisgeprüft',official:'Offizielle Regel ↗',openslot:'Freier Sponsorenplatz in dieser Episode.',opencta:'Episode sponsern / Partner werden →',all:'Alle Wave A',airlines:'Airlines',ferries:'Fähren & Züge',hotels:'Hotels & Städte',groom:'Grooming & Pflege',country:'Land',type:'Typ',episodes:'Episoden',featured:'Empfohlene Episode',vbadge:'✓ Verified Corridor Traveler',vtip:'Für Reisende, deren Clip oder Regel-Check die menschliche Prüfung bestanden hat. Dein @Handle verlinkt auf dein Profil.',nores:'Noch keine freigegebene Episode für diesen Filter.',trip:'Reise',brandother:'Ihre Marke in einer anderen Episode?',reported:'Gemeldet von',seatopen:'Platz frei — bewerben →'}};
-var VALID_LANGS=['en','fr','es','de'];
+de:{filmed:'Gefilmt von',presented:'Pet Tip präsentiert von',visit:'Partner ansehen ↗',sponsored:'Gesponsert · Beispiel',fv:'Praxisgeprüft',official:'Offizielle Regel ↗',openslot:'Freier Sponsorenplatz in dieser Episode.',opencta:'Episode sponsern / Partner werden →',all:'Alle Wave A',airlines:'Airlines',ferries:'Fähren & Züge',hotels:'Hotels & Städte',groom:'Grooming & Pflege',country:'Land',type:'Typ',episodes:'Episoden',featured:'Empfohlene Episode',vbadge:'✓ Verified Corridor Traveler',vtip:'Für Reisende, deren Clip oder Regel-Check die menschliche Prüfung bestanden hat. Dein @Handle verlinkt auf dein Profil.',nores:'Noch keine freigegebene Episode für diesen Filter.',trip:'Reise',brandother:'Ihre Marke in einer anderen Episode?',reported:'Gemeldet von',seatopen:'Platz frei — bewerben →'},
+ko:{filmed:'촬영',presented:'Pet Tip 제공',visit:'파트너 보기 ↗',sponsored:'스폰서 · 예시',fv:'현장 검증',official:'공식 규정 ↗',openslot:'이 에피소드 스폰서 자리 열림.',opencta:'에피소드 스폰서 / 파트너 되기 →',all:'Wave A 전체',airlines:'항공사',ferries:'페리 & 기차',hotels:'호텔 & 도시',groom:'그루밍 & 케어',country:'국가',type:'유형',episodes:'에피소드',featured:'추천 에피소드',vbadge:'✓ Verified Corridor Traveler',vtip:'사람 검토를 통과한 여행자. @핸들이 프로필로 연결돼요.',nores:'이 필터에 승인된 에피소드가 아직 없어요.',trip:'여행',brandother:'다른 에피소드에 브랜드를?',reported:'제보',seatopen:'자리 열림 →'},
+ja:{filmed:'撮影',presented:'Pet Tip 提供',visit:'パートナーを見る ↗',sponsored:'スポンサー · 例',fv:'現地検証',official:'公式ルール ↗',openslot:'このエピソードのスポンサースロット空き',opencta:'エピソードをスポンサー / パートナーになる →',all:'Wave Aすべて',airlines:'航空会社',ferries:'フェリー＆列車',hotels:'ホテル＆都市',groom:'グルーミング＆ケア',country:'国',type:'種類',episodes:'エピソード',featured:'注目エピソード',vbadge:'✓ Verified Corridor Traveler',vtip:'人の確認を通過した旅行者。@ハンドルがプロフィールへリンクします。',nores:'このフィルターの承認エピソードはまだありません。',trip:'旅行',brandother:'別エピソードにブランドを？',reported:'報告',seatopen:'席空き →'}};
+var VALID_LANGS=['en','fr','es','de','ko','ja'];
 var lang=localStorage.getItem(LKEY)||'en';
 if(VALID_LANGS.indexOf(lang)<0)lang='en';
 var q=new URLSearchParams(location.search); if(q.get('lang')){var ql=q.get('lang').toLowerCase();lang=VALID_LANGS.indexOf(ql)>=0?ql:'en'}
@@ -435,7 +468,8 @@ function exportJson(){
 }
 
 /* boot */
-$$('[data-lang]').forEach(function(b){b.onclick=function(){lang=b.getAttribute('data-lang');localStorage.setItem(LKEY,lang);applyI18n();show()}});
+$$('[data-lang]').forEach(function(b){b.onclick=function(){lang=b.getAttribute('data-lang');localStorage.setItem(LKEY,lang);applyI18n();show();if(window.PPC_LANG)try{window.PPC_LANG.set(lang,true);}catch(e){}}});
+window.addEventListener('ppc:lang',function(ev){if(ev.detail&&ev.detail.lang&&ev.detail.lang!==lang){lang=ev.detail.lang;localStorage.setItem(LKEY,lang);applyI18n();show();}});
 var rd=$('#resetDemo'); if(rd) rd.onclick=function(){DB=seed();save(DB);show()};
 var fs=$('#fStatus'); if(fs) fs.onchange=function(){fS=this.value;renderQueue()};
 var fc=$('#fCorr'); if(fc) fc.onchange=function(){fCo=this.value;renderQueue()};

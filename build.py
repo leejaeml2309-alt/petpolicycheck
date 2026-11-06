@@ -184,8 +184,8 @@ def brand_word(name):
 FORUM_NAV = ("forum/", "Forum", ("forum/",))
 
 
-def ti(key, on):
-    """data-i18n attribute for the shared header/footer on forum pages (forum.js translates it client-side)."""
+def ti(key, on=True):
+    """data-i18n attribute for the shared header/footer (ppc-i18n.js translates client-side)."""
     return f' data-i18n="{key}"' if on else ""
 FORUM_ON = False  # set in main() from config.json forum.* (Forum link only when the backend is configured)
 
@@ -219,7 +219,7 @@ def nav_links(root, path, i18n=False):
 ADSENSE_CLIENT = "ca-pub-7693501377730690"
 MENU_BTN = ('<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">'
             '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>'
-            '<span>Menu</span></button>')
+            '<span data-i18n="site.nav.menu">Menu</span></button>')
 MENU_JS = """<script>(function(){function init(){var m=document.getElementById('site-menu');if(!m)return;
 var T=[].slice.call(document.querySelectorAll('.top .menu-btn,[data-menu-trigger]')),last=null;if(!T.length)return;
 function set(o,f,t){m.classList.toggle('open',o);T.forEach(function(x){x.setAttribute('aria-expanded',o?'true':'false')});if(o){last=t||T[0];if(f){var a=m.querySelector('a');if(a)a.focus({preventScroll:true})}}else if(f&&last)last.focus()}
@@ -309,7 +309,7 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
     return f"""<footer class="foot foot-compact">
 <div class="wrap cols">
 <div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
-<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.nav.book", "Book your trip")}{li(h + "#compare", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
+<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.foot.book", "Book your trip")}{li(h + "#compare", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
 <div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{li(root + "extension/", "site.foot.extension", "Chrome Extension")}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "terms.html", "site.foot.terms", "Terms")}{li(root + "refund-policy.html", "site.foot.refund", "Refund policy")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
@@ -429,7 +429,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
     base = site_base(cfg)
     canon = canonical or f"{base}/{path}"
     ld = "".join(f'<script type="application/ld+json">{json.dumps(j, ensure_ascii=False)}</script>' for j in (jsonld or []))
-    fi = FORUM_ON and path.startswith("forum/")  # forum pages: shared header/footer labels follow the forum language
+    fi = True  # sitewide shell i18n via ppc-i18n.js (data-i18n on nav/footer)
     # ads=False pages (checklist, forum forms) do not get the live header unit. If a new slot id is
     # later pasted into one of extra_ad_keys, load adsbygoogle.js so that frame can go live without the header unit.
     extra_live = any(unit_configured(cfg, k) for k in extra_ad_keys)
@@ -471,6 +471,9 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <link rel="preload" href="{root}assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{root}assets/css/theme.css?v={CSS_VER}">
 <link rel="stylesheet" href="{root}style.css?v={CSS_VER}">
+<link rel="stylesheet" href="{root}assets/css/ppc-i18n.css?v=20261107a">
+<script src="{root}assets/i18n/ui.js?v=20261107a" defer></script>
+<script src="{root}assets/js/ppc-i18n.js?v=20261107a" defer></script>
 <script src="{root}assets/js/pastilles.js?v={PST_VER}" defer></script>
 <meta name="theme-color" content="#0b1719">
 {ld}
@@ -3173,13 +3176,13 @@ def build_airlines_compare(cfg):
     body = f"""<link rel="stylesheet" href="{root}assets/css/airlines-comparator.css">
 <section class="wrap" id="ppc-compare" style="padding:18px 0 40px;max-width:1200px;margin:0 auto">
 <p class="eyebrow" style="color:var(--gold,#d9b765);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px">Airlines · Comparator</p>
-<h1 style="font-family:var(--disp,Marcellus,serif);font-weight:400;color:var(--head,#f5efe0);margin:0 0 8px">Flying with a pet: 29 airlines compared</h1>
+<h1 style="font-family:var(--disp,Marcellus,serif);font-weight:400;color:var(--head,#f5efe0);margin:0 0 8px" data-i18n="compare.h1">Flying with a pet: 29 airlines compared</h1>
 <p class="sub" style="color:var(--mut,#a9b3a4);max-width:62ch;margin:0 0 16px">Cabin fee, weight, under-seat size, cargo and UK rules — checked against each airline&rsquo;s official page. Dated, sourced, no guesses. Also see the <a href="{root}#compare">home comparison table</a> for our verified guide pages.</p>
 <div class="uk" data-dept="laws"><b>UK trap:</b> <span id="ukrule"></span></div>
 <div class="filters" role="group" aria-label="Filters">
   <label><input type="checkbox" id="fDog"> Dog</label>
   <label><input type="checkbox" id="fCat"> Cat</label>
-  <label><input type="checkbox" id="fCabin" checked> Cabin allowed</label>
+  <label><input type="checkbox" id="fCabin" checked> <span data-i18n="compare.cabin">Cabin allowed</span></label>
   <label><input type="checkbox" id="fNoLimit"> No published weight limit</label>
   <label><input type="checkbox" id="fCargo"> Hold / cargo option</label>
   <select id="fRegion" aria-label="Region"><option value="">All regions</option></select>
@@ -3192,7 +3195,7 @@ def build_airlines_compare(cfg):
 </div>
 <div class="count" id="count"></div>
 <div class="tablewrap"><table><thead><tr>
-<th data-k="name">Airline</th><th>Dogs / Cats in cabin</th><th data-k="short">Cabin fee (one way)</th><th>Cabin weight</th><th>Under-seat carrier</th><th class="hide-m">Hold / cargo</th><th class="hide-m">Snub-nosed</th><th>Source</th>
+<th data-k="name" data-i18n="compare.col.airline">Airline</th><th>Dogs / Cats in cabin</th><th data-k="short" data-i18n="compare.col.fee">Cabin fee (one way)</th><th>Cabin weight</th><th>Under-seat carrier</th><th class="hide-m">Hold / cargo</th><th class="hide-m">Snub-nosed</th><th>Source</th>
 </tr></thead><tbody id="tb"></tbody></table></div>
 <p class="foot">Fees are one way, per carrier, as published by the airline. &ldquo;No published weight limit&rdquo; means the airline gives no figure: your pet must still fit the carrier under the seat, which is the real limit. Rows tagged <span class="pill rev">needs review</span> use a secondary source for at least one number; confirm before you book. Generated <span id="gen"></span>.</p>
 </section>
@@ -3218,7 +3221,7 @@ def build_passport(cfg):
     body = f"""<link rel="stylesheet" href="{root}assets/css/passport.css">
 <section class="wrap" id="ppc-passport" style="padding:18px 0 40px;max-width:1200px;margin:0 auto">
 <p class="eyebrow" style="color:var(--gold,#d9b765);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px">Trip planner</p>
-<h1 style="font-family:var(--disp,Marcellus,serif);font-weight:400;color:var(--head,#f5efe0);margin:0 0 8px">Pet Travel Passport</h1>
+<h1 style="font-family:var(--disp,Marcellus,serif);font-weight:400;color:var(--head,#f5efe0);margin:0 0 8px" data-i18n="passport.h1">Pet Travel Passport</h1>
 <p class="sub" style="color:var(--mut,#a9b3a4);max-width:62ch;margin:0 0 16px">Your route, your pet, your airline → a dated checklist, the traps, and a 1-page boarding-style PDF. Rules are drawn from official CDC, USDA APHIS, CFIA, GOV.UK, EU and SENASICA sources. Not legal or veterinary advice — re-check before each step.</p>
 <div class="pp-grid">
 <form id="f" aria-label="Route">
@@ -3228,7 +3231,7 @@ def build_passport(cfg):
   <div class="row"><div><label for="pet">Pet</label><select id="pet"><option value="dog">Dog</option><option value="cat">Cat</option></select></div>
   <div><label for="ret">Return trip</label><select id="ret"><option value="0">One way</option><option value="1">Round trip</option></select></div></div>
   <div class="row"><div><label for="date">Departure</label><input type="date" id="date"></div><div><label for="retDate">Return</label><input type="date" id="retDate"></div></div>
-  <button type="button" id="print">Print / Save PDF passport</button>
+  <button type="button" id="print" data-i18n="passport.print">Print / Save PDF passport</button>
   <p style="font-size:12px;color:var(--mut,#a9b3a4);margin-top:10px">Shareable link: <a id="share" href="#">copy</a> · <a href="{root}airlines/compare/">Airline fee comparator</a> · <a href="{root}field-guides/">Field Guides</a></p>
 </form>
 <main>

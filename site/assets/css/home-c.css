@@ -15,7 +15,7 @@
 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px;box-shadow:inset 0 0 0 1px #0006}
 .legend .swatch-row{display:inline-flex;gap:3px;margin-right:6px;vertical-align:middle}
 .legend .swatch-row i{margin-right:0;border-radius:2px}
-.legend .sw.cov-us{background:#234785}.legend .sw.cov-ca{background:#b5473a}.legend .sw.cov-mx{background:#3f7a5a}
+.legend .sw.cov-us{background:#b22234}.legend .sw.cov-ca{background:#edeae2;box-shadow:inset 0 0 0 1.5px #b5473a}.legend .sw.cov-mx{background:#1f6e49}
 .legend .sw.cov-kr{background:#1f4fa3}.legend .sw.cov-jp{background:#bc2d3a}
 .legend .sw.soon{background:linear-gradient(90deg,#1a3338 0 25%,#1f3a3f 25% 50%,#243f44 50% 75%,#1c363c 75% 100%);width:22px}
 .pick{font:500 .9rem var(--text);padding:8px 10px;border-radius:var(--r-s);border:1px solid var(--line2);background:var(--bg);color:var(--ink);max-width:220px}
@@ -30,11 +30,11 @@
 .country.soon-4{fill:#223a41}.country.soon-4:hover,.country.soon-4:focus{fill:#2f5057}
 /* Covered guides: signature country colors + soft gold stroke so they pop on #0b1719 ocean */
 .country.cov{stroke:#d9b76599;stroke-width:var(--csw,.75);paint-order:stroke fill}
-.country.cov-us{fill:#234785}.country.cov-us:hover,.country.cov-us:focus{fill:#3a63a8}
-.country.cov-ca{fill:#b5473a}.country.cov-ca:hover,.country.cov-ca:focus{fill:#c96a5c}
-.country.cov-mx{fill:#3f7a5a}.country.cov-mx:hover,.country.cov-mx:focus{fill:#5a9a74}
+.country.cov-us{fill:#b22234;stroke:#e8dfd1;stroke-width:.5}.country.cov-us:hover,.country.cov-us:focus{fill:#cc3347}
+.country.cov-ca{fill:#edeae2;stroke:#b5473a;stroke-width:.75}.country.cov-ca:hover,.country.cov-ca:focus{fill:#faf8f3}
+.country.cov-mx{fill:#1f6e49}.country.cov-mx:hover,.country.cov-mx:focus{fill:#2f8a5f}
 .country.cov-kr{fill:#1f4fa3;stroke:#cd2e3a;stroke-width:.6}.country.cov-kr:hover,.country.cov-kr:focus{fill:#3a6ec4}
-.country.cov-jp{fill:#bc2d3a;stroke:#f4efe6;stroke-width:.55}.country.cov-jp:hover,.country.cov-jp:focus{fill:#d44a55}
+.country.cov-jp{fill:#bc2d3a;stroke:#f4efe6;stroke-width:.55}.country.cov-jp:hover,.country.cov-jp:focus{fill:#d04450}
 .country.sel{fill:var(--sel)!important;stroke:#f0d58c!important}
 .grat{fill:none;stroke:var(--grat);stroke-width:.4}
 .sphere{fill:var(--ocean);stroke:var(--line)}
