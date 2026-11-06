@@ -337,3 +337,37 @@ html.accent-mxgreen #country-map .sec.active h3 .n{background:#3f7a5a;border-col
 html.accent-mxgreen #country-map .steps button[aria-pressed=true]{border-color:#3f7a5a}
 html.accent-mxgreen #country-map .steps button[aria-pressed=true] b{background:#3f7a5a;color:#f4faf6;border-color:#3f7a5a}
 html.accent-mxgreen #country-map .stubbox.alert{border-color:color-mix(in srgb,#9a3d3a 50%,#3f7a5a)}
+
+/* Free zoom & pan controls (ported from USA map; Marc 06/11) */
+#country-map .mapwrap{position:relative}
+#country-map svg#map.is-panning,#country-map svg#map.is-panning *{cursor:grabbing}
+#country-map svg#map{touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+#country-map .zoom{position:absolute;display:flex;flex-direction:column;gap:6px;z-index:5}
+#country-map .zoom button{width:36px;height:36px;display:grid;place-items:center;padding:0;line-height:1;border-radius:9px;border:1px solid var(--line2);background:var(--paper);color:var(--ink);font:700 18px var(--text);cursor:pointer;box-shadow:0 4px 12px #0005;transition:opacity .15s,border-color .15s,color .15s}
+#country-map .zoom button:hover:not(:disabled){border-color:var(--accent,var(--gold));color:var(--accent-ink,var(--gold-l))}
+#country-map .zoom button:focus-visible{outline:2px solid var(--accent,var(--gold-l));outline-offset:2px}
+#country-map .zoom button:disabled{opacity:.4;cursor:default}
+#country-map .mapnote .mhint{display:none}
+@media (hover:none) and (pointer:coarse){#country-map .mapnote .mhint{display:inline}#country-map .mapnote .dhint{display:none}}
+/* Desktop: park controls in empty Pacific SW ocean so they never cover provinces/states/hubs */
+@media (min-width:901px){
+  #country-map .mapwrap{position:relative!important}
+  #country-map .mapwrap.zoom-pos-ca > .zoom,
+  #country-map .mapwrap.zoom-pos-mx > .zoom{
+    left:8px!important;right:auto!important;top:auto!important;bottom:12%!important;transform:none!important}
+}
+/* Phones: row under the map — never overlaps geometry */
+@media (max-width:900px){
+  #country-map .zoom{position:static;transform:none;flex-direction:row;justify-content:flex-end;gap:6px;margin:6px 2px 0}
+  #country-map .zoom button{width:34px;height:34px;font-size:17px;border-radius:8px;box-shadow:none}
+  #country-map .lbl{font-size:calc(12px*var(--kt,1))}
+  #country-map .ct text{font-size:calc(14px*var(--kt,1))}
+  #country-map .ap text{font-size:12px}
+  #country-map .steps button{font-size:.8rem;padding:6px 10px 6px 6px}
+  #country-map .steps .arr{display:none}
+}
+/* Journey-step section highlight (mirrors USA .sec.focus) */
+#country-map .sec.focus{background:linear-gradient(90deg,color-mix(in srgb,var(--accent,var(--gold)) 12%,transparent),transparent);border-radius:8px}
+html.accent-maple #country-map .zoom button:hover:not(:disabled){border-color:#b5473a;color:#f0e2d0}
+html.accent-mxgreen #country-map .zoom button:hover:not(:disabled){border-color:#3f7a5a;color:#e4f0e8}
+

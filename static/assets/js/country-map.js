@@ -274,11 +274,30 @@ function hilite(a, apCode){
   const reset = $('#reset'); if(reset) reset.hidden = !a;
   zoomTo(a);
 }
-const FULL=[0,0,975,610]; let vb=FULL.slice(), animId=0;
-function clampVB(v){const w=Math.min(975,Math.max(975/8,v[2])),h=w*610/975;const cx=v[0]+v[2]/2,cy=v[1]+v[3]/2;let x=cx-w/2,y=cy-h/2;x=Math.max(0,Math.min(975-w,x));y=Math.max(0,Math.min(610-h,y));return [x,y,w,h];}
-function applyViewBox(v){vb=v.slice();const m=$('#map');if(!m)return;const k=vb[2]/975;m.setAttribute('viewBox',vb.map(n=>+n.toFixed(2)).join(' '));m.style.setProperty('--k',k.toFixed(3));m.style.setProperty('--kt',Math.sqrt(k).toFixed(3));m.querySelectorAll('#g-ap .ap').forEach(g=>{const b=g.dataset.at||(g.dataset.at=g.getAttribute('transform'));g.setAttribute('transform',k>0.999?b:b+' scale('+k.toFixed(4)+')');});}
-function animateTo(t,ms){if(animId)cancelAnimationFrame(animId);t=clampVB(t);const f=vb.slice(),t0=performance.now();ms=ms||350;(function an(n){const k=Math.min(1,(n-t0)/ms),e=k*(2-k);applyViewBox(f.map((v,i)=>v+(t[i]-v)*e));animId=k<1?requestAnimationFrame(an):0;})(t0);}
-function zoomTo(a){let t=null;if(a&&innerWidth<=900){const node=$('#s-'+a);if(node){const b=node.getBBox();const w=Math.max(b.width*1.5,220),h=Math.max(b.height*1.5,150);const sc=Math.max(w/975,h/610);const W=975*sc,H=610*sc;t=[b.x+b.width/2-W/2,b.y+b.height/2-H/2,W,H];}}else if(!cur)t=FULL;if(t)animateTo(t,350);}
+
+/* ---------- view box: zoomTo (region select on phones) + free zoom/pan (mirrors usa-map.js) ---------- */
+const FULL=[0,0,975,610],MAXZ=8,MINW=975/MAXZ;let vb=FULL.slice(),animId=0;
+function clampVB(v){const w=Math.min(975,Math.max(MINW,v[2])),h=w*610/975;
+ const cx=v[0]+v[2]/2,cy=v[1]+v[3]/2;let x=cx-w/2,y=cy-h/2;
+ x=Math.max(0,Math.min(975-w,x));y=Math.max(0,Math.min(610-h,y));return [x,y,w,h]}
+function applyViewBox(v){vb=v.slice();const m=$('#map');if(!m)return;
+ const k=vb[2]/975;m.setAttribute('viewBox',vb.map(n=>+n.toFixed(2)).join(' '));m.style.setProperty('--k',k.toFixed(3));m.style.setProperty('--kt',Math.sqrt(k).toFixed(3));
+ m.querySelectorAll('#g-ap .ap').forEach(g=>{const b=g.dataset.at||(g.dataset.at=g.getAttribute('transform'));g.setAttribute('transform',k>0.999?b:b+' scale('+k.toFixed(4)+')');});
+ syncZoomUI()}
+function isFull(){return vb[2]>=974.5}
+function syncZoomUI(){const m=$('#map');if(!m)return;const full=isFull();m.classList.toggle('is-zoomed',!full);
+ const zi=$('#zin'),zo=$('#zout'),zr=$('#zreset');
+ if(zi)zi.disabled=vb[2]<=MINW+0.5;if(zo)zo.disabled=full;if(zr)zr.disabled=full}
+function stopAnim(){if(animId){cancelAnimationFrame(animId);animId=0}}
+function animateTo(t,ms){stopAnim();t=clampVB(t);const f=vb.slice(),t0=performance.now();ms=ms||350;
+ (function an(n){const k=Math.min(1,(n-t0)/ms),e=k*(2-k);applyViewBox(f.map((v,i)=>v+(t[i]-v)*e));animId=k<1?requestAnimationFrame(an):0})(t0)}
+/* Phones (<=900): zoom into the selected region. Desktop keeps free-zoom unless clearing selection. */
+function zoomTo(a){let t=null;
+ if(a&&innerWidth<=900){const node=$('#s-'+a);if(node){const b=node.getBBox();const w=Math.max(b.width*1.5,220),h=Math.max(b.height*1.5,150);const sc=Math.max(w/975,h/610);const W=975*sc,H=610*sc;t=[b.x+b.width/2-W/2,b.y+b.height/2-H/2,W,H];}}
+ else if(!cur)t=FULL;
+ if(t)animateTo(t,350)}
+function zoomAt(px,py,f,ms){const w=Math.min(975,Math.max(MINW,vb[2]/f)),s=w/vb[2];
+ const t=[px-(px-vb[0])*s,py-(py-vb[1])*s,w,w*610/975];if(ms)animateTo(t,ms);else{stopAnim();applyViewBox(clampVB(t))}}
 
 function render(html){
   const p=$('#panel'); p.innerHTML=html; p.scrollTop=0; applyStep(false);
@@ -287,11 +306,22 @@ function render(html){
 }
 function applyStep(scroll){
   document.querySelectorAll('#steps button').forEach(b=>b.setAttribute('aria-pressed', String(+b.dataset.step===step)));
-  document.querySelectorAll('#panel .sec').forEach(sec=>{
-    const n=+sec.dataset.sec; sec.hidden = step && n!==step ? false : false; // show all, highlight active
-    sec.classList.toggle('active', n===step);
+  const secs=document.querySelectorAll('#panel .sec');
+  secs.forEach(s=>{
+    s.classList.toggle('focus', +s.dataset.sec===step);
+    s.classList.toggle('active', +s.dataset.sec===step);
   });
-  if(scroll){ const t=$(`#panel .sec[data-sec="${step}"]`); if(t) t.scrollIntoView({behavior:'smooth',block:'nearest'}); }
+  if(scroll){
+    const t=document.querySelector(`#panel .sec[data-sec="${step}"]`);
+    if(t){
+      const p=$('#panel');
+      if(innerWidth>900 && p){
+        p.scrollTo({top:p.scrollTop+t.getBoundingClientRect().top-p.getBoundingClientRect().top-6,behavior:'smooth'});
+      } else {
+        t.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    }
+  }
 }
 function selectRegion(a, city){
   cur={a,city}; hilite(a);
@@ -313,38 +343,85 @@ function welcome(){
   return `<div class="ph theme-map accent-head"><div class="mark">${esc(DATA.country)}</div><div><div class="ph-eye"><span>${esc(DATA.name)} pet-travel map</span></div><h2>Pick a ${esc(DATA.unit)}</h2><div class="sub">${esc(DATA.unitPlural)} · verified ${esc(DATA.lastChecked)}</div></div></div>
     <p>Click a region or airport, or use the dropdown. Plan in order: vet and laws, road or rail, plane, hotel, grooming.</p>
     <div class="links">${lk('🏛', DATA.authority, 'Official authority', DATA.officialUrl, 'off')}${lk('📜', 'Full '+DATA.name+' guide', 'Federal rules + hubs', DATA.guideUrl, 'off').replace(' target="_blank"','').replace('Official','Site')}</div>
-    <section class="sec active" data-sec="1"><h3><span class="n">1</span>Federal snapshot</h3>${dogsCatsBlock()}${breedBlock(null)}<h4>Return to the US</h4><p>${esc(DATA.returnToUs)}</p></section>`;
+    <section class="sec active focus" data-sec="1"><h3><span class="n">1</span>Federal snapshot</h3>${dogsCatsBlock()}${breedBlock(null)}<h4>Return to the US</h4><p>${esc(DATA.returnToUs)}</p></section>`;
 }
 
-/* ---------- steps + init ---------- */
+/* Default hub region when a journey step is pressed with nothing selected (mirrors USA → NYC). */
+function defaultRegion(){
+  if(DATA.country==='CA') return 'ON';
+  if(DATA.country==='MX') return 'CMX';
+  const hubs = DATA.provHub || DATA.stateHub || {};
+  return Object.keys(hubs)[0] || ABBRS[0];
+}
+
+/* ---------- steps + free zoom/pan + init ---------- */
 function initSteps(){
   document.querySelectorAll('#steps button').forEach(b=>{
-    b.addEventListener('click',()=>{ step=+b.dataset.step; applyStep(true); });
+    b.addEventListener('click',()=>{
+      step=+b.dataset.step;
+      /* Root-cause fix: without a selection the welcome panel only has sec 1, so steps 2–5
+         had nothing to scroll to and felt dead. USA auto-selects NYC; we auto-select the
+         primary hub region, then scroll/highlight the matching journey section. */
+      if(!cur) selectRegion(defaultRegion());
+      applyStep(true);
+    });
   });
   const reset=$('#reset'); if(reset) reset.onclick=resetAll;
 }
-function initPanZoom(){
-  const m=$('#map'); if(!m) return;
-  let dragging=false, lx=0, ly=0;
-  m.addEventListener('pointerdown', e=>{ if(e.button!==0) return; dragging=true; lx=e.clientX; ly=e.clientY; m.setPointerCapture(e.pointerId); m.style.cursor='grabbing'; });
-  m.addEventListener('pointerup', ()=>{ dragging=false; m.style.cursor=''; });
-  m.addEventListener('pointermove', e=>{
-    if(!dragging) return;
-    const r=m.getBoundingClientRect();
-    const dx=(e.clientX-lx)/r.width*vb[2], dy=(e.clientY-ly)/r.height*vb[3];
-    lx=e.clientX; ly=e.clientY; applyViewBox(clampVB([vb[0]-dx,vb[1]-dy,vb[2],vb[3]]));
-  });
-  m.addEventListener('wheel', e=>{
-    if(!(e.ctrlKey||e.metaKey)) return; e.preventDefault();
-    const r=m.getBoundingClientRect();
-    const px=vb[0]+(e.clientX-r.left)/r.width*vb[2], py=vb[1]+(e.clientY-r.top)/r.height*vb[3];
-    const f=e.deltaY<0?1.15:1/1.15; const w=Math.min(975,Math.max(975/8,vb[2]/f)),s=w/vb[2];
-    applyViewBox(clampVB([px-(px-vb[0])*s, py-(py-vb[1])*s, w, w*610/975]));
-  }, {passive:false});
+
+/* Free zoom & pan — same UX as usa-map.js (wheel, drag, pinch, sideways pan, +/−/reset). */
+function initFreeZoom(){const m=$('#map');if(!m)return;
+ let wrap=m.parentNode;if(!wrap.classList.contains('mapwrap')){wrap=document.createElement('div');wrap.className='mapwrap';m.parentNode.insertBefore(wrap,m);wrap.appendChild(m)}
+ /* Country-specific empty-space placement: CA Pacific SW, MX Pacific SW (desktop). Mobile: under map. */
+ wrap.classList.add('zoom-pos-'+(DATA.country==='MX'?'mx':'ca'));
+ if(!$('#zin')){const z=document.createElement('div');z.className='zoom';z.setAttribute('role','group');z.setAttribute('aria-label','Map zoom');
+  z.innerHTML='<button type="button" id="zin" aria-label="Zoom in" title="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out" title="Zoom out">&minus;</button><button type="button" id="zreset" aria-label="Reset map view" title="Reset map view">&#8634;</button>';
+  wrap.appendChild(z)}
+ const ctr=()=>[vb[0]+vb[2]/2,vb[1]+vb[3]/2];
+ $('#zin').onclick=()=>{const c=ctr();zoomAt(c[0],c[1],1.6,250)};
+ $('#zout').onclick=()=>{const c=ctr();zoomAt(c[0],c[1],1/1.6,250)};
+ $('#zreset').onclick=()=>animateTo(FULL,300);
+ const note=document.querySelector('#country-map .mapnote');
+ if(note&&!note.querySelector('.mhint')){note.insertAdjacentHTML('afterbegin','<span class="mhint">Pinch with two fingers to zoom, swipe sideways to move the map. </span><span class="dhint">Scroll over the map to zoom, drag to move. </span>')}
+ syncZoomUI();
+ const toSVG=(cx,cy)=>{const r=m.getBoundingClientRect();return [vb[0]+(cx-r.left)*vb[2]/r.width,vb[1]+(cy-r.top)*vb[3]/r.height]};
+ const perPx=()=>vb[2]/(m.getBoundingClientRect().width||975);
+ let eatClick=false;
+ m.addEventListener('click',e=>{if(eatClick){eatClick=false;e.stopPropagation();e.preventDefault()}},true);
+ const armEat=()=>{eatClick=true;setTimeout(()=>{eatClick=false},350)};
+ m.addEventListener('wheel',e=>{if(e.deltaY>0&&isFull()&&!(e.ctrlKey||e.metaKey))return;e.preventDefault();
+  const dy=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?400:1);const p=toSVG(e.clientX,e.clientY);
+  zoomAt(p[0],p[1],Math.exp(-Math.max(-300,Math.min(300,dy))*0.0025))},{passive:false});
+ let drag=null;const TH=6;
+ m.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'||e.button)return;drag={id:e.pointerId,x:e.clientX,y:e.clientY,v:vb.slice(),k:perPx(),on:false}});
+ m.addEventListener('pointermove',e=>{if(!drag||e.pointerId!==drag.id)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;
+  if(!drag.on){if(Math.hypot(dx,dy)<TH)return;drag.on=true;stopAnim();m.classList.add('is-panning');try{m.setPointerCapture(e.pointerId)}catch(_){}}
+  applyViewBox(clampVB([drag.v[0]-dx*drag.k,drag.v[1]-dy*drag.k,drag.v[2],drag.v[3]]))});
+ const endDrag=e=>{if(!drag||e.pointerId!==drag.id)return;if(drag.on){armEat();m.classList.remove('is-panning');try{m.releasePointerCapture(e.pointerId)}catch(_){}}drag=null};
+ m.addEventListener('pointerup',endDrag);m.addEventListener('pointercancel',endDrag);
+ let mode=null,T0,c0,P0;
+ const mid=(a,b)=>[(a.clientX+b.clientX)/2,(a.clientY+b.clientY)/2],dist=(a,b)=>Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY)||1;
+ function pinch(e){const a=e.touches[0],b=e.touches[1],c=mid(a,b);T0=vb.slice();P0={d:dist(a,b),w:toSVG(c[0],c[1])};mode='pinch';stopAnim()}
+ function pan(t){T0=vb.slice();c0=[t.clientX,t.clientY];P0={k:perPx()};mode='pan';stopAnim()}
+ m.addEventListener('touchstart',e=>{const n=e.touches.length;if(n>=2)pinch(e);else if(n===1){mode='maybe';c0=[e.touches[0].clientX,e.touches[0].clientY]}},{passive:true});
+ m.addEventListener('touchmove',e=>{
+  if(mode==='pinch'&&e.touches.length>=2){if(!e.cancelable)return;e.preventDefault();
+   const a=e.touches[0],b=e.touches[1],c=mid(a,b),r=m.getBoundingClientRect();
+   const w=Math.min(975,Math.max(MINW,T0[2]*P0.d/dist(a,b))),h=w*610/975;
+   applyViewBox(clampVB([P0.w[0]-(c[0]-r.left)*w/r.width,P0.w[1]-(c[1]-r.top)*h/r.height,w,h]));return}
+  if(mode==='maybe'){const t=e.touches[0],dx=t.clientX-c0[0],dy=t.clientY-c0[1];
+   if(Math.abs(dx)<8&&Math.abs(dy)<8)return;
+   if(Math.abs(dx)>Math.abs(dy)&&e.cancelable)pan(t);else{mode='scroll';return}}
+  if(mode==='pan'){if(!e.cancelable)return;e.preventDefault();const t=e.touches[0];
+   applyViewBox(clampVB([T0[0]-(t.clientX-c0[0])*P0.k,T0[1]-(t.clientY-c0[1])*P0.k,T0[2],T0[3]]))}},{passive:false});
+ const tend=e=>{const n=e.touches.length;if(mode==='pan'||mode==='pinch')armEat();if(n===0)mode=null;else if(n===1&&mode==='pinch')pan(e.touches[0])};
+ m.addEventListener('touchend',tend);m.addEventListener('touchcancel',tend);
+ /* Click empty SVG chrome → clear selection (same as USA). */
+ m.addEventListener('click',e=>{if(cur&&e.target===e.currentTarget)resetAll()});
 }
 
 document.documentElement.classList.add('accent-'+ACCENT);
-buildSwitcher(); buildMap(); initSteps(); initPanZoom(); applyViewBox(FULL); render(welcome());
+buildSwitcher(); buildMap(); initSteps(); initFreeZoom(); applyViewBox(FULL); render(welcome());
 
 // deep link #ON or #ON/Toronto or #YYZ
 const hash = decodeURIComponent(location.hash.replace(/^#/,''));

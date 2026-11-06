@@ -331,6 +331,13 @@ def pastilles_version():
 CSS_VER = css_version()
 PST_VER = pastilles_version()
 
+def country_map_versions():
+    """Cache-bust hashes for the shared Canada/Mexico map engine."""
+    css = (ROOT / "static" / "assets" / "css" / "country-map.css").read_bytes()
+    js = (ROOT / "static" / "assets" / "js" / "country-map.js").read_bytes()
+    return hashlib.md5(css).hexdigest()[:8], hashlib.md5(js).hexdigest()[:8]
+
+
 
 OG_IMAGE = "img/og-default.jpg"
 OG_SIZE = (1200, 630)
@@ -2846,8 +2853,9 @@ def build_canada_map(cfg):
     """Interactive Canada pet-travel map (13 hubs, CFIA)."""
     root = "../"
     sw = _map_switcher_html("ca")
+    cm_css, cm_js = country_map_versions()
     body = (
-        """<link rel="stylesheet" href="{root}assets/css/country-map.css">
+        """<link rel="stylesheet" href="{root}assets/css/country-map.css?v=""" + cm_css + """">
 <div id="country-map" class="accent-maple">
 <section class="intro">
  <div><h1>Travel Canada with your pet</h1>
@@ -2885,7 +2893,7 @@ def build_canada_map(cfg):
 <script src="{root}assets/js/canada-map-geo.js"></script>
 <script src="{root}assets/js/canada-map-data.js"></script>
 <script>window.PPC_MAP={geo:window.CA_GEO,airports:window.CA_GEO_AIRPORTS,data:window.CA_MAP_DATA,accent:"maple",idRoot:"country-map"};</script>
-<script src="{root}assets/js/country-map.js"></script>"""
+<script src="{root}assets/js/country-map.js?v=""" + cm_js + """"></script>"""
     )
     return page(
         cfg,
@@ -2903,8 +2911,9 @@ def build_mexico_map(cfg):
     """Interactive Mexico pet-travel map (6 hubs, SENASICA/OISA + NWS)."""
     root = "../"
     sw = _map_switcher_html("mx")
+    cm_css, cm_js = country_map_versions()
     body = (
-        """<link rel="stylesheet" href="{root}assets/css/country-map.css">
+        """<link rel="stylesheet" href="{root}assets/css/country-map.css?v=""" + cm_css + """">
 <div id="country-map" class="accent-mxgreen">
 <section class="intro">
  <div><h1>Travel Mexico with your pet</h1>
@@ -2942,7 +2951,7 @@ def build_mexico_map(cfg):
 <script src="{root}assets/js/mexico-map-geo.js"></script>
 <script src="{root}assets/js/mexico-map-data.js"></script>
 <script>window.PPC_MAP={geo:window.MX_GEO,airports:window.MX_GEO_AIRPORTS,data:window.MX_MAP_DATA,accent:"mxgreen",idRoot:"country-map"};</script>
-<script src="{root}assets/js/country-map.js"></script>"""
+<script src="{root}assets/js/country-map.js?v=""" + cm_js + """"></script>"""
     )
     return page(
         cfg,
