@@ -10,8 +10,15 @@ var g=svg.append('g');
 g.append('path').attr('class','sphere').attr('d',path({type:'Sphere'}));
 g.append('path').attr('class','grat').attr('d',path(d3.geoGraticule10()));
 var cg=g.append('g');
+/* Distinct fills: covered guides get signature country colors; uncovered get muted tonal variety so neighbors stay readable on Option B ocean. */
+var COV_KEY={'840':'us','124':'ca','484':'mx','410':'kr','392':'jp'};
+function soonTone(id){var n=0,s=String(id||'');for(var i=0;i<s.length;i++)n=((n<<5)-n)+s.charCodeAt(i)|0;return Math.abs(n)%5}
 cg.selectAll('path').data(countries).join('path')
- .attr('class',function(d){return 'country'+(GUIDES[d.id]?' has':'')}).attr('d',path)
+ .attr('class',function(d){
+   if(GUIDES[d.id]){var k=COV_KEY[d.id]||'us';return 'country has cov cov-'+k}
+   return 'country soon soon-'+soonTone(d.id)
+ })
+ .attr('d',path)
  .attr('tabindex',0).attr('role','button').attr('aria-label',function(d){return d.properties.name+(GUIDES[d.id]?' (guide available)':'')})
  .on('click',function(e,d){openCountry(d.id)})
  .on('keydown',function(e,d){if(e.key==='Enter'||e.key===' '){e.preventDefault();openCountry(d.id)}})

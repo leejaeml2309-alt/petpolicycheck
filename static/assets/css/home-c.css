@@ -12,14 +12,30 @@
 .maphead{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line)}
 .maphead h2{font-size:1.2rem}
 .legend{display:flex;gap:14px;font-size:.82rem;color:var(--mut);flex-wrap:wrap;align-items:center}
-.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px;box-shadow:inset 0 0 0 1px #0006}
+.legend .swatch-row{display:inline-flex;gap:3px;margin-right:6px;vertical-align:middle}
+.legend .swatch-row i{margin-right:0;border-radius:2px}
+.legend .sw.cov-us{background:#c89d4c}.legend .sw.cov-ca{background:#b5473a}.legend .sw.cov-mx{background:#3f7a5a}
+.legend .sw.cov-kr{background:#3d6488}.legend .sw.cov-jp{background:#7a5f8a}
+.legend .sw.soon{background:linear-gradient(90deg,#1a3338 0 25%,#1f3a3f 25% 50%,#243f44 50% 75%,#1c363c 75% 100%);width:22px}
 .pick{font:500 .9rem var(--text);padding:8px 10px;border-radius:var(--r-s);border:1px solid var(--line2);background:var(--bg);color:var(--ink);max-width:220px}
 .mapbox{position:relative;background:var(--ocean)}
 #world-map{display:block;width:100%;height:auto;touch-action:pan-y}
-.country{fill:var(--land);stroke:var(--border);stroke-width:var(--csw,.5);cursor:pointer;transition:fill .15s}
-.country:hover,.country:focus{fill:var(--land-h);outline:none}
-.country.has{fill:var(--land-data)}.country.has:hover{fill:var(--land-data-h)}
-.country.sel{fill:var(--sel)!important}
+/* World map country fills — distinct covered accents + muted soon tones (Marc 06/11) */
+.country{fill:#1f3a3f;stroke:#22383d;stroke-width:var(--csw,.55);cursor:pointer;transition:fill .15s,stroke .15s;outline:none}
+.country.soon-0{fill:#1a3338}.country.soon-0:hover,.country.soon-0:focus{fill:#27484e}
+.country.soon-1{fill:#1f3a3f}.country.soon-1:hover,.country.soon-1:focus{fill:#2c5157}
+.country.soon-2{fill:#243f44}.country.soon-2:hover,.country.soon-2:focus{fill:#32565c}
+.country.soon-3{fill:#1c363c}.country.soon-3:hover,.country.soon-3:focus{fill:#294a50}
+.country.soon-4{fill:#223a41}.country.soon-4:hover,.country.soon-4:focus{fill:#2f5057}
+/* Covered guides: signature country colors + soft gold stroke so they pop on #0b1719 ocean */
+.country.cov{stroke:#d9b76599;stroke-width:var(--csw,.75);paint-order:stroke fill}
+.country.cov-us{fill:#c89d4c}.country.cov-us:hover,.country.cov-us:focus{fill:#dfb55e}
+.country.cov-ca{fill:#b5473a}.country.cov-ca:hover,.country.cov-ca:focus{fill:#c96a5c}
+.country.cov-mx{fill:#3f7a5a}.country.cov-mx:hover,.country.cov-mx:focus{fill:#5a9a74}
+.country.cov-kr{fill:#3d6488}.country.cov-kr:hover,.country.cov-kr:focus{fill:#5a85a8}
+.country.cov-jp{fill:#7a5f8a}.country.cov-jp:hover,.country.cov-jp:focus{fill:#9679a6}
+.country.sel{fill:var(--sel)!important;stroke:#f0d58c!important}
 .grat{fill:none;stroke:var(--grat);stroke-width:.4}
 .sphere{fill:var(--ocean);stroke:var(--line)}
 .arc{fill:none;stroke:var(--arc);stroke-width:1.2;stroke-dasharray:3 4;opacity:.8}
