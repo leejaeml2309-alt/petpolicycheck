@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Pet Travel Field Guides · Community tips · PetPolicyCheck</title>
+<link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="assets/css/theme.css">
+<link rel="stylesheet" href="ugc.css">
+</head>
+<body>
+<!-- Admin-only chrome (shown only with ?admin=1 or ?view=moderation) -->
+<div class="pvbar admin-only" hidden><div class="wrap">
+ <span class="tag">Admin · staged preview</span>
+ <span class="muted">Unified Hub (#4 + #9 + #11) · Moderation tools</span>
+ <nav class="sw" aria-label="Admin views">
+  <a href="?view=gallery" data-view="gallery">Public gallery</a>
+  <a href="?view=submit" data-view="submit">Submit door</a>
+  <a href="?view=moderation" data-view="moderation">Moderation queue</a>
+ </nav>
+ <div class="rt">
+  <button type="button" id="resetDemo" title="Restore the Preview-seed data set">Reset demo data</button>
+ </div>
+</div></div>
+
+<header class="top"><div class="wrap">
+ <a class="brand" href="../"><span class="lbadge"><img src="assets/img/logo-mark-header.png" width="62" height="48" alt="" aria-hidden="true"></span><span class="wm">PetPolicy<span>Check</span><small>Paw Passport</small></span></a>
+ <nav class="nav" aria-label="Main">
+  <a href="../#map">World map</a>
+  <a href="../#compare">Airlines</a>
+  <a href="../#compare">Compare</a>
+  <a href="../#gear">Guides</a>
+  <a href="?view=gallery" data-nav="gallery" data-i18n="nav_fg">Field Guides</a>
+  <a href="../forum/">Forum</a>
+  <a href="https://petpolicycheck.com/about.html">About</a>
+  <a href="https://petpolicycheck.com/privacy.html">Privacy</a>
+  <a class="nav-biz" href="../pro/">For Business</a>
+  <a class="cta" href="../advertise/" data-i18n="nav_adv">Advertise</a>
+ </nav>
+ <div class="hdr-tools">
+  <nav class="pubtabs" aria-label="Field Guides sections">
+   <a href="?view=gallery" data-view="gallery" data-i18n="tab_gallery">Field Guides</a>
+   <a href="?view=submit" data-view="submit" data-i18n="tab_submit">Submit a tip</a>
+   <a class="admin-only" href="?view=moderation" data-view="moderation" hidden>Moderation</a>
+  </nav>
+  <div class="langsw" role="group" aria-label="Language">
+   <button type="button" data-lang="en">EN</button><button type="button" data-lang="fr">FR</button><button type="button" data-lang="es">ES</button><button type="button" data-lang="de">DE</button>
+  </div>
+ </div>
+</div></header>
+
+<!-- (a) SUBMIT -->
+<main class="view wrap" id="v-submit" hidden>
+ <div class="dept" data-i18n="a_dept">Community, Field Checks &amp; City Scouts Hub · one door, no account</div>
+ <h1 class="ttl" data-i18n="a_ttl">Share what really happened with your pet</h1>
+ <p class="lead" data-i18n="a_lead">Post a 30-second clip, flag where the real check differed from the official rule, or become a Founding City Scout. Takes about 60 seconds, no account. A human checks everything against the official rule before it goes live, credited to you.</p>
+ <div class="sub-grid">
+<div class="panel form">
+ <div class="hubmodes" role="tablist" aria-label="What do you want to share?">
+  <button type="button" role="tab" data-pane="clip" class="on"><i>#4</i><strong>Post a 30s Field Clip</strong><span>Upload ≤ 30 s or link TikTok / Reels / Shorts</span></button>
+  <button type="button" role="tab" data-pane="rule"><i>#9</i><strong>Flag a Rule Difference</strong><span>5 fields: what differed from the official rule?</span></button>
+  <button type="button" role="tab" data-pane="scout"><i>#11</i><strong>Apply as Founding City Scout</strong><span>8 Wave A pilot hubs · 4 local checks</span></button>
+ </div>
+ <form id="subForm" class="pane" data-pane="clip" novalidate>
+  <div class="sec">
+   <div class="step"><b>1</b><h3 data-i18n="a_s1">Your clip</h3></div>
+   <div class="modes" role="radiogroup">
+    <label class="mode on"><input type="radio" name="mode" value="upload" checked><div><strong data-i18n="a_up">Upload a video ≤ 30 s</strong><span>.mp4 / .mov · checked in your browser</span></div></label>
+    <label class="mode"><input type="radio" name="mode" value="link"><div><strong data-i18n="a_ln">Link an existing clip</strong><span>TikTok · Instagram Reels · YouTube Shorts</span></div></label>
+   </div>
+   <div id="upBox">
+    <div class="drop" id="drop">
+     <div class="thumb" id="thumb"><svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"/></svg></div>
+     <div><p><b data-i18n="a_drop">Drag &amp; drop your vertical clip here</b> <span data-i18n="a_or">or</span> <label class="pick" for="file" style="display:inline" data-i18n="a_browse">browse</label></p>
+     <small data-i18n="a_dropn">Max 30 s (35 s tolerance) · 9:16 preferred · we check the length before upload</small>
+     <input type="file" id="file" accept="video/mp4,video/quicktime,.mp4,.mov" hidden></div>
+    </div>
+    <div class="msg" id="upMsg"></div>
+   </div>
+   <div id="lnBox" hidden>
+    <div class="urlrow"><input type="url" id="url" placeholder="https://www.tiktok.com/@you/video/…" aria-label="Clip link"><span class="chip" id="plat">Platform: —</span></div>
+    <div class="msg" id="lnMsg"></div>
+   </div>
+  </div>
+  <div class="sec">
+   <div class="step"><b>2</b><h3 data-i18n="a_s2">What does it show? (Wave A)</h3></div>
+   <div class="fl" data-i18n="a_type">Type</div>
+   <div class="types" id="types">
+    <label><input type="radio" name="type" value="airline" checked><span><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>Airline</span></label>
+    <label><input type="radio" name="type" value="train"><span><svg viewBox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5A3.5 3.5 0 0 0 7.5 19L6 20.5v.5h2l2-2h4l2 2h2v-.5L16.5 19a3.5 3.5 0 0 0 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3.5-7H6V6h5zm2 0V6h5v4zm3.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>Train / Ferry</span></label>
+    <label><input type="radio" name="type" value="hotel"><span><svg viewBox="0 0 24 24"><path d="M7 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9a4 4 0 0 0-4-4z"/></svg>Hotel / Stay</span></label>
+    <label><input type="radio" name="type" value="city"><span><svg viewBox="0 0 24 24"><path d="M15 11V5l-3-3-3 3v2H3v14h18V11zm-8 8H5v-2h2zm0-4H5v-2h2zm0-4H5V9h2zm6 8h-2v-2h2zm0-4h-2v-2h2zm0-4h-2V9h2zm0-4h-2V5h2zm6 12h-2v-2h2zm0-4h-2v-2h2z"/></svg>City / Border Hub</span></label>
+    <label><input type="radio" name="type" value="grooming"><span><svg viewBox="0 0 24 24"><path d="M9.6 6.3a3.1 3.1 0 1 0-1 2.2L10.8 10l-6.5 8.6 1.4 1.1L12 12.4l6.3 7.3 1.4-1.1-6.5-8.6 2.2-1.5a3.1 3.1 0 1 0-1-2.2L12 8.2zm-3.1 1A1.2 1.2 0 1 1 6.5 5a1.2 1.2 0 0 1 0 2.4zm11 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"/></svg>Grooming &amp; Care (Travel &amp; Local Expat)</span></label>
+   </div>
+   <div class="groom-use" id="groomUse" hidden>
+    <div class="fl" data-i18n="a_guse">Grooming use <em>— tells readers who this clip is for</em></div>
+    <div class="opts">
+     <label class="mode on"><input type="radio" name="guse" value="trip" checked><div><strong data-i18n="a_g1">In-trip / Hotel Mobile Grooming</strong><span data-i18n="a_g1s">Post-flight bath, groom during a stay, mobile van at the hotel</span></div></label>
+     <label class="mode"><input type="radio" name="guse" value="local"><div><strong data-i18n="a_g2">Resident &amp; Expat Trusted Salon</strong><span data-i18n="a_g2s">Fear-free · EN/FR spoken · no-sedation cats · breed know-how</span></div></label>
+    </div>
+   </div>
+   <div class="row3" style="margin-top:14px">
+    <label><div class="fl" data-i18n="a_ctry">Wave A country / corridor</div>
+     <select id="country"><option>United States</option><option>Canada</option><option>Mexico</option><option>United Kingdom</option><option>Germany</option><option>Dominican Republic</option><option>France</option></select></label>
+    <label><div class="fl" data-i18n="a_date">Trip date <em>(YYYY-MM)</em></div><input type="month" id="date" value="2026-10" min="2024-01" max="2026-11"></label>
+    <label class="full"><div class="fl" data-i18n="a_ent">Exact airline / hotel / city / salon</div>
+     <input type="text" id="entity" list="entities" placeholder="e.g. Aeroméxico LAX→MEX, LeShuttle Calais→Folkestone, mobile groomer at a Miami hotel">
+     <datalist id="entities"><option>Aeroméxico</option><option>Air Canada</option><option>WestJet</option><option>Air France</option><option>Lufthansa</option><option>LeShuttle (Eurotunnel)</option><option>Punta Cana PUJ</option><option>Mobile groomer · hotel visit</option><option>Fear-free salon (resident / expat)</option></datalist></label>
+   </div>
+  </div>
+  <div class="sec">
+   <div class="step"><b>3</b><h3 data-i18n="a_s3">Your field tip in one sentence</h3></div>
+   <label><div class="fl"><span data-i18n="a_tipl">One real check-in or policy detail the official website doesn't tell you</span> <span class="counter"><span id="cnt">0</span>/180</span></div>
+   <textarea id="tip" maxlength="180" rows="2" placeholder="e.g. The agent weighed pet + carrier together at the counter: 8 kg total, not 8 kg for the cat."></textarea></label>
+   <label style="margin-top:12px"><div class="fl" data-i18n="a_bag">Carrier / weight <em>(optional)</em></div><input type="text" id="bag" placeholder="e.g. Soft carrier 43×30×23 cm · cat 4.6 kg"></label>
+  </div>
+  <div class="sec">
+   <div class="step"><b>4</b><h3 data-i18n="a_s4">Credit &amp; rights</h3></div>
+   <div class="row3">
+    <label><div class="fl" data-i18n="a_handle">Your @handle (shown on the clip)</div><input type="text" id="handle" placeholder="@yourhandle"></label>
+    <label><div class="fl" data-i18n="a_social">Profile link for your credit</div><input type="url" id="social" placeholder="TikTok / Instagram / YouTube / blog URL"></label>
+   </div>
+   <p style="margin:10px 0 14px;font-size:.84rem;color:var(--mut)">Your first approved clip unlocks <span class="badge-v">✓ Verified Corridor Traveler</span></p>
+   <label class="consent"><input type="checkbox" id="consent"><span>I confirm I filmed this clip, blurred any personal ID/boarding pass details, and grant Paw Passport (PetPolicyCheck) a non-exclusive right to republish it on the website and social channels with credit to my @handle.</span></label>
+  </div>
+  <div class="submitrow"><button class="btn gold" type="submit" id="send" data-i18n="a_send">Send my 30s tip for review</button><small data-i18n="a_sendn">Goes to a human moderator · nothing is published automatically</small></div>
+  <div class="msg no" id="formErr"></div>
+  <div class="done" id="done"></div>
+ </form>
+ <form id="ruleForm" class="pane" data-pane="rule" novalidate hidden>
+  <div class="sec">
+   <div class="step"><b>1</b><h3>Where and at which checkpoint?</h3></div>
+   <div class="row3">
+    <label><div class="fl">Route / corridor (Wave A)</div><select id="rCorr"><option>United States</option><option>Canada</option><option selected>Mexico</option><option>United Kingdom</option><option>Germany</option><option>Dominican Republic</option><option>France</option></select></label>
+    <label><div class="fl">Checkpoint</div><select id="rCheck"><option>Airline check-in / gate</option><option selected>Border / customs</option><option>Vet / health certificate</option><option>Grooming &amp; Care (salon / mobile)</option></select></label>
+    <label class="full"><div class="fl">Exact place or route <em>(e.g. LAX→MEX, Calais Pet Reception)</em></div><input type="text" id="rRoute" placeholder="e.g. LAX → MEX T1, SENASICA desk"></label>
+   </div>
+  </div>
+  <div class="sec">
+   <div class="step"><b>2</b><h3>What differed from the official rule?</h3></div>
+   <label><div class="fl">Describe only what you saw <span class="counter"><span id="rCnt">0</span>/240</span></div><textarea id="rDiff" maxlength="240" rows="3" placeholder="e.g. Officer also asked to see the paper vaccination record, not only the phone copy."></textarea></label>
+   <div class="row3" style="margin-top:12px">
+    <label><div class="fl">Date it happened <em>(YYYY-MM)</em></div><input type="month" id="rDate" value="2026-10" min="2024-01" max="2026-11"></label>
+    <label><div class="fl">Light proof <em>(optional link or photo note)</em></div><input type="text" id="rProof" placeholder="Blurred photo, email, receipt…"></label>
+    <label><div class="fl">Your @handle (credit)</div><input type="text" id="rHandle" placeholder="@yourhandle"></label>
+    <label><div class="fl">Profile link</div><input type="url" id="rSocial" placeholder="https://…"></label>
+   </div>
+   <p class="sepnote"><span class="chip off">Official rule</span> stays exactly as published by the authority. Your note is shown beside it as <span class="chip gold">Field-verified · Mon YYYY</span> after review — never merged into the rule.</p>
+  </div>
+  <div class="submitrow"><button class="btn gold" type="submit">Send my rule check for review</button><small>Human-reviewed · nothing changes on the site automatically</small></div>
+  <div class="msg no err"></div><div class="done"></div>
+ </form>
+ <form id="scoutForm" class="pane" data-pane="scout" novalidate hidden>
+  <div class="sec">
+   <div class="step"><b>1</b><h3>Pick your pilot hub</h3></div>
+   <div class="hubs" id="hubPick"></div>
+  </div>
+  <div class="sec">
+   <div class="step"><b>2</b><h3>Your 4 local checks (the Scout pack)</h3></div>
+   <div class="pack">
+    <label><div class="fl"><i class="pk">1</i> Export vet clinic · EN/FR spoken</div><input type="text" id="sVet" placeholder="Clinic + what you checked"></label>
+    <label><div class="fl"><i class="pk">2</i> Grooming salon · fear-free / no-sedation cats / post-flight mobile</div><input type="text" id="sGroom" placeholder="Salon / mobile groomer + handling"></label>
+    <label><div class="fl"><i class="pk">3</i> Big-dog taxi / transfer · no surprise surcharge</div><input type="text" id="sTaxi" placeholder="Service + dog size + price confirmed"></label>
+    <label><div class="fl"><i class="pk">4</i> Pet-friendly hotel or park, tested</div><input type="text" id="sStay" placeholder="Place + fees / weight limit checked"></label>
+   </div>
+   <div class="row3" style="margin-top:12px">
+    <label><div class="fl">Your @handle</div><input type="text" id="sHandle" placeholder="@yourhandle"></label>
+    <label><div class="fl">Profile link</div><input type="url" id="sSocial" placeholder="https://…"></label>
+   </div>
+  </div>
+  <div class="submitrow"><button class="btn gold" type="submit">Apply as Founding City Scout</button><small>Each check is verified by a moderator before your Scout profile goes live</small></div>
+  <div class="msg no err"></div><div class="done"></div>
+ </form>
+ </div>
+ <aside class="panel aside-a">
+  <h3>Contributor Ladder</h3>
+  <ol class="ladder">
+   <li><i>1</i><div><small>Step 1</small><strong>Verified Corridor Traveler</strong><span>From 1 approved 30s clip or 1 approved rule check: clickable "Filmed by @you" credit + gold badge.</span><span class="badge-v" tabindex="0">✓ Verified Corridor Traveler<span class="tip">Shown next to your @handle on every approved clip and rule check, with a link to your profile.</span></span></div></li>
+   <li><i>2</i><div><small>Step 2</small><strong>Founding City Scout</strong><span>4 local checks (incl. Grooming) on 1 of the 8 Wave A hubs: dedicated Paw Passport profile + priority partner perks.</span><span class="badge-s">★ Founding City Scout</span></div></li>
+  </ol>
+  <ul class="ticks">
+   <li><i>✓</i><div><strong>No account required</strong><span>A clip or a note, plus your @handle.</span></div></li>
+   <li><i>✓</i><div><strong>Human-reviewed before publish</strong><span>Official rule, animal welfare, audio rights, privacy.</span></div></li>
+   <li><i>✓</i><div><strong>Keep 100% ownership + profile backlink</strong><span>Non-exclusive licence only.</span></div></li>
+  </ul>
+  <div class="mini">Field notes complement — never replace — the official rule. Always confirm with the airline or authority before you travel.</div>
+ </aside>
+ </div>
+</main>
+
+<!-- (b) MODERATION -->
+<main class="view wrap" id="v-moderation" hidden>
+ <div class="mod-head">
+  <div><div class="dept">Admin · Content &amp; Community · human review required</div>
+  <h1 class="ttl">Unified moderation queue — Hub 3-in-1</h1>
+  <p class="lead">Clips (#4), rule checks (#9) and City Scout packs (#11) share one queue. Everything enters at <b>L0 (internal only)</b>; nothing goes public until a moderator ticks all 4 checks and clicks <b>Approve &amp; Publish</b> (L2 Field-verified). Data lives in this browser (localStorage); export the approved JSON for the static site.</p></div>
+  <div class="counts" id="counts"></div>
+ </div>
+ <div class="toolbar">
+  <label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">Status</span><select id="fStatus"><option value="all">All statuses</option><option value="pending">Pending L0 (Internal only)</option><option value="approved">Approved L2 — Field-Verified</option><option value="rejected">Rejected</option></select></label>
+  <label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">Corridor</span><select id="fCorr"><option value="all">All Wave A</option><option>United States</option><option>Canada</option><option>Mexico</option><option>United Kingdom</option><option>Germany</option><option>Dominican Republic</option><option>France</option></select></label>
+  <label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">Type</span><select id="fType"><option value="all">All Queue</option><option value="clip">30s Clips (#4)</option><option value="rule">Rule Checks (#9)</option><option value="scout">City Scout Packs (#11)</option><option value="grooming">Grooming &amp; Care (any type)</option></select></label>
+  <div class="sp"><button class="btn ghost sm" type="button" id="exportJson">Export Approved JSON</button></div>
+ </div>
+ <div id="queue"></div>
+</main>
+
+<!-- (c) GALLERY -->
+<main class="view wrap" id="v-gallery" hidden>
+ <section class="hero">
+  <div><div class="dept" data-i18n="c_dept">Paw Passport Field Guides · filmed by pet travelers</div>
+  <h1 data-i18n-html="c_ttl">30-Second Real Pet Policy Field Guides — <span>Wave A Corridors</span></h1>
+  <p class="lead" data-i18n="c_lead">Short vertical clips from people who just did it: the counter, the border, the ferry lane, the groomer. Every clip is human-checked against the official rule and dated as a field note.</p></div>
+  <div class="acts2"><a class="btn gold" href="?view=submit" data-i18n="c_submit">Submit a 30s Tip</a><small style="color:var(--mut)" data-i18n="c_submitn">No account · reviewed by a human</small></div>
+ </section>
+ <div class="filters" id="filters"></div>
+ <section class="panel feat" id="feat" aria-live="polite"></section>
+ <div class="ghead"><h2 data-i18n="c_more">All approved episodes</h2><span id="gcount"></span></div>
+ <div class="cards" id="cards"></div>
+ <div class="ghead"><h2>Live Field-Verified Rule Checks <small class="kind">#9</small></h2><span>Official rule and traveler field note are always shown side by side — never merged.</span></div>
+ <div class="rules" id="rules"></div>
+ <section class="panel scouts">
+  <div class="sh"><div><div class="dept">#11 · Founding City Scouts</div><h2>8 Wave A Founding City Scouts</h2><p>Locals and expats who verify 4 things that make or break a pet trip in their city.</p></div>
+  <div class="packrow"><span class="chip gold">Vet</span><span class="chip gold">Grooming</span><span class="chip gold">Big-Dog Taxi</span><span class="chip gold">Stay</span><a class="btn gold sm" href="?view=submit&amp;mode=scout">Apply as Founding City Scout</a></div></div>
+  <div class="hubgrid" id="hubgrid"></div>
+ </section>
+ <section class="panel partner">
+  <div><div class="dept" data-i18n="c_pdept">For pet brands · native, human-reviewed placements</div>
+  <h2 data-i18n="c_ph">Sponsor an episode · Become a partner</h2>
+  <p data-i18n="c_pp">One brand per episode, shown as “Pet Tip presented by …” under the real field tip — never inside the policy facts.</p>
+  <ul><li data-i18n="c_pl1">Launch: win-win gear partnership (product for honest field tests + credit)</li><li data-i18n="c_pl2">Then: paid episode sponsorship, invoiced manually</li><li data-i18n="c_pl3">Always labelled “Sponsored”; policy content stays independent</li></ul>
+  <p style="margin-top:14px"><a class="btn gold sm" href="../advertise/" data-i18n="c_pcta">Sponsor an episode · Become a partner →</a> <a class="btn ghost sm" href="mailto:contact@petpolicycheck.com?subject=Field%20Guides%20episode%20sponsorship">contact@petpolicycheck.com</a></p></div>
+  <div class="slots" id="slots"></div>
+ </section>
+ <p class="disc" data-i18n="c_disc">Preview seed: illustrative episodes built on real Wave A rules. @handles are generic placeholders, not real accounts. Partner names in seed slots are examples only, not current sponsors. They will be replaced by real human-approved submissions.</p>
+</main>
+
+<footer class="foot"><div class="wrap"><span class="wm">PetPolicy<span style="color:var(--gold)">Check</span></span><span>·</span><span>Paw Passport · Field Guides · Unified Hub #4+#9+#11</span><span>·</span><a href="../advertise/">Advertise</a><span>·</span><a href="../forum/">Forum</a><span>·</span><a href="../">Home</a><span>·</span><a href="https://petpolicycheck.com/privacy.html">Privacy</a><span>·</span><a href="mailto:contact@petpolicycheck.com">contact@petpolicycheck.com</a></div></footer>
+<script src="ugc.js"></script>
+</body>
+</html>

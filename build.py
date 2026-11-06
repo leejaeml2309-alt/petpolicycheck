@@ -166,7 +166,7 @@ LOGO = ('<svg class="logo" viewBox="0 0 40 40" width="38" height="38" aria-hidde
 # "#..." hrefs point to sections of the home page. Airlines opens {home}#compare (cabin, fees, hold table).
 NAV = [("#map", "World map", "site.nav.map", ()), ("book/", "Book", "site.nav.book", ("book/",)), ("#compare", "Airlines", "site.nav.airlines", ("airlines/",)),
        ("countries/usa.html#federal", "Health certificate", "site.nav.health", ()),  # no dedicated page yet: USA federal rules (CDC/USDA) section, leads to the state CVI table
-       ("#compare", "Compare", "site.nav.compare", ()), ("products/", "Products", "site.nav.products", ("products/",)),
+       ("airlines/compare/", "Compare", "site.nav.compare", ("airlines/compare/",)), ("products/", "Products", "site.nav.products", ("products/",)),
        ("#gear", "Guides", "site.nav.guides", ()), ("updates.html", "Updates", "site.nav.updates", ("updates.html",)),
        ("about.html", "About", "site.nav.about", ("about.html",)),
        ("pro/", "For Business", "site.nav.pro", ("pro/", "extension/", "b2b-pet-desk/")),  # briefcase pastille via pastilles.js theme-b2b
@@ -309,7 +309,7 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
     return f"""<footer class="foot foot-compact">
 <div class="wrap cols">
 <div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
-<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.nav.book", "Book your trip")}{li(h + "#compare", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(h + "#compare", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
+<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.nav.book", "Book your trip")}{li(h + "#compare", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
 <div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{li(root + "extension/", "site.foot.extension", "Chrome Extension")}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "terms.html", "site.foot.terms", "Terms")}{li(root + "refund-policy.html", "site.foot.refund", "Refund policy")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
@@ -2851,7 +2851,7 @@ def build_canada_map(cfg):
 <div id="country-map" class="accent-maple">
 <section class="intro">
  <div><h1>Travel Canada with your pet</h1>
- <p>Pick a province or territory for CFIA entry rules, then an airport hub. Plan in order: vet and laws, road or rail, plane, hotel, grooming. <a href="canada.html">Full Canada reference</a>.</p></div>
+ <p>Pick a province or territory for CFIA entry rules, then an airport hub. Plan in order: vet and laws, road or rail, plane, hotel, grooming. <a href="canada.html">Full Canada reference</a> · <a href="../passport/?from=US&amp;to=CA">Pet Travel Passport (US→Canada)</a> · <a href="../airlines/compare/">Airline fees</a>.</p></div>
 </section>
 """
         + sw
@@ -2908,7 +2908,7 @@ def build_mexico_map(cfg):
 <div id="country-map" class="accent-mxgreen">
 <section class="intro">
  <div><h1>Travel Mexico with your pet</h1>
- <p>Pick a state for SENASICA / OISA rules (including the Aug 2026 NWS screwworm certificate for US-origin dogs), then a hub. Plan in order: vet and laws, road, plane, hotel, grooming. <a href="mexico.html">Full Mexico reference</a>.</p></div>
+ <p>Pick a state for SENASICA / OISA rules (including the Aug 2026 NWS screwworm certificate for US-origin dogs), then a hub. Plan in order: vet and laws, road, plane, hotel, grooming. <a href="mexico.html">Full Mexico reference</a> · <a href="../passport/?from=US&amp;to=MX">Pet Travel Passport (US→Mexico)</a> · <a href="../airlines/compare/">Airline fees</a>.</p></div>
 </section>
 """
         + sw
@@ -3154,6 +3154,93 @@ def build_usa_map(cfg):
     )
 
 
+
+def build_airlines_compare(cfg):
+    """Idea #6 — Airline Pet Fee + Cabin comparator (29 airlines) at /airlines/compare/."""
+    root = "../../"
+    body = f"""<link rel="stylesheet" href="{root}assets/css/airlines-comparator.css">
+<section class="wrap" id="ppc-compare" style="padding:18px 0 40px;max-width:1200px;margin:0 auto">
+<p class="eyebrow" style="color:var(--gold,#d9b765);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px">Airlines · Comparator</p>
+<h1 style="font-family:var(--disp,Marcellus,serif);font-weight:400;color:var(--head,#f5efe0);margin:0 0 8px">Flying with a pet: 29 airlines compared</h1>
+<p class="sub" style="color:var(--mut,#a9b3a4);max-width:62ch;margin:0 0 16px">Cabin fee, weight, under-seat size, cargo and UK rules — checked against each airline&rsquo;s official page. Dated, sourced, no guesses. Also see the <a href="{root}#compare">home comparison table</a> for our verified guide pages.</p>
+<div class="uk" data-dept="laws"><b>UK trap:</b> <span id="ukrule"></span></div>
+<div class="filters" role="group" aria-label="Filters">
+  <label><input type="checkbox" id="fDog"> Dog</label>
+  <label><input type="checkbox" id="fCat"> Cat</label>
+  <label><input type="checkbox" id="fCabin" checked> Cabin allowed</label>
+  <label><input type="checkbox" id="fNoLimit"> No published weight limit</label>
+  <label><input type="checkbox" id="fCargo"> Hold / cargo option</label>
+  <select id="fRegion" aria-label="Region"><option value="">All regions</option></select>
+  <select id="fSort" aria-label="Sort"><option value="short">Sort: cheapest fee (domestic / short)</option><option value="long">Sort: cheapest fee (international / long-haul)</option><option value="name">Sort: A → Z</option></select>
+  <fieldset><legend>Under-seat check: my carrier</legend>
+    <input type="number" id="cL" placeholder="L" step="0.1" aria-label="Length">×<input type="number" id="cW" placeholder="W" step="0.1" aria-label="Width">×<input type="number" id="cH" placeholder="H" step="0.1" aria-label="Height">
+    <select id="cU"><option>in</option><option>cm</option></select></fieldset>
+  <button type="button" id="copy">Copy shareable summary</button>
+  <button type="button" class="ghost" id="card">Download social card (PNG)</button>
+</div>
+<div class="count" id="count"></div>
+<div class="tablewrap"><table><thead><tr>
+<th data-k="name">Airline</th><th>Dogs / Cats in cabin</th><th data-k="short">Cabin fee (one way)</th><th>Cabin weight</th><th>Under-seat carrier</th><th class="hide-m">Hold / cargo</th><th class="hide-m">Snub-nosed</th><th>Source</th>
+</tr></thead><tbody id="tb"></tbody></table></div>
+<p class="foot">Fees are one way, per carrier, as published by the airline. &ldquo;No published weight limit&rdquo; means the airline gives no figure: your pet must still fit the carrier under the seat, which is the real limit. Rows tagged <span class="pill rev">needs review</span> use a secondary source for at least one number; confirm before you book. Generated <span id="gen"></span>.</p>
+</section>
+<div id="toast"></div>
+<canvas id="cv" width="1080" height="1350" style="display:none" aria-hidden="true"></canvas>
+<script src="{root}assets/js/airlines-comparator-data.js"></script>
+<script src="{root}assets/js/airlines-comparator-app.js"></script>"""
+    return page(
+        cfg,
+        f"Airline pet fees & cabin rules compared (29 airlines) | {cfg['site_name']}",
+        "Compare cabin pet fees, weight limits, under-seat carrier sizes and hold options across 29 airlines. Sourced from official airline pages; UK cargo-only trap highlighted.",
+        body,
+        "airlines/compare/index.html",
+        root,
+        jsonld=[bc_ld(cfg, [("Home", ""), ("Airlines", "airlines/"), ("Fee & cabin comparator", "airlines/compare/")])],
+        ads=False,
+    )
+
+
+def build_passport(cfg):
+    """Idea #1 — Pet Travel Passport at /passport/."""
+    root = "../"
+    body = f"""<link rel="stylesheet" href="{root}assets/css/passport.css">
+<section class="wrap" id="ppc-passport" style="padding:18px 0 40px;max-width:1200px;margin:0 auto">
+<p class="eyebrow" style="color:var(--gold,#d9b765);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px">Trip planner</p>
+<h1 style="font-family:var(--disp,Marcellus,serif);font-weight:400;color:var(--head,#f5efe0);margin:0 0 8px">Pet Travel Passport</h1>
+<p class="sub" style="color:var(--mut,#a9b3a4);max-width:62ch;margin:0 0 16px">Your route, your pet, your airline → a dated checklist, the traps, and a 1-page boarding-style PDF. Rules are drawn from official CDC, USDA APHIS, CFIA, GOV.UK, EU and SENASICA sources. Not legal or veterinary advice — re-check before each step.</p>
+<div class="pp-grid">
+<form id="f" aria-label="Route">
+  <div class="row"><div><label for="from">From</label><select id="from"></select></div><div><label for="to">To</label><select id="to"></select></div></div>
+  <label for="state">US state (domestic or arrival state)</label><select id="state"><option value="">—</option></select>
+  <label for="airline">Airline</label><select id="airline"><option value="">— any —</option></select>
+  <div class="row"><div><label for="pet">Pet</label><select id="pet"><option value="dog">Dog</option><option value="cat">Cat</option></select></div>
+  <div><label for="ret">Return trip</label><select id="ret"><option value="0">One way</option><option value="1">Round trip</option></select></div></div>
+  <div class="row"><div><label for="date">Departure</label><input type="date" id="date"></div><div><label for="retDate">Return</label><input type="date" id="retDate"></div></div>
+  <button type="button" id="print">Print / Save PDF passport</button>
+  <p style="font-size:12px;color:var(--mut,#a9b3a4);margin-top:10px">Shareable link: <a id="share" href="#">copy</a> · <a href="{root}airlines/compare/">Airline fee comparator</a> · <a href="{root}field-guides/">Field Guides</a></p>
+</form>
+<main>
+  <div class="screen" id="out"></div>
+  <section id="pass" aria-hidden="true"></section>
+</main>
+</div>
+</section>
+<script src="{root}assets/js/passport-data.js"></script>
+<script src="{root}assets/js/qrcode-generator-1.4.4.js"></script>
+<script src="{root}assets/js/passport-engine.js"></script>
+<script src="{root}assets/js/passport-ui.js"></script>"""
+    return page(
+        cfg,
+        f"Pet Travel Passport — dated checklist by route | {cfg['site_name']}",
+        "Build a dated pet-travel checklist for your route, pet and airline. Official-source traps and a printable boarding-style passport.",
+        body,
+        "passport/index.html",
+        root,
+        jsonld=[bc_ld(cfg, [("Home", ""), ("Pet Travel Passport", "passport/")])],
+        ads=False,
+    )
+
+
 def main():
     cfg, airlines, updates = load()
     if OUT.exists():
@@ -3227,6 +3314,8 @@ def main():
         shutil.copy(f, OUT / "img" / "email" / f.name)
     for a in airlines:
         (OUT / "airlines" / f"{a['slug']}.html").write_text(build_airline(cfg, a, pd, lims))
+    (OUT / "airlines" / "compare").mkdir(parents=True, exist_ok=True)
+    (OUT / "airlines" / "compare" / "index.html").write_text(build_airlines_compare(cfg))
     (OUT / "updates.html").write_text(build_updates(cfg, airlines, updates))
     (OUT / "about.html").write_text(build_about(cfg))
     (OUT / "privacy.html").write_text(build_privacy(cfg))
@@ -3264,6 +3353,14 @@ def main():
         _polish_static_html(_p, _root)
     # Homepage (written earlier from home-c.html)
     _polish_static_html(OUT / "index.html", "")
+    # Unified Community Hub / Field Guides (#4 + #9 + #11)
+    _fg_src = ROOT / "static" / "field-guides"
+    if _fg_src.exists():
+        _fg_dst = OUT / "field-guides"
+        if _fg_dst.exists():
+            shutil.rmtree(_fg_dst)
+        shutil.copytree(_fg_src, _fg_dst)
+        _polish_static_html(_fg_dst / "index.html", "../")
     # Optional zip download for the Chrome extension (binary-safe copy)
     _zip = ROOT / "static" / "downloads" / "pets-allowed-chrome-extension-v1.zip"
     if _zip.exists():
@@ -3292,6 +3389,8 @@ def main():
         (OUT / "hotels" / f"pet-friendly-hotels-{c['slug']}.html").write_text(build_hotel_city(cfg, c, hch, hci))
     (OUT / "insurance" / "pet-insurance-for-travelers.html").write_text(build_insurance_travel(cfg))
     (OUT / "book" / "index.html").write_text(build_book(cfg, airlines))
+    (OUT / "passport").mkdir(parents=True, exist_ok=True)
+    (OUT / "passport" / "index.html").write_text(build_passport(cfg))
     (OUT / "pet-travel-checklist" / "index.html").write_text(build_checklist(cfg))
     (OUT / "products" / "index.html").write_text(build_products_index(cfg, pd, lims))
     for p in pd["products"]:
@@ -3324,6 +3423,9 @@ def main():
     urls.append((f"{base}/clinics/usa.html", "2026-10-25"))
     urls.append((f"{base}/pro/", "2026-11-06"))
     urls.append((f"{base}/extension/", "2026-11-06"))
+    urls.append((f"{base}/airlines/compare/", "2026-11-06"))
+    urls.append((f"{base}/passport/", "2026-11-06"))
+    urls.append((f"{base}/field-guides/", "2026-11-06"))
     urls.append((f"{base}/terms.html", "2026-11-06"))
     urls.append((f"{base}/refund-policy.html", "2026-11-06"))
     sm = "".join(f"<url><loc>{e(u)}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)

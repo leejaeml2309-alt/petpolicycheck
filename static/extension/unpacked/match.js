@@ -4,7 +4,7 @@ var PPC_MATCH=(function(){
     var ok=host===h||host.slice(-(h.length+1))==='.'+h; if(!ok) return 0;
     if(sub) return path.toLowerCase().indexOf('/'+sub)===0?2:0; return 1;}
   function best(list,host,path){var r=null,s=0;(list||[]).forEach(function(x){x.d.forEach(function(d){var k=hit(host,path,d);if(k>s){s=k;r=x}})});return r}
-  function shortFee(f){if(!f) return null;var m=f.match(/(CA\/US\s?\$[\d–-]+|EUR\s?[\d–-]+|\$\d+)/);return m?m[1].replace('CA/US ','CA$'):null}
+  function shortFee(f){if(!f) return null;var m=f.match(/(CA\/US\s?\$[\d–-]+|EUR\s?[\d–-]+|\$\d+)/);return m?m[1].replace(/CA\/US\s?\$?/,'CA$'):null}
   function shortDims(d){if(!d) return null;var m=d.match(/^([\d.]+) × ([\d.]+) × ([\d.]+) (in|cm)/);return m?m[1]+'×'+m[2]+'×'+m[3]+(m[4]==='in'?'″':' cm'):null}
   function match(url){var u;try{u=new URL(url)}catch(e){return null}
     var host=u.hostname.replace(/^www\./,''),path=u.pathname;

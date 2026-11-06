@@ -1,3 +1,4 @@
+/* Pets Allowed? content pill v1.0.1 — local prototype */
 /* Floating, collapsible pill (bottom-right) on matched airline/hotel pages. Shadow DOM so it never inherits or breaks the site's CSS.
    Never covers checkout: 1 small pill, collapsible to a 34px paw; state remembered per site in chrome.storage.local. */
 (function(){
