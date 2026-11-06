@@ -583,12 +583,15 @@ html.theme-b2b .notice{border-color:color-mix(in srgb,var(--theme-flight) 40%,tr
 
 
 /* ---- Sitewide Partner leaderboard slot (under top nav) ---- */
+/* Match .biz-banner width/padding/margins so the slot is identical on every page. */
 .partner-slot{
-  position:relative; margin:10px auto 6px; max-width:1200px; padding:0 20px;
+  position:relative; box-sizing:border-box;
+  margin:10px auto 6px; max-width:1200px; width:100%; padding:0 20px;
 }
 .partner-slot .partner-card{
-  position:relative; overflow:hidden;
+  position:relative; overflow:hidden; box-sizing:border-box;
   display:grid; place-items:center;
+  width:100%; max-width:100%;
   min-height:90px; height:90px;
   border-radius:14px;
   border:1px solid color-mix(in srgb,var(--gold,#d9b765) 38%, transparent);
@@ -597,11 +600,18 @@ html.theme-b2b .notice{border-color:color-mix(in srgb,var(--theme-flight) 40%,tr
     linear-gradient(135deg, #0c191d, #0b1719 60%, color-mix(in srgb,var(--gold,#d9b765) 8%, #0b1719));
   box-shadow:0 10px 28px #0005;
 }
+/* Single discreet label INSIDE the card, padded clear of the border (no duplicate / no ::before). */
 .partner-slot .partner-label{
-  position:absolute; top:8px; left:14px; z-index:2;
+  position:absolute; top:10px; left:16px; z-index:2;
+  margin:0; padding:0;
   font:600 .62rem Inter,system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase;
   color:color-mix(in srgb,var(--gold,#d9b765) 75%, #c9c2b4);
-  opacity:.85;
+  opacity:.85; pointer-events:none;
+}
+.partner-slot .partner-label + .partner-ph,
+.partner-slot .partner-label + .partner-creative,
+.partner-slot .partner-label + .partner-html{
+  /* leave room under the label so copy never collides */
 }
 .partner-slot .partner-ph{
   display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px 18px;
@@ -636,8 +646,9 @@ html.theme-b2b .notice{border-color:color-mix(in srgb,var(--theme-flight) 40%,tr
 }
 .partner-slot .partner-html{ width:100%; height:100%; display:grid; place-items:center; }
 @media (max-width:720px){
-  .partner-slot{ margin:8px auto 4px; padding:0 14px; }
-  .partner-slot .partner-card{ min-height:100px; height:100px; border-radius:12px; }
+  .partner-slot{ margin:8px auto 4px; padding:0 14px; width:100%; max-width:1200px; }
+  .partner-slot .partner-card{ width:100%; min-height:100px; height:100px; border-radius:12px; }
+  .partner-slot .partner-label{ top:8px; left:12px; }
   .partner-slot .partner-ph{ padding:10px 12px; gap:8px; }
   .partner-slot .partner-ph p{ font-size:.82rem; }
 }

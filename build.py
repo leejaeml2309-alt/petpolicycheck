@@ -394,6 +394,7 @@ def load_partner_cfg(slot="top-partner"):
 def partner_banner(root, slot="top-partner"):
     """Sitewide leaderboard under the top nav. Build-time render; partner-banner.js can refresh inactive slots."""
     cfg = load_partner_cfg(slot)
+    # One label only, inside the card (top-left). Do NOT also place one outside the card.
     label = '<span class="partner-label">Partner</span>'
     live = "1" if cfg.get("active") and (cfg.get("html") or (cfg.get("image") and cfg.get("link"))) else "0"
     if live == "1" and cfg.get("html"):
@@ -413,7 +414,7 @@ def partner_banner(root, slot="top-partner"):
                  f'<a class="partner-cta" href="{root}advertise/">Partner with us <span aria-hidden="true">→</span></a>'
                  f'</div>')
     return (f'<aside class="partner-slot partner-top" data-partner-slot="{e(slot)}" data-partner-live="{live}" '
-            f'aria-label="Partner">{label}<div class="partner-card">{inner}</div></aside>')
+            f'aria-label="Partner"><div class="partner-card">{inner}</div></aside>')
 
 
 
