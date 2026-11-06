@@ -309,7 +309,7 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
     return f"""<footer class="foot foot-compact">
 <div class="wrap cols">
 <div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
-<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.foot.book", "Book your trip")}{li(h + "#compare", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
+<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.foot.book", "Book your trip")}{li(h + "#compare", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}{li(root + "routes/", "site.nav.guides", "Routes")}{li(root + "veterans/", "site.nav.pro", "Veterans")}{li(root + "fit/", "site.nav.compare", "Carrier fit")}</ul></div>
 <div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{li(root + "extension/", "site.foot.extension", "Chrome Extension")}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "terms.html", "site.foot.terms", "Terms")}{li(root + "refund-policy.html", "site.foot.refund", "Refund policy")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
@@ -3397,7 +3397,12 @@ def main():
     (OUT / "grooming").mkdir(parents=True, exist_ok=True)
     (OUT / "grooming" / "index.html").write_text(build_grooming(cfg))
     (OUT / "routes" / "usa-to-japan.html").write_text(build_route_usa_japan(cfg, airlines))
+    
     (OUT / "routes" / "usa-to-south-korea.html").write_text(build_route_usa_korea(cfg, airlines))
+    # Step B+C growth hubs (route×airline SEO, tools, veterans)
+    import build_growth
+    GROWTH_URLS = build_growth.build_all(cfg)
+
     hch, hci = hotels_data()
     (OUT / "hotels" / "index.html").write_text(build_hotels_index(cfg, hch, hci))
     for c in hci["cities"]:
@@ -3406,6 +3411,7 @@ def main():
     (OUT / "book" / "index.html").write_text(build_book(cfg, airlines))
     (OUT / "passport").mkdir(parents=True, exist_ok=True)
     (OUT / "passport" / "index.html").write_text(build_passport(cfg))
+    build_growth.inject_discovery()
     (OUT / "pet-travel-checklist" / "index.html").write_text(build_checklist(cfg))
     (OUT / "products" / "index.html").write_text(build_products_index(cfg, pd, lims))
     for p in pd["products"]:
@@ -3441,6 +3447,8 @@ def main():
     urls.append((f"{base}/airlines/compare/", "2026-11-06"))
     urls.append((f"{base}/passport/", "2026-11-06"))
     urls.append((f"{base}/field-guides/", "2026-11-06"))
+    for u, d in GROWTH_URLS:
+        urls.append((u, d))
     urls.append((f"{base}/terms.html", "2026-11-06"))
     urls.append((f"{base}/refund-policy.html", "2026-11-06"))
     sm = "".join(f"<url><loc>{e(u)}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)

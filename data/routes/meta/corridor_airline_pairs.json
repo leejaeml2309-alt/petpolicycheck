@@ -1,0 +1,865 @@
+{
+  "checked": "2026-11-06",
+  "pairs": [
+    {
+      "id": "usa-to-south-korea",
+      "from": "USA",
+      "to": "South Korea",
+      "from_code": "US",
+      "to_code": "KR",
+      "auth": "APQA",
+      "entry": "South Korea APQA: ISO microchip before rabies vaccine; rabies titer (FAVN) from approved lab when required; health certificate / quarantine docs per APQA.",
+      "airlines": [
+        "korean-air",
+        "delta",
+        "united",
+        "asiana-skip"
+      ],
+      "airline": "korean-air"
+    },
+    {
+      "id": "usa-to-south-korea",
+      "from": "USA",
+      "to": "South Korea",
+      "from_code": "US",
+      "to_code": "KR",
+      "auth": "APQA",
+      "entry": "South Korea APQA: ISO microchip before rabies vaccine; rabies titer (FAVN) from approved lab when required; health certificate / quarantine docs per APQA.",
+      "airlines": [
+        "korean-air",
+        "delta",
+        "united",
+        "asiana-skip"
+      ],
+      "airline": "delta"
+    },
+    {
+      "id": "usa-to-south-korea",
+      "from": "USA",
+      "to": "South Korea",
+      "from_code": "US",
+      "to_code": "KR",
+      "auth": "APQA",
+      "entry": "South Korea APQA: ISO microchip before rabies vaccine; rabies titer (FAVN) from approved lab when required; health certificate / quarantine docs per APQA.",
+      "airlines": [
+        "korean-air",
+        "delta",
+        "united",
+        "asiana-skip"
+      ],
+      "airline": "united"
+    },
+    {
+      "id": "south-korea-to-usa",
+      "from": "South Korea",
+      "to": "USA",
+      "from_code": "KR",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "USA CDC: CDC Dog Import Form receipt for all dogs; rabies vaccination rules by country risk; USDA/CBP checks. Cats: general health rules.",
+      "airlines": [
+        "korean-air",
+        "delta",
+        "united"
+      ],
+      "airline": "korean-air"
+    },
+    {
+      "id": "south-korea-to-usa",
+      "from": "South Korea",
+      "to": "USA",
+      "from_code": "KR",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "USA CDC: CDC Dog Import Form receipt for all dogs; rabies vaccination rules by country risk; USDA/CBP checks. Cats: general health rules.",
+      "airlines": [
+        "korean-air",
+        "delta",
+        "united"
+      ],
+      "airline": "delta"
+    },
+    {
+      "id": "south-korea-to-usa",
+      "from": "South Korea",
+      "to": "USA",
+      "from_code": "KR",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "USA CDC: CDC Dog Import Form receipt for all dogs; rabies vaccination rules by country risk; USDA/CBP checks. Cats: general health rules.",
+      "airlines": [
+        "korean-air",
+        "delta",
+        "united"
+      ],
+      "airline": "united"
+    },
+    {
+      "id": "usa-to-japan",
+      "from": "USA",
+      "to": "Japan",
+      "from_code": "US",
+      "to_code": "JP",
+      "auth": "MAFF AQS",
+      "entry": "Japan MAFF/AQS: ISO microchip before rabies; FAVN \u22650.5 IU/ml; typically 180-day wait after qualifying blood draw for non-exempt origins; advance notification.",
+      "airlines": [
+        "united",
+        "delta",
+        "american",
+        "korean-air"
+      ],
+      "airline": "united"
+    },
+    {
+      "id": "usa-to-japan",
+      "from": "USA",
+      "to": "Japan",
+      "from_code": "US",
+      "to_code": "JP",
+      "auth": "MAFF AQS",
+      "entry": "Japan MAFF/AQS: ISO microchip before rabies; FAVN \u22650.5 IU/ml; typically 180-day wait after qualifying blood draw for non-exempt origins; advance notification.",
+      "airlines": [
+        "united",
+        "delta",
+        "american",
+        "korean-air"
+      ],
+      "airline": "delta"
+    },
+    {
+      "id": "usa-to-japan",
+      "from": "USA",
+      "to": "Japan",
+      "from_code": "US",
+      "to_code": "JP",
+      "auth": "MAFF AQS",
+      "entry": "Japan MAFF/AQS: ISO microchip before rabies; FAVN \u22650.5 IU/ml; typically 180-day wait after qualifying blood draw for non-exempt origins; advance notification.",
+      "airlines": [
+        "united",
+        "delta",
+        "american",
+        "korean-air"
+      ],
+      "airline": "american"
+    },
+    {
+      "id": "usa-to-japan",
+      "from": "USA",
+      "to": "Japan",
+      "from_code": "US",
+      "to_code": "JP",
+      "auth": "MAFF AQS",
+      "entry": "Japan MAFF/AQS: ISO microchip before rabies; FAVN \u22650.5 IU/ml; typically 180-day wait after qualifying blood draw for non-exempt origins; advance notification.",
+      "airlines": [
+        "united",
+        "delta",
+        "american",
+        "korean-air"
+      ],
+      "airline": "korean-air"
+    },
+    {
+      "id": "japan-to-usa",
+      "from": "Japan",
+      "to": "USA",
+      "from_code": "JP",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "USA CDC Dog Import Form; Japan is treated per CDC dog-rabies risk list \u2014 confirm current CDC country classification before travel.",
+      "airlines": [
+        "united",
+        "delta",
+        "american"
+      ],
+      "airline": "united"
+    },
+    {
+      "id": "japan-to-usa",
+      "from": "Japan",
+      "to": "USA",
+      "from_code": "JP",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "USA CDC Dog Import Form; Japan is treated per CDC dog-rabies risk list \u2014 confirm current CDC country classification before travel.",
+      "airlines": [
+        "united",
+        "delta",
+        "american"
+      ],
+      "airline": "delta"
+    },
+    {
+      "id": "japan-to-usa",
+      "from": "Japan",
+      "to": "USA",
+      "from_code": "JP",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "USA CDC Dog Import Form; Japan is treated per CDC dog-rabies risk list \u2014 confirm current CDC country classification before travel.",
+      "airlines": [
+        "united",
+        "delta",
+        "american"
+      ],
+      "airline": "american"
+    },
+    {
+      "id": "usa-to-france",
+      "from": "USA",
+      "to": "France",
+      "from_code": "US",
+      "to_code": "FR",
+      "auth": "EU / France",
+      "entry": "EU entry: ISO microchip, valid rabies vaccine, EU health certificate / AHC endorsement timing (typically \u226410 days). France applies EU pet travel rules.",
+      "airlines": [
+        "air-france",
+        "delta",
+        "united",
+        "american"
+      ],
+      "airline": "air-france"
+    },
+    {
+      "id": "usa-to-france",
+      "from": "USA",
+      "to": "France",
+      "from_code": "US",
+      "to_code": "FR",
+      "auth": "EU / France",
+      "entry": "EU entry: ISO microchip, valid rabies vaccine, EU health certificate / AHC endorsement timing (typically \u226410 days). France applies EU pet travel rules.",
+      "airlines": [
+        "air-france",
+        "delta",
+        "united",
+        "american"
+      ],
+      "airline": "delta"
+    },
+    {
+      "id": "usa-to-france",
+      "from": "USA",
+      "to": "France",
+      "from_code": "US",
+      "to_code": "FR",
+      "auth": "EU / France",
+      "entry": "EU entry: ISO microchip, valid rabies vaccine, EU health certificate / AHC endorsement timing (typically \u226410 days). France applies EU pet travel rules.",
+      "airlines": [
+        "air-france",
+        "delta",
+        "united",
+        "american"
+      ],
+      "airline": "united"
+    },
+    {
+      "id": "usa-to-france",
+      "from": "USA",
+      "to": "France",
+      "from_code": "US",
+      "to_code": "FR",
+      "auth": "EU / France",
+      "entry": "EU entry: ISO microchip, valid rabies vaccine, EU health certificate / AHC endorsement timing (typically \u226410 days). France applies EU pet travel rules.",
+      "airlines": [
+        "air-france",
+        "delta",
+        "united",
+        "american"
+      ],
+      "airline": "american"
+    },
+    {
+      "id": "france-to-usa",
+      "from": "France",
+      "to": "USA",
+      "from_code": "FR",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; France generally low-risk for dog-maintained rabies \u2014 confirm CDC list; USDA/CBP on arrival.",
+      "airlines": [
+        "air-france",
+        "delta",
+        "united"
+      ],
+      "airline": "air-france"
+    },
+    {
+      "id": "france-to-usa",
+      "from": "France",
+      "to": "USA",
+      "from_code": "FR",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; France generally low-risk for dog-maintained rabies \u2014 confirm CDC list; USDA/CBP on arrival.",
+      "airlines": [
+        "air-france",
+        "delta",
+        "united"
+      ],
+      "airline": "delta"
+    },
+    {
+      "id": "france-to-usa",
+      "from": "France",
+      "to": "USA",
+      "from_code": "FR",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; France generally low-risk for dog-maintained rabies \u2014 confirm CDC list; USDA/CBP on arrival.",
+      "airlines": [
+        "air-france",
+        "delta",
+        "united"
+      ],
+      "airline": "united"
+    },
+    {
+      "id": "usa-to-germany",
+      "from": "USA",
+      "to": "Germany",
+      "from_code": "US",
+      "to_code": "DE",
+      "auth": "EU / Germany",
+      "entry": "EU pet travel: microchip, rabies vaccine, EU animal health certificate timing. Germany follows EU rules.",
+      "airlines": [
+        "lufthansa",
+        "united",
+        "delta"
+      ],
+      "airline": "lufthansa"
+    },
+    {
+      "id": "usa-to-germany",
+      "from": "USA",
+      "to": "Germany",
+      "from_code": "US",
+      "to_code": "DE",
+      "auth": "EU / Germany",
+      "entry": "EU pet travel: microchip, rabies vaccine, EU animal health certificate timing. Germany follows EU rules.",
+      "airlines": [
+        "lufthansa",
+        "united",
+        "delta"
+      ],
+      "airline": "united"
+    },
+    {
+      "id": "usa-to-germany",
+      "from": "USA",
+      "to": "Germany",
+      "from_code": "US",
+      "to_code": "DE",
+      "auth": "EU / Germany",
+      "entry": "EU pet travel: microchip, rabies vaccine, EU animal health certificate timing. Germany follows EU rules.",
+      "airlines": [
+        "lufthansa",
+        "united",
+        "delta"
+      ],
+      "airline": "delta"
+    },
+    {
+      "id": "usa-to-mexico",
+      "from": "USA",
+      "to": "Mexico",
+      "from_code": "US",
+      "to_code": "MX",
+      "auth": "SENASICA",
+      "entry": "Mexico SENASICA/OISA: physical inspection; dogs from USA may need \u22645-day screwworm (NWS) vet attestation (2026 guidance); vaccination booklet.",
+      "airlines": [
+        "delta",
+        "united",
+        "american",
+        "alaska"
+      ],
+      "airline": "delta"
+    },
+    {
+      "id": "usa-to-mexico",
+      "from": "USA",
+      "to": "Mexico",
+      "from_code": "US",
+      "to_code": "MX",
+      "auth": "SENASICA",
+      "entry": "Mexico SENASICA/OISA: physical inspection; dogs from USA may need \u22645-day screwworm (NWS) vet attestation (2026 guidance); vaccination booklet.",
+      "airlines": [
+        "delta",
+        "united",
+        "american",
+        "alaska"
+      ],
+      "airline": "united"
+    },
+    {
+      "id": "usa-to-mexico",
+      "from": "USA",
+      "to": "Mexico",
+      "from_code": "US",
+      "to_code": "MX",
+      "auth": "SENASICA",
+      "entry": "Mexico SENASICA/OISA: physical inspection; dogs from USA may need \u22645-day screwworm (NWS) vet attestation (2026 guidance); vaccination booklet.",
+      "airlines": [
+        "delta",
+        "united",
+        "american",
+        "alaska"
+      ],
+      "airline": "american"
+    },
+    {
+      "id": "usa-to-mexico",
+      "from": "USA",
+      "to": "Mexico",
+      "from_code": "US",
+      "to_code": "MX",
+      "auth": "SENASICA",
+      "entry": "Mexico SENASICA/OISA: physical inspection; dogs from USA may need \u22645-day screwworm (NWS) vet attestation (2026 guidance); vaccination booklet.",
+      "airlines": [
+        "delta",
+        "united",
+        "american",
+        "alaska"
+      ],
+      "airline": "alaska"
+    },
+    {
+      "id": "mexico-to-usa",
+      "from": "Mexico",
+      "to": "USA",
+      "from_code": "MX",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; Mexico risk classification per CDC; screwworm inspection certificate may apply for return corridors.",
+      "airlines": [
+        "delta",
+        "united",
+        "american",
+        "alaska"
+      ],
+      "airline": "delta"
+    },
+    {
+      "id": "mexico-to-usa",
+      "from": "Mexico",
+      "to": "USA",
+      "from_code": "MX",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; Mexico risk classification per CDC; screwworm inspection certificate may apply for return corridors.",
+      "airlines": [
+        "delta",
+        "united",
+        "american",
+        "alaska"
+      ],
+      "airline": "united"
+    },
+    {
+      "id": "mexico-to-usa",
+      "from": "Mexico",
+      "to": "USA",
+      "from_code": "MX",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; Mexico risk classification per CDC; screwworm inspection certificate may apply for return corridors.",
+      "airlines": [
+        "delta",
+        "united",
+        "american",
+        "alaska"
+      ],
+      "airline": "american"
+    },
+    {
+      "id": "mexico-to-usa",
+      "from": "Mexico",
+      "to": "USA",
+      "from_code": "MX",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; Mexico risk classification per CDC; screwworm inspection certificate may apply for return corridors.",
+      "airlines": [
+        "delta",
+        "united",
+        "american",
+        "alaska"
+      ],
+      "airline": "alaska"
+    },
+    {
+      "id": "usa-to-canada",
+      "from": "USA",
+      "to": "Canada",
+      "from_code": "US",
+      "to_code": "CA",
+      "auth": "CFIA",
+      "entry": "CFIA personal accompanied pets: rabies certificate typically; commercial/rescue/unaccompanied dogs face different (stricter) rules \u2014 do not treat rescue handoffs as personal imports.",
+      "airlines": [
+        "air-canada",
+        "united",
+        "delta",
+        "american",
+        "alaska"
+      ],
+      "airline": "air-canada"
+    },
+    {
+      "id": "usa-to-canada",
+      "from": "USA",
+      "to": "Canada",
+      "from_code": "US",
+      "to_code": "CA",
+      "auth": "CFIA",
+      "entry": "CFIA personal accompanied pets: rabies certificate typically; commercial/rescue/unaccompanied dogs face different (stricter) rules \u2014 do not treat rescue handoffs as personal imports.",
+      "airlines": [
+        "air-canada",
+        "united",
+        "delta",
+        "american",
+        "alaska"
+      ],
+      "airline": "united"
+    },
+    {
+      "id": "usa-to-canada",
+      "from": "USA",
+      "to": "Canada",
+      "from_code": "US",
+      "to_code": "CA",
+      "auth": "CFIA",
+      "entry": "CFIA personal accompanied pets: rabies certificate typically; commercial/rescue/unaccompanied dogs face different (stricter) rules \u2014 do not treat rescue handoffs as personal imports.",
+      "airlines": [
+        "air-canada",
+        "united",
+        "delta",
+        "american",
+        "alaska"
+      ],
+      "airline": "delta"
+    },
+    {
+      "id": "usa-to-canada",
+      "from": "USA",
+      "to": "Canada",
+      "from_code": "US",
+      "to_code": "CA",
+      "auth": "CFIA",
+      "entry": "CFIA personal accompanied pets: rabies certificate typically; commercial/rescue/unaccompanied dogs face different (stricter) rules \u2014 do not treat rescue handoffs as personal imports.",
+      "airlines": [
+        "air-canada",
+        "united",
+        "delta",
+        "american",
+        "alaska"
+      ],
+      "airline": "american"
+    },
+    {
+      "id": "usa-to-canada",
+      "from": "USA",
+      "to": "Canada",
+      "from_code": "US",
+      "to_code": "CA",
+      "auth": "CFIA",
+      "entry": "CFIA personal accompanied pets: rabies certificate typically; commercial/rescue/unaccompanied dogs face different (stricter) rules \u2014 do not treat rescue handoffs as personal imports.",
+      "airlines": [
+        "air-canada",
+        "united",
+        "delta",
+        "american",
+        "alaska"
+      ],
+      "airline": "alaska"
+    },
+    {
+      "id": "canada-to-usa",
+      "from": "Canada",
+      "to": "USA",
+      "from_code": "CA",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; Canada generally dog-rabies free/low-risk per CDC \u2014 confirm current list.",
+      "airlines": [
+        "air-canada",
+        "united",
+        "delta",
+        "american",
+        "alaska"
+      ],
+      "airline": "air-canada"
+    },
+    {
+      "id": "canada-to-usa",
+      "from": "Canada",
+      "to": "USA",
+      "from_code": "CA",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; Canada generally dog-rabies free/low-risk per CDC \u2014 confirm current list.",
+      "airlines": [
+        "air-canada",
+        "united",
+        "delta",
+        "american",
+        "alaska"
+      ],
+      "airline": "united"
+    },
+    {
+      "id": "canada-to-usa",
+      "from": "Canada",
+      "to": "USA",
+      "from_code": "CA",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; Canada generally dog-rabies free/low-risk per CDC \u2014 confirm current list.",
+      "airlines": [
+        "air-canada",
+        "united",
+        "delta",
+        "american",
+        "alaska"
+      ],
+      "airline": "delta"
+    },
+    {
+      "id": "canada-to-usa",
+      "from": "Canada",
+      "to": "USA",
+      "from_code": "CA",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; Canada generally dog-rabies free/low-risk per CDC \u2014 confirm current list.",
+      "airlines": [
+        "air-canada",
+        "united",
+        "delta",
+        "american",
+        "alaska"
+      ],
+      "airline": "american"
+    },
+    {
+      "id": "canada-to-usa",
+      "from": "Canada",
+      "to": "USA",
+      "from_code": "CA",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; Canada generally dog-rabies free/low-risk per CDC \u2014 confirm current list.",
+      "airlines": [
+        "air-canada",
+        "united",
+        "delta",
+        "american",
+        "alaska"
+      ],
+      "airline": "alaska"
+    },
+    {
+      "id": "uk-to-france",
+      "from": "United Kingdom",
+      "to": "France",
+      "from_code": "GB",
+      "to_code": "FR",
+      "auth": "EU / GB",
+      "entry": "GB\u2192EU: microchip, rabies, animal health certificate / AHC timing; note BA cabin ban \u2014 many UK routes require hold/cargo partners.",
+      "airlines": [
+        "british-airways",
+        "air-france"
+      ],
+      "airline": "british-airways"
+    },
+    {
+      "id": "uk-to-france",
+      "from": "United Kingdom",
+      "to": "France",
+      "from_code": "GB",
+      "to_code": "FR",
+      "auth": "EU / GB",
+      "entry": "GB\u2192EU: microchip, rabies, animal health certificate / AHC timing; note BA cabin ban \u2014 many UK routes require hold/cargo partners.",
+      "airlines": [
+        "british-airways",
+        "air-france"
+      ],
+      "airline": "air-france"
+    }
+  ],
+  "corridors": [
+    {
+      "id": "usa-to-south-korea",
+      "from": "USA",
+      "to": "South Korea",
+      "from_code": "US",
+      "to_code": "KR",
+      "auth": "APQA",
+      "entry": "South Korea APQA: ISO microchip before rabies vaccine; rabies titer (FAVN) from approved lab when required; health certificate / quarantine docs per APQA.",
+      "airlines": [
+        "korean-air",
+        "delta",
+        "united",
+        "asiana-skip"
+      ]
+    },
+    {
+      "id": "south-korea-to-usa",
+      "from": "South Korea",
+      "to": "USA",
+      "from_code": "KR",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "USA CDC: CDC Dog Import Form receipt for all dogs; rabies vaccination rules by country risk; USDA/CBP checks. Cats: general health rules.",
+      "airlines": [
+        "korean-air",
+        "delta",
+        "united"
+      ]
+    },
+    {
+      "id": "usa-to-japan",
+      "from": "USA",
+      "to": "Japan",
+      "from_code": "US",
+      "to_code": "JP",
+      "auth": "MAFF AQS",
+      "entry": "Japan MAFF/AQS: ISO microchip before rabies; FAVN \u22650.5 IU/ml; typically 180-day wait after qualifying blood draw for non-exempt origins; advance notification.",
+      "airlines": [
+        "united",
+        "delta",
+        "american",
+        "korean-air"
+      ]
+    },
+    {
+      "id": "japan-to-usa",
+      "from": "Japan",
+      "to": "USA",
+      "from_code": "JP",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "USA CDC Dog Import Form; Japan is treated per CDC dog-rabies risk list \u2014 confirm current CDC country classification before travel.",
+      "airlines": [
+        "united",
+        "delta",
+        "american"
+      ]
+    },
+    {
+      "id": "usa-to-france",
+      "from": "USA",
+      "to": "France",
+      "from_code": "US",
+      "to_code": "FR",
+      "auth": "EU / France",
+      "entry": "EU entry: ISO microchip, valid rabies vaccine, EU health certificate / AHC endorsement timing (typically \u226410 days). France applies EU pet travel rules.",
+      "airlines": [
+        "air-france",
+        "delta",
+        "united",
+        "american"
+      ]
+    },
+    {
+      "id": "france-to-usa",
+      "from": "France",
+      "to": "USA",
+      "from_code": "FR",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; France generally low-risk for dog-maintained rabies \u2014 confirm CDC list; USDA/CBP on arrival.",
+      "airlines": [
+        "air-france",
+        "delta",
+        "united"
+      ]
+    },
+    {
+      "id": "usa-to-germany",
+      "from": "USA",
+      "to": "Germany",
+      "from_code": "US",
+      "to_code": "DE",
+      "auth": "EU / Germany",
+      "entry": "EU pet travel: microchip, rabies vaccine, EU animal health certificate timing. Germany follows EU rules.",
+      "airlines": [
+        "lufthansa",
+        "united",
+        "delta"
+      ]
+    },
+    {
+      "id": "usa-to-mexico",
+      "from": "USA",
+      "to": "Mexico",
+      "from_code": "US",
+      "to_code": "MX",
+      "auth": "SENASICA",
+      "entry": "Mexico SENASICA/OISA: physical inspection; dogs from USA may need \u22645-day screwworm (NWS) vet attestation (2026 guidance); vaccination booklet.",
+      "airlines": [
+        "delta",
+        "united",
+        "american",
+        "alaska"
+      ]
+    },
+    {
+      "id": "mexico-to-usa",
+      "from": "Mexico",
+      "to": "USA",
+      "from_code": "MX",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; Mexico risk classification per CDC; screwworm inspection certificate may apply for return corridors.",
+      "airlines": [
+        "delta",
+        "united",
+        "american",
+        "alaska"
+      ]
+    },
+    {
+      "id": "usa-to-canada",
+      "from": "USA",
+      "to": "Canada",
+      "from_code": "US",
+      "to_code": "CA",
+      "auth": "CFIA",
+      "entry": "CFIA personal accompanied pets: rabies certificate typically; commercial/rescue/unaccompanied dogs face different (stricter) rules \u2014 do not treat rescue handoffs as personal imports.",
+      "airlines": [
+        "air-canada",
+        "united",
+        "delta",
+        "american",
+        "alaska"
+      ]
+    },
+    {
+      "id": "canada-to-usa",
+      "from": "Canada",
+      "to": "USA",
+      "from_code": "CA",
+      "to_code": "US",
+      "auth": "CDC",
+      "entry": "CDC Dog Import Form; Canada generally dog-rabies free/low-risk per CDC \u2014 confirm current list.",
+      "airlines": [
+        "air-canada",
+        "united",
+        "delta",
+        "american",
+        "alaska"
+      ]
+    },
+    {
+      "id": "uk-to-france",
+      "from": "United Kingdom",
+      "to": "France",
+      "from_code": "GB",
+      "to_code": "FR",
+      "auth": "EU / GB",
+      "entry": "GB\u2192EU: microchip, rabies, animal health certificate / AHC timing; note BA cabin ban \u2014 many UK routes require hold/cargo partners.",
+      "airlines": [
+        "british-airways",
+        "air-france"
+      ]
+    }
+  ]
+}

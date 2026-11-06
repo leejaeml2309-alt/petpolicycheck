@@ -73,7 +73,8 @@
       "compare.cabin": "Cabin allowed",
       "compare.col.airline": "Airline",
       "compare.col.fee": "Cabin fee (one way)",
-      "lang.aria": "Language"
+      "lang.aria": "Language",
+      "compare.military": "Military & Service Dog"
     },
     "fr": {
       "site.nav.map": "Carte du monde",
@@ -136,7 +137,8 @@
       "compare.cabin": "Cabine autorisée",
       "compare.col.airline": "Compagnie",
       "compare.col.fee": "Frais cabine (aller)",
-      "lang.aria": "Langue"
+      "lang.aria": "Langue",
+      "compare.military": "Militaire & chien d’assistance"
     },
     "es": {
       "site.nav.map": "Mapa mundial",
@@ -199,7 +201,8 @@
       "compare.cabin": "Cabina permitida",
       "compare.col.airline": "Aerolínea",
       "compare.col.fee": "Tarifa cabina (ida)",
-      "lang.aria": "Idioma"
+      "lang.aria": "Idioma",
+      "compare.military": "Militar y perro de servicio"
     },
     "de": {
       "site.nav.map": "Weltkarte",
@@ -262,7 +265,8 @@
       "compare.cabin": "Kabine erlaubt",
       "compare.col.airline": "Airline",
       "compare.col.fee": "Kabinengebühr (einfach)",
-      "lang.aria": "Sprache"
+      "lang.aria": "Sprache",
+      "compare.military": "Militär & Assistenzhund"
     },
     "ko": {
       "site.nav.map": "세계 지도",
@@ -325,7 +329,8 @@
       "compare.cabin": "기내 반입 가능",
       "compare.col.airline": "항공사",
       "compare.col.fee": "기내 요금 (편도)",
-      "lang.aria": "언어"
+      "lang.aria": "언어",
+      "compare.military": "군인 & 보조견"
     },
     "ja": {
       "site.nav.map": "世界地図",
@@ -388,7 +393,8 @@
       "compare.cabin": "機内持ち込み可",
       "compare.col.airline": "航空会社",
       "compare.col.fee": "機内料金（片道）",
-      "lang.aria": "言語"
+      "lang.aria": "言語",
+      "compare.military": "軍事・補助犬"
     }
   }
 }

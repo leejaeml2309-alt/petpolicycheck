@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en-US"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Under-Seat Carrier Fit Check | PetPolicyCheck</title>
+<meta name="description" content="Compare your pet carrier to verified airline under-seat dimensions. Download Story/Post PNG badges.">
+<link rel="canonical" href="https://petpolicycheck.com/fit/">
+<meta name="theme-color" content="#0b1719">
+<link rel="stylesheet" href="../assets/css/theme.css">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="../assets/css/ppc-i18n.css?v=20261107a">
+<script src="../assets/i18n/ui.js?v=20261107a" defer></script>
+<script src="../assets/js/ppc-i18n.js?v=20261107a" defer></script>
+<script src="../assets/js/pastilles.js?v=20261107a" defer></script>
+
+<style>
+body.v-c{background:#0b1719;color:#e8e0d0}
+.growth-hero{padding:22px 0 8px;max-width:980px;margin:0 auto}
+.growth-hero h1{font-family:Marcellus,serif;font-weight:400;color:#f5efe0;margin:0 0 8px}
+.growth-hero .sub{color:#a9b3a4;max-width:62ch}
+.gcard{border:1px solid rgba(217,183,101,.28);border-radius:14px;padding:14px 16px;background:rgba(17,37,42,.75);margin:12px 0}
+.gcard h2,.gcard h3{margin:0 0 8px;color:#d9b765;font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:9px 14px;background:#d9b765;color:#0b1719;font-weight:700;text-decoration:none;border:0;cursor:pointer}
+.btn.ghost{background:transparent;color:#d9b765;border:1px solid rgba(217,183,101,.45)}
+label{display:block;margin:8px 0 4px;color:#c9c2b4;font-size:.86rem}
+input,select,textarea{width:100%;max-width:420px;padding:8px 10px;border-radius:10px;border:1px solid rgba(217,183,101,.28);background:#0b1719;color:#f5efe0}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.row>div{flex:1 1 200px}
+.ok{color:#7dcea0}.warn{color:#e2b65c}.bad{color:#e07a7a}
+.privacy{font-size:.82rem;color:#a9b3a4;border-left:3px solid #d9b765;padding-left:10px;margin:10px 0}
+.mode-sw button{appearance:none;border:1px solid rgba(217,183,101,.35);background:transparent;color:#c9c2b4;padding:.45rem .9rem;border-radius:999px;cursor:pointer;margin:4px}
+.mode-sw button[aria-pressed="true"]{background:#d9b765;color:#0b1719;font-weight:700}
+.cr80{width:85.6mm;height:54mm;border-radius:3mm;padding:3mm;box-sizing:border-box;background:#f7f3ea;color:#1a1a1a;font-size:9px;line-height:1.35;border:1px solid #b8a070}
+@media print{header,footer,.partner-slot,.ppc-lang-sw,.no-print{display:none!important} body{background:#fff;color:#000}}
+</style>
+</head>
+<body class="v-c">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+<a class="brand" href="../"><span class="wm">PetPolicy<span>Check</span></span></a>
+<nav class="nav menu" id="site-menu" aria-label="Main"></nav>
+<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span data-i18n="site.nav.menu">Menu</span></button>
+</div></header>
+<aside class="partner-slot partner-top" data-partner-slot="top-partner" data-partner-live="0" aria-label="Partner"><div class="partner-card"><span class="partner-label">Partner</span><div class="partner-ph"><p><b>Your brand here</b> · Become a PetPolicyCheck partner</p><a class="partner-cta" href="../advertise/">Partner with us <span aria-hidden="true">→</span></a></div></div></aside>
+<main class="wrap" id="main">
+
+<section class="growth-hero">
+<p class="eyebrow" style="color:#d9b765;letter-spacing:.08em;text-transform:uppercase">Tools · Fit</p>
+<h1>Under-Seat Carrier Fit Check</h1>
+<p class="sub">Compare your soft/hard carrier to verified airline under-seat boxes. Export a 9:16 Story or 1:1 badge. Dimensions from our cabin_limits dataset.</p>
+</section>
+<section class="gcard">
+<div class="row">
+<div><label for="airline">Airline box</label>
+<select id="airline">
+<option value="0">air-canada — Most mainline jets (43×40×20 cm)</option><option value="1">air-canada — Dash 8-400 / E175 / CRJ900 (55×40×27 cm)</option><option value="2">air-canada — Widebody Business Class (41×21×28 cm)</option><option value="3">air-france — Cabin (46×28×24 cm)</option><option value="4">alaska — Cabin (17×11×9.5 in)</option><option value="5">hawaiian — Cabin (17×11×9.5 in)</option><option value="6">american — Soft-sided (recommended) (18×11×11 in)</option><option value="7">american — Hard-sided, mainline (19×13×9 in)</option><option value="8">american — Hard-sided, American Eagle (16×12×8 in)</option><option value="9">delta — Recommended soft-sided kennel (18×11×11 in)</option><option value="10">jetblue — Cabin (soft or hard) (17×12.5×8.5 in)</option><option value="11">lufthansa — Cabin (55×40×23 cm)</option><option value="12">united — Soft-sided (18×11×11 in)</option><option value="13">united — Soft-sided, Boeing 737 MAX (18×11×10 in)</option><option value="14">united — Hard-sided (17.5×12×9 in)</option>
+</select></div>
+<div><label for="unit">Your units</label><select id="unit"><option value="cm">cm</option><option value="in">inches</option></select></div>
+</div>
+<div class="row">
+<div><label>Carrier L</label><input id="L" type="number" step="0.1" value="43"></div>
+<div><label>W</label><input id="W" type="number" step="0.1" value="28"></div>
+<div><label>H</label><input id="H" type="number" step="0.1" value="24"></div>
+</div>
+<label><input type="checkbox" id="soft" checked> Soft-sided (allow small flex margin when airline documents soft carriers)</label>
+<p style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px">
+<button class="btn" type="button" id="go">Check fit</button>
+<button class="btn ghost" type="button" id="png916">Download 9:16 Story</button>
+<button class="btn ghost" type="button" id="png11">Download 1:1 Post</button>
+<a class="btn ghost" href="../products/sherpa-original-deluxe.html">Sherpa Original Deluxe</a>
+<a class="btn ghost" href="../airlines/compare/">Comparator</a>
+</p>
+</section>
+<div id="diag" class="gcard"></div>
+<svg id="svg" viewBox="0 0 400 220" width="100%" style="max-width:640px;background:#11252a;border-radius:12px"></svg>
+<canvas id="cv" style="display:none" aria-hidden="true"></canvas>
+<script>
+const LIMITS=[{"airline": "air-canada", "label": "Most mainline jets", "L": 43, "W": 40, "H": 20, "unit": "cm", "soft_only": true, "quote": "Most mainline jets: 43 x 40 x 20 cm"}, {"airline": "air-canada", "label": "Dash 8-400 / E175 / CRJ900", "L": 55, "W": 40, "H": 27, "unit": "cm", "soft_only": true, "quote": "Dash 8-400/E175/CRJ900: 55 x 40 x 27 cm"}, {"airline": "air-canada", "label": "Widebody Business Class", "L": 41, "W": 21, "H": 28, "unit": "cm", "soft_only": true, "quote": "widebody Business Class: 41 x 21 x 28 cm"}, {"airline": "air-france", "label": "Cabin", "L": 46, "W": 28, "H": 24, "unit": "cm", "soft_only": true, "quote": "max 46 x 28 x 24 cm", "reading": "Air France gives no axis labels; read as L x W x H."}, {"airline": "alaska", "label": "Cabin", "L": 17, "W": 11, "H": 9.5, "unit": "in", "soft_only": true, "quote": "17 x 11 x 9.5 in", "reading": "Read as L x W x H."}, {"airline": "hawaiian", "label": "Cabin", "L": 17, "W": 11, "H": 9.5, "unit": "in", "soft_only": true, "quote": "17 x 11 x 9.5 in", "reading": "Read as L x W x H."}, {"airline": "american", "label": "Soft-sided (recommended)", "L": 18, "W": 11, "H": 11, "unit": "in", "quote": "Soft-sided (recommended): 18 x 11 x 11 in", "reading": "Read as L x W x H.", "soft_limit": true}, {"airline": "american", "label": "Hard-sided, mainline", "L": 19, "W": 13, "H": 9, "unit": "in", "hard_only": true, "quote": "hard-sided mainline: 19 x 13 x 9 in", "reading": "Read as L x W x H."}, {"airline": "american", "label": "Hard-sided, American Eagle", "L": 16, "W": 12, "H": 8, "unit": "in", "hard_only": true, "quote": "hard-sided American Eagle: 16 x 12 x 8 in", "reading": "Read as L x W x H."}, {"airline": "delta", "label": "Recommended soft-sided kennel", "L": 18, "W": 11, "H": 11, "unit": "in", "quote": "max 18 x 11 x 11 in", "reading": "Read as L x W x H. Delta says the real limit depends on the aircraft's under-seat space.", "soft_limit": true}, {"airline": "jetblue", "label": "Cabin (soft or hard)", "L": 17, "W": 12.5, "H": 8.5, "unit": "in", "quote": "17 x 12.5 x 8.5 in", "reading": "Read as L x W x H."}, {"airline": "lufthansa", "label": "Cabin", "L": 55, "W": 40, "H": 23, "unit": "cm", "soft_only": true, "quote": "55 x 40 x 23 cm", "reading": "Read as L x W x H. Lufthansa also states a 118 cm total."}, {"airline": "united", "label": "Soft-sided", "L": 18, "W": 11, "H": 11, "unit": "in", "quote": "soft-sided: 11 x 18 x 11 in", "reading": "United lists 11 x 18 x 11 in without axis labels; read as H x L x W. United also says carriers can be no more than 10 in tall on the Boeing 737 MAX.", "soft_limit": true}, {"airline": "united", "label": "Soft-sided, Boeing 737 MAX", "L": 18, "W": 11, "H": 10, "unit": "in", "soft_limit": true, "quote": "max 10 in tall on Boeing 737 MAX", "reading": "United's soft-sided limit with its 10 in maximum height on the Boeing 737 MAX applied."}, {"airline": "united", "label": "Hard-sided", "L": 17.5, "W": 12, "H": 9, "unit": "in", "hard_only": true, "quote": "Hard-sided: 9 x 17.5 x 12 in", "reading": "United lists 9 x 17.5 x 12 in without axis labels; read as H x L x W."}];
+function toCm(v,u){return u==='in'?v*2.54:v}
+function verdict(box, c, soft){
+  const flex = soft && box.soft_only ? 1.05 : 1.0;
+  const ok = c.L<=box.L*flex+0.01 && c.W<=box.W*flex+0.01 && c.H<=box.H*flex+0.01;
+  const near = !ok && c.L<=box.L*1.08 && c.W<=box.W*1.08 && c.H<=box.H*1.08;
+  if(ok) return {cls:'ok', t:'Fits cleanly'};
+  if(near && soft) return {cls:'warn', t:'Soft-flex borderline — confirm with airline'};
+  return {cls:'bad', t:'Too tall or long for published under-seat box'};
+}
+function run(){
+  const box0=LIMITS[+airline.value]; const u=unit.value;
+  let box={L:box0.L,W:box0.W,H:box0.H,soft_only:!!box0.soft_only,unit:box0.unit,airline:box0.airline,label:box0.label};
+  if(box.unit==='in'){box.L*=2.54;box.W*=2.54;box.H*=2.54}
+  const c={L:toCm(+L.value,u),W:toCm(+W.value,u),H:toCm(+H.value,u)};
+  const v=verdict(box,c,soft.checked);
+  diag.innerHTML='<h3 class="'+v.cls+'">'+v.t+'</h3><p>Airline box: <b>'+box0.airline+'</b> '+box0.label+' · '+box0.L+'×'+box0.W+'×'+box0.H+' '+box0.unit+'</p><p>Your carrier: '+L.value+'×'+W.value+'×'+H.value+' '+u+(soft.checked?' (soft)':' (hard)')+'</p><p class="privacy">Published maxima only — gate agents still decide. Soft flex is not a guarantee.</p>';
+  // SVG overlay scaled
+  const s=svg; s.innerHTML='';
+  const maxD=Math.max(box.L,box.W,c.L,c.W,1);
+  const sc=320/maxD;
+  function rect(x,y,w,h,stroke,fill,label){
+    const r=document.createElementNS('http://www.w3.org/2000/svg','rect');
+    r.setAttribute('x',x);r.setAttribute('y',y);r.setAttribute('width',w*sc);r.setAttribute('height',h*sc);
+    r.setAttribute('fill',fill);r.setAttribute('stroke',stroke);r.setAttribute('stroke-width','2');s.appendChild(r);
+    const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x',x+4);t.setAttribute('y',y+14);t.setAttribute('fill','#f5efe0');t.setAttribute('font-size','11');t.textContent=label;s.appendChild(t);
+  }
+  rect(30,30,box.L,box.W,'#d9b765','rgba(217,183,101,.15)','Airline under-seat');
+  rect(30,30,c.L,c.W,'#7dcea0','rgba(125,206,160,.2)','Your carrier (L×W)');
+  const q=new URLSearchParams(location.search); q.set('airline', box0.airline); history.replaceState(null,'',location.pathname+'?'+q.toString());
+}
+function exportPng(w,h,name){
+  const c=cv; c.width=w; c.height=h; const ctx=c.getContext('2d');
+  ctx.fillStyle='#0b1719'; ctx.fillRect(0,0,w,h);
+  ctx.fillStyle='#d9b765'; ctx.font='bold 44px sans-serif'; ctx.fillText('Carrier Fit Check',48,70);
+  ctx.fillStyle='#f5efe0'; ctx.font='28px sans-serif';
+  diag.innerText.split('\n').slice(0,10).forEach((line,i)=>ctx.fillText(line.slice(0,42),48,130+i*36));
+  ctx.fillStyle='#a9b3a4'; ctx.font='22px sans-serif'; ctx.fillText('petpolicycheck.com/fit',48,h-48);
+  const a=document.createElement('a'); a.download=name; a.href=c.toDataURL('image/png'); a.click();
+}
+airline.onchange=run; unit.onchange=run; soft.onchange=run; go.onclick=run;
+png916.onclick=()=>exportPng(1080,1920,'ppc-fit-story.png');
+png11.onclick=()=>exportPng(1080,1080,'ppc-fit-post.png');
+const q=new URLSearchParams(location.search);
+if(q.get('airline')){const i=LIMITS.findIndex(x=>x.airline===q.get('airline')); if(i>=0) airline.value=i}
+run();
+</script>
+
+</main>
+<footer class="foot foot-compact"><div class="wrap">
+<p class="disc"><span data-i18n="site.foot.copyright">© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission.</span>
+See <a href="../terms.html" data-i18n="site.foot.terms">Terms</a>.</p>
+</div></footer>
+</body></html>

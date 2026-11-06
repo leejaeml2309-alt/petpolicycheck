@@ -56,3 +56,33 @@ $('#card').onclick = () => { const c = $('#cv'), x = c.getContext('2d'), r = row
   x.fillStyle = tint; x.font = 'bold 38px system-ui'; x.fillText('petpolicycheck.com/airlines/compare/', 60, 1300);
   const l = document.createElement('a'); l.download = 'ppc-pet-fee-card.png'; l.href = c.toDataURL('image/png'); l.click(); };
 render();
+
+
+/* Military & Service Dog filter (Step C V3) */
+(function(){
+  function bootMil(){
+    var filters=document.querySelector('.filters');
+    if(!filters || document.getElementById('fMilitary')) return;
+    var lab=document.createElement('label');
+    lab.innerHTML='<input type="checkbox" id="fMilitary"> <span data-i18n="compare.military">Military & Service Dog</span>';
+    filters.insertBefore(lab, filters.firstChild);
+    var note=document.createElement('div');
+    note.id='milNote'; note.className='gcard'; note.style.cssText='display:none;margin:10px 0;padding:10px 12px;border:1px solid rgba(217,183,101,.3);border-radius:10px;background:rgba(17,37,42,.7);color:#e8e0d0';
+    note.innerHTML='<b>Military / Service Dog view</b>: Highlights carriers often used on PCS orders (Delta, United, American, Alaska). DOT service dogs: $0 cabin under 14 CFR Part 382. Canada CTA may require ADI/IGDF school certification. AMC Space-A: leisure pets generally barred — service dogs / Patriot Express PCS slots differ. JTR pet reimbursement overview: up to $550 CONUS / $2,000 OCONUS (confirm on dfas.mil / defense.gov). See <a href="../../veterans/">Veterans hub</a> · <a href="../../military-pcs/">PCS kit</a>.';
+    filters.parentNode.insertBefore(note, filters.nextSibling);
+    var milSlugs={delta:1,united:1,american:1,alaska:1,'air-canada':1};
+    function apply(){
+      var on=document.getElementById('fMilitary').checked;
+      note.style.display=on?'block':'none';
+      document.querySelectorAll('#tb tr').forEach(function(tr){
+        var slug=(tr.getAttribute('data-slug')||tr.id||'').toLowerCase();
+        if(!slug){ var a=tr.querySelector('a'); slug=(a&&a.href||'').toLowerCase(); }
+        var hit=Object.keys(milSlugs).some(function(k){return slug.indexOf(k)>=0 || (tr.textContent||'').toLowerCase().indexOf(k.replace('-',' '))>=0});
+        if(on && !hit) tr.style.opacity='0.35'; else tr.style.opacity='';
+      });
+    }
+    document.getElementById('fMilitary').addEventListener('change', apply);
+    if(new URLSearchParams(location.search).get('military')==='1'){ document.getElementById('fMilitary').checked=true; apply(); }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', bootMil); else bootMil();
+})();
