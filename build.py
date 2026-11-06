@@ -305,8 +305,8 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
 <div class="wrap cols">
 <div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
 <div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "#map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.nav.book", "Book your trip")}{li(h + "#compare", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(h + "#compare", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}</ul></div>
-<div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
-<div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
+<div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{li(root + "extension/", "site.foot.extension", "Chrome Extension")}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
+<div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "terms.html", "site.foot.terms", "Terms")}{li(root + "refund-policy.html", "site.foot.refund", "Refund policy")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
 {band}
 <div class="wrap"><p class="disc"><span{ti("site.foot.aff", fi)}>Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</span> &copy; {dt.date.today().year} {e(cfg['site_name'])}</p></div></footer>"""
@@ -692,7 +692,7 @@ def obf_mail(addr):
 
 
 EFFECTIVE = "October 22, 2026"
-PRIVACY_UPDATED = "November 5, 2026"
+PRIVACY_UPDATED = "November 6, 2026"
 
 
 def analytics_privacy(cfg):
@@ -720,7 +720,7 @@ def forum_privacy(cfg):
 <p><b>Your choices:</b> you can delete your own posts and comments at any time from <a href="forum/account.html">My account</a>, and change your display name. To delete your account and all its data, or to get a copy of it, email {fm}; we handle requests within 30 days. Your data is kept while your account exists.</p>
 <p>Forum pages for signing in and posting don't show ads or load affiliate scripts.</p>
 <h3 id="forum-officer">Privacy officer, retention and your rights</h3>
-<ul><li><b>Privacy officer:</b> the site owner (operator of {e(cfg['site_name'])}), contact {fm}.</li>
+<ul><li><b>Privacy officer:</b> LEVRAT Marc Jea Won (operator of PetPolicyCheck / Paw Passport), contact {fm}.</li>
 <li><b>Data collected for the forum:</b> email address, display name, password hash (email sign-up only), posts, comments, reports, and their dates and moderation status.</li>
 <li><b>Purpose:</b> sign-in, publishing and moderating forum content, account emails.</li>
 <li><b>Retention:</b> account data is kept until you ask us to delete it (or delete it yourself); posts and comments you delete, and accounts we delete on request, are removed from the database and from our published pages within 30 days.</li>
@@ -761,6 +761,11 @@ def build_privacy(cfg):
 <p>Some pages include affiliate links to partners, for example brands on the Impact network (such as Chewy, Trupanion or Lemonade), Amazon.com, Booking.com and Travelpayouts partners. If you buy through one, we may earn a commission at no extra cost to you. When you click an affiliate link, you leave our site and the partner (or its affiliate network) may set cookies or use similar technology to record that the visit came from us. Those cookies are governed by the partner's own privacy policy, not ours. We don't receive personal information about you from these partners, only aggregated sales or commission reports. Affiliate relationships never change the policy information we publish.</p>
 <p>{AMAZON_DISCLOSURE} {e(cfg['site_name'])} participates in the Amazon Services LLC Associates Program; Amazon may use cookies to record that a visit or purchase came from our links, under Amazon's own privacy notice.</p>
 {analytics_privacy(cfg)}
+<h2 id="paddle-billing">B2B Subscriptions &amp; Billing (Paddle.com — Merchant of Record)</h2>
+<p>PetPolicyCheck / Paw Passport is operated by <strong>LEVRAT Marc Jea Won</strong>, 266-17 Pyeonghwa-ro, Paju-si, Gyeonggi-do 10849, Republic of Korea. Contact: {mail}.</p>
+<p>For paid <strong>B2B Pet Desk</strong> subscriptions (<a href="pro/">current pricing</a>), <strong>Paddle.com Market Limited / Paddle.com Inc.</strong> (&ldquo;Paddle&rdquo;) acts as <strong>Merchant of Record</strong> and as an independent controller of payment and billing data. Card, PayPal, and other payment details are collected and processed by Paddle — they <strong>never touch PetPolicyCheck servers</strong>.</p>
+<p>Our order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.</p>
+<p>Paddle&rsquo;s processing of billing data is governed by the <a href="https://www.paddle.com/legal/privacy" rel="noopener" target="_blank">Paddle Privacy Policy</a>. Buyer support for paid orders: <a href="https://paddle.net" rel="noopener" target="_blank">paddle.net</a>. See also our <a href="terms.html">Terms of Service</a> and <a href="refund-policy.html">Refund policy</a>.</p>
 <h2>External links</h2>
 <p>We link to airline and government websites. Their privacy practices are their own.</p>
 <h2>Children</h2>
@@ -768,6 +773,7 @@ def build_privacy(cfg):
 <h2>Changes</h2>
 <p>If this policy changes, we'll update this page and its "last updated" date.</p>
 <h2>Contact</h2>
+<p>Operator: <strong>LEVRAT Marc Jea Won</strong> (PetPolicyCheck / Paw Passport), 266-17 Pyeonghwa-ro, Paju-si, Gyeonggi-do 10849, Republic of Korea.</p>
 <p>Questions about privacy: {mail}.</p>"""
     return page(cfg, f"Privacy policy | {cfg['site_name']}", desc, body, "privacy.html", "")
 
@@ -2819,6 +2825,36 @@ def main():
     (OUT / "updates.html").write_text(build_updates(cfg, airlines, updates))
     (OUT / "about.html").write_text(build_about(cfg))
     (OUT / "privacy.html").write_text(build_privacy(cfg))
+    # Hand-authored Paddle / B2B / extension pages (also mirrored under static/).
+    # Copied after generated pages so a future refresh.py / build.py run keeps them live.
+    def _copy_static_page(rel: str):
+        src = ROOT / "static" / rel
+        dst = OUT / rel
+        if not src.exists():
+            print(f"  WARNING: missing {src}; skipped")
+            return
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        if src.is_dir():
+            if dst.exists():
+                shutil.rmtree(dst)
+            shutil.copytree(src, dst)
+        else:
+            shutil.copy2(src, dst)
+    for _rel in (
+        "terms.html",
+        "refund-policy.html",
+        "pro",
+        "extension",
+        "b2b-pet-desk",
+    ):
+        _copy_static_page(_rel)
+    # Optional zip download for the Chrome extension (binary-safe copy)
+    _zip = ROOT / "static" / "downloads" / "pets-allowed-chrome-extension-v1.zip"
+    if _zip.exists():
+        (OUT / "downloads").mkdir(parents=True, exist_ok=True)
+        shutil.copy2(_zip, OUT / "downloads" / _zip.name)
+    # privacy.html is generated above (includes Paddle MoR section). Keep static/privacy.html
+    # as a reference mirror only — do not overwrite the generated page.
     (OUT / "contact.html").write_text(build_contact(cfg))
     (OUT / "advertise" / "index.html").write_text(build_advertise(cfg))
     (OUT / "partner-vets" / "index.html").write_text(build_partner_vets(cfg))
@@ -2859,6 +2895,10 @@ def main():
                                       json.loads((ROOT / "data" / "partner_vets.json").read_text()).get("tools_checked") or "", load_insurers()["checked"])))
     urls.append((f"{base}/pet-travel-checklist/", "2026-10-24"))
     urls.append((f"{base}/clinics/usa.html", "2026-10-25"))
+    urls.append((f"{base}/pro/", "2026-11-06"))
+    urls.append((f"{base}/extension/", "2026-11-06"))
+    urls.append((f"{base}/terms.html", "2026-11-06"))
+    urls.append((f"{base}/refund-policy.html", "2026-11-06"))
     sm = "".join(f"<url><loc>{e(u)}</loc><lastmod>{d}</lastmod></url>" for u, d in urls)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n')
     (OUT / "ads.txt").write_text("google.com, pub-7693501377730690, DIRECT, f08c47fec0942fa0\n")

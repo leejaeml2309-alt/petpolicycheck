@@ -1,0 +1,376 @@
+{
+ "v": 1,
+ "built": "2026-11-06",
+ "base": "https://petpolicycheck.com/",
+ "airlines": [
+  {
+   "d": [
+    "united.com"
+   ],
+   "name": "United Airlines",
+   "iata": "UA",
+   "cabin": true,
+   "fee": "$150 each way",
+   "dims": "18 × 11 × 11 in (Soft-sided)",
+   "weight": "No weight limit (pet must fit carrier)",
+   "hold": "No (PetSafe ended)",
+   "trap": "Roomy soft bag; long no-pet list (UK, Hawaii, Ireland…)",
+   "species": "Cats and dogs only",
+   "verified": "2026-10-22",
+   "page": "airlines/united.html",
+   "src": "https://www.united.com/en/us/fly/travel/animals.html"
+  },
+  {
+   "d": [
+    "delta.com"
+   ],
+   "name": "Delta Air Lines",
+   "iata": "DL",
+   "cabin": true,
+   "fee": "$150 US/CA · $200 intl",
+   "dims": "18 × 11 × 11 in (Recommended soft-sided kennel)",
+   "weight": "Not stated by Delta",
+   "hold": "No (military / State Dept only)",
+   "trap": "Easy domestic; no cabin pets to UK, Hawaii, Iceland…",
+   "species": "Small dogs, cats and household birds (birds only within the contiguous U.S.)",
+   "verified": "2026-10-22",
+   "page": "airlines/delta.html",
+   "src": "https://www.delta.com/us/en/pet-travel/overview"
+  },
+  {
+   "d": [
+    "aa.com"
+   ],
+   "name": "American Airlines",
+   "iata": "AA",
+   "cabin": true,
+   "fee": "$150 per kennel",
+   "dims": "18 × 11 × 11 in (Soft-sided (recommended))",
+   "weight": "No general cabin limit (20 lb on A321T premium)",
+   "hold": "Cargo via PetEmbark",
+   "trap": "Americas only: no carry-on pets transatlantic/transpacific",
+   "species": "Cats and dogs",
+   "verified": "2026-10-22",
+   "page": "airlines/american.html",
+   "src": "https://www.aa.com/i18n/travel-info/special-assistance/pets.jsp"
+  },
+  {
+   "d": [
+    "airfrance.com",
+    "airfrance.us",
+    "airfrance.fr"
+   ],
+   "name": "Air France",
+   "iata": "AF",
+   "cabin": true,
+   "fee": "Check with airline",
+   "dims": "46 × 28 × 24 cm",
+   "weight": "8 kg pet + carrier",
+   "hold": "Yes, 8–75 kg in the hold",
+   "trap": "Clear 8 kg rule; add pet ≥24 h ahead (48 h dogs to US)",
+   "species": "Cats and dogs",
+   "verified": "2026-10-22",
+   "page": "airlines/air-france.html",
+   "src": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat"
+  },
+  {
+   "d": [
+    "lufthansa.com"
+   ],
+   "name": "Lufthansa",
+   "iata": "LH",
+   "cabin": true,
+   "fee": "EUR 65–145 / USD 80–165 by zone",
+   "dims": "55 × 40 × 23 cm",
+   "weight": "8 kg pet + carrier",
+   "hold": "Yes, dogs & cats over 8 kg",
+   "trap": "Biggest bag (55×40×23); US dog bookings to 7 airports only",
+   "species": "Small dogs and cats only",
+   "verified": "2026-10-22",
+   "page": "airlines/lufthansa.html",
+   "src": "https://www.lufthansa.com/us/en/travelling-with-animals"
+  },
+  {
+   "d": [
+    "aircanada.com"
+   ],
+   "name": "Air Canada",
+   "iata": "AC",
+   "cabin": true,
+   "fee": "CA/US $50–60 (Canada & CA/US)",
+   "dims": "43 × 40 × 20 cm (Most mainline jets)",
+   "weight": "Cabin limit not stated (hold 45 kg)",
+   "hold": "Yes, hard kennel; seasonal embargoes",
+   "trap": "Lowest cabin fee; only 20 cm height on mainline",
+   "species": "Cats and small dogs (one per passenger, at least 10 weeks old)",
+   "verified": "2026-10-22",
+   "page": "airlines/air-canada.html",
+   "src": "https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/pets.html"
+  },
+  {
+   "d": [
+    "alaskaair.com"
+   ],
+   "name": "Alaska Airlines",
+   "iata": "AS",
+   "cabin": true,
+   "fee": "$100 per carrier",
+   "dims": "17 × 11 × 9.5 in",
+   "weight": "Cabin limit not stated (hold 150 lb)",
+   "hold": "Yes, baggage compartment",
+   "trap": "Cheap & clear; low 9.5 in carrier height",
+   "species": null,
+   "verified": "2026-10-22",
+   "page": "airlines/alaska.html",
+   "src": "https://www.alaskaair.com/content/travel-info/policies/pets-traveling-with-pets"
+  },
+  {
+   "d": [
+    "hawaiianairlines.com"
+   ],
+   "name": "Hawaiian Airlines",
+   "iata": "HA",
+   "cabin": true,
+   "fee": "$100 ($35 within Hawaii)",
+   "dims": "17 × 11 × 9.5 in",
+   "weight": "No cabin limit stated (must fit)",
+   "hold": "Yes, ≤150 lb combined",
+   "trap": "Shares Alaska rules; Hawaii quarantine rules apply",
+   "species": "Small dogs and house cats (also domesticated rabbits and small household birds on some routes; only dogs, cats and rabbits in the cabin to Hawaii, rabbits to Honolulu only)",
+   "verified": "2026-10-23",
+   "page": "airlines/hawaiian.html",
+   "src": "https://www.hawaiianairlines.com/content/travel-info/pets"
+  },
+  {
+   "d": [
+    "jetblue.com"
+   ],
+   "name": "JetBlue",
+   "iata": "B6",
+   "cabin": true,
+   "fee": "Not shown on the page we fetched",
+   "dims": "17 × 12.5 × 8.5 in (Cabin (soft or hard))",
+   "weight": "Not stated",
+   "hold": "No: cabin only",
+   "trap": "Soft or hard carrier OK; no Mint, exit or bulkhead",
+   "species": "Small dogs and cats only",
+   "verified": "2026-10-22",
+   "page": "airlines/jetblue.html",
+   "src": "https://www.jetblue.com/help/traveling-with-pets"
+  },
+  {
+   "d": [
+    "southwest.com"
+   ],
+   "name": "Southwest Airlines",
+   "iata": "WN",
+   "cabin": true,
+   "fee": "$125 per carrier",
+   "dims": null,
+   "weight": "Not stated",
+   "hold": "No cargo",
+   "trap": "US only: no international, no Hawaii (except inter-island)",
+   "species": "Small vaccinated domestic cats and dogs (at least 8 weeks old)",
+   "verified": "2026-10-22",
+   "page": "airlines/southwest.html",
+   "src": "https://support.southwest.com/helpcenter/s/article/pet-policy"
+  },
+  {
+   "d": [
+    "britishairways.com",
+    "ba.com"
+   ],
+   "name": "British Airways",
+   "iata": "BA",
+   "cabin": false,
+   "fee": "—",
+   "dims": null,
+   "weight": "—",
+   "hold": "Hold only, via PetAir UK / IAG Cargo",
+   "trap": "No pets in the cabin on any route",
+   "species": "None (no pets in the cabin on any route)",
+   "verified": "2026-10-22",
+   "page": "airlines/british-airways.html",
+   "src": "https://www.britishairways.com/content/information/travel-assistance/travelling-with-pets"
+  }
+ ],
+ "hotels": [
+  {
+   "d": [
+    "kimptonhotels.com",
+    "ihg.com/kimptonhotels"
+   ],
+   "name": "Kimpton (IHG)",
+   "fee": "No pet fee, no deposit",
+   "weight": "No size or weight limit",
+   "pets": "No limit on number",
+   "species": "Any pet that \"fits through the door\" (furry, feathery or scaly)",
+   "notes": "Brand-wide promise on Kimpton's pet page; individual hotels may still post their own rules, so check the hotel page.",
+   "check": false,
+   "src": "https://www.ihg.com/kimptonhotels/content/us/en/promos/pet-friendly-hotels",
+   "verified": "2026-10-24",
+   "page": "hotels/"
+  },
+  {
+   "d": [
+    "motel6.com"
+   ],
+   "name": "Motel 6",
+   "fee": "Free (no pet fee)",
+   "weight": "150 lb combined",
+   "pets": "2 per room",
+   "species": "Dogs and cats",
+   "notes": "Pets must be declared at check-in and not left alone in the room. Some Studio 6 properties may charge a pet fee; local law can forbid pets at a location.",
+   "check": false,
+   "src": "https://www.motel6.com/pages/policies/about/",
+   "verified": "2026-10-24",
+   "page": "hotels/"
+  },
+  {
+   "d": [
+    "redroof.com"
+   ],
+   "name": "Red Roof Inn / Red Roof PLUS+",
+   "fee": "1st pet free; 2nd pet $15 per night (max $105 per extra pet for 7+ nights)",
+   "weight": "80 lb per pet",
+   "pets": "2 per room (more at manager's discretion, $15/night each)",
+   "species": "Dogs and cats",
+   "notes": "HomeTowne Studios and The Red Collection set their own rules. Two listed locations (Oxon Hill, MD and Bellmawr, NJ) cannot accept pets.",
+   "check": false,
+   "src": "https://www.redroof.com/why-red-roof/pet-policy",
+   "verified": "2026-10-24",
+   "page": "hotels/"
+  },
+  {
+   "d": [
+    "wyndhamhotels.com/laquinta"
+   ],
+   "name": "La Quinta by Wyndham",
+   "fee": "Optional fee up to $25 per night, max $75 per room per stay",
+   "weight": "Some locations set a limit (ask the hotel)",
+   "pets": "2 per room",
+   "species": "Domestic pets such as dogs and cats",
+   "notes": "Pets are not allowed in the breakfast area, gym or pool. La Quinta lists hotels that take no pets, including La Quinta New York City Central Park, Queens, Brooklyn Downtown and Brooklyn East.",
+   "check": false,
+   "src": "https://www.wyndhamhotels.com/laquinta/about-us/pet-friendly/pet-policy-details",
+   "verified": "2026-10-24",
+   "page": "hotels/"
+  },
+  {
+   "d": [
+    "druryhotels.com"
+   ],
+   "name": "Drury Hotels",
+   "fee": "Daily fee, minimum $50 per night (varies by hotel)",
+   "weight": "80 lb combined",
+   "pets": "2 per room",
+   "species": null,
+   "notes": "Pets are not allowed in the lobby, dining area, pool or fitness center and should not be left alone in the room.",
+   "check": false,
+   "src": "https://www.druryhotels.com/pet-guidelines",
+   "verified": "2026-10-24",
+   "page": "hotels/"
+  },
+  {
+   "d": [
+    "loewshotels.com"
+   ],
+   "name": "Loews Hotels",
+   "fee": null,
+   "weight": null,
+   "pets": "2 per room",
+   "species": null,
+   "notes": "Up-to-date vaccinations required. Loews says additional cleaning fees and property-specific policies may apply: check the hotel's page.",
+   "check": false,
+   "src": "https://www.loewshotels.com/loews-loves-pets",
+   "verified": "2026-10-24",
+   "page": "hotels/"
+  },
+  {
+   "d": [
+    "hilton.com"
+   ],
+   "name": "Hilton brands (Hampton, Home2, Homewood, DoubleTree, Embassy Suites and more)",
+   "fee": "Fees apply and vary by hotel",
+   "weight": null,
+   "pets": null,
+   "species": null,
+   "notes": "Hilton says it welcomes pets at over 5,000 hotels in the US and Canada; rules are set per hotel, so filter for pet-friendly and read the hotel's policy.",
+   "check": false,
+   "src": "https://www.hilton.com/en/pet-friendly/",
+   "verified": "2026-10-24",
+   "page": "hotels/"
+  },
+  {
+   "d": [
+    "marriott.com"
+   ],
+   "name": "Aloft (Marriott)",
+   "fee": null,
+   "weight": null,
+   "pets": null,
+   "species": null,
+   "notes": "Aloft's ARF program welcomes pets with a bed, bowl, treats and toys. The brand page gives no fee, weight or number: each Marriott hotel sets its own pet rules.",
+   "check": false,
+   "src": "https://www.marriott.com/brands/aloft.mi",
+   "verified": "2026-10-24",
+   "page": "hotels/"
+  },
+  {
+   "d": [
+    "fourseasons.com"
+   ],
+   "name": "Four Seasons",
+   "fee": null,
+   "weight": null,
+   "pets": null,
+   "species": null,
+   "notes": "No brand-wide pet policy: each hotel sets its own. Example: Four Seasons Hotel New York Downtown welcomes dogs and cats under 25 lb.",
+   "check": false,
+   "src": "https://www.fourseasons.com/newyorkdowntown/services-and-amenities/pet-friendly-stays/",
+   "verified": "2026-10-24",
+   "page": "hotels/"
+  },
+  {
+   "d": [
+    "bestwestern.com"
+   ],
+   "name": "Best Western",
+   "fee": null,
+   "weight": null,
+   "pets": null,
+   "species": null,
+   "notes": "We could not load Best Western's official pet-friendly page on the date checked, so we show no numbers. Check the hotel's own page before you book.",
+   "check": true,
+   "src": "https://www.bestwestern.com/en_US/hotels/discover-best-western/pet-friendly-hotels.html",
+   "verified": "2026-10-24",
+   "page": "hotels/"
+  }
+ ],
+ "portals": [
+  {
+   "d": [
+    "expedia.com"
+   ],
+   "name": "Expedia"
+  },
+  {
+   "d": [
+    "booking.com"
+   ],
+   "name": "Booking.com"
+  },
+  {
+   "d": [
+    "airbnb.com"
+   ],
+   "name": "Airbnb"
+  },
+  {
+   "d": [
+    "hotels.com"
+   ],
+   "name": "Hotels.com"
+  }
+ ]
+}
