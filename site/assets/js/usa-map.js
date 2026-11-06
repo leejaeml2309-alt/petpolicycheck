@@ -621,6 +621,66 @@ $("#map").addEventListener("click",e=>{if(cur&&e.target===e.currentTarget)showAl
 })();
 buildMap();
 const pick=$("#pick");ABBRS.forEach(a=>pick.add(new Option(GEO[a].name,a)));pick.onchange=()=>pick.value&&selectState(pick.value);
+
+/* Custom mineral-night state picker — keeps #pick synced for programmatic use */
+(function mountUsaStatePicker(){
+  const pick = $("#pick"); if(!pick || pick.dataset.spMounted) return;
+  pick.dataset.spMounted = "1";
+  const wrap = document.createElement("div");
+  wrap.className = "state-picker";
+  wrap.setAttribute("data-sp", "usa");
+  pick.parentNode.insertBefore(wrap, pick);
+  wrap.appendChild(pick);
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "state-picker-btn";
+  btn.setAttribute("aria-haspopup", "listbox");
+  btn.setAttribute("aria-expanded", "false");
+  btn.innerHTML = '<span class="sp-label">Choose a state…</span><svg class="sp-chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.4 9.5 12 14.1l4.6-4.6 1.4 1.4-6 6-6-6z"/></svg>';
+  const menu = document.createElement("ul");
+  menu.className = "state-picker-menu";
+  menu.setAttribute("role", "listbox");
+  menu.setAttribute("tabindex", "-1");
+  menu.innerHTML = '<li class="sp-head" aria-hidden="true">50 States</li>' +
+    ABBRS.map(a => `<li role="option" data-a="${a}" aria-selected="false"><span class="sp-name">${esc(GEO[a].name)}</span><span class="sp-code">${a}</span></li>`).join("") +
+    `<li role="option" data-a="DC" aria-selected="false"><span class="sp-name">Washington, DC</span><span class="sp-code">DC</span></li>`;
+  wrap.append(btn, menu);
+  const label = btn.querySelector(".sp-label");
+  function setOpen(o){
+    wrap.classList.toggle("open", o);
+    btn.setAttribute("aria-expanded", o ? "true" : "false");
+  }
+  function syncFromPick(){
+    const v = pick.value;
+    [...menu.querySelectorAll('[role="option"]')].forEach(li => li.setAttribute("aria-selected", String(li.dataset.a === v)));
+    if(!v){ label.textContent = "Choose a state…"; return; }
+    if(v === "DC"){ label.textContent = "Washington, DC"; return; }
+    label.textContent = (GEO[v] && GEO[v].name) || v;
+  }
+  window.syncUsaStatePicker = syncFromPick;
+  btn.addEventListener("click", e => { e.stopPropagation(); setOpen(!wrap.classList.contains("open")); });
+  menu.addEventListener("click", e => {
+    const li = e.target.closest('[role="option"]'); if(!li) return;
+    const a = li.dataset.a;
+    if(a === "DC"){ pick.value = ""; selectDC(); }
+    else { pick.value = a; selectState(a); }
+    syncFromPick(); setOpen(false);
+  });
+  document.addEventListener("click", e => { if(!wrap.contains(e.target)) setOpen(false); });
+  document.addEventListener("keydown", e => { if(e.key === "Escape") setOpen(false); });
+  pick.addEventListener("change", syncFromPick);
+  // Monkey-patch value setter so hilite/showAllStates keep the button label in sync
+  const proto = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, "value");
+  if(proto && proto.set){
+    Object.defineProperty(pick, "value", {
+      configurable: true,
+      get(){ return proto.get.call(this); },
+      set(v){ proto.set.call(this, v); syncFromPick(); }
+    });
+  }
+  syncFromPick();
+})();
+
 $("#grid").innerHTML=ABBRS.map(a=>`<button data-a="${a}">${mark(a)}<span>${esc(GEO[a].name)}</span></button>`).join("")+`<button data-a="DC">${mark("DC")}<span>Washington, DC</span></button>`;
 $("#grid").querySelectorAll("button").forEach(b=>b.onclick=()=>{b.dataset.a==="DC"?selectDC():selectState(b.dataset.a);$("#panel").scrollIntoView({behavior:"smooth",block:"nearest"})});
 const raw=decodeURIComponent((location.hash||"").replace(/^#/,"").replace(/\+/g," "));

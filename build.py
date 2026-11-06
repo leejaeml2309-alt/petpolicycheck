@@ -3122,7 +3122,7 @@ def build_usa_map(cfg):
     published = {s["code"] for s in json.loads((ROOT / "data" / "countries" / "usa.json").read_text())["states"] if s["code"] != "PR"}
     missing = [c for c in sorted(published) if f'"{c}":' not in rules_js]
     assert not missing, f"static/assets/js/usa-map-rules.js is missing {missing}; regenerate it from data/countries/usa.json"
-    body = """<link rel="stylesheet" href="{root}assets/css/usa-map.css?v=20261107e">
+    body = """<link rel="stylesheet" href="{root}assets/css/usa-map.css?v=20261107g">
 <div id="usa-map">
 <section class="intro">
  <div><h1>Travel the USA with your pet</h1>
@@ -3159,7 +3159,7 @@ def build_usa_map(cfg):
 <script src="{root}assets/js/grooming.js"></script>
 <script src="{root}assets/js/usa-map-geo.js"></script>
 <script src="{root}assets/js/usa-map-rules.js"></script>
-<script src="{root}assets/js/usa-map.js?v=20261107e"></script>"""
+<script src="{root}assets/js/usa-map.js?v=20261107g"></script>"""
     return page(
         cfg,
         f"USA pet-travel map | {cfg['site_name']}",

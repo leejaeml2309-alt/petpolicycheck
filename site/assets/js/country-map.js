@@ -89,6 +89,56 @@ function buildMap(){
     pick.innerHTML = `<option value="">Choose a ${DATA.unit}…</option>` +
       ABBRS.map(a => `<option value="${a}">${esc(GEO[a].name)} (${a})</option>`).join('');
     pick.onchange = () => { if(pick.value) selectRegion(pick.value); else resetAll(); };
+
+  /* Custom mineral-night region picker */
+  (function mountCountryPicker(){
+    if(!pick || pick.dataset.spMounted) return;
+    pick.dataset.spMounted = '1';
+    const wrap = document.createElement('div');
+    wrap.className = 'state-picker';
+    pick.parentNode.insertBefore(wrap, pick);
+    wrap.appendChild(pick);
+    const unit = (DATA && DATA.unit) ? DATA.unit : 'region';
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'state-picker-btn';
+    btn.setAttribute('aria-haspopup', 'listbox');
+    btn.setAttribute('aria-expanded', 'false');
+    const ph = 'Choose a ' + unit + '…';
+    btn.innerHTML = '<span class="sp-label">' + ph + '</span><svg class="sp-chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.4 9.5 12 14.1l4.6-4.6 1.4 1.4-6 6-6-6z"/></svg>';
+    const menu = document.createElement('ul');
+    menu.className = 'state-picker-menu';
+    menu.setAttribute('role', 'listbox');
+    const head = (DATA && DATA.country === 'canada') ? 'Provinces & territories' : (DATA && DATA.country === 'mexico') ? 'States' : 'Regions';
+    menu.innerHTML = '<li class="sp-head" aria-hidden="true">' + head + '</li>' +
+      ABBRS.map(a => `<li role="option" data-a="${a}" aria-selected="false"><span class="sp-name">${esc(GEO[a].name)}</span><span class="sp-code">${a}</span></li>`).join('');
+    wrap.append(btn, menu);
+    const label = btn.querySelector('.sp-label');
+    function setOpen(o){ wrap.classList.toggle('open', o); btn.setAttribute('aria-expanded', o?'true':'false'); }
+    function syncFromPick(){
+      const v = pick.value;
+      [...menu.querySelectorAll('[role="option"]')].forEach(li => li.setAttribute('aria-selected', String(li.dataset.a === v)));
+      label.textContent = v && GEO[v] ? GEO[v].name : ph;
+    }
+    window.syncCountryStatePicker = syncFromPick;
+    btn.addEventListener('click', e => { e.stopPropagation(); setOpen(!wrap.classList.contains('open')); });
+    menu.addEventListener('click', e => {
+      const li = e.target.closest('[role="option"]'); if(!li) return;
+      pick.value = li.dataset.a; selectRegion(li.dataset.a); syncFromPick(); setOpen(false);
+    });
+    document.addEventListener('click', e => { if(!wrap.contains(e.target)) setOpen(false); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') setOpen(false); });
+    const proto = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value');
+    if(proto && proto.set){
+      Object.defineProperty(pick, 'value', {
+        configurable: true,
+        get(){ return proto.get.call(this); },
+        set(v){ proto.set.call(this, v); syncFromPick(); }
+      });
+    }
+    syncFromPick();
+  })();
+
   }
   buildPortalGrid();
 }
