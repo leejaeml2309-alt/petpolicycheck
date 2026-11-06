@@ -42,11 +42,11 @@ main.wrap:has(#usa-map){max-width:1320px}
 #usa-map .legend{display:flex;gap:14px;font-size:.8rem;color:var(--mut);margin-left:auto;flex-wrap:wrap}
 #usa-map .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
 #usa-map svg#map{display:block;width:100%;height:auto;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
-#usa-map .st{fill:#16302f;stroke:#0b1719;stroke-width:.9;cursor:pointer;transition:fill .15s}
-#usa-map .st:hover{fill:#24494a}
-#usa-map .st.rule{fill:#1d3a35}
-#usa-map .st.rule:hover{fill:#2a5149}
-#usa-map .st.sel{fill:#6d5a2c;stroke:var(--gold-l);stroke-width:1.6}
+#usa-map .st{fill:#a82c3a;stroke:#1a0b0e;stroke-width:.95;cursor:pointer;transition:fill .15s,stroke .15s,filter .15s}
+#usa-map .st.st-t1{fill:#d9828b}#usa-map .st.st-t2{fill:#be4f5c}#usa-map .st.st-t3{fill:#a82c3a}#usa-map .st.st-t4{fill:#841c29}#usa-map .st.st-t5{fill:#5c111b}
+#usa-map .st:hover{filter:brightness(1.12);stroke:#f4efe6;stroke-width:1.15}
+#usa-map .st.rule{}
+#usa-map .st.sel{fill:#6d5a2c;stroke:var(--gold-l,#f0d58c);stroke-width:2;filter:none}
 #usa-map .st:focus{outline:none}#usa-map .st:focus-visible{stroke:var(--gold-l);stroke-width:2.2}
 #usa-map .lbl{font:600 calc(10px*var(--kt,1)) var(--text);fill:#cdbf9a;pointer-events:none;text-anchor:middle;dominant-baseline:central;letter-spacing:.04em}
 #usa-map .lbl.sel{fill:#fff7df}

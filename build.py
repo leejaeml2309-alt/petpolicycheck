@@ -474,9 +474,9 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <link rel="preload" href="{root}assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{root}assets/css/theme.css?v={CSS_VER}">
 <link rel="stylesheet" href="{root}style.css?v={CSS_VER}">
-<link rel="stylesheet" href="{root}assets/css/ppc-i18n.css?v=20261107d">
-<script src="{root}assets/i18n/ui.js?v=20261107d" defer></script>
-<script src="{root}assets/js/ppc-i18n.js?v=20261107d" defer></script>
+<link rel="stylesheet" href="{root}assets/css/ppc-i18n.css?v=20261107e">
+<script src="{root}assets/i18n/ui.js?v=20261107e" defer></script>
+<script src="{root}assets/js/ppc-i18n.js?v=20261107e" defer></script>
 <script src="{root}assets/js/pastilles.js?v={PST_VER}" defer></script>
 <meta name="theme-color" content="#0b1719">
 {ld}
@@ -3122,7 +3122,7 @@ def build_usa_map(cfg):
     published = {s["code"] for s in json.loads((ROOT / "data" / "countries" / "usa.json").read_text())["states"] if s["code"] != "PR"}
     missing = [c for c in sorted(published) if f'"{c}":' not in rules_js]
     assert not missing, f"static/assets/js/usa-map-rules.js is missing {missing}; regenerate it from data/countries/usa.json"
-    body = """<link rel="stylesheet" href="{root}assets/css/usa-map.css">
+    body = """<link rel="stylesheet" href="{root}assets/css/usa-map.css?v=20261107e">
 <div id="usa-map">
 <section class="intro">
  <div><h1>Travel the USA with your pet</h1>
@@ -3141,7 +3141,7 @@ def build_usa_map(cfg):
   <div class="maptools">
    <label for="pick">State</label>
    <select id="pick"><option value="">Choose a state…</option></select>
-   <div class="legend"><span><i style="background:#1d3a35;border:1px solid #3a5a56"></i>Special entry rules</span><span><i style="background:#b22234;box-shadow:0 0 0 1px #f4efe6"></i>City booking guide</span><span><i style="background:#dce6f5;box-shadow:inset 0 0 0 1.5px #1f4fa3"></i>Capital</span><span><i style="background:#f2ede2"></i>Main city</span><span><b class="lg-ap">✈</b>Airport, linked to its city</span></div>
+   <div class="legend"><span class="dens-label"><i class="dens-swatch" aria-hidden="true"></i>Hub &amp; rule density (light → dark)</span><span><i style="background:#b22234;box-shadow:0 0 0 1px #fff8ec"></i>City booking guide</span><span><i style="background:#dce6f5;box-shadow:inset 0 0 0 1.5px #1f4fa3"></i>Capital</span><span><i style="background:#f2ede2"></i>Main city</span><span><b class="lg-ap">✈</b>Airport, linked to its city</span></div>
   </div>
   <button class="btn ghost" type="button" id="reset" hidden>Show all states</button>
   <svg id="map" viewBox="0 0 975 610" role="group" aria-label="US states, main cities, and airports"><g id="g-st"></g><g id="g-lb"></g><g id="g-ct"></g><g id="g-ap"></g></svg>
@@ -3159,7 +3159,7 @@ def build_usa_map(cfg):
 <script src="{root}assets/js/grooming.js"></script>
 <script src="{root}assets/js/usa-map-geo.js"></script>
 <script src="{root}assets/js/usa-map-rules.js"></script>
-<script src="{root}assets/js/usa-map.js"></script>"""
+<script src="{root}assets/js/usa-map.js?v=20261107e"></script>"""
     return page(
         cfg,
         f"USA pet-travel map | {cfg['site_name']}",
@@ -3221,7 +3221,7 @@ def build_airlines_compare(cfg):
 def build_passport(cfg):
     """Idea #1 — Pet Travel Passport at /passport/."""
     root = "../"
-    body = f"""<link rel="stylesheet" href="{root}assets/css/passport.css">
+    body = f"""<link rel="stylesheet" href="{root}assets/css/passport.css?v=20261107e">
 <section class="wrap" id="ppc-passport" style="padding:18px 0 40px;max-width:1200px;margin:0 auto">
 <p class="eyebrow" style="color:var(--gold,#d9b765);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px">Trip planner</p>
 <h1 style="font-family:var(--disp,Marcellus,serif);font-weight:400;color:var(--head,#f5efe0);margin:0 0 8px" data-i18n="passport.h1">Pet Travel Passport</h1>

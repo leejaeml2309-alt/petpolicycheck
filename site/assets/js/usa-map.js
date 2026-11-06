@@ -229,12 +229,49 @@ function mark(a,size){
 /* ---------- map ---------- */
 const NS="http://www.w3.org/2000/svg";
 const el=(t,at)=>{const e=document.createElementNS(NS,t);for(const k in at)e.setAttribute(k,at[k]);return e};
+
+/* Pet-travel hub & rule density score → 5-tier red choropleth (Marc 2026-11-07).
+   Deterministic from SAMPLE / AIRPORTS / CLINICS / RULES / GEO already on the page. */
+const HOTEL_GUIDE_STATES=new Set(["CA","NY","FL","IL","TX","MI","WA","CO","GA"]);
+function stateDensityScore(a){
+  let s=0;
+  const apN=AIRPORTS.filter(ap=>ap.placeState===a||ap.metroState===a).length;
+  s+=apN*2;
+  const clinicN=Object.keys(CLINICS).filter(k=>k.startsWith(a+"|")).length;
+  s+=clinicN*1.5;
+  const hasSample=Object.keys(SAMPLE).some(k=>k.startsWith(a+"|"));
+  if(hasSample||HOTEL_GUIDE_STATES.has(a)) s+=3;
+  if(RULES[a]&&RULES[a].differs) s+=1.5;
+  if(RULES[a]&&RULES[a].verified) s+=1;
+  const cities=((GEO[a]&&GEO[a].cities)||[]).length;
+  s+=cities*0.5;
+  return s;
+}
+function assignDensityTiers(){
+  const states=ABBRS.slice();
+  const scored=states.map(a=>({a,score:stateDensityScore(a)})).sort((x,y)=>x.score-y.score||x.a.localeCompare(y.a));
+  const n=scored.length, tiers={};
+  // Quantile buckets (~equal count) into 5 tiers: 1=lightest … 5=darkest
+  scored.forEach((row,i)=>{
+    const q=Math.min(4, Math.floor((i/n)*5)); // 0..4
+    tiers[row.a]=q+1;
+  });
+  if(GEO.DC){ const d=Math.round(((tiers.VA||3)+(tiers.MD||3))/2); tiers.DC=Math.max(1,Math.min(5,d)); }
+  window.PPC_USA_DENSITY_TIERS=tiers;
+  window.PPC_USA_DENSITY_SCORES=Object.fromEntries(scored.map(r=>[r.a,r.score]));
+  return tiers;
+}
+const TIER_FILL={1:"#d9828b",2:"#be4f5c",3:"#a82c3a",4:"#841c29",5:"#5c111b"};
+function tierFill(a){const t=(window.PPC_USA_DENSITY_TIERS||{})[a]||1;return TIER_FILL[t]||TIER_FILL[1]}
+
 function buildMap(){
  const gs=$("#g-st"),gl=$("#g-lb"),gc=$("#g-ct");
+ const tiers=assignDensityTiers();
  for(const a of Object.keys(GEO)){
   const s=GEO[a];
   const special=!!(RULES[a]&&RULES[a].differs), unver=!!(RULES[a]&&!RULES[a].verified);
-  const p=el("path",{d:s.d,class:"st"+(special?" rule":""),id:"s-"+a,tabindex:a==="DC"?-1:0,role:"button","aria-label":s.name+(special?" (special entry rules)":"")+(unver?" (placeholder, confirm with the state veterinarian)":"")});
+  const tier=tiers[a]||1;
+  const p=el("path",{d:s.d,class:"st st-t"+tier+(special?" rule":""),id:"s-"+a,"data-tier":String(tier),"data-density":String((window.PPC_USA_DENSITY_SCORES||{})[a]||0),tabindex:a==="DC"?-1:0,role:"button","aria-label":s.name+(special?" (special entry rules)":"")+(unver?" (placeholder, confirm with the state veterinarian)":"")+", density tier "+tier});
   const t=el("title",{});t.textContent=s.name;p.appendChild(t);
   p.addEventListener("click",()=>a==="DC"?selectDC():selectState(a));
   p.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();selectState(a)}});
@@ -253,7 +290,7 @@ function buildMap(){
   const ly=t.ly+shift, lx=948;
   gl.appendChild(el("line",{x1:t.x,y1:t.y,x2:lx-14,y2:ly,stroke:"#3a5a56","stroke-width":.8}));
   const g=el("g",{class:"ct",role:"button",tabindex:0,"aria-label":GEO[t.a].name});
-  const r=el("rect",{x:lx-13,y:ly-8,width:26,height:16,rx:8,fill:"#16302f",stroke:"#3a5a56",id:"cb-"+t.a});
+  const r=el("rect",{x:lx-13,y:ly-8,width:26,height:16,rx:8,fill:tierFill(t.a),stroke:"#1a0b0e","data-tier":String(tiers[t.a]||1),id:"cb-"+t.a});
   const tx=el("text",{x:lx,y:ly,class:"lbl",id:"l-"+t.a});tx.textContent=t.a;
   g.append(r,tx);g.addEventListener("click",()=>selectState(t.a));
   g.addEventListener("keydown",e=>{if(e.key==="Enter"){selectState(t.a)}});gl.appendChild(g);
@@ -428,7 +465,7 @@ function hilite(a,key,apCode){zoomTo(a&&a!=="DC"?a:null);
  document.querySelectorAll(".st.sel,.lbl.sel,.ct.sel,.ap.sel").forEach(e=>e.classList.remove("sel"));
  document.querySelectorAll("#grid button.sel").forEach(e=>e.classList.remove("sel"));
  document.querySelectorAll(".ct[data-s]").forEach(e=>{if(!e.classList.contains("sample"))e.classList.toggle("hide-lbl",e.dataset.s!==a)});
- TINY.forEach(t=>{const r=$("#cb-"+t);r&&r.setAttribute("fill",t===a?"#6d5a2c":"#16302f")});
+ TINY.forEach(t=>{const r=$("#cb-"+t);if(!r)return;r.setAttribute("fill",t===a?"#6d5a2c":tierFill(t));r.classList.toggle("sel",t===a)});
  if(a){$("#s-"+a)?.classList.add("sel");$("#l-"+a)?.classList.add("sel");document.querySelector(`#grid button[data-a="${a}"]`)?.classList.add("sel")}
  if(key)document.querySelector(`.ct[data-k="${CSS.escape(key)}"]`)?.classList.add("sel");
  document.querySelectorAll(".ap,.ap-link").forEach(el=>{
