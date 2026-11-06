@@ -1,9 +1,17 @@
-/* PetPolicyCheck airline comparator UI — sourced from innov #6 */
+/* PetPolicyCheck airline comparator UI — v2 (2026-11-07): search, i18n (6 langs), mobile cards, "Check with airline" for unverified values */
 const DATA = window.PPC_COMPARATOR;
 const A = DATA.airlines, $ = s => document.querySelector(s);
-$('#ukrule').textContent = DATA.meta.uk_global_rule; $('#gen').textContent = DATA.meta.generated;
-[...new Set(A.map(a => a.region))].sort().forEach(r => $('#fRegion').insertAdjacentHTML('beforeend', `<option>${r}</option>`));
+const EN_FALLBACK = (window.PPC_I18N && window.PPC_I18N.strings && window.PPC_I18N.strings.en) || {};
+function t(k, vars){
+  let v = (window.PPC_LANG && window.PPC_LANG.t(k)) || EN_FALLBACK[k] || k;
+  if (vars) Object.keys(vars).forEach(n => { v = v.split('{' + n + '}').join(vars[n]); });
+  return v; }
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fold = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+const cabinOK = a => !!(a.cabin_dogs || a.cabin_cats);
+const NOLIM = ['none_stated', 'explicit_no_limit'];
+const REGIONS = [...new Set(A.map(a => a.region))].sort();
+function check(){ return `<span class="chk">${esc(t('compare.check'))}</span>`; }
 function parseDims(str){ // "18 x 14 x 9 in (..)" → {L,W,H,unit}
   const m = String(str).match(/(\d+(?:\.\d+)?)\s*(?:L\s*)?x\s*(\d+(?:\.\d+)?)\s*(?:W\s*|H\s*)?x\s*(\d+(?:\.\d+)?)\s*(?:H\s*|W\s*)?(cm|in)/i);
   return m ? {L:+m[1], W:+m[2], H:+m[3], unit:m[4].toLowerCase()} : null; }
@@ -11,43 +19,62 @@ function fits(a){
   const L = +$('#cL').value, W = +$('#cW').value, H = +$('#cH').value; if(!(L && W && H)) return null;
   const k = $('#cU').value === 'cm' ? 1 : 2.54, mine = [L*k, W*k, H*k];
   const opts = (a.underseat_soft_dims_in_cm || []).map(parseDims).filter(Boolean);
-  if(!opts.length) return a.cabin_dogs || a.cabin_cats ? 'unknown' : null;
-  // best-case aircraft/label; soft carriers usually compress ~1 in on height, we do NOT assume it.
+  if(!opts.length) return cabinOK(a) ? 'unknown' : null;
   return opts.some(o => { const f = o.unit === 'cm' ? 1 : 2.54; return mine[0] <= o.L*f && mine[1] <= o.W*f && mine[2] <= o.H*f; }) ? 'ok' : 'ko'; }
-function feeTxt(a){ return a.cabin_fee_usd_or_local ? esc(a.cabin_fee_usd_or_local) : '<span class="n">No cabin pets</span>'; }
-function rowsFiltered(){
+function rowsFiltered(useCabin = true){
+  const q = fold($('#fQ').value);
   let r = A.filter(a => (!$('#fDog').checked || a.cabin_dogs) && (!$('#fCat').checked || a.cabin_cats)
-    && (!$('#fCabin').checked || a.cabin_dogs || a.cabin_cats)
-    && (!$('#fNoLimit').checked || ['none_stated','explicit_no_limit'].includes(a.weight_limit_type))
+    && (!useCabin || !$('#fCabin').checked || cabinOK(a))
+    && (!$('#fNoLimit').checked || NOLIM.includes(a.weight_limit_type))
     && (!$('#fCargo').checked || a.cargo_or_checked_allowed === true)
-    && (!$('#fRegion').value || a.region === $('#fRegion').value));
+    && (!$('#fRegion').value || a.region === $('#fRegion').value)
+    && (!q || fold(a.name + ' ' + a.iata + ' ' + a.id).includes(q)));
   const s = $('#fSort').value, key = s === 'long' ? 'fee_usd_long' : 'fee_usd_short';
   r.sort((x, y) => s === 'name' ? x.name.localeCompare(y.name) : ((x[key] ?? 1e9) - (y[key] ?? 1e9)) || x.name.localeCompare(y.name));
   return r; }
+function cell(label, html, cls){ return `<td${cls ? ` class="${cls}"` : ''} data-label="${esc(label)}"><div class="v">${html}</div></td>`; }
 function render(){
-  const r = rowsFiltered();
-  $('#count').textContent = `${r.length} of ${A.length} airlines match`;
-  $('#tb').innerHTML = r.map(a => { const f = fits(a); const rev = /needs_review|needs_recheck|secondary/.test(a.verification_level);
-    return `<tr data-dept="plane">
-    <td class="name"><b>${esc(a.name)}</b><small>${esc(a.iata)} · ${esc(a.region)}</small>${rev ? '<br><span class="pill rev">needs review</span>' : ''}</td>
-    <td>${a.cabin_dogs ? '<span class="y">Dogs ✓</span>' : '<span class="n">Dogs ✗</span>'}<br>${a.cabin_cats ? '<span class="y">Cats ✓</span>' : '<span class="n">Cats ✗</span>'}</td>
-    <td>${feeTxt(a)}</td>
-    <td>${esc(a.max_weight_cabin_lb_kg)}${['none_stated','explicit_no_limit'].includes(a.weight_limit_type) ? '<br><span class="pill nolimit">no published limit</span>' : ''}</td>
-    <td>${(a.underseat_soft_dims_in_cm || ['Not published / n.a.']).map(esc).join('<br>')}${f ? `<br><span class="fit ${f === 'ok' ? 'ok' : 'ko'}">${f === 'ok' ? 'Your carrier fits ✓' : f === 'ko' ? 'Too big ✗' : 'Size not published ?'}</span>` : ''}</td>
-    <td class="hide-m">${esc(a.cargo_fee_note)}</td><td class="hide-m">${esc(a.snub_nosed_note || '—')}</td>
-    <td><a href="${esc(a.official_policy_url)}" rel="noopener" target="_blank">Official</a>${a.ppc_guide_url ? ` · <a href="${esc(a.ppc_guide_url)}">PPC guide</a>` : ''}<br><small>${esc(a.last_verified)}</small></td></tr>`; }).join('');
+  const r = rowsFiltered(), all = rowsFiltered(false), hidden = all.length - r.length;
+  let c = t('compare.count', {n: r.length, t: A.length});
+  if ($('#fCabin').checked && hidden > 0) c += ' · ' + t('compare.count.cabin', {h: hidden});
+  $('#count').textContent = c;
+  const L = k => t('compare.col.' + k);
+  $('#tb').innerHTML = !r.length ? `<tr><td colspan="8" class="empty">${esc(t('compare.count.none'))}</td></tr>` : r.map(a => {
+    const f = fits(a), cab = cabinOK(a), rev = /needs_review|needs_recheck|secondary/.test(a.verification_level || '');
+    const dims = a.underseat_soft_dims_in_cm && a.underseat_soft_dims_in_cm.length ? a.underseat_soft_dims_in_cm.map(esc).join('<br>') : (cab ? check() : esc(t('compare.na_nocabin')));
+    const fee = a.cabin_fee_usd_or_local ? esc(a.cabin_fee_usd_or_local) : (cab ? check() : `<span class="n">${esc(t('compare.nocabin'))}</span>`);
+    const wt = a.max_weight_cabin_lb_kg ? esc(a.max_weight_cabin_lb_kg) + (NOLIM.includes(a.weight_limit_type) ? `<br><span class="pill nolimit">${esc(t('compare.nolimit'))}</span>` : '') : check();
+    const src = a.official_policy_url ? `<a href="${esc(a.official_policy_url)}" rel="noopener" target="_blank">${esc(t('compare.official'))} ↗</a>` : check();
+    const guide = a.ppc_guide_url ? ` · <a href="${esc(a.ppc_guide_url)}">${esc(t('compare.guide'))}</a>` : '';
+    const when = a.last_verified ? `<small class="ver">${esc(t('compare.checked', {d: a.last_verified}))}</small>` : `<small class="ver">${check()}</small>`;
+    return `<tr data-dept="plane" data-slug="${esc(a.id)}">
+    <td class="name" data-label="${esc(L('airline'))}"><b>${esc(a.name)}</b><small>${esc(a.iata)} · ${esc(t('compare.r.' + a.region))}</small>${rev ? `<br><span class="pill rev">${esc(t('compare.rev'))}</span>` : ''}</td>
+    ${cell(L('dogscats'), `${a.cabin_dogs ? `<span class="y">${esc(t('compare.dogs.y'))}</span>` : `<span class="n">${esc(t('compare.dogs.n'))}</span>`}<br>${a.cabin_cats ? `<span class="y">${esc(t('compare.cats.y'))}</span>` : `<span class="n">${esc(t('compare.cats.n'))}</span>`}`)}
+    ${cell(L('fee'), fee)}
+    ${cell(L('weight'), wt)}
+    ${cell(L('dims'), dims + (f ? `<br><span class="fit ${f === 'ok' ? 'ok' : 'ko'}">${esc(t(f === 'ok' ? 'compare.fit.ok' : f === 'ko' ? 'compare.fit.ko' : 'compare.fit.unk'))}</span>` : ''))}
+    ${cell(L('hold'), a.cargo_fee_note ? esc(a.cargo_fee_note) : check())}
+    ${cell(L('snub'), a.snub_nosed_note ? esc(a.snub_nosed_note) : check())}
+    ${cell(L('source'), src + guide + '<br>' + when, 'src')}</tr>`; }).join('');
 }
-document.querySelectorAll('.filters input,.filters select').forEach(e => e.addEventListener('input', render));
+function paintStatic(){
+  $('#ukrule').textContent = t('compare.uk_rule');
+  $('#gen').textContent = DATA.meta.generated;
+  const sel = $('#fRegion'), cur = sel.value;
+  sel.innerHTML = `<option value="">${esc(t('compare.f.allregions'))}</option>` + REGIONS.map(r => `<option value="${esc(r)}">${esc(t('compare.r.' + r))}</option>`).join('');
+  sel.value = cur;
+  render(); }
+document.querySelectorAll('.filters input,.filters select,#fQ').forEach(e => e.addEventListener('input', render));
 document.querySelectorAll('th[data-k]').forEach(th => th.addEventListener('click', () => { $('#fSort').value = th.dataset.k; render(); }));
-function toast(t){ const e = $('#toast'); e.textContent = t; e.style.display = 'block'; setTimeout(() => e.style.display = 'none', 2200); }
+function toast(x){ const e = $('#toast'); e.textContent = x; e.style.display = 'block'; setTimeout(() => e.style.display = 'none', 2200); }
 function summary(){
   const r = rowsFiltered().slice(0, 10), tags = [$('#fDog').checked && 'dog', $('#fCat').checked && 'cat', $('#fNoLimit').checked && 'no published weight limit', $('#fRegion').value].filter(Boolean).join(', ');
   return `✈️🐾 Flying with a pet${tags ? ' (' + tags + ')' : ''}: ${r.length} airlines, cheapest first\n` +
-    r.map((a, i) => `${i + 1}. ${a.name}: ${a.cabin_fee_usd_or_local ? a.cabin_fee_usd_or_local.split(/[;(]/)[0].trim() : 'no cabin pets'}`).join('\n') +
+    r.map((a, i) => `${i + 1}. ${a.name}: ${a.cabin_fee_usd_or_local ? a.cabin_fee_usd_or_local.split(/[;(]/)[0].trim() : (cabinOK(a) ? 'check with airline' : 'no cabin pets')}`).join('\n') +
     `\n⚠️ UK: no cabin pets on arrival, cargo only.\nFull sourced table: https://petpolicycheck.com/airlines/compare/?utm_source=share`; }
-$('#copy').onclick = async () => { const t = summary(); try { await navigator.clipboard.writeText(t); toast('Summary copied'); } catch(e){ prompt('Copy:', t); } };
+$('#copy').onclick = async () => { const x = summary(); try { await navigator.clipboard.writeText(x); toast(t('compare.copied')); } catch(e){ prompt('Copy:', x); } };
 $('#card').onclick = () => { const c = $('#cv'), x = c.getContext('2d'), r = rowsFiltered().filter(a => a.fee_usd_short || a.fee_usd_long).slice(0, 10);
-  const tint = getComputedStyle(document.documentElement).getPropertyValue('--dept-plane').trim();
+  const tint = getComputedStyle(document.documentElement).getPropertyValue('--dept-plane').trim() || '#d9b765';
   x.fillStyle = '#fff'; x.fillRect(0, 0, 1080, 1350); x.fillStyle = tint; x.fillRect(0, 0, 1080, 230);
   x.fillStyle = '#fff'; x.font = 'bold 64px system-ui'; x.fillText('Pet in cabin: who charges what', 60, 120); x.font = '34px system-ui'; x.fillText('One way, per carrier · official airline pages · ' + DATA.meta.generated.slice(0, 10), 60, 185);
   x.fillStyle = '#14213d'; r.forEach((a, i) => { const y = 320 + i * 92; x.font = 'bold 40px system-ui'; x.fillText(a.name.replace(/ \(.*\)/, ''), 60, y);
@@ -55,8 +82,8 @@ $('#card').onclick = () => { const c = $('#cv'), x = c.getContext('2d'), r = row
     x.fillStyle = '#e6eaf2'; x.fillRect(60, y + 24, 960, 2); x.fillStyle = '#14213d'; });
   x.fillStyle = tint; x.font = 'bold 38px system-ui'; x.fillText('petpolicycheck.com/airlines/compare/', 60, 1300);
   const l = document.createElement('a'); l.download = 'ppc-pet-fee-card.png'; l.href = c.toDataURL('image/png'); l.click(); };
-render();
-
+window.addEventListener('ppc:lang', paintStatic);
+paintStatic();
 
 /* Military & Service Dog filter (Step C V3) */
 (function(){
