@@ -307,7 +307,7 @@ const CLINICS={"AL|Birmingham":{"name":"New Kelley Animal Hospital","place":"Bir
 
 /* ---------- panel ---------- */
 let step=1,cur=null;
-function header(a,title,sub){return `<div class="ph">${mark(a)}<div><h2>${esc(title)}</h2><div class="sub">${sub}</div></div></div>`}
+function header(a,title,sub){const P=window.PPC_PST?PPC_PST("map","pst-ph"):"";return `<div class="ph theme-map">${mark(a)}<div><div class="ph-eye">${P}<span>USA map · state panel</span></div><h2>${esc(title)}</h2><div class="sub">${sub}</div></div></div>`}
 function ruleKind(a){
  const r=RULES[a];
  if(r&&r.differs) return "<b style='color:#f0d58c'>Special entry rules</b>";
@@ -386,6 +386,7 @@ function airportPlane(ap){
 function airportRoad(ap){
  return `<section class="sec" data-sec="2"><h3><span class="n">2</span>Road / rail</h3><p>After landing, taxis, trains and hotels continue on the ${esc(ap.metroCity)} city panel.</p><div class="btnrow"><button type="button" class="btn ghost" data-s="${ap.metroState}" data-city="${esc(ap.metroCity)}">Open ${esc(ap.metroCity)}: taxis, rail, hotels</button></div><h4>Rides from the airport</h4><div class="links">${RIDES}</div></section>`;
 }
+function groomSection(){return window.PPC_GROOM?PPC_GROOM.section(cur):""}
 function hotelSection(q,extra){
  return `<section class="sec" data-sec="4"><h3><span class="n">4</span>Hotel</h3><div class="links">${extra||""}${lk("🏨","Pet-friendly hotels on Expedia",q+" · pets-allowed filter",expHotels(q),"srch")}${lk("🛏","Pet-friendly stays on Booking.com",q+" · pets-allowed filter",bkgHotels(q),"srch")}${lk("📋","Hotel chains: pet fees & weight limits","PetPolicyCheck",SITE+"/hotels/","off").replace('Official','Site')}</div><p class="disc">“Search” links are plain search URLs: swap for affiliate deep links before publish. “Affiliate” links may earn a commission at no extra cost to you.</p></section>`;
 }
@@ -450,10 +451,10 @@ function selectState(a){
  const s=GEO[a];
  render(header(a,s.name,`${a} · ${ruleKind(a)} · state law portal`)+
   `<h4 style="font:600 .72rem var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:4px 0 0">Main cities</h4>${cityButtons(a)}`+
-  lawSection(a)+roadSection(a)+planeSection(a)+hotelSection(s.name));
+  lawSection(a)+roadSection(a)+planeSection(a)+hotelSection(s.name)+groomSection());
 }
 function selectDC(){cur={a:"DC"};hilite(null);setHash("DC");
- render(header("DC","Washington, DC","DC · "+ruleKind("DC")+" · state law portal")+lawSection("DC")+roadSection("DC")+planeSection("DC")+hotelSection("Washington, DC"));}
+ render(header("DC","Washington, DC","DC · "+ruleKind("DC")+" · state law portal")+lawSection("DC")+roadSection("DC")+planeSection("DC")+hotelSection("Washington, DC")+groomSection());}
 function cityHotelExtra(a,n){
  const S=SAMPLE[a+"|"+n]; if(!S) return "";
  let extra="";
@@ -467,7 +468,7 @@ function selectCity(a,n){
  const crumbs=`<p class="crumbs"><button data-state="${a}">← ${esc(st.name)}</button> · ${esc(n)}</p>`;
  const chips=airportChips(airportsFor(a,n), "Airports serving "+n);
  if(!S){
-  render(crumbs+header(a,n,`${esc(st.name)} · city`)+chips+`<div class="stubbox"><b>Placeholder:</b> the full city booking panel (local taxis, transit, stations, hotels) is built for 8 sample cities in this preview. State-level links shown below.</div>`+lawSection(a,true,n)+roadSection(a)+planeSection(a,n)+hotelSection(n+", "+a));
+  render(crumbs+header(a,n,`${esc(st.name)} · city`)+chips+`<div class="stubbox"><b>Placeholder:</b> the full city booking panel (local taxis, transit, stations, hotels) is built for 8 sample cities in this preview. State-level links shown below.</div>`+lawSection(a,true,n)+roadSection(a)+planeSection(a,n)+hotelSection(n+", "+a)+groomSection());
   return;
  }
  const L=arr=>arr.map(x=>lk(...x)).join("");
@@ -476,7 +477,7 @@ function selectCity(a,n){
   `<h4>Buses &amp; local transit</h4><div class="links">${L(S.transit)}${lk("🚌","Greyhound","Service animals only, no pets (carrier policy; verify)","https://www.greyhound.com/","off")}</div><div class="stubbox"><b>Placeholder:</b> local transit pet rules (carrier size, fares, rush-hour limits) to be verified per agency.</div>`;
  render(crumbs+header(a,n,`${esc(st.name)} · city booking guide`)+
   `<div class="btnrow" style="margin:0 0 4px"><button class="btn ghost" data-state="${a}">State laws for ${esc(st.name)}</button></div>`+
-  chips+lawSection(a,true,n)+roadSection(a,city)+planeSection(a,n)+hotelSection(S.q,cityHotelExtra(a,n)));
+  chips+lawSection(a,true,n)+roadSection(a,city)+planeSection(a,n)+hotelSection(S.q,cityHotelExtra(a,n))+groomSection());
 }
 function airHead(ap){
  const tag=ap.pets?"":` · <b style="color:#f0a3a3">Placeholder hub</b>`;
@@ -494,11 +495,11 @@ function selectAirport(code){
  const q=SAMPLE[key]?SAMPLE[key].q:ap.metroCity+", "+ap.placeState;
  render(crumbs+airHead(ap)+
   `<div class="btnrow" style="margin:0 0 4px"><button type="button" class="btn" data-s="${ap.metroState}" data-city="${esc(ap.metroCity)}">City panel: taxis and hotels in ${esc(ap.metroCity)}</button></div>`+
-  lawSection(ap.placeState,true,ap.metroCity,ap.metroState)+airportRoad(ap)+airportPlane(ap)+hotelSection(q,cityHotelExtra(ap.metroState, ap.metroCity)));
+  lawSection(ap.placeState,true,ap.metroCity,ap.metroState)+airportRoad(ap)+airportPlane(ap)+hotelSection(q,cityHotelExtra(ap.metroState, ap.metroCity))+groomSection());
  applyStep(true);
 }
 function empty(){
- $("#panel").innerHTML=`<div class="empty"><div class="big">Pick a state or city</div><p>Click any of the 50 states on the map (or use the list) to open its law portal. Gold cities have the full booking guide. Plane marks are that city’s airports:</p><div class="citylist">${Object.keys(SAMPLE).map(k=>{const[a,n]=k.split("|");return `<button class="sample" data-s="${a}" data-city="${esc(n)}">${esc(n)}</button>`}).join("")}</div><div class="citylist">${AIRPORTS.filter(ap=>ap.pets&&SAMPLE[ap.metroState+"|"+ap.metroCity]).map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.metroCity)}</button>`).join("")}</div><p class="disc">Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel. Dashed plane marks (SFO, DFW) are placeholder hubs.</p></div>`;
+ $("#panel").innerHTML=`<div class="empty"><div class="big">Pick a state or city</div><p>Click any of the 50 states on the map (or use the list) to open its law portal. Gold cities have the full booking guide. Plane marks are that city’s airports:</p><div class="citylist">${Object.keys(SAMPLE).map(k=>{const[a,n]=k.split("|");return `<button class="sample" data-s="${a}" data-city="${esc(n)}">${esc(n)}</button>`}).join("")}</div><div class="citylist">${AIRPORTS.filter(ap=>ap.pets&&SAMPLE[ap.metroState+"|"+ap.metroCity]).map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.metroCity)}</button>`).join("")}</div><p class="disc">Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel → 5 grooming. Dashed plane marks (SFO, DFW) are placeholder hubs.</p></div>`;
  $("#panel").querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
  $("#panel").querySelectorAll("[data-ap]").forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
 }

@@ -309,7 +309,7 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "terms.html", "site.foot.terms", "Terms")}{li(root + "refund-policy.html", "site.foot.refund", "Refund policy")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
 {band}
-<div class="wrap"><p class="disc"><span{ti("site.foot.aff", fi)}>Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</span> &copy; {dt.date.today().year} {e(cfg['site_name'])}</p></div></footer>"""
+<div class="wrap"><p class="disc"><span{ti("site.foot.aff", fi)}>Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</span> &copy; {dt.date.today().year} PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See <a href="{root}terms.html"{ti("site.foot.terms", fi)}>Terms</a>.</p></div></footer>"""
 
 
 def css_version():
@@ -317,7 +317,14 @@ def css_version():
     return hashlib.sha1((ROOT / "static" / "style.css").read_bytes() + (ROOT / "static" / "assets" / "css" / "theme.css").read_bytes()).hexdigest()[:8]
 
 
+def pastilles_version():
+    import hashlib
+    p = ROOT / "static" / "assets" / "js" / "pastilles.js"
+    return hashlib.sha1(p.read_bytes()).hexdigest()[:8] if p.exists() else "0"
+
+
 CSS_VER = css_version()
+PST_VER = pastilles_version()
 
 
 OG_IMAGE = "img/og-default.jpg"
@@ -414,6 +421,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <link rel="preload" href="{root}assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{root}assets/css/theme.css?v={CSS_VER}">
 <link rel="stylesheet" href="{root}style.css?v={CSS_VER}">
+<script src="{root}assets/js/pastilles.js?v={PST_VER}" defer></script>
 <meta name="theme-color" content="#0b1719">
 {ld}
 </head>
@@ -2698,6 +2706,38 @@ def build_book(cfg, airlines):
                 body, "book/", root, jsonld=[bc_ld(cfg, [("Home", ""), ("Book your trip", "book/")])])
 
 
+
+def build_grooming(cfg):
+    """Verified pet grooming for travelers and local expats (dogs & cats)."""
+    root = "../"
+    body = """<nav class="crumbs"><a href="{root}">Home</a> &rsaquo; Care &amp; Grooming</nav>
+<h1>Verified Pet Grooming: Post-Flight Hotel Wash &amp; Fear-Free Local Expat Salons</h1>
+<p class="lead">Built for two real needs: <b>(1) Travelers in transit</b> needing a walk-in bath after a long flight or a mobile van right outside their hotel, and <b>(2) Newly arrived expats &amp; local residents</b> looking for fear-free, cage-free breed specialists and sedation-free cat grooming in EN / FR / ES / DE.</p>
+<p class="warn"><b>Dual-Use Verification Standard:</b> Every listed salon is checked for open-view tables (no hidden back cages), cat handling without forced sedation, breed scissor work, and whether foreign rabies certificates are accepted for travelers. Confirm details with the salon before you book.</p>
+<div id="grooming-directory" class="theme-grooming"></div>
+<p class="note">Also open any Wave A city on the <a href="{root}countries/usa-map.html">USA pet-travel map</a> and choose step 5 · Grooming.</p>
+<script src="{root}assets/js/grooming-data.js"></script>
+<script src="{root}assets/js/grooming.js"></script>
+<script>
+(function(){
+  var el=document.getElementById('grooming-directory');
+  if(!el||!window.PPC_GROOM) return;
+  var keys=Object.keys(window.PPC_GROOMERS||{});
+  el.innerHTML='<h2 id="directory">Seeded US Metro Groomers ('+PPC_GROOM.count()+' verified)</h2>'+PPC_GROOM.block(keys,'../',keys[0]||'');
+  PPC_GROOM.initBlocks();
+})();
+</script>"""
+    return page(
+        cfg,
+        f"Pet Grooming for Travelers & Local Expats | {cfg['site_name']}",
+        "Verified dog and cat groomers for travelers and local expats: hotel mobile vans, fear-free salons, sedation-free cats. English by default.",
+        body,
+        "grooming/",
+        root,
+        jsonld=[bc_ld(cfg, [("Home", ""), ("Grooming", "grooming/")])],
+    )
+
+
 def build_usa_map(cfg):
     """Interactive USA pet-travel map. Indexable; listed in sitemap.xml."""
     root = "../"
@@ -2709,13 +2749,14 @@ def build_usa_map(cfg):
 <div id="usa-map">
 <section class="intro">
  <div><h1>Travel the USA with your pet</h1>
- <p>Pick a state for its animal-entry rules (state and federal), then a city or one of its airports. Plan in order: vet and laws, road or rail, plane, hotel. <a href="usa.html">Full federal and state table</a>.</p></div>
+ <p>Pick a state for its animal-entry rules (state and federal), then a city or one of its airports. Plan in order: vet and laws, road or rail, plane, hotel, grooming. <a href="usa.html">Full federal and state table</a>.</p></div>
 </section>
 <ol class="steps" id="steps" aria-label="Journey order">
  <li><button type="button" data-step="1" aria-pressed="true"><b>1</b>Vet + laws</button></li><li class="arr" aria-hidden="true">→</li>
  <li><button type="button" data-step="2" aria-pressed="false"><b>2</b>Road / rail</button></li><li class="arr" aria-hidden="true">→</li>
  <li><button type="button" data-step="3" aria-pressed="false"><b>3</b>Plane</button></li><li class="arr" aria-hidden="true">→</li>
- <li><button type="button" data-step="4" aria-pressed="false"><b>4</b>Hotel</button></li>
+ <li><button type="button" data-step="4" aria-pressed="false"><b>4</b>Hotel</button></li><li class="arr" aria-hidden="true">→</li>
+ <li><button type="button" data-step="5" aria-pressed="false"><b>5</b>Grooming</button></li>
 </ol>
 <div class="app">
  <section class="card mapcard" aria-label="Map of the United States">
@@ -2736,6 +2777,8 @@ def build_usa_map(cfg):
  <div class="grid" id="grid"></div>
 </section>
 </div>
+<script src="{root}assets/js/grooming-data.js"></script>
+<script src="{root}assets/js/grooming.js"></script>
 <script src="{root}assets/js/usa-map-geo.js"></script>
 <script src="{root}assets/js/usa-map-rules.js"></script>
 <script src="{root}assets/js/usa-map.js"></script>"""
@@ -2808,6 +2851,8 @@ def main():
         assert "<!--HDR_AD-->" in home and "<!--HDR_MENU_JS-->" in home
         home = home.replace("<!--HDR_AD-->", "", 1).replace("<!--HDR_MENU_JS-->", header_ad(cfg), 1)  # home: no menu bar, centered brand
         home = home.replace('href="assets/css/theme.css"', f'href="assets/css/theme.css?v={CSS_VER}"', 1)  # header CSS changed: bust cache on home too
+        if 'pastilles.js' not in home:
+            home = home.replace('</head>', f'<script src="assets/js/pastilles.js?v={PST_VER}" defer></script></head>', 1)
         ga = ga4_head(cfg)  # home is static HTML, not page(); still sitewide, still from config
         if ga and "googletagmanager.com/gtag/js" not in home:
             if ADSENSE in home:
@@ -2862,6 +2907,8 @@ def main():
     (OUT / "clinics" / "usa.html").write_text(build_clinics_usa(cfg))
     (OUT / "countries" / "usa.html").write_text(build_country_usa(cfg, airlines))
     (OUT / "countries" / "usa-map.html").write_text(build_usa_map(cfg))
+    (OUT / "grooming").mkdir(parents=True, exist_ok=True)
+    (OUT / "grooming" / "index.html").write_text(build_grooming(cfg))
     (OUT / "routes" / "usa-to-japan.html").write_text(build_route_usa_japan(cfg, airlines))
     (OUT / "routes" / "usa-to-south-korea.html").write_text(build_route_usa_korea(cfg, airlines))
     hch, hci = hotels_data()
@@ -2886,6 +2933,7 @@ def main():
     urls += forum_pages.build(sys.modules[__name__], cfg, airlines, OUT, ROOT)  # [] while the forum is off
     urls.append((f"{base}/countries/usa.html", json.loads((ROOT / "data" / "countries" / "usa.json").read_text())["checked"]))
     urls.append((f"{base}/countries/usa-map.html", "2026-10-30"))
+    urls.append((f"{base}/grooming/", "2026-11-06"))
     urls.append((f"{base}/routes/usa-to-japan.html", json.loads((ROOT / "data" / "routes" / "usa-japan.json").read_text())["checked"]))
     urls.append((f"{base}/routes/usa-to-south-korea.html", json.loads((ROOT / "data" / "routes" / "usa-korea.json").read_text())["checked"]))
     urls.append((f"{base}/hotels/", hci["checked"]))
