@@ -152,6 +152,41 @@ def ga4_head(cfg):
     )
 
 
+GA4_SKIP_PARTS = ("extension/unpacked",)  # Chrome extension UI: MV3 forbids remote scripts
+
+
+def ensure_ga4_html(html, cfg):
+    """Add the sitewide GA4 snippet (ga4_head) to one HTML document if it is missing.
+    Idempotent: returns html unchanged when the measurement id is already present.
+    Skips fragments without <head> and instant redirect stubs (meta refresh), which would double-count page views.
+    Placement: right after <meta charset> (else right after <head>), like the generated pages."""
+    ga, mid = ga4_head(cfg), ga4_measurement_id(cfg)
+    if not ga or mid in html:
+        return html
+    low = html.lower()
+    h = low.find("<head")
+    if h < 0 or 'http-equiv="refresh"' in low or "http-equiv='refresh'" in low:
+        return html
+    h_end = low.find(">", h) + 1
+    m = re.compile(r"<meta\s+charset=[^>]*>", re.I).search(html, h_end, low.find("</head>", h_end) if "</head>" in low else len(html))
+    at = m.end() if m else h_end
+    return html[:at] + "\n" + ga + html[at:]
+
+
+def ensure_ga4_tree(out, cfg):
+    """Final pass over every built HTML file (generated or copied from static/): add GA4 where missing."""
+    n = 0
+    for f in sorted(Path(out).rglob("*.html")):
+        if any(part in f.as_posix() for part in GA4_SKIP_PARTS):
+            continue
+        html = f.read_text()
+        new = ensure_ga4_html(html, cfg)
+        if new != html:
+            f.write_text(new)
+            n += 1
+    return n
+
+
 TP_DRIVE = '<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">\n  (function () {\n      var script = document.createElement("script");\n      script.async = 1;\n      script.setAttribute("data-cmp-ab","2");\n      script.src = \'https://emrldtp.cc/NTg4ODAy.js?t=588802\';\n      document.head.appendChild(script);\n  })();\n</script>'
 
 
@@ -3472,7 +3507,11 @@ def main():
     print(f"Built {len(airlines)} airline pages, {len(pd['products'])} products, {len(pd['guides'])} guides, {len(lims)} cabin limits -> {OUT}")
     for a in airlines:
         print(f"  {a['slug']:16} confirmed {confirmed_count(a)}/{len(FIELDS)}  status={a.get('fetch_status')}")
+    print(f"GA4: tag added to {ensure_ga4_tree(OUT, cfg)} HTML file(s) that were missing it")
 
 
 if __name__ == "__main__":
-    main()
+    if "--ga4-only" in sys.argv:  # patch the committed site/ in place (no rebuild): add GA4 where missing
+        print(f"GA4: tag added to {ensure_ga4_tree(OUT, load()[0])} HTML file(s) in {OUT}")
+    else:
+        main()
