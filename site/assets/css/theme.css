@@ -498,7 +498,7 @@ html.theme-b2b .notice{border-color:color-mix(in srgb,var(--theme-flight) 40%,tr
   background:var(--theme-b2b,var(--theme-law)); color:var(--on-pri,#0b1719);
 }
 .biz-banner{
-  position:relative; margin:18px auto 8px; max-width:1200px; padding:0 20px;
+  position:relative; margin:8px auto 8px; max-width:1200px; padding:0 20px;
 }
 .biz-banner .biz-card{
   position:relative; overflow:hidden;
@@ -580,3 +580,64 @@ html.theme-b2b .notice{border-color:color-mix(in srgb,var(--theme-flight) 40%,tr
 .pro-sign h1{ position:relative; margin:0 0 .65rem; font-family:Marcellus,serif; font-weight:400;
   font-size:clamp(1.55rem,3.1vw,2.25rem); line-height:1.2; color:#f7f2e7; max-width:28ch; }
 .pro-sign .lead{ position:relative; margin:0; max-width:48rem; color:#c9c2b4; font-size:1.02rem; line-height:1.55; }
+
+
+/* ---- Sitewide Partner leaderboard slot (under top nav) ---- */
+.partner-slot{
+  position:relative; margin:10px auto 6px; max-width:1200px; padding:0 20px;
+}
+.partner-slot .partner-card{
+  position:relative; overflow:hidden;
+  display:grid; place-items:center;
+  min-height:90px; height:90px;
+  border-radius:14px;
+  border:1px solid color-mix(in srgb,var(--gold,#d9b765) 38%, transparent);
+  background:
+    radial-gradient(ellipse 80% 120% at 0% 50%, color-mix(in srgb,var(--gold,#d9b765) 12%, transparent), transparent 55%),
+    linear-gradient(135deg, #0c191d, #0b1719 60%, color-mix(in srgb,var(--gold,#d9b765) 8%, #0b1719));
+  box-shadow:0 10px 28px #0005;
+}
+.partner-slot .partner-label{
+  position:absolute; top:8px; left:14px; z-index:2;
+  font:600 .62rem Inter,system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase;
+  color:color-mix(in srgb,var(--gold,#d9b765) 75%, #c9c2b4);
+  opacity:.85;
+}
+.partner-slot .partner-ph{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px 18px;
+  padding:12px 18px; text-align:center; width:100%;
+}
+.partner-slot .partner-ph .pst-mini{
+  display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px;
+  color:var(--gold,#d9b765);
+  background:color-mix(in srgb,var(--gold,#d9b765) 14%, #0b1719);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--gold,#d9b765) 55%,transparent),0 0 0 2px #0b1719,0 0 0 3px color-mix(in srgb,var(--gold,#d9b765) 28%,transparent);
+}
+.partner-slot .partner-ph p{
+  margin:0; font:400 .92rem/1.35 Inter,system-ui,sans-serif; color:#c9c2b4;
+}
+.partner-slot .partner-ph p b{
+  font-family:Marcellus,Georgia,serif; font-weight:400; color:#f0e6c8; letter-spacing:.02em;
+}
+.partner-slot .partner-cta{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:7px 14px; border-radius:999px;
+  border:1px solid color-mix(in srgb,var(--gold,#d9b765) 55%, transparent);
+  color:var(--gold,#d9b765); text-decoration:none;
+  font:600 .78rem Inter,system-ui,sans-serif; letter-spacing:.04em;
+  background:color-mix(in srgb,var(--gold,#d9b765) 10%, transparent);
+}
+.partner-slot .partner-cta:hover{ background:var(--gold,#d9b765); color:#0b1719; }
+.partner-slot a.partner-creative{
+  display:block; width:100%; height:100%;
+}
+.partner-slot a.partner-creative img{
+  display:block; width:100%; height:100%; object-fit:contain; object-position:center;
+}
+.partner-slot .partner-html{ width:100%; height:100%; display:grid; place-items:center; }
+@media (max-width:720px){
+  .partner-slot{ margin:8px auto 4px; padding:0 14px; }
+  .partner-slot .partner-card{ min-height:100px; height:100px; border-radius:12px; }
+  .partner-slot .partner-ph{ padding:10px 12px; gap:8px; }
+  .partner-slot .partner-ph p{ font-size:.82rem; }
+}

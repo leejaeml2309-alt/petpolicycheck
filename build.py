@@ -168,7 +168,9 @@ NAV = [("#map", "World map", "site.nav.map", ()), ("book/", "Book", "site.nav.bo
        ("countries/usa.html#federal", "Health certificate", "site.nav.health", ()),  # no dedicated page yet: USA federal rules (CDC/USDA) section, leads to the state CVI table
        ("#compare", "Compare", "site.nav.compare", ()), ("products/", "Products", "site.nav.products", ("products/",)),
        ("#gear", "Guides", "site.nav.guides", ()), ("updates.html", "Updates", "site.nav.updates", ("updates.html",)),
-       ("about.html", "About", "site.nav.about", ("about.html",)), ("advertise/", "Advertise", "site.nav.advertise", ("advertise/",))]
+       ("about.html", "About", "site.nav.about", ("about.html",)),
+       ("pro/", "For Business", "site.nav.pro", ("pro/", "extension/", "b2b-pet-desk/")),  # briefcase pastille via pastilles.js theme-b2b
+       ("advertise/", "Advertise", "site.nav.advertise", ("advertise/",))]
 LOGO_BADGE = '<span class="lbadge"><img src="{root}assets/img/logo-mark-header.png" width="62" height="48" alt="" aria-hidden="true"></span>'
 
 
@@ -204,7 +206,10 @@ def nav_links(root, path, i18n=False):
         url = home_url(root) + href if href.startswith("#") else root + href
         if href == "book/" and path in BOOK_NAV_LOCAL:  # /book/ is US-only: Korea/Japan guides point "Book" at their own booking box
             url = BOOK_NAV_LOCAL[path]
-        cta = ' class="cta menu-only"' if href == "advertise/" else (' class="nav-book"' if href == "book/" else "")
+        cta = (' class="cta menu-only"' if href == "advertise/"
+               else ' class="nav-book"' if href == "book/"
+               else ' class="nav-biz"' if href == "pro/"
+               else "")
         out.append(f'<a{cta} href="{url}"{cur}{ti(key, i18n)}>{label}</a>')
     return "".join(out)
 
@@ -375,6 +380,43 @@ def build_og_image(cfg):
     clean.save(OUT / OG_IMAGE, "JPEG", quality=82, optimize=True, progressive=True)
 
 
+def load_partner_cfg(slot="top-partner"):
+    """Read static/assets/partners/<slot>.json. Missing/invalid -> inactive placeholder."""
+    p = ROOT / "static" / "assets" / "partners" / f"{slot}.json"
+    if not p.exists():
+        return {"active": False}
+    try:
+        return json.loads(p.read_text())
+    except Exception:
+        return {"active": False}
+
+
+def partner_banner(root, slot="top-partner"):
+    """Sitewide leaderboard under the top nav. Build-time render; partner-banner.js can refresh inactive slots."""
+    cfg = load_partner_cfg(slot)
+    label = '<span class="partner-label">Partner</span>'
+    live = "1" if cfg.get("active") and (cfg.get("html") or (cfg.get("image") and cfg.get("link"))) else "0"
+    if live == "1" and cfg.get("html"):
+        inner = f'{label}<div class="partner-html">{cfg["html"]}</div>'
+    elif live == "1":
+        img = e(cfg.get("image") or "")
+        img_m = e(cfg.get("image_mobile") or img)
+        alt = e(cfg.get("alt") or cfg.get("partner") or "Partner")
+        href = e(cfg.get("link") or "#")
+        inner = (f'{label}<a class="partner-creative" href="{href}" target="_blank" rel="sponsored noopener">'
+                 f'<picture><source media="(max-width:720px)" srcset="{root}assets/partners/{img_m}">'
+                 f'<img src="{root}assets/partners/{img}" alt="{alt}" width="970" height="90" loading="lazy" decoding="async"></picture></a>')
+    else:
+        inner = (f'{label}<div class="partner-ph">'
+                 f'<span class="pst-mini" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="12" rx="1.5"/><path d="M8 7V5.8A2.2 2.2 0 0 1 10.2 3.6h3.6A2.2 2.2 0 0 1 16 5.8V7M3.5 12h17"/></svg></span>'
+                 f'<p><b>Your brand here</b> · Become a PetPolicyCheck partner</p>'
+                 f'<a class="partner-cta" href="{root}advertise/">Partner with us <span aria-hidden="true">→</span></a>'
+                 f'</div>')
+    return (f'<aside class="partner-slot partner-top" data-partner-slot="{e(slot)}" data-partner-live="{live}" '
+            f'aria-label="Partner">{label}<div class="partner-card">{inner}</div></aside>')
+
+
+
 def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noindex=False, ads=True, sponsor="auto", extra_ad_keys=()):
     base = site_base(cfg)
     canon = canonical or f"{base}/{path}"
@@ -430,7 +472,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <header class="top"><div class="wrap">
 <a class="brand" href="{home_url(root)}">{LOGO_BADGE.replace('{root}', root)}{brand_word(cfg['site_name'])}</a>
 <nav class="nav menu" id="site-menu" aria-label="Main">{nav_links(root, path, fi)}</nav>{MENU_BTN}
-</div></header>{header_ad(cfg, ads)}{MENU_JS}
+</div></header>{partner_banner(root)}{header_ad(cfg, ads)}{MENU_JS}<script src="{root}assets/js/partner-banner.js" defer data-partner-root="{root}assets/partners/"></script>
 <main class="wrap" id="main">
 {body.replace('{root}', root)}
 </main>
@@ -2738,6 +2780,322 @@ def build_grooming(cfg):
     )
 
 
+def _map_switcher_html(current):
+    """USA / Canada / Mexico tabs with country accent dots."""
+    tabs = [
+        ("usa", "usa-map.html", "USA Map", "usa"),
+        ("ca", "canada-map.html", "Canada Map", "maple"),
+        ("mx", "mexico-map.html", "Mexico Map", "mxgreen"),
+    ]
+    bits = []
+    for tid, href, label, accent in tabs:
+        cur = ' is-current" aria-current="page"' if tid == current else '"'
+        bits.append(
+            f'<a class="msw-tab accent-{accent}{cur} href="{href}">'
+            f'<i aria-hidden="true"></i><span>{label}</span></a>'
+        )
+    return '<nav id="map-switch" class="map-switch" aria-label="Country maps">' + "".join(bits) + "</nav>"
+
+
+def _ensure_for_business_nav(html, root):
+    """Insert For Business link before Advertise in #site-menu when missing."""
+    if re.search(r'id="site-menu"[^>]*>.*?For Business', html, re.S):
+        return html
+    pat = r'(<nav class="nav menu" id="site-menu"[^>]*>)(.*?)(<a class="cta[^"]*" href="[^"]*advertise/[^"]*">Advertise</a>)'
+    html2, n = re.subn(pat, r'\1\2<a class="nav-biz" href="' + root + r'pro/">For Business</a>\3', html, count=1, flags=re.S)
+    if n:
+        return html2
+    pat2 = r'(<nav class="nav menu" id="site-menu"[^>]*>)(.*?)(<a class="cta" href="[^"]*advertise/[^"]*">Advertise</a>)'
+    html2, n = re.subn(pat2, r'\1\2<a class="nav-biz" href="' + root + r'pro/">For Business</a>\3', html, count=1, flags=re.S)
+    return html2 if n else html
+
+
+def _ensure_partner_slot(html, root):
+    """Insert partner banner immediately after </header> when missing."""
+    if "partner-slot" in html:
+        return html
+    slot = partner_banner(root)
+    if "</head>" in html and "partner-banner.js" not in html:
+        html = html.replace(
+            "</head>",
+            f'<script src="{root}assets/js/partner-banner.js" defer data-partner-root="{root}assets/partners/"></script>\n</head>',
+            1,
+        )
+    html2, n = re.subn(r"</header>", "</header>" + slot, html, count=1)
+    return html2 if n else html
+
+
+def _polish_static_html(path, root):
+    path = Path(path)
+    if not path.exists() or path.suffix != ".html":
+        return
+    # Chrome extension UI, redirect stubs, and similar non-site documents stay untouched
+    posix = path.as_posix().replace("\\", "/")
+    if "extension/unpacked" in posix or "/b2b-pet-desk/" in posix or posix.endswith("/b2b-pet-desk/index.html"):
+        return
+    html = path.read_text()
+    orig = html
+    html = _ensure_for_business_nav(html, root)
+    html = _ensure_partner_slot(html, root)
+    if html != orig:
+        path.write_text(html)
+
+
+def build_canada_map(cfg):
+    """Interactive Canada pet-travel map (13 hubs, CFIA)."""
+    root = "../"
+    sw = _map_switcher_html("ca")
+    body = (
+        """<link rel="stylesheet" href="{root}assets/css/country-map.css">
+<div id="country-map" class="accent-maple">
+<section class="intro">
+ <div><h1>Travel Canada with your pet</h1>
+ <p>Pick a province or territory for CFIA entry rules, then an airport hub. Plan in order: vet and laws, road or rail, plane, hotel, grooming. <a href="canada.html">Full Canada reference</a>.</p></div>
+</section>
+"""
+        + sw
+        + """
+<ol class="steps" id="steps" aria-label="Journey order">
+ <li><button type="button" data-step="1" aria-pressed="true"><b>1</b>Vet + laws</button></li><li class="arr" aria-hidden="true">→</li>
+ <li><button type="button" data-step="2" aria-pressed="false"><b>2</b>Road / rail</button></li><li class="arr" aria-hidden="true">→</li>
+ <li><button type="button" data-step="3" aria-pressed="false"><b>3</b>Plane</button></li><li class="arr" aria-hidden="true">→</li>
+ <li><button type="button" data-step="4" aria-pressed="false"><b>4</b>Hotel</button></li><li class="arr" aria-hidden="true">→</li>
+ <li><button type="button" data-step="5" aria-pressed="false"><b>5</b>Grooming</button></li>
+</ol>
+<div class="app">
+ <section class="card mapcard" aria-label="Map of Canada">
+  <div class="maptools">
+   <label for="pick">Province / territory</label>
+   <select id="pick"><option value="">Choose a province…</option></select>
+   <div class="legend"><span><i style="background:#1d3a35;border:1px solid #3a5a56"></i>Breed / entry alert</span><span><i style="background:#2a2420;border:1px solid #b5473a55"></i>Hub province</span><span><i style="background:#b5473a"></i>Selected (maple)</span><span><i style="background:#9fb59a"></i>Capital</span><span><b class="lg-ap">✈</b>Airport hub</span></div>
+  </div>
+  <button class="btn ghost" type="button" id="reset" hidden>Show all provinces</button>
+  <svg id="map" viewBox="0 0 975 610" role="group" aria-label="Canadian provinces, territories, and airport hubs"><g id="g-st"></g><g id="g-lb"></g><g id="g-ct"></g><g id="g-ap"></g></svg>
+  <p class="mapnote">13 verified hubs (10 provinces + 3 territories). Maple accent marks the selection; deep teal marks breed alerts (Ontario, Winnipeg).</p>
+ </section>
+ <aside class="card panel" id="panel" aria-live="polite"></aside>
+</div>
+<section class="portal" aria-labelledby="portal-h">
+ <h2 id="portal-h">Province &amp; territory portals</h2>
+ <p>Open a region for CFIA rules that apply everywhere, local breed alerts, the nearest verified hub, VIA Rail notes and grooming.</p>
+ <div class="grid" id="grid"></div>
+</section>
+</div>
+<script src="{root}assets/js/canada-map-geo.js"></script>
+<script src="{root}assets/js/canada-map-data.js"></script>
+<script>window.PPC_MAP={geo:window.CA_GEO,airports:window.CA_GEO_AIRPORTS,data:window.CA_MAP_DATA,accent:"maple",idRoot:"country-map"};</script>
+<script src="{root}assets/js/country-map.js"></script>"""
+    )
+    return page(
+        cfg,
+        f"Canada pet-travel map | {cfg['site_name']}",
+        "Click a Canadian province or territory for CFIA pet entry rules, then a hub for taxis, VIA Rail, flights, hotels and grooming.",
+        body,
+        "countries/canada-map.html",
+        root,
+        jsonld=[bc_ld(cfg, [("Home", ""), ("Canada pet-travel map", "countries/canada-map.html")])],
+        ads=False,
+    )
+
+
+def build_mexico_map(cfg):
+    """Interactive Mexico pet-travel map (6 hubs, SENASICA/OISA + NWS)."""
+    root = "../"
+    sw = _map_switcher_html("mx")
+    body = (
+        """<link rel="stylesheet" href="{root}assets/css/country-map.css">
+<div id="country-map" class="accent-mxgreen">
+<section class="intro">
+ <div><h1>Travel Mexico with your pet</h1>
+ <p>Pick a state for SENASICA / OISA rules (including the Aug 2026 NWS screwworm certificate for US-origin dogs), then a hub. Plan in order: vet and laws, road, plane, hotel, grooming. <a href="mexico.html">Full Mexico reference</a>.</p></div>
+</section>
+"""
+        + sw
+        + """
+<ol class="steps" id="steps" aria-label="Journey order">
+ <li><button type="button" data-step="1" aria-pressed="true"><b>1</b>Vet + laws</button></li><li class="arr" aria-hidden="true">→</li>
+ <li><button type="button" data-step="2" aria-pressed="false"><b>2</b>Road / rail</button></li><li class="arr" aria-hidden="true">→</li>
+ <li><button type="button" data-step="3" aria-pressed="false"><b>3</b>Plane</button></li><li class="arr" aria-hidden="true">→</li>
+ <li><button type="button" data-step="4" aria-pressed="false"><b>4</b>Hotel</button></li><li class="arr" aria-hidden="true">→</li>
+ <li><button type="button" data-step="5" aria-pressed="false"><b>5</b>Grooming</button></li>
+</ol>
+<div class="app">
+ <section class="card mapcard" aria-label="Map of Mexico">
+  <div class="maptools">
+   <label for="pick">State</label>
+   <select id="pick"><option value="">Choose a state…</option></select>
+   <div class="legend"><span><i style="background:#1d3a35;border:1px solid #3a5a56"></i>Border / screwworm alert</span><span><i style="background:#1f3329;border:1px solid #3f7a5a55"></i>Hub state</span><span><i style="background:#3f7a5a"></i>Selected (MX green)</span><span><i style="background:#9fb59a"></i>Capital</span><span><b class="lg-ap">✈</b>Airport hub</span></div>
+  </div>
+  <button class="btn ghost" type="button" id="reset" hidden>Show all states</button>
+  <svg id="map" viewBox="0 0 975 610" role="group" aria-label="Mexican states and airport hubs"><g id="g-st"></g><g id="g-lb"></g><g id="g-ct"></g><g id="g-ap"></g></svg>
+  <p class="mapnote">6 verified hubs (MEX, CUN, GDL, MTY, SJD, PVR). Click any state for federal SENASICA/OISA + US-return screwworm rules and the nearest hub.</p>
+ </section>
+ <aside class="card panel" id="panel" aria-live="polite"></aside>
+</div>
+<section class="portal" aria-labelledby="portal-h">
+ <h2 id="portal-h">State portals</h2>
+ <p>Federal rules apply in every state. Hub states have verified vets, hotels and grooming notes.</p>
+ <div class="grid" id="grid"></div>
+</section>
+</div>
+<script src="{root}assets/js/mexico-map-geo.js"></script>
+<script src="{root}assets/js/mexico-map-data.js"></script>
+<script>window.PPC_MAP={geo:window.MX_GEO,airports:window.MX_GEO_AIRPORTS,data:window.MX_MAP_DATA,accent:"mxgreen",idRoot:"country-map"};</script>
+<script src="{root}assets/js/country-map.js"></script>"""
+    )
+    return page(
+        cfg,
+        f"Mexico pet-travel map | {cfg['site_name']}",
+        "Click a Mexican state for SENASICA/OISA pet entry rules and the Aug 2026 NWS screwworm certificate, then a hub for vets, hotels and grooming.",
+        body,
+        "countries/mexico-map.html",
+        root,
+        jsonld=[bc_ld(cfg, [("Home", ""), ("Mexico pet-travel map", "countries/mexico-map.html")])],
+        ads=False,
+    )
+
+
+def build_canada_country(cfg):
+    """Canada CFIA reference page (13 hubs)."""
+    root = "../"
+    raw = (ROOT / "static" / "assets" / "js" / "canada-map-data.js").read_text()
+    data = json.loads(raw[raw.index("{"):].rstrip().rstrip(";"))
+    hubs = data["hubs"]
+    dogs, cats = data["dogs"], data["cats"]
+    breeds = data["breeds"]
+    rail = data.get("rail") or {}
+    hotels = (data.get("hotels") or {}).get("chains") or []
+    breed_html = "".join(
+        f'<div class="warn"><b>{e(s["jurisdiction"])}</b><p>{e(s["rule"])}</p>'
+        f'<p><a href="{e(s["source"])}" rel="noopener" target="_blank">Source</a></p></div>'
+        for s in (breeds.get("subnational") or [])
+    )
+    hub_rows = "".join(
+        f'<tr><td><a href="{e(h.get("site") or "#")}" rel="noopener" target="_blank">{e(h["iata"])}</a></td>'
+        f'<td>{e(h["city"])} · {e(h.get("region") or "")}</td>'
+        f'<td>{e((h.get("relief_note") or "Not published on official page — confirm directly")[:180])}</td>'
+        f'<td>{e((h.get("vet") or {}).get("name") or "—")}</td></tr>'
+        for h in hubs.values()
+    )
+    hotel_lis = "".join(
+        f'<li><a href="{e(h["url"])}" rel="noopener" target="_blank">{e(h["chain"])}</a> — {e(h["policy"])}</li>'
+        for h in hotels
+    )
+    dog_notes = "".join(f"<li>{e(n)}</li>" for n in (dogs.get("special_notes") or []))
+    cat_notes = "".join(f"<li>{e(n)}</li>" for n in (cats.get("special_notes") or []))
+    via = rail.get("via_rail") or {}
+    uber = rail.get("uber_pet") or {}
+    body = f"""<nav class="crumbs"><a href="{{root}}">Home</a> &rsaquo; Canada</nav>
+<aside class="usa-map-tease" aria-label="Canada pet-travel map"><p>Interactive map of all 10 provinces and 3 territories. Open a region for CFIA rules, then a hub for relief areas, vets, VIA Rail, hotels and grooming.</p><p><a class="btn" href="canada-map.html">Open the Canada pet-travel map</a> · <a href="usa-map.html">USA map</a> · <a href="mexico-map.html">Mexico map</a></p></aside>
+<h1>Pet travel rules for Canada: CFIA entry, hubs and return to the US</h1>
+<p class="lead">Federal rules from the Canadian Food Inspection Agency (CFIA), with border checks by CBSA. Verified {e(data.get('lastChecked','2026-11-06'))}. Always confirm with CFIA and your airline before you fly.</p>
+<section id="federal"><h2>Federal rules (CFIA)</h2>
+<p>Authority: <a href="{e(data['officialUrl'])}" rel="noopener" target="_blank">{e(data['authority'])}</a>.</p>
+<h3>Dogs</h3>
+<dl class="kv"><dt>Rabies</dt><dd>{e(dogs.get('rabies_vaccine'))}</dd>
+<dt>Health certificate</dt><dd>{e(dogs.get('health_certificate_cvi'))}</dd>
+<dt>Microchip</dt><dd>{e(dogs.get('microchip'))}</dd>
+<dt>Permit / commercial</dt><dd>{e(dogs.get('import_permit_or_form'))}</dd></dl>
+<ul>{dog_notes}</ul>
+<h3>Cats</h3>
+<dl class="kv"><dt>Rabies</dt><dd>{e(cats.get('rabies_vaccine'))}</dd>
+<dt>Health certificate</dt><dd>{e(cats.get('health_certificate_cvi'))}</dd>
+<dt>Microchip</dt><dd>{e(cats.get('microchip'))}</dd></dl>
+<ul>{cat_notes}</ul>
+<h3 id="breeds">Breed alerts</h3>
+<p>{e(breeds.get('national'))}</p>
+{breed_html}
+<h3 id="return">Return to the United States</h3>
+<p>{e(data.get('returnToUs'))}</p>
+</section>
+<section id="rail"><h2>Rail &amp; city transit</h2>
+<p><b>VIA Rail:</b> {e(via.get('rule'))} <a href="{e(via.get('url') or '#')}" rel="noopener" target="_blank">Official page</a>.</p>
+<p><b>Uber Pet:</b> {e(uber.get('rule'))}</p>
+</section>
+<section id="hotels"><h2>Hotel chains (verified policies)</h2>
+<ul>{hotel_lis}</ul>
+</section>
+<section id="hubs"><h2>13 airport hubs</h2>
+<div class="tablewrap"><table><thead><tr><th>Hub</th><th>City / region</th><th>Pet relief</th><th>Verified vet</th></tr></thead><tbody>
+{hub_rows}
+</tbody></table></div>
+</section>
+<section id="grooming"><h2>Grooming</h2>
+<p>{e((data.get('groomingNote') or {}).get('culture_note') or '')}</p>
+<p class="warn">{e((data.get('groomingNote') or {}).get('international_docs_warning') or '')}</p>
+<p>Also see the <a href="{{root}}grooming/">Grooming directory</a> and step 5 on the <a href="canada-map.html">Canada map</a>.</p>
+</section>
+<p class="disc">Not legal or veterinary advice. Rules change; confirm with CFIA, CBSA, CDC and your airline.</p>"""
+    return page(
+        cfg,
+        f"Pet travel rules for Canada: CFIA entry, hubs and US return | {cfg['site_name']}",
+        "CFIA pet entry rules for dogs and cats, Ontario and Winnipeg breed alerts, 13 airport hubs, VIA Rail and return-to-US CDC steps.",
+        body,
+        "countries/canada.html",
+        root,
+        jsonld=[bc_ld(cfg, [("Home", ""), ("Canada pet travel rules", "countries/canada.html")])],
+    )
+
+
+def build_mexico_country(cfg):
+    """Mexico SENASICA/OISA reference page (6 hubs + NWS)."""
+    root = "../"
+    raw = (ROOT / "static" / "assets" / "js" / "mexico-map-data.js").read_text()
+    data = json.loads(raw[raw.index("{"):].rstrip().rstrip(";"))
+    hubs = data["hubs"]
+    dogs, cats = data["dogs"], data["cats"]
+    dog_notes = "".join(f"<li>{e(n)}</li>" for n in (dogs.get("special_notes") or []))
+    cat_notes = "".join(f"<li>{e(n)}</li>" for n in (cats.get("special_notes") or []))
+    hub_rows = "".join(
+        f'<tr><td><a href="{e(h.get("site") or "#")}" rel="noopener" target="_blank">{e(h["iata"])}</a></td>'
+        f'<td>{e(h["city"])} · {e(h.get("region") or "")}</td>'
+        f'<td>{e((h.get("relief_note") or "Not published on official page — confirm directly")[:180])}</td>'
+        f'<td>{e((h.get("vet") or {}).get("name") or "—")}</td></tr>'
+        for h in hubs.values()
+    )
+    body = f"""<nav class="crumbs"><a href="{{root}}">Home</a> &rsaquo; Mexico</nav>
+<aside class="usa-map-tease" aria-label="Mexico pet-travel map"><p>Interactive map of Mexico&rsquo;s states. Open any state for SENASICA/OISA rules (including the Aug 2026 NWS screwworm certificate), then a hub for vets, hotels and grooming.</p><p><a class="btn" href="mexico-map.html">Open the Mexico pet-travel map</a> · <a href="usa-map.html">USA map</a> · <a href="canada-map.html">Canada map</a></p></aside>
+<h1>Pet travel rules for Mexico: SENASICA, OISA and the NWS screwworm certificate</h1>
+<p class="lead">Federal rules from SENASICA with OISA inspection at ports of entry. Verified {e(data.get('lastChecked','2026-11-06'))}. Always confirm with SENASICA and your airline before you fly.</p>
+<section id="federal"><h2>Federal rules (SENASICA / OISA)</h2>
+<p>Authority: <a href="{e(data['officialUrl'])}" rel="noopener" target="_blank">{e(data['authority'])}</a>.</p>
+<h3>Dogs (including NEW Aug 3, 2026 NWS rule)</h3>
+<dl class="kv"><dt>Rabies</dt><dd>{e(dogs.get('rabies_vaccine'))}</dd>
+<dt>Health / NWS certificate</dt><dd>{e(dogs.get('health_certificate_cvi'))}</dd>
+<dt>Microchip</dt><dd>{e(dogs.get('microchip'))}</dd>
+<dt>Import form</dt><dd>{e(dogs.get('import_permit_or_form'))}</dd></dl>
+<ul>{dog_notes}</ul>
+<h3>Cats</h3>
+<dl class="kv"><dt>Rabies</dt><dd>{e(cats.get('rabies_vaccine'))}</dd>
+<dt>Health certificate</dt><dd>{e(cats.get('health_certificate_cvi'))}</dd>
+<dt>Microchip</dt><dd>{e(cats.get('microchip'))}</dd></dl>
+<ul>{cat_notes}</ul>
+<h3 id="return">Return to the United States</h3>
+<p>{e(data.get('returnToUs'))}</p>
+</section>
+<section id="hubs"><h2>6 airport hubs</h2>
+<div class="tablewrap"><table><thead><tr><th>Hub</th><th>City / state</th><th>Pet relief</th><th>Verified vet</th></tr></thead><tbody>
+{hub_rows}
+</tbody></table></div>
+</section>
+<section id="grooming"><h2>Grooming</h2>
+<p>{e((data.get('groomingNote') or {}).get('culture_note') or '')}</p>
+<p class="warn">{e((data.get('groomingNote') or {}).get('international_docs_warning') or '')}</p>
+<p>Also see the <a href="{{root}}grooming/">Grooming directory</a> and step 5 on the <a href="mexico-map.html">Mexico map</a>.</p>
+</section>
+<p class="disc">Not legal or veterinary advice. Rules change; confirm with SENASICA, USDA APHIS, CDC and your airline.</p>"""
+    return page(
+        cfg,
+        f"Pet travel rules for Mexico: SENASICA, OISA and NWS screwworm certificate | {cfg['site_name']}",
+        "SENASICA/OISA pet entry rules, Aug 2026 NWS screwworm certificate for US-origin dogs, 6 hubs and US-return steps.",
+        body,
+        "countries/mexico.html",
+        root,
+        jsonld=[bc_ld(cfg, [("Home", ""), ("Mexico pet travel rules", "countries/mexico.html")])],
+    )
+
+
+
 def build_usa_map(cfg):
     """Interactive USA pet-travel map. Indexable; listed in sitemap.xml."""
     root = "../"
@@ -2751,6 +3109,7 @@ def build_usa_map(cfg):
  <div><h1>Travel the USA with your pet</h1>
  <p>Pick a state for its animal-entry rules (state and federal), then a city or one of its airports. Plan in order: vet and laws, road or rail, plane, hotel, grooming. <a href="usa.html">Full federal and state table</a>.</p></div>
 </section>
+""" + _map_switcher_html("usa") + """
 <ol class="steps" id="steps" aria-label="Journey order">
  <li><button type="button" data-step="1" aria-pressed="true"><b>1</b>Vet + laws</button></li><li class="arr" aria-hidden="true">→</li>
  <li><button type="button" data-step="2" aria-pressed="false"><b>2</b>Road / rail</button></li><li class="arr" aria-hidden="true">→</li>
@@ -2893,6 +3252,17 @@ def main():
         "b2b-pet-desk",
     ):
         _copy_static_page(_rel)
+    # Sitewide partner slot + For Business nav on copied static HTML
+    for _p, _root in (
+        (OUT / "terms.html", ""),
+        (OUT / "refund-policy.html", ""),
+        (OUT / "pro" / "index.html", "../"),
+        (OUT / "extension" / "index.html", "../"),
+        (OUT / "b2b-pet-desk" / "index.html", "../"),
+    ):
+        _polish_static_html(_p, _root)
+    # Homepage (written earlier from home-c.html)
+    _polish_static_html(OUT / "index.html", "")
     # Optional zip download for the Chrome extension (binary-safe copy)
     _zip = ROOT / "static" / "downloads" / "pets-allowed-chrome-extension-v1.zip"
     if _zip.exists():
@@ -2907,6 +3277,10 @@ def main():
     (OUT / "clinics" / "usa.html").write_text(build_clinics_usa(cfg))
     (OUT / "countries" / "usa.html").write_text(build_country_usa(cfg, airlines))
     (OUT / "countries" / "usa-map.html").write_text(build_usa_map(cfg))
+    (OUT / "countries" / "canada.html").write_text(build_canada_country(cfg))
+    (OUT / "countries" / "canada-map.html").write_text(build_canada_map(cfg))
+    (OUT / "countries" / "mexico.html").write_text(build_mexico_country(cfg))
+    (OUT / "countries" / "mexico-map.html").write_text(build_mexico_map(cfg))
     (OUT / "grooming").mkdir(parents=True, exist_ok=True)
     (OUT / "grooming" / "index.html").write_text(build_grooming(cfg))
     (OUT / "routes" / "usa-to-japan.html").write_text(build_route_usa_japan(cfg, airlines))
@@ -2933,6 +3307,10 @@ def main():
     urls += forum_pages.build(sys.modules[__name__], cfg, airlines, OUT, ROOT)  # [] while the forum is off
     urls.append((f"{base}/countries/usa.html", json.loads((ROOT / "data" / "countries" / "usa.json").read_text())["checked"]))
     urls.append((f"{base}/countries/usa-map.html", "2026-10-30"))
+    urls.append((f"{base}/countries/canada.html", "2026-11-06"))
+    urls.append((f"{base}/countries/canada-map.html", "2026-11-06"))
+    urls.append((f"{base}/countries/mexico.html", "2026-11-06"))
+    urls.append((f"{base}/countries/mexico-map.html", "2026-11-06"))
     urls.append((f"{base}/grooming/", "2026-11-06"))
     urls.append((f"{base}/routes/usa-to-japan.html", json.loads((ROOT / "data" / "routes" / "usa-japan.json").read_text())["checked"]))
     urls.append((f"{base}/routes/usa-to-south-korea.html", json.loads((ROOT / "data" / "routes" / "usa-korea.json").read_text())["checked"]))

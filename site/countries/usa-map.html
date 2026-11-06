@@ -34,8 +34,8 @@
 <link rel="icon" href="../assets/img/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon-180.png">
 <link rel="preload" href="../assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/theme.css?v=41732bd4">
-<link rel="stylesheet" href="../style.css?v=41732bd4">
+<link rel="stylesheet" href="../assets/css/theme.css?v=8359d49e">
+<link rel="stylesheet" href="../style.css?v=8359d49e">
 <script src="../assets/js/pastilles.js?v=dc967dd6" defer></script>
 <meta name="theme-color" content="#0b1719">
 
@@ -44,8 +44,8 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
 <a class="brand" href="../"><span class="lbadge"><img src="../assets/img/logo-mark-header.png" width="62" height="48" alt="" aria-hidden="true"></span><span class="wm">PetPolicy<span>Check</span></span></a>
-<nav class="nav menu" id="site-menu" aria-label="Main"><a href="../#map">World map</a><a class="nav-book" href="../book/">Book</a><a href="../#compare">Airlines</a><a href="../countries/usa.html#federal">Health certificate</a><a href="../#compare">Compare</a><a href="../products/">Products</a><a href="../#gear">Guides</a><a href="../forum/">Forum</a><a href="../updates.html">Updates</a><a href="../about.html">About</a><a class="cta menu-only" href="../advertise/">Advertise</a></nav><button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg><span>Menu</span></button>
-</div></header><script>(function(){function init(){var m=document.getElementById('site-menu');if(!m)return;
+<nav class="nav menu" id="site-menu" aria-label="Main"><a href="../#map">World map</a><a class="nav-book" href="../book/">Book</a><a href="../#compare">Airlines</a><a href="../countries/usa.html#federal">Health certificate</a><a href="../#compare">Compare</a><a href="../products/">Products</a><a href="../#gear">Guides</a><a href="../forum/">Forum</a><a href="../updates.html">Updates</a><a href="../about.html">About</a><a class="nav-biz" href="../pro/">For Business</a><a class="cta menu-only" href="../advertise/">Advertise</a></nav><button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg><span>Menu</span></button>
+</div></header><aside class="partner-slot partner-top" data-partner-slot="top-partner" data-partner-live="0" aria-label="Partner"><span class="partner-label">Partner</span><div class="partner-card"><span class="partner-label">Partner</span><div class="partner-ph"><span class="pst-mini" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="12" rx="1.5"/><path d="M8 7V5.8A2.2 2.2 0 0 1 10.2 3.6h3.6A2.2 2.2 0 0 1 16 5.8V7M3.5 12h17"/></svg></span><p><b>Your brand here</b> · Become a PetPolicyCheck partner</p><a class="partner-cta" href="../advertise/">Partner with us <span aria-hidden="true">→</span></a></div></div></aside><script>(function(){function init(){var m=document.getElementById('site-menu');if(!m)return;
 var T=[].slice.call(document.querySelectorAll('.top .menu-btn,[data-menu-trigger]')),last=null;if(!T.length)return;
 function set(o,f,t){m.classList.toggle('open',o);T.forEach(function(x){x.setAttribute('aria-expanded',o?'true':'false')});if(o){last=t||T[0];if(f){var a=m.querySelector('a');if(a)a.focus({preventScroll:true})}}else if(f&&last)last.focus()}
 T.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var o=!m.classList.contains('open');set(o,e.detail===0||!b.classList.contains('menu-btn'),b)})});
@@ -53,7 +53,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList
 document.addEventListener('click',function(e){if(m.classList.contains('open')&&!m.contains(e.target))set(false)});
 m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
 m.addEventListener('focusout',function(e){var r=e.relatedTarget;if(m.classList.contains('open')&&r&&!m.contains(r)&&T.indexOf(r)<0)set(false)})}
-if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script>
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script><script src="../assets/js/partner-banner.js" defer data-partner-root="../assets/partners/"></script>
 <main class="wrap" id="main">
 <link rel="stylesheet" href="../assets/css/usa-map.css">
 <div id="usa-map">
@@ -61,6 +61,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  <div><h1>Travel the USA with your pet</h1>
  <p>Pick a state for its animal-entry rules (state and federal), then a city or one of its airports. Plan in order: vet and laws, road or rail, plane, hotel, grooming. <a href="usa.html">Full federal and state table</a>.</p></div>
 </section>
+<nav id="map-switch" class="map-switch" aria-label="Country maps"><a class="msw-tab accent-usa is-current" aria-current="page" href="usa-map.html"><i aria-hidden="true"></i><span>USA Map</span></a><a class="msw-tab accent-maple" href="canada-map.html"><i aria-hidden="true"></i><span>Canada Map</span></a><a class="msw-tab accent-mxgreen" href="mexico-map.html"><i aria-hidden="true"></i><span>Mexico Map</span></a></nav>
 <ol class="steps" id="steps" aria-label="Journey order">
  <li><button type="button" data-step="1" aria-pressed="true"><b>1</b>Vet + laws</button></li><li class="arr" aria-hidden="true">→</li>
  <li><button type="button" data-step="2" aria-pressed="false"><b>2</b>Road / rail</button></li><li class="arr" aria-hidden="true">→</li>

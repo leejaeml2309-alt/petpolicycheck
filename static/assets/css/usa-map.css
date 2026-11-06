@@ -187,3 +187,20 @@ main.wrap:has(#usa-map){max-width:1320px}
   position:absolute!important;right:6px!important;left:auto!important;
   top:auto!important;bottom:18%!important;transform:none!important;z-index:5!important}
 }
+
+
+/* Country map switcher (shared with Canada/Mexico) */
+#map-switch, .map-switch{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px}
+#map-switch .msw-tab,.map-switch .msw-tab{
+  display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 10px;
+  border-radius:999px;border:1px solid var(--line2);background:var(--paper);
+  color:var(--ink);text-decoration:none;font:600 .85rem var(--text);
+}
+#map-switch .msw-tab i,.map-switch .msw-tab i{width:10px;height:10px;border-radius:50%;background:#5a6a6e;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #5a6a6e55}
+#map-switch .msw-tab.accent-usa i{background:#d9b765;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #d9b76555}
+#map-switch .msw-tab.accent-maple i{background:#b5473a;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #b5473a55}
+#map-switch .msw-tab.accent-mxgreen i{background:#3f7a5a;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #3f7a5a55}
+#map-switch .msw-tab.is-current{color:var(--head)}
+#map-switch .msw-tab.accent-usa.is-current{border-color:#d9b765;background:#1a3236}
+#map-switch .msw-tab.accent-maple.is-current{border-color:#b5473a;background:color-mix(in srgb,#b5473a 14%,#0f2226)}
+#map-switch .msw-tab.accent-mxgreen.is-current{border-color:#3f7a5a;background:color-mix(in srgb,#3f7a5a 14%,#0f2226)}

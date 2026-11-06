@@ -73,6 +73,57 @@
    "source_page": "routes/usa-to-japan.html (data/routes/usa-japan.json)",
    "book": "generic",
    "summary": "Japan treats the US mainland (except Hawaii and Guam) as a non-designated region: dogs and cats need an ISO microchip, two rabies shots, a rabies titer of 0.5 IU/ml or more at an approved lab, then a 180-day wait before arrival. Notify Japan's Animal Quarantine Service (AQS) at least 40 days before arrival and have a vet exam within 10 days before boarding; a USDA-accredited vet completes the health certificate (Form AC) for USDA APHIS endorsement. If everything is in order, quarantine is within 12 hours; if something is missing, the pet is held for up to 180 days at your cost, or sent back. Checked against official Japan AQS and USDA APHIS sources on Oct 24, 2026."
+  },
+  {
+   "id": "124",
+   "flag": "ca",
+   "name": "Canada",
+   "short": "Canada",
+   "slug": "Canada",
+   "aliases": [
+    "CA",
+    "Canadian"
+   ],
+   "pin": [
+    -96.0,
+    56.0
+   ],
+   "title": "Canada",
+   "line": "CFIA pet entry rules, 13 airport hubs, VIA Rail, breed alerts and grooming",
+   "cta": "See Canada pet travel rules",
+   "url": "countries/canada.html",
+   "map_url": "countries/canada-map.html",
+   "map_cta": "Explore the Canada pet-travel map",
+   "chip": "Canada",
+   "source_page": "countries/canada.html (Vague A CFIA pack, checked 2026-11-06)",
+   "book": "generic",
+   "summary": "Personal dogs 8 months or older need a valid rabies certificate only (EN/FR). Dogs under 3 months need proof of age; 3–8 months need rabies if travelling with the owner. Commercial dogs from CFIA high-risk countries are banned. Cats 3 months or older need a rabies certificate. Ontario and the City of Winnipeg restrict pit-bull-type dogs. Returning to the US needs the CDC Dog Import Form (dog ≥6 months, microchipped). Checked against CFIA, CBSA and CDC sources on Nov 6, 2026."
+  },
+  {
+   "id": "484",
+   "flag": "mx",
+   "name": "Mexico",
+   "short": "Mexico",
+   "slug": "Mexico",
+   "aliases": [
+    "MX",
+    "México",
+    "Estados Unidos Mexicanos"
+   ],
+   "pin": [
+    -102.0,
+    23.5
+   ],
+   "title": "Mexico",
+   "line": "SENASICA/OISA entry, Aug 2026 NWS screwworm certificate, 6 hubs and US return rules",
+   "cta": "See Mexico pet travel rules",
+   "url": "countries/mexico.html",
+   "map_url": "countries/mexico-map.html",
+   "map_cta": "Explore the Mexico pet-travel map",
+   "chip": "Mexico",
+   "source_page": "countries/mexico.html (Vague A SENASICA pack, checked 2026-11-06)",
+   "book": "generic",
+   "summary": "Since 3 Aug 2026, US-origin dogs need an NWS (screwworm) inspection certificate signed by a USDA-accredited vet within 5 days of entry (no APHIS endorsement). Cats from the US need no health certificate. At OISA, bedding, toys and extra food are discarded. Returning to the US: Mexico is screwworm-affected, so every dog needs a SENASICA screwworm-freedom certificate within 5 days plus the CDC Dog Import Form. Checked against SENASICA and USDA APHIS sources on Nov 6, 2026."
   }
  ]
 }
