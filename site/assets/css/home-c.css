@@ -15,7 +15,7 @@
 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-1px;box-shadow:inset 0 0 0 1px #0006}
 .legend .swatch-row{display:inline-flex;gap:3px;margin-right:6px;vertical-align:middle}
 .legend .swatch-row i{margin-right:0;border-radius:2px}
-.legend .sw.cov-us{background:#c89d4c}.legend .sw.cov-ca{background:#b5473a}.legend .sw.cov-mx{background:#3f7a5a}
+.legend .sw.cov-us{background:#234785}.legend .sw.cov-ca{background:#b5473a}.legend .sw.cov-mx{background:#3f7a5a}
 .legend .sw.cov-kr{background:#3d6488}.legend .sw.cov-jp{background:#7a5f8a}
 .legend .sw.soon{background:linear-gradient(90deg,#1a3338 0 25%,#1f3a3f 25% 50%,#243f44 50% 75%,#1c363c 75% 100%);width:22px}
 .pick{font:500 .9rem var(--text);padding:8px 10px;border-radius:var(--r-s);border:1px solid var(--line2);background:var(--bg);color:var(--ink);max-width:220px}
@@ -30,7 +30,7 @@
 .country.soon-4{fill:#223a41}.country.soon-4:hover,.country.soon-4:focus{fill:#2f5057}
 /* Covered guides: signature country colors + soft gold stroke so they pop on #0b1719 ocean */
 .country.cov{stroke:#d9b76599;stroke-width:var(--csw,.75);paint-order:stroke fill}
-.country.cov-us{fill:#c89d4c}.country.cov-us:hover,.country.cov-us:focus{fill:#dfb55e}
+.country.cov-us{fill:#234785}.country.cov-us:hover,.country.cov-us:focus{fill:#3a63a8}
 .country.cov-ca{fill:#b5473a}.country.cov-ca:hover,.country.cov-ca:focus{fill:#c96a5c}
 .country.cov-mx{fill:#3f7a5a}.country.cov-mx:hover,.country.cov-mx:focus{fill:#5a9a74}
 .country.cov-kr{fill:#3d6488}.country.cov-kr:hover,.country.cov-kr:focus{fill:#5a85a8}
@@ -146,3 +146,5 @@ th{font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mu
 .paw:focus{outline:none}.paw:focus-visible{outline:3px solid #f0d58c;outline-offset:3px}
 @media (prefers-reduced-motion:reduce){.paw,.paw-bg{transition:none}.paw:hover,.paw:focus-visible{transform:none}}
 @media (max-width:600px){.hero .acts.paws{display:flex;flex-wrap:nowrap;justify-content:flex-start;gap:10px}}
+
+.intro-biz{margin:12px 0 0;text-align:center}.intro-biz a{color:var(--gold-l);font:600 .9rem var(--text);text-decoration:none;border:1px solid var(--gold);border-radius:999px;padding:6px 14px;display:inline-block}.intro-biz a:hover{background:#1a3236;color:#f8e7b5}

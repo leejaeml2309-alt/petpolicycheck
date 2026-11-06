@@ -166,12 +166,22 @@ function findCountry(v){
  var ids=Object.keys(GUIDES);
  for(var i=0;i<ids.length;i++){var G=GUIDES[ids[i]];if([G.name,G.slug,G.short].concat(G.aliases||[]).some(function(n){return n&&n.toLowerCase()===v}))return ids[i]}
  var f=countries.find(function(c){return c.properties.name.toLowerCase()===v});return f?f.id:null}
+function unlockHomeMap(){
+ document.documentElement.classList.add('map-view');
+ document.documentElement.classList.remove('intro-lock');
+ if(document.body) document.body.classList.remove('intro-home');
+ window.dispatchEvent(new Event('resize'));
+}
 function route(){
  var hs=location.hash||'',m;
+ if(hs==='#world-map'){try{history.replaceState(null,'',location.pathname+location.search+'#map')}catch(e){} hs='#map'}
+ if(hs==='#map'){unlockHomeMap();return}
  if(hs==='#airlines'||hs==='#compare')showCompare();
  else if((m=hs.match(/^#country[=\-](.+)$/))){var id=findCountry(m[1]);if(id)openCountry(id)}
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',route);else route();
+window.addEventListener('hashchange',function(){ if(location.hash==='#map'||location.hash==='#world-map') unlockHomeMap(); });
+window.addEventListener('pageshow',function(){ if(location.hash==='#map'||location.hash==='#world-map') unlockHomeMap(); });
 window.addEventListener('hashchange',route);
 window.PPC={openCountry:openCountry,openAirlines:openAirlines};
 })();

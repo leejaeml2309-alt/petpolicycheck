@@ -1985,7 +1985,7 @@ def build_country_usa(cfg, airlines):
 <ul>{links}</ul>
 <p class="note small">{checked}. Rules change; confirm with the official source before you travel. This page is a summary, not legal or veterinary advice. Airlines may require more than the state does.</p>
 <h2 id="hotels">Pet-friendly hotels</h2>
-<p>Pet fees, weight limits and number of pets at the big US hotel chains, from their official sites: <a href="{root}hotels/">pet-friendly hotel rules</a>. City guides: <a href="{root}hotels/pet-friendly-hotels-orlando.html">Orlando</a>, <a href="{root}hotels/pet-friendly-hotels-new-york.html">New York</a>, <a href="{root}hotels/pet-friendly-hotels-miami.html">Miami</a>.</p>
+<p>Pet fees, weight limits and number of pets at the big US hotel chains, from their official sites: <a href="{root}hotels/">pet-friendly hotel rules</a>. City guides cover Orlando, New York, Miami, Los Angeles, Chicago, Austin, Detroit and Houston — see the <a href="{root}hotels/">City Guides index</a>.</p>
 {insurance_teaser(root, "usa")}
 <h2 id="airlines">Airline pet policies</h2>
 <div class="chips">{al}</div>
@@ -2113,7 +2113,7 @@ def build_route_usa_japan(cfg, airlines):
 <h2 id="return">Coming back to the USA</h2>
 <p>Japan is not on the CDC list of high-risk countries for dog rabies, so a dog that was only in Japan (or other low-risk countries) in the 6 months before returning needs the free <b>CDC Dog Import Form</b> receipt, a microchip, a healthy look and an age of at least 6 months; the CDC simplified this on August 1, 2024. Cats have no federal rabies proof requirement. State and airline rules still apply. {src(S['cdc_low'], 'CDC')} &middot; {src(S['cdc_high'], 'CDC high-risk list')}</p>
 <p>Full US entry and state rules: <a href="{root}countries/usa.html">Pet travel rules for the USA</a>.</p>
-<p>Staying in a US city before or after the flight? <a href="{root}hotels/">Pet-friendly hotel rules by chain</a> (fees, weight limits, number of pets), with guides for <a href="{root}hotels/pet-friendly-hotels-new-york.html">New York</a>, <a href="{root}hotels/pet-friendly-hotels-orlando.html">Orlando</a> and <a href="{root}hotels/pet-friendly-hotels-miami.html">Miami</a>.</p>
+<p>Staying in a US city before or after the flight? <a href="{root}hotels/">Pet-friendly hotel rules by chain</a> (fees, weight limits, number of pets), with city guides for Orlando, New York, Miami, Los Angeles, Chicago, Austin, Detroit and Houston.</p>
 <p>Staying in Japan? See <a href="#hotels">pet-friendly hotels in Japan</a> (Tokyo, Osaka and Kyoto), with each hotel&rsquo;s official pet rules.</p>
 <h2 id="official">Official links</h2>
 <ul>{links}</ul>
@@ -2487,7 +2487,7 @@ def build_hotels_index(cfg, ch, ci):
 <p>Driving or flying between states? See <a href="{root}countries/usa.html">pet travel rules for the USA</a> for each state&rsquo;s health certificate and rabies rules.</p>"""
     body = insert_between_h2(body, ad_grid(cfg, "inarticle", root), "hotels")
     return page(cfg, f"Pet-friendly hotels in the US: chain pet fees and weight limits | {cfg['site_name']}",
-                "Pet fees, weight limits and number of pets at Kimpton, Motel 6, Red Roof, La Quinta, Drury, Loews, Hilton, Aloft and Four Seasons, from official sites, plus city guides for Orlando, New York and Miami.",
+                "Pet fees, weight limits and number of pets at Kimpton, Motel 6, Red Roof, La Quinta, Drury, Loews, Hilton, Aloft and Four Seasons, from official sites, plus city guides for Orlando, New York, Miami, Los Angeles, Chicago, Austin, Detroit and Houston.",
                 body, "hotels/", root, jsonld=[bc_ld(cfg, [("Home", ""), ("Pet-friendly hotels", "hotels/")])])
 
 
@@ -2752,7 +2752,7 @@ def build_book(cfg, airlines):
 {flights}{hotels}{rides}{vets}{insurance}
 <p class="note bk-disc"><b>Affiliate disclosure:</b> some links on this page ({"the flight search and Expedia hotel buttons" if tracked else "the flight search buttons"}) are affiliate links. If you book through them we may earn a commission at no extra cost to you. It never changes the pet rules we publish. Ride, vet and insurance links go to the official sites with no affiliate. <a href="{root}about.html#affiliates">Disclosure</a>. Always confirm pet rules with the airline, hotel or service before you book.</p>"""
     return page(cfg, f"Book your pet trip: flights, hotels, airport rides & vets | {cfg['site_name']}",
-                "Book a trip with your dog or cat in one place: flights, pet-friendly hotels in Orlando, New York and Miami, Uber Pet and Lyft Pet airport rides, USDA-accredited vets for health certificates, and pet travel insurance.",
+                "Book a trip with your dog or cat in one place: flights, pet-friendly hotels in Orlando, New York, Miami, Los Angeles, Chicago, Austin, Detroit and Houston, Uber Pet and Lyft Pet airport rides, USDA-accredited vets for health certificates, and pet travel insurance.",
                 body, "book/", root, jsonld=[bc_ld(cfg, [("Home", ""), ("Book your trip", "book/")])])
 
 
@@ -2789,17 +2789,20 @@ def build_grooming(cfg):
 
 
 def _map_switcher_html(current):
-    """USA / Canada / Mexico tabs with country accent dots."""
+    """USA / Canada / Mexico tabs with country accent dots + back link to homepage World map."""
     tabs = [
         ("usa", "usa-map.html", "USA Map", "usa"),
         ("ca", "canada-map.html", "Canada Map", "maple"),
         ("mx", "mexico-map.html", "Mexico Map", "mxgreen"),
     ]
-    bits = []
+    bits = [
+        '<a class="msw-tab world-back" href="../#map" style="touch-action:manipulation;position:relative;z-index:5">'
+        '<i aria-hidden="true"></i><span>← World Map</span></a>'
+    ]
     for tid, href, label, accent in tabs:
         cur = ' is-current" aria-current="page"' if tid == current else '"'
         bits.append(
-            f'<a class="msw-tab accent-{accent}{cur} href="{href}">'
+            f'<a class="msw-tab accent-{accent}{cur} href="{href}" style="touch-action:manipulation;position:relative;z-index:5">'
             f'<i aria-hidden="true"></i><span>{label}</span></a>'
         )
     return '<nav id="map-switch" class="map-switch" aria-label="Country maps">' + "".join(bits) + "</nav>"
@@ -2890,7 +2893,7 @@ def build_canada_map(cfg):
  <div class="grid" id="grid"></div>
 </section>
 </div>
-<script src="{root}assets/js/canada-map-geo.js"></script>
+<script src="{root}assets/js/canada-map-geo.js?v=""" + hashlib.md5((ROOT / "static" / "assets" / "js" / "canada-map-geo.js").read_bytes()).hexdigest()[:8] + """"></script>
 <script src="{root}assets/js/canada-map-data.js"></script>
 <script>window.PPC_MAP={geo:window.CA_GEO,airports:window.CA_GEO_AIRPORTS,data:window.CA_MAP_DATA,accent:"maple",idRoot:"country-map"};</script>
 <script src="{root}assets/js/country-map.js?v=""" + cm_js + """"></script>"""

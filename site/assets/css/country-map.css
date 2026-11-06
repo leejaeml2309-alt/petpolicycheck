@@ -371,3 +371,9 @@ html.accent-mxgreen #country-map .stubbox.alert{border-color:color-mix(in srgb,#
 html.accent-maple #country-map .zoom button:hover:not(:disabled){border-color:#b5473a;color:#f0e2d0}
 html.accent-mxgreen #country-map .zoom button:hover:not(:disabled){border-color:#3f7a5a;color:#e4f0e8}
 
+
+/* Back to homepage World map from country maps */
+#map-switch .msw-tab.world-back{border-color:var(--gold);color:var(--head);background:#1a3236;touch-action:manipulation;position:relative;z-index:5}
+#map-switch .msw-tab.world-back i{background:#d9b765;box-shadow:0 0 0 2px #0b1719,0 0 0 3px #d9b76555}
+#map-switch .msw-tab{touch-action:manipulation;position:relative;z-index:5}
+#country-map .st{stroke-linejoin:round;stroke-linecap:round}

@@ -34,9 +34,9 @@
 <link rel="icon" href="../assets/img/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon-180.png">
 <link rel="preload" href="../assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="../assets/css/theme.css?v=24f5acf7">
-<link rel="stylesheet" href="../style.css?v=24f5acf7">
-<script src="../assets/js/pastilles.js?v=dc967dd6" defer></script>
+<link rel="stylesheet" href="../assets/css/theme.css?v=b5847d39">
+<link rel="stylesheet" href="../style.css?v=b5847d39">
+<script src="../assets/js/pastilles.js?v=adb8e710" defer></script>
 <meta name="theme-color" content="#0b1719">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://petpolicycheck.com/"}, {"@type": "ListItem", "position": 2, "name": "Canada pet-travel map", "item": "https://petpolicycheck.com/countries/canada-map.html"}]}</script>
 </head>
@@ -55,13 +55,13 @@ m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
 m.addEventListener('focusout',function(e){var r=e.relatedTarget;if(m.classList.contains('open')&&r&&!m.contains(r)&&T.indexOf(r)<0)set(false)})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script><script src="../assets/js/partner-banner.js" defer data-partner-root="../assets/partners/"></script>
 <main class="wrap" id="main">
-<link rel="stylesheet" href="../assets/css/country-map.css?v=84f8d1d0">
+<link rel="stylesheet" href="../assets/css/country-map.css?v=b42331b3">
 <div id="country-map" class="accent-maple">
 <section class="intro">
  <div><h1>Travel Canada with your pet</h1>
  <p>Pick a province or territory for CFIA entry rules, then an airport hub. Plan in order: vet and laws, road or rail, plane, hotel, grooming. <a href="canada.html">Full Canada reference</a> · <a href="../passport/?from=US&amp;to=CA">Pet Travel Passport (US→Canada)</a> · <a href="../airlines/compare/">Airline fees</a>.</p></div>
 </section>
-<nav id="map-switch" class="map-switch" aria-label="Country maps"><a class="msw-tab accent-usa" href="usa-map.html"><i aria-hidden="true"></i><span>USA Map</span></a><a class="msw-tab accent-maple is-current" aria-current="page" href="canada-map.html"><i aria-hidden="true"></i><span>Canada Map</span></a><a class="msw-tab accent-mxgreen" href="mexico-map.html"><i aria-hidden="true"></i><span>Mexico Map</span></a></nav>
+<nav id="map-switch" class="map-switch" aria-label="Country maps"><a class="msw-tab world-back" href="../#map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>← World Map</span></a><a class="msw-tab accent-usa" href="usa-map.html" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>USA Map</span></a><a class="msw-tab accent-maple is-current" aria-current="page" href="canada-map.html" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>Canada Map</span></a><a class="msw-tab accent-mxgreen" href="mexico-map.html" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>Mexico Map</span></a></nav>
 <ol class="steps" id="steps" aria-label="Journey order">
  <li><button type="button" data-step="1" aria-pressed="true"><b>1</b>Vet + laws</button></li><li class="arr" aria-hidden="true">→</li>
  <li><button type="button" data-step="2" aria-pressed="false"><b>2</b>Road / rail</button></li><li class="arr" aria-hidden="true">→</li>
@@ -88,10 +88,10 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  <div class="grid" id="grid"></div>
 </section>
 </div>
-<script src="../assets/js/canada-map-geo.js"></script>
+<script src="../assets/js/canada-map-geo.js?v=20290a3d"></script>
 <script src="../assets/js/canada-map-data.js"></script>
 <script>window.PPC_MAP={geo:window.CA_GEO,airports:window.CA_GEO_AIRPORTS,data:window.CA_MAP_DATA,accent:"maple",idRoot:"country-map"};</script>
-<script src="../assets/js/country-map.js?v=a0d21979"></script>
+<script src="../assets/js/country-map.js?v=51cb0bf7"></script>
 </main>
 <footer class="foot foot-compact">
 <div class="wrap cols">
