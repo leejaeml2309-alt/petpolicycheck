@@ -57,12 +57,14 @@ def page_shell(cfg, title, desc, body, path, root, jsonld=None, hreflang=None, a
   import build as B
   return B.page(cfg, title, desc, body, path, root, jsonld=jsonld, ads=ads)
 
-def hreflang_links(base, slug, lang):
+def hreflang_links(base, slug, lang, localized=True):
   # EN canonical at /routes/{slug}.html; localized at /routes/{lang}/{slug}.html
+  # localized=False: only x-default + en (no /routes/{lang}/ page is generated for this slug,
+  # so emitting those alternates would point to 404s — content-fixes 2026-11-07).
   links = []
   links.append(f'<link rel="alternate" hreflang="x-default" href="{base}/routes/{slug}.html">')
   links.append(f'<link rel="alternate" hreflang="en" href="{base}/routes/{slug}.html">')
-  for L in LANGS:
+  for L in (LANGS if localized else ()):
     if L == "en":
       continue
     links.append(f'<link rel="alternate" hreflang="{L}" href="{base}/routes/{L}/{slug}.html">')
@@ -194,7 +196,7 @@ def build_routes(cfg):
                        jsonld=[faq_ld(slug, pair["from"], pair["to"], a.get("name"), pair["entry"], dims_summary(a), fee_summary(a)),
                                B.bc_ld(cfg, [("Home", ""), ("Routes", "routes/"), (f"{pair['from']}→{pair['to']}", f"routes/{slug}.html")])])
     # inject hreflang before </head>
-    hl = hreflang_links(base, slug, "en")
+    hl = hreflang_links(base, slug, "en", localized=slug in flagship_ids)
     html_page = html_page.replace("</head>", hl + "\n</head>", 1)
     (OUT / "routes" / f"{slug}.html").write_text(html_page)
     urls.append((f"{base}/routes/{slug}.html", TODAY))

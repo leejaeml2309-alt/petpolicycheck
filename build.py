@@ -1669,11 +1669,11 @@ def build_clinics_usa(cfg):
         by.setdefault(c["state"], []).append(c)
     groups = []
     for st in sorted(by):
-        cards = "".join(f'<li class="clin"><a href="{e(c["url"])}" rel="noopener" target="_blank">{e(c["name"])}</a><span>{e(c["city"])}, {e(st)}</span></li>' for c in sorted(by[st], key=lambda c: (c["city"], c["name"])))
+        cards = "".join(f'<li class="clin">' + (f'<a href="{e(c["url"])}" rel="noopener" target="_blank">{e(c["name"])}</a>' if c.get("url") else f'<b class="clin-n">{e(c["name"])}</b>') + f'<span>{e(c["city"])}, {e(st)}</span>' + (f'<span class="clin-note">Closed on October 30, 2026 (clinic notice).</span>' if not c.get("url") and "Closed" in c.get("note", "") else "") + '</li>' for c in sorted(by[st], key=lambda c: (c["city"], c["name"])))
         groups.append(f'<section class="stgrp" data-st="{e(st)}"><h2>{e(st)} <small>({len(by[st])})</small></h2><ul class="clins">{cards}</ul></section>')
     opts = "".join(f'<option value="{e(s)}">{e(s)}</option>' for s in sorted(by))
     body = f"""<nav class="crumbs"><a href="../index.html">Home</a> &rsaquo; Clinics &rsaquo; United States</nav>
-<style>.cdisc{{border:1px solid var(--acc,#d9b765);border-radius:10px;padding:12px 16px;margin:14px 0}}.clins{{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}}.clin{{border:1px solid rgba(217,183,101,.3);border-radius:10px;padding:10px 14px}}.clin a{{color:var(--acc,#d9b765);font-weight:600;display:block}}.clin span{{font-size:.9em;opacity:.8}}.stgrp h2 small{{opacity:.6;font-weight:400}}</style>
+<style>.cdisc{{border:1px solid var(--acc,#d9b765);border-radius:10px;padding:12px 16px;margin:14px 0}}.clins{{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}}.clin{{border:1px solid rgba(217,183,101,.3);border-radius:10px;padding:10px 14px}}.clin a{{color:var(--acc,#d9b765);font-weight:600;display:block}}.clin span{{font-size:.9em;opacity:.8}}.clin-n{{display:block;color:var(--acc,#d9b765)}}.clin-note{{display:block;font-size:.85em;opacity:.8}}.stgrp h2 small{{opacity:.6;font-weight:400}}</style>
 <h1>US veterinary clinics for pet travel certificates</h1>
 <p><b>{len(cl)} clinics</b> across {len(by)} states that appear to offer pet travel or health-certificate related services.</p>
 <div class="cdisc small"><b>Informational listing only.</b> This is not a partnership: {e(cfg['site_name'])} is not affiliated with, endorsed by or paid by any clinic listed here. Always verify services, accreditation and fees directly with the clinic, and check the official USDA APHIS and CDC rules for your trip. Links may change.</div>
@@ -2458,7 +2458,9 @@ def hotel_lux_faq(c):
 
 
 def build_hotel_city(cfg, c, ch, ci):
-    root, chk, S = "../", ci["checked"], ci["sources"]
+    root, chk = "../", ci["checked"]
+    # some sources are {"name","url"} objects: use the url (raw dict was rendered into href — content-fixes 2026-11-07)
+    S = {k: (v["url"] if isinstance(v, dict) else v) for k, v in ci["sources"].items()}
     path = f"hotels/pet-friendly-hotels-{c['slug']}.html"
     src = lambda u, t="Source": f'<a href="{e(u)}" rel="noopener" target="_blank">{t}</a>'
     by = {x["brand"].split(" (")[0].split(" /")[0]: x for x in ch["chains"]}
@@ -3199,7 +3201,7 @@ def build_usa_map(cfg):
 <script src="{root}assets/js/grooming.js"></script>
 <script src="{root}assets/js/usa-map-geo.js"></script>
 <script src="{root}assets/js/usa-map-rules.js"></script>
-<script src="{root}assets/js/usa-map.js?v=20261107g"></script>"""
+<script src="{root}assets/js/usa-map.js?v=20261107cf"></script>"""
     return page(
         cfg,
         f"USA pet-travel map | {cfg['site_name']}",
