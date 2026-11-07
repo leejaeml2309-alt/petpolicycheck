@@ -41,7 +41,7 @@ function boot(){
  var V=(new URLSearchParams(location.search).get('nav'))||document.documentElement.dataset.nav||'8';
  /* '8' = 8 liens (Rides garde sa place) ; '7g' (reco) = Rides fusionne dans Book (hub de réservation), Grooming prend sa place */
  /* World map uses ?view=map (NO #hash) so browsers never native-scroll to an id */
- var S=[['map','World map',up+'?view=map'],['flight','Airlines',up+'airlines/united.html'],['hotel','Hotels',up+'hotels/'],
+ var S=[['map','World map',up+'?view=map'],['flight','Airlines',up+'airlines/'],['hotel','Hotels',up+'hotels/'],
         ['grooming','Grooming',up+'grooming/'],['ground','Rides',up+'book/#rides'],['shop','Products',up+'products/'],['law','Rules',up+'countries/usa.html#federal'],['forum','Forum',up+'forum/'],['veterans','Veterans',up+'veterans/'],['b2b','For Business',up+'pro/']];
  if(V==='7g') S=S.filter(function(x){return x[0]!=='ground'});
  document.documentElement.classList.add('nav-v'+V);

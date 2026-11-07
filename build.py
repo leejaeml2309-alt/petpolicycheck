@@ -198,8 +198,8 @@ LOGO = ('<svg class="logo" viewBox="0 0 40 40" width="38" height="38" aria-hidde
         '<path d="M11.2 25.6c-2.4-.5-3 2.4-.9 2.9M10.3 28.5c3.4 5 10.6 6.5 16 3.7 4.2-2.2 6.3-6.1 6.3-10.2" fill="none" stroke="#d9b765" stroke-width="1.2" stroke-linecap="round"/>'
         '<path d="M0-5l1 .6v3l4 2.4v1l-4-1.1v2.5l1.3 1v.8L0 4.8l-2.3.4v-.8l1.3-1V.8l-4 1.1v-1l4-2.4v-3z" fill="#d9b765" transform="translate(29.6 13.4) rotate(32) scale(.62)"/></svg>')
 # Main nav: identical to the design-C home header (static/home-c.html). (href, label, i18n key, aria-current path prefixes)
-# "#..." hrefs point to sections of the home page. Airlines opens {home}#compare (cabin, fees, hold table).
-NAV = [("?view=map", "World map", "site.nav.map", ()), ("book/", "Book", "site.nav.book", ("book/",)), ("#compare", "Airlines", "site.nav.airlines", ("airlines/",)),
+# "#..." hrefs point to sections of the home page. Airlines opens the dedicated policy index.
+NAV = [("?view=map", "World map", "site.nav.map", ()), ("book/", "Book", "site.nav.book", ("book/",)), ("airlines/", "Airlines", "site.nav.airlines", ("airlines/",)),
        ("countries/usa.html#federal", "Health certificate", "site.nav.health", ()),  # no dedicated page yet: USA federal rules (CDC/USDA) section, leads to the state CVI table
        ("airlines/compare/", "Compare", "site.nav.compare", ("airlines/compare/",)), ("products/", "Products", "site.nav.products", ("products/",)),
        ("#gear", "Guides", "site.nav.guides", ()), ("updates.html", "Updates", "site.nav.updates", ("updates.html",)),
@@ -347,7 +347,7 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
     return f"""<footer class="foot foot-compact">
 <div class="wrap cols">
 <div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
-<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.foot.book", "Book your trip")}{li(h + "#compare", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}{li(root + "routes/", "site.nav.guides", "Routes")}{li(root + "veterans/", "site.nav.pro", "Veterans")}{li(root + "fit/", "site.nav.compare", "Carrier fit")}</ul></div>
+<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.foot.book", "Book your trip")}{li(root + "airlines/", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}{li(root + "routes/", "site.nav.guides", "Routes")}{li(root + "veterans/", "site.nav.pro", "Veterans")}{li(root + "fit/", "site.nav.compare", "Carrier fit")}</ul></div>
 <div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{li(root + "extension/", "site.foot.extension", "Chrome Extension")}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "terms.html", "site.foot.terms", "Terms")}{li(root + "refund-policy.html", "site.foot.refund", "Refund policy")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
@@ -733,7 +733,7 @@ def build_airline(cfg, a, pd=None, lims=None):
         verified_line = f"""<p class="warn">Not yet verified. Last check attempt: {e(nice_date(a.get('last_checked')))}. Official page: <a href="{e(a['official_url'])}" rel="noopener" target="_blank">{e(a['name'])} pet policy</a>.</p>"""
         title = f"{a['name']} pet policy (in-cabin dogs & cats): official page checked {nice_date(a.get('last_checked'))}"
     body = f"""
-<nav class="crumbs"><a href="{{root}}index.html">All airlines</a> &rsaquo; {e(a['name'])}</nav>
+<nav class="crumbs"><a href="./">All airlines</a> &rsaquo; {e(a['name'])}</nav>
 {ad_slot(cfg, 'airline_top', '{root}')}
 <h1>{e(a['name'])} pet policy</h1>
 {verified_line}
@@ -1531,7 +1531,7 @@ def airline_carriers_block(a, pd, lims):
         out += (f"<li><b>{e(l['label'])}</b> ({lim_txt(l)}): " + (", ".join(items) if items else
                 "<span class='na'>none of the carriers we list</span>") + "</li>")
     return (f"<aside class='reco'><h2>Carriers that fit this airline's limits</h2><ul>{out}</ul>"
-            f"<p class='small'>Based on manufacturer dimensions vs. the limit above; not a guarantee. <a href='../products/under-seat-carrier-size-by-airline.html'>All airlines</a> &middot; "
+            f"<p class='small'>Based on manufacturer dimensions vs. the limit above; not a guarantee. <a href='./'>All airlines</a> &middot; "
             f"<a href='../products/best-airline-approved-soft-carriers.html'>Soft carrier guide</a></p></aside>")
 
 
