@@ -73,6 +73,8 @@
 .price .save{margin-left:.35rem;color:#9dc2a0;font-size:.78rem;font-weight:600}
 .plan ul{margin:.2rem 0 .4rem;padding-left:1.05rem;color:#d7d0c3;font-size:.9rem;line-height:1.45}
 .plan li{margin:.28rem 0}
+.plan li.plan-includes{list-style:none;margin-left:-1.05rem;margin-bottom:.5rem;font-weight:600}
+.plan li.plan-includes::before{content:none}
 .cta-row{display:flex;flex-direction:column;gap:.55rem;margin-top:auto}
 .btn-pro{display:inline-flex;justify-content:center;align-items:center;text-decoration:none;border-radius:999px;padding:.72rem 1rem;font:700 .9rem Inter,sans-serif}
 .btn-pro.pri{background:#d9b765;color:#0b1719}
@@ -88,7 +90,7 @@
 </style>
 
 <link rel="stylesheet" href="../assets/css/ppc-i18n.css?v=20261107d">
-<script src="../assets/i18n/ui.js?v=20261107d" defer></script>
+<script src="../assets/i18n/ui.js?v=20261107-pro-tiers" defer></script>
 <script src="../assets/js/ppc-i18n.js?v=20261107d" defer></script>
 <script src="../assets/js/partner-banner.js" defer data-partner-root="../assets/partners/"></script>
 </head>
@@ -153,6 +155,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     <p class="who" data-i="p_who">Pet relocation desks &amp; multi-advisor agencies</p>
     <div class="price"><span class="amt" data-price-mo="149" data-price-yr="1428">$149</span><span class="per" data-i="per_mo">/ month</span><span class="save" hidden data-i="eq_p">eq. $119/mo</span></div>
     <ul>
+      <li class="plan-includes" data-i18n="pro.includes.starter">Everything in Starter, plus:</li>
       <li data-i="p1">Up to 5 team seats</li>
       <li data-i="p2">Unlimited co-branded white-label Pet Travel Passports (agency logo + QR verification)</li>
       <li data-i="p3">Unlimited corridor rule-change alerts</li>
@@ -170,6 +173,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     <p class="who" data-i="e_who">Corporate mobility &amp; HR relocation programs</p>
     <div class="price"><span class="amt" data-price-mo="399" data-price-yr="3828">$399</span><span class="per" data-i="per_mo">/ month</span><span class="save" hidden data-i="eq_e">eq. $319/mo</span></div>
     <ul>
+      <li class="plan-includes" data-i18n="pro.includes.pro">Everything in Pro, plus:</li>
       <li data-i="e1">Up to 25 seats + self-serve relocating employee portal</li>
       <li data-i="e2">Structured read-only JSON policy feed</li>
       <li data-i="e3">Custom corridor watchlists</li>
