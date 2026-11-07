@@ -1,0 +1,58 @@
+[
+  {
+    "airport": "AUS",
+    "url": "https://petpolicycheck.com/airport/AUS/?utm_source=airport_qr&utm_medium=print&utm_campaign=aus_relief",
+    "qr_png_decoded": "https://petpolicycheck.com/airport/AUS/?utm_source=airport_qr&utm_medium=print&utm_campaign=aus_relief",
+    "pdf_qr_decoded": "https://petpolicycheck.com/airport/AUS/?utm_source=airport_qr&utm_medium=print&utm_campaign=aus_relief",
+    "pages": 1,
+    "format": "A4"
+  },
+  {
+    "airport": "BNA",
+    "url": "https://petpolicycheck.com/airport/BNA/?utm_source=airport_qr&utm_medium=print&utm_campaign=bna_relief",
+    "qr_png_decoded": "https://petpolicycheck.com/airport/BNA/?utm_source=airport_qr&utm_medium=print&utm_campaign=bna_relief",
+    "pdf_qr_decoded": "https://petpolicycheck.com/airport/BNA/?utm_source=airport_qr&utm_medium=print&utm_campaign=bna_relief",
+    "pages": 1,
+    "format": "A4"
+  },
+  {
+    "airport": "PDX",
+    "url": "https://petpolicycheck.com/airport/PDX/?utm_source=airport_qr&utm_medium=print&utm_campaign=pdx_relief",
+    "qr_png_decoded": "https://petpolicycheck.com/airport/PDX/?utm_source=airport_qr&utm_medium=print&utm_campaign=pdx_relief",
+    "pdf_qr_decoded": "https://petpolicycheck.com/airport/PDX/?utm_source=airport_qr&utm_medium=print&utm_campaign=pdx_relief",
+    "pages": 1,
+    "format": "A4"
+  },
+  {
+    "airport": "SAN",
+    "url": "https://petpolicycheck.com/airport/SAN/?utm_source=airport_qr&utm_medium=print&utm_campaign=san_relief",
+    "qr_png_decoded": "https://petpolicycheck.com/airport/SAN/?utm_source=airport_qr&utm_medium=print&utm_campaign=san_relief",
+    "pdf_qr_decoded": "https://petpolicycheck.com/airport/SAN/?utm_source=airport_qr&utm_medium=print&utm_campaign=san_relief",
+    "pages": 1,
+    "format": "A4"
+  },
+  {
+    "airport": "BTV",
+    "url": "https://petpolicycheck.com/airport/BTV/?utm_source=airport_qr&utm_medium=print&utm_campaign=btv_relief",
+    "qr_png_decoded": "https://petpolicycheck.com/airport/BTV/?utm_source=airport_qr&utm_medium=print&utm_campaign=btv_relief",
+    "pdf_qr_decoded": "https://petpolicycheck.com/airport/BTV/?utm_source=airport_qr&utm_medium=print&utm_campaign=btv_relief",
+    "pages": 1,
+    "format": "A4"
+  },
+  {
+    "airport": "YVR",
+    "url": "https://petpolicycheck.com/airport/YVR/?utm_source=airport_qr&utm_medium=print&utm_campaign=yvr_relief",
+    "qr_png_decoded": "https://petpolicycheck.com/airport/YVR/?utm_source=airport_qr&utm_medium=print&utm_campaign=yvr_relief",
+    "pdf_qr_decoded": "https://petpolicycheck.com/airport/YVR/?utm_source=airport_qr&utm_medium=print&utm_campaign=yvr_relief",
+    "pages": 1,
+    "format": "A4"
+  },
+  {
+    "airport": "YUL",
+    "url": "https://petpolicycheck.com/airport/YUL/?utm_source=airport_qr&utm_medium=print&utm_campaign=yul_relief",
+    "qr_png_decoded": "https://petpolicycheck.com/airport/YUL/?utm_source=airport_qr&utm_medium=print&utm_campaign=yul_relief",
+    "pdf_qr_decoded": "https://petpolicycheck.com/airport/YUL/?utm_source=airport_qr&utm_medium=print&utm_campaign=yul_relief",
+    "pages": 1,
+    "format": "A4"
+  }
+]

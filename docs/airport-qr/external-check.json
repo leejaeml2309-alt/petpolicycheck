@@ -1,0 +1,142 @@
+[
+  {
+    "url": "https://bnavisionnashville.com/2021/11/22/the-new-bna-bigger-better-even-friendlier-to-pets-and-service-animals/",
+    "status": 200,
+    "block_or_empty": false,
+    "final_url": "https://bnavisionnashville.com/2021/11/22/the-new-bna-bigger-better-even-friendlier-to-pets-and-service-animals/",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://btv.aero/amenities/",
+    "status": 200,
+    "block_or_empty": false,
+    "final_url": "https://btv.aero/amenities/",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://btv.aero/where-we-fly/",
+    "status": 200,
+    "block_or_empty": false,
+    "final_url": "https://btv.aero/where-we-fly/",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://canadawestvets.com/",
+    "status": 403,
+    "block_or_empty": true,
+    "final_url": "https://canadawestvets.com/",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://centredmvet.com/en/centre/centredmvet-montreal/",
+    "status": 200,
+    "block_or_empty": false,
+    "final_url": "https://centredmvet.com/en/centre/centredmvet-montreal/",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://flypdx.com/Animals",
+    "status": 200,
+    "block_or_empty": false,
+    "final_url": "https://flypdx.com/Animals",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://flypdx.com/airlines",
+    "status": 200,
+    "block_or_empty": false,
+    "final_url": "https://flypdx.com/airlines",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/bna-airport.html",
+    "status": 403,
+    "block_or_empty": false,
+    "final_url": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/bna-airport.html",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/yul-airport.html",
+    "status": 403,
+    "block_or_empty": false,
+    "final_url": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/yul-airport.html",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://www.aircanada.com/en-ca/flights-from-montreal",
+    "status": 403,
+    "block_or_empty": false,
+    "final_url": "https://www.aircanada.com/en-ca/flights-from-montreal",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://www.dovelewis.org/",
+    "status": 200,
+    "block_or_empty": false,
+    "final_url": "https://www.dovelewis.org/",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://www.flyaustin.com/aus-airport-airlines-flights",
+    "status": 200,
+    "block_or_empty": false,
+    "final_url": "https://www.flyaustin.com/aus-airport-airlines-flights",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://www.flyaustin.com/travel-security-austin-bergstrom-international-airport",
+    "status": 200,
+    "block_or_empty": false,
+    "final_url": "https://www.flyaustin.com/travel-security-austin-bergstrom-international-airport",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://www.san.org/airlines/",
+    "status": 403,
+    "block_or_empty": false,
+    "final_url": "https://www.san.org/airlines/",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://www.san.org/news-articles/who-moved-my-airline-is-it-terminal-1-or-terminal-2-east-or-west/",
+    "status": 403,
+    "block_or_empty": false,
+    "final_url": "https://www.san.org/news-articles/who-moved-my-airline-is-it-terminal-1-or-terminal-2-east-or-west/",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://www.san.org/services-and-facilities/",
+    "status": 403,
+    "block_or_empty": false,
+    "final_url": "https://www.san.org/services-and-facilities/",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://www.yvr.ca/en/passengers/accessibility/animal-relief-areas",
+    "status": 403,
+    "block_or_empty": true,
+    "final_url": "https://www.yvr.ca/en/passengers/accessibility/animal-relief-areas",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://www.yvr.ca/en/passengers/flights/airlines-and-destinations",
+    "status": 403,
+    "block_or_empty": true,
+    "final_url": "https://www.yvr.ca/en/passengers/flights/airlines-and-destinations",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://yulsatisfaction.admtl.com/hc/en-ca/articles/360001353657-Where-can-I-find-a-relief-area-for-my-pet",
+    "status": 403,
+    "block_or_empty": true,
+    "final_url": "https://yulsatisfaction.admtl.com/hc/en-ca/articles/360001353657-Where-can-I-find-a-relief-area-for-my-pet",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "url": "https://yulsatisfaction.admtl.com/hc/fr-ca/articles/360001353657",
+    "status": 403,
+    "block_or_empty": true,
+    "final_url": "https://yulsatisfaction.admtl.com/hc/fr-ca/articles/360001353657",
+    "checked": "2026-11-07 KST"
+  }
+]

@@ -1,0 +1,326 @@
+{
+  "AUS": {
+    "name": "Austin-Bergstrom International",
+    "city": "Austin",
+    "pets_url": "https://www.flyaustin.com/travel-security-austin-bergstrom-international-airport",
+    "pets_label": "AUS pet relief areas",
+    "before": [
+      [
+        "Barbara Jordan Terminal",
+        "Outside the lower level, at both ends of the parking garage."
+      ]
+    ],
+    "after": [
+      [
+        "Barbara Jordan Terminal",
+        "Pet restroom after security near Gate 9."
+      ]
+    ],
+    "airlines": [
+      "air-canada",
+      "alaska",
+      "american",
+      "british-airways",
+      "delta",
+      "jetblue",
+      "lufthansa",
+      "southwest",
+      "united"
+    ],
+    "airline_sources": [
+      [
+        "https://www.flyaustin.com/aus-airport-airlines-flights",
+        "AUS airline directory"
+      ]
+    ],
+    "note": "",
+    "checked": "2026-11-07 KST",
+    "hotels": [
+      "Hotel Van Zandt, Fairmont Austin, The LINE Austin, South Congress Hotel and Hotel Saint Cecilia",
+      "hotels/pet-friendly-hotels-austin.html",
+      "Austin pet-friendly hotel guide",
+      "City hotels, not all airport-adjacent. See existing guide for individual restrictions and policy dates; confirm with the property."
+    ]
+  },
+  "BNA": {
+    "name": "Nashville International",
+    "city": "Nashville",
+    "pets_url": "https://bnavisionnashville.com/2021/11/22/the-new-bna-bigger-better-even-friendlier-to-pets-and-service-animals/",
+    "pets_label": "BNA pet and service-animal relief",
+    "before": [
+      [
+        "Terminal curbside & Garage 1",
+        "Curbside relief areas and a dog park on Level P5 of Terminal Garage 1, described in the airport’s November 2021 announcement. Ask airport staff for current access."
+      ]
+    ],
+    "after": [
+      [
+        "Concourse D / satellite gates",
+        "The airport announcement lists Concourse D. American’s airport guide additionally lists relief areas across from Gate D2 and next to Gate T1. Ask airport staff to confirm current access from your concourse."
+      ]
+    ],
+    "airlines": [
+      "american"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/bna-airport.html",
+        "American’s BNA airport guide"
+      ]
+    ],
+    "note": "The kit’s newer BNA pet page returned no readable content. The airport announcement is historical (2021); gate details are from American’s airport guide. For other concourses, ask airport staff.",
+    "checked": "2026-11-07 KST"
+  },
+  "PDX": {
+    "name": "Portland International",
+    "city": "Portland",
+    "pets_url": "https://flypdx.com/Animals",
+    "pets_label": "PDX traveling with animals",
+    "before": [
+      [
+        "Main terminal · lower level",
+        "Outside baggage claim at the south end of the terminal."
+      ]
+    ],
+    "after": [
+      [
+        "Concourses B / C",
+        "Just past security near Stumptown Coffee."
+      ],
+      [
+        "Concourse D",
+        "Across from Gate D5."
+      ]
+    ],
+    "airlines": [
+      "air-canada",
+      "alaska",
+      "american",
+      "british-airways",
+      "delta",
+      "hawaiian",
+      "jetblue",
+      "southwest",
+      "united"
+    ],
+    "airline_sources": [
+      [
+        "https://flypdx.com/airlines",
+        "PDX airline directory"
+      ]
+    ],
+    "note": "",
+    "checked": "2026-11-07 KST",
+    "vet": [
+      "DoveLewis Emergency Animal Hospital",
+      "https://www.dovelewis.org/",
+      "site/assets/js/usa-map.js · OR|Portland"
+    ]
+  },
+  "SAN": {
+    "name": "San Diego International",
+    "city": "San Diego",
+    "pets_url": "https://www.san.org/services-and-facilities/",
+    "pets_label": "SAN pet relief areas",
+    "before": [
+      [
+        "Terminal 1 & Terminal 2",
+        "Outdoors on the Ground Transportation Plazas at both terminals."
+      ]
+    ],
+    "after": [
+      [
+        "Terminal 1",
+        "Across from Gate 117."
+      ],
+      [
+        "Terminal 2",
+        "Near Gate 46."
+      ]
+    ],
+    "airlines": [
+      "air-canada",
+      "alaska",
+      "american",
+      "british-airways",
+      "delta",
+      "hawaiian",
+      "southwest",
+      "united"
+    ],
+    "airline_sources": [
+      [
+        "https://www.san.org/airlines/",
+        "SAN airline directory"
+      ],
+      [
+        "https://www.san.org/news-articles/who-moved-my-airline-is-it-terminal-1-or-terminal-2-east-or-west/",
+        "SAN terminal / airline information"
+      ]
+    ],
+    "note": "",
+    "checked": "2026-11-07 KST"
+  },
+  "BTV": {
+    "name": "Patrick Leahy Burlington International",
+    "city": "Burlington",
+    "pets_url": "https://btv.aero/amenities/",
+    "pets_label": "BTV amenities (pet relief)",
+    "before": [
+      [
+        "Terminal",
+        "No before-security location confirmed from the amenities page; ask airport staff."
+      ]
+    ],
+    "after": [
+      [
+        "Terminal",
+        "The official amenities page confirms indoor post-security relief areas, but does not specify gates or concourses. Ask airport staff for the closest one."
+      ]
+    ],
+    "airlines": [
+      "american",
+      "delta",
+      "united"
+    ],
+    "airline_sources": [
+      [
+        "https://btv.aero/where-we-fly/",
+        "BTV airline directory"
+      ]
+    ],
+    "note": "",
+    "checked": "2026-11-07 KST"
+  },
+  "YVR": {
+    "name": "Vancouver International",
+    "city": "Vancouver",
+    "pets_url": "https://www.yvr.ca/en/passengers/accessibility/animal-relief-areas",
+    "pets_label": "official pet page to locate (not in Vague A data yet)",
+    "before": [
+      [
+        "Main terminal · International Arrivals",
+        "Outside International Arrivals at the entrance to Chester Johnson Park."
+      ],
+      [
+        "South Terminal",
+        "Across from the north entrance."
+      ]
+    ],
+    "after": [
+      [
+        "Domestic A / B Pier",
+        "Across from the play area, before Starbucks."
+      ],
+      [
+        "Domestic C Pier",
+        "Across from Gate C29, in the alcove to the right of the washrooms."
+      ],
+      [
+        "International D Pier",
+        "Across from Gate D72, and between Gates 58 and 62."
+      ],
+      [
+        "International Arrivals · Level 4",
+        "In the corridor walkway and in the overflow queuing area."
+      ],
+      [
+        "USA E Pier",
+        "Near Gates E76 and E77."
+      ],
+      [
+        "South Terminal",
+        "Gate G1–2, by the vending machines in the corner."
+      ]
+    ],
+    "airlines": [
+      "air-canada",
+      "air-france",
+      "alaska",
+      "american",
+      "british-airways",
+      "delta",
+      "jetblue",
+      "korean-air",
+      "lufthansa",
+      "united"
+    ],
+    "airline_sources": [
+      [
+        "https://www.yvr.ca/en/passengers/flights/airlines-and-destinations",
+        "YVR airline directory"
+      ]
+    ],
+    "note": "",
+    "checked": "2026-11-07 KST",
+    "vet": [
+      "Canada West Veterinary Specialists",
+      "https://canadawestvets.com/",
+      "site/assets/js/canada-map-data.js · YVR.vet"
+    ],
+    "hotels": [
+      "Fairmont Hotel Vancouver",
+      "countries/canada.html",
+      "Canada hotel policy guide",
+      "Existing guide listing in Vancouver city, not the airport hotel. Confirm the property’s current pet policy."
+    ]
+  },
+  "YUL": {
+    "name": "Montréal-Trudeau International",
+    "city": "Montréal",
+    "pets_url": "https://yulsatisfaction.admtl.com/hc/en-ca/articles/360001353657-Where-can-I-find-a-relief-area-for-my-pet",
+    "pets_label": "official pet page to locate (not in Vague A data yet)",
+    "pets_fr": "https://yulsatisfaction.admtl.com/hc/fr-ca/articles/360001353657",
+    "before": [
+      [
+        "Public area · departures",
+        "Near Tracker, at departures level."
+      ],
+      [
+        "Public area · parking",
+        "At the P4 parking lot."
+      ]
+    ],
+    "after": [
+      [
+        "Domestic pier",
+        "In front of Gate 47."
+      ],
+      [
+        "International pier",
+        "In front of the restrooms near Gate 65."
+      ],
+      [
+        "Transborder pier",
+        "In front of the restrooms near Gate 73."
+      ]
+    ],
+    "airlines": [
+      "air-canada",
+      "american"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aircanada.com/en-ca/flights-from-montreal",
+        "Air Canada’s Montréal service page"
+      ],
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/yul-airport.html",
+        "American’s YUL airport guide"
+      ]
+    ],
+    "note": "The YUL airline directory could not be read (bot protection). Only the two carriers independently confirmed on their own official pages are listed here.",
+    "checked": "2026-11-07 KST",
+    "vet": [
+      "CENTREDMVET Montréal",
+      "https://centredmvet.com/en/centre/centredmvet-montreal/",
+      "site/assets/js/canada-map-data.js · YUL.vet"
+    ],
+    "hotels": [
+      "Alt Hotels (YUL area)",
+      "countries/canada.html",
+      "Canada hotel policy guide",
+      "Existing guide lists Alt in the YUL area under its brand policy. Confirm the specific property and current pet policy."
+    ]
+  }
+}

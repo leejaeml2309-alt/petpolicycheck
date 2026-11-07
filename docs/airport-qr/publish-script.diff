@@ -1,0 +1,34 @@
+--- PUBLISH-WHEN-APPROVED.sh before
++++ PUBLISH-WHEN-APPROVED.sh airport-qr
+@@ -11,9 +11,11 @@
+ # military-mode: preview-reviewed branch only; never rebase, fast-forward only. Marc’s written approval required.
+ set -euo pipefail
+ MODE="${1:-}"
+-case "$MODE" in fit-fix|content-fixes|i18n-5pages|card-legibility|military-mode|pro-tiers) ;; *) echo "usage: $0 fit-fix|content-fixes|i18n-5pages|card-legibility|military-mode|pro-tiers"; exit 2;; esac
++case "$MODE" in fit-fix|content-fixes|i18n-5pages|card-legibility|military-mode|pro-tiers|airport-qr) ;; *) echo "usage: $0 fit-fix|content-fixes|i18n-5pages|card-legibility|military-mode|pro-tiers|airport-qr"; exit 2;; esac
+ REPO=/workspace/ppc-pastilles-palettes-preview-wd/compare-fix/repo
+ WD=/workspace/ppc-pastilles-palettes-preview-wd
++# Airport branch is checked out in its isolated worktree, never in the /pro/ checkout.
++if [ "$MODE" = airport-qr ]; then REPO="$WD/airport-qr/wt"; fi
+ cd "$REPO"
+ git status --porcelain | grep -q . && { echo "uncommitted changes, stop"; exit 1; }
+ git fetch origin main
+@@ -23,7 +25,7 @@
+ # content-fixes must contain fit-fix; fit-fix mode must NOT carry content-fixes commits
+ if [ "$MODE" = content-fixes ]; then git merge-base --is-ancestor fit-fix content-fixes || { echo "content-fixes is not stacked on fit-fix, stop"; exit 1; }; fi
+ if git merge-base --is-ancestor HEAD origin/main; then echo "$MODE already contained in origin/main — nothing to push"; exit 0; fi
+-if [ "$MODE" = i18n-5pages ] || [ "$MODE" = card-legibility ] || [ "$MODE" = military-mode ] || [ "$MODE" = pro-tiers ]; then git merge-base --is-ancestor origin/main HEAD || { echo "origin/main is not an ancestor of $MODE (not a fast-forward), stop"; exit 1; }
++if [ "$MODE" = i18n-5pages ] || [ "$MODE" = card-legibility ] || [ "$MODE" = military-mode ] || [ "$MODE" = pro-tiers ] || [ "$MODE" = airport-qr ]; then git merge-base --is-ancestor origin/main HEAD || { echo "origin/main is not an ancestor of $MODE (not a fast-forward), stop"; exit 1; }
+ else git rebase origin/main; fi   # rebase only for the older modes; stops on conflict
+ git push origin HEAD:main         # fast-forward only (fails rather than overwrite)
+ SHA=$(git rev-parse HEAD); echo "pushed $MODE @ $SHA"
+@@ -69,3 +71,9 @@
+   cd "$WD/pro-tiers"
+   python3 qa.py https://petpolicycheck.com/ qa-live.json shots-live
+ fi
++
++# airport-qr: PREVIEW ONLY until Marc personally approves. Stops if main moved.
++if [ "$MODE" = airport-qr ]; then
++  cd "$WD/airport-qr"
++  python3 qa.py https://petpolicycheck.com/ qa-live.json
++fi
