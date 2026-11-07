@@ -1,6 +1,6 @@
 # Airport QR preview — 7 November 2026 (KST)
 
-Preview only; no publication authorized. Base: `84b4fed`. Branch: `airport-qr` in an isolated worktree. No existing site page, shared theme, logo, price or language selector was modified.
+Preview only; no publication authorized. Current base: `b73c540` (original seven-airport work started on `84b4fed`). Branch: `airport-qr` in an isolated worktree. No existing site page, shared theme, logo, price or language selector was modified.
 
 ## QR convention
 
@@ -56,3 +56,32 @@ Second QA: 42 JS syntax checks OK; 16 renders without console/resource errors, o
 Seven new official-map URLs checked in `official-map-check.json`: AUS/PDX/BTV HTTP 200; SAN/YVR HTTP 403 to box but readable with WebFetch; YUL 500 WebFetch/403 box (official URL corroborated via indexed official terminal-map page); BNA WebFetch 500 and box TLS issuer validation failure (official map URL corroborated on official airport homepage/announcement). Certificate verification was not bypassed. These map URL errors are reported rather than treated as a reason to invent point details.
 
 Extra requested captures: `shots/AUS-plan-visible-1440x900.png`, `shots/AUS-plan-visible-390x844.png`, `shots/YUL-plan-visible-390x844.png`, plus `*-diagram-full-*.png` and all 16 full-page renders. The original first-pass summary remains above.
+
+
+## Current Wave A extension — 20 airports / 21 pages
+
+Rebased the two unpublished airport commits locally onto `b73c540` (published /pro/ inclusion change). Rebase finished clean; `site/pro/` is identical to that base, main checkout untouched. No push or publication.
+
+Added JFK, EWR, MIA, LAX, ORD, MCO, ATL, SEA, DEN, IAH, DTW, DFW, SFO to the index, landing-page generator, original diagrams and A4 flyer data. All thirteen primary official relief URLs were checked this turn (7 November 2026 KST). Twelve page bodies were read with WebFetch; LAX kit PDF is blocked HTTP 403 and was NOT represented as successfully read. Official LAX terminal detail pages also block both fetch providers. LAX T1/T2 locations are explicitly labelled indexed-official-excerpt only / verify on site; T4 near Gate 41 is independently read from American. LAWA confirms T5 closed for reconstruction, so the old PDF's T5 point is NOT used. LAX's official terminal-map page is readable and confirms Delta at T3. Map geometry was never copied or traced.
+
+Terminal-specific completeness is not claimed: JFK T4/T5/T8 points are sourced, other current terminal points unknown; EWR exact B/C points unknown. All new airline lists are selected verified subsets, not complete directories: American station pages were individually read for all thirteen hubs, with additional airport/LAWA evidence for JFK Delta/JetBlue, EWR Air Canada/JetBlue, and LAX Delta/JetBlue. Existing airline policy pages and the comparator are linked.
+
+Important source discrepancies / access conditions are visible above the diagrams: MIA J/Door28 temporarily closed; ORD T3 Main Hall closed and airport L26 vs American L27, restricted T5 arrivals areas; MCO source itself differs C236 vs C238, so that point is unresolved rather than silently chosen; ATL announcement locations need current-access confirmation; SEA IAF restricted to international arrivals; DFW C17 is temporary and C post-security/B pre-security details are unlisted. See `verify-on-site.json` for all twenty airports' per-point caveats.
+
+No new emergency vet is invented or advertised as nearest: none of the new hubs' existing map records was established here as a qualifying closest 24/7 emergency option. Existing city hotel guides only are used for JFK/EWR (New York region, explicitly not airport-adjacent), MIA, LAX, ORD, MCO, IAH and DTW; no invented hotel at other hubs.
+
+### Flyer data / visual template separation
+
+The current flyer style is intentionally unchanged while another designer prepares playful variants. Canonical working files in the artifact root:
+- `flyer-data.json`: twenty resolved per-airport records, including code/name/city, QR URL, separate UTM values, short URL, headline, intro, bullet headings/bodies, CTA, disclaimer, scan-count wording and preview notice.
+- `flyer-template.html`: visual HTML/CSS only, with placeholders; no airport-specific URL/UTM/copy is embedded.
+- `flyers.py`: escapes JSON copy, builds QR codes, and renders the template. Run with the artifact-root venv Python; then `qa.py` exports PDFs and `verify_pdfs.py` raster-decodes them and refreshes kit copies.
+Reference snapshots of those three files are committed beside this README. Styling changes can reuse the same JSON URLs/UTM/text without rebuilding airline/location research.
+
+### Final Wave A validation
+
+42 JavaScript syntax checks pass. 21 pages × 390/1440 = 42 Chromium renders: zero console/JS/resource errors, horizontal overflow, duplicate IDs, ads, language selectors or SVG-text viewBox overflow; mobile menu and UTM-only propagation pass. 61 internal destinations/anchors checked, zero broken. Initial QA caught long raw-source URLs causing mobile overflow on four pages; removed the redundant raw prose URLs (the clickable per-point source list remains), then all 42 renders passed.
+
+20 single-page A4 PDFs generated from the isolated template/data, 20/20 QR codes decoded from actual PDF rasterizations to exact kit-convention URLs; all 20 include “Scan counts available on request”, no monthly-report promise. PDFs copied to original kit folder. `external-check-wave-a.json` records 72 official destinations and HTTP/TLS conditions; source content read with WebFetch when box GET is blocked. The guessed MCO map host failed TLS and was replaced by the verified official terminal-map page `https://flymco.com/terminal-maps/` (200). BNA's existing official map still fails local certificate-issuer validation; no verification bypass used. No linked source was declared absent just because a provider blocks it.
+
+Requested captures: `shots/JFK-plan-visible-{390x844,1440x900}.png`, `shots/LAX-plan-visible-{390x844,1440x900}.png`; `*-plan-points-*` captures prioritize diagram points, and `*-diagram-full-*` include the complete schematics. All 42 full-page captures are in `shots/`. No publication mode was executed; the airport branch is now stacked on the published Pro commit.

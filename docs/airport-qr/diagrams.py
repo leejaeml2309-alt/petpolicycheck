@@ -50,11 +50,17 @@ POINTS={
  ('after','International pier','Restrooms near Gate 65','Level: verify on site',None,False),
  ('after','Transborder pier','Restrooms near Gate 73','Level: verify on site',None,False)]
 }
+from wave_a import WAVE_POINTS,WAVE_MAPS
+POINTS.update(WAVE_POINTS)
+MAPS.update(WAVE_MAPS)
+
 def render(c,d):
  e=lambda x:html.escape(str(x),quote=True)
  groups=[];sources=[];y=12;num=0
- for key,heading in [('before','BEFORE SECURITY'),('after','AFTER SECURITY')]:
-  points=[x for x in POINTS[c] if x[0]==key];height=42+len(points)*106
+ for key,heading in [('before','BEFORE SECURITY'),('after','AFTER SECURITY'),('restricted','RESTRICTED ARRIVALS ACCESS'),('access','STATUS / VERIFY ON SITE')]:
+  points=[x for x in POINTS[c] if x[0]==key]
+  if not points: continue
+  height=42+len(points)*106
   groups.append(f'<rect class="diagram-region" x="4" y="{y}" width="352" height="{height}" rx="12"/><text class="diagram-heading" x="18" y="{y+26}">{heading}</text>')
   py=y+42
   for group,label,detail,note,source,uncertain in points:
@@ -76,4 +82,5 @@ def render(c,d):
  if 'vet' in d:
   name,url,_=d['vet'];vet=f'<div class="diagram-vet"><strong>V · Off-airport 24/7 resource</strong><p><a href="{e(url)}" target="_blank" rel="noopener noreferrer">{e(name)} ↗</a></p><p>Already in our map data. Not plotted in the terminal or distance-ranked. Nearest clinic: verify on site.</p></div>'
  else:vet='<p class="airport-note">Nearest 24/7 vet: verify on site. No qualifying local emergency clinic confirmed in our existing map records.</p>'
- return f'''<section class="airport-panel airport-diagram" id="airport-diagram"><div class="diagram-intro"><div class="airport-code">{c} · Practical pet stops</div><h2>Your pet-stop diagram</h2><p>Simplified diagram, not to scale — check official airport signage</p><p class="airport-meta">Original PetPolicyCheck drawing from written official sources. Numbered stops are grouped by security access, not geographic position; no walking route is implied.</p></div><div class="diagram-layout"><div>{svg}<div class="diagram-legend"><span><b class="legend-dot">1</b> Source-listed relief point</span><span><b class="legend-dot legend-unknown">?</b> Dashed outline: verify on site</span><span><i class="legend-boundary"></i> Security grouping only</span></div></div><div class="diagram-sources"><h3>Official maps &amp; point sources</h3><p class="airport-meta">Read 7 November 2026 (KST). Use the numbered source list to confirm every point. Maps open on the airport’s own website{'; SAN links to the official page containing its terminal-map PDF' if c=='SAN' else ''}.</p><ol>{sourcehtml}</ol><p class="airport-note">Levels or gate details not stated in a source: verify on site. For current access, ask airport staff.</p>{vet}</div></div></section>'''
+ caveat=f'<p class="airport-note">{e(d.get("note",""))}</p>' if c in WAVE_POINTS else ''
+ return f'''<section class="airport-panel airport-diagram" id="airport-diagram"><div class="diagram-intro"><div class="airport-code">{c} · Practical pet stops</div><h2>Your pet-stop diagram</h2><p>Simplified diagram, not to scale — check official airport signage</p><p class="airport-meta">Original PetPolicyCheck drawing from written official sources. Numbered stops are grouped by security access, not geographic position; no walking route is implied.</p></div>{caveat}<div class="diagram-layout"><div>{svg}<div class="diagram-legend"><span><b class="legend-dot">1</b> Source-listed relief point</span><span><b class="legend-dot legend-unknown">?</b> Dashed outline: verify on site</span><span><i class="legend-boundary"></i> Security grouping only</span></div></div><div class="diagram-sources"><h3>Official maps &amp; point sources</h3><p class="airport-meta">Source check: 7 November 2026 (KST). See caveats below; use the numbered source list to confirm every point. Maps open on the airport’s own website{'; SAN links to the official page containing its terminal-map PDF' if c=='SAN' else ''}.</p><ol>{sourcehtml}</ol><p class="airport-note">Levels or gate details not stated in a source: verify on site. For current access, ask airport staff.</p>{vet}</div></div></section>'''

@@ -643,5 +643,1726 @@
       }
     ],
     "official_map": "https://www.admtl.com/en-CA/guide/terminals-map/"
+  },
+  "JFK": {
+    "name": "John F. Kennedy International",
+    "city": "New York City",
+    "pets_url": "https://www.jfkairport.com/explore-jfk/accessibility-services",
+    "pets_label": "JFK pet and service-animal relief",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "Terminal 4",
+        "Outside · Arrivals Level 1. Exact spot: verify on site."
+      ],
+      [
+        "Terminal 8",
+        "Outside baggage claim. Follow red parking sign."
+      ],
+      [
+        "Terminal 8",
+        "Outside ticketing Door F. Center island · verify on site."
+      ]
+    ],
+    "after": [
+      [
+        "Terminal 4 · Concourse B",
+        "Between Gates B31 and B33. Level: verify on site."
+      ],
+      [
+        "Terminal 5 · Rooftop",
+        "Across from Gate 528. Dog walk · verify current hours."
+      ]
+    ],
+    "airlines": [
+      "american",
+      "delta",
+      "jetblue"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/jfk-airport.html",
+        "American’s JFK airport guide"
+      ],
+      [
+        "https://www.jfkairport.com/explore-jfk/terminals/terminal-4",
+        "JFK Terminal 4 / Delta"
+      ],
+      [
+        "https://www.jfkairport.com/explore-jfk/terminals/terminal-5",
+        "JFK Terminal 5 / JetBlue"
+      ]
+    ],
+    "note": "Selected verified locations only, not a complete terminal inventory. Airport confirms relief areas at all terminals; remaining gates, levels, newly changed areas and terminal access: verify on site. Terminal 4 source is its official operator; Terminal 5 rooftop source is the airport itself. Do not infer access between terminals.",
+    "hotels": [
+      "The Peninsula New York and 1 Hotel Brooklyn Bridge",
+      "hotels/pet-friendly-hotels-new-york.html",
+      "Existing New York hotel guide",
+      "City / regional properties already in our guides, not verified airport-adjacent options. For EWR, New York properties require onward travel. Confirm current pet restrictions and availability."
+    ],
+    "diagram_points": [
+      {
+        "id": "J1",
+        "group": "before",
+        "label": "Terminal 4",
+        "detail": "Outside · Arrivals Level 1",
+        "note": "Exact spot: verify on site",
+        "source": "https://www.jfkt4.nyc/rules-regulations/",
+        "official_map": "https://maps.jfkairport.com/su/wgXhsJZQ",
+        "verify_on_site": true
+      },
+      {
+        "id": "J2",
+        "group": "before",
+        "label": "Terminal 8",
+        "detail": "Outside baggage claim",
+        "note": "Follow red parking sign",
+        "source": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/jfk-airport.html",
+        "official_map": "https://maps.jfkairport.com/su/wgXhsJZQ",
+        "verify_on_site": false
+      },
+      {
+        "id": "J3",
+        "group": "before",
+        "label": "Terminal 8",
+        "detail": "Outside ticketing Door F",
+        "note": "Center island · verify on site",
+        "source": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/jfk-airport.html",
+        "official_map": "https://maps.jfkairport.com/su/wgXhsJZQ",
+        "verify_on_site": true
+      },
+      {
+        "id": "J4",
+        "group": "after",
+        "label": "Terminal 4 · Concourse B",
+        "detail": "Between Gates B31 and B33",
+        "note": "Level: verify on site",
+        "source": "https://www.jfkt4.nyc/rules-regulations/",
+        "official_map": "https://maps.jfkairport.com/su/wgXhsJZQ",
+        "verify_on_site": true
+      },
+      {
+        "id": "J5",
+        "group": "after",
+        "label": "Terminal 5 · Rooftop",
+        "detail": "Across from Gate 528",
+        "note": "Dog walk · verify current hours",
+        "source": "https://www.jfkairport.com/explore-jfk/terminals/terminal-5",
+        "official_map": "https://maps.jfkairport.com/su/wgXhsJZQ",
+        "verify_on_site": false
+      },
+      {
+        "id": "J6",
+        "group": "access",
+        "label": "Other terminal locations",
+        "detail": "Airport confirms all terminals",
+        "note": "Gate / level: verify on site",
+        "source": "https://www.jfkairport.com/explore-jfk/accessibility-services",
+        "official_map": "https://maps.jfkairport.com/su/wgXhsJZQ",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://maps.jfkairport.com/su/wgXhsJZQ"
+  },
+  "EWR": {
+    "name": "Newark Liberty International",
+    "city": "New York City",
+    "pets_url": "https://www.newarkairport.com/explore-ewr/services",
+    "pets_label": "EWR pet and service-animal relief",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "Terminal A",
+        "Outside Arrivals · Zone 6. Level: verify on site."
+      ]
+    ],
+    "after": [
+      [
+        "Terminal A",
+        "Across Gates A7 / A8. Between food-court restrooms."
+      ]
+    ],
+    "airlines": [
+      "american",
+      "air-canada",
+      "jetblue"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/ewr-airport.html",
+        "American’s EWR airport guide"
+      ],
+      [
+        "https://www.newarkairport.com/explore-ewr/terminals/terminal-a/terminal-a-accessibility-features",
+        "EWR Terminal A airline accessibility information"
+      ]
+    ],
+    "note": "Terminal A is independently located by airport and American sources. The airport confirms relief areas airport-wide, but exact B/C gates and levels were not verified from readable official text; verify on site.",
+    "hotels": [
+      "The Peninsula New York and 1 Hotel Brooklyn Bridge",
+      "hotels/pet-friendly-hotels-new-york.html",
+      "Existing New York hotel guide",
+      "City / regional properties already in our guides, not verified airport-adjacent options. For EWR, New York properties require onward travel. Confirm current pet restrictions and availability."
+    ],
+    "diagram_points": [
+      {
+        "id": "E1",
+        "group": "before",
+        "label": "Terminal A",
+        "detail": "Outside Arrivals · Zone 6",
+        "note": "Level: verify on site",
+        "source": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/ewr-airport.html",
+        "official_map": "https://maps.newarkairport.com/su/y6klB5yy",
+        "verify_on_site": true
+      },
+      {
+        "id": "E2",
+        "group": "after",
+        "label": "Terminal A",
+        "detail": "Across Gates A7 / A8",
+        "note": "Between food-court restrooms",
+        "source": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/ewr-airport.html",
+        "official_map": "https://maps.newarkairport.com/su/y6klB5yy",
+        "verify_on_site": false
+      },
+      {
+        "id": "E3",
+        "group": "access",
+        "label": "Terminals B / C",
+        "detail": "Relief confirmed airport-wide",
+        "note": "Exact points: verify on site",
+        "source": "https://www.newarkairport.com/explore-ewr/services",
+        "official_map": "https://maps.newarkairport.com/su/y6klB5yy",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://maps.newarkairport.com/su/y6klB5yy"
+  },
+  "MIA": {
+    "name": "Miami International",
+    "city": "Miami",
+    "pets_url": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+    "pets_label": "MIA animal relief areas",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "North Terminal D",
+        "Across Door 5 · Level 1. West of Dolphin garage."
+      ],
+      [
+        "Central Terminal F",
+        "Across Door 15 · Level 1. West of South short-term lot."
+      ]
+    ],
+    "after": [
+      [
+        "North Terminal D",
+        "Near Gate D34. Level: verify on site."
+      ],
+      [
+        "Concourse F",
+        "Near Gate F7. Level: verify on site."
+      ],
+      [
+        "Concourse G",
+        "Near Gate G11. Level: verify on site."
+      ],
+      [
+        "H–J Connector",
+        "Across from InMotion store. Level: verify on site."
+      ]
+    ],
+    "airlines": [
+      "american"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/mia-airport.html",
+        "American’s MIA airport guide"
+      ]
+    ],
+    "note": "The outdoor South Terminal J / Door 28 area is marked temporarily closed due to construction by the airport. It is not presented as an available stop. Indoor levels and access from your gate: verify on site.",
+    "hotels": [
+      "Faena Hotel Miami Beach and Kimpton EPIC Hotel",
+      "hotels/pet-friendly-hotels-miami.html",
+      "Existing Miami hotel guide",
+      "City / regional properties already in our guides, not verified airport-adjacent options. For EWR, New York properties require onward travel. Confirm current pet restrictions and availability."
+    ],
+    "diagram_points": [
+      {
+        "id": "M1",
+        "group": "before",
+        "label": "North Terminal D",
+        "detail": "Across Door 5 · Level 1",
+        "note": "West of Dolphin garage",
+        "source": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "official_map": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "verify_on_site": false
+      },
+      {
+        "id": "M2",
+        "group": "before",
+        "label": "Central Terminal F",
+        "detail": "Across Door 15 · Level 1",
+        "note": "West of South short-term lot",
+        "source": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "official_map": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "verify_on_site": false
+      },
+      {
+        "id": "M3",
+        "group": "after",
+        "label": "North Terminal D",
+        "detail": "Near Gate D34",
+        "note": "Level: verify on site",
+        "source": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "official_map": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "verify_on_site": true
+      },
+      {
+        "id": "M4",
+        "group": "after",
+        "label": "Concourse F",
+        "detail": "Near Gate F7",
+        "note": "Level: verify on site",
+        "source": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "official_map": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "verify_on_site": true
+      },
+      {
+        "id": "M5",
+        "group": "after",
+        "label": "Concourse G",
+        "detail": "Near Gate G11",
+        "note": "Level: verify on site",
+        "source": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "official_map": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "verify_on_site": true
+      },
+      {
+        "id": "M6",
+        "group": "after",
+        "label": "H–J Connector",
+        "detail": "Across from InMotion store",
+        "note": "Level: verify on site",
+        "source": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "official_map": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "verify_on_site": true
+      },
+      {
+        "id": "M7",
+        "group": "access",
+        "label": "South Terminal J",
+        "detail": "Door 28 · Level 1",
+        "note": "CLOSED: construction",
+        "source": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "official_map": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://www.miami-airport.com/map-animal-relief-areas.asp"
+  },
+  "LAX": {
+    "name": "Los Angeles International",
+    "city": "Los Angeles",
+    "pets_url": "https://www.flylax.com/sites/lax/files/documents/LAX%20Pet%20Relief%20Locations.pdf",
+    "pets_label": "LAX animal relief stations map",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "Between Terminals 1 / 2",
+        "Outside · Baggage Level 1. Indexed only: verify on site."
+      ]
+    ],
+    "after": [
+      [
+        "Terminal 1",
+        "Near Gate 13 · Level 3. Indexed only: verify on site."
+      ],
+      [
+        "Terminal 2",
+        "Near Gate 21A · Level 3. Indexed only: verify on site."
+      ],
+      [
+        "Terminal 4",
+        "Follow signs near Gate 41. Level: verify on site."
+      ]
+    ],
+    "airlines": [
+      "american",
+      "jetblue",
+      "delta"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/lax-airport.html",
+        "American’s LAX airport guide"
+      ],
+      [
+        "https://www.flylax.com/lax-terminal-maps",
+        "LAX Terminal 3 / Delta"
+      ],
+      [
+        "https://www.lawa.org/news-releases/2025/LAX%20ANNOUNCES%20TERMINAL%205%20CLOSURE%20TO%20MAKE%20WAY%20FOR%20MAJOR%20TRANSFORMATION",
+        "LAWA terminal relocation announcement"
+      ]
+    ],
+    "note": "The kit PDF and terminal relief pages blocked both fetch providers (403). T1/T2 details are from indexed official-page excerpts only, not a successful live page-body read: verify on site. Only T4 near Gate 41 is independently confirmed from a readable American page. LAWA confirms Terminal 5 closed for reconstruction: do not use old T5/Gate 52B relief instructions. Other terminal relief locations remain unverified here. Verification attempts: 7 November 2026 (KST).",
+    "hotels": [
+      "Hotel Figueroa and Loews Hollywood Hotel",
+      "hotels/pet-friendly-hotels-los-angeles.html",
+      "Existing Los Angeles hotel guide",
+      "City / regional properties already in our guides, not verified airport-adjacent options. For EWR, New York properties require onward travel. Confirm current pet restrictions and availability."
+    ],
+    "check_label": "Verification attempted",
+    "diagram_points": [
+      {
+        "id": "L1",
+        "group": "before",
+        "label": "Between Terminals 1 / 2",
+        "detail": "Outside · Baggage Level 1",
+        "note": "Indexed only: verify on site",
+        "source": "https://www.flylax.com/flight-detail/animal-relief--station/animal-relief-station-t1",
+        "official_map": "https://www.flylax.com/lax-terminal-maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "L2",
+        "group": "after",
+        "label": "Terminal 1",
+        "detail": "Near Gate 13 · Level 3",
+        "note": "Indexed only: verify on site",
+        "source": "https://www.flylax.com/flight-detail/animal-relief--station/animal-relief-station-t1",
+        "official_map": "https://www.flylax.com/lax-terminal-maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "L3",
+        "group": "after",
+        "label": "Terminal 2",
+        "detail": "Near Gate 21A · Level 3",
+        "note": "Indexed only: verify on site",
+        "source": "https://www.flylax.com/flight-detail/animal-relief--station/animal-relief-station-t2",
+        "official_map": "https://www.flylax.com/lax-terminal-maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "L4",
+        "group": "after",
+        "label": "Terminal 4",
+        "detail": "Follow signs near Gate 41",
+        "note": "Level: verify on site",
+        "source": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/lax-airport.html",
+        "official_map": "https://www.flylax.com/lax-terminal-maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "L5",
+        "group": "access",
+        "label": "Terminal 5",
+        "detail": "Closed for reconstruction",
+        "note": "Do not use old relief listing",
+        "source": "https://www.lawa.org/news-releases/2025/LAX%20ANNOUNCES%20TERMINAL%205%20CLOSURE%20TO%20MAKE%20WAY%20FOR%20MAJOR%20TRANSFORMATION",
+        "official_map": "https://www.flylax.com/lax-terminal-maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "L6",
+        "group": "access",
+        "label": "T3 / T6 / T7 / T8 / TB",
+        "detail": "No exact point verified here",
+        "note": "Gate / level: verify on site",
+        "source": "https://www.flylax.com/sites/lax/files/documents/LAX%20Pet%20Relief%20Locations.pdf",
+        "official_map": "https://www.flylax.com/lax-terminal-maps",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://www.flylax.com/lax-terminal-maps"
+  },
+  "ORD": {
+    "name": "O'Hare International",
+    "city": "Chicago",
+    "pets_url": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+    "pets_label": "O'Hare service-animal relief areas",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "Terminal 1",
+        "Lower level · Door 1A. Near United bag claim 15."
+      ],
+      [
+        "Terminal 2",
+        "Lower level · Door 2E. Near bag claim 1."
+      ],
+      [
+        "Terminal 5",
+        "Lower level · Door 5B. Near bag claim 10."
+      ],
+      [
+        "Multi-Modal Facility",
+        "Outside Door 6 · turn right. Rental Cars / Lot F."
+      ]
+    ],
+    "after": [
+      [
+        "Terminal 1 · Concourse C",
+        "Just past Gate C10. Hall toward C12."
+      ],
+      [
+        "Terminal 3 · Rotunda",
+        "Between Terminals 2 and 3. Hall toward T2 · on left."
+      ],
+      [
+        "Terminal 3 · Gate L26",
+        "End of hall · by windows. AA says L27: verify on site."
+      ],
+      [
+        "Terminal 5 · Concourse M",
+        "Near Gate M8. Hall toward M7 · on left."
+      ],
+      [
+        "Terminal 5 · Concourse M",
+        "Between M25 and M26. Restroom bank · own entrance."
+      ]
+    ],
+    "airlines": [
+      "american"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/ord-airport.html",
+        "American’s ORD airport guide"
+      ]
+    ],
+    "note": "The airport describes these as service-animal relief areas; pet eligibility and current access: ask airport staff. T3 Main Hall is closed. Airport gives L26 while American gives L27: verify on site. T5 sterile-corridor / international-baggage areas have restricted arrivals access, not a general departures route. Unlisted before-security T3 details: ask airport staff.",
+    "hotels": [
+      "Kimpton Gray Hotel and Loews Chicago Hotel",
+      "hotels/pet-friendly-hotels-chicago.html",
+      "Existing Chicago hotel guide",
+      "City / regional properties already in our guides, not verified airport-adjacent options. For EWR, New York properties require onward travel. Confirm current pet restrictions and availability."
+    ],
+    "diagram_points": [
+      {
+        "id": "O1",
+        "group": "before",
+        "label": "Terminal 1",
+        "detail": "Lower level · Door 1A",
+        "note": "Near United bag claim 15",
+        "source": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+        "official_map": "https://maps.ord.flychicago.com/",
+        "verify_on_site": false
+      },
+      {
+        "id": "O2",
+        "group": "before",
+        "label": "Terminal 2",
+        "detail": "Lower level · Door 2E",
+        "note": "Near bag claim 1",
+        "source": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+        "official_map": "https://maps.ord.flychicago.com/",
+        "verify_on_site": false
+      },
+      {
+        "id": "O3",
+        "group": "before",
+        "label": "Terminal 5",
+        "detail": "Lower level · Door 5B",
+        "note": "Near bag claim 10",
+        "source": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+        "official_map": "https://maps.ord.flychicago.com/",
+        "verify_on_site": false
+      },
+      {
+        "id": "O4",
+        "group": "before",
+        "label": "Multi-Modal Facility",
+        "detail": "Outside Door 6 · turn right",
+        "note": "Rental Cars / Lot F",
+        "source": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+        "official_map": "https://maps.ord.flychicago.com/",
+        "verify_on_site": false
+      },
+      {
+        "id": "O5",
+        "group": "after",
+        "label": "Terminal 1 · Concourse C",
+        "detail": "Just past Gate C10",
+        "note": "Hall toward C12",
+        "source": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+        "official_map": "https://maps.ord.flychicago.com/",
+        "verify_on_site": false
+      },
+      {
+        "id": "O6",
+        "group": "after",
+        "label": "Terminal 3 · Rotunda",
+        "detail": "Between Terminals 2 and 3",
+        "note": "Hall toward T2 · on left",
+        "source": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+        "official_map": "https://maps.ord.flychicago.com/",
+        "verify_on_site": false
+      },
+      {
+        "id": "O7",
+        "group": "after",
+        "label": "Terminal 3 · Gate L26",
+        "detail": "End of hall · by windows",
+        "note": "AA says L27: verify on site",
+        "source": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+        "official_map": "https://maps.ord.flychicago.com/",
+        "verify_on_site": true
+      },
+      {
+        "id": "O8",
+        "group": "after",
+        "label": "Terminal 5 · Concourse M",
+        "detail": "Near Gate M8",
+        "note": "Hall toward M7 · on left",
+        "source": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+        "official_map": "https://maps.ord.flychicago.com/",
+        "verify_on_site": false
+      },
+      {
+        "id": "O9",
+        "group": "after",
+        "label": "Terminal 5 · Concourse M",
+        "detail": "Between M25 and M26",
+        "note": "Restroom bank · own entrance",
+        "source": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+        "official_map": "https://maps.ord.flychicago.com/",
+        "verify_on_site": false
+      },
+      {
+        "id": "O10",
+        "group": "restricted",
+        "label": "Terminal 5",
+        "detail": "Sterile corridor before CBP",
+        "note": "Access: verify on site",
+        "source": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+        "official_map": "https://maps.ord.flychicago.com/",
+        "verify_on_site": true
+      },
+      {
+        "id": "O11",
+        "group": "restricted",
+        "label": "Terminal 5",
+        "detail": "International baggage claim",
+        "note": "Access: verify on site",
+        "source": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+        "official_map": "https://maps.ord.flychicago.com/",
+        "verify_on_site": true
+      },
+      {
+        "id": "O12",
+        "group": "access",
+        "label": "Terminal 3 · Main Hall",
+        "detail": "Relief area CLOSED",
+        "note": "Construction wall",
+        "source": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+        "official_map": "https://maps.ord.flychicago.com/",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://maps.ord.flychicago.com/"
+  },
+  "MCO": {
+    "name": "Orlando International",
+    "city": "Orlando",
+    "pets_url": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+    "pets_label": "MCO pet and service-animal relief areas",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "Terminal A",
+        "Level 2 · east end. Outside terminal."
+      ],
+      [
+        "Terminal B",
+        "Level 2 · west end. Outside terminal."
+      ],
+      [
+        "North Cell Phone Lot",
+        "East end of lot. Outdoor relief."
+      ]
+    ],
+    "after": [
+      [
+        "Gates 1–29",
+        "Entrance to Gates 20–29. Level: verify on site."
+      ],
+      [
+        "Gates 30–59",
+        "Entrance to Gates 40–49. Level: verify on site."
+      ],
+      [
+        "Gates 70–99",
+        "Entrance to Gates 90–99. Level: verify on site."
+      ],
+      [
+        "Gates 100–129",
+        "Gate 121 / 121–129 wing. Level: verify on site."
+      ],
+      [
+        "Terminal C",
+        "Near C241 and C242. Level 2 (FAQ)."
+      ]
+    ],
+    "airlines": [
+      "american"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/mco-airport.html",
+        "American’s MCO airport guide"
+      ]
+    ],
+    "note": "The official FAQ conflicts on the third Terminal C gate: C236 in one answer, C238 in another. That point is not placed as a confirmed location; verify on site. C241/C242 agree. Level 6 is an international-arrivals location; confirm access. Gate-wing labels also differ slightly for 100–129: ask staff.",
+    "hotels": [
+      "The Ritz-Carlton Orlando, Grande Lakes and Waldorf Astoria Orlando",
+      "hotels/pet-friendly-hotels-orlando.html",
+      "Existing Orlando hotel guide",
+      "City / regional properties already in our guides, not verified airport-adjacent options. For EWR, New York properties require onward travel. Confirm current pet restrictions and availability."
+    ],
+    "diagram_points": [
+      {
+        "id": "M1",
+        "group": "before",
+        "label": "Terminal A",
+        "detail": "Level 2 · east end",
+        "note": "Outside terminal",
+        "source": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+        "official_map": "https://flymco.com/terminal-maps/",
+        "verify_on_site": false
+      },
+      {
+        "id": "M2",
+        "group": "before",
+        "label": "Terminal B",
+        "detail": "Level 2 · west end",
+        "note": "Outside terminal",
+        "source": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+        "official_map": "https://flymco.com/terminal-maps/",
+        "verify_on_site": false
+      },
+      {
+        "id": "M3",
+        "group": "before",
+        "label": "North Cell Phone Lot",
+        "detail": "East end of lot",
+        "note": "Outdoor relief",
+        "source": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+        "official_map": "https://flymco.com/terminal-maps/",
+        "verify_on_site": false
+      },
+      {
+        "id": "M4",
+        "group": "after",
+        "label": "Gates 1–29",
+        "detail": "Entrance to Gates 20–29",
+        "note": "Level: verify on site",
+        "source": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+        "official_map": "https://flymco.com/terminal-maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "M5",
+        "group": "after",
+        "label": "Gates 30–59",
+        "detail": "Entrance to Gates 40–49",
+        "note": "Level: verify on site",
+        "source": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+        "official_map": "https://flymco.com/terminal-maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "M6",
+        "group": "after",
+        "label": "Gates 70–99",
+        "detail": "Entrance to Gates 90–99",
+        "note": "Level: verify on site",
+        "source": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+        "official_map": "https://flymco.com/terminal-maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "M7",
+        "group": "after",
+        "label": "Gates 100–129",
+        "detail": "Gate 121 / 121–129 wing",
+        "note": "Level: verify on site",
+        "source": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+        "official_map": "https://flymco.com/terminal-maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "M8",
+        "group": "after",
+        "label": "Terminal C",
+        "detail": "Near C241 and C242",
+        "note": "Level 2 (FAQ)",
+        "source": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+        "official_map": "https://flymco.com/terminal-maps/",
+        "verify_on_site": false
+      },
+      {
+        "id": "M9",
+        "group": "restricted",
+        "label": "Terminal C",
+        "detail": "Level 6 · before intl bags",
+        "note": "Arrivals access: verify on site",
+        "source": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+        "official_map": "https://flymco.com/terminal-maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "M10",
+        "group": "access",
+        "label": "Terminal C",
+        "detail": "FAQ differs: C236 vs C238",
+        "note": "Exact gate: verify on site",
+        "source": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+        "official_map": "https://flymco.com/terminal-maps/",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://flymco.com/terminal-maps/"
+  },
+  "ATL": {
+    "name": "Hartsfield-Jackson Atlanta International",
+    "city": "Atlanta",
+    "pets_url": "https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/",
+    "pets_label": "ATL pet relief areas",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "Domestic Terminal South",
+        "Outside Doors W1 / W2. Poochie Park · verify access."
+      ],
+      [
+        "International Terminal",
+        "Arrivals · outside Door A1. Current access: verify on site."
+      ]
+    ],
+    "after": [
+      [
+        "Concourse T",
+        "T7. Current access: verify on site."
+      ],
+      [
+        "Concourse A",
+        "A10. Current access: verify on site."
+      ],
+      [
+        "Concourse B",
+        "B33. Current access: verify on site."
+      ],
+      [
+        "Concourse C",
+        "C19. Current access: verify on site."
+      ],
+      [
+        "Concourse D",
+        "D Centerpoint. Current access: verify on site."
+      ],
+      [
+        "Concourse E",
+        "E14. Current access: verify on site."
+      ],
+      [
+        "Concourse F",
+        "F7. Current access: verify on site."
+      ]
+    ],
+    "airlines": [
+      "american"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/atl-airport.html",
+        "American’s ATL airport guide"
+      ]
+    ],
+    "note": "The airport source is an announcement describing these relief locations, not an on-site inspection or current opening-status feed. Current access, levels and construction changes at every listed point: verify on site.",
+    "diagram_points": [
+      {
+        "id": "A1",
+        "group": "before",
+        "label": "Domestic Terminal South",
+        "detail": "Outside Doors W1 / W2",
+        "note": "Poochie Park · verify access",
+        "source": "https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/",
+        "official_map": "https://www.atl.com/maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "A2",
+        "group": "before",
+        "label": "International Terminal",
+        "detail": "Arrivals · outside Door A1",
+        "note": "Current access: verify on site",
+        "source": "https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/",
+        "official_map": "https://www.atl.com/maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "A3",
+        "group": "after",
+        "label": "Concourse T",
+        "detail": "T7",
+        "note": "Current access: verify on site",
+        "source": "https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/",
+        "official_map": "https://www.atl.com/maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "A4",
+        "group": "after",
+        "label": "Concourse A",
+        "detail": "A10",
+        "note": "Current access: verify on site",
+        "source": "https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/",
+        "official_map": "https://www.atl.com/maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "A5",
+        "group": "after",
+        "label": "Concourse B",
+        "detail": "B33",
+        "note": "Current access: verify on site",
+        "source": "https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/",
+        "official_map": "https://www.atl.com/maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "A6",
+        "group": "after",
+        "label": "Concourse C",
+        "detail": "C19",
+        "note": "Current access: verify on site",
+        "source": "https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/",
+        "official_map": "https://www.atl.com/maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "A7",
+        "group": "after",
+        "label": "Concourse D",
+        "detail": "D Centerpoint",
+        "note": "Current access: verify on site",
+        "source": "https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/",
+        "official_map": "https://www.atl.com/maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "A8",
+        "group": "after",
+        "label": "Concourse E",
+        "detail": "E14",
+        "note": "Current access: verify on site",
+        "source": "https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/",
+        "official_map": "https://www.atl.com/maps/",
+        "verify_on_site": true
+      },
+      {
+        "id": "A9",
+        "group": "after",
+        "label": "Concourse F",
+        "detail": "F7",
+        "note": "Current access: verify on site",
+        "source": "https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/",
+        "official_map": "https://www.atl.com/maps/",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://www.atl.com/maps/"
+  },
+  "SEA": {
+    "name": "Seattle-Tacoma International",
+    "city": "Seattle",
+    "pets_url": "https://www.portseattle.org/services-amenities/traveling-pets",
+    "pets_label": "SEA traveling with pets",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "North end · Ticketing",
+        "Outside Door 33. Departures level."
+      ],
+      [
+        "North end · Baggage",
+        "Outside Door 26. Arrivals level."
+      ],
+      [
+        "South end · Baggage",
+        "Near Doors 00 / 02. Past Carousel 1."
+      ],
+      [
+        "Parking garage",
+        "Level 1 · blue elevators. Near cruise-lobby exit."
+      ]
+    ],
+    "after": [
+      [
+        "Concourse A",
+        "Near Gate A10. Level: verify on site."
+      ],
+      [
+        "Concourse C",
+        "Restrooms near C3. Level: verify on site."
+      ],
+      [
+        "Concourse D",
+        "Restrooms near D1. Level: verify on site."
+      ],
+      [
+        "S Concourse",
+        "S Underground Train Station. Level: verify on site."
+      ],
+      [
+        "N Concourse",
+        "N Underground Train Station. Level: verify on site."
+      ]
+    ],
+    "airlines": [
+      "american"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/sea-airport.html",
+        "American’s SEA airport guide"
+      ]
+    ],
+    "note": "International Arrivals Facility relief is on the Mezzanine in US Customs and only for internationally arriving passengers. Do not treat it as a generally accessible post-security stop. Unspecified concourse levels: verify on site.",
+    "diagram_points": [
+      {
+        "id": "S1",
+        "group": "before",
+        "label": "North end · Ticketing",
+        "detail": "Outside Door 33",
+        "note": "Departures level",
+        "source": "https://www.portseattle.org/services-amenities/traveling-pets",
+        "official_map": "https://maps.flysea.org/su/8UDxkl61",
+        "verify_on_site": false
+      },
+      {
+        "id": "S2",
+        "group": "before",
+        "label": "North end · Baggage",
+        "detail": "Outside Door 26",
+        "note": "Arrivals level",
+        "source": "https://www.portseattle.org/services-amenities/traveling-pets",
+        "official_map": "https://maps.flysea.org/su/8UDxkl61",
+        "verify_on_site": false
+      },
+      {
+        "id": "S3",
+        "group": "before",
+        "label": "South end · Baggage",
+        "detail": "Near Doors 00 / 02",
+        "note": "Past Carousel 1",
+        "source": "https://www.portseattle.org/services-amenities/traveling-pets",
+        "official_map": "https://maps.flysea.org/su/8UDxkl61",
+        "verify_on_site": false
+      },
+      {
+        "id": "S4",
+        "group": "before",
+        "label": "Parking garage",
+        "detail": "Level 1 · blue elevators",
+        "note": "Near cruise-lobby exit",
+        "source": "https://www.portseattle.org/services-amenities/traveling-pets",
+        "official_map": "https://maps.flysea.org/su/8UDxkl61",
+        "verify_on_site": false
+      },
+      {
+        "id": "S5",
+        "group": "after",
+        "label": "Concourse A",
+        "detail": "Near Gate A10",
+        "note": "Level: verify on site",
+        "source": "https://www.portseattle.org/services-amenities/traveling-pets",
+        "official_map": "https://maps.flysea.org/su/8UDxkl61",
+        "verify_on_site": true
+      },
+      {
+        "id": "S6",
+        "group": "after",
+        "label": "Concourse C",
+        "detail": "Restrooms near C3",
+        "note": "Level: verify on site",
+        "source": "https://www.portseattle.org/services-amenities/traveling-pets",
+        "official_map": "https://maps.flysea.org/su/8UDxkl61",
+        "verify_on_site": true
+      },
+      {
+        "id": "S7",
+        "group": "after",
+        "label": "Concourse D",
+        "detail": "Restrooms near D1",
+        "note": "Level: verify on site",
+        "source": "https://www.portseattle.org/services-amenities/traveling-pets",
+        "official_map": "https://maps.flysea.org/su/8UDxkl61",
+        "verify_on_site": true
+      },
+      {
+        "id": "S8",
+        "group": "after",
+        "label": "S Concourse",
+        "detail": "S Underground Train Station",
+        "note": "Level: verify on site",
+        "source": "https://www.portseattle.org/services-amenities/traveling-pets",
+        "official_map": "https://maps.flysea.org/su/8UDxkl61",
+        "verify_on_site": true
+      },
+      {
+        "id": "S9",
+        "group": "after",
+        "label": "N Concourse",
+        "detail": "N Underground Train Station",
+        "note": "Level: verify on site",
+        "source": "https://www.portseattle.org/services-amenities/traveling-pets",
+        "official_map": "https://maps.flysea.org/su/8UDxkl61",
+        "verify_on_site": true
+      },
+      {
+        "id": "S10",
+        "group": "restricted",
+        "label": "International Arrivals",
+        "detail": "Mezzanine · US Customs",
+        "note": "Arriving passengers only",
+        "source": "https://www.portseattle.org/services-amenities/traveling-pets",
+        "official_map": "https://maps.flysea.org/su/8UDxkl61",
+        "verify_on_site": false
+      }
+    ],
+    "official_map": "https://maps.flysea.org/su/8UDxkl61"
+  },
+  "DEN": {
+    "name": "Denver International",
+    "city": "Denver",
+    "pets_url": "https://www.flydenver.com/at-the-airport/services-and-amenities/traveling-with-pets/",
+    "pets_label": "DEN traveling with pets",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "Jeppesen Terminal",
+        "West side · Door 200. Outdoor relief; level 2 per AA."
+      ]
+    ],
+    "after": [
+      [
+        "Concourse A",
+        "Center core · US Mail Drop. Level: verify on site."
+      ],
+      [
+        "Concourse B",
+        "Center core · US Mail Drop. Level: verify on site."
+      ],
+      [
+        "Concourse C",
+        "Center core · US Mail Drop. Level: verify on site."
+      ],
+      [
+        "Outdoor Deck A",
+        "Near Gate A15. Level: verify on site."
+      ],
+      [
+        "Outdoor Deck B",
+        "West side · near B7. Level: verify on site."
+      ],
+      [
+        "Outdoor Deck C",
+        "East side · near C67. Level: verify on site."
+      ]
+    ],
+    "airlines": [
+      "american"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/den-airport.html",
+        "American’s DEN airport guide"
+      ]
+    ],
+    "note": "Airport relief-page locations take precedence over broader airline gate descriptions. Concourse levels and outdoor-deck access: verify on site. No walking connection or nearest-stop ranking is implied.",
+    "diagram_points": [
+      {
+        "id": "D1",
+        "group": "before",
+        "label": "Jeppesen Terminal",
+        "detail": "West side · Door 200",
+        "note": "Outdoor relief; level 2 per AA",
+        "source": "https://www.flydenver.com/at-the-airport/services-and-amenities/traveling-with-pets/",
+        "official_map": "https://maps.flydenver.com/",
+        "verify_on_site": false
+      },
+      {
+        "id": "D2",
+        "group": "after",
+        "label": "Concourse A",
+        "detail": "Center core · US Mail Drop",
+        "note": "Level: verify on site",
+        "source": "https://www.flydenver.com/at-the-airport/services-and-amenities/traveling-with-pets/",
+        "official_map": "https://maps.flydenver.com/",
+        "verify_on_site": true
+      },
+      {
+        "id": "D3",
+        "group": "after",
+        "label": "Concourse B",
+        "detail": "Center core · US Mail Drop",
+        "note": "Level: verify on site",
+        "source": "https://www.flydenver.com/at-the-airport/services-and-amenities/traveling-with-pets/",
+        "official_map": "https://maps.flydenver.com/",
+        "verify_on_site": true
+      },
+      {
+        "id": "D4",
+        "group": "after",
+        "label": "Concourse C",
+        "detail": "Center core · US Mail Drop",
+        "note": "Level: verify on site",
+        "source": "https://www.flydenver.com/at-the-airport/services-and-amenities/traveling-with-pets/",
+        "official_map": "https://maps.flydenver.com/",
+        "verify_on_site": true
+      },
+      {
+        "id": "D5",
+        "group": "after",
+        "label": "Outdoor Deck A",
+        "detail": "Near Gate A15",
+        "note": "Level: verify on site",
+        "source": "https://www.flydenver.com/at-the-airport/services-and-amenities/traveling-with-pets/",
+        "official_map": "https://maps.flydenver.com/",
+        "verify_on_site": true
+      },
+      {
+        "id": "D6",
+        "group": "after",
+        "label": "Outdoor Deck B",
+        "detail": "West side · near B7",
+        "note": "Level: verify on site",
+        "source": "https://www.flydenver.com/at-the-airport/services-and-amenities/traveling-with-pets/",
+        "official_map": "https://maps.flydenver.com/",
+        "verify_on_site": true
+      },
+      {
+        "id": "D7",
+        "group": "after",
+        "label": "Outdoor Deck C",
+        "detail": "East side · near C67",
+        "note": "Level: verify on site",
+        "source": "https://www.flydenver.com/at-the-airport/services-and-amenities/traveling-with-pets/",
+        "official_map": "https://maps.flydenver.com/",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://maps.flydenver.com/"
+  },
+  "IAH": {
+    "name": "George Bush Intercontinental",
+    "city": "Houston",
+    "pets_url": "https://www.fly2houston.com/iah/accessibility/travelingwithpets/",
+    "pets_label": "IAH traveling with pets",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "Terminal E",
+        "Arrivals Level 1 · E-103. Across street / traffic lanes."
+      ]
+    ],
+    "after": [
+      [
+        "Terminal A",
+        "Near Gate A12. Level: verify on site."
+      ],
+      [
+        "Terminal B",
+        "Near B1 · across Fruteria. Level: verify on site."
+      ],
+      [
+        "Terminal C",
+        "Across Gate C2. Level: verify on site."
+      ],
+      [
+        "Terminal D",
+        "Across Gate D12. Level: verify on site."
+      ],
+      [
+        "Terminal E",
+        "Across Gate E12. Level: verify on site."
+      ]
+    ],
+    "airlines": [
+      "american"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/iah-airport.html",
+        "American’s IAH airport guide"
+      ]
+    ],
+    "note": "Terminal E outdoor relief is across traffic lanes from Door E-103; use official signs and safe crossings. Post-security levels and current terminal construction access: verify on site.",
+    "hotels": [
+      "Hotel ZaZa Houston Museum District and Hotel Granduca Houston",
+      "hotels/pet-friendly-hotels-houston.html",
+      "Existing Houston hotel guide",
+      "City / regional properties already in our guides, not verified airport-adjacent options. For EWR, New York properties require onward travel. Confirm current pet restrictions and availability."
+    ],
+    "diagram_points": [
+      {
+        "id": "I1",
+        "group": "before",
+        "label": "Terminal E",
+        "detail": "Arrivals Level 1 · E-103",
+        "note": "Across street / traffic lanes",
+        "source": "https://www.fly2houston.com/iah/accessibility/travelingwithpets/",
+        "official_map": "https://iahmaps.fly2houston.com/su/4pwSIzx8",
+        "verify_on_site": false
+      },
+      {
+        "id": "I2",
+        "group": "after",
+        "label": "Terminal A",
+        "detail": "Near Gate A12",
+        "note": "Level: verify on site",
+        "source": "https://www.fly2houston.com/iah/accessibility/travelingwithpets/",
+        "official_map": "https://iahmaps.fly2houston.com/su/4pwSIzx8",
+        "verify_on_site": true
+      },
+      {
+        "id": "I3",
+        "group": "after",
+        "label": "Terminal B",
+        "detail": "Near B1 · across Fruteria",
+        "note": "Level: verify on site",
+        "source": "https://www.fly2houston.com/iah/accessibility/travelingwithpets/",
+        "official_map": "https://iahmaps.fly2houston.com/su/4pwSIzx8",
+        "verify_on_site": true
+      },
+      {
+        "id": "I4",
+        "group": "after",
+        "label": "Terminal C",
+        "detail": "Across Gate C2",
+        "note": "Level: verify on site",
+        "source": "https://www.fly2houston.com/iah/accessibility/travelingwithpets/",
+        "official_map": "https://iahmaps.fly2houston.com/su/4pwSIzx8",
+        "verify_on_site": true
+      },
+      {
+        "id": "I5",
+        "group": "after",
+        "label": "Terminal D",
+        "detail": "Across Gate D12",
+        "note": "Level: verify on site",
+        "source": "https://www.fly2houston.com/iah/accessibility/travelingwithpets/",
+        "official_map": "https://iahmaps.fly2houston.com/su/4pwSIzx8",
+        "verify_on_site": true
+      },
+      {
+        "id": "I6",
+        "group": "after",
+        "label": "Terminal E",
+        "detail": "Across Gate E12",
+        "note": "Level: verify on site",
+        "source": "https://www.fly2houston.com/iah/accessibility/travelingwithpets/",
+        "official_map": "https://iahmaps.fly2houston.com/su/4pwSIzx8",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://iahmaps.fly2houston.com/su/4pwSIzx8"
+  },
+  "DTW": {
+    "name": "Detroit Metropolitan Wayne County",
+    "city": "Detroit",
+    "pets_url": "https://www.metroairport.com/at-dtw/getting-around/accessibility-additional-assistance/traveling-pets",
+    "pets_label": "DTW traveling with pets",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "McNamara Terminal",
+        "Outside International Arrivals. Lower level."
+      ],
+      [
+        "Evans Terminal",
+        "Both ends of departures curb. Upper level · grassy areas."
+      ]
+    ],
+    "after": [
+      [
+        "McNamara Terminal",
+        "Adjacent to Gate A34. Level: verify on site."
+      ],
+      [
+        "Evans Terminal",
+        "Across from Gate D16. Level: verify on site."
+      ]
+    ],
+    "airlines": [
+      "american"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/dtw-airport.html",
+        "American’s DTW airport guide"
+      ]
+    ],
+    "note": "McNamara and Evans are separate terminals; no walking connection is implied. Unspecified post-security levels: verify on site. Follow current terminal names on airport signage.",
+    "hotels": [
+      "Shinola Hotel and Detroit Foundation Hotel",
+      "hotels/pet-friendly-hotels-detroit.html",
+      "Existing Detroit hotel guide",
+      "City / regional properties already in our guides, not verified airport-adjacent options. For EWR, New York properties require onward travel. Confirm current pet restrictions and availability."
+    ],
+    "diagram_points": [
+      {
+        "id": "D1",
+        "group": "before",
+        "label": "McNamara Terminal",
+        "detail": "Outside International Arrivals",
+        "note": "Lower level",
+        "source": "https://www.metroairport.com/at-dtw/getting-around/accessibility-additional-assistance/traveling-pets",
+        "official_map": "https://www.metroairport.com/at-dtw/maps",
+        "verify_on_site": false
+      },
+      {
+        "id": "D2",
+        "group": "before",
+        "label": "Evans Terminal",
+        "detail": "Both ends of departures curb",
+        "note": "Upper level · grassy areas",
+        "source": "https://www.metroairport.com/at-dtw/getting-around/accessibility-additional-assistance/traveling-pets",
+        "official_map": "https://www.metroairport.com/at-dtw/maps",
+        "verify_on_site": false
+      },
+      {
+        "id": "D3",
+        "group": "after",
+        "label": "McNamara Terminal",
+        "detail": "Adjacent to Gate A34",
+        "note": "Level: verify on site",
+        "source": "https://www.metroairport.com/at-dtw/getting-around/accessibility-additional-assistance/traveling-pets",
+        "official_map": "https://www.metroairport.com/at-dtw/maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "D4",
+        "group": "after",
+        "label": "Evans Terminal",
+        "detail": "Across from Gate D16",
+        "note": "Level: verify on site",
+        "source": "https://www.metroairport.com/at-dtw/getting-around/accessibility-additional-assistance/traveling-pets",
+        "official_map": "https://www.metroairport.com/at-dtw/maps",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://www.metroairport.com/at-dtw/maps"
+  },
+  "DFW": {
+    "name": "Dallas/Fort Worth International",
+    "city": "Dallas–Fort Worth",
+    "pets_url": "https://www.dfwairport.com/explore/terminals/pettravel/",
+    "pets_label": "SEA traveling with pets",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "Terminal A",
+        "Lower level · outside A8. Outside entry doors."
+      ],
+      [
+        "Terminal C",
+        "Garage near C17. Temporary construction location."
+      ],
+      [
+        "Terminal D",
+        "Lower level · D15 and D29. Outside entry doors."
+      ],
+      [
+        "Terminal E",
+        "Lower level · E2 and E38. Outside entry doors."
+      ]
+    ],
+    "after": [
+      [
+        "Terminal A",
+        "Near A29. Level: verify on site."
+      ],
+      [
+        "Terminal B",
+        "Near B28. Level: verify on site."
+      ],
+      [
+        "Terminal D",
+        "Near D18. Level: verify on site."
+      ],
+      [
+        "Terminal E",
+        "Near E31. Level: verify on site."
+      ]
+    ],
+    "airlines": [
+      "american"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/dfw-airport.html",
+        "American’s DFW airport guide"
+      ]
+    ],
+    "note": "Temporary Terminal C outdoor location is in the garage near C17. Airport does not list a C post-security location or B pre-security door: verify on site, not an assertion that none exists. Construction may change access.",
+    "diagram_points": [
+      {
+        "id": "D1",
+        "group": "before",
+        "label": "Terminal A",
+        "detail": "Lower level · outside A8",
+        "note": "Outside entry doors",
+        "source": "https://www.dfwairport.com/explore/terminals/pettravel/",
+        "official_map": "https://www.dfwairport.com/map/",
+        "verify_on_site": false
+      },
+      {
+        "id": "D2",
+        "group": "before",
+        "label": "Terminal C",
+        "detail": "Garage near C17",
+        "note": "Temporary construction location",
+        "source": "https://www.dfwairport.com/explore/terminals/pettravel/",
+        "official_map": "https://www.dfwairport.com/map/",
+        "verify_on_site": false
+      },
+      {
+        "id": "D3",
+        "group": "before",
+        "label": "Terminal D",
+        "detail": "Lower level · D15 and D29",
+        "note": "Outside entry doors",
+        "source": "https://www.dfwairport.com/explore/terminals/pettravel/",
+        "official_map": "https://www.dfwairport.com/map/",
+        "verify_on_site": false
+      },
+      {
+        "id": "D4",
+        "group": "before",
+        "label": "Terminal E",
+        "detail": "Lower level · E2 and E38",
+        "note": "Outside entry doors",
+        "source": "https://www.dfwairport.com/explore/terminals/pettravel/",
+        "official_map": "https://www.dfwairport.com/map/",
+        "verify_on_site": false
+      },
+      {
+        "id": "D5",
+        "group": "after",
+        "label": "Terminal A",
+        "detail": "Near A29",
+        "note": "Level: verify on site",
+        "source": "https://www.dfwairport.com/explore/terminals/pettravel/",
+        "official_map": "https://www.dfwairport.com/map/",
+        "verify_on_site": true
+      },
+      {
+        "id": "D6",
+        "group": "after",
+        "label": "Terminal B",
+        "detail": "Near B28",
+        "note": "Level: verify on site",
+        "source": "https://www.dfwairport.com/explore/terminals/pettravel/",
+        "official_map": "https://www.dfwairport.com/map/",
+        "verify_on_site": true
+      },
+      {
+        "id": "D7",
+        "group": "after",
+        "label": "Terminal D",
+        "detail": "Near D18",
+        "note": "Level: verify on site",
+        "source": "https://www.dfwairport.com/explore/terminals/pettravel/",
+        "official_map": "https://www.dfwairport.com/map/",
+        "verify_on_site": true
+      },
+      {
+        "id": "D8",
+        "group": "after",
+        "label": "Terminal E",
+        "detail": "Near E31",
+        "note": "Level: verify on site",
+        "source": "https://www.dfwairport.com/explore/terminals/pettravel/",
+        "official_map": "https://www.dfwairport.com/map/",
+        "verify_on_site": true
+      },
+      {
+        "id": "D9",
+        "group": "access",
+        "label": "Terminal C · after security",
+        "detail": "No point listed by airport",
+        "note": "Verify on site",
+        "source": "https://www.dfwairport.com/explore/terminals/pettravel/",
+        "official_map": "https://www.dfwairport.com/map/",
+        "verify_on_site": true
+      },
+      {
+        "id": "D10",
+        "group": "access",
+        "label": "Terminal B · before security",
+        "detail": "No door listed by airport",
+        "note": "Verify on site",
+        "source": "https://www.dfwairport.com/explore/terminals/pettravel/",
+        "official_map": "https://www.dfwairport.com/map/",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://www.dfwairport.com/map/"
+  },
+  "SFO": {
+    "name": "San Francisco International",
+    "city": "San Francisco",
+    "pets_url": "https://www.flysfo.com/passengers/services/animal-relief-areas",
+    "pets_label": "O'Hare service-animal relief areas",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "Harvey Milk Terminal 1",
+        "Outside baggage claim. Follow painted paws."
+      ],
+      [
+        "Terminal 2",
+        "Pre-security area listed. Door / level: verify on site."
+      ],
+      [
+        "Terminal 3",
+        "Pre-security area listed. Door / level: verify on site."
+      ]
+    ],
+    "after": [
+      [
+        "Harvey Milk Terminal 1",
+        "Between B3 and B6. Level: verify on site."
+      ],
+      [
+        "Harvey Milk Terminal 1",
+        "Between B15 and B16. Level: verify on site."
+      ],
+      [
+        "Terminal 2",
+        "Post-security areas listed. Gate / level: verify on site."
+      ],
+      [
+        "Terminal 3",
+        "Post-security area listed. Gate / level: verify on site."
+      ],
+      [
+        "International A",
+        "Post-security area listed. Gate / level: verify on site."
+      ],
+      [
+        "International G",
+        "Post-security area listed. Gate / level: verify on site."
+      ]
+    ],
+    "airlines": [
+      "american"
+    ],
+    "airline_sources": [
+      [
+        "https://www.aa.com/web/i18n/travelInformation/destinationInformation/sfo-airport.html",
+        "American’s SFO airport guide"
+      ]
+    ],
+    "note": "The official page provides terminal/security groupings but not every gate/level. American adds two Terminal 1 gate pairs. Remaining doors, exact points and levels: verify on site. Do not mistake the diagram for complete navigable airport geometry.",
+    "diagram_points": [
+      {
+        "id": "S1",
+        "group": "before",
+        "label": "Harvey Milk Terminal 1",
+        "detail": "Outside baggage claim",
+        "note": "Follow painted paws",
+        "source": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/sfo-airport.html",
+        "official_map": "https://www.flysfo.com/maps",
+        "verify_on_site": false
+      },
+      {
+        "id": "S2",
+        "group": "before",
+        "label": "Terminal 2",
+        "detail": "Pre-security area listed",
+        "note": "Door / level: verify on site",
+        "source": "https://www.flysfo.com/passengers/services/animal-relief-areas",
+        "official_map": "https://www.flysfo.com/maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "S3",
+        "group": "before",
+        "label": "Terminal 3",
+        "detail": "Pre-security area listed",
+        "note": "Door / level: verify on site",
+        "source": "https://www.flysfo.com/passengers/services/animal-relief-areas",
+        "official_map": "https://www.flysfo.com/maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "S4",
+        "group": "after",
+        "label": "Harvey Milk Terminal 1",
+        "detail": "Between B3 and B6",
+        "note": "Level: verify on site",
+        "source": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/sfo-airport.html",
+        "official_map": "https://www.flysfo.com/maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "S5",
+        "group": "after",
+        "label": "Harvey Milk Terminal 1",
+        "detail": "Between B15 and B16",
+        "note": "Level: verify on site",
+        "source": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/sfo-airport.html",
+        "official_map": "https://www.flysfo.com/maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "S6",
+        "group": "after",
+        "label": "Terminal 2",
+        "detail": "Post-security areas listed",
+        "note": "Gate / level: verify on site",
+        "source": "https://www.flysfo.com/passengers/services/animal-relief-areas",
+        "official_map": "https://www.flysfo.com/maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "S7",
+        "group": "after",
+        "label": "Terminal 3",
+        "detail": "Post-security area listed",
+        "note": "Gate / level: verify on site",
+        "source": "https://www.flysfo.com/passengers/services/animal-relief-areas",
+        "official_map": "https://www.flysfo.com/maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "S8",
+        "group": "after",
+        "label": "International A",
+        "detail": "Post-security area listed",
+        "note": "Gate / level: verify on site",
+        "source": "https://www.flysfo.com/passengers/services/animal-relief-areas",
+        "official_map": "https://www.flysfo.com/maps",
+        "verify_on_site": true
+      },
+      {
+        "id": "S9",
+        "group": "after",
+        "label": "International G",
+        "detail": "Post-security area listed",
+        "note": "Gate / level: verify on site",
+        "source": "https://www.flysfo.com/passengers/services/animal-relief-areas",
+        "official_map": "https://www.flysfo.com/maps",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://www.flysfo.com/maps"
   }
 }

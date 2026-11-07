@@ -1,0 +1,358 @@
+[
+  {
+    "airport": "JFK",
+    "url": "https://www.jfkairport.com/explore-jfk/accessibility-services",
+    "status": 200,
+    "map_links": [
+      {
+        "text": "interactive maps opens in a new tab",
+        "url": "https://maps.jfkairport.com/"
+      },
+      {
+        "text": "Find an Information Center",
+        "url": "https://maps.jfkairport.com/su/PGzbg1pX"
+      },
+      {
+        "text": "Locate a restroom opens in a new tab",
+        "url": "https://maps.jfkairport.com/su/p7rbMJMt"
+      },
+      {
+        "text": "Find service animal relief areas",
+        "url": "https://maps.jfkairport.com/su/wgXhsJZQ"
+      }
+    ],
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "EWR",
+    "url": "https://www.newarkairport.com/explore-ewr/services",
+    "status": 200,
+    "map_links": [
+      {
+        "text": "interactive map opens in a new tab",
+        "url": "https://maps.newarkairport.com/"
+      },
+      {
+        "text": "Children's libraries opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/vNn9fgEV"
+      },
+      {
+        "text": "Lactation rooms and pods opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/JFMFsLAY"
+      },
+      {
+        "text": "Play areas opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/OpzMpvMH"
+      },
+      {
+        "text": "Sensory rooms opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/9PGPKZ2h"
+      },
+      {
+        "text": "Charging stations opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/ylGsOvOh"
+      },
+      {
+        "text": "Shoe Shine opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/TfDPzTMs"
+      },
+      {
+        "text": "Work Spaces opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/O0z0XsbG"
+      },
+      {
+        "text": "Prayer and meditation rooms opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/H35tTa1i"
+      },
+      {
+        "text": "Service animal and pet relief areas opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/y6klB5yy"
+      },
+      {
+        "text": "Wheelchair and special assistance opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/guRfEIMH"
+      },
+      {
+        "text": "Baggage carts opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/ZriZ25qc"
+      },
+      {
+        "text": "Baggage office opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/9A9vdKjb"
+      },
+      {
+        "text": "Oversized baggage opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/hOXYqvbe"
+      },
+      {
+        "text": "Automated External Defibrillator (AEDs) opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/aclql3qV"
+      },
+      {
+        "text": "ATMs opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/zBW8Uu2R"
+      },
+      {
+        "text": "Charging stations opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/ylGsOvOh"
+      },
+      {
+        "text": "Currency exchange opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/qhCnDyoS"
+      },
+      {
+        "text": "Personal Protective Equipment (PPE) vending machines opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/1qBAJ0Ai"
+      },
+      {
+        "text": "Restrooms opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/kUXyKPp4"
+      },
+      {
+        "text": "Family restrooms opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/kMAsLoVk"
+      },
+      {
+        "text": "Smoking areas opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/erOvuCUA"
+      },
+      {
+        "text": "Water refill stations opens in a new tab",
+        "url": "https://maps.newarkairport.com/su/XmBm1FH6"
+      },
+      {
+        "text": "Find an Information Center",
+        "url": "https://maps.newarkairport.com/su/qzPNoXo8"
+      },
+      {
+        "text": "Find the enrollment office",
+        "url": "https://maps.newarkairport.com/su/BkV1CkFF"
+      }
+    ],
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "MIA",
+    "url": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+    "status": 200,
+    "map_links": [
+      {
+        "text": "Baggage Claim",
+        "url": "/map-domestic-baggage-claim.asp"
+      },
+      {
+        "text": "Maps",
+        "url": "maps.asp"
+      },
+      {
+        "text": "Animal Relief Areas",
+        "url": "map-animal-relief-areas.asp"
+      },
+      {
+        "text": "Baggage Claim",
+        "url": "map-domestic-baggage-claim.asp"
+      },
+      {
+        "text": "Immigration and Customs",
+        "url": "map-immigration-and-customs.asp"
+      },
+      {
+        "text": "Skytrain",
+        "url": "map-skytrain.asp"
+      },
+      {
+        "text": "STS Stops",
+        "url": "map-sts-pickup-points.asp"
+      },
+      {
+        "text": "Terminal Gates",
+        "url": "map-terminal-gates.asp"
+      },
+      {
+        "text": "",
+        "url": "map-domestic-baggage-claim.asp"
+      }
+    ],
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "LAX",
+    "url": "https://www.flylax.com/sites/lax/files/documents/LAX%20Pet%20Relief%20Locations.pdf",
+    "status": 403,
+    "map_links": [],
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "ORD",
+    "url": "https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx",
+    "status": 200,
+    "map_links": [
+      {
+        "text": "Full Parking Map",
+        "url": "/ohare/tofrom/parking/Pages/map.aspx"
+      },
+      {
+        "text": "Map",
+        "url": "/ohare/map/pages/default.aspx"
+      },
+      {
+        "text": "Interactive Map",
+        "url": "https://maps.ord.flychicago.com/"
+      },
+      {
+        "text": "Printable Maps",
+        "url": "/ohare/map/Pages/printablemaps.aspx"
+      },
+      {
+        "text": "Sitemap",
+        "url": "/business/home/Pages/sitemap.aspx"
+      }
+    ],
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "MCO",
+    "url": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+    "status": 200,
+    "map_links": [],
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "ATL",
+    "url": "https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/",
+    "status": 403,
+    "map_links": [],
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "SEA",
+    "url": "https://www.portseattle.org/services-amenities/traveling-pets",
+    "status": 200,
+    "map_links": [
+      {
+        "text": "Maps",
+        "url": "/sea/maps"
+      },
+      {
+        "text": "interactive map",
+        "url": "https://maps.flysea.org/su/8UDxkl61"
+      },
+      {
+        "text": "Maps",
+        "url": "/sea/maps"
+      },
+      {
+        "text": "Sitemap",
+        "url": "/sitemap"
+      }
+    ],
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "DEN",
+    "url": "https://www.flydenver.com/at-the-airport/services-and-amenities/traveling-with-pets/",
+    "status": 403,
+    "map_links": [],
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "IAH",
+    "url": "https://www.fly2houston.com/iah/accessibility/travelingwithpets/",
+    "status": 200,
+    "map_links": [
+      {
+        "text": "Interactive Map",
+        "url": "/iah/map/"
+      },
+      {
+        "text": "View IAH SARA Map Locations",
+        "url": "https://iahmaps.fly2houston.com/su/4pwSIzx8"
+      },
+      {
+        "text": "Find food, shops and services",
+        "url": "/iah/map/"
+      }
+    ],
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "DTW",
+    "url": "https://www.metroairport.com/at-dtw/getting-around/accessibility-additional-assistance/traveling-pets",
+    "status": 200,
+    "map_links": [
+      {
+        "text": "Maps",
+        "url": "/at-dtw/maps"
+      },
+      {
+        "text": "Maps",
+        "url": "/at-dtw/maps"
+      },
+      {
+        "text": "Attractions",
+        "url": "/dtw/maps/attractions"
+      },
+      {
+        "text": "Sitemap",
+        "url": "/sitemap"
+      }
+    ],
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "DFW",
+    "url": "https://www.dfwairport.com/explore/terminals/pettravel/",
+    "status": 200,
+    "map_links": [
+      {
+        "text": "Map",
+        "url": "/map/"
+      },
+      {
+        "text": "Map",
+        "url": "/map/"
+      },
+      {
+        "text": "Map",
+        "url": "/map/"
+      }
+    ],
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "SFO",
+    "url": "https://www.flysfo.com/passengers/services/animal-relief-areas",
+    "status": 200,
+    "map_links": [
+      {
+        "text": "Map",
+        "url": "/maps"
+      },
+      {
+        "text": "Maps",
+        "url": "/maps"
+      },
+      {
+        "text": "Maps",
+        "url": "/maps"
+      },
+      {
+        "text": "Interactive Map",
+        "url": "/maps"
+      },
+      {
+        "text": "Static Maps",
+        "url": "/maps/static-maps"
+      },
+      {
+        "text": "Maps",
+        "url": "/maps"
+      },
+      {
+        "text": "Sitemap",
+        "url": "/sitemap"
+      }
+    ],
+    "checked": "2026-11-07 KST"
+  }
+]

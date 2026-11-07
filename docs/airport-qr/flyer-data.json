@@ -1,0 +1,685 @@
+{
+  "schema_version": 1,
+  "airports": [
+    {
+      "airport_code": "AUS",
+      "airport_name": "Austin-Bergstrom International",
+      "city": "Austin",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "aus_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/AUS/?utm_source=airport_qr&utm_medium=print&utm_campaign=aus_relief",
+      "short_url": "petpolicycheck.com/airport/AUS/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "BNA",
+      "airport_name": "Nashville International",
+      "city": "Nashville",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "bna_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/BNA/?utm_source=airport_qr&utm_medium=print&utm_campaign=bna_relief",
+      "short_url": "petpolicycheck.com/airport/BNA/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "PDX",
+      "airport_name": "Portland International",
+      "city": "Portland",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "pdx_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/PDX/?utm_source=airport_qr&utm_medium=print&utm_campaign=pdx_relief",
+      "short_url": "petpolicycheck.com/airport/PDX/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "SAN",
+      "airport_name": "San Diego International",
+      "city": "San Diego",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "san_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/SAN/?utm_source=airport_qr&utm_medium=print&utm_campaign=san_relief",
+      "short_url": "petpolicycheck.com/airport/SAN/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "BTV",
+      "airport_name": "Patrick Leahy Burlington International",
+      "city": "Burlington",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "btv_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/BTV/?utm_source=airport_qr&utm_medium=print&utm_campaign=btv_relief",
+      "short_url": "petpolicycheck.com/airport/BTV/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "YVR",
+      "airport_name": "Vancouver International",
+      "city": "Vancouver",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "yvr_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/YVR/?utm_source=airport_qr&utm_medium=print&utm_campaign=yvr_relief",
+      "short_url": "petpolicycheck.com/airport/YVR/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "YUL",
+      "airport_name": "Montréal-Trudeau International",
+      "city": "Montréal",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "yul_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/YUL/?utm_source=airport_qr&utm_medium=print&utm_campaign=yul_relief",
+      "short_url": "petpolicycheck.com/airport/YUL/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "JFK",
+      "airport_name": "John F. Kennedy International",
+      "city": "New York City",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "jfk_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/JFK/?utm_source=airport_qr&utm_medium=print&utm_campaign=jfk_relief",
+      "short_url": "petpolicycheck.com/airport/JFK/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "EWR",
+      "airport_name": "Newark Liberty International",
+      "city": "New York City",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "ewr_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/EWR/?utm_source=airport_qr&utm_medium=print&utm_campaign=ewr_relief",
+      "short_url": "petpolicycheck.com/airport/EWR/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "MIA",
+      "airport_name": "Miami International",
+      "city": "Miami",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "mia_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/MIA/?utm_source=airport_qr&utm_medium=print&utm_campaign=mia_relief",
+      "short_url": "petpolicycheck.com/airport/MIA/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "LAX",
+      "airport_name": "Los Angeles International",
+      "city": "Los Angeles",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "lax_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/LAX/?utm_source=airport_qr&utm_medium=print&utm_campaign=lax_relief",
+      "short_url": "petpolicycheck.com/airport/LAX/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "ORD",
+      "airport_name": "O'Hare International",
+      "city": "Chicago",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "ord_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/ORD/?utm_source=airport_qr&utm_medium=print&utm_campaign=ord_relief",
+      "short_url": "petpolicycheck.com/airport/ORD/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "MCO",
+      "airport_name": "Orlando International",
+      "city": "Orlando",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "mco_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/MCO/?utm_source=airport_qr&utm_medium=print&utm_campaign=mco_relief",
+      "short_url": "petpolicycheck.com/airport/MCO/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "ATL",
+      "airport_name": "Hartsfield-Jackson Atlanta International",
+      "city": "Atlanta",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "atl_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/ATL/?utm_source=airport_qr&utm_medium=print&utm_campaign=atl_relief",
+      "short_url": "petpolicycheck.com/airport/ATL/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "SEA",
+      "airport_name": "Seattle-Tacoma International",
+      "city": "Seattle",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "sea_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/SEA/?utm_source=airport_qr&utm_medium=print&utm_campaign=sea_relief",
+      "short_url": "petpolicycheck.com/airport/SEA/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "DEN",
+      "airport_name": "Denver International",
+      "city": "Denver",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "den_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/DEN/?utm_source=airport_qr&utm_medium=print&utm_campaign=den_relief",
+      "short_url": "petpolicycheck.com/airport/DEN/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "IAH",
+      "airport_name": "George Bush Intercontinental",
+      "city": "Houston",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "iah_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/IAH/?utm_source=airport_qr&utm_medium=print&utm_campaign=iah_relief",
+      "short_url": "petpolicycheck.com/airport/IAH/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "DTW",
+      "airport_name": "Detroit Metropolitan Wayne County",
+      "city": "Detroit",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "dtw_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/DTW/?utm_source=airport_qr&utm_medium=print&utm_campaign=dtw_relief",
+      "short_url": "petpolicycheck.com/airport/DTW/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "DFW",
+      "airport_name": "Dallas/Fort Worth International",
+      "city": "Dallas–Fort Worth",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "dfw_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/DFW/?utm_source=airport_qr&utm_medium=print&utm_campaign=dfw_relief",
+      "short_url": "petpolicycheck.com/airport/DFW/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    },
+    {
+      "airport_code": "SFO",
+      "airport_name": "San Francisco International",
+      "city": "San Francisco",
+      "utm": {
+        "utm_source": "airport_qr",
+        "utm_medium": "print",
+        "utm_campaign": "sfo_relief"
+      },
+      "qr_url": "https://petpolicycheck.com/airport/SFO/?utm_source=airport_qr&utm_medium=print&utm_campaign=sfo_relief",
+      "short_url": "petpolicycheck.com/airport/SFO/",
+      "headline": "Travelling with a pet?",
+      "headline_emphasis": "pet",
+      "intro": "Your next stop, made simpler. Scan for this airport’s pet travel guide.",
+      "scan_cta": "Scan me",
+      "scan_counts": "Scan counts available on request",
+      "preview_notice": "PREVIEW — landing page pending publication. Airport approval required before display.",
+      "copyright": "© 2026 PetPolicyCheck",
+      "disclaimer": "Not affiliated with any airline or airport. Locations, airline service and pet policies can change. Consult the official sources linked in the guide.",
+      "bullets": [
+        {
+          "heading": "Find pet relief areas",
+          "body": "Before & after security, with official source links."
+        },
+        {
+          "heading": "Check your airline’s pet rules",
+          "body": "Policy pages and the airline comparator."
+        },
+        {
+          "heading": "Plan your onward stay",
+          "body": "Existing vet and hotel resources where available. Missing details? Ask airport staff."
+        }
+      ]
+    }
+  ]
+}
