@@ -1,0 +1,719 @@
+{
+  "meta": {
+    "checked_date": "2026-11-07",
+    "timezone": "Asia/Seoul",
+    "scope": "Airline statements only; unknown is not unavailable."
+  },
+  "government": {
+    "dot": {
+      "url": "https://www.transportation.gov/resources/individuals/aviation-consumer-protection/service-animals",
+      "checked": "2026-11-07",
+      "status": "verified"
+    },
+    "amc": {
+      "url": "https://www.amc.af.mil/AMC-Travel-Site/AMC-Pet-Travel-Page/",
+      "checked": "2026-11-07",
+      "status": "verified"
+    }
+  },
+  "airlines": {
+    "delta": {
+      "name": "Delta Air Lines",
+      "official_policy_url": "https://www.delta.com/us/en/pet-travel/overview",
+      "service": {
+        "status": "verified",
+        "keys": [
+          "mil.free",
+          "mil.dotRequired"
+        ],
+        "url": "https://www.delta.com/us/en/accessible-travel-services/service-animals",
+        "checked": "2026-11-07",
+        "method": "WebFetch"
+      },
+      "military": [
+        {
+          "status": "verified",
+          "keys": [
+            "mil.deltaBags"
+          ],
+          "url": "https://www.delta.com/us/en/baggage/checked-baggage/military-baggage-allowance",
+          "checked": "2026-11-07",
+          "method": "WebSearch"
+        }
+      ]
+    },
+    "united": {
+      "name": "United Airlines",
+      "official_policy_url": "https://www.united.com/en/us/fly/travel/animals.html",
+      "service": {
+        "status": "verified",
+        "keys": [
+          "mil.free"
+        ],
+        "url": "https://www.united.com/en/us/fly/travel/accessibility-and-assistance/service-animals.html",
+        "checked": "2026-11-07",
+        "method": "WebFetch"
+      },
+      "military": [
+        {
+          "status": "verified",
+          "keys": [
+            "mil.unitedBags"
+          ],
+          "url": "https://www.united.com/en/us/fly/company/company-info/military-benefits-and-discounts.html",
+          "checked": "2026-11-07",
+          "method": "WebSearch"
+        },
+        {
+          "status": "verified",
+          "keys": [
+            "mil.unitedPcs"
+          ],
+          "url": "https://www.united.com/en/us/fly/travel/trip-planning/military-pet-program.html",
+          "checked": "2026-11-07",
+          "method": "WebSearch"
+        }
+      ]
+    },
+    "american": {
+      "name": "American Airlines",
+      "official_policy_url": "https://www.aa.com/i18n/travel-info/special-assistance/pets.jsp",
+      "service": {
+        "status": "verified",
+        "keys": [
+          "mil.free",
+          "mil.dotRequired"
+        ],
+        "url": "https://www.aa.com/i18n/travel-info/special-assistance/service-animals.jsp",
+        "checked": "2026-11-07",
+        "method": "WebFetch"
+      },
+      "military": [
+        {
+          "status": "verified",
+          "keys": [
+            "mil.aaBags"
+          ],
+          "url": "https://www.aa.com/web/i18n/customer-service/programs-products/military-benefits.html",
+          "checked": "2026-11-07",
+          "method": "WebSearch"
+        },
+        {
+          "status": "verified",
+          "keys": [
+            "mil.aaPcs"
+          ],
+          "url": "https://www.aa.com/i18n/travel-info/special-assistance/pets.jsp",
+          "checked": "2026-11-07",
+          "method": "WebFetch"
+        }
+      ]
+    },
+    "southwest": {
+      "name": "Southwest Airlines",
+      "official_policy_url": "https://support.southwest.com/helpcenter/s/article/pet-policy",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://support.southwest.com/helpcenter/s/article/pet-policy",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://support.southwest.com/helpcenter/s/article/pet-policy",
+          "checked": null
+        }
+      ]
+    },
+    "alaska": {
+      "name": "Alaska Airlines",
+      "official_policy_url": "https://www.alaskaair.com/content/travel-info/policies/pets-traveling-with-pets",
+      "service": {
+        "status": "verified",
+        "keys": [
+          "mil.free",
+          "mil.dotRequired"
+        ],
+        "url": "https://www.alaskaair.com/content/travel-info/accessible-services/specialservices-support-animals",
+        "checked": "2026-11-07",
+        "method": "WebSearch"
+      },
+      "military": [
+        {
+          "status": "verified",
+          "keys": [
+            "mil.alaskaBags",
+            "mil.alaskaPcs"
+          ],
+          "url": "https://www.alaskaair.com/content/about-us/social-responsibility/salute-to-service",
+          "checked": "2026-11-07",
+          "method": "WebFetch"
+        }
+      ]
+    },
+    "hawaiian": {
+      "name": "Hawaiian Airlines",
+      "official_policy_url": "https://www.hawaiianairlines.com/content/travel-info/pets",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.hawaiianairlines.com/content/travel-info/pets",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.hawaiianairlines.com/content/travel-info/pets",
+          "checked": null
+        }
+      ]
+    },
+    "jetblue": {
+      "name": "JetBlue",
+      "official_policy_url": "https://www.jetblue.com/help/traveling-with-pets",
+      "service": {
+        "status": "verified",
+        "keys": [
+          "mil.free",
+          "mil.dotRequired"
+        ],
+        "url": "https://www.jetblue.com/at-the-airport/accessibility-assistance/service-dogs-animals",
+        "checked": "2026-11-07",
+        "method": "WebSearch"
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.jetblue.com/help/traveling-with-pets",
+          "checked": null
+        }
+      ]
+    },
+    "air-canada": {
+      "name": "Air Canada",
+      "official_policy_url": "https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/pets.html",
+      "service": {
+        "status": "verified",
+        "keys": [
+          "mil.usDotRequired"
+        ],
+        "url": "https://www.aircanada.com/content/dam/aircanada/portal/documents/PDF/en/atpdr/US-dot-service-animal-health-behaviour-training-form-AirCanada.pdf",
+        "checked": "2026-11-07",
+        "method": "WebSearch"
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/pets.html",
+          "checked": null
+        }
+      ]
+    },
+    "air-france": {
+      "name": "Air France",
+      "official_policy_url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat",
+      "service": {
+        "status": "verified",
+        "keys": [
+          "mil.free",
+          "mil.usDotRequired"
+        ],
+        "url": "https://wwws.airfrance.us/information/passagers/acheter-billet-avion-pmr-autres-handicaps/svan",
+        "checked": "2026-11-07",
+        "method": "WebFetch"
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat",
+          "checked": null
+        }
+      ]
+    },
+    "lufthansa": {
+      "name": "Lufthansa",
+      "official_policy_url": "https://www.lufthansa.com/us/en/travelling-with-animals",
+      "service": {
+        "status": "verified",
+        "keys": [
+          "mil.free",
+          "mil.usDotRequired"
+        ],
+        "url": "https://www.lufthansa.com/us/en/assistenzhunde",
+        "checked": "2026-11-07",
+        "method": "WebFetch"
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.lufthansa.com/us/en/travelling-with-animals",
+          "checked": null
+        }
+      ]
+    },
+    "british-airways": {
+      "name": "British Airways",
+      "official_policy_url": "https://www.britishairways.com/content/information/travel-assistance/travelling-with-pets",
+      "service": {
+        "status": "verified",
+        "keys": [
+          "mil.ba"
+        ],
+        "url": "https://www.britishairways.com/content/information/disability-assistance/travelling-with-your-assistance-dog",
+        "checked": "2026-11-07",
+        "method": "WebFetch"
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.britishairways.com/content/information/travel-assistance/travelling-with-pets",
+          "checked": null
+        }
+      ]
+    },
+    "korean-air": {
+      "name": "Korean Air",
+      "official_policy_url": "https://www.koreanair.com/contents/plan-your-travel/special-assistance/travel-with-pets/guide?hl=en",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.koreanair.com/contents/plan-your-travel/special-assistance/travel-with-pets/guide?hl=en",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.koreanair.com/contents/plan-your-travel/special-assistance/travel-with-pets/guide?hl=en",
+          "checked": null
+        }
+      ]
+    },
+    "spirit": {
+      "name": "Spirit Airlines",
+      "official_policy_url": "https://foundation.spirit.com/en-US/category/article/KA-01181",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://foundation.spirit.com/en-US/category/article/KA-01181",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://foundation.spirit.com/en-US/category/article/KA-01181",
+          "checked": null
+        }
+      ]
+    },
+    "frontier": {
+      "name": "Frontier Airlines",
+      "official_policy_url": "https://faq.flyfrontier.com/help/do-you-allow-pets-on-the-plane",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://faq.flyfrontier.com/help/do-you-allow-pets-on-the-plane",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://faq.flyfrontier.com/help/do-you-allow-pets-on-the-plane",
+          "checked": null
+        }
+      ]
+    },
+    "westjet": {
+      "name": "WestJet",
+      "official_policy_url": "https://www.westjet.com/en-us/pets",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.westjet.com/en-us/pets",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.westjet.com/en-us/pets",
+          "checked": null
+        }
+      ]
+    },
+    "porter": {
+      "name": "Porter Airlines",
+      "official_policy_url": "https://www.flyporter.com/en-ca/travel-information/baggage/pets",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.flyporter.com/en-ca/travel-information/baggage/pets",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.flyporter.com/en-ca/travel-information/baggage/pets",
+          "checked": null
+        }
+      ]
+    },
+    "klm": {
+      "name": "KLM Royal Dutch Airlines",
+      "official_policy_url": "https://www.klm.com/information/pets/reservation",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.klm.com/information/pets/reservation",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.klm.com/information/pets/reservation",
+          "checked": null
+        }
+      ]
+    },
+    "virgin-atlantic": {
+      "name": "Virgin Atlantic",
+      "official_policy_url": "https://www.virginatlantic.com/en-us/policies/conditions-of-carriage/article-16",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.virginatlantic.com/en-us/policies/conditions-of-carriage/article-16",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.virginatlantic.com/en-us/policies/conditions-of-carriage/article-16",
+          "checked": null
+        }
+      ]
+    },
+    "iberia": {
+      "name": "Iberia",
+      "official_policy_url": "https://www.iberia.com/us/fly-with-iberia/pets/",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.iberia.com/us/fly-with-iberia/pets/",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.iberia.com/us/fly-with-iberia/pets/",
+          "checked": null
+        }
+      ]
+    },
+    "swiss": {
+      "name": "SWISS International Air Lines",
+      "official_policy_url": "https://www.swiss.com/ch/en/prepare/special-care/animals-travelling",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.swiss.com/ch/en/prepare/special-care/animals-travelling",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.swiss.com/ch/en/prepare/special-care/animals-travelling",
+          "checked": null
+        }
+      ]
+    },
+    "tap": {
+      "name": "TAP Air Portugal",
+      "official_policy_url": "https://www.flytap.com/en-pt/information/traveling-with-animals/pets",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.flytap.com/en-pt/information/traveling-with-animals/pets",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.flytap.com/en-pt/information/traveling-with-animals/pets",
+          "checked": null
+        }
+      ]
+    },
+    "turkish": {
+      "name": "Turkish Airlines",
+      "official_policy_url": "https://www.turkishairlines.com/en-us/any-questions/traveling-with-pets/",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.turkishairlines.com/en-us/any-questions/traveling-with-pets/",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.turkishairlines.com/en-us/any-questions/traveling-with-pets/",
+          "checked": null
+        }
+      ]
+    },
+    "aeromexico": {
+      "name": "Aeroméxico",
+      "official_policy_url": "https://www.aeromexico.com/es_mx/vuelos-con-mascotas",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.aeromexico.com/es_mx/vuelos-con-mascotas",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.aeromexico.com/es_mx/vuelos-con-mascotas",
+          "checked": null
+        }
+      ]
+    },
+    "copa": {
+      "name": "Copa Airlines",
+      "official_policy_url": "https://www.copaair.com/assets/eng-com-24-027-update-service-emotional-support-dog-pet-in-cabin-transportation-policy.pdf",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.copaair.com/assets/eng-com-24-027-update-service-emotional-support-dog-pet-in-cabin-transportation-policy.pdf",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.copaair.com/assets/eng-com-24-027-update-service-emotional-support-dog-pet-in-cabin-transportation-policy.pdf",
+          "checked": null
+        }
+      ]
+    },
+    "latam": {
+      "name": "LATAM Airlines",
+      "official_policy_url": "https://www.latamairlines.com/us/en/help-center/faq/pets/transport/airplaine-flight",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.latamairlines.com/us/en/help-center/faq/pets/transport/airplaine-flight",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.latamairlines.com/us/en/help-center/faq/pets/transport/airplaine-flight",
+          "checked": null
+        }
+      ]
+    },
+    "asiana": {
+      "name": "Asiana Airlines",
+      "official_policy_url": "https://flyasiana.com/C/US/EN/contents/traveling-with-pets",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://flyasiana.com/C/US/EN/contents/traveling-with-pets",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://flyasiana.com/C/US/EN/contents/traveling-with-pets",
+          "checked": null
+        }
+      ]
+    },
+    "ana": {
+      "name": "ANA All Nippon Airways",
+      "official_policy_url": "https://www.ana.co.jp/en/us/travel-information/pet-policy/",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.ana.co.jp/en/us/travel-information/pet-policy/",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.ana.co.jp/en/us/travel-information/pet-policy/",
+          "checked": null
+        }
+      ]
+    },
+    "jal": {
+      "name": "Japan Airlines (JAL)",
+      "official_policy_url": "https://www.jal.co.jp/jp/en/inter/support/pet/",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.jal.co.jp/jp/en/inter/support/pet/",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.jal.co.jp/jp/en/inter/support/pet/",
+          "checked": null
+        }
+      ]
+    },
+    "qatar": {
+      "name": "Qatar Airways",
+      "official_policy_url": "https://www.qatarairways.com/en/baggage/animals.html",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.qatarairways.com/en/baggage/animals.html",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.qatarairways.com/en/baggage/animals.html",
+          "checked": null
+        }
+      ]
+    },
+    "emirates": {
+      "name": "Emirates",
+      "official_policy_url": "https://www.emirates.com/us/english/help/faq-topics/baggage-and-lost-property/faq/what-are-the-rules-and-charges-for-travelling-with-animals/",
+      "service": {
+        "status": "unknown",
+        "keys": [
+          "mil.unknown"
+        ],
+        "url": "https://www.emirates.com/us/english/help/faq-topics/baggage-and-lost-property/faq/what-are-the-rules-and-charges-for-travelling-with-animals/",
+        "checked": null
+      },
+      "military": [
+        {
+          "status": "unknown",
+          "keys": [
+            "mil.unknown"
+          ],
+          "url": "https://www.emirates.com/us/english/help/faq-topics/baggage-and-lost-property/faq/what-are-the-rules-and-charges-for-travelling-with-animals/",
+          "checked": null
+        }
+      ]
+    }
+  }
+}
