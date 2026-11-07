@@ -653,6 +653,11 @@ html.theme-b2b .notice{border-color:color-mix(in srgb,var(--theme-flight) 40%,tr
   .partner-slot .partner-label{ top:8px; left:12px; }
   .partner-slot .partner-ph{ padding:10px 12px; gap:8px; }
   .partner-slot .partner-ph p{ font-size:.82rem; }
+  /* QA 2026-11-07: placeholder copy wraps to 2 lines in FR/ES/DE → CTA was cut off by the fixed 100px height
+     and the label overlapped the copy. Placeholder only (live creatives keep the fixed 100px box). */
+  .partner-slot .partner-card:has(> .partner-ph){ height:auto; }
+  .partner-slot .partner-ph{ padding:24px 12px 12px; }
+  .partner-slot .partner-ph .pst-mini{ display:none; }
 }
 
 

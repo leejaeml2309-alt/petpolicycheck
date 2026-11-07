@@ -76,7 +76,7 @@ function render(){
   const p=COPY[pack.value];
   const ko = pack.value==='kous';
   cardBody.innerHTML=`<h3>${p.title}</h3>
-  <p><b>Courier / 봉사 봉사자 / Mensajero:</b> ${courier.value||'—'}<br><b>Rescue contact:</b> ${rescue.value||'—'}</p>
+  <p><b>Courier / 봉사자 / Mensajero:</b> ${courier.value||'—'}<br><b>Rescue contact:</b> ${rescue.value||'—'}</p>
   <ol>${p.checklist.map(x=>'<li>'+x+'</li>').join('')}</ol>
   <p class="privacy"><b>Warning:</b> ${p.warn}</p>
   ${ko?'<p lang="ko">캐나다(CFIA): 구조/비동반 개는 상업 수입으로 분류될 수 있어요. 개인 동반 규정과 다릅니다.</p>':'<p lang="es">Canadá (CFIA): un perro de rescate o no acompañado puede ser importación comercial, no personal.</p>'}

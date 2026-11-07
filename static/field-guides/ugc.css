@@ -295,3 +295,50 @@ body:not(.admin-mode) .admin-only{display:none!important}
   .hdr-tools{width:100%;margin-left:0;justify-content:space-between}
   .top .nav{flex-wrap:wrap}
 }
+
+/* --- QA 2026-11-07: responsive layout (page had no rules below 1100px; 390px rendered 923-950px wide) --- */
+.badge-v .tip{display:none}
+.badge-v:hover .tip,.badge-v:focus .tip,.ladder .badge-v .tip{display:block}
+@media (max-width:1100px){
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .qitem{grid-template-columns:120px minmax(0,1fr)}
+  .qitem>:last-child:not(:first-child){grid-column:1/-1}
+  .qitem.compact{grid-template-columns:44px minmax(0,1fr) auto}
+  .qitem.compact>:last-child{grid-column:auto}
+}
+@media (max-width:860px){
+  .hero{grid-template-columns:minmax(0,1fr);padding:20px 18px;align-items:start}
+  .hero .acts2{align-items:flex-start}
+  .hero h1 span{white-space:normal}
+  .feat{grid-template-columns:minmax(0,1fr);gap:18px;padding:16px}
+  .feat .v916{width:100%;max-width:300px;margin:0 auto}
+  .sub-grid,.partner{grid-template-columns:minmax(0,1fr)}
+  .qitem{grid-template-columns:minmax(0,1fr)}
+  .rules{grid-template-columns:minmax(0,1fr)}
+  .hubmodes{grid-template-columns:minmax(0,1fr)}
+  .hubgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .counts{margin-left:0;flex-wrap:wrap;width:100%}
+  .count{min-width:0;flex:1 1 140px}
+  .toolbar select{min-width:0;width:100%}
+  .toolbar .sp{margin-left:0;flex-wrap:wrap}
+  .spons{flex-wrap:wrap}
+  .spons .go{margin-left:0;align-items:flex-start}
+  .openslot{flex-wrap:wrap}
+  .openslot a{margin-left:0}
+  .ghead{flex-wrap:wrap}
+}
+@media (max-width:560px){
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .hubs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .modes,.row3,.pack,.dual,.scoutpack,.groom-use .opts{grid-template-columns:minmax(0,1fr)}
+  .meta dl{grid-template-columns:minmax(0,1fr)}
+  .qitem.compact{grid-template-columns:44px minmax(0,1fr)}
+  .qitem.compact .acts{grid-column:1/-1;flex-wrap:wrap}
+  .drop{flex-wrap:wrap}
+  .urlrow{flex-wrap:wrap}
+  .submitrow{flex-wrap:wrap}
+  .partner .slot{flex-wrap:wrap}
+  .partner .slot>*{min-width:0}
+  .partner .slot .chip{white-space:normal}
+  .partner{padding:18px 16px}
+}
