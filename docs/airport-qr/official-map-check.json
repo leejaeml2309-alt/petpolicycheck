@@ -1,0 +1,62 @@
+[
+  {
+    "airport": "AUS",
+    "url": "https://airportmaps.flyaustin.com/",
+    "status": 200,
+    "title": "Atrius Maps",
+    "content_preview": "Atrius Maps",
+    "checked": "2026-11-07 KST",
+    "note": "Map URL only; no official geometry used or traced."
+  },
+  {
+    "airport": "BNA",
+    "url": "https://map.flynashville.com/",
+    "error": "HTTPSConnectionPool(host='map.flynashville.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1029)')))",
+    "checked": "2026-11-07 KST"
+  },
+  {
+    "airport": "PDX",
+    "url": "https://flypdx.com/map/occupant/Pet%20Relief",
+    "status": 200,
+    "title": "FlyPDX - Airport Map",
+    "content_preview": "FlyPDX - Airport Map Skip to main content PDX is guided by the Port of Portland . PDX is guided by the Port of Portland , an engine for economic growth and conn",
+    "checked": "2026-11-07 KST",
+    "note": "Map URL only; no official geometry used or traced."
+  },
+  {
+    "airport": "SAN",
+    "url": "https://www.san.org/airport-authority-guidelines-operations/",
+    "status": 403,
+    "title": "403 Forbidden",
+    "content_preview": "403 Forbidden 403 Forbidden nginx",
+    "checked": "2026-11-07 KST",
+    "note": "Map URL only; no official geometry used or traced."
+  },
+  {
+    "airport": "BTV",
+    "url": "https://btv.aero/terminal-map/",
+    "status": 200,
+    "title": "Terminal Map - Patrick Leahy Burlington International Airport",
+    "content_preview": "Terminal Map - Patrick Leahy Burlington International Airport Skip to content Employees Airport Operations SIDA Badges Employee Portal Do Business With Us Adver",
+    "checked": "2026-11-07 KST",
+    "note": "Map URL only; no official geometry used or traced."
+  },
+  {
+    "airport": "YVR",
+    "url": "https://www.yvr.ca/en/passengers/navigate-yvr/terminal-maps",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "content_preview": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access yvr.ca Why have I been blocked? This website is us",
+    "checked": "2026-11-07 KST",
+    "note": "Map URL only; no official geometry used or traced."
+  },
+  {
+    "airport": "YUL",
+    "url": "https://www.admtl.com/en-CA/guide/terminals-map/",
+    "status": 403,
+    "title": "Attention Required! | Cloudflare",
+    "content_preview": "Attention Required! | Cloudflare Please enable cookies. Sorry, you have been blocked You are unable to access admtl.com Why have I been blocked? This website is",
+    "checked": "2026-11-07 KST",
+    "note": "Map URL only; no official geometry used or traced."
+  }
+]

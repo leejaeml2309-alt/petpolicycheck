@@ -1,0 +1,196 @@
+{
+  "AUS": [
+    {
+      "id": "A2",
+      "group": "after",
+      "label": "Barbara Jordan Terminal",
+      "detail": "Near Gate 9",
+      "note": "Level: verify on site",
+      "source": "https://www.flyaustin.com/travel-security-austin-bergstrom-international-airport",
+      "official_map": "https://airportmaps.flyaustin.com/",
+      "verify_on_site": true
+    }
+  ],
+  "BNA": [
+    {
+      "id": "B1",
+      "group": "before",
+      "label": "Terminal curbside",
+      "detail": "Relief areas (2021 source)",
+      "note": "Exact spot: verify on site",
+      "source": "https://bnavisionnashville.com/2021/11/22/the-new-bna-bigger-better-even-friendlier-to-pets-and-service-animals/",
+      "official_map": "https://map.flynashville.com/",
+      "verify_on_site": true
+    },
+    {
+      "id": "B2",
+      "group": "before",
+      "label": "Terminal Garage 1",
+      "detail": "Level P5 \u00b7 dog park",
+      "note": "Current access: verify on site",
+      "source": "https://bnavisionnashville.com/2021/11/22/the-new-bna-bigger-better-even-friendlier-to-pets-and-service-animals/",
+      "official_map": "https://map.flynashville.com/",
+      "verify_on_site": true
+    },
+    {
+      "id": "B3",
+      "group": "after",
+      "label": "Concourse D",
+      "detail": "Across from Gate D2",
+      "note": "Level / access: verify on site",
+      "source": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/bna-airport.html",
+      "official_map": "https://map.flynashville.com/",
+      "verify_on_site": true
+    },
+    {
+      "id": "B4",
+      "group": "after",
+      "label": "Gate T1 area",
+      "detail": "Next to Gate T1",
+      "note": "Level / access: verify on site",
+      "source": "https://www.aa.com/web/i18n/travelInformation/destinationInformation/bna-airport.html",
+      "official_map": "https://map.flynashville.com/",
+      "verify_on_site": true
+    }
+  ],
+  "PDX": [
+    {
+      "id": "P2",
+      "group": "after",
+      "label": "Concourses B / C",
+      "detail": "Near Stumptown Coffee",
+      "note": "Level: verify on site",
+      "source": "https://flypdx.com/Animals",
+      "official_map": "https://flypdx.com/map/occupant/Pet%20Relief",
+      "verify_on_site": true
+    },
+    {
+      "id": "P3",
+      "group": "after",
+      "label": "Concourse D",
+      "detail": "Across from Gate D5",
+      "note": "Level: verify on site",
+      "source": "https://flypdx.com/Animals",
+      "official_map": "https://flypdx.com/map/occupant/Pet%20Relief",
+      "verify_on_site": true
+    }
+  ],
+  "SAN": [
+    {
+      "id": "S3",
+      "group": "after",
+      "label": "Terminal 1",
+      "detail": "Across from Gate 117",
+      "note": "Level: verify on site",
+      "source": "https://www.san.org/services-and-facilities/",
+      "official_map": "https://www.san.org/airport-authority-guidelines-operations/",
+      "verify_on_site": true
+    },
+    {
+      "id": "S4",
+      "group": "after",
+      "label": "Terminal 2",
+      "detail": "Near Gate 46",
+      "note": "Level: verify on site",
+      "source": "https://www.san.org/services-and-facilities/",
+      "official_map": "https://www.san.org/airport-authority-guidelines-operations/",
+      "verify_on_site": true
+    }
+  ],
+  "BTV": [
+    {
+      "id": "B1",
+      "group": "before",
+      "label": "No location confirmed",
+      "detail": "No point placed here",
+      "note": "Verify on site",
+      "source": "https://btv.aero/amenities/",
+      "official_map": "https://btv.aero/terminal-map/",
+      "verify_on_site": true
+    },
+    {
+      "id": "B2",
+      "group": "after",
+      "label": "Terminal relief areas",
+      "detail": "Indoor \u00b7 exact gate unknown",
+      "note": "Gate / level: verify on site",
+      "source": "https://btv.aero/amenities/",
+      "official_map": "https://btv.aero/terminal-map/",
+      "verify_on_site": true
+    }
+  ],
+  "YVR": [
+    {
+      "id": "Y5",
+      "group": "after",
+      "label": "International D Pier",
+      "detail": "Across from Gate D72",
+      "note": "Level: verify on site",
+      "source": "https://www.yvr.ca/en/passengers/accessibility/animal-relief-areas",
+      "official_map": "https://www.yvr.ca/en/passengers/navigate-yvr/terminal-maps",
+      "verify_on_site": true
+    },
+    {
+      "id": "Y6",
+      "group": "after",
+      "label": "International D Pier",
+      "detail": "Between Gates 58 and 62",
+      "note": "Level: verify on site",
+      "source": "https://www.yvr.ca/en/passengers/accessibility/animal-relief-areas",
+      "official_map": "https://www.yvr.ca/en/passengers/navigate-yvr/terminal-maps",
+      "verify_on_site": true
+    },
+    {
+      "id": "Y9",
+      "group": "after",
+      "label": "USA E Pier",
+      "detail": "Near Gates E76 and E77",
+      "note": "Level: verify on site",
+      "source": "https://www.yvr.ca/en/passengers/accessibility/animal-relief-areas",
+      "official_map": "https://www.yvr.ca/en/passengers/navigate-yvr/terminal-maps",
+      "verify_on_site": true
+    }
+  ],
+  "YUL": [
+    {
+      "id": "Y2",
+      "group": "before",
+      "label": "Public area",
+      "detail": "P4 parking lot",
+      "note": "Exact spot: verify on site",
+      "source": "https://yulsatisfaction.admtl.com/hc/en-ca/articles/360001353657-Where-can-I-find-a-relief-area-for-my-pet",
+      "official_map": "https://www.admtl.com/en-CA/guide/terminals-map/",
+      "verify_on_site": true
+    },
+    {
+      "id": "Y3",
+      "group": "after",
+      "label": "Domestic pier",
+      "detail": "In front of Gate 47",
+      "note": "Level: verify on site",
+      "source": "https://yulsatisfaction.admtl.com/hc/en-ca/articles/360001353657-Where-can-I-find-a-relief-area-for-my-pet",
+      "official_map": "https://www.admtl.com/en-CA/guide/terminals-map/",
+      "verify_on_site": true
+    },
+    {
+      "id": "Y4",
+      "group": "after",
+      "label": "International pier",
+      "detail": "Restrooms near Gate 65",
+      "note": "Level: verify on site",
+      "source": "https://yulsatisfaction.admtl.com/hc/en-ca/articles/360001353657-Where-can-I-find-a-relief-area-for-my-pet",
+      "official_map": "https://www.admtl.com/en-CA/guide/terminals-map/",
+      "verify_on_site": true
+    },
+    {
+      "id": "Y5",
+      "group": "after",
+      "label": "Transborder pier",
+      "detail": "Restrooms near Gate 73",
+      "note": "Level: verify on site",
+      "source": "https://yulsatisfaction.admtl.com/hc/en-ca/articles/360001353657-Where-can-I-find-a-relief-area-for-my-pet",
+      "official_map": "https://www.admtl.com/en-CA/guide/terminals-map/",
+      "verify_on_site": true
+    }
+  ]
+}

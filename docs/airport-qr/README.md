@@ -39,3 +39,20 @@ Artifacts live at `/workspace/ppc-pastilles-palettes-preview-wd/airport-qr/`:
 External automated GET: 20 linked official URLs checked; 11 return 403 to box requests, but each of those was readable with WebFetch. Preserve these results in `external-check.json`; do not call them 404s. YUL's blocked airline directory and BNA's unreadable current pages are not used as substantive evidence.
 
 `PUBLISH-WHEN-APPROVED.sh` has an airport-qr mode, prepared but NOT run. It targets this isolated worktree and requires fast-forward. If `/pro/` or any other branch publishes first, stop, restack/rebase this unpublished airport branch, regenerate preview and QA, and obtain Marc's approval for the updated reviewed result. Never overwrite main.
+
+
+## Second pass — original inline SVG diagrams (7 November 2026, KST)
+
+Seven responsive inline SVG drawings, 30 source-list entries (including an explicitly unlocated BTV before-security placeholder). Original abstract grouping geometry only: no official map is copied, traced or reproduced. Separate before/after-security group boxes; no route, cardinal direction, floorplan, distance or proximity implied. Each point links its actual official textual source and its airport map. The text source and official map are distinguished; SAN map link leads to the official page containing the Terminal Map PDF. Legend and required not-to-scale/signage disclaimer are displayed. Readable text checked with SVG getBBox at both viewports. `diagrams.py` retains the drawing definitions; point evidence is in `sources.json`.
+
+YVR and YUL EN relief pages re-read with WebFetch. `contacts-and-drafts.md` was read as supporting source inventory only; none of its drafts, contacts or forms were acted on. Sources containing email drafts do not authorize contact.
+
+Missing levels/gates/current access are explicitly “verify on site”; BTV before-security location not plotted, BTV after-security gate/level unknown, BNA historical curbside/P5/current access uncertain. No nearest-vet ranking invented. Existing PDX/YVR/YUL clinic resources are labelled off-airport and not plotted inside terminals.
+
+Exact wording “Scan counts available on request” is present on all eight pages and seven A4 PDFs; no monthly-report promise. No analytics or tracking implementation was added.
+
+Second QA: 42 JS syntax checks OK; 16 renders without console/resource errors, overflow, duplicate IDs or SVG text overflowing its viewBox; 41 internal destinations/anchors, zero broken. All seven diagrams present; no diagram on index. UTM-only propagation and mobile menu tests pass. Seven regenerated single-page A4 PDFs re-rasterized; 7/7 printed QR codes decode to the exact unchanged kit-convention URLs; text extraction confirms scan-count wording. Copies refreshed in original kit folder.
+
+Seven new official-map URLs checked in `official-map-check.json`: AUS/PDX/BTV HTTP 200; SAN/YVR HTTP 403 to box but readable with WebFetch; YUL 500 WebFetch/403 box (official URL corroborated via indexed official terminal-map page); BNA WebFetch 500 and box TLS issuer validation failure (official map URL corroborated on official airport homepage/announcement). Certificate verification was not bypassed. These map URL errors are reported rather than treated as a reason to invent point details.
+
+Extra requested captures: `shots/AUS-plan-visible-1440x900.png`, `shots/AUS-plan-visible-390x844.png`, `shots/YUL-plan-visible-390x844.png`, plus `*-diagram-full-*.png` and all 16 full-page renders. The original first-pass summary remains above.
