@@ -14,3 +14,39 @@
 .pm-legend{list-style:none;padding:0;margin:8px 0;display:grid;gap:8px}.pm-legend li{display:flex;gap:4px;align-items:flex-start;font-size:.92rem}.pm-legend small{color:var(--mut)}.pm-links{margin-top:14px}@media(min-width:900px){.pm-legend{grid-template-columns:1fr 1fr}}
 @media(max-width:500px){.petmap.airport-panel{padding:14px 10px}.pm-open{padding:2px}}
 .pm-overlay{position:fixed;inset:0;z-index:1000;background:#071012;display:flex;flex-direction:column}.pm-overlay[hidden]{display:none}.pm-ohead{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;color:var(--head)}.pm-close{font:700 1.6rem var(--text);width:48px;height:48px;border-radius:50%;border:1px solid var(--line2);background:var(--paper);color:var(--head);cursor:pointer}.pm-close:focus-visible{outline:3px solid var(--pri)}.pm-obody{flex:1;overflow:auto;padding:8px;touch-action:pan-x pan-y pinch-zoom;-webkit-overflow-scrolling:touch}.pm-obody svg{width:100%;min-width:340px;max-width:900px;margin:0 auto;display:block;height:auto}.pm-zoom{display:flex;gap:8px}.pm-zoom button{min-width:44px;height:44px;border-radius:10px;border:1px solid var(--line2);background:var(--paper);color:var(--head);font-weight:700;cursor:pointer}
+/* PET-MAP-V2 START */
+/* Pet map V2: illustrated top view (preview). Scoped to .petmap-v2; site tokens untouched. */
+.petmap-v2,.pm-overlay{--v2-land:#16302a;--v2-air:#2a2a1f;--v2-road:#2c3b3e;--v2-bld:#e9dfc4;--v2-bld-ink:#1a2a2c;--v2-lawn:#3f7a4d;--v2-grass:#8fd08f;--v2-sec:#f0a3a3;--v2-before:#9fd6a0;--v2-after:var(--pri)}
+.petmap-v2 .v2-grid{display:grid;gap:18px;align-items:start}.petmap-v2 .v2-frame{max-width:520px;width:100%}
+@media(min-width:900px){.petmap-v2 .v2-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}}
+.v2-svg text{font-family:var(--text)}.v2-land{fill:var(--v2-land)}.v2-air{fill:var(--v2-air)}
+.v2-side{fill:var(--head);font-size:12.5px;font-weight:700;letter-spacing:.05em}.v2-dim{fill:#b9c1b3;opacity:.95}.v2-small{font-size:12.5px}
+.v2-zone{font-size:12.5px;font-weight:800;letter-spacing:.08em}.v2-zhead rect{fill:#0f2226;opacity:.92}.v2-zb rect{stroke:var(--v2-before)}.v2-za rect{stroke:var(--v2-after)}.v2-trail{opacity:.55}.v2-tnum{fill:var(--head)}.v2-tb .v2-tnum{fill:var(--v2-before)}.v2-ta .v2-tnum{fill:var(--v2-after)}.v2-tq .v2-tnum{fill:var(--v2-sec)}.v2-tnumt{fill:#0b1719;font-size:12.5px;font-weight:800}.v2-zb{fill:var(--v2-before)}.v2-za{fill:var(--v2-after)}
+.v2-road{fill:var(--v2-road)}.v2-roadline{stroke:#e9dfc4;stroke-width:1.5;stroke-dasharray:8 7;fill:none;opacity:.55}
+.v2-car rect{fill:#6f8f96}.v2-taxi rect{fill:#e8c25a}.v2-taxi .v2-taxisign{fill:#fff3c4}.v2-glass{fill:#1b2a2d!important;opacity:.75}
+.v2-train rect{fill:#7fb3c9}.v2-garage{fill:#30474b;stroke:#4f6a6b;stroke-width:1.5}.v2-stall{stroke:#5b7778;stroke-width:1.5}
+.v2-p rect{fill:#3c7bd6}.v2-p text{fill:#fff;font-size:13px;font-weight:800}
+.v2-lawn{fill:var(--v2-lawn);opacity:.85}.v2-grass{fill:var(--v2-grass)}.v2-tree circle{fill:#2f6b3e}.v2-tree .v2-treehi{fill:#4b8f58}
+.v2-post rect{fill:#e9dfc4}.v2-paw{fill:#f5ecd6;opacity:.9}.v2-zebra{fill:#e9dfc4;opacity:.6}
+.v2-term{fill:var(--v2-bld);stroke:#c9bb94;stroke-width:1.5}.v2-tc{fill:#24423c;stroke:#5f8d7a;stroke-width:1.5}.v2-roof{stroke:#c9bb94;stroke-width:2;stroke-linecap:round;fill:none}
+.v2-bld{fill:var(--head);font-size:13px;font-weight:700}.v2-bld.v2-ink{fill:var(--v2-bld-ink)}
+.v2-tbadge circle{fill:#1a2a2c}.v2-tbadge text{fill:#f5ecd6;font-size:13px;font-weight:800}
+.v2-kerb{fill:#2c3b3e}.v2-finger{fill:#c9bb94}.v2-plane{fill:#dfe7ea;opacity:.9}.v2-rwy{fill:#1b2324}.v2-rwydash{stroke:#f5ecd6;stroke-width:2.5;stroke-dasharray:14 10;fill:none}.v2-rwyt{fill:#b9c1b3;font-size:12.5px;font-weight:700;letter-spacing:.1em}
+.v2-roofgarden{fill:var(--v2-lawn)}.v2-lounge{fill:#3a5a56}.v2-sofa{fill:#d9b765}
+.v2-gate rect{fill:#1a2a2c}.v2-gate text{fill:#f5ecd6;font-size:12.5px;font-weight:700}
+.v2-sec{stroke:var(--v2-sec);stroke-width:3;stroke-dasharray:9 6;fill:none}.v2-secbg{fill:#3b1d22;stroke:var(--v2-sec)}.v2-sect{fill:var(--v2-sec);font-size:12.5px;font-weight:800;letter-spacing:.06em}
+.v2-shield path{fill:#3b1d22;stroke:var(--v2-sec);stroke-width:1.5}.v2-shield .v2-shieldk{fill:none}
+.v2-vet rect{fill:#f5ecd6}.v2-vet .v2-vetc{fill:#c84b4b}
+.v2-compass circle{fill:none;stroke:#b9c1b3}.v2-compass path{stroke:#b9c1b3}.v2-compass text{fill:#b9c1b3;font-size:12.5px;font-weight:700}
+.v2-pin path{stroke:#0b1719;stroke-width:1.5}.v2-pin text{fill:#0b1719;font-size:13px;font-weight:800}
+.v2-before path{fill:var(--v2-before)}.v2-after path{fill:var(--v2-after)}.v2-restricted path,.v2-access path{fill:#f0a3a3}
+.v2-unc path{stroke:#0b1719;stroke-dasharray:3 2;stroke-width:2}
+.v2-tag rect{fill:#0f2226;stroke:var(--line2);opacity:.96}.v2-tb rect{stroke:var(--v2-before)}.v2-ta rect{stroke:var(--v2-after)}.v2-tq rect{stroke:var(--v2-sec);stroke-dasharray:4 3}
+.v2-tt{fill:var(--head);font-size:12.5px;font-weight:700}.v2-ts{fill:#c9cfc2;font-size:12.5px}
+.v2-note>rect:first-child{fill:#0f2226;stroke:var(--v2-sec);stroke-dasharray:5 4}.v2-ntxt{fill:var(--head);font-size:12.5px}.v2-t2 rect:first-child{stroke:var(--v2-before);stroke-dasharray:none}
+.v2-qmark{fill:var(--v2-sec);font-size:22px;font-weight:800}
+.petmap-v2 .pm-legend{grid-template-columns:1fr!important}.v2-k-before,.v2-li-before:not(.pm-lu) .pm-ln{background:#9fd6a0}.v2-k-after,.v2-li-after:not(.pm-lu) .pm-ln{background:var(--pri)}
+.v2-maps{display:flex;flex-wrap:wrap;gap:10px}
+.v2-vetbox{border:1px solid var(--line2);border-radius:14px;padding:14px 16px;margin-top:14px;background:var(--bg)}.v2-vetbox p{font-size:.9rem;margin:8px 0}
+.v2-vethead{display:flex;align-items:center;gap:10px}.v2-vethead h3{margin:0!important}.v2-vetico{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#f5ecd6;color:#c84b4b;font-weight:800}
+/* PET-MAP-V2 END */
