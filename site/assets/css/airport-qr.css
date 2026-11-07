@@ -52,3 +52,22 @@
 .v2-vetbox{border:1px solid var(--line2);border-radius:14px;padding:14px 16px;margin-top:14px;background:var(--bg)}.v2-vetbox p{font-size:.9rem;margin:8px 0}
 .v2-vethead{display:flex;align-items:center;gap:10px}.v2-vethead h3{margin:0!important}.v2-vetico{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;background:#f5ecd6;color:#c84b4b;font-weight:800}
 /* PET-MAP-V2 END */
+/* JAPAN-AIRPORTS START */
+/* Japan airports (NRT/HND/KIX): extra pictograms, scoped, site tokens untouched. */
+.jp-carrier rect{fill:#d9b765;stroke:#0b1719;stroke-width:1.2}.jp-carrier .jp-handle{fill:none;stroke:#d9b765;stroke-width:2.4}.jp-carrier .jp-bars{stroke:#0b1719;stroke-width:1.4}
+.jp-bridge{stroke:#c9bb94;stroke-width:6;stroke-linecap:round}.jp-walk{stroke:#e9dfc4;stroke-width:2;stroke-dasharray:4 4;fill:none}
+.jp-tile{fill:#24523f;stroke:#5f8d7a;stroke-width:1.2}.jp-cross path{fill:#e25b5b}.jp-cross-lg{transform-box:fill-box}.jp-lblbg{fill:#1b2a2d;opacity:.92}.v2-svg .jp-lblbg+text{fill:#dfe7ea}
+.jp-timeline{margin-top:24px}.jp-tl-intro{max-width:75ch;color:var(--mut)}
+.jp-tl{list-style:none;margin:20px 0 8px;padding:0;position:relative;display:grid;gap:14px}
+.jp-tl:before{content:'';position:absolute;left:19px;top:8px;bottom:8px;border-left:2px dashed var(--line2)}
+.jp-tl-step{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;position:relative}
+.jp-tl-dot{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--bg);border:2px solid var(--pri);color:var(--pri);position:relative;z-index:1}
+.jp-tl-body{background:var(--bg);border:1px solid var(--line2);border-radius:12px;padding:10px 12px;min-width:0}
+.jp-tl-body h3{font:700 .98rem var(--text);color:var(--head);margin:6px 0 4px!important}.jp-tl-n{color:var(--pri)}.jp-tl-body p{font-size:.86rem;margin:0!important;color:var(--ink)}
+.jp-tl-badge{display:inline-block;font:800 .74rem var(--text);letter-spacing:.04em;padding:3px 9px;border-radius:30px;background:var(--pri);color:var(--on-pri,#0b1719)}
+.jp-tl-step:last-child .jp-tl-dot{background:var(--pri);color:var(--on-pri,#0b1719)}
+.jp-tl-warn{border:1px dashed #f0a3a3;border-radius:12px;padding:12px 14px;margin:14px 0}.jp-tl-warn strong{color:#f0a3a3}.jp-tl-warn p{font-size:.88rem;margin:6px 0 0!important}
+@media(min-width:1100px){.jp-tl{grid-template-columns:repeat(9,minmax(0,1fr));gap:10px}.jp-tl:before{left:4%;right:4%;top:19px;bottom:auto;border-left:0;border-top:2px dashed var(--line2)}
+.jp-tl-step{grid-template-columns:1fr;grid-template-rows:40px 1fr;justify-items:center;align-items:stretch;gap:10px}.jp-tl-dot{align-self:start}.jp-tl-body{width:100%;padding:9px 9px;text-align:left}.jp-tl-body h3{font-size:.86rem}.jp-tl-body p{font-size:.78rem}.jp-tl-badge{font-size:.7rem;padding:3px 7px}}
+.jp-floor{fill:#f3ead3;stroke:#c9bb94;stroke-width:1.2}.v2-ink2{fill:#3b4a4c}.jp-wave{fill:none;stroke:#7fb3c9;stroke-width:1.6;opacity:.6}
+/* JAPAN-AIRPORTS END */
