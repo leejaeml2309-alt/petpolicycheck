@@ -44,6 +44,8 @@
 .v2-tag rect{fill:#0f2226;stroke:var(--line2);opacity:.96}.v2-tb rect{stroke:var(--v2-before)}.v2-ta rect{stroke:var(--v2-after)}.v2-tq rect{stroke:var(--v2-sec);stroke-dasharray:4 3}
 .v2-tt{fill:var(--head);font-size:12.5px;font-weight:700}.v2-ts{fill:#c9cfc2;font-size:12.5px}
 .v2-note>rect:first-child{fill:#0f2226;stroke:var(--v2-sec);stroke-dasharray:5 4}.v2-ntxt{fill:var(--head);font-size:12.5px}.v2-t2 rect:first-child{stroke:var(--v2-before);stroke-dasharray:none}
+.v2-bt{fill:var(--v2-bld-ink);font-size:12.5px;font-weight:700}.v2-bs{fill:#4a5552;font-size:12.5px}.v2-unk{fill:none;stroke:var(--v2-sec);stroke-dasharray:5 4;stroke-width:1.5}.v2-pawink{fill:#b9a877}.v2-ntb{font-weight:700}
+.v2-taxiway{stroke:#d9b765;stroke-width:1.5;stroke-dasharray:10 8;fill:none;opacity:.55}
 .v2-qmark{fill:var(--v2-sec);font-size:22px;font-weight:800}
 .petmap-v2 .pm-legend{grid-template-columns:1fr!important}.v2-k-before,.v2-li-before:not(.pm-lu) .pm-ln{background:#9fd6a0}.v2-k-after,.v2-li-after:not(.pm-lu) .pm-ln{background:var(--pri)}
 .v2-maps{display:flex;flex-wrap:wrap;gap:10px}
