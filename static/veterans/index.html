@@ -46,7 +46,8 @@ input,select{width:100%;max-width:420px;padding:8px 10px;border-radius:10px;bord
 .cr80-stripe{height:7mm;background:linear-gradient(90deg,#001f3f,#06315e 55%,#001f3f);border-bottom:1.5px solid #d4af37}
 .cr80-body{padding:2.4mm 3.2mm 3.2mm}
 .cr80 h4{margin:0 0 4px;font-size:10px;color:#001f3f;letter-spacing:.06em;text-transform:uppercase}
-.cr80 p,.cr80 ul{margin:0 0 3px}.cr80-note{font-size:7px;line-height:1.25;font-weight:500;color:#333}
+.cr80 p,.cr80 ul{margin:0 0 3px}.cr80-note{font-size:7px;line-height:1.25;font-weight:500;color:#333}.cr80-lbl{margin:2px 0 0!important;font-size:7.4px;letter-spacing:.06em;text-transform:uppercase;color:#7a5b10}
+#crFront.xb .cr80-body{font-size:7.4px;line-height:1.25}
 #crBack .cr80-body{font-size:7.4px;line-height:1.28}
 @media print{header,footer,.partner-slot,.ppc-lang-sw,.no-print,.mode-sw{display:none!important} body{background:#fff} .print-sheet{display:block!important}}
 </style>
@@ -90,6 +91,7 @@ input,select{width:100%;max-width:420px;padding:8px 10px;border-radius:10px;bord
 <p class="no-print"><button class="btn" type="button" id="mk">Generate card</button>
 <button class="btn ghost" type="button" id="printC">Print</button>
 <button class="btn ghost" type="button" id="pngC">Download PNG</button></p>
+<p class="privacy" id="card-dot-note"><b>Card back, full text:</b> DOT forms: check the airline’s submission process. Advance notice of up to 48 hours may apply to bookings made more than 48 hours before the first scheduled departure; last-minute bookings can submit forms at the departure gate.</p>
 <div id="crFront" class="cr80"></div>
 <div id="crBack" class="cr80"></div>
 <canvas id="cv" style="display:none" width="1012" height="638"></canvas>
@@ -100,7 +102,7 @@ input,select{width:100%;max-width:420px;padding:8px 10px;border-radius:10px;bord
 <li><b>Canada → US (snowbird):</b> CDC Dog Import Form receipt — often usable for months for dogs from dog-rabies-free/low-risk countries (confirm CDC). Keep rabies docs current.</li>
 <li><b>Mexico:</b> SENASICA/OISA entry. Dogs entering or returning to the US from Mexico require screwworm-freedom certification based on inspection within five days before shipment. Mexico also requires a separate NWS inspection document for pet dogs originating in and travelling from the US, effective August 3, 2026. Check the required signatory and document for each direction.</li>
 <li><b>Fisher House:</b> Fisher House is not ordinary pet-friendly lodging. For example, VA South Texas does not allow pets and requires prior approval for the registered guest’s task-trained service animal. Confirm eligibility and the specific house’s service-animal procedure before arrival.</li>
-<li><b>Navy Lodge / IHG Army Hotels:</b> service dogs free; Companion-pet availability, room allocation, fees and size restrictions depend on the property. Navy Lodge asks guests to register pets and contact the lodge for multiple pets or pets over 70 lb. IHG Army Hotels asks guests to notify reservations and check its pet policy. A room booking does not grant base access.</li>
+<li><b>Navy Lodge / IHG Army Hotels:</b> service dogs free. Companion-pet availability, room allocation, fees and size restrictions depend on the property. Navy Lodge asks guests to register pets and contact the lodge for multiple pets or pets over 70 lb. IHG Army Hotels asks guests to notify reservations and check its pet policy. A room booking does not grant base access.</li>
 </ul>
 <p><a class="btn ghost" href="../military-pcs/">Military PCS kit</a>
 <a class="btn ghost" href="../airlines/compare/?military=1">Military &amp; service dog filter</a>
@@ -108,16 +110,16 @@ input,select{width:100%;max-width:420px;padding:8px 10px;border-radius:10px;bord
 </section>
 <script>
 const AIR={
-US_sd:`<h2>US air travel — 14 CFR Part 382</h2><p>Task-trained service dogs (including psychiatric/PTSD and mobility) may fly in cabin at <b>$0</b> under DOT rules. Pet weight limits are not the test for service dogs. The dog must fit safely on your lap or in your foot space without encroaching on another passenger. If it cannot, the carrier must consider the alternatives in 14 CFR 382.77. If your reservation was made more than 48 hours before the first originally scheduled departure, the airline may require the DOT form up to 48 hours in advance. If booked less than 48 hours before departure, it may require the form at the departure gate on travel day, but not advance notice. Contact the airline promptly; reasonable-effort accommodation rules also apply. For a flight segment scheduled to take eight hours or more, the airline may also require the DOT Service Animal Relief Attestation Form. Complete current DOT forms on or after the date you purchase your ticket. <b>Owner-trained</b> service dogs are accepted under US DOT when they meet the definition. ESAs are <b>not</b> service animals for airlines since 2021. Official resource: <a href="https://www.transportation.gov/" rel="noopener" target="_blank">transportation.gov</a>.</p>`,
-CA_sd:`<h2>Canada air travel — CTA / ATPDR trap</h2><p>Canada’s transportation regulator is the Canadian Transportation Agency (CTA/OTC), not Air Canada. Under the ATPDR, carriers may request evidence of individual training by an organization or person specializing in service-dog training. ADI/IGDF accreditation is not a universal ATPDR requirement. Check your airline’s accepted documentation. US acceptance does not automatically establish eligibility on every non-US flight. Air Canada offers an assessment pathway for eligible owner-trained dogs through Cabin-Ready Canines; its June 2, 2026 announcement excludes travel to/from the United States, where US documentation rules apply. Confirm the process with Accessibility Services. Confirm: <a href="https://otc-cta.gc.ca/" rel="noopener" target="_blank">otc-cta.gc.ca</a>.</p>`,
-XB_sd:`<h2>Cross-border US ↔ Canada</h2><p>Check the operating carrier and each flight. DOT Part 382 applies to US carriers and covered foreign-carrier flights to/from US airports; US codeshares may add responsibilities. Air Canada states that US documentation rules govern travel to/from the United States. Check Canadian requirements separately for other flights and for border entry.</p>`,
+US_sd:`<h2>US air travel — 14 CFR Part 382</h2><p>Task-trained service dogs (including psychiatric/PTSD and mobility) may fly in cabin at <b>$0</b> under DOT rules. Pet weight limits are not the test for service dogs. The dog must fit safely on your lap or in your foot space without encroaching on another passenger. If it cannot, the carrier must consider the alternatives in 14 CFR 382.77. If your reservation was made more than 48 hours before the first originally scheduled departure, the airline may require the DOT form up to 48 hours in advance. If booked less than 48 hours before departure, it may require the form at the departure gate on travel day, but not advance notice. Contact the airline promptly; reasonable-effort accommodation rules also apply. For a flight segment scheduled to take eight hours or more, the airline may also require the DOT Service Animal Relief Attestation Form. Complete current DOT forms on or after the date you purchase your ticket.</p><p class="privacy"><b>Note:</b> A universal 48-hour deadline is not the DOT rule: last-minute bookings have a departure-gate submission pathway, and reasonable-effort accommodation requirements apply. AMC service-animal paperwork follows separate rules.</p><p><b>Owner-trained</b> service dogs are accepted under US DOT when they meet the definition. ESAs are <b>not</b> service animals for airlines since 2021. Official resource: <a href="https://www.transportation.gov/" rel="noopener" target="_blank">transportation.gov</a>.</p>`,
+CA_sd:`<h2>Canada air travel — CTA / ATPDR trap</h2><p>Canada’s transportation regulator is the Canadian Transportation Agency (CTA/OTC), not Air Canada. Under the ATPDR, carriers may request evidence of individual training by an organization or person specializing in service-dog training. ADI/IGDF accreditation is not a universal ATPDR requirement. Check your airline’s accepted documentation. US acceptance does not automatically establish eligibility on every non-US flight. Air Canada offers an assessment pathway for eligible owner-trained dogs through Cabin-Ready Canines; its June 2, 2026 announcement excludes travel to/from the United States, where US documentation rules apply. Confirm the process with Accessibility Services. Canada does not have one universal ADI-only rule for airline travel, hotel access and border entry. Check the applicable transport rule, carrier policy, provincial law and import category separately. Confirm: <a href="https://otc-cta.gc.ca/" rel="noopener" target="_blank">otc-cta.gc.ca</a>.</p>`,
+XB_sd:`<h2>Cross-border US ↔ Canada</h2><p>Check the operating carrier and each flight. DOT Part 382 applies to US carriers and covered foreign-carrier flights to/from US airports; US codeshares may add responsibilities. Air Canada states that US documentation rules govern travel to/from the United States. Check Canadian requirements separately for other flights and for border entry. Canada does not have one universal ADI-only rule for airline travel, hotel access and border entry. Check the applicable transport rule, carrier policy, provincial law and import category separately.</p>`,
 US_pet:`<h2>US companion pet flights</h2><p>Pets pay airline pet fees and must fit published carriers. Use <a href="../fit/">Fit Check</a> and <a href="../airlines/compare/">comparator</a>. Military PCS cargo exceptions: see <a href="../military-pcs/">PCS kit</a>.</p>`,
 CA_pet:`<h2>Canada companion pet flights</h2><p>Confirm cabin dimensions (often soft-sided only) and CFIA entry pathway. Dogs imported for rescue, adoption, fostering or transfer to another person fall under commercial-import rules. An unaccompanied journey alone does not determine the category: establish ownership, the importer, age, origin and intended use using CFIA guidance.</p>`,
 XB_pet:`<h2>Cross-border companion pets</h2><p>CDC Dog Import Form into the US; CFIA personal vs commercial into Canada. Never assume a rescue handoff is “personal.”</p>`
 };
 const HOTEL={
 US:`<h2>US hotels — ADA Title III</h2><p>Service dogs: <b>$0 pet fee</b>; breed/weight bans do not apply. Staff may ask only (1) whether the dog is a service animal required because of a disability, and (2) what work or task it is trained to perform. No medical documentation required. Handler remains responsible for control and damages.</p>`,
-CA:`<h2>Canada hotels — provincial service dog / human rights laws</h2><p>Accredited/recognized service dogs are generally exempt from pet fees and pet bans under provincial frameworks. Policies vary by province — carry provincial ID/lettering if issued. Canada does not have one universal ADI-only rule for airline travel, hotel access and border entry. Check the applicable transport rule, carrier policy, provincial law and import category separately.</p>`,
+CA:`<h2>Canada hotels — provincial service dog / human rights laws</h2><p>Accredited/recognized service dogs are generally exempt from pet fees and pet bans under provincial frameworks. Policies vary by province — carry provincial ID/lettering if issued.</p>`,
 XB:`<h2>Hotels on both sides of the border</h2><p>US ADA two-question rule + Canadian provincial service dog protections. Always clarify service dog vs pet at booking.</p>`
 };
 let mode='sd', country='US';
@@ -138,17 +140,23 @@ function genCard(){
   const q1='Is the dog a service animal required because of a disability?';
   const q2='What work or task has the dog been trained to perform?';
   const stripe='<div class="cr80-stripe" aria-hidden="true"></div>';
+  const V15='US ADA information only — not a service-dog certificate or proof of eligibility. This card does not replace airline forms, Canadian documentation or border-entry requirements. Check the law applicable to your destination.';
+  const ADA=`<p><b>US ADA — only 2 questions staff may ask</b><br>1. ${q1}<br>2. ${q2}</p>`;
+  const FEE='<p><b>$0 pet fee</b> for task-trained service dogs (ADA Title III).</p>';
+  const CAN='<p><b>Canada</b> — check the applicable transport rule, the carrier’s service-dog policy and the provincial law before you travel.</p>';
+  const FRONT={US:ADA+FEE, CA:CAN, XB:'<p class="cr80-lbl">United States (ADA)</p>'+ADA+'<p class="cr80-lbl">Canada</p>'+CAN};
+  const DOT='DOT forms: follow the airline’s process. Up to 48 h notice may apply if booked >48 h ahead; last-minute bookings: at the gate.';
+  const RELIEF8='Flights of 8 h or more: the airline may also require the DOT Relief Attestation Form.';
+  const GEAR='Relief schedule · harness · “service dog” ID if you use one';
+  const BACK={US:[DOT,RELIEF8,GEAR], CA:['Canada: confirm the carrier’s accepted specialized-training evidence and any owner-trained assessment pathway. Border-import rules are separate.',GEAR], XB:[DOT,RELIEF8,'Canada: confirm the carrier’s accepted specialized-training evidence and any owner-trained assessment pathway. Border-import rules are separate.',GEAR]};
+  crFront.className='cr80'+(j==='XB'?' xb':'');
   crFront.innerHTML=`${stripe}<div class="cr80-body"><h4>Service Dog Handler Card</h4>
   <div><b>Handler:</b> ${hName.value||'—'} · <b>Dog:</b> ${dName.value||'—'}</div>
-  <p><b>US ADA — only 2 questions staff may ask</b><br>1. ${q1}<br>2. ${q2}</p>
-  <p><b>$0 pet fee</b> for task-trained service dogs (ADA Title III). Jurisdiction: ${juri.options[juri.selectedIndex].text}</p>
-  <p class="cr80-note">US ADA information only — not a service-dog certificate or proof of eligibility. This card does not replace airline forms, Canadian documentation or border-entry requirements. Check the law applicable to your destination.</p></div>`;
+  ${FRONT[j]||FRONT.US}
+  <p class="cr80-note">${V15}</p></div>`;
   crBack.innerHTML=`${stripe}<div class="cr80-body"><h4>Pre-flight checklist</h4>
   <ul style="margin:0;padding-left:14px">
-  <li>DOT forms: check the airline’s submission process. Advance notice of up to 48 hours may apply to bookings made more than 48 hours before the first scheduled departure; last-minute bookings can submit forms at the departure gate.</li>
-  <li>For a flight segment scheduled to take eight hours or more, the airline may also require the DOT Service Animal Relief Attestation Form. Complete current DOT forms on or after the date you purchase your ticket.</li>
-  <li>Canada: confirm the carrier’s accepted specialized-training evidence and any owner-trained assessment pathway. Border-import rules are separate.</li>
-  <li>Relief schedule · harness · “service dog” ID if you use one</li>
+  ${(BACK[j]||BACK.US).map(x=>'<li>'+x+'</li>').join('')}
   </ul>
   <p style="margin-top:6px">petpolicycheck.com/veterans</p></div>`;
 }
