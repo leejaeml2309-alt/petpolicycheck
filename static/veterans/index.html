@@ -43,13 +43,14 @@ input,select{width:100%;max-width:420px;padding:8px 10px;border-radius:10px;bord
 .mode-sw button{appearance:none;border:1px solid rgba(212,175,55,.35);background:transparent;color:#c9d3e0;padding:.45rem .9rem;border-radius:999px;cursor:pointer;margin:4px}
 .mode-sw button[aria-pressed="true"]{background:#d4af37;color:#001f3f;font-weight:700}
 .privacy{font-size:.82rem;color:#b8c4d4;border-left:3px solid #d4af37;padding-left:10px}
-.cr80{width:85.6mm;height:54mm;border-radius:3mm;padding:0;box-sizing:border-box;background:#f7f3ea;color:#141414;font:600 8.5px/1.35 Inter,system-ui,sans-serif;border:1.5px solid #d4af37;margin:8px 0;overflow:hidden;box-shadow:0 0 0 1px #001f3f}
-.cr80-stripe{height:7mm;background:linear-gradient(90deg,#001f3f,#06315e 55%,#001f3f);border-bottom:1.5px solid #d4af37}
-.cr80-body{padding:2.4mm 3.2mm 3.2mm}
-.cr80 h4{margin:0 0 4px;font-size:10px;color:#001f3f;letter-spacing:.06em;text-transform:uppercase}
-.cr80 p,.cr80 ul{margin:0 0 3px}.cr80-note{font-size:7px;line-height:1.25;font-weight:500;color:#333}.cr80-lbl{margin:2px 0 0!important;font-size:7.4px;letter-spacing:.06em;text-transform:uppercase;color:#7a5b10}
-#crFront.xb .cr80-body{font-size:7.4px;line-height:1.25}
-#crBack .cr80-body{font-size:7.4px;line-height:1.28}
+.cr80{width:85.6mm;height:54mm;border-radius:3mm;padding:0;box-sizing:border-box;background:#f7f3ea;color:#141414;font:600 10.5px/1.25 Inter,system-ui,sans-serif;border:1.5px solid #d4af37;margin:8px 0;overflow:hidden;box-shadow:0 0 0 1px #001f3f;display:flex;flex-direction:column;-webkit-print-color-adjust:exact;print-color-adjust:exact;break-inside:avoid;page-break-inside:avoid}
+.cr80[hidden]{display:none}
+.cr80-stripe{flex:none;display:flex;justify-content:space-between;align-items:center;gap:2mm;min-height:4.6mm;padding:0 2.4mm;background:linear-gradient(90deg,#001f3f,#06315e 55%,#001f3f);border-bottom:1.2px solid #d4af37;color:#f4f6fa;font:700 9px/1.15 Inter,system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase}
+.cr80-url{flex:none;color:#e2c275;text-transform:none;letter-spacing:0;font-weight:600}
+.cr80-body{flex:1;min-height:0;overflow:hidden;padding:1.4mm 2.4mm 1.2mm}
+.cr80 p,.cr80 ul{margin:0 0 1.6px}.cr80 ul{padding-left:11px}.cr80 li{margin:0 0 1px}
+.cr80-note{font-weight:500;color:#333}.cr80-lbl{margin:1px 0 0!important;letter-spacing:.05em;text-transform:uppercase;color:#7a5b10;font-weight:700}
+#cr80set .cr80-side{font-size:.78rem;color:#b8c4d4;margin:10px 0 0}
 @media print{header,footer,.partner-slot,.ppc-lang-sw,.no-print,.mode-sw{display:none!important} body{background:#fff} .print-sheet{display:block!important}}
 </style>
 </head>
@@ -93,8 +94,12 @@ input,select{width:100%;max-width:420px;padding:8px 10px;border-radius:10px;bord
 <button class="btn ghost" type="button" id="printC" data-i18n="veterans.cardsec.btn.print" data-i18n-html>Print</button>
 <button class="btn ghost" type="button" id="pngC" data-i18n="veterans.cardsec.btn.png" data-i18n-html>Download PNG</button></p>
 <p class="privacy" id="card-dot-note" data-i18n="veterans.cardsec.dotnote" data-i18n-html><b>Card back, full text:</b> DOT forms: check the airline’s submission process. Advance notice of up to 48 hours may apply to bookings made more than 48 hours before the first scheduled departure; last-minute bookings can submit forms at the departure gate.</p>
+<p class="privacy" id="card-gear"></p>
+<div id="cr80set">
 <div id="crFront" class="cr80"></div>
 <div id="crBack" class="cr80"></div>
+<div id="crFront2" class="cr80" hidden></div>
+</div>
 <canvas id="cv" style="display:none" width="1012" height="638"></canvas>
 </section>
 <section class="gcard" id="snowbirds">
@@ -121,12 +126,15 @@ function blk(pre,parts,en){
     out+= k==='h2'?'<h2>'+v+'</h2>' : k==='note'?'<p class="privacy">'+v+'</p>' : '<p>'+v+'</p>';}
   return out;
 }
-/* CR80 auto-fit: shrink the card text (down to 5.6px) until nothing overflows the 85.6x54 mm card */
+/* CR80 fit: body text starts at 10.5px and steps down to the 9px legibility floor; only if a face still overflows at 9px
+   does it go lower (reported). Returns the size used. */
 function fitCard(el){
-  const b=el.querySelector('.cr80-body'); if(!b) return;
-  b.style.fontSize=''; let fs=parseFloat(getComputedStyle(b).fontSize)||8.5;
-  const note=b.querySelector('.cr80-note'); let nf=note?parseFloat(getComputedStyle(note).fontSize):0;
-  for(let i=0;i<40&&el.scrollHeight>el.clientHeight+0.5&&fs>5.6;i++){fs-=0.2;b.style.fontSize=fs+'px';b.style.lineHeight='1.22';if(note){nf=Math.max(5.2,nf-0.15);note.style.fontSize=nf+'px'}}
+  const b=el.querySelector('.cr80-body'); if(!b) return 0;
+  let fs=10.5; b.style.fontSize=fs+"px";
+  while(b.scrollHeight>b.clientHeight+0.5&&fs>6){fs=Math.round((fs-0.25)*100)/100;b.style.fontSize=fs+'px';}
+  const st=el.querySelector('.cr80-stripe'), u=st&&st.querySelector('.cr80-url');
+  if(u&&st.scrollWidth>st.clientWidth+0.5) u.remove();   /* URL only if the stripe has room */
+  el.dataset.fs=fs; return fs;
 }
 const AIR={
 US_sd:`<h2>US air travel — 14 CFR Part 382</h2><p>Task-trained service dogs (including psychiatric/PTSD and mobility) may fly in cabin at <b>$0</b> under DOT rules. Pet weight limits are not the test for service dogs. The dog must fit safely on your lap or in your foot space without encroaching on another passenger. If it cannot, the carrier must consider the alternatives in 14 CFR 382.77. If your reservation was made more than 48 hours before the first originally scheduled departure, the airline may require the DOT form up to 48 hours in advance. If booked less than 48 hours before departure, it may require the form at the departure gate on travel day, but not advance notice. Contact the airline promptly; reasonable-effort accommodation rules also apply. For a flight segment scheduled to take eight hours or more, the airline may also require the DOT Service Animal Relief Attestation Form. Complete current DOT forms on or after the date you purchase your ticket.</p><p class="privacy"><b>Note:</b> A universal 48-hour deadline is not the DOT rule: last-minute bookings have a departure-gate submission pathway, and reasonable-effort accommodation requirements apply. AMC service-animal paperwork follows separate rules.</p><p><b>Owner-trained</b> service dogs are accepted under US DOT when they meet the definition. ESAs are <b>not</b> service animals for airlines since 2021. Official resource: <a href="https://www.transportation.gov/" rel="noopener" target="_blank">transportation.gov</a>.</p>`,
@@ -159,34 +167,42 @@ function genCard(){
   const j=juri.value;
   const q1=T('veterans.card.q1','Is the dog a service animal required because of a disability?');
   const q2=T('veterans.card.q2','What work or task has the dog been trained to perform?');
-  const stripe='<div class="cr80-stripe" aria-hidden="true"></div>';
   const V15=T('veterans.card.v15','US ADA information only — not a service-dog certificate or proof of eligibility. This card does not replace airline forms, Canadian documentation or border-entry requirements. Check the law applicable to your destination.');
   const ADA=`<p><b>${T('veterans.card.ada_title','US ADA — only 2 questions staff may ask')}</b><br>1. ${q1}<br>2. ${q2}</p>`;
   const FEE='<p>'+T('veterans.card.fee','<b>$0 pet fee</b> for task-trained service dogs (ADA Title III).')+'</p>';
   const CAN='<p>'+T('veterans.card.can','<b>Canada</b> — check the applicable transport rule, the carrier’s service-dog policy and the provincial law before you travel.')+'</p>';
-  const FRONT={US:ADA+FEE, CA:CAN, XB:'<p class="cr80-lbl">'+T('veterans.card.lbl_us','United States (ADA)')+'</p>'+ADA+'<p class="cr80-lbl">'+T('veterans.card.lbl_ca','Canada')+'</p>'+CAN};
   const DOT=T('veterans.card.back.dot','DOT forms: follow the airline’s process. Up to 48 h notice may apply if booked >48 h ahead; last-minute bookings: at the gate.');
   const RELIEF8=T('veterans.card.back.relief8','Flights of 8 h or more: the airline may also require the DOT Relief Attestation Form.');
   const GEAR=T('veterans.card.back.gear','Relief schedule · harness · “service dog” ID if you use one');
   const CAB=T('veterans.card.back.ca','Canada: confirm the carrier’s accepted specialized-training evidence and any owner-trained assessment pathway. Border-import rules are separate.');
-  const BACK={US:[DOT,RELIEF8,GEAR], CA:[CAB,GEAR], XB:[DOT,RELIEF8,CAB,GEAR]};
-  crFront.className='cr80'+(j==='XB'?' xb':'');
-  crFront.innerHTML=`${stripe}<div class="cr80-body"><h4>${T('veterans.card.front.h4','Service Dog Handler Card')}</h4>
-  <div><b>${T('veterans.card.front.handler','Handler:')}</b> ${hName.value||'—'} · <b>${T('veterans.card.front.dog','Dog:')}</b> ${dName.value||'—'}</div>
-  ${FRONT[j]||FRONT.US}
-  <p class="cr80-note">${V15}</p></div>`;
-  crBack.innerHTML=`${stripe}<div class="cr80-body"><h4>${T('veterans.card.back.h4','Pre-flight checklist')}</h4>
-  <ul style="margin:0;padding-left:14px">
-  ${(BACK[j]||BACK.US).map(x=>'<li>'+x+'</li>').join('')}
-  </ul>
-  <p style="margin-top:6px">petpolicycheck.com/veterans</p></div>`;
-  fitCard(crFront); fitCard(crBack);
+  const H4=T('veterans.card.front.h4','Service Dog Handler Card'), BH4=T('veterans.card.back.h4','Pre-flight checklist'), URL='petpolicycheck.com/veterans';
+  const LUS='<p class="cr80-lbl">'+T('veterans.card.lbl_us','United States (ADA)')+'</p>', LCA='<p class="cr80-lbl">'+T('veterans.card.lbl_ca','Canada')+'</p>';
+  const ul=a=>'<ul>'+a.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+  const WHO=`<p><b>${T('veterans.card.front.handler','Handler:')}</b> ${hName.value||'—'} · <b>${T('veterans.card.front.dog','Dog:')}</b> ${dName.value||'—'}</p>`;
+  const NOTE=`<p class="cr80-note">${V15}</p>`;
+  /* Non-legal practical line + URL now sit on the page above the card */
+  document.getElementById('card-gear').innerHTML='<b>'+BH4+':</b> '+GEAR+' · <a href="https://'+URL+'">'+URL+'</a>';
+  /* Faces: [stripe title, body, url-in-stripe?]. XB: front = US ADA + disclaimer; back = Canada + checklist.
+     If a face still needs <9px, XB switches to the fold-over set: card 1 front (US ADA + disclaimer),
+     card 1 back (DOT checklist), card 2 (Canada). Legal sentences are never shortened. */
+  const L1={
+    US:[[H4,WHO+ADA+FEE+NOTE],[BH4,ul([DOT,RELIEF8]),1]],
+    CA:[[H4,WHO+CAN+NOTE],[BH4,ul([CAB]),1]],
+    XB:[[H4,WHO+LUS+ADA+NOTE],[BH4,LCA+CAN+ul([CAB,DOT,RELIEF8]),1]]};
+  const L2=[[H4,WHO+LUS+ADA+NOTE],[BH4,ul([DOT,RELIEF8]),1],[H4+' · '+T('veterans.card.lbl_ca','Canada'),LCA+CAN+ul([CAB])]];
+  const els=[crFront,crBack,crFront2];
+  const paint=faces=>els.map((el,i)=>{const f=faces[i]; el.hidden=!f; el.className='cr80'; if(!f){el.innerHTML='';el.dataset.fs='';return 99;}
+    el.innerHTML=`<div class="cr80-stripe"><span>${f[0]}</span>${f[2]?'<span class="cr80-url">'+URL+'</span>':''}</div><div class="cr80-body">${f[1]}</div>`;
+    return fitCard(el);});
+  let fs=paint(L1[j]||L1.US);
+  if(j==='XB'&&Math.min(...fs)<9) fs=paint(L2);
+  document.getElementById('cr80set').dataset.layout=crFront2.hidden?'1-card':'2-card';
 }
 mk.onclick=genCard; printC.onclick=()=>window.print();
 pngC.onclick=()=>{
   genCard();
-  const c=cv; let ctx=c.getContext('2d');
-  ctx.font='18px sans-serif';
+  const c=cv; let ctx=c.getContext('2d'); const FS=24, LH=31, PAD=36, W=c.width, max=W-2*PAD;
+  ctx.font=FS+'px sans-serif';
   const wrap=(line,max)=>{const out=[];let cur='';
     for(const w of line.split(/(?<= )/)){const n=cur+w;
       if(ctx.measureText(n).width<=max){cur=n;continue}
@@ -194,15 +210,25 @@ pngC.onclick=()=>{
       if(ctx.measureText(w).width<=max){cur=w;continue}
       for(const ch of w){if(ctx.measureText(cur+ch).width>max&&cur){out.push(cur);cur=ch}else cur+=ch}}
     out.push(cur.trimEnd()); return out;};
-  const lines=[];(crFront.innerText+'\n\n'+crBack.innerText).split('\n').forEach(l=>lines.push(...wrap(l,c.width-48)));
-  c.height=Math.max(638,110+lines.length*24); ctx=c.getContext('2d');
-  ctx.fillStyle='#f7f3ea'; ctx.fillRect(0,0,c.width,c.height);
-  ctx.fillStyle='#001f3f'; ctx.fillRect(0,0,c.width,56);
-  ctx.fillStyle='#d4af37'; ctx.fillRect(0,56,c.width,3);
-  ctx.fillStyle='#f4f6fa'; ctx.font='bold 18px sans-serif';
-  ctx.fillText(T('veterans.card.png.title','PetPolicyCheck · Service Dog Handler Card'), 24, 36);
-  ctx.fillStyle='#1a1a1a'; ctx.font='18px sans-serif';
-  lines.forEach((line,i)=>ctx.fillText(line,24,86+i*24));
+  const faces=[crFront,crBack,crFront2].filter(e=>!e.hidden).map(e=>{
+    const head=e.querySelector('.cr80-stripe span').textContent, lines=[];
+    e.querySelector('.cr80-body').innerText.split('\n').filter(l=>l.trim()).forEach(l=>lines.push(...wrap(l,max)));
+    return {head,lines};});
+  const HDR=64, FH=54, GAP=18, FOOT=44;
+  const H=HDR+faces.reduce((h,f)=>h+FH+f.lines.length*LH+GAP+12,0)+FOOT;
+  c.height=Math.max(638,H); ctx=c.getContext('2d');
+  ctx.fillStyle='#f7f3ea'; ctx.fillRect(0,0,W,c.height);
+  ctx.fillStyle='#001f3f'; ctx.fillRect(0,0,W,56);
+  ctx.fillStyle='#d4af37'; ctx.fillRect(0,56,W,3);
+  ctx.fillStyle='#f4f6fa'; ctx.font='bold 22px sans-serif';
+  ctx.fillText(T('veterans.card.png.title','PetPolicyCheck · Service Dog Handler Card'), PAD, 37);
+  let y=HDR+8;
+  faces.forEach(f=>{
+    ctx.fillStyle='#06315e'; ctx.fillRect(PAD-12,y,W-2*PAD+24,38);
+    ctx.fillStyle='#e2c275'; ctx.font='bold 20px sans-serif'; ctx.fillText(f.head.toUpperCase(),PAD,y+26);
+    y+=FH+6; ctx.fillStyle='#1a1a1a'; ctx.font=FS+'px sans-serif';
+    f.lines.forEach(l=>{ctx.fillText(l,PAD,y); y+=LH;}); y+=GAP;});
+  ctx.fillStyle='#7a5b10'; ctx.font='18px sans-serif'; ctx.fillText('petpolicycheck.com/veterans',PAD,c.height-18);
   const a=document.createElement('a'); a.download='ppc-service-dog-card.png'; a.href=c.toDataURL(); a.click();
 };
 refresh(); genCard();
