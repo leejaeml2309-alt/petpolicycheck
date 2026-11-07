@@ -86,6 +86,7 @@ function boot(){
    var menu=document.getElementById('site-menu');
    if(!menu) return;
    if(b){ e.preventDefault(); e.stopPropagation(); var o=!menu.classList.contains('open'); menu.classList.toggle('open',o); document.querySelectorAll('.menu-btn,[data-menu-trigger]').forEach(function(x){x.setAttribute('aria-expanded',o?'true':'false')}); return; }
+   if(menu.classList.contains('open')&&e.target.closest&&e.target.closest('#site-menu a')){ menu.classList.remove('open'); document.querySelectorAll('.menu-btn,[data-menu-trigger]').forEach(function(x){x.setAttribute('aria-expanded','false')}); return; }
    if(menu.classList.contains('open')&&!menu.contains(e.target)){ menu.classList.remove('open'); document.querySelectorAll('.menu-btn,[data-menu-trigger]').forEach(function(x){x.setAttribute('aria-expanded','false')}); }
   });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ var menu=document.getElementById('site-menu'); if(menu){ menu.classList.remove('open'); document.querySelectorAll('.menu-btn').forEach(function(x){x.setAttribute('aria-expanded','false')}); }}});
