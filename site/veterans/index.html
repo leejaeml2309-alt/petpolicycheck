@@ -8,11 +8,12 @@
   gtag('js', new Date());
   gtag('config', 'G-K45B2WNXMC');
 </script><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Veterans Service Dog & Pet Travel Hub (US & Canada) | PetPolicyCheck</title><meta name="description" content="DOT Part 382 vs Canada CTA service dog rules, ADA hotel rights, CR80 handler card, snowbird and VA lodging notes. Free — no donations.">
+<title data-i18n="veterans.meta.title" data-i18n-html>Veterans Service Dog & Pet Travel Hub (US & Canada) | PetPolicyCheck</title><meta name="description" content="DOT Part 382 vs Canada CTA service dog rules, ADA hotel rights, CR80 handler card, snowbird and VA lodging notes. Free — no donations." data-i18n-content="veterans.meta.description">
 <link rel="canonical" href="https://petpolicycheck.com/veterans/"><meta name="theme-color" content="#001f3f">
 <link rel="stylesheet" href="../assets/css/theme.css"><link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../assets/css/ppc-i18n.css?v=20261107d">
 <script src="../assets/i18n/ui.js?v=20261107d" defer></script>
+<script src="../assets/i18n/veterans-ui.js?v=20261107i" defer></script>
 <script src="../assets/js/ppc-i18n.js?v=20261107d" defer></script>
 <script src="../assets/js/pastilles.js?v=20261107d" defer></script>
 <link rel="stylesheet" href="../assets/css/theme-navy.css?v=20261107n">
@@ -69,53 +70,71 @@ input,select{width:100%;max-width:420px;padding:8px 10px;border-radius:10px;bord
 
 <main class="wrap" id="main">
 <section class="growth-hero">
-<p class="eyebrow" style="color:#d9b765;letter-spacing:.08em;text-transform:uppercase">Veterans · US &amp; Canada</p>
-<h1>Service dogs &amp; veteran pet travel</h1>
-<p class="sub">Free public utility for US and Canadian veterans. Zero donations. Institutional midnight-navy design for VA, Legion, DAV, VFW, and service-dog orgs to link.</p>
+<p class="eyebrow" style="color:#d9b765;letter-spacing:.08em;text-transform:uppercase" data-i18n="veterans.hero.eyebrow" data-i18n-html>Veterans · US &amp; Canada</p>
+<h1 data-i18n="veterans.hero.h1" data-i18n-html>Service dogs &amp; veteran pet travel</h1>
+<p class="sub" data-i18n="veterans.hero.sub" data-i18n-html>Free public utility for US and Canadian veterans. Zero donations. Institutional midnight-navy design for VA, Legion, DAV, VFW, and service-dog orgs to link.</p>
 </section>
 <section class="gcard no-print">
-<div class="mode-sw" role="group" aria-label="Mode">
-<button type="button" data-mode="sd" aria-pressed="true">Service Dog (PTSD / Mobility / Guide)</button>
-<button type="button" data-mode="pet" aria-pressed="false">Companion Pet &amp; Relocation</button>
+<div class="mode-sw" role="group" aria-label="Mode" data-i18n-aria="veterans.switch.mode.aria">
+<button type="button" data-mode="sd" aria-pressed="true" data-i18n="veterans.switch.mode.sd" data-i18n-html>Service Dog (PTSD / Mobility / Guide)</button>
+<button type="button" data-mode="pet" aria-pressed="false" data-i18n="veterans.switch.mode.pet" data-i18n-html>Companion Pet &amp; Relocation</button>
 </div>
-<div class="mode-sw" role="group" aria-label="Country">
-<button type="button" data-c="US" aria-pressed="true">United States</button>
-<button type="button" data-c="CA" aria-pressed="false">Canada</button>
-<button type="button" data-c="XB" aria-pressed="false">Cross-Border US ↔ Canada</button>
+<div class="mode-sw" role="group" aria-label="Country" data-i18n-aria="veterans.switch.country.aria">
+<button type="button" data-c="US" aria-pressed="true" data-i18n="veterans.switch.country.US" data-i18n-html>United States</button>
+<button type="button" data-c="CA" aria-pressed="false" data-i18n="veterans.switch.country.CA" data-i18n-html>Canada</button>
+<button type="button" data-c="XB" aria-pressed="false" data-i18n="veterans.switch.country.XB" data-i18n-html>Cross-Border US ↔ Canada</button>
 </div>
 </section>
 <section class="gcard" id="panel-air"></section>
 <section class="gcard" id="panel-hotel"></section>
 <section class="gcard" id="card">
-<h2>Service Dog Handler Access Card (CR80)</h2>
-<p class="privacy">100% local in your browser — zero medical or personal data ever transmitted or stored on our servers.</p>
+<h2 data-i18n="veterans.cardsec.h2" data-i18n-html>Service Dog Handler Access Card (CR80)</h2>
+<p class="privacy" data-i18n="veterans.cardsec.privacy" data-i18n-html>100% local in your browser — zero medical or personal data ever transmitted or stored on our servers.</p>
 <div class="row no-print">
-<div><label>Handler first name (optional)</label><input id="hName"></div>
-<div><label>Dog name (optional)</label><input id="dName"></div>
-<div><label>Jurisdiction</label>
-<select id="juri"><option value="US">US ADA + DOT</option><option value="CA">Canada CTA + Provincial</option><option value="XB">US ↔ Canada Cross-Border</option></select></div>
+<div><label data-i18n="veterans.cardsec.label.handler" data-i18n-html>Handler first name (optional)</label><input id="hName"></div>
+<div><label data-i18n="veterans.cardsec.label.dog" data-i18n-html>Dog name (optional)</label><input id="dName"></div>
+<div><label data-i18n="veterans.cardsec.label.juri" data-i18n-html>Jurisdiction</label>
+<select id="juri"><option value="US" data-i18n="veterans.cardsec.opt.US" data-i18n-html>US ADA + DOT</option><option value="CA" data-i18n="veterans.cardsec.opt.CA" data-i18n-html>Canada CTA + Provincial</option><option value="XB" data-i18n="veterans.cardsec.opt.XB" data-i18n-html>US ↔ Canada Cross-Border</option></select></div>
 </div>
-<p class="no-print"><button class="btn" type="button" id="mk">Generate card</button>
-<button class="btn ghost" type="button" id="printC">Print</button>
-<button class="btn ghost" type="button" id="pngC">Download PNG</button></p>
-<p class="privacy" id="card-dot-note"><b>Card back, full text:</b> DOT forms: check the airline’s submission process. Advance notice of up to 48 hours may apply to bookings made more than 48 hours before the first scheduled departure; last-minute bookings can submit forms at the departure gate.</p>
+<p class="no-print"><button class="btn" type="button" id="mk" data-i18n="veterans.cardsec.btn.generate" data-i18n-html>Generate card</button>
+<button class="btn ghost" type="button" id="printC" data-i18n="veterans.cardsec.btn.print" data-i18n-html>Print</button>
+<button class="btn ghost" type="button" id="pngC" data-i18n="veterans.cardsec.btn.png" data-i18n-html>Download PNG</button></p>
+<p class="privacy" id="card-dot-note" data-i18n="veterans.cardsec.dotnote" data-i18n-html><b>Card back, full text:</b> DOT forms: check the airline’s submission process. Advance notice of up to 48 hours may apply to bookings made more than 48 hours before the first scheduled departure; last-minute bookings can submit forms at the departure gate.</p>
 <div id="crFront" class="cr80"></div>
 <div id="crBack" class="cr80"></div>
 <canvas id="cv" style="display:none" width="1012" height="638"></canvas>
 </section>
 <section class="gcard" id="snowbirds">
-<h2>Veteran snowbirds &amp; VA / military lodging</h2>
+<h2 data-i18n="veterans.snow.h2" data-i18n-html>Veteran snowbirds &amp; VA / military lodging</h2>
 <ul>
-<li><b>Canada → US (snowbird):</b> CDC Dog Import Form receipt — often usable for months for dogs from dog-rabies-free/low-risk countries (confirm CDC). Keep rabies docs current.</li>
-<li><b>Mexico:</b> SENASICA/OISA entry. Dogs entering or returning to the US from Mexico require screwworm-freedom certification based on inspection within five days before shipment. Mexico also requires a separate NWS inspection document for pet dogs originating in and travelling from the US, effective August 3, 2026. Check the required signatory and document for each direction.</li>
-<li><b>Fisher House:</b> Fisher House is not ordinary pet-friendly lodging. For example, VA South Texas does not allow pets and requires prior approval for the registered guest’s task-trained service animal. Confirm eligibility and the specific house’s service-animal procedure before arrival.</li>
-<li><b>Navy Lodge / IHG Army Hotels:</b> service dogs free. Companion-pet availability, room allocation, fees and size restrictions depend on the property. Navy Lodge asks guests to register pets and contact the lodge for multiple pets or pets over 70 lb. IHG Army Hotels asks guests to notify reservations and check its pet policy. A room booking does not grant base access.</li>
+<li data-i18n="veterans.snow.li1" data-i18n-html><b>Canada → US (snowbird):</b> CDC Dog Import Form receipt — often usable for months for dogs from dog-rabies-free/low-risk countries (confirm CDC). Keep rabies docs current.</li>
+<li data-i18n="veterans.snow.li2" data-i18n-html><b>Mexico:</b> SENASICA/OISA entry. Dogs entering or returning to the US from Mexico require screwworm-freedom certification based on inspection within five days before shipment. Mexico also requires a separate NWS inspection document for pet dogs originating in and travelling from the US, effective August 3, 2026. Check the required signatory and document for each direction.</li>
+<li data-i18n="veterans.snow.li3" data-i18n-html><b>Fisher House:</b> Fisher House is not ordinary pet-friendly lodging. For example, VA South Texas does not allow pets and requires prior approval for the registered guest’s task-trained service animal. Confirm eligibility and the specific house’s service-animal procedure before arrival.</li>
+<li data-i18n="veterans.snow.li4" data-i18n-html><b>Navy Lodge / IHG Army Hotels:</b> service dogs free. Companion-pet availability, room allocation, fees and size restrictions depend on the property. Navy Lodge asks guests to register pets and contact the lodge for multiple pets or pets over 70 lb. IHG Army Hotels asks guests to notify reservations and check its pet policy. A room booking does not grant base access.</li>
 </ul>
-<p><a class="btn ghost" href="../military-pcs/">Military PCS kit</a>
-<a class="btn ghost" href="../airlines/compare/?military=1">Military &amp; service dog filter</a>
-<a class="btn ghost" href="../passport/">Passport</a></p>
+<p><a class="btn ghost" href="../military-pcs/" data-i18n="veterans.snow.btn.pcs" data-i18n-html>Military PCS kit</a>
+<a class="btn ghost" href="../airlines/compare/?military=1" data-i18n="veterans.snow.btn.filter" data-i18n-html>Military &amp; service dog filter</a>
+<a class="btn ghost" href="../passport/" data-i18n="veterans.snow.btn.passport" data-i18n-html>Passport</a></p>
 </section>
 <script>
+const T=(k,en)=>window.PPC_T?window.PPC_T(k,en):en;
+const AIRK={US_sd:['h2','p1','note','p2'],CA_sd:['h2','p1'],XB_sd:['h2','p1'],US_pet:['h2','p1'],CA_pet:['h2','p1'],XB_pet:['h2','p1']};
+const HOTELK={US:['h2','p1'],CA:['h2','p1'],XB:['h2','p1']};
+/* Localised panel from the page pack (veterans-ui.js); any missing key -> the EN block below, unchanged */
+function blk(pre,parts,en){
+  if(!window.PPC_T) return en;
+  let out='';
+  for(const k of parts){const v=window.PPC_T(pre+k,null); if(v==null) return en;
+    out+= k==='h2'?'<h2>'+v+'</h2>' : k==='note'?'<p class="privacy">'+v+'</p>' : '<p>'+v+'</p>';}
+  return out;
+}
+/* CR80 auto-fit: shrink the card text (down to 5.6px) until nothing overflows the 85.6x54 mm card */
+function fitCard(el){
+  const b=el.querySelector('.cr80-body'); if(!b) return;
+  b.style.fontSize=''; let fs=parseFloat(getComputedStyle(b).fontSize)||8.5;
+  const note=b.querySelector('.cr80-note'); let nf=note?parseFloat(getComputedStyle(note).fontSize):0;
+  for(let i=0;i<40&&el.scrollHeight>el.clientHeight+0.5&&fs>5.6;i++){fs-=0.2;b.style.fontSize=fs+'px';b.style.lineHeight='1.22';if(note){nf=Math.max(5.2,nf-0.15);note.style.fontSize=nf+'px'}}
+}
 const AIR={
 US_sd:`<h2>US air travel — 14 CFR Part 382</h2><p>Task-trained service dogs (including psychiatric/PTSD and mobility) may fly in cabin at <b>$0</b> under DOT rules. Pet weight limits are not the test for service dogs. The dog must fit safely on your lap or in your foot space without encroaching on another passenger. If it cannot, the carrier must consider the alternatives in 14 CFR 382.77. If your reservation was made more than 48 hours before the first originally scheduled departure, the airline may require the DOT form up to 48 hours in advance. If booked less than 48 hours before departure, it may require the form at the departure gate on travel day, but not advance notice. Contact the airline promptly; reasonable-effort accommodation rules also apply. For a flight segment scheduled to take eight hours or more, the airline may also require the DOT Service Animal Relief Attestation Form. Complete current DOT forms on or after the date you purchase your ticket.</p><p class="privacy"><b>Note:</b> A universal 48-hour deadline is not the DOT rule: last-minute bookings have a departure-gate submission pathway, and reasonable-effort accommodation requirements apply. AMC service-animal paperwork follows separate rules.</p><p><b>Owner-trained</b> service dogs are accepted under US DOT when they meet the definition. ESAs are <b>not</b> service animals for airlines since 2021. Official resource: <a href="https://www.transportation.gov/" rel="noopener" target="_blank">transportation.gov</a>.</p>`,
 CA_sd:`<h2>Canada air travel — CTA / ATPDR trap</h2><p>Canada’s transportation regulator is the Canadian Transportation Agency (CTA/OTC), not Air Canada. Under the ATPDR, carriers may request evidence of individual training by an organization or person specializing in service-dog training. ADI/IGDF accreditation is not a universal ATPDR requirement. Check your airline’s accepted documentation. US acceptance does not automatically establish eligibility on every non-US flight. Air Canada offers an assessment pathway for eligible owner-trained dogs through Cabin-Ready Canines; its June 2, 2026 announcement excludes travel to/from the United States, where US documentation rules apply. Confirm the process with Accessibility Services. Canada does not have one universal ADI-only rule for airline travel, hotel access and border entry. Check the applicable transport rule, carrier policy, provincial law and import category separately. Confirm: <a href="https://otc-cta.gc.ca/" rel="noopener" target="_blank">otc-cta.gc.ca</a>.</p>`,
@@ -137,59 +156,64 @@ function paint(){
 function refresh(){
   document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.mode===mode)));
   document.querySelectorAll('[data-c]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.c===country)));
-  document.getElementById('panel-air').innerHTML = AIR[country+'_'+mode] || AIR.US_sd;
-  document.getElementById('panel-hotel').innerHTML = HOTEL[country] || HOTEL.US;
+  const ak=AIR[country+'_'+mode]?country+'_'+mode:'US_sd', hk=HOTEL[country]?country:'US';
+  document.getElementById('panel-air').innerHTML = blk('veterans.air.'+ak+'.', AIRK[ak], AIR[ak]);
+  document.getElementById('panel-hotel').innerHTML = blk('veterans.hotel.'+hk+'.', HOTELK[hk], HOTEL[hk]);
 }
 document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;refresh()});
 document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{country=b.dataset.c;refresh()});
 function genCard(){
   const j=juri.value;
-  const q1='Is the dog a service animal required because of a disability?';
-  const q2='What work or task has the dog been trained to perform?';
+  const q1=T('veterans.card.q1','Is the dog a service animal required because of a disability?');
+  const q2=T('veterans.card.q2','What work or task has the dog been trained to perform?');
   const stripe='<div class="cr80-stripe" aria-hidden="true"></div>';
-  const V15='US ADA information only — not a service-dog certificate or proof of eligibility. This card does not replace airline forms, Canadian documentation or border-entry requirements. Check the law applicable to your destination.';
-  const ADA=`<p><b>US ADA — only 2 questions staff may ask</b><br>1. ${q1}<br>2. ${q2}</p>`;
-  const FEE='<p><b>$0 pet fee</b> for task-trained service dogs (ADA Title III).</p>';
-  const CAN='<p><b>Canada</b> — check the applicable transport rule, the carrier’s service-dog policy and the provincial law before you travel.</p>';
-  const FRONT={US:ADA+FEE, CA:CAN, XB:'<p class="cr80-lbl">United States (ADA)</p>'+ADA+'<p class="cr80-lbl">Canada</p>'+CAN};
-  const DOT='DOT forms: follow the airline’s process. Up to 48 h notice may apply if booked >48 h ahead; last-minute bookings: at the gate.';
-  const RELIEF8='Flights of 8 h or more: the airline may also require the DOT Relief Attestation Form.';
-  const GEAR='Relief schedule · harness · “service dog” ID if you use one';
-  const BACK={US:[DOT,RELIEF8,GEAR], CA:['Canada: confirm the carrier’s accepted specialized-training evidence and any owner-trained assessment pathway. Border-import rules are separate.',GEAR], XB:[DOT,RELIEF8,'Canada: confirm the carrier’s accepted specialized-training evidence and any owner-trained assessment pathway. Border-import rules are separate.',GEAR]};
+  const V15=T('veterans.card.v15','US ADA information only — not a service-dog certificate or proof of eligibility. This card does not replace airline forms, Canadian documentation or border-entry requirements. Check the law applicable to your destination.');
+  const ADA=`<p><b>${T('veterans.card.ada_title','US ADA — only 2 questions staff may ask')}</b><br>1. ${q1}<br>2. ${q2}</p>`;
+  const FEE='<p>'+T('veterans.card.fee','<b>$0 pet fee</b> for task-trained service dogs (ADA Title III).')+'</p>';
+  const CAN='<p>'+T('veterans.card.can','<b>Canada</b> — check the applicable transport rule, the carrier’s service-dog policy and the provincial law before you travel.')+'</p>';
+  const FRONT={US:ADA+FEE, CA:CAN, XB:'<p class="cr80-lbl">'+T('veterans.card.lbl_us','United States (ADA)')+'</p>'+ADA+'<p class="cr80-lbl">'+T('veterans.card.lbl_ca','Canada')+'</p>'+CAN};
+  const DOT=T('veterans.card.back.dot','DOT forms: follow the airline’s process. Up to 48 h notice may apply if booked >48 h ahead; last-minute bookings: at the gate.');
+  const RELIEF8=T('veterans.card.back.relief8','Flights of 8 h or more: the airline may also require the DOT Relief Attestation Form.');
+  const GEAR=T('veterans.card.back.gear','Relief schedule · harness · “service dog” ID if you use one');
+  const CAB=T('veterans.card.back.ca','Canada: confirm the carrier’s accepted specialized-training evidence and any owner-trained assessment pathway. Border-import rules are separate.');
+  const BACK={US:[DOT,RELIEF8,GEAR], CA:[CAB,GEAR], XB:[DOT,RELIEF8,CAB,GEAR]};
   crFront.className='cr80'+(j==='XB'?' xb':'');
-  crFront.innerHTML=`${stripe}<div class="cr80-body"><h4>Service Dog Handler Card</h4>
-  <div><b>Handler:</b> ${hName.value||'—'} · <b>Dog:</b> ${dName.value||'—'}</div>
+  crFront.innerHTML=`${stripe}<div class="cr80-body"><h4>${T('veterans.card.front.h4','Service Dog Handler Card')}</h4>
+  <div><b>${T('veterans.card.front.handler','Handler:')}</b> ${hName.value||'—'} · <b>${T('veterans.card.front.dog','Dog:')}</b> ${dName.value||'—'}</div>
   ${FRONT[j]||FRONT.US}
   <p class="cr80-note">${V15}</p></div>`;
-  crBack.innerHTML=`${stripe}<div class="cr80-body"><h4>Pre-flight checklist</h4>
+  crBack.innerHTML=`${stripe}<div class="cr80-body"><h4>${T('veterans.card.back.h4','Pre-flight checklist')}</h4>
   <ul style="margin:0;padding-left:14px">
   ${(BACK[j]||BACK.US).map(x=>'<li>'+x+'</li>').join('')}
   </ul>
   <p style="margin-top:6px">petpolicycheck.com/veterans</p></div>`;
+  fitCard(crFront); fitCard(crBack);
 }
 mk.onclick=genCard; printC.onclick=()=>window.print();
 pngC.onclick=()=>{
   genCard();
   const c=cv; let ctx=c.getContext('2d');
   ctx.font='18px sans-serif';
-  const words=(crFront.innerText+'\n\n'+crBack.innerText).split('\n').reduce((n,l)=>n+Math.max(1,Math.ceil(ctx.measureText(l).width/(c.width-60))),0);
-  c.height=Math.max(638,110+words*24); ctx=c.getContext('2d');
+  const wrap=(line,max)=>{const out=[];let cur='';
+    for(const w of line.split(/(?<= )/)){const n=cur+w;
+      if(ctx.measureText(n).width<=max){cur=n;continue}
+      if(cur){out.push(cur.trimEnd());cur=''}
+      if(ctx.measureText(w).width<=max){cur=w;continue}
+      for(const ch of w){if(ctx.measureText(cur+ch).width>max&&cur){out.push(cur);cur=ch}else cur+=ch}}
+    out.push(cur.trimEnd()); return out;};
+  const lines=[];(crFront.innerText+'\n\n'+crBack.innerText).split('\n').forEach(l=>lines.push(...wrap(l,c.width-48)));
+  c.height=Math.max(638,110+lines.length*24); ctx=c.getContext('2d');
   ctx.fillStyle='#f7f3ea'; ctx.fillRect(0,0,c.width,c.height);
   ctx.fillStyle='#001f3f'; ctx.fillRect(0,0,c.width,56);
   ctx.fillStyle='#d4af37'; ctx.fillRect(0,56,c.width,3);
   ctx.fillStyle='#f4f6fa'; ctx.font='bold 18px sans-serif';
-  ctx.fillText('PetPolicyCheck · Service Dog Handler Card', 24, 36);
+  ctx.fillText(T('veterans.card.png.title','PetPolicyCheck · Service Dog Handler Card'), 24, 36);
   ctx.fillStyle='#1a1a1a'; ctx.font='18px sans-serif';
-  const t=[];
-  (crFront.innerText+'\n\n'+crBack.innerText).split('\n').forEach(line=>{
-    let cur='';
-    line.split(' ').forEach(w=>{const n=cur?cur+' '+w:w; if(ctx.measureText(n).width>c.width-48&&cur){t.push(cur);cur=w}else cur=n});
-    t.push(cur);
-  });
-  t.forEach((line,i)=>ctx.fillText(line,24,86+i*24));
+  lines.forEach((line,i)=>ctx.fillText(line,24,86+i*24));
   const a=document.createElement('a'); a.download='ppc-service-dog-card.png'; a.href=c.toDataURL(); a.click();
 };
 refresh(); genCard();
+window.addEventListener('ppc:lang',()=>{refresh();genCard();});
 </script>
 </main>
 <footer class="foot foot-compact"><div class="wrap">

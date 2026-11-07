@@ -2,14 +2,15 @@
 <html lang="en-US"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>180-Day Rabies Titer Countdown | PetPolicyCheck</title>
-<meta name="description" content="Reverse-plan microchip, rabies vaccine, FAVN titer and entry windows for Japan, Korea, EU, UK, USA, Canada, Mexico.">
+<title data-i18n="titer.meta.title" data-i18n-html>180-Day Rabies Titer Countdown | PetPolicyCheck</title>
+<meta name="description" content="Reverse-plan microchip, rabies vaccine, FAVN titer and entry windows for Japan, Korea, EU, UK, USA, Canada, Mexico." data-i18n-content="titer.meta.description">
 <link rel="canonical" href="https://petpolicycheck.com/titer-calculator/">
 <meta name="theme-color" content="#0b1719">
 <link rel="stylesheet" href="../assets/css/theme.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="../assets/css/ppc-i18n.css?v=20261107d">
 <script src="../assets/i18n/ui.js?v=20261107d" defer></script>
+<script src="../assets/i18n/titer-calculator-ui.js?v=20261107i" defer></script>
 <script src="../assets/js/ppc-i18n.js?v=20261107d" defer></script>
 <script src="../assets/js/pastilles.js?v=20261107d" defer></script>
 
@@ -43,38 +44,39 @@ input,select,textarea{width:100%;max-width:420px;padding:8px 10px;border-radius:
 <main class="wrap" id="main">
 
 <section class="growth-hero">
-<p class="eyebrow" style="color:#d9b765;letter-spacing:.08em;text-transform:uppercase">Tools · Countdown</p>
-<h1>180-Day Rabies Titer & Entry Reverse Countdown</h1>
-<p class="sub">Work backward from your flight date for APQA, MAFF, EU/UK, CDC, CFIA, or SENASICA pathways. Shareable link + PNG card. Planning aid only.</p>
+<p class="eyebrow" style="color:#d9b765;letter-spacing:.08em;text-transform:uppercase" data-i18n="titer.hero.eyebrow" data-i18n-html>Tools · Countdown</p>
+<h1 data-i18n="titer.hero.h1" data-i18n-html>180-Day Rabies Titer & Entry Reverse Countdown</h1>
+<p class="sub" data-i18n="titer.hero.sub" data-i18n-html>Work backward from your flight date for APQA, MAFF, EU/UK, CDC, CFIA, or SENASICA pathways. Shareable link + PNG card. Planning aid only.</p>
 </section>
 <section class="gcard">
 <div class="row">
-<div><label for="dest">Destination pathway</label>
+<div><label for="dest" data-i18n="titer.form.label.dest" data-i18n-html>Destination pathway</label>
 <select id="dest">
-<option value="JP">Japan (MAFF / AQS)</option>
-<option value="KR">South Korea (APQA)</option>
-<option value="EU">EU / France / Germany</option>
-<option value="GB">United Kingdom</option>
-<option value="US">USA (CDC)</option>
-<option value="CA">Canada (CFIA)</option>
-<option value="MX">Mexico (SENASICA)</option>
+<option value="JP" data-i18n="titer.dest.JP" data-i18n-html>Japan (MAFF / AQS)</option>
+<option value="KR" data-i18n="titer.dest.KR" data-i18n-html>South Korea (APQA)</option>
+<option value="EU" data-i18n="titer.dest.EU" data-i18n-html>EU / France / Germany</option>
+<option value="GB" data-i18n="titer.dest.GB" data-i18n-html>United Kingdom</option>
+<option value="US" data-i18n="titer.dest.US" data-i18n-html>USA (CDC)</option>
+<option value="CA" data-i18n="titer.dest.CA" data-i18n-html>Canada (CFIA)</option>
+<option value="MX" data-i18n="titer.dest.MX" data-i18n-html>Mexico (SENASICA)</option>
 </select></div>
-<div><label for="pet">Pet</label><select id="pet"><option value="Dog">Dog</option><option value="Cat">Cat</option></select></div>
-<div><label for="fly">Target flight date</label><input type="date" id="fly"></div>
+<div><label for="pet" data-i18n="titer.form.label.pet" data-i18n-html>Pet</label><select id="pet"><option value="Dog" data-i18n="titer.pet.dog" data-i18n-html>Dog</option><option value="Cat" data-i18n="titer.pet.cat" data-i18n-html>Cat</option></select></div>
+<div><label for="fly" data-i18n="titer.form.label.fly" data-i18n-html>Target flight date</label><input type="date" id="fly"></div>
 </div>
 <p style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px">
-<button class="btn" type="button" id="go">Build timeline</button>
-<button class="btn ghost" type="button" id="png">Download PNG card</button>
-<a class="btn ghost" href="../passport/">Pet Travel Passport</a>
-<a class="btn ghost" href="../fit/">Carrier fit</a>
+<button class="btn" type="button" id="go" data-i18n="titer.btn.go" data-i18n-html>Build timeline</button>
+<button class="btn ghost" type="button" id="png" data-i18n="titer.btn.png" data-i18n-html>Download PNG card</button>
+<a class="btn ghost" href="../passport/" data-i18n="titer.btn.passport" data-i18n-html>Pet Travel Passport</a>
+<a class="btn ghost" href="../fit/" data-i18n="titer.btn.fit" data-i18n-html>Carrier fit</a>
 </p>
-<label for="share">Shareable link</label><input id="share" readonly>
+<label for="share" data-i18n="titer.form.label.share" data-i18n-html>Shareable link</label><input id="share" readonly>
 </section>
 <div id="out"></div>
 <canvas id="cv" width="1080" height="1350" style="display:none" aria-hidden="true"></canvas>
 
 <script>
 (function(){
+const T=(k,en)=>window.PPC_T?window.PPC_T(k,en):en;
 const DEST={
   KR:{name:'South Korea (APQA)',wait:0,note:'ISO microchip BEFORE rabies vaccine. FAVN/RNATT when required by APQA pathway. Health/quarantine docs per APQA.'},
   JP:{name:'Japan (MAFF / AQS)',wait:180,note:'ISO microchip before rabies. FAVN ≥0.5 IU/ml. Many origins need ~180 days after the qualifying blood draw before entry.'},
@@ -90,22 +92,22 @@ function subDays(d,n){return addDays(d,-n)}
 function fmt(d){return d.toISOString().slice(0,10)}
 function run(){
   const dest=$('dest').value, pet=$('pet').value, fly=new Date($('fly').value+'T12:00:00');
-  if(!$('#fly').value||isNaN(fly)){ $('out').innerHTML='<p class="bad">Pick a flight date.</p>'; return; }
+  if(!$('fly').value||isNaN(fly)){ $('out').innerHTML='<p class="bad">'+T('titer.out.err.nodate','Pick a flight date.')+'</p>'; return; }
   const D=DEST[dest]; const wait=D.wait;
   const blood= wait? subDays(fly, wait+14): subDays(fly, 45);
   const vax= subDays(blood, 30);
   const chip= subDays(vax, 1);
   const cert= subDays(fly, 10);
   const rows=[
-    ['ISO microchip (before rabies)', fmt(chip)],
-    ['Rabies vaccination (inactivated)', fmt(vax)],
-    ['FAVN / RNATT blood draw (if required)', fmt(blood)],
-    [wait? (wait+'-day wait window ends / eligible entry'):'Confirm titer pathway for this destination', wait? fmt(addDays(blood, wait)): '—'],
-    ['Health certificate / endorsement window (typical ≤10 days)', fmt(cert)+' → '+fmt(fly)],
-    ['Target flight date', fmt(fly)]
+    [T('titer.row.chip','ISO microchip (before rabies)'), fmt(chip)],
+    [T('titer.row.vax','Rabies vaccination (inactivated)'), fmt(vax)],
+    [T('titer.row.blood','FAVN / RNATT blood draw (if required)'), fmt(blood)],
+    [wait? T('titer.row.wait','{wait}-day wait window ends / eligible entry').replace('{wait}',wait):T('titer.row.confirm','Confirm titer pathway for this destination'), wait? fmt(addDays(blood, wait)): '—'],
+    [T('titer.row.cert','Health certificate / endorsement window (typical ≤10 days)'), fmt(cert)+' → '+fmt(fly)],
+    [T('titer.row.fly','Target flight date'), fmt(fly)]
   ];
-  $('out').innerHTML='<div class="gcard"><h3>'+D.name+' · '+pet+'</h3><p>'+D.note+'</p><ol class="timeline">'+
-    rows.map(r=>'<li><b>'+r[0]+'</b>: '+r[1]+'</li>').join('')+'</ol><p class="privacy">Planning aid only — official APQA/MAFF/CDC/CFIA/SENASICA/EU pages win.</p></div>';
+  $('out').innerHTML='<div class="gcard"><h3>'+T('titer.dest.'+dest,D.name)+' · '+T('titer.pet.'+pet.toLowerCase(),pet)+'</h3><p>'+T('titer.note.'+dest,D.note)+'</p><ol class="timeline">'+
+    rows.map(r=>'<li><b>'+r[0]+'</b>: '+r[1]+'</li>').join('')+'</ol><p class="privacy">'+T('titer.out.disclaimer','Planning aid only — official APQA/MAFF/CDC/CFIA/SENASICA/EU pages win.')+'</p></div>';
   const u=new URL(location.href); u.searchParams.set('dest',dest); u.searchParams.set('fly',$('fly').value); u.searchParams.set('pet',pet);
   if(window.PPC_LANG) u.searchParams.set('lang', window.PPC_LANG.get());
   history.replaceState(null,'',u); $('share').value=u.toString();
@@ -113,10 +115,11 @@ function run(){
 function card(){
   const c=$('cv'), ctx=c.getContext('2d');
   ctx.fillStyle='#0b1719'; ctx.fillRect(0,0,c.width,c.height);
-  ctx.fillStyle='#d9b765'; ctx.font='bold 42px sans-serif'; ctx.fillText('Rabies / Titer Countdown',48,70);
+  ctx.fillStyle='#d9b765'; ctx.font='bold 42px sans-serif'; ctx.fillText(T('titer.png.title','Rabies / Titer Countdown'),48,70);
   ctx.fillStyle='#f5efe0'; ctx.font='28px sans-serif';
-  const text=$('out').innerText.slice(0,500); const lines=text.split('\n');
-  let y=130; lines.forEach(l=>{ctx.fillText(l.slice(0,48),48,y); y+=36});
+  const max=c.width-96, lines=[];
+  $('out').innerText.split('\n').forEach(l=>{let cur='';for(const w of l.split(/(?<= )/)){if(ctx.measureText(cur+w).width<=max){cur+=w;continue}if(cur){lines.push(cur.trimEnd());cur=''}if(ctx.measureText(w).width<=max){cur=w;continue}for(const ch of w){if(ctx.measureText(cur+ch).width>max&&cur){lines.push(cur);cur=ch}else cur+=ch}}lines.push(cur.trimEnd())});
+  let y=130; lines.slice(0,Math.floor((c.height-200)/36)).forEach(l=>{ctx.fillText(l,48,y); y+=36});
   ctx.fillStyle='#a9b3a4'; ctx.font='22px sans-serif'; ctx.fillText('petpolicycheck.com/titer-calculator',48,c.height-48);
   const a=document.createElement('a'); a.download='ppc-titer-countdown.png'; a.href=c.toDataURL('image/png'); a.click();
 }
@@ -127,6 +130,7 @@ window.addEventListener('DOMContentLoaded',()=>{
   if(q.get('pet')) $('pet').value=q.get('pet');
   $('go').onclick=run; $('png').onclick=card; if(q.get('fly')) run();
 });
+window.addEventListener('ppc:lang',()=>{ if($('out').innerHTML) run(); });
 })();
 </script>
 
