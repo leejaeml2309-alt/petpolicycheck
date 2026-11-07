@@ -2364,5 +2364,119 @@
       }
     ],
     "official_map": "https://www.flysfo.com/maps"
+  },
+  "ICN": {
+    "name": "Incheon International",
+    "city": "Incheon · Seoul",
+    "pets_url": "https://www.airport.kr/ap_en/1479/subview.do",
+    "pets_label": "ICN pet guidance",
+    "checked": "2026-11-07 KST",
+    "before": [
+      [
+        "T1 Transportation Center",
+        "Pet Garden · B1, west side. Outdoor dog walk · left of KFC."
+      ],
+      [
+        "T1 Transportation Center",
+        "Pet Lounge · B1, west side. Indoor rest · dog-hotel counter."
+      ],
+      [
+        "T1 · Animal quarantine (APQA)",
+        "Level 3 · inside Entrance 7. 09:00–18:00 · export certificates."
+      ],
+      [
+        "T2 · Animal quarantine (APQA)",
+        "Level 2 · Gov. Admin. Center. 09:00–18:00 · lunch 12–13."
+      ]
+    ],
+    "after": [
+      [
+        "T1 / Concourse / T2",
+        "No official relief area found. Verify on site / ask staff."
+      ]
+    ],
+    "airlines": [
+      "korean-air"
+    ],
+    "airline_sources": [
+      [
+        "https://www.airport.kr/ap_en/1421/subview.do",
+        "Incheon check-in guide (Korean Air, Terminal 2)"
+      ]
+    ],
+    "note": "Pet Garden and Pet Lounge: T1 Transportation Center B1, before security. No official post-security relief area found — verify on site / ask airport staff. Indoors: carrier, ID tag; ~50 cm leash only if unavoidable.",
+    "diagram_points": [
+      {
+        "id": "I1",
+        "group": "before",
+        "label": "T1 Transportation Center",
+        "detail": "Pet Garden · B1, west side",
+        "note": "Outdoor dog walk · left of KFC",
+        "source": "https://www.airport.kr/ap_en/6636/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGYXBfZW4lMkY5MzclMkYxMzgyMzAlMkZhcnRjbFZpZXcuZG8lM0Y%3D",
+        "official_map": "https://www.airport.kr/ap_en/map/mapInfo.do",
+        "verify_on_site": false
+      },
+      {
+        "id": "I2",
+        "group": "before",
+        "label": "T1 Transportation Center",
+        "detail": "Pet Lounge · B1, west side",
+        "note": "Indoor rest · dog-hotel counter",
+        "source": "https://www.airport.kr/bbs/co_ko/84/132140/artclView.do?layout=unknown",
+        "official_map": "https://www.airport.kr/ap_en/map/mapInfo.do",
+        "verify_on_site": false
+      },
+      {
+        "id": "I3",
+        "group": "before",
+        "label": "T1 · Animal quarantine (APQA)",
+        "detail": "Level 3 · inside Entrance 7",
+        "note": "09:00–18:00 · export certificates",
+        "source": "https://www.airport.kr/ap_ko/901/subview.do",
+        "official_map": "https://www.airport.kr/ap_en/map/mapInfo.do",
+        "verify_on_site": false
+      },
+      {
+        "id": "I4",
+        "group": "before",
+        "label": "T2 · Animal quarantine (APQA)",
+        "detail": "Level 2 · Gov. Admin. Center",
+        "note": "09:00–18:00 · lunch 12–13",
+        "source": "https://www.airport.kr/ap_ko/896/subview.do",
+        "official_map": "https://www.airport.kr/ap_en/map/mapInfo.do",
+        "verify_on_site": false
+      },
+      {
+        "id": "I5",
+        "group": "after",
+        "label": "T1 / Concourse / T2",
+        "detail": "No official relief area found",
+        "note": "Verify on site / ask staff",
+        "source": "https://www.airport.kr/ap_en/1479/subview.do",
+        "official_map": "https://www.airport.kr/ap_en/map/mapInfo.do",
+        "verify_on_site": true
+      },
+      {
+        "id": "I6",
+        "group": "restricted",
+        "label": "Arrivals · before Customs",
+        "detail": "Show pet certificate to APQA",
+        "note": "Exact desk: verify on site",
+        "source": "https://www.airport.kr/ap_ko/951/subview.do",
+        "official_map": "https://www.airport.kr/ap_en/map/mapInfo.do",
+        "verify_on_site": true
+      },
+      {
+        "id": "I7",
+        "group": "access",
+        "label": "From Terminal 2",
+        "detail": "Shuttle or AREX to T1, then B1",
+        "note": "Route: verify on site",
+        "source": "https://www.airport.kr/ap_en/1479/subview.do",
+        "official_map": "https://www.airport.kr/ap_en/map/mapInfo.do",
+        "verify_on_site": true
+      }
+    ],
+    "official_map": "https://www.airport.kr/ap_en/map/mapInfo.do"
   }
 }

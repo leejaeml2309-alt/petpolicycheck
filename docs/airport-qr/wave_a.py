@@ -106,3 +106,26 @@ def extend(D,kit):
   if c=='EWR':d['airlines']+=['air-canada','jetblue'];d['airline_sources'].append([EWRA,'EWR Terminal A airline accessibility information'])
   if c=='LAX':d['airlines']+=['jetblue','delta'];d['airline_sources'].append(['https://www.flylax.com/lax-terminal-maps','LAX Terminal 3 / Delta']);d['airline_sources'].append([CLOSED5,'LAWA terminal relocation announcement']);d['check_label']='Verification attempted'
   D[c]=d
+# --- ICN (Incheon, South Korea): official airport.kr pages read 7 Nov 2026 KST ---
+ICN_GARDEN='https://www.airport.kr/ap_en/6636/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGYXBfZW4lMkY5MzclMkYxMzgyMzAlMkZhcnRjbFZpZXcuZG8lM0Y%3D'
+ICN_PETS='https://www.airport.kr/ap_en/1479/subview.do'
+ICN_QUAR='https://www.airport.kr/ap_ko/901/subview.do'
+ICN_GOV='https://www.airport.kr/ap_ko/896/subview.do'
+ICN_MAP='https://www.airport.kr/ap_en/map/mapInfo.do'
+ICN_ARR='https://www.airport.kr/ap_ko/951/subview.do'
+ICN_LOUNGE='https://www.airport.kr/bbs/co_ko/84/132140/artclView.do?layout=unknown'
+WAVE_POINTS['ICN']=[
+ p('before','T1 Transportation Center','Pet Garden · B1, west side','Outdoor dog walk · left of KFC',ICN_GARDEN),
+ p('before','T1 Transportation Center','Pet Lounge · B1, west side','Indoor rest · dog-hotel counter',ICN_LOUNGE),
+ p('before','T1 · Animal quarantine (APQA)','Level 3 · inside Entrance 7','09:00–18:00 · export certificates',ICN_QUAR),
+ p('before','T2 · Animal quarantine (APQA)','Level 2 · Gov. Admin. Center','09:00–18:00 · lunch 12–13',ICN_GOV),
+ p('after','T1 / Concourse / T2','No official relief area found','Verify on site / ask staff',None,True),
+ p('restricted','Arrivals · before Customs','Show pet certificate to APQA','Exact desk: verify on site',ICN_ARR,True),
+ p('access','From Terminal 2','Shuttle or AREX to T1, then B1','Route: verify on site',None,True)]
+WAVE_MAPS['ICN']=ICN_MAP
+NOTES['ICN']='Pet Garden and Pet Lounge: T1 Transportation Center B1, before security. No official post-security relief area found — verify on site / ask airport staff. Indoors: carrier, ID tag; ~50 cm leash only if unavoidable.'
+ICN_BASE={'name':'Incheon International','city':'Incheon · Seoul','pets_url':ICN_PETS,'pets_label':'ICN pet guidance'}
+_extend=extend
+def extend(D,kit):
+ kit=dict(kit);kit.setdefault('ICN',ICN_BASE);_extend(D,kit)
+ d=D['ICN'];d['airlines']=['korean-air'];d['airline_sources']=[['https://www.airport.kr/ap_en/1421/subview.do','Incheon check-in guide (Korean Air, Terminal 2)']]
