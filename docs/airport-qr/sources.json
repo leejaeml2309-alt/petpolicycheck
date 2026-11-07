@@ -965,7 +965,7 @@
   "LAX": {
     "name": "Los Angeles International",
     "city": "Los Angeles",
-    "pets_url": "https://www.flylax.com/sites/lax/files/documents/LAX%20Pet%20Relief%20Locations.pdf",
+    "pets_url": "https://www.flylax.com/animal-relief",
     "pets_label": "LAX animal relief stations map",
     "checked": "2026-11-07 KST",
     "before": [
@@ -1072,7 +1072,7 @@
         "label": "T3 / T6 / T7 / T8 / TB",
         "detail": "No exact point verified here",
         "note": "Gate / level: verify on site",
-        "source": "https://www.flylax.com/sites/lax/files/documents/LAX%20Pet%20Relief%20Locations.pdf",
+        "source": "https://www.flylax.com/animal-relief",
         "official_map": "https://www.flylax.com/lax-terminal-maps",
         "verify_on_site": true
       }
@@ -2063,7 +2063,7 @@
     "name": "Dallas/Fort Worth International",
     "city": "Dallas–Fort Worth",
     "pets_url": "https://www.dfwairport.com/explore/terminals/pettravel/",
-    "pets_label": "SEA traveling with pets",
+    "pets_label": "DFW Traveling with Pets Guide",
     "checked": "2026-11-07 KST",
     "before": [
       [
@@ -2219,7 +2219,7 @@
     "name": "San Francisco International",
     "city": "San Francisco",
     "pets_url": "https://www.flysfo.com/passengers/services/animal-relief-areas",
-    "pets_label": "O'Hare service-animal relief areas",
+    "pets_label": "SFO Animal Relief Areas",
     "checked": "2026-11-07 KST",
     "before": [
       [
