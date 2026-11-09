@@ -5,7 +5,8 @@
 const CFG = window.PPC_MAP; if(!CFG) return;
 const GEO = CFG.geo, AIRPORTS = CFG.airports || [], DATA = CFG.data, ACCENT = CFG.accent || 'maple';
 const ROOT = CFG.idRoot || 'country-map';
-const SHOW_PANEL = DATA.detailPanel !== false;
+/* Detail side-panel retired for all country-map pages (CA/MX): highlight-only, like map selection UX. */
+const SHOW_PANEL = false;
 const SITE = '..';
 const $ = s => document.querySelector(s);
 const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
