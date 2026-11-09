@@ -1,0 +1,32 @@
+{
+  "errors": [
+    "desktop console.error:Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:44095' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+    "desktop console.error:Failed to load resource: net::ERR_FAILED",
+    "desktop console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "desktop console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "desktop console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "desktop console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "desktop console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "desktop console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "mobile console.error:Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:44095' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+    "mobile console.error:Failed to load resource: net::ERR_FAILED",
+    "mobile console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "mobile console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "mobile console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "mobile console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "mobile console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "mobile console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "mobile console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "mobile console.error:Failed to load resource: the server responded with a status of 400 ()",
+    "mobile console.error:Failed to load resource: the server responded with a status of 400 ()"
+  ],
+  "missing_hubs": [],
+  "shots": {
+    "header-desktop-demo": "qa/search/header-desktop-demo.png",
+    "header-desktop-delta": "qa/search/header-desktop-delta.png",
+    "header-mobile-menu-demo": "qa/search/header-mobile-menu-demo.png",
+    "header-mobile-menu-delta": "qa/search/header-mobile-menu-delta.png"
+  },
+  "error_count": 19,
+  "missing_count": 0
+}
