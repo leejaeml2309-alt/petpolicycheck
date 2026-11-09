@@ -6,8 +6,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "index",
@@ -15,8 +15,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--aeromexico",
@@ -24,8 +24,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--aeromexico",
@@ -33,8 +33,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--alaska",
@@ -42,8 +42,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--alaska",
@@ -51,8 +51,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--american",
@@ -60,8 +60,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--american",
@@ -69,8 +69,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--compare--index",
@@ -78,8 +78,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--compare--index",
@@ -87,8 +87,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--delta",
@@ -96,8 +96,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--delta",
@@ -105,8 +105,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--snub-nosed-breeds",
@@ -114,8 +114,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--snub-nosed-breeds",
@@ -123,8 +123,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--united",
@@ -132,8 +132,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--united",
@@ -141,8 +141,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--viva-aerobus",
@@ -150,8 +150,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--viva-aerobus",
@@ -159,8 +159,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--volaris",
@@ -168,8 +168,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "airlines--volaris",
@@ -177,8 +177,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "countries--canada-map",
@@ -186,8 +186,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "countries--canada-map",
@@ -195,8 +195,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "countries--canada",
@@ -204,8 +204,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "countries--canada",
@@ -213,8 +213,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "countries--mexico-map",
@@ -222,8 +222,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "countries--mexico-map",
@@ -231,8 +231,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "countries--mexico",
@@ -240,8 +240,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "countries--mexico",
@@ -249,8 +249,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "countries--usa-map",
@@ -258,8 +258,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "countries--usa-map",
@@ -267,8 +267,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "countries--usa",
@@ -276,8 +276,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "countries--usa",
@@ -285,8 +285,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "fit--index",
@@ -294,8 +294,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "fit--index",
@@ -303,8 +303,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "grooming--index",
@@ -312,8 +312,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "grooming--index",
@@ -321,8 +321,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "passport--index",
@@ -330,8 +330,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "passport--index",
@@ -339,8 +339,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "pet-travel-checklist--index",
@@ -348,8 +348,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "pet-travel-checklist--index",
@@ -357,8 +357,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--mexico-to-usa-alaska",
@@ -366,8 +366,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--mexico-to-usa-alaska",
@@ -375,8 +375,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--mexico-to-usa-american",
@@ -384,8 +384,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--mexico-to-usa-american",
@@ -393,8 +393,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--mexico-to-usa-delta",
@@ -402,8 +402,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--mexico-to-usa-delta",
@@ -411,8 +411,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--mexico-to-usa-united",
@@ -420,8 +420,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--mexico-to-usa-united",
@@ -429,8 +429,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-canada",
@@ -438,8 +438,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-canada",
@@ -447,8 +447,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-france",
@@ -456,8 +456,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-france",
@@ -465,8 +465,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-mexico",
@@ -474,8 +474,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-mexico",
@@ -483,8 +483,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-to-japan",
@@ -492,8 +492,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-to-japan",
@@ -501,8 +501,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-to-mexico-alaska",
@@ -510,8 +510,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-to-mexico-alaska",
@@ -519,8 +519,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-to-mexico-american",
@@ -528,8 +528,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-to-mexico-american",
@@ -537,8 +537,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-to-mexico-delta",
@@ -546,8 +546,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-to-mexico-delta",
@@ -555,8 +555,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-to-mexico-united",
@@ -564,8 +564,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-to-mexico-united",
@@ -573,8 +573,8 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-uk",
@@ -582,8 +582,8 @@
       "viewport": 1280,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
     },
     {
       "id": "routes--usa-uk",
@@ -591,14 +591,38 @@
       "viewport": 390,
       "status": 200,
       "consoleErrors": [],
-      "failed": [],
-      "brokenInternal": []
+      "brokenInternal": [],
+      "leftovers": []
+    }
+  ],
+  "enSmoke": [
+    {
+      "url": "/",
+      "status": 200,
+      "consoleErrors": []
+    },
+    {
+      "url": "/airlines/compare/",
+      "status": 200,
+      "consoleErrors": []
+    },
+    {
+      "url": "/passport/",
+      "status": 200,
+      "consoleErrors": []
+    },
+    {
+      "url": "/countries/usa-map.html",
+      "status": 200,
+      "consoleErrors": []
     }
   ],
   "summary": {
     "pages": 33,
     "checks": 66,
     "consoleErrors": 0,
-    "brokenInternal": 0
+    "brokenInternal": 0,
+    "leftoverHits": 0,
+    "enSmokeErrors": 0
   }
 }
