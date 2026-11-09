@@ -1,0 +1,410 @@
+{
+  "meta": {
+    "title": "Snub-nosed (brachycephalic) breeds: airline rules",
+    "checked": "Checked Nov 9, 2026",
+    "scope": "Airlines already on the live PetPolicyCheck site (12)",
+    "rule_label": "Official rule",
+    "method": "Official airline pages only; local hotels-wt airline JSON + innov-12 #6 comparator used as leads, then re-checked Nov 9, 2026",
+    "row_count": 12,
+    "gaps_count": 2,
+    "suggested_live_path": "/airlines/snub-nosed-breeds.html",
+    "updated": "2026-11-09 ~15:55 KST — Manager browser reads applied (SW + KE KR guide); SW fee from Optional Travel Charges",
+    "complete_count": 10,
+    "incomplete": [
+      {
+        "slug": "air-france",
+        "why": "Ordinary-pet snub-nosed hold rule still not stated on the general pet page"
+      },
+      {
+        "slug": "british-airways",
+        "why": "No named snub-nosed breed list on BA or IAG Cargo Pets pages — acceptance case-by-case via pet travel agent"
+      }
+    ]
+  },
+  "airlines": [
+    {
+      "airline": "Air Canada",
+      "slug": "air-canada",
+      "iata": "AC",
+      "ppc_url": "https://petpolicycheck.com/airlines/air-canada.html",
+      "label": "Official rule",
+      "cabin": {
+        "status": "accepted",
+        "summary": "Cabin accepted for cats and small dogs in a soft-sided carrier under the seat. No snub-nosed breed ban stated for the cabin."
+      },
+      "hold_cargo": {
+        "status": "refused",
+        "summary": "Short/snub-nosed (brachycephalic) dog breeds cannot travel in the baggage compartment. Named breed list not published on the pets page. Seasonal heat/cold and route embargoes also apply."
+      },
+      "breed_list": {
+        "named": false,
+        "summary": "Air Canada names the category 'short/snub-nosed (brachycephalic) breeds' of dogs for the baggage compartment ban but does not list individual breed names on the official pets page.",
+        "url": "https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/pets.html"
+      },
+      "conditions": "Baggage: hard-sided kennel; summer heat limits (e.g. many U.S. cities May 1–Nov 30 when >29.5°C/85°F); winter cold limits; peak Dec 18–Jan 4 no pets as checked baggage/cargo. Soft-sided only in cabin (from June 1, 2025).",
+      "source_url": "https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/pets.html",
+      "http_status": "200",
+      "fetch_note": "Official pets page fetched successfully. | Official pets page names the brachy category for dogs only; no individual breed names; cats not mentioned for this restriction.",
+      "checked": "Checked Nov 9, 2026",
+      "gaps": [],
+      "complete": true
+    },
+    {
+      "airline": "Air France",
+      "slug": "air-france",
+      "iata": "AF",
+      "ppc_url": "https://petpolicycheck.com/airlines/air-france.html",
+      "label": "Official rule",
+      "cabin": {
+        "status": "accepted",
+        "summary": "Pets up to 8 kg (17.64 lb) including carrier may travel in the cabin. No snub-nosed breed ban stated on the official pet travel page."
+      },
+      "hold_cargo": {
+        "status": "not_stated",
+        "summary": "Not stated on the official page for ordinary pets on the pet travel page."
+      },
+      "breed_list": {
+        "named": false,
+        "summary": "Not stated on the official page on the general pet travel page.",
+        "url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat"
+      },
+      "conditions": "Ordinary pets: hold booking ≤24 h before departure. Service dogs: see scoped note (hold ban for snub-nosed assistance dogs only).",
+      "source_url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat",
+      "http_status": "200 WebFetch (pet + SVAN)",
+      "fetch_note": "Pet page: no general brachy ban. SVAN page: snub-nosed hold ban scoped to guide/assistance dogs.",
+      "checked": "Checked Nov 9, 2026",
+      "gaps": [
+        "Ordinary-pet snub-nosed hold rule still not stated on the general pet page"
+      ],
+      "scope_notes": [
+        {
+          "scope": "service dogs only",
+          "cabin": "accepted_if_conditions",
+          "hold": "refused",
+          "text": "On the official Air France guide/assistance-dog page: if a guide/assistance dog is too large to meet cabin seating rules, it may travel free in the hold in a suitable kennel — except snub-nosed or flat-nosed dogs (chiens à nez retroussé ou plat), which cannot travel in the hold for medical reasons. Scope is guide/assistance dogs, not ordinary pets.",
+          "source_url": "https://wwws.airfrance.fr/information/passagers/acheter-billet-avion-pmr-autres-handicaps/svan",
+          "checked": "Checked Nov 9, 2026"
+        }
+      ],
+      "secondary_sources": [
+        "https://wwws.airfrance.fr/information/passagers/acheter-billet-avion-pmr-autres-handicaps/svan"
+      ],
+      "complete": false
+    },
+    {
+      "airline": "Alaska Airlines",
+      "slug": "alaska",
+      "iata": "AS",
+      "ppc_url": "https://petpolicycheck.com/airlines/alaska.html",
+      "label": "Official rule",
+      "cabin": {
+        "status": "accepted",
+        "summary": "Short-nosed dogs and cats may travel in the cabin if the carrier fits under the seat (Alaska Air Cargo Pet Connect restrictions page)."
+      },
+      "hold_cargo": {
+        "status": "refused",
+        "summary": "Brachycephalic (short-nosed) dogs and cats and mixes are not accepted in the cargo compartment. Passenger pets page: baggage-compartment pets are subject to breed restrictions. Alaska Air Cargo notice: ban on AS/HA/QX cargo hold from Oct 1, 2026."
+      },
+      "breed_list": {
+        "named": true,
+        "summary": "Dogs: Boston Terrier; Boxer (all); Bulldog (all); Brussels Griffon; Chow Chow; English Toy Spaniel; Japanese Spaniel/Japanese Chin; Mastiff (all); Pekingese; Pug (all); Shih Tzu. Cats: Burmese; Exotic Shorthair; Himalayan; Persian. Mixes containing these types included.",
+        "url": "https://www.alaskacargo.com/petconnect/restrictions"
+      },
+      "conditions": "Cargo weather: often refused above 85°F (29.5°C) or below 45°F (7°C); cold exception with acclimation certificate (within 10 days). Baggage compartment also subject to travel-date embargoes and fleet restrictions. Cabin booking via chat/phone after passenger ticket.",
+      "source_url": "https://www.alaskaair.com/content/travel-info/policies/pets-traveling-with-pets",
+      "secondary_sources": [
+        "https://www.alaskacargo.com/petconnect/restrictions",
+        "https://www.alaskacargo.com/notices/2026/brachycephalic-%28short-nosed%29-breed-restrictions"
+      ],
+      "http_status": "200 (passenger + cargo pages)",
+      "fetch_note": "Named list from Alaska Air Cargo Pet Connect restrictions (official). Passenger baggage SPA page body did not render breed names today. | Passenger 'pets in baggage compartment' SPA page did not return the named list in fetch; cargo list used for named breeds",
+      "checked": "Checked Nov 9, 2026",
+      "gaps": [],
+      "complete": true
+    },
+    {
+      "airline": "American Airlines",
+      "slug": "american",
+      "iata": "AA",
+      "ppc_url": "https://petpolicycheck.com/airlines/american.html",
+      "label": "Official rule",
+      "cabin": {
+        "status": "accepted",
+        "summary": "Carry-on pets limited to cats and dogs that meet size/age/destination rules. No brachycephalic breed ban stated for carry-on pets."
+      },
+      "hold_cargo": {
+        "status": "refused",
+        "summary": "Checked pets (military/State Dept only) and American Airlines Cargo (PetEmbark): brachycephalic / snub-nosed dogs and cats and mixes not accepted. PetEmbark also requires a vet-signed breed verification form."
+      },
+      "breed_list": {
+        "named": true,
+        "summary": "Passenger checked pets + AA Cargo PetEmbark (aligned): Dogs — Affenpinscher; American Bully; American Staffordshire Terrier; Boston Terrier; Boxer (all); Brussels Griffon; Bulldog (all); Cane Corso; Chow Chow; Dogue De Bordeaux; English Toy Spaniel; Japanese Chin; Lhasa Apso; Mastiff (all); Pekingese; Pit Bull; Presa Canario; Pug (all); Shar Pei; Shih Tzu; Staffordshire Terrier; Tibetan Spaniel. Cats — Burmese; Exotic Shorthair; Himalayan; Persian. Mixes included.",
+        "url": "https://www.aacargo.com/learn/animals-policy-and-restrictions.html"
+      },
+      "conditions": "Checked/passenger: heat >85°F / cold <45°F (acclimation letter 20–45°F); PHX/TUS/LAS/PSP May 1–Sep 30 non-cabin embargo. PetEmbark: ground temps 45–85°F; breed verification form required for all dogs/cats; no sedation.",
+      "source_url": "https://www.aa.com/web/i18n/travel-info/special-assistance/pets.html",
+      "http_status": "200 WebFetch pets + AA Cargo policies (curl 403 on both)",
+      "fetch_note": "Checked-pet list on aa.com; PetEmbark list on aacargo.com Policies & Restrictions — both refuse brachy breeds.",
+      "checked": "Checked Nov 9, 2026",
+      "gaps": [],
+      "secondary_sources": [
+        "https://www.aa.com/web/i18n/travel-info/special-assistance/pets.html",
+        "https://www.aacargo.com/learn/animals-policy-and-restrictions.html"
+      ],
+      "complete": true
+    },
+    {
+      "airline": "British Airways",
+      "slug": "british-airways",
+      "iata": "BA",
+      "ppc_url": "https://petpolicycheck.com/airlines/british-airways.html",
+      "label": "Official rule",
+      "cabin": {
+        "status": "refused",
+        "summary": "BA does not carry pets in the cabin on any route (assistance dogs under separate rules)."
+      },
+      "hold_cargo": {
+        "status": "restricted",
+        "summary": "Pets travel in the hold via partners. IAG Cargo (BA cargo arm): some snub-nosed breeds of cats and dogs may not be accepted — confirm with the pet travel agent. PetAir UK (BA partner from the UK) publishes guidance on flat-faced/BOAS travel but no named absolute ban list on the pages read today."
+      },
+      "breed_list": {
+        "named": false,
+        "summary": "No named breed list on BA pets page or IAG Cargo Pets FAQ. IAG Cargo: snub-nosed breeds 'may not be accepted' (agent confirms). Container rule: snub-nosed dogs and cats need a kennel at least 10% larger than the minimum.",
+        "url": "https://www.iagcargo.com/en/products/pets/"
+      },
+      "conditions": "From UK: PetAir UK. To UK: IAG Cargo. IAG Cargo: snub-nosed pets require 10% larger container than minimum. Always confirm breed acceptance with the assigned pet travel agent before booking.",
+      "source_url": "https://www.britishairways.com/content/information/travel-assistance/travelling-with-pets",
+      "http_status": "200 BA + IAG Cargo Pets + PetAir UK blog",
+      "fetch_note": "IAG Cargo Pets FAQ filled partner gap (may not accept snub-nosed; 10% larger crate). PetAir UK page is guidance/blog, not a named ban list.",
+      "checked": "Checked Nov 9, 2026",
+      "gaps": [
+        "No named snub-nosed breed list on BA or IAG Cargo Pets pages — acceptance case-by-case via pet travel agent"
+      ],
+      "secondary_sources": [
+        "https://www.iagcargo.com/en/products/pets/",
+        "https://www.petairuk.com/blog/can-flat-faced-dogs-fly-safely/"
+      ],
+      "complete": false
+    },
+    {
+      "airline": "Delta Air Lines",
+      "slug": "delta",
+      "iata": "DL",
+      "ppc_url": "https://petpolicycheck.com/airlines/delta.html",
+      "label": "Official rule",
+      "cabin": {
+        "status": "accepted",
+        "summary": "In-cabin pets: no brachycephalic breed ban on the Pet Travel Overview page."
+      },
+      "hold_cargo": {
+        "status": "refused",
+        "summary": "Until further notice, Delta Cargo ships pets only for active U.S. Military / State Dept FSO with PCS orders. Brachycephalic (snub-nosed) dogs, cats and mixes are not permitted as cargo on any Delta or Delta Connection flight (Delta Cargo Restricted Animals + Shipping Your Pet)."
+      },
+      "breed_list": {
+        "named": true,
+        "summary": "Dogs (examples; Delta says list is not exhaustive): Affenpinscher; American Bully (all); American Pit Bull Terrier; American Staffordshire Terrier; Boston Terrier; Boxer (all); Bull Terrier (all); Brussels Griffin (Petite Brabançon); Bulldog (all); Chow Chow; English Toy Spaniel; Japanese Chin; King Charles Spaniel (Cavalier King); Lhasa Apso; Mastiff (all; Great Dane/German Mastiff excluded); Pekingese; Pit Bull; Pug (all); Shar Pei; Shih Tzu; Staffordshire Bull Terrier; Tibetan Spaniel. Cats: British Shorthair; Burmese; Exotic Shorthair; Himalayan; Persian; Scottish Fold. Hybrids of these breeds refused at all times.",
+        "url": "https://www.deltacargo.com/Cargo/catalog/restricted-animals"
+      },
+      "conditions": "Cargo weather: not shipped if ground temp >80°F (27°C) or <20°F (−7°C); acclimation certificate 20–45°F. Cabin destination exceptions on Overview. Soft kennel recommended max 18×11×11 in.",
+      "source_url": "https://www.delta.com/us/en/pet-travel/overview",
+      "secondary_sources": [
+        "https://www.delta.com/us/en/pet-travel/shipping-your-pet",
+        "https://www.deltacargo.com/Cargo/catalog/restricted-animals"
+      ],
+      "http_status": "200 Overview + Shipping (WebFetch); Restricted Animals 200 (WebFetch; curl 403)",
+      "fetch_note": "Cabin: no breed ban on Overview. Hold/cargo: refused with named example list from Delta Cargo Restricted Animals.",
+      "checked": "Checked Nov 9, 2026",
+      "gaps": [],
+      "complete": true
+    },
+    {
+      "airline": "Hawaiian Airlines",
+      "slug": "hawaiian",
+      "iata": "HA",
+      "ppc_url": "https://petpolicycheck.com/airlines/hawaiian.html",
+      "label": "Official rule",
+      "cabin": {
+        "status": "accepted",
+        "summary": "Same Alaska/Hawaiian program: short-nosed dogs and cats may travel in the cabin if the carrier fits under the seat (Alaska Air Cargo Pet Connect restrictions)."
+      },
+      "hold_cargo": {
+        "status": "refused",
+        "summary": "Alaska Air Cargo notice (Oct 1, 2026): brachycephalic dog and cat breeds no longer accepted in the cargo hold of Alaska Airlines, Hawaiian Airlines and Horizon Air aircraft. Hawaiian/Alaska passenger pets page: baggage-compartment pets subject to breed restrictions."
+      },
+      "breed_list": {
+        "named": true,
+        "summary": "Same named list as Alaska Air Cargo Pet Connect restrictions (dogs and cats listed above under Alaska). Applies to Hawaiian Airlines aircraft for cargo hold.",
+        "url": "https://www.alaskacargo.com/petconnect/restrictions"
+      },
+      "conditions": "Shared Alaska/Hawaiian pet program. Baggage: breed restrictions, travel-date embargoes, fleet restrictions. Cargo weather limits as on Alaska Air Cargo restrictions page. Cabin via chat/phone after booking.",
+      "source_url": "https://www.hawaiianairlines.com/content/travel-info/pets",
+      "secondary_sources": [
+        "https://www.alaskacargo.com/petconnect/restrictions",
+        "https://www.alaskacargo.com/notices/2026/brachycephalic-%28short-nosed%29-breed-restrictions",
+        "https://www.alaskaair.com/content/travel-info/policies/pets-traveling-with-pets"
+      ],
+      "http_status": "200",
+      "fetch_note": "Hawaiian pets hub fetched; baggage SPA body thin. Named list and cabin OK from official Alaska Air Cargo pages that explicitly name Hawaiian Airlines. | Hawaiian baggage-compartment SPA did not render a named breed list today; cargo list used",
+      "checked": "Checked Nov 9, 2026",
+      "gaps": [],
+      "complete": true
+    },
+    {
+      "airline": "JetBlue",
+      "slug": "jetblue",
+      "iata": "B6",
+      "ppc_url": "https://petpolicycheck.com/airlines/jetblue.html",
+      "label": "Official rule",
+      "cabin": {
+        "status": "accepted",
+        "summary": "Only small dogs and cats in an under-seat carrier. No snub-nosed / brachycephalic breed restriction stated."
+      },
+      "hold_cargo": {
+        "status": "refused",
+        "summary": "No large dogs accommodated; pets travel in the cabin only. JetBlue does not accept pets as cargo (and does not accept pet remains in cabin or cargo)."
+      },
+      "breed_list": {
+        "named": false,
+        "summary": "Not stated on the official page",
+        "url": "https://www.jetblue.com/help/traveling-with-pets"
+      },
+      "conditions": "Max carrier 17×12.5×8.5 in. Max two pets per traveler (second seat + fee). Pet must remain in zipped carrier.",
+      "source_url": "https://www.jetblue.com/help/traveling-with-pets",
+      "http_status": "200",
+      "fetch_note": "Official help page fetched; no breed list.",
+      "checked": "Checked Nov 9, 2026",
+      "gaps": [],
+      "complete": true
+    },
+    {
+      "airline": "Korean Air",
+      "slug": "korean-air",
+      "iata": "KE",
+      "ppc_url": "https://petpolicycheck.com/airlines/korean-air.html",
+      "label": "Official rule",
+      "cabin": {
+        "status": "accepted",
+        "summary": "Cabin allowed for snub-nosed (단두종) animals, including mixes with non-snub-nosed breeds, only when cabin conditions are met (기내 반입 조건 충족하는 경우에만 기내 운송 가능)."
+      },
+      "hold_cargo": {
+        "status": "refused",
+        "summary": "Hold/checked baggage refused: animals at risk of breathing difficulty or death during air travel that are snub-nosed breeds, including mixes with non-snub-nosed breeds, cannot travel as checked baggage in the cargo hold (화물칸으로 위탁 운송 불가)."
+      },
+      "breed_list": {
+        "named": true,
+        "summary": "Dogs: Newfoundland; Dogo Argentino; Dogue de Bordeaux; Lhasa Apso; Boston Terrier; Boxer; Bulldog; Brussels Griffon; Shar-Pei; English Toy Spaniel; Shih Tzu; American Bully; Affenpinscher; Chihuahua; Japanese Chin; Chow Chow; Cane Corso; King Charles Spaniel; Cavalier King Charles Spaniel; Pug; Pekingese; Tibetan Spaniel. Cats: Burmese; British Shorthair; Scottish Fold; Exotic; Persian; Himalayan. Mixes of snub-nosed with non-snub-nosed breeds included.",
+        "url": "https://www.koreanair.com/contents/plan-your-travel/special-assistance/travel-with-pets/guide"
+      },
+      "conditions": "Source is the Korean passenger guide page, section '운송제한 반려동물'. Exact rule: snub-nosed animals (incl. mixes) cannot go as checked baggage in the hold; cabin only if cabin conditions are met. Old English URL https://www.koreanair.com/contents/plan-your-travel/special-help/traveling-with-pets returns page-not-found / blocked. Cargo pages still refuse brachy as cargo (effective 1 Oct 2020).",
+      "source_url": "https://www.koreanair.com/contents/plan-your-travel/special-assistance/travel-with-pets/guide",
+      "http_status": "Korean passenger guide: read in browser by team, Nov 9, 2026; old EN URL 404/blocked; cargo 200",
+      "fetch_note": "Passenger KR guide read in browser by team, Nov 9, 2026. Old English traveling-with-pets URL page-not-found/blocked. Named list from KR section 운송제한 반려동물; Cavalier King Charles Spaniel listed separately from King Charles Spaniel.",
+      "checked": "Checked Nov 9, 2026",
+      "gaps": [],
+      "secondary_sources": [
+        "https://cargo.koreanair.com/en/cargo-news/restrictions-transporting-brachycephalicsnub-nosed-breeds",
+        "https://cargo.koreanair.com/en/products/Specialized/Live"
+      ],
+      "complete": true,
+      "official_quote_ko": "항공여행 중 호흡 곤란, 폐사 위험 있는 단두종 동물 (단두종과 비단두종과의 교배종 포함)은 화물칸으로 위탁 운송 불가(기내 반입 조건 충족하는 경우에만 기내 운송 가능)",
+      "team_read": "read in browser by team, Nov 9, 2026",
+      "source_language": "ko"
+    },
+    {
+      "airline": "Lufthansa",
+      "slug": "lufthansa",
+      "iata": "LH",
+      "ppc_url": "https://petpolicycheck.com/airlines/lufthansa.html",
+      "label": "Official rule",
+      "cabin": {
+        "status": "accepted",
+        "summary": "Snub-nosed breeds may travel in the passenger cabin if they meet cabin rules (max 8 kg including container). Barred from the cargo hold since 1 January 2020."
+      },
+      "hold_cargo": {
+        "status": "refused",
+        "summary": "Snub-nosed dog and cat breeds barred from the cargo hold since 1 January 2020. May be shipped as air freight via Lufthansa Cargo (separate process)."
+      },
+      "breed_list": {
+        "named": true,
+        "summary": "Dogs include: Affenpinscher; American Bully; Bulldogs (all except American bulldogs); Pugs (all); American pit bull terrier; American Staffordshire terrier; Boston terrier; Boxer; Brussels Griffon; Bull mastiff; Bull terrier (Miniature Bull Terrier excluded); Chow chow; English toy spaniel; Japanese chin; Japanese spaniel; King Charles Spaniel; Lhasa apso; Pekinese; Pit bulls; Shar Pei; Shih Tzu; Staffordshire bull terrier; Tibetan Spaniel (+ cross-breeds). Cats: British short-haired; Exotic shorthair; Himalayan; Persian; Scottish fold (+ cross-breeds).",
+        "url": "https://www.lufthansa.com/us/en/dangerous-dogs"
+      },
+      "conditions": "Cabin: max 8 kg pet+container; container under the seat; signed cabin-animal form at check-in. Fighting/dangerous breeds have separate reinforced-crate rules for the hold (see same Lufthansa page). Snub-nosed barred from cargo hold since 1 January 2020; air freight via Lufthansa Cargo may still be possible.",
+      "source_url": "https://www.lufthansa.com/us/en/dangerous-dogs",
+      "secondary_sources": [
+        "https://www.lufthansa.com/us/en/travelling-with-animals"
+      ],
+      "http_status": "200 (WebFetch dangerous-dogs); curl 403 on main animals page",
+      "fetch_note": "Snub-nosed page read via WebFetch. Main travelling-with-animals page blocked by curl (403).",
+      "checked": "Checked Nov 9, 2026",
+      "gaps": [],
+      "complete": true
+    },
+    {
+      "airline": "Southwest Airlines",
+      "slug": "southwest",
+      "iata": "WN",
+      "ppc_url": "https://petpolicycheck.com/airlines/southwest.html",
+      "label": "Official rule",
+      "cabin": {
+        "status": "accepted",
+        "summary": "Cabin only: small vaccinated domestic cats and dogs on domestic flights; at least 8 weeks old. No breed restriction stated."
+      },
+      "hold_cargo": {
+        "status": "refused",
+        "summary": "No pets are transported in the cargo compartment."
+      },
+      "breed_list": {
+        "named": false,
+        "summary": "No breed restriction stated.",
+        "url": "https://support.southwest.com/helpcenter/s/article/pet-policy"
+      },
+      "conditions": "1 pet carrier per passenger; up to 2 pets of the same species per carrier. Book by phone only. Unaccompanied minors cannot travel with a pet. Pet Fare paid at the ticket counter (refundable if reservation cancelled). U.S. Mainland $125 per pet carrier one-way; between Hawaiian Islands $35 per pet carrier (Optional Travel Charges page). Page shows no update date.",
+      "source_url": "https://support.southwest.com/helpcenter/s/article/pet-policy",
+      "http_status": "Pet policy: browser read by team; Optional Travel Charges: 200",
+      "fetch_note": "Pet policy read in browser by team, Nov 9, 2026 (bot shell empty). Fee from official Optional Travel Charges page (curl 200).",
+      "checked": "Checked Nov 9, 2026",
+      "gaps": [],
+      "pending_read": false,
+      "pending_read_url": "https://support.southwest.com/helpcenter/s/article/pet-policy",
+      "pending_read_note": "",
+      "complete": true,
+      "fee": {
+        "amount": "U.S. Mainland $125 / Between Hawaiian Islands $35 per pet carrier, one-way",
+        "source_url": "https://www.southwest.com/html/customer-service/travel-fees.html",
+        "note": "Pet policy page points to Optional Travel Charges; amounts read from that official fees page Nov 9, 2026 (HTTP 200)."
+      },
+      "secondary_sources": [
+        "https://www.southwest.com/html/customer-service/travel-fees.html"
+      ],
+      "team_read": "read in browser by team, Nov 9, 2026"
+    },
+    {
+      "airline": "United Airlines",
+      "slug": "united",
+      "iata": "UA",
+      "ppc_url": "https://petpolicycheck.com/airlines/united.html",
+      "label": "Official rule",
+      "cabin": {
+        "status": "accepted",
+        "summary": "United states there are no weight or breed limitations for in-cabin pets; pet must fit a hard- or soft-sided carrier under the seat."
+      },
+      "hold_cargo": {
+        "status": "refused",
+        "summary": "PetSafe checked-pet program ended. Pets fly in cargo only with certain active-duty military or State Department employees. No public hold option; therefore no public brachy hold policy to apply."
+      },
+      "breed_list": {
+        "named": false,
+        "summary": "United explicitly states no breed limitations for in-cabin pets.",
+        "url": "https://www.united.com/en/us/fly/travel/animals.html"
+      },
+      "conditions": "In-cabin only for the public ($150 each way). Destination bans apply (e.g. Hawaii, UK, Australia — see United animals page list). Carrier size limits published on the same page.",
+      "source_url": "https://www.united.com/en/us/fly/travel/animals.html",
+      "http_status": "200 (WebFetch); curl from box failed",
+      "fetch_note": "Official animals page read via WebFetch.",
+      "checked": "Checked Nov 9, 2026",
+      "gaps": [],
+      "complete": true
+    }
+  ]
+}

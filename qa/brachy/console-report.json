@@ -1,0 +1,28 @@
+{
+  "url": "http://127.0.0.1:8792/airlines/snub-nosed-breeds.html",
+  "note": "port 8791 occupied by box Chrome proxy; served on 8792; content 10/12 complete",
+  "runs": [
+    {
+      "name": "brachy-desktop",
+      "status": 200,
+      "rows": 12,
+      "pv_bar": "LOCAL PREVIEW \u00b7 not published \u00b7 awaiting Marc\u2019s OK \u00b7 /airlines/snub-nosed-breeds.html \u00b7 10/12 complete",
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    {
+      "name": "brachy-mobile",
+      "status": 200,
+      "rows": 12,
+      "pv_bar": "LOCAL PREVIEW \u00b7 not published \u00b7 awaiting Marc\u2019s OK \u00b7 /airlines/snub-nosed-breeds.html \u00b7 10/12 complete",
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    }
+  ],
+  "incomplete": [
+    "air-france",
+    "british-airways"
+  ]
+}
