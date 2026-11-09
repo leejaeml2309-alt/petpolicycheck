@@ -439,3 +439,10 @@ html.accent-mxgreen #country-map .zoom button:hover:not(:disabled){border-color:
 .state-picker-menu li .sp-code{flex:none;font:600 .72rem Inter,system-ui,sans-serif;letter-spacing:.06em;color:rgba(217,183,101,.85)}
 #usa-map .maptools .state-picker,#country-map .maptools .state-picker{margin:0}
 #usa-map .panel,#country-map .panel{border:1px solid rgba(217,183,101,.28);box-shadow:0 10px 28px rgba(0,0,0,.28)}
+
+
+/* Canada-only: hide detail panel, let map use full width (opt-in via DATA.detailPanel=false) */
+#country-map.no-detail-panel .app{grid-template-columns:1fr}
+#country-map.no-detail-panel .panel{display:none !important}
+#country-map.no-detail-panel .steps{display:none !important}
+#country-map.no-detail-panel .portal p{display:none}
