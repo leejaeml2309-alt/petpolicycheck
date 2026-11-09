@@ -269,6 +269,63 @@ m.addEventListener('focusout',function(e){var r=e.relatedTarget;if(m.classList.c
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script>"""
 
 
+
+# Compact header hubs (Marc 2026-11-09) + site search. Full NAV stays available for legacy menus.
+SEARCH_CSS_VER = "20261110search1"
+SEARCH_HUBS = [
+    ("routes/", "Routes", ("routes/",)),
+    ("airlines/", "Airlines", ("airlines/",)),
+    ("countries/usa-map.html", "Countries/Maps", ("countries/",)),
+    ("hotels/", "Hotels", ("hotels/",)),
+    ("passport/", "Tools", ("passport/", "fit/", "titer-calculator/", "widgets/", "pet-travel-checklist/")),
+]
+
+
+def search_hub_links(root, path, mobile=False):
+    """Primary hub links for the compact header / drawer."""
+    out = []
+    for href, label, pre in SEARCH_HUBS:
+        cur = ' aria-current="page"' if any(path.startswith(x) for x in pre) else ""
+        out.append(f'<a href="{root}{href}"{cur}>{label}</a>')
+    aria = "Primary mobile" if mobile else "Primary"
+    return f'<nav class="ppc-nav" aria-label="{aria}">' + "".join(out) + "</nav>"
+
+
+def search_assets_head(root):
+    return f'<link rel="stylesheet" href="{root}assets/site-search.css?v={SEARCH_CSS_VER}">'
+
+
+def search_assets_foot(root):
+    return (
+        f'<script src="{root}assets/site-search.js?v={SEARCH_CSS_VER}" defer></script>'
+        f'<script src="{root}assets/ppc-header.js?v={SEARCH_CSS_VER}" defer></script>'
+    )
+
+
+def compact_header(root, path):
+    """Logo + hub links + search + burger/drawer (EN pages). Language selector stays home-only."""
+    hubs = search_hub_links(root, path, mobile=False)
+    hubs_m = search_hub_links(root, path, mobile=True)
+    ph = "Search airlines, routes, hotels…"
+    return (
+        f'<header class="ppc-topbar top" data-ppc-topbar>'
+        f'<div class="wrap">'
+        f'<a class="brand" href="{home_url(root)}" aria-label="PetPolicyCheck — Home">{LOGO_BADGE.replace("{root}", root)}</a>'
+        f'{hubs}'
+        f'<div data-ppc-search data-index-base="{root}assets/" data-placeholder="{ph}"></div>'
+        f'<button class="ppc-burger" type="button" data-ppc-burger aria-expanded="false" aria-controls="ppc-drawer">'
+        f'<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>'
+        f'<span>Menu</span></button>'
+        f'</div></header>'
+        f'<div class="ppc-drawer-backdrop" data-ppc-drawer-backdrop></div>'
+        f'<aside class="ppc-drawer" id="ppc-drawer" data-ppc-drawer aria-label="Site menu">'
+        f'<div class="ppc-drawer__head"><h2>Menu</h2>'
+        f'<button type="button" class="ppc-drawer__close" data-ppc-drawer-close aria-label="Close menu">×</button></div>'
+        f'<div data-ppc-search data-index-base="{root}assets/" data-placeholder="Search…"></div>'
+        f'{hubs_m}'
+        f'</aside>'
+    )
+
 def header_ad(cfg, ads=True):
     """Three 300×250 units under the header (one column under 700px). config.json "adsense_header_slot"
     is repeated on each <ins>, same pattern as mid-home. ads=False pages get no band.
@@ -518,19 +575,17 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <script src="{root}assets/i18n/ui.js?v=20261107e" defer></script>
 <script src="{root}assets/js/ppc-i18n.js?v=20261107e" defer></script>
 <script src="{root}assets/js/pastilles.js?v={PST_VER}" defer></script>
-{extra_css_links}<meta name="theme-color" content="{theme_color}">
+{extra_css_links}{search_assets_head(root)}<meta name="theme-color" content="{theme_color}">
 {ld}
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main"{ti("site.skip", fi)}>Skip to content</a>
-<header class="top"><div class="wrap">
-<a class="brand" href="{home_url(root)}" aria-label="PetPolicyCheck — Home">{LOGO_BADGE.replace('{root}', root)}</a>
-<nav class="nav menu" id="site-menu" aria-label="Main">{nav_links(root, path, fi)}</nav>{MENU_BTN}
-</div></header>{partner_banner(root)}{header_ad(cfg, ads)}{MENU_JS}<script src="{root}assets/js/partner-banner.js" defer data-partner-root="{root}assets/partners/"></script>
+{compact_header(root, path)}{partner_banner(root)}{header_ad(cfg, ads)}<script src="{root}assets/js/partner-banner.js" defer data-partner-root="{root}assets/partners/"></script>
 <main class="wrap" id="main">
 {body.replace('{root}', root)}
 </main>
 {site_footer(cfg, root, fi, path, ads, sponsor)}
+{search_assets_foot(root)}
 </body></html>
 """
 

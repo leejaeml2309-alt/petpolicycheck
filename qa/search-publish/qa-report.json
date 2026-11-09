@@ -1,0 +1,28 @@
+{
+  "page_errors": [],
+  "internal_404": [],
+  "search": {
+    "delta": {
+      "hits": 8,
+      "snippet": "\u00d7 |  | 8 suggestions |  | AIRLINES |  | Delta Air Lines pet policy | AIRLINES |  | ROUTES |  | Flying a pet Canada to USA on Delta Air Lines | ROUTES | Flying a pet France to USA o"
+    },
+    "pug": {
+      "hits": 8,
+      "snippet": "\u00d7 |  | 8 suggestions |  | GUIDES |  | Snub-nosed (brachycephalic) breeds: airline rules | GUIDES |  | AIRLINES |  | Air Canada pet policy | AIRLINES | Air France pet policy | AIRLI"
+    },
+    "boston": {
+      "hits": 8,
+      "snippet": "\u00d7 |  | 8 suggestions |  | HOTELS |  | Pet-friendly hotels in Boston: chain and luxury hotel pet fees, weight limits and local tips | HOTELS | Pet-friendly hotels in the US: chain p"
+    },
+    "delt": {
+      "hits": 8,
+      "snippet": "\u00d7 |  | 8 suggestions |  | AIRLINES |  | Delta Air Lines pet policy | AIRLINES |  | ROUTES |  | Flying a pet Canada to USA on Delta Air Lines | ROUTES | Flying a pet France to USA o"
+    }
+  },
+  "burger": {
+    "focus_in_drawer": true,
+    "esc_closes": true
+  },
+  "missing_topbar": [],
+  "es_ok": true
+}
