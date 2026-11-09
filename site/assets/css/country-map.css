@@ -334,6 +334,11 @@ html.accent-maple #country-map .lbl{
   paint-order:stroke;stroke:rgba(6,14,16,.88);stroke-width:3.6px;stroke-linejoin:round
 }
 html.accent-maple #country-map .lbl.sel{fill:#fff7df;stroke:rgba(6,14,16,.92);stroke-width:3.8px}
+/* Atlantic cluster: slightly larger codes for PE/NB/NS/NL readability */
+html.accent-maple #country-map #l-PE,
+html.accent-maple #country-map #l-NB,
+html.accent-maple #country-map #l-NS,
+html.accent-maple #country-map #l-NL{font-size:calc(12.5px*var(--kt,1));stroke-width:4px}
 
 #country-map .st.rule, html.accent-maple #country-map .st.rule{stroke:#b5473a !important; stroke-width:1.35 !important}
 #country-map .st.sel, html.accent-maple #country-map .st.sel, html.accent-mxgreen #country-map .st.sel{fill:#6d5a2c !important;stroke:var(--gold-l,#f0d58c) !important;stroke-width:2 !important;filter:none !important}
