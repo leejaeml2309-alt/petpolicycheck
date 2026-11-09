@@ -7,8 +7,6 @@
   var grid = document.getElementById('woh-grid');
   var consent = document.getElementById('woh-consent');
   var mailBtn = document.getElementById('woh-mailto');
-  var demo = new URLSearchParams(location.search).get('demo') === '1';
-
   var MAILTO = {
     to: 'contact@petpolicycheck.com',
     subject: 'Wall of Heroes — K9 photo submission',
@@ -37,8 +35,7 @@
     { title: 'Your K9 could be here', sub: 'Share a photo' },
     { title: 'Be the first hero', sub: 'Service dogs welcome' },
     { title: 'Your K9 could be here', sub: 'Reviewed before publish' },
-    { title: 'Honor a partner', sub: 'Name the dog only' },
-    { title: 'Your K9 could be here', sub: 'Free · no donations' }
+    { title: 'Honor a partner', sub: 'Name the dog only' }
   ];
 
   var PAW_SVG =
@@ -73,8 +70,7 @@
     );
   }
 
-  function heroCard(h, isDemo) {
-    var tag = isDemo ? ' <span class="woh-demo-tag">Demo</span>' : '';
+  function heroCard(h) {
     var meta = [h.role, h.years].filter(Boolean).join(' · ');
     return (
       '<article class="woh-card">' +
@@ -88,7 +84,6 @@
       '<div class="woh-card__body">' +
       '<p class="woh-card__name">' +
       esc(h.name || 'K9') +
-      tag +
       '</p>' +
       (meta ? '<p class="woh-card__meta">' + esc(meta) + '</p>' : '') +
       '</div></article>'
@@ -99,20 +94,18 @@
     grid.innerHTML = EMPTY_SLOTS.map(emptyCard).join('');
   }
 
-  function renderHeroes(heroes, isDemo) {
+  function renderHeroes(heroes) {
     if (!heroes || !heroes.length) {
       renderEmpty();
       return;
     }
     grid.innerHTML = heroes.map(function (h) {
-      return heroCard(h, isDemo);
+      return heroCard(h);
     }).join('');
   }
 
   function dataUrl() {
-    return demo
-      ? '../data/veterans-wall.demo.json'
-      : '../data/veterans-wall.json';
+    return '../data/veterans-wall.json';
   }
 
   function syncMailto() {
@@ -134,8 +127,6 @@
     }
   }
 
-  if (demo) ROOT.classList.add('is-demo');
-
   if (consent) {
     consent.addEventListener('change', syncMailto);
   }
@@ -156,7 +147,7 @@
     })
     .then(function (data) {
       var heroes = (data && data.heroes) || [];
-      renderHeroes(heroes, !!(demo || (data && data.demo)));
+      renderHeroes(heroes);
     })
     .catch(function () {
       renderEmpty();

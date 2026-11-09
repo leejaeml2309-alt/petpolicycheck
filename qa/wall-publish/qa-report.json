@@ -1,0 +1,22 @@
+{
+  "console_errors": [],
+  "page_errors": [],
+  "internal_404": [],
+  "failed": [],
+  "checks": {
+    "desktop": {
+      "cards": 5,
+      "empty": 5,
+      "mailto_ok": true,
+      "console": [],
+      "page_errors": []
+    },
+    "mobile": {
+      "cards": 5,
+      "empty": 5,
+      "mailto_ok": true,
+      "console": [],
+      "page_errors": []
+    }
+  }
+}

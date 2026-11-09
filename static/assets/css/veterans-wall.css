@@ -48,19 +48,6 @@
   display:block;width:56px;height:56px;margin:0 auto 8px;
   opacity:.55;
 }
-#wall-of-heroes .woh-demo-banner{
-  display:none;
-  margin:0 0 12px;padding:8px 12px;border-radius:10px;
-  border:1px solid rgba(226,194,117,.45);
-  background:rgba(212,175,55,.12);
-  color:#e2c275;font-size:.86rem;font-weight:600;
-}
-#wall-of-heroes.is-demo .woh-demo-banner{display:block}
-#wall-of-heroes .woh-demo-tag{
-  display:inline-block;margin-left:6px;padding:1px 7px;border-radius:999px;
-  background:rgba(212,175,55,.2);color:#e2c275;font-size:.72rem;font-weight:700;
-  letter-spacing:.04em;text-transform:uppercase;vertical-align:middle;
-}
 #wall-of-heroes .woh-submit{
   margin-top:8px;padding-top:14px;
   border-top:1px solid rgba(212,175,55,.22);
