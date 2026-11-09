@@ -315,7 +315,7 @@ html.accent-maple #country-map{
 }
 html.accent-maple #country-map .st.hub{fill:#2a2420}
 html.accent-maple #country-map .st.rule{fill:#1d3a35} /* keep deep teal for alerts, Option B */
-html.accent-maple #country-map .st.sel{fill:#6b3a32;stroke:#d4a090;stroke-width:1.7}
+html.accent-maple #country-map .st.sel{fill:#6d5a2c;stroke:var(--gold-l,#f0d58c);stroke-width:2}
 /* Canada neighbor-distinct tones (Marc 2026-11-09): 5 fills, distinct neighbours; sel outline unchanged */
 #country-map .st.st-t1, html.accent-maple #country-map .st.st-t1{fill:#244f48 !important}
 #country-map .st.st-t2, html.accent-maple #country-map .st.st-t2{fill:#1b3d45 !important}
@@ -324,11 +324,11 @@ html.accent-maple #country-map .st.sel{fill:#6b3a32;stroke:#d4a090;stroke-width:
 #country-map .st.st-t5, html.accent-maple #country-map .st.st-t5{fill:#3a4f3e !important}
 html.accent-maple #country-map .st.hub{filter:saturate(1.06) brightness(1.05)}
 #country-map .st.rule, html.accent-maple #country-map .st.rule{stroke:#b5473a !important; stroke-width:1.35 !important}
-#country-map .st.sel, html.accent-maple #country-map .st.sel{fill:#6b3a32 !important; stroke:#d4a090 !important; stroke-width:1.7 !important; filter:none !important}
+#country-map .st.sel, html.accent-maple #country-map .st.sel, html.accent-mxgreen #country-map .st.sel{fill:#6d5a2c !important;stroke:var(--gold-l,#f0d58c) !important;stroke-width:2 !important;filter:none !important}
 html.accent-maple #country-map .ct.sample circle{fill:#edeae2;stroke:#b5473a;stroke-width:1.8}
 html.accent-maple #country-map .ct.sample .ring{stroke:#b5473a;opacity:.75}
 html.accent-maple #country-map .ct.cap circle{fill:#edeae2;stroke:#b5473a;stroke-width:1.4}
-html.accent-maple #country-map .ap.sel .pad{fill:#6b3a32;stroke:#f0e2d0}
+html.accent-maple #country-map .ap.sel .pad{fill:#6d5a2c;stroke:#f0d58c;stroke-width:2}
 html.accent-maple #country-map .ap .glyph{fill:#e8c9b4}
 html.accent-maple #country-map .ph .mark{border-color:#b5473a;color:#f0e2d0;background:#1a1412}
 html.accent-maple #country-map .sec.active h3 .n{background:#b5473a;border-color:#b5473a;color:#f8f1ea}
@@ -341,10 +341,10 @@ html.accent-mxgreen #country-map{
 }
 html.accent-mxgreen #country-map .st.hub{fill:#1f3329}
 html.accent-mxgreen #country-map .st.rule{fill:#1d3a35} /* deep teal Option B for screwworm/border alerts */
-html.accent-mxgreen #country-map .st.sel{fill:#2f5a44;stroke:#8fbfa3;stroke-width:1.7}
+html.accent-mxgreen #country-map .st.sel{fill:#6d5a2c;stroke:var(--gold-l,#f0d58c);stroke-width:2}
 html.accent-mxgreen #country-map .ct.sample circle{fill:#6a9e80}
 html.accent-mxgreen #country-map .ct.sample .ring{stroke:#6a9e80}
-html.accent-mxgreen #country-map .ap.sel .pad{fill:#2f5a44;stroke:#efe6d2}
+html.accent-mxgreen #country-map .ap.sel .pad{fill:#6d5a2c;stroke:#f0d58c;stroke-width:2}
 html.accent-mxgreen #country-map .ap .glyph{fill:#cfe0d4}
 html.accent-mxgreen #country-map .ph .mark{border-color:#3f7a5a;color:#e4f0e8;background:#121c16}
 html.accent-mxgreen #country-map .sec.active h3 .n{background:#3f7a5a;border-color:#3f7a5a;color:#f4faf6}
@@ -459,11 +459,11 @@ html.accent-mxgreen #country-map .zoom button:hover:not(:disabled){border-color:
 }
 /* ===== USA model parity (Marc 2026-11-09, permanent rule): CA/MX behave exactly like usa-map.
    Copied from usa-map.css (#usa-map → #country-map). Country data and validated colours stay:
-   Canada 5-tone fills, maple rose selection #6b3a32 / #d4a090, MX/CA accents, zoom placement. ===== */
+   Canada 5-tone fills, MX/CA accents, zoom placement. Selection = USA gold (Marc 14:46). ===== */
 /* hover: USA .st:hover (brightness + light hairline); selection wins over hover like USA */
 #country-map .st{transition:fill .15s,stroke .15s,filter .15s}
 #country-map .st:hover,html.accent-maple #country-map .st:hover,html.accent-mxgreen #country-map .st:hover{filter:brightness(1.12) !important;stroke:#f4efe6 !important;stroke-width:1.15 !important}
-#country-map .st.sel,#country-map .st.sel:hover,html.accent-maple #country-map .st.sel:hover,html.accent-mxgreen #country-map .st.sel:hover{fill:#6b3a32 !important;stroke:#d4a090 !important;stroke-width:1.7 !important;filter:none !important}
+#country-map .st.sel,#country-map .st.sel:hover,html.accent-maple #country-map .st.sel:hover,html.accent-mxgreen #country-map .st.sel:hover{fill:#6d5a2c !important;stroke:var(--gold-l,#f0d58c) !important;stroke-width:2 !important;filter:none !important}
 /* keyboard focus: USA .st:focus-visible (outline none, gold hairline on the shape, fill unchanged) */
 #country-map .st:focus-visible{stroke:var(--gold-l) !important;stroke-width:2.2 !important}
 /* labels: USA halo */
