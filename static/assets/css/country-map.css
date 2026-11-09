@@ -358,8 +358,23 @@ html.accent-mxgreen #country-map{
   --accent:#3f7a5a; --accent-soft:#6a9e80; --accent-ink:#e4f0e8; --accent-cream:#efe6d2;
 }
 html.accent-mxgreen #country-map .st.hub{fill:#1f3329}
+
+/* Mexico mineral flag-inspired tones (2026-11-09): soft green/pink/talavera/brick; gold sel unchanged */
+html.accent-mxgreen #country-map .st.st-t1{fill:#5a8a6a !important}
+html.accent-mxgreen #country-map .st.st-t2{fill:#4a6a88 !important}
+html.accent-mxgreen #country-map .st.st-t3{fill:#8a6570 !important}
+html.accent-mxgreen #country-map .st.st-t4{fill:#6a7870 !important}
+html.accent-mxgreen #country-map .st.st-t5{fill:#82585c !important}
+html.accent-mxgreen #country-map .st.st-t6{fill:#5a7060 !important}
+html.accent-mxgreen #country-map .lbl{
+  fill:#fffdf6;font-weight:700;
+  paint-order:stroke;stroke:rgba(6,14,16,.88);stroke-width:3.6px;stroke-linejoin:round
+}
+html.accent-mxgreen #country-map .lbl.sel{fill:#fff7df;stroke:rgba(6,14,16,.92);stroke-width:3.8px}
+
 html.accent-mxgreen #country-map .st.rule{/* USA model: a11y only — alerts stay in the state panel */}
-html.accent-mxgreen #country-map .st.sel{fill:#6d5a2c;stroke:var(--gold-l,#f0d58c);stroke-width:2}
+html.accent-mxgreen #country-map .st.sel,
+html.accent-mxgreen #country-map .st.sel:hover{fill:#6d5a2c !important;stroke:var(--gold-l,#f0d58c) !important;stroke-width:2 !important;filter:none !important}
 html.accent-mxgreen #country-map .ct.sample circle{fill:#6a9e80}
 html.accent-mxgreen #country-map .ct.sample .ring{stroke:#6a9e80}
 html.accent-mxgreen #country-map .ap.sel .pad{fill:#6d5a2c;stroke:#f0d58c;stroke-width:2}
