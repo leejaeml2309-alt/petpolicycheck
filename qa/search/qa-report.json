@@ -1,0 +1,13 @@
+{
+  "errors": [],
+  "shots": {
+    "desktop:delta": "qa/search/desktop-delta.png",
+    "desktop:usa-mexico": "qa/search/desktop-usa-mexico.png",
+    "desktop:pug": "qa/search/desktop-pug.png",
+    "mobile:delta": "qa/search/mobile-delta.png",
+    "mobile:usa-mexico": "qa/search/mobile-usa-mexico.png",
+    "mobile:pug": "qa/search/mobile-pug.png",
+    "mobile:menu": "qa/search/mobile-menu-open.png"
+  },
+  "error_count": 0
+}

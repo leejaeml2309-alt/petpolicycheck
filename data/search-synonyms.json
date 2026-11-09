@@ -1,0 +1,513 @@
+{
+  "_comment": "Editable synonym map for site search. Keys and values are normalized (lowercase, no accents). Values expand a query token; do not invent pages — only terms that help match existing pages.",
+  "airlines": {
+    "delta": [
+      "dl",
+      "delta air lines",
+      "delta airlines"
+    ],
+    "dl": [
+      "delta"
+    ],
+    "american": [
+      "aa",
+      "american airlines",
+      "american airline"
+    ],
+    "aa": [
+      "american"
+    ],
+    "united": [
+      "ua",
+      "united airlines"
+    ],
+    "ua": [
+      "united"
+    ],
+    "alaska": [
+      "as",
+      "alaska airlines",
+      "hawaiian"
+    ],
+    "as": [
+      "alaska"
+    ],
+    "hawaiian": [
+      "ha",
+      "alaska",
+      "hawaiian airlines"
+    ],
+    "ha": [
+      "hawaiian"
+    ],
+    "jetblue": [
+      "b6",
+      "jet blue"
+    ],
+    "b6": [
+      "jetblue"
+    ],
+    "southwest": [
+      "wn",
+      "southwest airlines"
+    ],
+    "wn": [
+      "southwest"
+    ],
+    "air canada": [
+      "ac",
+      "aircanada"
+    ],
+    "ac": [
+      "air canada"
+    ],
+    "aeromexico": [
+      "am",
+      "aero mexico",
+      "aeroméxico"
+    ],
+    "am": [
+      "aeromexico"
+    ],
+    "volaris": [
+      "y4"
+    ],
+    "viva": [
+      "viva aerobus",
+      "vivaaerobus"
+    ],
+    "viva aerobus": [
+      "viva"
+    ],
+    "korean air": [
+      "ke",
+      "koreanair",
+      "korean"
+    ],
+    "ke": [
+      "korean air"
+    ],
+    "jal": [
+      "japan airlines",
+      "japan airline"
+    ],
+    "ana": [
+      "all nippon",
+      "all nippon airways"
+    ],
+    "lufthansa": [
+      "lh"
+    ],
+    "lh": [
+      "lufthansa"
+    ],
+    "air france": [
+      "af",
+      "airfrance"
+    ],
+    "af": [
+      "air france"
+    ],
+    "british airways": [
+      "ba",
+      "british airway"
+    ],
+    "ba": [
+      "british airways"
+    ],
+    "frontier": [
+      "f9"
+    ],
+    "spirit": [
+      "nk"
+    ],
+    "porter": [
+      "pd"
+    ],
+    "westjet": [
+      "ws"
+    ],
+    "asiana": [
+      "oz"
+    ],
+    "zipair": [
+      "zg"
+    ],
+    "peach": [
+      "mm"
+    ],
+    "tway": [
+      "tw",
+      "t'way",
+      "t way"
+    ],
+    "jeju": [
+      "7c",
+      "jeju air"
+    ],
+    "air premia": [
+      "yp",
+      "premia"
+    ]
+  },
+  "places": {
+    "usa": [
+      "us",
+      "u.s.",
+      "u.s.a.",
+      "america"
+    ],
+    "us": [
+      "usa",
+      "u.s.",
+      "u.s.a."
+    ],
+    "mexico": [
+      "mx",
+      "méxico"
+    ],
+    "canada": [
+      "ca",
+      "canadian"
+    ],
+    "japan": [
+      "jp",
+      "nippon"
+    ],
+    "france": [
+      "fr"
+    ],
+    "uk": [
+      "united kingdom",
+      "britain",
+      "great britain",
+      "england",
+      "gb"
+    ],
+    "germany": [
+      "de",
+      "deutschland"
+    ],
+    "korea": [
+      "south korea",
+      "kr",
+      "republic of korea"
+    ],
+    "south korea": [
+      "korea",
+      "kr"
+    ],
+    "boston": [
+      "bos",
+      "hotel boston",
+      "hotels boston"
+    ],
+    "seattle": [
+      "sea"
+    ],
+    "denver": [
+      "den"
+    ],
+    "san francisco": [
+      "sfo",
+      "sf"
+    ],
+    "atlanta": [
+      "atl"
+    ],
+    "orlando": [
+      "mco"
+    ],
+    "new york": [
+      "nyc",
+      "jfk",
+      "ewr",
+      "lga"
+    ],
+    "miami": [
+      "mia"
+    ],
+    "los angeles": [
+      "lax",
+      "la"
+    ],
+    "chicago": [
+      "ord",
+      "mdw"
+    ],
+    "houston": [
+      "iah",
+      "hou"
+    ],
+    "detroit": [
+      "dtw"
+    ],
+    "austin": [
+      "aus"
+    ],
+    "vancouver": [
+      "yvr"
+    ],
+    "yvr": [
+      "vancouver"
+    ],
+    "montreal": [
+      "yul"
+    ],
+    "yul": [
+      "montreal"
+    ],
+    "tokyo": [
+      "nrt",
+      "hnd"
+    ],
+    "nrt": [
+      "tokyo",
+      "narita"
+    ],
+    "hnd": [
+      "tokyo",
+      "haneda"
+    ],
+    "osaka": [
+      "kix"
+    ],
+    "kix": [
+      "osaka"
+    ],
+    "seoul": [
+      "icn"
+    ],
+    "icn": [
+      "seoul",
+      "incheon"
+    ],
+    "sea": [
+      "seattle"
+    ],
+    "den": [
+      "denver"
+    ],
+    "sfo": [
+      "san francisco"
+    ],
+    "atl": [
+      "atlanta"
+    ],
+    "bos": [
+      "boston"
+    ],
+    "mco": [
+      "orlando"
+    ],
+    "jfk": [
+      "new york"
+    ],
+    "lax": [
+      "los angeles"
+    ],
+    "ord": [
+      "chicago"
+    ],
+    "iah": [
+      "houston"
+    ],
+    "dtw": [
+      "detroit"
+    ],
+    "mia": [
+      "miami"
+    ]
+  },
+  "topics": {
+    "cabin": [
+      "in-cabin",
+      "in cabin",
+      "carry on",
+      "carry-on",
+      "under seat"
+    ],
+    "in-cabin": [
+      "cabin",
+      "in cabin"
+    ],
+    "cargo": [
+      "hold",
+      "checked",
+      "checked bag",
+      "manifest"
+    ],
+    "hold": [
+      "cargo",
+      "checked"
+    ],
+    "esa": [
+      "emotional support",
+      "emotional support animal",
+      "psd",
+      "service dog",
+      "service animal",
+      "service animals"
+    ],
+    "emotional support": [
+      "esa",
+      "emotional support animal"
+    ],
+    "emotionnal support": [
+      "esa",
+      "emotional support",
+      "emotional support animal",
+      "service animal"
+    ],
+    "service dog": [
+      "service animal",
+      "esa",
+      "psd"
+    ],
+    "psd": [
+      "esa",
+      "psychiatric service dog"
+    ],
+    "pug": [
+      "snub-nosed",
+      "brachycephalic",
+      "short-nosed",
+      "brachy"
+    ],
+    "bulldog": [
+      "snub-nosed",
+      "brachycephalic",
+      "french bulldog",
+      "frenchie"
+    ],
+    "frenchie": [
+      "french bulldog",
+      "bulldog",
+      "snub-nosed",
+      "brachycephalic"
+    ],
+    "persian": [
+      "snub-nosed",
+      "brachycephalic",
+      "short-nosed"
+    ],
+    "snub-nosed": [
+      "brachycephalic",
+      "short-nosed",
+      "brachy",
+      "pug",
+      "bulldog"
+    ],
+    "short-nosed": [
+      "snub-nosed",
+      "brachycephalic"
+    ],
+    "brachycephalic": [
+      "snub-nosed",
+      "short-nosed",
+      "brachy",
+      "pug",
+      "bulldog"
+    ],
+    "brachy": [
+      "brachycephalic",
+      "snub-nosed"
+    ],
+    "rabies": [
+      "titer",
+      "titre",
+      "favn",
+      "rabies titer"
+    ],
+    "titer": [
+      "titre",
+      "rabies",
+      "favn",
+      "rabies titer"
+    ],
+    "titre": [
+      "titer",
+      "rabies",
+      "favn"
+    ],
+    "favn": [
+      "titer",
+      "titre",
+      "rabies"
+    ],
+    "health certificate": [
+      "aphis",
+      "7001",
+      "vet certificate",
+      "cvi",
+      "veterinary certificate",
+      "usda"
+    ],
+    "aphis": [
+      "health certificate",
+      "7001",
+      "usda",
+      "aplhis"
+    ],
+    "aplhis": [
+      "aphis",
+      "health certificate"
+    ],
+    "7001": [
+      "aphis",
+      "health certificate"
+    ],
+    "vet certificate": [
+      "health certificate",
+      "aphis",
+      "cvi"
+    ],
+    "hotel": [
+      "hotels",
+      "pet-friendly hotel",
+      "pet friendly hotel"
+    ],
+    "hotels": [
+      "hotel",
+      "pet-friendly"
+    ],
+    "usa mexico": [
+      "usa-mexico",
+      "us mexico",
+      "us to mexico",
+      "mexico usa",
+      "usa to mexico"
+    ],
+    "us to mexico": [
+      "usa mexico",
+      "usa-mexico"
+    ],
+    "usa canada": [
+      "usa-canada",
+      "us canada",
+      "us to canada",
+      "canada usa",
+      "usa to canada"
+    ],
+    "us to canada": [
+      "usa canada",
+      "usa-canada"
+    ],
+    "usa japan": [
+      "usa-to-japan",
+      "us japan",
+      "japan usa",
+      "usa to japan"
+    ],
+    "usa uk": [
+      "usa-uk",
+      "us uk",
+      "uk usa"
+    ],
+    "usa france": [
+      "usa-france",
+      "us france",
+      "france usa"
+    ]
+  }
+}
