@@ -24,5 +24,22 @@
   "incomplete": [
     "air-france",
     "british-airways"
+  ],
+  "lede_check": "Suggested live URL removed",
+  "viewport_rerun": [
+    {
+      "name": "brachy-desktop",
+      "status": 200,
+      "console_errors": [],
+      "page_errors": [],
+      "failed": []
+    },
+    {
+      "name": "brachy-mobile",
+      "status": 200,
+      "console_errors": [],
+      "page_errors": [],
+      "failed": []
+    }
   ]
 }
