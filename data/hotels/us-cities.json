@@ -1,1277 +1,2030 @@
 {
-  "checked": "2026-11-02",
-  "demand_note": "City order by US monthly searches for 'pet friendly hotels <city>' (kwrds.ai pet-friendly-travel keyword table, October 2026): Orlando 18,100; New York 12,100; Miami 6,600. Los Angeles was not in that table.",
-  "cities": [
+ "checked": "2026-11-02",
+ "demand_note": "City order by US monthly searches for 'pet friendly hotels <city>' (kwrds.ai pet-friendly-travel keyword table, October 2026): Orlando 18,100; New York 12,100; Miami 6,600. Los Angeles was not in that table. Week 2 (Seattle, Denver, San Francisco, Atlanta, Boston): City order follows Manager's week-2 brief (Seattle, Denver, San Francisco, Atlanta, Boston). No search-volume data was checked for this batch.",
+ "cities": [
+  {
+   "slug": "orlando",
+   "name": "Orlando",
+   "state": "Florida",
+   "short": "Orlando, FL",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Orlando%2C%20Florida%2C%20United%20States%20of%20America&amenities=PETS",
+   "lead": "Orlando is the most-searched US city for pet-friendly hotels. Most big chains take pets here, but fees, weight limits and the number of pets differ by brand and by hotel. Below: the brand-wide rules from each chain's official site, plus sourced Orlando tips for the airport and dog parks.",
+   "quick_city": [
+    "Orlando International Airport (MCO)",
+    "Relief areas before security at Terminals A and B (Level 2) and after security near each gate group and in Terminal C; dogs inside the terminal must be service dogs or in an airline-approved carrier.",
+    "mco"
+   ],
+   "sections": [
     {
-      "slug": "orlando",
-      "name": "Orlando",
-      "state": "Florida",
-      "short": "Orlando, FL",
-      "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Orlando%2C%20Florida%2C%20United%20States%20of%20America&amenities=PETS",
-      "lead": "Orlando is the most-searched US city for pet-friendly hotels. Most big chains take pets here, but fees, weight limits and the number of pets differ by brand and by hotel. Below: the brand-wide rules from each chain's official site, plus sourced Orlando tips for the airport and dog parks.",
-      "quick_city": [
-        "Orlando International Airport (MCO)",
-        "Relief areas before security at Terminals A and B (Level 2) and after security near each gate group and in Terminal C; dogs inside the terminal must be service dogs or in an airline-approved carrier.",
-        "mco"
-      ],
-      "sections": [
-        {
-          "id": "airport",
-          "h": "Orlando International Airport (MCO) pet relief areas",
-          "src": "mco",
-          "intro": "Dogs are not allowed inside MCO unless they are working dogs or in a carrier approved for the flight. Service animal relief areas, open to pets:",
-          "items": [
-            "Before security: Terminal A, Level 2, east end; Terminal B, Level 2, west end; and the east end of the North Cell Phone Lot.",
-            "After security, Terminals A and B: Gates 1-29 (on the wing for Gates 20-29), Gates 30-59 (wing for Gates 40-49), Gates 70-99 (wing for Gates 90-99), Gates 100-129 (across from Gate 121).",
-            "After security, Terminal C: Level 2 near Gates C238, C241 and C242, and Level 6 just before international bag claim.",
-            "Pets shipped as cargo are picked up at the airline's cargo facility, not in the passenger terminal."
-          ]
-        },
-        {
-          "id": "parks",
-          "h": "Off-leash dog parks in Orange County",
-          "src": "ocfl",
-          "intro": "Orange County Parks runs fenced off-leash dog parks across the Orlando area. Dogs must wear a current license and tags, be leashed going in and out, and owners must stay inside within sight and voice range. West Orange and Downey also have a small-dog area and water fountains.",
-          "items": [
-            "Barber Park, 3701 Gatlin Ave., Orlando",
-            "Barnett Park, 4801 W. Colonial Dr., Orlando",
-            "Cypress Grove Park, 290 Holden Ave., Orlando",
-            "Downey Park, 10107 Flowers Ave., Orlando",
-            "Dr. Phillips Community Park, 8249 Buenavista Woods Blvd., Orlando",
-            "Lester Mandell Park, 3500 Central Florida Pkwy., Orlando",
-            "Meadow Woods Community Park, 1751 Rhode Island Woods Cir., Orlando",
-            "Summerport Park, 14491 Bridgewater Crossings Blvd., Windermere",
-            "West Orange Park, 12400 Marshall Farms Rd., Winter Garden",
-            "Young Pine Community Park, 5201 Young Pine Rd., Orlando",
-            "Yucatan Park, 6400 Yucatan Dr., Orlando",
-            "Independence Park, 5849 New Independence Pkwy., Winter Garden",
-            "Wedgefield Park, 20425 Mansfield St., Orlando"
-          ]
-        },
-        {
-          "id": "chains-here",
-          "h": "Chain notes for Orlando",
-          "src": "loews",
-          "intro": "",
-          "items": [
-            "Loews runs the hotels at Universal Orlando Resort (Portofino Bay, Hard Rock Hotel, Royal Pacific, Sapphire Falls, Cabana Bay and others); they appear on the Loews Loves Pets page. Loews allows up to 2 pets per room with up-to-date vaccinations, and property-specific rules and cleaning fees may apply, so confirm with your Universal hotel."
-          ]
-        }
-      ],
-      "faq": [
-        [
-          "Where can my dog go to the bathroom at Orlando airport (MCO)?",
-          "MCO has relief areas before security at Terminal A and B (Level 2) and the North Cell Phone Lot, after security near Gates 20-29, 40-49, 90-99 and across from Gate 121, and in Terminal C near Gates C238, C241 and C242 and on Level 6.",
-          "mco"
-        ]
-      ],
-      "luxury": [
-        {
-          "id": "ritz-carlton-orlando-grande-lakes",
-          "name": "The Ritz-Carlton Orlando, Grande Lakes",
-          "brand": "Ritz-Carlton (Marriott)",
-          "area": "Grande Lakes, south Orlando",
-          "fee": "$250 non-refundable, per room per stay",
-          "deposit": null,
-          "weight": "25 lb",
-          "pets": "1 per room",
-          "species": "Dog or cat",
-          "amenities": null,
-          "restrictions": "Service animals welcome without a fee or documentation.",
-          "note": "The Grande Lakes resort FAQ says two cats or dogs per room (same $250 fee), while the Ritz-Carlton page says one: confirm with the hotel.",
-          "check": false,
-          "source": "https://www.ritzcarlton.com/en/hotels/mcorz-the-ritz-carlton-orlando-grande-lakes/overview/",
-          "source2": "https://www.grandelakes.com/frequently-asked-questions",
-          "expedia_target": "https://www.expedia.com/Orlando-Hotels-The-Ritz-Carlton-Orlando.h914146.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "waldorf-astoria-orlando",
-          "name": "Waldorf Astoria Orlando",
-          "brand": "Waldorf Astoria (Hilton)",
-          "area": "Bonnet Creek, near Walt Disney World",
-          "fee": "$125 for 1-5 nights, $250 for 6+ nights (non-refundable)",
-          "deposit": null,
-          "weight": "40 lb combined",
-          "pets": "2 per room",
-          "species": "Dogs only",
-          "amenities": "Pet amenities at check-in; designated pet areas on the grounds.",
-          "restrictions": "Up-to-date vaccinations; leash or carrier outside the room; never left alone in the room; pet must be crated or secured before staff enter; no pets in pools, pool decks, restaurants or food and drink areas; \"Pet Inside\" door hanger for the whole stay.",
-          "note": null,
-          "check": false,
-          "source": "https://www.waldorfastoriaorlando.com/wp-content/uploads/2022/11/Waldorf-Astoria-Orlando-Pet-Policy-1.pdf",
-          "source2": "https://www.hilton.com/en/hotels/orlbcwa-waldorf-astoria-orlando/resort/",
-          "expedia_target": "https://www.expedia.com/Orlando-Hotels-Waldorf-Astoria-Orlando.h2432727.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "four-seasons-orlando",
-          "name": "Four Seasons Resort Orlando at Walt Disney World Resort",
-          "brand": "Four Seasons",
-          "area": "Golden Oak, Walt Disney World",
-          "fee": null,
-          "deposit": null,
-          "weight": "25 lb",
-          "pets": "1",
-          "species": "Not stated (the pet menu has dishes for cats and dogs)",
-          "amenities": "In-room dining pet menu for cats and dogs (USD 8-16 per dish); custom meals with notice.",
-          "restrictions": null,
-          "note": null,
-          "check": false,
-          "source": "https://www.fourseasons.com/orlando/accommodations/accessible_rooms/",
-          "source2": "https://www.fourseasons.com/orlando/dining/in-room_dining/in-room_dining/pets/",
-          "expedia_target": "https://www.expedia.com/Orlando-Hotels-Four-Seasons-Resort-Orlando-At-WALT-DISNEY-WORLD-Resort.h7374428.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        }
-      ]
+     "id": "airport",
+     "h": "Orlando International Airport (MCO) pet relief areas",
+     "src": "mco",
+     "intro": "Dogs are not allowed inside MCO unless they are working dogs or in a carrier approved for the flight. Service animal relief areas, open to pets:",
+     "items": [
+      "Before security: Terminal A, Level 2, east end; Terminal B, Level 2, west end; and the east end of the North Cell Phone Lot.",
+      "After security, Terminals A and B: Gates 1-29 (on the wing for Gates 20-29), Gates 30-59 (wing for Gates 40-49), Gates 70-99 (wing for Gates 90-99), Gates 100-129 (across from Gate 121).",
+      "After security, Terminal C: Level 2 near Gates C238, C241 and C242, and Level 6 just before international bag claim.",
+      "Pets shipped as cargo are picked up at the airline's cargo facility, not in the passenger terminal."
+     ]
     },
     {
-      "slug": "new-york",
-      "name": "New York City",
-      "state": "New York",
-      "short": "New York City",
-      "expedia_target": "https://www.expedia.com/Hotel-Search?destination=New%20York%2C%20New%20York%2C%20United%20States%20of%20America&amenities=PETS",
-      "lead": "New York City is the second most-searched US city for pet-friendly hotels. Space is tight and rules vary a lot by hotel, and some budget chains' NYC locations take no pets at all. Below: each chain's brand-wide rules from its official site, plus sourced NYC tips for JFK and the city's dog rules.",
-      "quick_city": [
-        "NYC dog rules",
-        "Dogs must be on a leash of 6 ft or less in city parks except in dog runs and off-leash areas (park opening to 9 a.m. and 9 p.m. to closing). NYC requires owners to carry proof of a current dog license and rabies vaccination in public.",
-        "nycparks"
-      ],
-      "sections": [
-        {
-          "id": "airport",
-          "h": "JFK Airport pet relief areas",
-          "src": "jfk",
-          "intro": "JFK says Service Animal Relief Areas are available at all terminals for service animals and pets, with indoor and outdoor spaces, artificial grass, sinks and waste stations. Use JFK's interactive map to find the one nearest your gate.",
-          "items": []
-        },
-        {
-          "id": "parks",
-          "h": "Dogs in NYC parks",
-          "src": "nycparks",
-          "intro": "NYC Parks rules for dogs, from the official NYC Parks page:",
-          "items": [
-            "Leash of no more than 6 feet at all times, except in dog runs (fenced, off-leash during park hours) and designated off-leash areas from park opening to 9 a.m. and from 9 p.m. to closing.",
-            "Carry proof of a current dog license and rabies vaccination while in public (NYC Health Code).",
-            "No dogs in playgrounds, fountains, ball fields, courts, pools or on NYC beaches in summer; dogs may go on the sand from October 2 to the Friday before Memorial Day.",
-            "Manhattan dog runs include Madison Square Park, Washington Square Park, Tribeca (Warren St), Riverside Park (W 72nd, 87th and 105th St), Theodore Roosevelt Park (CPW at W 81st St) and Hudson River Park (Pier 40 and Pier 84).",
-            "Central Park has no fenced dog run but 23 dog-friendly areas (see the Central Park Conservancy's guide linked from NYC Parks)."
-          ]
-        },
-        {
-          "id": "chains-here",
-          "h": "Chain notes for New York City",
-          "src": "laquinta",
-          "intro": "",
-          "items": [
-            "La Quinta lists these NYC-area hotels as taking no pets: La Quinta by Wyndham New York City Central Park, La Quinta Inn by Wyndham Queens (New York City), La Quinta by Wyndham Brooklyn Downtown and Brooklyn East (also White Plains - Elmsford).",
-            [
-              "Four Seasons Hotel New York Downtown welcomes dogs and cats under 25 lb.",
-              "fs_nyd"
-            ],
-            [
-              "Loews Regency New York (Park Avenue) appears on the Loews Loves Pets page: up to 2 pets, vaccinations required, property rules and fees may apply.",
-              "loews"
-            ]
-          ]
-        }
-      ],
-      "faq": [
-        [
-          "Are there pet relief areas at JFK?",
-          "Yes. JFK says Service Animal Relief Areas for service animals and pets are available at all terminals, with indoor and outdoor spaces, artificial grass, sinks and waste stations.",
-          "jfk"
-        ]
-      ],
-      "luxury": [
-        {
-          "id": "peninsula-new-york",
-          "name": "The Peninsula New York",
-          "brand": "The Peninsula",
-          "area": "Fifth Avenue, Midtown",
-          "fee": "$150 per stay",
-          "deposit": null,
-          "weight": "65 lb",
-          "pets": "1 per room",
-          "species": "Dog or cat",
-          "amenities": "Pet bed, food and water bowls; dog menu on request; dog walking by a Peninsula Page (extra fee, book ahead).",
-          "restrictions": "Not in restaurants, banquet rooms, the spa or fitness center; carry your pet or use a carrier in the hotel; not alone in the room for more than 2 hours, and then in a carrier or crate.",
-          "note": null,
-          "check": false,
-          "source": "https://www.peninsula.com/en/new-york/our-city/pencities/pet-friendly-activity",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/New-York-Hotels-The-Peninsula-New-York.h23855.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "ritz-carlton-new-york-central-park",
-          "name": "The Ritz-Carlton New York, Central Park",
-          "brand": "Ritz-Carlton (Marriott)",
-          "area": "Central Park South",
-          "fee": "$300 non-refundable, per room per stay",
-          "deposit": null,
-          "weight": "60 lb per pet",
-          "pets": "2 per room",
-          "species": "Not stated",
-          "amenities": null,
-          "restrictions": "Signed pet agreement required. Service animals welcome without a fee or documentation.",
-          "note": null,
-          "check": false,
-          "source": "https://www.ritzcarlton.com/en/hotels/nyccp-the-ritz-carlton-new-york-central-park/overview/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/New-York-Hotels-The-Ritz-Carlton-New-York.h807655.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "aman-new-york",
-          "name": "Aman New York",
-          "brand": "Aman",
-          "area": "Fifth Avenue, Midtown",
-          "fee": "$350 non-refundable per stay",
-          "deposit": null,
-          "weight": "50 lb (22 kg) per dog",
-          "pets": "2 per suite",
-          "species": "Dogs only",
-          "amenities": null,
-          "restrictions": "Pet Registration Card; never left alone in the suite; leash or carrier in public areas and during housekeeping; not on furniture or in the pool; not allowed in rental-programme homes; damage: up to two nights’ rate plus a $500 deep-cleaning fee.",
-          "note": null,
-          "check": false,
-          "source": "https://www.aman.com/hotels/aman-new-york/policy",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Aman%20New%20York&amenities=PETS",
-          "expedia_is_property": false,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "mandarin-oriental-new-york",
-          "name": "Mandarin Oriental, New York",
-          "brand": "Mandarin Oriental",
-          "area": "Columbus Circle",
-          "fee": "No additional fee (hotel website)",
-          "deposit": null,
-          "weight": null,
-          "pets": null,
-          "species": "Not stated (\"four-legged family members\")",
-          "amenities": "Beds and bowls; pet menu; pet-sitting (3-hour minimum) and dog walking up to 60 minutes for an extra fee.",
-          "restrictions": "The hotel says pet policies may apply and reservations will give full details before arrival.",
-          "note": "Expedia’s listing shows different terms (dogs only, up to 25 lb, $250 per stay). Confirm with the hotel before booking.",
-          "check": true,
-          "source": "https://www.mandarinoriental.com/en/new-york/manhattan/family",
-          "source2": "https://www.mandarinoriental.com/en/new-york/manhattan/stay",
-          "expedia_target": "https://www.expedia.com/New-York-Hotels-Mandarin-Oriental.h916343.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "faena-new-york",
-          "name": "Faena New York",
-          "brand": "Faena",
-          "area": "West Chelsea, by the High Line",
-          "fee": "$250 non-refundable",
-          "deposit": null,
-          "weight": "25 lb",
-          "pets": null,
-          "species": "Dogs only",
-          "amenities": null,
-          "restrictions": "Pet guidelines may change with local government ordinances.",
-          "note": null,
-          "check": false,
-          "source": "https://www.faena.com/hotel-policies",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/New-York-Hotels-Faena-New-York.h113374981.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "four-seasons-new-york-downtown",
-          "name": "Four Seasons Hotel New York Downtown",
-          "brand": "Four Seasons",
-          "area": "Tribeca / World Trade Center",
-          "fee": null,
-          "deposit": null,
-          "weight": "Under 25 lb",
-          "pets": null,
-          "species": "Dogs and cats",
-          "amenities": "Dog walking and pet-sitting can be arranged.",
-          "restrictions": null,
-          "note": null,
-          "check": false,
-          "source": "https://www.fourseasons.com/newyorkdowntown/services-and-amenities/pet-friendly-stays/",
-          "source2": "https://www.fourseasons.com/newyorkdowntown/accommodations/accessible_rooms/",
-          "expedia_target": "https://www.expedia.com/New-York-Hotels-Four-Seasons-Hotel-New-York-Downtown.h15438428.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "1-hotel-brooklyn-bridge",
-          "name": "1 Hotel Brooklyn Bridge",
-          "brand": "1 Hotels",
-          "area": "Brooklyn Bridge Park, Dumbo",
-          "fee": "No pet fee; $250 cleaning fee if the room gets dirty",
-          "deposit": null,
-          "weight": null,
-          "pets": "Up to 2",
-          "species": "Dogs (the page says \"pups\")",
-          "amenities": "Welcome amenity; beds, bowls, poo bags and food available; treats and a dog-friendly concierge.",
-          "restrictions": "Leash or carrier in public spaces; not in dining areas or the fitness center; a person must be present when staff enter; never left unattended. Add your pet to the reservation.",
-          "note": null,
-          "check": false,
-          "source": "https://www.1hotels.com/brooklyn-bridge/pet-friendly",
-          "source2": "https://www.1hotels.com/brooklyn-bridge/policies",
-          "expedia_target": "https://www.expedia.com/New-York-Hotels-1-Hotel-Brooklyn-Bridge.h15399642.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        }
-      ],
-      "luxury_not": [
-        {
-          "name": "The St. Regis New York",
-          "text": "Pets not allowed (service animals welcome).",
-          "source": "https://www.marriott.com/en-us/hotels/nycxr-the-st-regis-new-york/overview/"
-        }
-      ]
+     "id": "parks",
+     "h": "Off-leash dog parks in Orange County",
+     "src": "ocfl",
+     "intro": "Orange County Parks runs fenced off-leash dog parks across the Orlando area. Dogs must wear a current license and tags, be leashed going in and out, and owners must stay inside within sight and voice range. West Orange and Downey also have a small-dog area and water fountains.",
+     "items": [
+      "Barber Park, 3701 Gatlin Ave., Orlando",
+      "Barnett Park, 4801 W. Colonial Dr., Orlando",
+      "Cypress Grove Park, 290 Holden Ave., Orlando",
+      "Downey Park, 10107 Flowers Ave., Orlando",
+      "Dr. Phillips Community Park, 8249 Buenavista Woods Blvd., Orlando",
+      "Lester Mandell Park, 3500 Central Florida Pkwy., Orlando",
+      "Meadow Woods Community Park, 1751 Rhode Island Woods Cir., Orlando",
+      "Summerport Park, 14491 Bridgewater Crossings Blvd., Windermere",
+      "West Orange Park, 12400 Marshall Farms Rd., Winter Garden",
+      "Young Pine Community Park, 5201 Young Pine Rd., Orlando",
+      "Yucatan Park, 6400 Yucatan Dr., Orlando",
+      "Independence Park, 5849 New Independence Pkwy., Winter Garden",
+      "Wedgefield Park, 20425 Mansfield St., Orlando"
+     ]
     },
     {
-      "slug": "miami",
-      "name": "Miami",
-      "state": "Florida",
-      "short": "Miami, FL",
-      "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Miami%2C%20Florida%2C%20United%20States%20of%20America&amenities=PETS",
-      "lead": "Miami rounds out our top three US cities for pet-friendly hotel searches. Beach and luxury hotels often have stricter pet rules than airport and highway chains, so compare the brand rules below and confirm with your hotel. Below: each chain's brand-wide rules from its official site, plus sourced Miami tips for MIA and county dog parks.",
-      "quick_city": [
-        "Miami International Airport (MIA)",
-        "3 outdoor relief areas on Level 1 Baggage Claim/Arrivals (near D, F and J; the J area is temporarily closed for construction) and 4 indoor ones after security (D34, F7, G11, H-J connector).",
-        "mia"
-      ],
-      "sections": [
-        {
-          "id": "airport",
-          "h": "Miami International Airport (MIA) pet relief areas",
-          "src": "mia",
-          "intro": "MIA lists these service animal and pet relief areas:",
-          "items": [
-            "Outdoor, near parking (Level 1 Baggage Claim/Arrivals): west of the North (Dolphin) garage near Terminal D, across from Door 5; west of the South Short Term lot near Terminal F, across from Door 15; south of the Flamingo garage near Terminal J, across from Door 28 (temporarily closed for construction).",
-            "Indoor, after security: North Terminal (D) near Gate D34; Concourse F near Gate F7; Concourse G near Gate G11; Concourse H-J connector, across from the InMotion store."
-          ]
-        },
-        {
-          "id": "parks",
-          "h": "Miami-Dade County dog parks",
-          "src": "mdparks",
-          "intro": "Miami-Dade Parks has three kinds of dog parks. Posted rules: vaccinations up to date, a current rabies tag on the collar, leash until inside the fence, no more than 3 dogs per person, no puppies under 4 months. The county page also still lists 'Pitbulls are not allowed', citing the county ordinance. A 2023 Florida law (HB 941) ended local breed-specific bans, so this line may be outdated: ask the park before you go.",
-          "items": [
-            "Free-roaming dog parks: Haulover Park (10800 Collins Ave.), Tropical Park (7900 SW 40 St.), Amelia Earhart Park (401 E 65 St., Hialeah), East Greynolds Park (16700 Biscayne Blvd., North Miami Beach), West Kendall District Park (11255 SW 157 Ave).",
-            "Dog run park (no water or bag dispensers): Lago Mar Park (8165 SW 162 Ave.).",
-            "Haulover Park also has a dog beach with its own rules (linked from the county page)."
-          ]
-        },
-        {
-          "id": "chains-here",
-          "h": "Chain notes for Miami",
-          "src": "loews",
-          "intro": "",
-          "items": [
-            "Loews Miami Beach Hotel (South Beach) and Loews Coral Gables Hotel appear on the Loews Loves Pets page: up to 2 pets, vaccinations required, property rules and cleaning fees may apply.",
-            [
-              "Four Seasons Hotel Miami lists pet-friendly rooms but no weight or fee on its amenities page: ask the hotel.",
-              "fs_mia"
-            ]
-          ]
-        }
-      ],
-      "faq": [
-        [
-          "Where are the pet relief areas at Miami airport (MIA)?",
-          "Outdoor on Level 1 Baggage Claim/Arrivals across from Doors 5 and 15 (the Door 28 area is temporarily closed), and indoor after security near Gates D34, F7, G11 and the H-J connector.",
-          "mia"
-        ]
-      ],
-      "luxury": [
-        {
-          "id": "faena-miami-beach",
-          "name": "Faena Hotel Miami Beach",
-          "brand": "Faena",
-          "area": "Mid-Beach, Collins Avenue",
-          "fee": "$25 per night",
-          "deposit": "$250 non-refundable deposit",
-          "weight": "25 lb",
-          "pets": null,
-          "species": "Not stated (\"four legged furry travelers\")",
-          "amenities": null,
-          "restrictions": "Pet admission may change with local government ordinances.",
-          "note": null,
-          "check": false,
-          "source": "https://www.faena.com/hotel-policies",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Miami-Hotels-Faena-Miami-Beach.h10344566.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "1-hotel-south-beach",
-          "name": "1 Hotel South Beach",
-          "brand": "1 Hotels",
-          "area": "South Beach, Collins Avenue",
-          "fee": "No extra fee (damage or extra cleaning may be charged)",
-          "deposit": null,
-          "weight": "50 lb",
-          "pets": "Up to 2",
-          "species": "Dogs (\"pups\")",
-          "amenities": "Beds, bowls, poo bags and food available; treats and a dog-friendly concierge.",
-          "restrictions": "Leash or carrier in public spaces; under state law, not poolside or on the beach; a person must be present when staff enter; never left unattended. The $72 daily resort fee is not a pet fee.",
-          "note": null,
-          "check": false,
-          "source": "https://www.1hotels.com/south-beach/pet-friendly",
-          "source2": "https://www.1hotels.com/south-beach/policies",
-          "expedia_target": "https://www.expedia.com/Miami-Hotels-1-Hotel-South-Beach.h1790087.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "ritz-carlton-south-beach",
-          "name": "The Ritz-Carlton, South Beach",
-          "brand": "Ritz-Carlton (Marriott)",
-          "area": "South Beach, Lincoln Road",
-          "fee": "$250 non-refundable per stay",
-          "deposit": null,
-          "weight": "35 lb",
-          "pets": "2 per room",
-          "species": "Dogs and cats",
-          "amenities": null,
-          "restrictions": "Service animals welcome without a fee or documentation.",
-          "note": null,
-          "check": false,
-          "source": "https://www.ritzcarlton.com/en/hotels/miasb-the-ritz-carlton-south-beach/overview/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Miami-Hotels-The-Ritz-Carlton.h582845.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "miami-beach-edition",
-          "name": "The Miami Beach EDITION",
-          "brand": "EDITION (Marriott)",
-          "area": "Mid-Beach, Collins Avenue",
-          "fee": "$250 non-refundable per stay",
-          "deposit": null,
-          "weight": "25 lb",
-          "pets": "1 per room",
-          "species": "Not stated",
-          "amenities": null,
-          "restrictions": "Service animals welcome without a fee or documentation.",
-          "note": null,
-          "check": false,
-          "source": "https://www.marriott.com/en-us/hotels/miaeb-the-miami-beach-edition/overview/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Miami-Hotels-The-Miami-Beach-EDITION.h28105.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "kimpton-epic-miami",
-          "name": "Kimpton EPIC Hotel",
-          "brand": "Kimpton (IHG)",
-          "area": "Downtown Miami, Biscayne Bay",
-          "fee": "No fee, no deposit",
-          "deposit": null,
-          "weight": "No size, weight or breed limit",
-          "pets": "No limit",
-          "species": "All pets (\"furry, feathery, or even scaly\")",
-          "amenities": "Pet bed and bowl, VIP arrival amenity with a dog treat, door hangers; pets welcome at the nightly wine reception.",
-          "restrictions": "No on-site pet relief area (Bayfront dog park is under half a mile away, per the hotel).",
-          "note": null,
-          "check": false,
-          "source": "https://www.epichotel.com/pet-friendly/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Miami-Hotels-Kimpton-EPIC-Hotel.h2237168.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "loews-miami-beach",
-          "name": "Loews Miami Beach Hotel",
-          "brand": "Loews Hotels",
-          "area": "South Beach, Collins Avenue",
-          "fee": "$50 per stay",
-          "deposit": null,
-          "weight": null,
-          "pets": "2 per room",
-          "species": "Not stated",
-          "amenities": "Bowls and a treat for every pet.",
-          "restrictions": "Service animals are exempt from fees.",
-          "note": null,
-          "check": false,
-          "source": "https://www.loewshotels.com/miami-beach/faqs",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Miami-Hotels-Loews-Miami-Beach-Hotel-South-Beach.h81223.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-10-24"
-        },
-        {
-          "id": "four-seasons-miami",
-          "name": "Four Seasons Hotel Miami",
-          "brand": "Four Seasons",
-          "area": "Brickell",
-          "fee": null,
-          "deposit": null,
-          "weight": null,
-          "pets": null,
-          "species": null,
-          "amenities": null,
-          "restrictions": null,
-          "note": "The hotel site lists \"Pet-Friendly Rooms\" but gives no fee, weight or number of pets. Call the hotel.",
-          "check": true,
-          "source": "https://www.fourseasons.com/miami/services-and-amenities/pet-friendly-stays/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Four%20Seasons%20Hotel%20Miami%2C%20Brickell&amenities=PETS",
-          "expedia_is_property": false,
-          "checked": "2026-10-24"
-        }
-      ]
-    },
-    {
-      "slug": "los-angeles",
-      "name": "Los Angeles",
-      "state": "California",
-      "short": "Los Angeles, CA",
-      "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Los%20Angeles%2C%20California&amenities=PETS",
-      "lead": "Los Angeles is a major pet-travel hub. Chain fees and weight limits vary by brand; below are luxury and independent hotels with published pet rules, plus LAX tips.",
-      "quick_city": [
-        "Los Angeles International Airport (LAX)",
-        "Relief areas airside and landside; confirm terminal maps on flylax.com.",
-        "lax"
-      ],
-      "sections": [
-        {
-          "id": "airport",
-          "h": "Los Angeles International Airport (LAX) pet relief areas",
-          "src": "lax",
-          "intro": "Relief areas airside and landside; confirm terminal maps on flylax.com.",
-          "items": [
-            "Relief areas airside and landside; confirm terminal maps on flylax.com.",
-            "Confirm current maps on the official airport site before you fly."
-          ]
-        }
-      ],
-      "faq": [
-        [
-          "Do hotels in Los Angeles take pets?",
-          "Many do, but fees, weight limits and the number of pets change by hotel. The luxury hotels below publish their own rules (checked Nov 2, 2026). Always confirm with the hotel before you pay.",
-          null
-        ]
-      ],
-      "luxury": [
-        {
-          "id": "hotel-figueroa",
-          "name": "Hotel Figueroa",
-          "brand": "Independent · Downtown LA",
-          "area": null,
-          "fee": "$50 non-refundable, per stay",
-          "deposit": null,
-          "weight": "Under 50 lb",
-          "pets": null,
-          "species": "Dogs only",
-          "amenities": null,
-          "restrictions": "Pet-friendly waiver signed at check-in.",
-          "note": null,
-          "check": false,
-          "source": "https://www.hotelfigueroa.com/faq",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Los-Angeles-Hotels-Hotel-Figueroa.h8805682.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "loews-hollywood",
-          "name": "Loews Hollywood Hotel",
-          "brand": "Loews · Hollywood &amp; Highland",
-          "area": null,
-          "fee": "$100 non-refundable, per stay",
-          "deposit": null,
-          "weight": null,
-          "pets": "2 per room",
-          "species": "Dogs and cats (pet room-service menus for both)",
-          "amenities": null,
-          "restrictions": "Loews says to contact the hotel for its complete pet policy.",
-          "note": null,
-          "check": false,
-          "source": "https://www.loewshotels.com/hollywood-hotel/loews-loves-pets",
-          "source2": "https://www.loewshotels.com/Hollywood-Hotel",
-          "expedia_target": "https://www.expedia.com/Los-Angeles-Hotels-Loews-Hollywood-Hotel.h790158.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "kimpton-la-peer",
-          "name": "Kimpton La Peer Hotel",
-          "brand": "Kimpton (IHG) · West Hollywood",
-          "area": null,
-          "fee": "No pet fee, no deposit",
-          "deposit": null,
-          "weight": "No size or weight limit",
-          "pets": "No limit on number",
-          "species": "Dogs, cats and other pets",
-          "amenities": null,
-          "restrictions": "Pets may not be left unattended in the room; not allowed in indoor dining areas.",
-          "note": null,
-          "check": false,
-          "source": "https://www.lapeerhotel.com/los-angeles-luxury-hotel-amenities/pet-friendly/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Los-Angeles-Hotels-Kimpton-La-Peer-Hotel-West-Hollywood-By-IHG.h18156733.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "fairmont-century-plaza",
-          "name": "Fairmont Century Plaza",
-          "brand": "Fairmont (Accor) · Century City",
-          "area": null,
-          "fee": "No pet fee or cleaning fee (charges only for damage or extra cleaning)",
-          "deposit": null,
-          "weight": null,
-          "pets": null,
-          "species": "Not stated (&ldquo;four-legged companions&rdquo;)",
-          "amenities": null,
-          "restrictions": "Pets may not be left unattended in the guestroom.",
-          "note": null,
-          "check": false,
-          "source": "https://www.fairmontcenturyplaza.com/faqs/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Los-Angeles-Hotels-Fairmont-Century-Plaza.h12670.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "hotel-bel-air",
-          "name": "Hotel Bel-Air",
-          "brand": "Dorchester Collection · Bel-Air",
-          "area": null,
-          "fee": "$150 per stay",
-          "deposit": null,
-          "weight": "45 lb (20 kg) per dog",
-          "pets": "Up to 2 dogs",
-          "species": "Dogs only (fully house-trained)",
-          "amenities": null,
-          "restrictions": "Not left unattended; leashed in outdoor areas; owner responsible for damage.",
-          "note": null,
-          "check": false,
-          "source": "https://www.dorchestercollection.com/los-angeles/hotel-bel-air/overview",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Los-Angeles-Hotels-Hotel-Bel-Air-Dorchester-Collection.h34504.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        }
-      ]
-    },
-    {
-      "slug": "chicago",
-      "name": "Chicago",
-      "state": "Illinois",
-      "short": "Chicago, IL",
-      "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Chicago%2C%20Illinois&amenities=PETS",
-      "lead": "Chicago hotel pet policies vary widely downtown. Below: verified luxury and boutique hotels with published fees and weight limits, plus O'Hare tips.",
-      "quick_city": [
-        "Chicago O'Hare International Airport (ORD)",
-        "Pet relief areas before and after security; confirm flychicago.com maps.",
-        "ord"
-      ],
-      "sections": [
-        {
-          "id": "airport",
-          "h": "Chicago O'Hare International Airport (ORD) pet relief areas",
-          "src": "ord",
-          "intro": "Pet relief areas before and after security; confirm flychicago.com maps.",
-          "items": [
-            "Pet relief areas before and after security; confirm flychicago.com maps.",
-            "Confirm current maps on the official airport site before you fly."
-          ]
-        }
-      ],
-      "faq": [
-        [
-          "Do hotels in Chicago take pets?",
-          "Many do, but fees, weight limits and the number of pets change by hotel. The luxury hotels below publish their own rules (checked Nov 2, 2026). Always confirm with the hotel before you pay.",
-          null
-        ]
-      ],
-      "luxury": [
-        {
-          "id": "kimpton-gray",
-          "name": "Kimpton Gray Hotel",
-          "brand": "Kimpton (IHG) · The Loop",
-          "area": null,
-          "fee": "No pet fee, no deposit",
-          "deposit": null,
-          "weight": "No size or weight limit (&ldquo;as long as they fit in the elevator&rdquo;)",
-          "pets": "No limit on number",
-          "species": "Dogs, cats and other pets",
-          "amenities": null,
-          "restrictions": "Pets may be left in the room only if crated and quiet; not allowed in dining areas.",
-          "note": null,
-          "check": false,
-          "source": "https://www.grayhotelchicago.com/chicago-luxury-hotels/pet-friendly/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Chicago-Hotels-Kimpton-Gray-Hotel.h13351499.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "loews-chicago",
-          "name": "Loews Chicago Hotel",
-          "brand": "Loews · Streeterville",
-          "area": null,
-          "fee": "$100 one-time, per stay",
-          "deposit": null,
-          "weight": null,
-          "pets": "2 per room",
-          "species": "Dogs and cats",
-          "amenities": null,
-          "restrictions": "Service animals exempt from fees.",
-          "note": null,
-          "check": false,
-          "source": "https://www.loewshotels.com/chicago-downtown/faqs",
-          "source2": "https://www.loewshotels.com/chicago-downtown/loews-loves-pets",
-          "expedia_target": "https://www.expedia.com/Chicago-Hotels-Loews-Chicago-Hotel.h9059537.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "peninsula-chicago",
-          "name": "The Peninsula Chicago",
-          "brand": "Peninsula · Magnificent Mile",
-          "area": null,
-          "fee": "Per pet, per stay: $350 + tax (30 lb and under); $500 + tax (31-50 lb)",
-          "deposit": null,
-          "weight": "50 lb",
-          "pets": null,
-          "species": "Not stated (welcome amenities mention a &ldquo;doggie and kitty&rdquo; menu)",
-          "amenities": null,
-          "restrictions": "Pet waiver signed on arrival.",
-          "note": null,
-          "check": false,
-          "source": "https://www.peninsula.com/en/chicago/pet-friendly-accommodations",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Chicago-Hotels-The-Peninsula-Chicago.h581213.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "langham-chicago",
-          "name": "The Langham, Chicago",
-          "brand": "Langham · River North",
-          "area": null,
-          "fee": "$150 non-refundable cleaning fee; $300 for stays of 7+ days",
-          "deposit": null,
-          "weight": "35 lb",
-          "pets": "2 per room",
-          "species": "Dogs and cats",
-          "amenities": null,
-          "restrictions": "Leashed in common areas; not allowed in restaurants, club lounge, spa, fitness studio or pool.",
-          "note": null,
-          "check": false,
-          "source": "https://www.langhamhotels.com/en/the-langham/chicago/policy/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Chicago-Hotels-The-Langham.h6309326.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "virgin-hotels-chicago",
-          "name": "Virgin Hotels Chicago",
-          "brand": "Virgin Hotels · The Loop",
-          "area": null,
-          "fee": "Not stated on the official page",
-          "deposit": null,
-          "weight": "No size or breed restrictions (brand page)",
-          "pets": null,
-          "species": "Dogs (brand page)",
-          "amenities": null,
-          "restrictions": "Leashed in public spaces.",
-          "note": null,
-          "check": false,
-          "source": "https://virginhotels.com/inside-your-hotel/pets/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Chicago-Hotels-Virgin-Hotels-Chicago.h9119528.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        }
-      ]
-    },
-    {
-      "slug": "austin",
-      "name": "Austin",
-      "state": "Texas",
-      "short": "Austin, TX",
-      "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Austin%2C%20Texas&amenities=PETS",
-      "lead": "Austin welcomes pets at many downtown and South Congress hotels. Below: verified hotels with published pet fees and weight limits, plus AUS tips.",
-      "quick_city": [
-        "Austin-Bergstrom International Airport (AUS)",
-        "Pet relief areas on airport grounds; confirm austintexas.gov/airport maps.",
-        "aus"
-      ],
-      "sections": [
-        {
-          "id": "airport",
-          "h": "Austin-Bergstrom International Airport (AUS) pet relief areas",
-          "src": "aus",
-          "intro": "Pet relief areas on airport grounds; confirm austintexas.gov/airport maps.",
-          "items": [
-            "Pet relief areas on airport grounds; confirm austintexas.gov/airport maps.",
-            "Confirm current maps on the official airport site before you fly."
-          ]
-        }
-      ],
-      "faq": [
-        [
-          "Do hotels in Austin take pets?",
-          "Many do, but fees, weight limits and the number of pets change by hotel. The luxury hotels below publish their own rules (checked Nov 2, 2026). Always confirm with the hotel before you pay.",
-          null
-        ]
-      ],
-      "luxury": [
-        {
-          "id": "hotel-van-zandt",
-          "name": "Hotel Van Zandt",
-          "brand": "Kimpton (IHG) · Rainey Street",
-          "area": null,
-          "fee": "$100 pet fee (10% donated to Austin Animal Center); per-stay vs per-night not stated",
-          "deposit": null,
-          "weight": "No weight, height or breed restrictions",
-          "pets": "2 dogs per room",
-          "species": "Dogs only",
-          "amenities": null,
-          "restrictions": "Release form at check-in; leashed in public spaces; no dogs on pool deck, in pool or inside Geraldine&rsquo;s.",
-          "note": null,
-          "check": false,
-          "source": "https://www.hotelvanzandt.com/stay/dog-friendly-stays/",
-          "source2": "https://www.hotelvanzandt.com/faqs/",
-          "expedia_target": "https://www.expedia.com/Austin-Hotels-Hotel-Van-Zandt.h10269315.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "fairmont-austin",
-          "name": "Fairmont Austin",
-          "brand": "Fairmont (Accor) · Downtown",
-          "area": null,
-          "fee": "$100 one-time fee",
-          "deposit": null,
-          "weight": "25 lb per pet",
-          "pets": "Up to 2",
-          "species": null,
-          "amenities": null,
-          "restrictions": "Leashed at all times; not left unattended in the room.",
-          "note": null,
-          "check": false,
-          "source": "https://www.fairmont-austin.com/stay/guest-services/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Austin-Hotels-Fairmont-Austin.h18156638.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "line-austin",
-          "name": "The LINE Austin",
-          "brand": "The LINE (Sydell Group) · Downtown, Lady Bird Lake",
-          "area": null,
-          "fee": "Free (no pet fee)",
-          "deposit": null,
-          "weight": "No weight limit",
-          "pets": null,
-          "species": "Dogs and cats (&ldquo;all pets&rdquo;)",
-          "amenities": null,
-          "restrictions": "Courtesy bags, bowls and treats from the front desk.",
-          "note": null,
-          "check": false,
-          "source": "https://www.thelinehotel.com/austin/amenities/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Austin-Hotels-The-LINE-Austin.h23193716.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "south-congress-hotel",
-          "name": "South Congress Hotel",
-          "brand": "Independent · South Congress",
-          "area": null,
-          "fee": "No extra charge",
-          "deposit": null,
-          "weight": null,
-          "pets": null,
-          "species": "Dogs only",
-          "amenities": null,
-          "restrictions": "Dogs attended at all times; never in food service areas.",
-          "note": null,
-          "check": false,
-          "source": "https://southcongresshotel.com/amenities",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Austin-Hotels-South-Congress-Hotel.h9869259.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "hotel-saint-cecilia",
-          "name": "Hotel Saint Cecilia",
-          "brand": "Bunkhouse · Travis Heights / SoCo",
-          "area": null,
-          "fee": "&ldquo;A small fee&rdquo;: amount not stated on the official page",
-          "deposit": null,
-          "weight": null,
-          "pets": null,
-          "species": "Dogs only (&ldquo;well-behaved dogs&rdquo;)",
-          "amenities": null,
-          "restrictions": "Bed and bowl supplied.",
-          "note": null,
-          "check": false,
-          "source": "https://www.bunkhousehotels.com/hotel-saint-cecilia/faq",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Austin-Hotels-Hotel-Saint-Cecilia.h3389409.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        }
-      ]
-    },
-    {
-      "slug": "detroit",
-      "name": "Detroit",
-      "state": "Michigan",
-      "short": "Detroit, MI",
-      "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Detroit%2C%20Michigan&amenities=PETS",
-      "lead": "Detroit and downtown Midtown hotels increasingly list pet fees online. Below: verified hotels with published rules, plus DTW tips.",
-      "quick_city": [
-        "Detroit Metropolitan Wayne County Airport (DTW)",
-        "Pet relief areas landside and airside; confirm metroairport.com maps.",
-        "dtw"
-      ],
-      "sections": [
-        {
-          "id": "airport",
-          "h": "Detroit Metropolitan Wayne County Airport (DTW) pet relief areas",
-          "src": "dtw",
-          "intro": "Pet relief areas landside and airside; confirm metroairport.com maps.",
-          "items": [
-            "Pet relief areas landside and airside; confirm metroairport.com maps.",
-            "Confirm current maps on the official airport site before you fly."
-          ]
-        }
-      ],
-      "faq": [
-        [
-          "Do hotels in Detroit take pets?",
-          "Many do, but fees, weight limits and the number of pets change by hotel. The luxury hotels below publish their own rules (checked Nov 2, 2026). Always confirm with the hotel before you pay.",
-          null
-        ]
-      ],
-      "luxury": [
-        {
-          "id": "shinola-hotel",
-          "name": "Shinola Hotel",
-          "brand": "Independent · Downtown, Woodward Ave",
-          "area": null,
-          "fee": "$125 + tax pet fee ($25 donated to Michigan Humane); per stay",
-          "deposit": null,
-          "weight": "No weight or breed restrictions",
-          "pets": "Up to 2 dogs",
-          "species": "Dogs only",
-          "amenities": null,
-          "restrictions": "Fourth-floor pet terrace; bandana, bed and bowls provided.",
-          "note": null,
-          "check": false,
-          "source": "https://www.shinolahotel.com/stay/pet-friendly",
-          "source2": "https://www.shinolahotel.com/about/faq",
-          "expedia_target": "https://www.expedia.com/Detroit-Hotels-Shinola-Hotel.h31942185.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "detroit-foundation-hotel",
-          "name": "Detroit Foundation Hotel",
-          "brand": "Independent · Downtown",
-          "area": null,
-          "fee": "$75 non-refundable cleaning fee, per stay",
-          "deposit": null,
-          "weight": "50 lb per pet",
-          "pets": "Up to 2 per room",
-          "species": "Not stated (page describes dog amenities)",
-          "amenities": null,
-          "restrictions": "Service animals welcome.",
-          "note": null,
-          "check": false,
-          "source": "https://detroitfoundationhotel.com/faq/",
-          "source2": "https://detroitfoundationhotel.com/experience/pets/",
-          "expedia_target": "https://www.expedia.com/Detroit-Hotels-Detroit-Foundation-Hotel.h17271551.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "siren-hotel",
-          "name": "The Siren Hotel",
-          "brand": "ASH Hotels · Downtown",
-          "area": null,
-          "fee": "$45 per stay, all pets ($15 donated to Michigan Humane)",
-          "deposit": null,
-          "weight": null,
-          "pets": null,
-          "species": "Not stated (&ldquo;a dog friendly Detroit hotel&rdquo;)",
-          "amenities": null,
-          "restrictions": "Pets never left unattended; housekeeping only when the pet is out.",
-          "note": null,
-          "check": false,
-          "source": "https://ash.world/hotels/the-siren/guest-services/pet-friendly/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Detroit-Hotels-The-Siren-Hotel.h19365870.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "godfrey-detroit",
-          "name": "The Godfrey Detroit, Curio Collection by Hilton",
-          "brand": "Curio (Hilton) · Corktown",
-          "area": null,
-          "fee": "$75 non-refundable (per pet / per stay not stated)",
-          "deposit": null,
-          "weight": "50 lb (max size: medium)",
-          "pets": null,
-          "species": null,
-          "amenities": null,
-          "restrictions": "&mdash;",
-          "note": null,
-          "check": false,
-          "source": "https://www.hilton.com/en/hotels/dtwktqq-the-godfrey-detroit/hotel-info/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Detroit-Hotels-The-Godfrey-Detroit.h91827903.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "westin-book-cadillac",
-          "name": "The Westin Book Cadillac Detroit",
-          "brand": "Westin (Marriott) · Downtown",
-          "area": null,
-          "fee": "$50 non-refundable per night, max $150",
-          "deposit": null,
-          "weight": "Under 40 lb",
-          "pets": "1 per room",
-          "species": "Dogs only",
-          "amenities": null,
-          "restrictions": "Signed waiver; subject to pet-friendly room availability at booking.",
-          "note": null,
-          "check": false,
-          "source": "https://www.marriott.com/en-us/hotels/dtwcw-the-westin-book-cadillac-detroit/overview/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Detroit-Hotels-The-Westin-Book-Cadillac-Detroit.h2227690.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        }
-      ]
-    },
-    {
-      "slug": "houston",
-      "name": "Houston",
-      "state": "Texas",
-      "short": "Houston, TX",
-      "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Houston%2C%20Texas&amenities=PETS",
-      "lead": "Houston luxury and boutique hotels often publish clear pet fees. Below: verified hotels with published rules, plus IAH tips.",
-      "quick_city": [
-        "George Bush Intercontinental Airport (IAH)",
-        "Pet relief areas across terminals; confirm fly2houston.com maps.",
-        "iah"
-      ],
-      "sections": [
-        {
-          "id": "airport",
-          "h": "George Bush Intercontinental Airport (IAH) pet relief areas",
-          "src": "iah",
-          "intro": "Pet relief areas across terminals; confirm fly2houston.com maps.",
-          "items": [
-            "Pet relief areas across terminals; confirm fly2houston.com maps.",
-            "Confirm current maps on the official airport site before you fly."
-          ]
-        }
-      ],
-      "faq": [
-        [
-          "Do hotels in Houston take pets?",
-          "Many do, but fees, weight limits and the number of pets change by hotel. The luxury hotels below publish their own rules (checked Nov 2, 2026). Always confirm with the hotel before you pay.",
-          null
-        ]
-      ],
-      "luxury": [
-        {
-          "id": "hotel-zaza-museum-district",
-          "name": "Hotel ZaZa Houston Museum District",
-          "brand": "Independent · Museum District",
-          "area": null,
-          "fee": "$100 one-time, non-refundable deposit per pet",
-          "deposit": null,
-          "weight": "All sizes",
-          "pets": null,
-          "species": "Dogs and cats",
-          "amenities": null,
-          "restrictions": "&mdash;",
-          "note": null,
-          "check": false,
-          "source": "https://www.hotelzaza.com/houston-museum-district/faq",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Houston-Hotels-Hotel-Zaza-Houston-Museum-District.h3306.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "hotel-granduca",
-          "name": "Hotel Granduca Houston",
-          "brand": "Independent · Uptown",
-          "area": null,
-          "fee": "$150 cleaning fee per dog, per stay",
-          "deposit": null,
-          "weight": "Under 100 lb",
-          "pets": null,
-          "species": "Dogs only",
-          "amenities": null,
-          "restrictions": "&mdash;",
-          "note": null,
-          "check": false,
-          "source": "https://www.granducahouston.com/faq",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Houston-Hotels-Hotel-Granduca-Houston.h1503827.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "post-oak-hotel",
-          "name": "The Post Oak Hotel at Uptown Houston",
-          "brand": "Landry&rsquo;s · Uptown / Galleria",
-          "area": null,
-          "fee": "$150 + tax cleaning fee (signed waiver)",
-          "deposit": null,
-          "weight": "75 lb",
-          "pets": "2 per designated room",
-          "species": "Dogs only",
-          "amenities": null,
-          "restrictions": "Pet bed, bowls and pet in-room dining menu.",
-          "note": null,
-          "check": false,
-          "source": "https://www.thepostoakhotel.com/experience/pet-friendly/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Houston-Hotels-The-Post-Oak-Hotel-At-Uptown-Houston.h22340244.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "hilton-post-oak",
-          "name": "Hilton Houston Post Oak by the Galleria",
-          "brand": "Hilton · Uptown / Galleria",
-          "area": null,
-          "fee": "$75 non-refundable (per stay / per night not stated)",
-          "deposit": null,
-          "weight": "75 lb (max size: large)",
-          "pets": null,
-          "species": null,
-          "amenities": null,
-          "restrictions": "&mdash;",
-          "note": null,
-          "check": false,
-          "source": "https://www.hilton.com/en/hotels/iahwshh-hilton-houston-post-oak-by-the-galleria/hotel-info/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Houston-Hotels-Hilton-Houston-Post-Oak-By-The-Galleria.h25502.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        },
-        {
-          "id": "laura-hotel",
-          "name": "The Laura Hotel, Houston Downtown, Autograph Collection",
-          "brand": "Autograph Collection (Marriott) · Downtown",
-          "area": null,
-          "fee": "$100 non-refundable, per stay",
-          "deposit": null,
-          "weight": "75 lb total",
-          "pets": "Up to 2 dogs",
-          "species": "Dogs only",
-          "amenities": null,
-          "restrictions": "Service animals welcome without fee.",
-          "note": null,
-          "check": false,
-          "source": "https://www.marriott.com/en-us/hotels/houkd-the-laura-hotel-houston-downtown-autograph-collection/overview/",
-          "source2": null,
-          "expedia_target": "https://www.expedia.com/Houston-Hotels-The-Laura-Hotel.h20052335.Hotel-Information",
-          "expedia_is_property": true,
-          "checked": "2026-11-02"
-        }
-      ]
+     "id": "chains-here",
+     "h": "Chain notes for Orlando",
+     "src": "loews",
+     "intro": "",
+     "items": [
+      "Loews runs the hotels at Universal Orlando Resort (Portofino Bay, Hard Rock Hotel, Royal Pacific, Sapphire Falls, Cabana Bay and others); they appear on the Loews Loves Pets page. Loews allows up to 2 pets per room with up-to-date vaccinations, and property-specific rules and cleaning fees may apply, so confirm with your Universal hotel."
+     ]
     }
-  ],
-  "sources": {
-    "mco": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
-    "ocfl": "https://www.ocfl.net/CultureParks/DogParks.aspx",
-    "loews": "https://www.loewshotels.com/loews-loves-pets",
-    "jfk": "https://www.jfkairport.com/explore-jfk/accessibility-services",
-    "nycparks": "https://www.nycgovparks.org/facilities/dogareas",
-    "laquinta": "https://www.wyndhamhotels.com/laquinta/about-us/pet-friendly/pet-policy-details",
-    "fs_nyd": "https://www.fourseasons.com/newyorkdowntown/services-and-amenities/pet-friendly-stays/",
-    "mia": "https://www.miami-airport.com/map-animal-relief-areas.asp",
-    "mdparks": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1470943010772421",
-    "fs_mia": "https://www.fourseasons.com/miami/services-and-amenities/pet-friendly-stays/",
-    "lax": {
-      "name": "Los Angeles World Airports (LAX)",
-      "url": "https://www.flylax.com/lax-accessibility-services"
+   ],
+   "faq": [
+    [
+     "Where can my dog go to the bathroom at Orlando airport (MCO)?",
+     "MCO has relief areas before security at Terminal A and B (Level 2) and the North Cell Phone Lot, after security near Gates 20-29, 40-49, 90-99 and across from Gate 121, and in Terminal C near Gates C238, C241 and C242 and on Level 6.",
+     "mco"
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "ritz-carlton-orlando-grande-lakes",
+     "name": "The Ritz-Carlton Orlando, Grande Lakes",
+     "brand": "Ritz-Carlton (Marriott)",
+     "area": "Grande Lakes, south Orlando",
+     "fee": "$250 non-refundable, per room per stay",
+     "deposit": null,
+     "weight": "25 lb",
+     "pets": "1 per room",
+     "species": "Dog or cat",
+     "amenities": null,
+     "restrictions": "Service animals welcome without a fee or documentation.",
+     "note": "The Grande Lakes resort FAQ says two cats or dogs per room (same $250 fee), while the Ritz-Carlton page says one: confirm with the hotel.",
+     "check": false,
+     "source": "https://www.ritzcarlton.com/en/hotels/mcorz-the-ritz-carlton-orlando-grande-lakes/overview/",
+     "source2": "https://www.grandelakes.com/frequently-asked-questions",
+     "expedia_target": "https://www.expedia.com/Orlando-Hotels-The-Ritz-Carlton-Orlando.h914146.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
     },
-    "ord": {
-      "name": "Chicago Department of Aviation (O'Hare)",
-      "url": "https://www.flychicago.com/ohare/servicesamenities/petrelief/pages/default.aspx"
+    {
+     "id": "waldorf-astoria-orlando",
+     "name": "Waldorf Astoria Orlando",
+     "brand": "Waldorf Astoria (Hilton)",
+     "area": "Bonnet Creek, near Walt Disney World",
+     "fee": "$125 for 1-5 nights, $250 for 6+ nights (non-refundable)",
+     "deposit": null,
+     "weight": "40 lb combined",
+     "pets": "2 per room",
+     "species": "Dogs only",
+     "amenities": "Pet amenities at check-in; designated pet areas on the grounds.",
+     "restrictions": "Up-to-date vaccinations; leash or carrier outside the room; never left alone in the room; pet must be crated or secured before staff enter; no pets in pools, pool decks, restaurants or food and drink areas; \"Pet Inside\" door hanger for the whole stay.",
+     "note": null,
+     "check": false,
+     "source": "https://www.waldorfastoriaorlando.com/wp-content/uploads/2022/11/Waldorf-Astoria-Orlando-Pet-Policy-1.pdf",
+     "source2": "https://www.hilton.com/en/hotels/orlbcwa-waldorf-astoria-orlando/resort/",
+     "expedia_target": "https://www.expedia.com/Orlando-Hotels-Waldorf-Astoria-Orlando.h2432727.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
     },
-    "aus": {
-      "name": "Austin-Bergstrom International Airport",
-      "url": "https://www.austintexas.gov/department/airport"
-    },
-    "dtw": {
-      "name": "Detroit Metro Airport (DTW)",
-      "url": "https://www.metroairport.com/"
-    },
-    "iah": {
-      "name": "Houston Airport System (IAH)",
-      "url": "https://www.fly2houston.com/iah"
+    {
+     "id": "four-seasons-orlando",
+     "name": "Four Seasons Resort Orlando at Walt Disney World Resort",
+     "brand": "Four Seasons",
+     "area": "Golden Oak, Walt Disney World",
+     "fee": null,
+     "deposit": null,
+     "weight": "25 lb",
+     "pets": "1",
+     "species": "Not stated (the pet menu has dishes for cats and dogs)",
+     "amenities": "In-room dining pet menu for cats and dogs (USD 8-16 per dish); custom meals with notice.",
+     "restrictions": null,
+     "note": null,
+     "check": false,
+     "source": "https://www.fourseasons.com/orlando/accommodations/accessible_rooms/",
+     "source2": "https://www.fourseasons.com/orlando/dining/in-room_dining/in-room_dining/pets/",
+     "expedia_target": "https://www.expedia.com/Orlando-Hotels-Four-Seasons-Resort-Orlando-At-WALT-DISNEY-WORLD-Resort.h7374428.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
     }
+   ]
   },
-  "luxury_brands": [
+  {
+   "slug": "new-york",
+   "name": "New York City",
+   "state": "New York",
+   "short": "New York City",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=New%20York%2C%20New%20York%2C%20United%20States%20of%20America&amenities=PETS",
+   "lead": "New York City is the second most-searched US city for pet-friendly hotels. Space is tight and rules vary a lot by hotel, and some budget chains' NYC locations take no pets at all. Below: each chain's brand-wide rules from its official site, plus sourced NYC tips for JFK and the city's dog rules.",
+   "quick_city": [
+    "NYC dog rules",
+    "Dogs must be on a leash of 6 ft or less in city parks except in dog runs and off-leash areas (park opening to 9 a.m. and 9 p.m. to closing). NYC requires owners to carry proof of a current dog license and rabies vaccination in public.",
+    "nycparks"
+   ],
+   "sections": [
     {
-      "brand": "Four Seasons",
-      "text": "No single brand rule: each hotel sets its own (Orlando: 1 pet up to 25 lb; New York Downtown: dogs and cats under 25 lb; Miami: pet-friendly rooms, details not published).",
-      "source": "https://www.fourseasons.com/orlando/accommodations/accessible_rooms/"
+     "id": "airport",
+     "h": "JFK Airport pet relief areas",
+     "src": "jfk",
+     "intro": "JFK says Service Animal Relief Areas are available at all terminals for service animals and pets, with indoor and outdoor spaces, artificial grass, sinks and waste stations. Use JFK's interactive map to find the one nearest your gate.",
+     "items": []
     },
     {
-      "brand": "Ritz-Carlton, St. Regis, EDITION (Marriott)",
-      "text": "Set per hotel and shown on each hotel’s Marriott page: e.g. Ritz-Carlton New York, Central Park takes 2 pets up to 60 lb for $300, while The St. Regis New York takes no pets.",
-      "source": "https://www.marriott.com/en-us/hotels/nycxr-the-st-regis-new-york/overview/"
+     "id": "parks",
+     "h": "Dogs in NYC parks",
+     "src": "nycparks",
+     "intro": "NYC Parks rules for dogs, from the official NYC Parks page:",
+     "items": [
+      "Leash of no more than 6 feet at all times, except in dog runs (fenced, off-leash during park hours) and designated off-leash areas from park opening to 9 a.m. and from 9 p.m. to closing.",
+      "Carry proof of a current dog license and rabies vaccination while in public (NYC Health Code).",
+      "No dogs in playgrounds, fountains, ball fields, courts, pools or on NYC beaches in summer; dogs may go on the sand from October 2 to the Friday before Memorial Day.",
+      "Manhattan dog runs include Madison Square Park, Washington Square Park, Tribeca (Warren St), Riverside Park (W 72nd, 87th and 105th St), Theodore Roosevelt Park (CPW at W 81st St) and Hudson River Park (Pier 40 and Pier 84).",
+      "Central Park has no fenced dog run but 23 dog-friendly areas (see the Central Park Conservancy's guide linked from NYC Parks)."
+     ]
     },
     {
-      "brand": "Waldorf Astoria (Hilton)",
-      "text": "Hilton says pet fees apply and vary by hotel; Waldorf Astoria Orlando takes 2 dogs, 40 lb combined, $125-$250 per stay.",
-      "source": "https://www.hilton.com/en/pet-friendly/"
-    },
-    {
-      "brand": "1 Hotels",
-      "text": "Brand page: no extra pet fees and up to two dogs, but policies vary by location (1 Hotel Brooklyn Bridge adds a $250 cleaning fee if the room gets dirty).",
-      "source": "https://www.1hotels.com/pets"
-    },
-    {
-      "brand": "Kimpton (IHG)",
-      "text": "No pet fee, no deposit and no size, weight or number limit, brand-wide; Kimpton EPIC Miami confirms this on its own page.",
-      "source": "https://www.ihg.com/kimptonhotels/content/us/en/promos/pet-friendly-hotels"
-    },
-    {
-      "brand": "Loews Hotels",
-      "text": "Up to 2 pets per room and up-to-date vaccinations; Loews says cleaning fees and property rules may apply (Loews Miami Beach: $50 per stay).",
-      "source": "https://www.loewshotels.com/loews-loves-pets"
-    },
-    {
-      "brand": "The Peninsula, Aman, Mandarin Oriental, Faena",
-      "text": "Rules are published per hotel, not brand-wide: see the New York and Miami pages for each hotel's own fee, weight and number limits.",
-      "source": "https://www.aman.com/hotels/aman-new-york/policy"
+     "id": "chains-here",
+     "h": "Chain notes for New York City",
+     "src": "laquinta",
+     "intro": "",
+     "items": [
+      "La Quinta lists these NYC-area hotels as taking no pets: La Quinta by Wyndham New York City Central Park, La Quinta Inn by Wyndham Queens (New York City), La Quinta by Wyndham Brooklyn Downtown and Brooklyn East (also White Plains - Elmsford).",
+      [
+       "Four Seasons Hotel New York Downtown welcomes dogs and cats under 25 lb.",
+       "fs_nyd"
+      ],
+      [
+       "Loews Regency New York (Park Avenue) appears on the Loews Loves Pets page: up to 2 pets, vaccinations required, property rules and fees may apply.",
+       "loews"
+      ]
+     ]
     }
-  ]
+   ],
+   "faq": [
+    [
+     "Are there pet relief areas at JFK?",
+     "Yes. JFK says Service Animal Relief Areas for service animals and pets are available at all terminals, with indoor and outdoor spaces, artificial grass, sinks and waste stations.",
+     "jfk"
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "peninsula-new-york",
+     "name": "The Peninsula New York",
+     "brand": "The Peninsula",
+     "area": "Fifth Avenue, Midtown",
+     "fee": "$150 per stay",
+     "deposit": null,
+     "weight": "65 lb",
+     "pets": "1 per room",
+     "species": "Dog or cat",
+     "amenities": "Pet bed, food and water bowls; dog menu on request; dog walking by a Peninsula Page (extra fee, book ahead).",
+     "restrictions": "Not in restaurants, banquet rooms, the spa or fitness center; carry your pet or use a carrier in the hotel; not alone in the room for more than 2 hours, and then in a carrier or crate.",
+     "note": null,
+     "check": false,
+     "source": "https://www.peninsula.com/en/new-york/our-city/pencities/pet-friendly-activity",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/New-York-Hotels-The-Peninsula-New-York.h23855.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
+    },
+    {
+     "id": "ritz-carlton-new-york-central-park",
+     "name": "The Ritz-Carlton New York, Central Park",
+     "brand": "Ritz-Carlton (Marriott)",
+     "area": "Central Park South",
+     "fee": "$300 non-refundable, per room per stay",
+     "deposit": null,
+     "weight": "60 lb per pet",
+     "pets": "2 per room",
+     "species": "Not stated",
+     "amenities": null,
+     "restrictions": "Signed pet agreement required. Service animals welcome without a fee or documentation.",
+     "note": null,
+     "check": false,
+     "source": "https://www.ritzcarlton.com/en/hotels/nyccp-the-ritz-carlton-new-york-central-park/overview/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/New-York-Hotels-The-Ritz-Carlton-New-York.h807655.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
+    },
+    {
+     "id": "aman-new-york",
+     "name": "Aman New York",
+     "brand": "Aman",
+     "area": "Fifth Avenue, Midtown",
+     "fee": "$350 non-refundable per stay",
+     "deposit": null,
+     "weight": "50 lb (22 kg) per dog",
+     "pets": "2 per suite",
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Pet Registration Card; never left alone in the suite; leash or carrier in public areas and during housekeeping; not on furniture or in the pool; not allowed in rental-programme homes; damage: up to two nights’ rate plus a $500 deep-cleaning fee.",
+     "note": null,
+     "check": false,
+     "source": "https://www.aman.com/hotels/aman-new-york/policy",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Aman%20New%20York&amenities=PETS",
+     "expedia_is_property": false,
+     "checked": "2026-10-24"
+    },
+    {
+     "id": "mandarin-oriental-new-york",
+     "name": "Mandarin Oriental, New York",
+     "brand": "Mandarin Oriental",
+     "area": "Columbus Circle",
+     "fee": "No additional fee (hotel website)",
+     "deposit": null,
+     "weight": null,
+     "pets": null,
+     "species": "Not stated (\"four-legged family members\")",
+     "amenities": "Beds and bowls; pet menu; pet-sitting (3-hour minimum) and dog walking up to 60 minutes for an extra fee.",
+     "restrictions": "The hotel says pet policies may apply and reservations will give full details before arrival.",
+     "note": "Expedia’s listing shows different terms (dogs only, up to 25 lb, $250 per stay). Confirm with the hotel before booking.",
+     "check": true,
+     "source": "https://www.mandarinoriental.com/en/new-york/manhattan/family",
+     "source2": "https://www.mandarinoriental.com/en/new-york/manhattan/stay",
+     "expedia_target": "https://www.expedia.com/New-York-Hotels-Mandarin-Oriental.h916343.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
+    },
+    {
+     "id": "faena-new-york",
+     "name": "Faena New York",
+     "brand": "Faena",
+     "area": "West Chelsea, by the High Line",
+     "fee": "$250 non-refundable",
+     "deposit": null,
+     "weight": "25 lb",
+     "pets": null,
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Pet guidelines may change with local government ordinances.",
+     "note": null,
+     "check": false,
+     "source": "https://www.faena.com/hotel-policies",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/New-York-Hotels-Faena-New-York.h113374981.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
+    },
+    {
+     "id": "four-seasons-new-york-downtown",
+     "name": "Four Seasons Hotel New York Downtown",
+     "brand": "Four Seasons",
+     "area": "Tribeca / World Trade Center",
+     "fee": null,
+     "deposit": null,
+     "weight": "Under 25 lb",
+     "pets": null,
+     "species": "Dogs and cats",
+     "amenities": "Dog walking and pet-sitting can be arranged.",
+     "restrictions": null,
+     "note": null,
+     "check": false,
+     "source": "https://www.fourseasons.com/newyorkdowntown/services-and-amenities/pet-friendly-stays/",
+     "source2": "https://www.fourseasons.com/newyorkdowntown/accommodations/accessible_rooms/",
+     "expedia_target": "https://www.expedia.com/New-York-Hotels-Four-Seasons-Hotel-New-York-Downtown.h15438428.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
+    },
+    {
+     "id": "1-hotel-brooklyn-bridge",
+     "name": "1 Hotel Brooklyn Bridge",
+     "brand": "1 Hotels",
+     "area": "Brooklyn Bridge Park, Dumbo",
+     "fee": "No pet fee; $250 cleaning fee if the room gets dirty",
+     "deposit": null,
+     "weight": null,
+     "pets": "Up to 2",
+     "species": "Dogs (the page says \"pups\")",
+     "amenities": "Welcome amenity; beds, bowls, poo bags and food available; treats and a dog-friendly concierge.",
+     "restrictions": "Leash or carrier in public spaces; not in dining areas or the fitness center; a person must be present when staff enter; never left unattended. Add your pet to the reservation.",
+     "note": null,
+     "check": false,
+     "source": "https://www.1hotels.com/brooklyn-bridge/pet-friendly",
+     "source2": "https://www.1hotels.com/brooklyn-bridge/policies",
+     "expedia_target": "https://www.expedia.com/New-York-Hotels-1-Hotel-Brooklyn-Bridge.h15399642.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
+    }
+   ],
+   "luxury_not": [
+    {
+     "name": "The St. Regis New York",
+     "text": "Pets not allowed (service animals welcome).",
+     "source": "https://www.marriott.com/en-us/hotels/nycxr-the-st-regis-new-york/overview/"
+    }
+   ]
+  },
+  {
+   "slug": "miami",
+   "name": "Miami",
+   "state": "Florida",
+   "short": "Miami, FL",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Miami%2C%20Florida%2C%20United%20States%20of%20America&amenities=PETS",
+   "lead": "Miami rounds out our top three US cities for pet-friendly hotel searches. Beach and luxury hotels often have stricter pet rules than airport and highway chains, so compare the brand rules below and confirm with your hotel. Below: each chain's brand-wide rules from its official site, plus sourced Miami tips for MIA and county dog parks.",
+   "quick_city": [
+    "Miami International Airport (MIA)",
+    "3 outdoor relief areas on Level 1 Baggage Claim/Arrivals (near D, F and J; the J area is temporarily closed for construction) and 4 indoor ones after security (D34, F7, G11, H-J connector).",
+    "mia"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "Miami International Airport (MIA) pet relief areas",
+     "src": "mia",
+     "intro": "MIA lists these service animal and pet relief areas:",
+     "items": [
+      "Outdoor, near parking (Level 1 Baggage Claim/Arrivals): west of the North (Dolphin) garage near Terminal D, across from Door 5; west of the South Short Term lot near Terminal F, across from Door 15; south of the Flamingo garage near Terminal J, across from Door 28 (temporarily closed for construction).",
+      "Indoor, after security: North Terminal (D) near Gate D34; Concourse F near Gate F7; Concourse G near Gate G11; Concourse H-J connector, across from the InMotion store."
+     ]
+    },
+    {
+     "id": "parks",
+     "h": "Miami-Dade County dog parks",
+     "src": "mdparks",
+     "intro": "Miami-Dade Parks has three kinds of dog parks. Posted rules: vaccinations up to date, a current rabies tag on the collar, leash until inside the fence, no more than 3 dogs per person, no puppies under 4 months. The county page also still lists 'Pitbulls are not allowed', citing the county ordinance. A 2023 Florida law (HB 941) ended local breed-specific bans, so this line may be outdated: ask the park before you go.",
+     "items": [
+      "Free-roaming dog parks: Haulover Park (10800 Collins Ave.), Tropical Park (7900 SW 40 St.), Amelia Earhart Park (401 E 65 St., Hialeah), East Greynolds Park (16700 Biscayne Blvd., North Miami Beach), West Kendall District Park (11255 SW 157 Ave).",
+      "Dog run park (no water or bag dispensers): Lago Mar Park (8165 SW 162 Ave.).",
+      "Haulover Park also has a dog beach with its own rules (linked from the county page)."
+     ]
+    },
+    {
+     "id": "chains-here",
+     "h": "Chain notes for Miami",
+     "src": "loews",
+     "intro": "",
+     "items": [
+      "Loews Miami Beach Hotel (South Beach) and Loews Coral Gables Hotel appear on the Loews Loves Pets page: up to 2 pets, vaccinations required, property rules and cleaning fees may apply.",
+      [
+       "Four Seasons Hotel Miami lists pet-friendly rooms but no weight or fee on its amenities page: ask the hotel.",
+       "fs_mia"
+      ]
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Where are the pet relief areas at Miami airport (MIA)?",
+     "Outdoor on Level 1 Baggage Claim/Arrivals across from Doors 5 and 15 (the Door 28 area is temporarily closed), and indoor after security near Gates D34, F7, G11 and the H-J connector.",
+     "mia"
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "faena-miami-beach",
+     "name": "Faena Hotel Miami Beach",
+     "brand": "Faena",
+     "area": "Mid-Beach, Collins Avenue",
+     "fee": "$25 per night",
+     "deposit": "$250 non-refundable deposit",
+     "weight": "25 lb",
+     "pets": null,
+     "species": "Not stated (\"four legged furry travelers\")",
+     "amenities": null,
+     "restrictions": "Pet admission may change with local government ordinances.",
+     "note": null,
+     "check": false,
+     "source": "https://www.faena.com/hotel-policies",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Miami-Hotels-Faena-Miami-Beach.h10344566.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
+    },
+    {
+     "id": "1-hotel-south-beach",
+     "name": "1 Hotel South Beach",
+     "brand": "1 Hotels",
+     "area": "South Beach, Collins Avenue",
+     "fee": "No extra fee (damage or extra cleaning may be charged)",
+     "deposit": null,
+     "weight": "50 lb",
+     "pets": "Up to 2",
+     "species": "Dogs (\"pups\")",
+     "amenities": "Beds, bowls, poo bags and food available; treats and a dog-friendly concierge.",
+     "restrictions": "Leash or carrier in public spaces; under state law, not poolside or on the beach; a person must be present when staff enter; never left unattended. The $72 daily resort fee is not a pet fee.",
+     "note": null,
+     "check": false,
+     "source": "https://www.1hotels.com/south-beach/pet-friendly",
+     "source2": "https://www.1hotels.com/south-beach/policies",
+     "expedia_target": "https://www.expedia.com/Miami-Hotels-1-Hotel-South-Beach.h1790087.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
+    },
+    {
+     "id": "ritz-carlton-south-beach",
+     "name": "The Ritz-Carlton, South Beach",
+     "brand": "Ritz-Carlton (Marriott)",
+     "area": "South Beach, Lincoln Road",
+     "fee": "$250 non-refundable per stay",
+     "deposit": null,
+     "weight": "35 lb",
+     "pets": "2 per room",
+     "species": "Dogs and cats",
+     "amenities": null,
+     "restrictions": "Service animals welcome without a fee or documentation.",
+     "note": null,
+     "check": false,
+     "source": "https://www.ritzcarlton.com/en/hotels/miasb-the-ritz-carlton-south-beach/overview/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Miami-Hotels-The-Ritz-Carlton.h582845.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
+    },
+    {
+     "id": "miami-beach-edition",
+     "name": "The Miami Beach EDITION",
+     "brand": "EDITION (Marriott)",
+     "area": "Mid-Beach, Collins Avenue",
+     "fee": "$250 non-refundable per stay",
+     "deposit": null,
+     "weight": "25 lb",
+     "pets": "1 per room",
+     "species": "Not stated",
+     "amenities": null,
+     "restrictions": "Service animals welcome without a fee or documentation.",
+     "note": null,
+     "check": false,
+     "source": "https://www.marriott.com/en-us/hotels/miaeb-the-miami-beach-edition/overview/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Miami-Hotels-The-Miami-Beach-EDITION.h28105.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
+    },
+    {
+     "id": "kimpton-epic-miami",
+     "name": "Kimpton EPIC Hotel",
+     "brand": "Kimpton (IHG)",
+     "area": "Downtown Miami, Biscayne Bay",
+     "fee": "No fee, no deposit",
+     "deposit": null,
+     "weight": "No size, weight or breed limit",
+     "pets": "No limit",
+     "species": "All pets (\"furry, feathery, or even scaly\")",
+     "amenities": "Pet bed and bowl, VIP arrival amenity with a dog treat, door hangers; pets welcome at the nightly wine reception.",
+     "restrictions": "No on-site pet relief area (Bayfront dog park is under half a mile away, per the hotel).",
+     "note": null,
+     "check": false,
+     "source": "https://www.epichotel.com/pet-friendly/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Miami-Hotels-Kimpton-EPIC-Hotel.h2237168.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
+    },
+    {
+     "id": "loews-miami-beach",
+     "name": "Loews Miami Beach Hotel",
+     "brand": "Loews Hotels",
+     "area": "South Beach, Collins Avenue",
+     "fee": "$50 per stay",
+     "deposit": null,
+     "weight": null,
+     "pets": "2 per room",
+     "species": "Not stated",
+     "amenities": "Bowls and a treat for every pet.",
+     "restrictions": "Service animals are exempt from fees.",
+     "note": null,
+     "check": false,
+     "source": "https://www.loewshotels.com/miami-beach/faqs",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Miami-Hotels-Loews-Miami-Beach-Hotel-South-Beach.h81223.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-10-24"
+    },
+    {
+     "id": "four-seasons-miami",
+     "name": "Four Seasons Hotel Miami",
+     "brand": "Four Seasons",
+     "area": "Brickell",
+     "fee": null,
+     "deposit": null,
+     "weight": null,
+     "pets": null,
+     "species": null,
+     "amenities": null,
+     "restrictions": null,
+     "note": "The hotel site lists \"Pet-Friendly Rooms\" but gives no fee, weight or number of pets. Call the hotel.",
+     "check": true,
+     "source": "https://www.fourseasons.com/miami/services-and-amenities/pet-friendly-stays/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Four%20Seasons%20Hotel%20Miami%2C%20Brickell&amenities=PETS",
+     "expedia_is_property": false,
+     "checked": "2026-10-24"
+    }
+   ]
+  },
+  {
+   "slug": "los-angeles",
+   "name": "Los Angeles",
+   "state": "California",
+   "short": "Los Angeles, CA",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Los%20Angeles%2C%20California&amenities=PETS",
+   "lead": "Los Angeles is a major pet-travel hub. Chain fees and weight limits vary by brand; below are luxury and independent hotels with published pet rules, plus LAX tips.",
+   "quick_city": [
+    "Los Angeles International Airport (LAX)",
+    "Relief areas airside and landside; confirm terminal maps on flylax.com.",
+    "lax"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "Los Angeles International Airport (LAX) pet relief areas",
+     "src": "lax",
+     "intro": "Relief areas airside and landside; confirm terminal maps on flylax.com.",
+     "items": [
+      "Relief areas airside and landside; confirm terminal maps on flylax.com.",
+      "Confirm current maps on the official airport site before you fly."
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Do hotels in Los Angeles take pets?",
+     "Many do, but fees, weight limits and the number of pets change by hotel. The luxury hotels below publish their own rules (checked Nov 2, 2026). Always confirm with the hotel before you pay.",
+     null
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "hotel-figueroa",
+     "name": "Hotel Figueroa",
+     "brand": "Independent · Downtown LA",
+     "area": null,
+     "fee": "$50 non-refundable, per stay",
+     "deposit": null,
+     "weight": "Under 50 lb",
+     "pets": null,
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Pet-friendly waiver signed at check-in.",
+     "note": null,
+     "check": false,
+     "source": "https://www.hotelfigueroa.com/faq",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Los-Angeles-Hotels-Hotel-Figueroa.h8805682.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "loews-hollywood",
+     "name": "Loews Hollywood Hotel",
+     "brand": "Loews · Hollywood &amp; Highland",
+     "area": null,
+     "fee": "$100 non-refundable, per stay",
+     "deposit": null,
+     "weight": null,
+     "pets": "2 per room",
+     "species": "Dogs and cats (pet room-service menus for both)",
+     "amenities": null,
+     "restrictions": "Loews says to contact the hotel for its complete pet policy.",
+     "note": null,
+     "check": false,
+     "source": "https://www.loewshotels.com/hollywood-hotel/loews-loves-pets",
+     "source2": "https://www.loewshotels.com/Hollywood-Hotel",
+     "expedia_target": "https://www.expedia.com/Los-Angeles-Hotels-Loews-Hollywood-Hotel.h790158.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "kimpton-la-peer",
+     "name": "Kimpton La Peer Hotel",
+     "brand": "Kimpton (IHG) · West Hollywood",
+     "area": null,
+     "fee": "No pet fee, no deposit",
+     "deposit": null,
+     "weight": "No size or weight limit",
+     "pets": "No limit on number",
+     "species": "Dogs, cats and other pets",
+     "amenities": null,
+     "restrictions": "Pets may not be left unattended in the room; not allowed in indoor dining areas.",
+     "note": null,
+     "check": false,
+     "source": "https://www.lapeerhotel.com/los-angeles-luxury-hotel-amenities/pet-friendly/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Los-Angeles-Hotels-Kimpton-La-Peer-Hotel-West-Hollywood-By-IHG.h18156733.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "fairmont-century-plaza",
+     "name": "Fairmont Century Plaza",
+     "brand": "Fairmont (Accor) · Century City",
+     "area": null,
+     "fee": "No pet fee or cleaning fee (charges only for damage or extra cleaning)",
+     "deposit": null,
+     "weight": null,
+     "pets": null,
+     "species": "Not stated (&ldquo;four-legged companions&rdquo;)",
+     "amenities": null,
+     "restrictions": "Pets may not be left unattended in the guestroom.",
+     "note": null,
+     "check": false,
+     "source": "https://www.fairmontcenturyplaza.com/faqs/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Los-Angeles-Hotels-Fairmont-Century-Plaza.h12670.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "hotel-bel-air",
+     "name": "Hotel Bel-Air",
+     "brand": "Dorchester Collection · Bel-Air",
+     "area": null,
+     "fee": "$150 per stay",
+     "deposit": null,
+     "weight": "45 lb (20 kg) per dog",
+     "pets": "Up to 2 dogs",
+     "species": "Dogs only (fully house-trained)",
+     "amenities": null,
+     "restrictions": "Not left unattended; leashed in outdoor areas; owner responsible for damage.",
+     "note": null,
+     "check": false,
+     "source": "https://www.dorchestercollection.com/los-angeles/hotel-bel-air/overview",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Los-Angeles-Hotels-Hotel-Bel-Air-Dorchester-Collection.h34504.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "slug": "chicago",
+   "name": "Chicago",
+   "state": "Illinois",
+   "short": "Chicago, IL",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Chicago%2C%20Illinois&amenities=PETS",
+   "lead": "Chicago hotel pet policies vary widely downtown. Below: verified luxury and boutique hotels with published fees and weight limits, plus O'Hare tips.",
+   "quick_city": [
+    "Chicago O'Hare International Airport (ORD)",
+    "Pet relief areas before and after security; confirm flychicago.com maps.",
+    "ord"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "Chicago O'Hare International Airport (ORD) pet relief areas",
+     "src": "ord",
+     "intro": "Pet relief areas before and after security; confirm flychicago.com maps.",
+     "items": [
+      "Pet relief areas before and after security; confirm flychicago.com maps.",
+      "Confirm current maps on the official airport site before you fly."
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Do hotels in Chicago take pets?",
+     "Many do, but fees, weight limits and the number of pets change by hotel. The luxury hotels below publish their own rules (checked Nov 2, 2026). Always confirm with the hotel before you pay.",
+     null
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "kimpton-gray",
+     "name": "Kimpton Gray Hotel",
+     "brand": "Kimpton (IHG) · The Loop",
+     "area": null,
+     "fee": "No pet fee, no deposit",
+     "deposit": null,
+     "weight": "No size or weight limit (&ldquo;as long as they fit in the elevator&rdquo;)",
+     "pets": "No limit on number",
+     "species": "Dogs, cats and other pets",
+     "amenities": null,
+     "restrictions": "Pets may be left in the room only if crated and quiet; not allowed in dining areas.",
+     "note": null,
+     "check": false,
+     "source": "https://www.grayhotelchicago.com/chicago-luxury-hotels/pet-friendly/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Chicago-Hotels-Kimpton-Gray-Hotel.h13351499.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "loews-chicago",
+     "name": "Loews Chicago Hotel",
+     "brand": "Loews · Streeterville",
+     "area": null,
+     "fee": "$100 one-time, per stay",
+     "deposit": null,
+     "weight": null,
+     "pets": "2 per room",
+     "species": "Dogs and cats",
+     "amenities": null,
+     "restrictions": "Service animals exempt from fees.",
+     "note": null,
+     "check": false,
+     "source": "https://www.loewshotels.com/chicago-downtown/faqs",
+     "source2": "https://www.loewshotels.com/chicago-downtown/loews-loves-pets",
+     "expedia_target": "https://www.expedia.com/Chicago-Hotels-Loews-Chicago-Hotel.h9059537.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "peninsula-chicago",
+     "name": "The Peninsula Chicago",
+     "brand": "Peninsula · Magnificent Mile",
+     "area": null,
+     "fee": "Per pet, per stay: $350 + tax (30 lb and under); $500 + tax (31-50 lb)",
+     "deposit": null,
+     "weight": "50 lb",
+     "pets": null,
+     "species": "Not stated (welcome amenities mention a &ldquo;doggie and kitty&rdquo; menu)",
+     "amenities": null,
+     "restrictions": "Pet waiver signed on arrival.",
+     "note": null,
+     "check": false,
+     "source": "https://www.peninsula.com/en/chicago/pet-friendly-accommodations",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Chicago-Hotels-The-Peninsula-Chicago.h581213.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "langham-chicago",
+     "name": "The Langham, Chicago",
+     "brand": "Langham · River North",
+     "area": null,
+     "fee": "$150 non-refundable cleaning fee; $300 for stays of 7+ days",
+     "deposit": null,
+     "weight": "35 lb",
+     "pets": "2 per room",
+     "species": "Dogs and cats",
+     "amenities": null,
+     "restrictions": "Leashed in common areas; not allowed in restaurants, club lounge, spa, fitness studio or pool.",
+     "note": null,
+     "check": false,
+     "source": "https://www.langhamhotels.com/en/the-langham/chicago/policy/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Chicago-Hotels-The-Langham.h6309326.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "virgin-hotels-chicago",
+     "name": "Virgin Hotels Chicago",
+     "brand": "Virgin Hotels · The Loop",
+     "area": null,
+     "fee": "Not stated on the official page",
+     "deposit": null,
+     "weight": "No size or breed restrictions (brand page)",
+     "pets": null,
+     "species": "Dogs (brand page)",
+     "amenities": null,
+     "restrictions": "Leashed in public spaces.",
+     "note": null,
+     "check": false,
+     "source": "https://virginhotels.com/inside-your-hotel/pets/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Chicago-Hotels-Virgin-Hotels-Chicago.h9119528.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "slug": "austin",
+   "name": "Austin",
+   "state": "Texas",
+   "short": "Austin, TX",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Austin%2C%20Texas&amenities=PETS",
+   "lead": "Austin welcomes pets at many downtown and South Congress hotels. Below: verified hotels with published pet fees and weight limits, plus AUS tips.",
+   "quick_city": [
+    "Austin-Bergstrom International Airport (AUS)",
+    "Pet relief areas on airport grounds; confirm austintexas.gov/airport maps.",
+    "aus"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "Austin-Bergstrom International Airport (AUS) pet relief areas",
+     "src": "aus",
+     "intro": "Pet relief areas on airport grounds; confirm austintexas.gov/airport maps.",
+     "items": [
+      "Pet relief areas on airport grounds; confirm austintexas.gov/airport maps.",
+      "Confirm current maps on the official airport site before you fly."
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Do hotels in Austin take pets?",
+     "Many do, but fees, weight limits and the number of pets change by hotel. The luxury hotels below publish their own rules (checked Nov 2, 2026). Always confirm with the hotel before you pay.",
+     null
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "hotel-van-zandt",
+     "name": "Hotel Van Zandt",
+     "brand": "Kimpton (IHG) · Rainey Street",
+     "area": null,
+     "fee": "$100 pet fee (10% donated to Austin Animal Center); per-stay vs per-night not stated",
+     "deposit": null,
+     "weight": "No weight, height or breed restrictions",
+     "pets": "2 dogs per room",
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Release form at check-in; leashed in public spaces; no dogs on pool deck, in pool or inside Geraldine&rsquo;s.",
+     "note": null,
+     "check": false,
+     "source": "https://www.hotelvanzandt.com/stay/dog-friendly-stays/",
+     "source2": "https://www.hotelvanzandt.com/faqs/",
+     "expedia_target": "https://www.expedia.com/Austin-Hotels-Hotel-Van-Zandt.h10269315.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "fairmont-austin",
+     "name": "Fairmont Austin",
+     "brand": "Fairmont (Accor) · Downtown",
+     "area": null,
+     "fee": "$100 one-time fee",
+     "deposit": null,
+     "weight": "25 lb per pet",
+     "pets": "Up to 2",
+     "species": null,
+     "amenities": null,
+     "restrictions": "Leashed at all times; not left unattended in the room.",
+     "note": null,
+     "check": false,
+     "source": "https://www.fairmont-austin.com/stay/guest-services/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Austin-Hotels-Fairmont-Austin.h18156638.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "line-austin",
+     "name": "The LINE Austin",
+     "brand": "The LINE (Sydell Group) · Downtown, Lady Bird Lake",
+     "area": null,
+     "fee": "Free (no pet fee)",
+     "deposit": null,
+     "weight": "No weight limit",
+     "pets": null,
+     "species": "Dogs and cats (&ldquo;all pets&rdquo;)",
+     "amenities": null,
+     "restrictions": "Courtesy bags, bowls and treats from the front desk.",
+     "note": null,
+     "check": false,
+     "source": "https://www.thelinehotel.com/austin/amenities/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Austin-Hotels-The-LINE-Austin.h23193716.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "south-congress-hotel",
+     "name": "South Congress Hotel",
+     "brand": "Independent · South Congress",
+     "area": null,
+     "fee": "No extra charge",
+     "deposit": null,
+     "weight": null,
+     "pets": null,
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Dogs attended at all times; never in food service areas.",
+     "note": null,
+     "check": false,
+     "source": "https://southcongresshotel.com/amenities",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Austin-Hotels-South-Congress-Hotel.h9869259.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "hotel-saint-cecilia",
+     "name": "Hotel Saint Cecilia",
+     "brand": "Bunkhouse · Travis Heights / SoCo",
+     "area": null,
+     "fee": "&ldquo;A small fee&rdquo;: amount not stated on the official page",
+     "deposit": null,
+     "weight": null,
+     "pets": null,
+     "species": "Dogs only (&ldquo;well-behaved dogs&rdquo;)",
+     "amenities": null,
+     "restrictions": "Bed and bowl supplied.",
+     "note": null,
+     "check": false,
+     "source": "https://www.bunkhousehotels.com/hotel-saint-cecilia/faq",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Austin-Hotels-Hotel-Saint-Cecilia.h3389409.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "slug": "detroit",
+   "name": "Detroit",
+   "state": "Michigan",
+   "short": "Detroit, MI",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Detroit%2C%20Michigan&amenities=PETS",
+   "lead": "Detroit and downtown Midtown hotels increasingly list pet fees online. Below: verified hotels with published rules, plus DTW tips.",
+   "quick_city": [
+    "Detroit Metropolitan Wayne County Airport (DTW)",
+    "Pet relief areas landside and airside; confirm metroairport.com maps.",
+    "dtw"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "Detroit Metropolitan Wayne County Airport (DTW) pet relief areas",
+     "src": "dtw",
+     "intro": "Pet relief areas landside and airside; confirm metroairport.com maps.",
+     "items": [
+      "Pet relief areas landside and airside; confirm metroairport.com maps.",
+      "Confirm current maps on the official airport site before you fly."
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Do hotels in Detroit take pets?",
+     "Many do, but fees, weight limits and the number of pets change by hotel. The luxury hotels below publish their own rules (checked Nov 2, 2026). Always confirm with the hotel before you pay.",
+     null
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "shinola-hotel",
+     "name": "Shinola Hotel",
+     "brand": "Independent · Downtown, Woodward Ave",
+     "area": null,
+     "fee": "$125 + tax pet fee ($25 donated to Michigan Humane); per stay",
+     "deposit": null,
+     "weight": "No weight or breed restrictions",
+     "pets": "Up to 2 dogs",
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Fourth-floor pet terrace; bandana, bed and bowls provided.",
+     "note": null,
+     "check": false,
+     "source": "https://www.shinolahotel.com/stay/pet-friendly",
+     "source2": "https://www.shinolahotel.com/about/faq",
+     "expedia_target": "https://www.expedia.com/Detroit-Hotels-Shinola-Hotel.h31942185.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "detroit-foundation-hotel",
+     "name": "Detroit Foundation Hotel",
+     "brand": "Independent · Downtown",
+     "area": null,
+     "fee": "$75 non-refundable cleaning fee, per stay",
+     "deposit": null,
+     "weight": "50 lb per pet",
+     "pets": "Up to 2 per room",
+     "species": "Not stated (page describes dog amenities)",
+     "amenities": null,
+     "restrictions": "Service animals welcome.",
+     "note": null,
+     "check": false,
+     "source": "https://detroitfoundationhotel.com/faq/",
+     "source2": "https://detroitfoundationhotel.com/experience/pets/",
+     "expedia_target": "https://www.expedia.com/Detroit-Hotels-Detroit-Foundation-Hotel.h17271551.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "siren-hotel",
+     "name": "The Siren Hotel",
+     "brand": "ASH Hotels · Downtown",
+     "area": null,
+     "fee": "$45 per stay, all pets ($15 donated to Michigan Humane)",
+     "deposit": null,
+     "weight": null,
+     "pets": null,
+     "species": "Not stated (&ldquo;a dog friendly Detroit hotel&rdquo;)",
+     "amenities": null,
+     "restrictions": "Pets never left unattended; housekeeping only when the pet is out.",
+     "note": null,
+     "check": false,
+     "source": "https://ash.world/hotels/the-siren/guest-services/pet-friendly/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Detroit-Hotels-The-Siren-Hotel.h19365870.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "godfrey-detroit",
+     "name": "The Godfrey Detroit, Curio Collection by Hilton",
+     "brand": "Curio (Hilton) · Corktown",
+     "area": null,
+     "fee": "$75 non-refundable (per pet / per stay not stated)",
+     "deposit": null,
+     "weight": "50 lb (max size: medium)",
+     "pets": null,
+     "species": null,
+     "amenities": null,
+     "restrictions": "&mdash;",
+     "note": null,
+     "check": false,
+     "source": "https://www.hilton.com/en/hotels/dtwktqq-the-godfrey-detroit/hotel-info/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Detroit-Hotels-The-Godfrey-Detroit.h91827903.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "westin-book-cadillac",
+     "name": "The Westin Book Cadillac Detroit",
+     "brand": "Westin (Marriott) · Downtown",
+     "area": null,
+     "fee": "$50 non-refundable per night, max $150",
+     "deposit": null,
+     "weight": "Under 40 lb",
+     "pets": "1 per room",
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Signed waiver; subject to pet-friendly room availability at booking.",
+     "note": null,
+     "check": false,
+     "source": "https://www.marriott.com/en-us/hotels/dtwcw-the-westin-book-cadillac-detroit/overview/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Detroit-Hotels-The-Westin-Book-Cadillac-Detroit.h2227690.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "slug": "houston",
+   "name": "Houston",
+   "state": "Texas",
+   "short": "Houston, TX",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Houston%2C%20Texas&amenities=PETS",
+   "lead": "Houston luxury and boutique hotels often publish clear pet fees. Below: verified hotels with published rules, plus IAH tips.",
+   "quick_city": [
+    "George Bush Intercontinental Airport (IAH)",
+    "Pet relief areas across terminals; confirm fly2houston.com maps.",
+    "iah"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "George Bush Intercontinental Airport (IAH) pet relief areas",
+     "src": "iah",
+     "intro": "Pet relief areas across terminals; confirm fly2houston.com maps.",
+     "items": [
+      "Pet relief areas across terminals; confirm fly2houston.com maps.",
+      "Confirm current maps on the official airport site before you fly."
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Do hotels in Houston take pets?",
+     "Many do, but fees, weight limits and the number of pets change by hotel. The luxury hotels below publish their own rules (checked Nov 2, 2026). Always confirm with the hotel before you pay.",
+     null
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "hotel-zaza-museum-district",
+     "name": "Hotel ZaZa Houston Museum District",
+     "brand": "Independent · Museum District",
+     "area": null,
+     "fee": "$100 one-time, non-refundable deposit per pet",
+     "deposit": null,
+     "weight": "All sizes",
+     "pets": null,
+     "species": "Dogs and cats",
+     "amenities": null,
+     "restrictions": "&mdash;",
+     "note": null,
+     "check": false,
+     "source": "https://www.hotelzaza.com/houston-museum-district/faq",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Houston-Hotels-Hotel-Zaza-Houston-Museum-District.h3306.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "hotel-granduca",
+     "name": "Hotel Granduca Houston",
+     "brand": "Independent · Uptown",
+     "area": null,
+     "fee": "$150 cleaning fee per dog, per stay",
+     "deposit": null,
+     "weight": "Under 100 lb",
+     "pets": null,
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "&mdash;",
+     "note": null,
+     "check": false,
+     "source": "https://www.granducahouston.com/faq",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Houston-Hotels-Hotel-Granduca-Houston.h1503827.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "post-oak-hotel",
+     "name": "The Post Oak Hotel at Uptown Houston",
+     "brand": "Landry&rsquo;s · Uptown / Galleria",
+     "area": null,
+     "fee": "$150 + tax cleaning fee (signed waiver)",
+     "deposit": null,
+     "weight": "75 lb",
+     "pets": "2 per designated room",
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Pet bed, bowls and pet in-room dining menu.",
+     "note": null,
+     "check": false,
+     "source": "https://www.thepostoakhotel.com/experience/pet-friendly/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Houston-Hotels-The-Post-Oak-Hotel-At-Uptown-Houston.h22340244.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "hilton-post-oak",
+     "name": "Hilton Houston Post Oak by the Galleria",
+     "brand": "Hilton · Uptown / Galleria",
+     "area": null,
+     "fee": "$75 non-refundable (per stay / per night not stated)",
+     "deposit": null,
+     "weight": "75 lb (max size: large)",
+     "pets": null,
+     "species": null,
+     "amenities": null,
+     "restrictions": "&mdash;",
+     "note": null,
+     "check": false,
+     "source": "https://www.hilton.com/en/hotels/iahwshh-hilton-houston-post-oak-by-the-galleria/hotel-info/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Houston-Hotels-Hilton-Houston-Post-Oak-By-The-Galleria.h25502.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    },
+    {
+     "id": "laura-hotel",
+     "name": "The Laura Hotel, Houston Downtown, Autograph Collection",
+     "brand": "Autograph Collection (Marriott) · Downtown",
+     "area": null,
+     "fee": "$100 non-refundable, per stay",
+     "deposit": null,
+     "weight": "75 lb total",
+     "pets": "Up to 2 dogs",
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Service animals welcome without fee.",
+     "note": null,
+     "check": false,
+     "source": "https://www.marriott.com/en-us/hotels/houkd-the-laura-hotel-houston-downtown-autograph-collection/overview/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Houston-Hotels-The-Laura-Hotel.h20052335.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-02"
+    }
+   ]
+  },
+  {
+   "slug": "seattle",
+   "name": "Seattle",
+   "state": "Washington",
+   "short": "Seattle, WA",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Seattle%2C%20Washington&amenities=PETS",
+   "lead": "Fees, weight limits and the number of pets differ by brand and by hotel in Seattle. Below: brand-wide chain rules, 5 Seattle hotels whose own official pages publish a pet policy, and SEA airport pet relief areas.",
+   "quick_city": [
+    "Seattle-Tacoma International Airport (SEA)",
+    "After security near Gates A10, C3 and D1 and at the N and S train stations; outside the terminal at doors #33, #26 and #00/02 and in the garage. Pets stay in carriers inside the terminal.",
+    "sea"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "Seattle-Tacoma International Airport (SEA) pet relief areas",
+     "src": "sea",
+     "intro": "Pets must be in their travel carriers and leashed inside the terminal (service animals excepted). Pet relief areas have waste bags, hand sanitizer, paper towels and a bin.",
+     "items": [
+      "After security: A Concourse near Gate A10; C Concourse at the restrooms near C3; D Concourse at the restrooms near D1; at the S and N SEA Underground train stations.",
+      "International Arrivals Facility: Mezzanine Level in the U.S. Customs area near the restrooms (international arrivals only).",
+      "Before security, outside: north end outside door #33 (Ticketing/Departures level) and outside door #26 (baggage claim/Arrivals level), both by Alaska Airlines; south end near door #00/02 past Carousel 1; and the first level of the parking garage near the blue elevators."
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Which Seattle hotels have no pet fee?",
+     "Kimpton Hotel Monaco Seattle say on their official pages that they charge no pet fee.",
+     "hotels"
+    ],
+    [
+     "Where can my dog go to the bathroom at SEA?",
+     "After security near Gates A10, C3 and D1 and at the N and S train stations; outside the terminal at doors #33, #26 and #00/02 and in the garage. Pets stay in carriers inside the terminal.",
+     "sea"
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "kimpton-monaco-seattle",
+     "name": "Kimpton Hotel Monaco Seattle",
+     "brand": "Kimpton (IHG)",
+     "area": "Downtown",
+     "address": "1101 Fourth Avenue, Seattle, WA 98101",
+     "fee": "No pet fee, no deposit",
+     "deposit": null,
+     "weight": "No size, weight or breed restrictions",
+     "pets": "No limit on number",
+     "species": "Dogs, cats and other pets",
+     "amenities": "Water bowls delivered to the room; courtesy bags; pets welcome at the nightly hosted wine reception.",
+     "restrictions": "Not stated on the official page",
+     "note": null,
+     "check": false,
+     "source": "https://www.monaco-seattle.com/pet-friendly-hotels-seattle/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Seattle-Hotels-Kimpton-Hotel-Monaco-Seattle.h62800.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "fairmont-olympic-seattle",
+     "name": "Fairmont Olympic Hotel",
+     "brand": "Fairmont (Accor)",
+     "area": "Downtown",
+     "address": "411 University Street, Seattle, WA 98101",
+     "fee": "$75 pet cleaning fee, per stay",
+     "deposit": null,
+     "weight": "Not stated on the official page",
+     "pets": "Not stated on the official page",
+     "species": "Dogs and cats",
+     "amenities": "Pet bed and food/water bowls on request (tell reservations before arrival); pet menu via the front desk.",
+     "restrictions": "Guests are responsible for any property damage or injury caused by the pet.",
+     "note": null,
+     "check": false,
+     "source": "https://www.fairmontolympic.com/faqs/",
+     "source2": "https://www.fairmont.com/en/hotels/seattle/fairmont-olympic-hotel/guest-services.html",
+     "expedia_target": "https://www.expedia.com/Seattle-Hotels-Fairmont-Olympic-Hotel.h20230.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "seattle-marriott-waterfront",
+     "name": "Seattle Marriott Waterfront",
+     "brand": "Marriott",
+     "area": "Waterfront, across from cruise terminal Pier 66",
+     "address": "2100 Alaskan Way, Seattle, WA 98121",
+     "fee": "$100 non-refundable, per stay",
+     "deposit": null,
+     "weight": "Not stated on the official page",
+     "pets": "1 per room",
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Not stated on the official page",
+     "note": null,
+     "check": false,
+     "source": "https://www.marriott.com/en-us/hotels/seawf-seattle-marriott-waterfront/overview/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Seattle-Hotels-Seattle-Marriott-Waterfront.h911767.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "hotel-1000-seattle",
+     "name": "Hotel 1000",
+     "brand": null,
+     "area": "Downtown",
+     "address": "1000 First Avenue, Seattle, WA",
+     "fee": "$100 per pet, per stay (non-refundable pet registration fee)",
+     "deposit": null,
+     "weight": "Not stated on the official page",
+     "pets": "Up to 2 per room, per stay",
+     "species": "Not stated on the official page (amenities described for dogs)",
+     "amenities": "Organic treat, bed, toy, placemat and bowls, courtesy bags; pet-sitting on advance request.",
+     "restrictions": "Pet registration form and waiver required on arrival.",
+     "note": "Third-party sites quote a weight limit; the official page gives none, so we show none. Confirm with the hotel.",
+     "check": true,
+     "source": "https://www.hotel1000seattle.com/pet-friendly.htm",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Seattle-Hotels-Hotel-1000.h1495139.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "w-seattle",
+     "name": "W Seattle",
+     "brand": "W Hotels (Marriott)",
+     "area": "Downtown",
+     "address": "1112 4th Avenue, Seattle, WA 98101",
+     "fee": "$100 non-refundable, per stay",
+     "deposit": "$100 deposit taken at check-in",
+     "weight": "All sizes and weights",
+     "pets": "Up to 2 per room",
+     "species": "Not stated in the pet-policy box (the P.A.W. section welcomes \"your dog\")",
+     "amenities": "W Pet Bed.",
+     "restrictions": "\"Restrictions apply\" (not detailed on the page); a further one-time $100 cleaning fee if the room is damaged.",
+     "note": "The policy box says \"pets\" while the P.A.W. text only mentions dogs: cat owners should ask the hotel.",
+     "check": true,
+     "source": "https://www.marriott.com/en-us/hotels/seawh-w-seattle/overview/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Seattle-Hotels-W-Seattle.h284304.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    }
+   ]
+  },
+  {
+   "slug": "denver",
+   "name": "Denver",
+   "state": "Colorado",
+   "short": "Denver, CO",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Denver%2C%20Colorado&amenities=PETS",
+   "lead": "Fees, weight limits and the number of pets differ by brand and by hotel in Denver. Below: brand-wide chain rules, 5 Denver hotels whose own official pages publish a pet policy, and DEN airport pet relief areas.",
+   "quick_city": [
+    "Denver International Airport (DEN)",
+    "Indoor relief rooms in the center core of Concourses A, B and C (near the U.S. Mail Drop), outdoor decks near A15, B7 and C67, and outside door 200 before security.",
+    "den"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "Denver International Airport (DEN) pet relief areas",
+     "src": "den",
+     "intro": "Except for service animals, pets stay in their carriers inside the terminal. Indoor relief rooms have artificial turf, bags, a sink and a hand dryer.",
+     "items": [
+      "Before security: Garage West, and the fenced outdoor area just outside door 200 on the west side of the Jeppesen Terminal.",
+      "Concourse A: outdoor deck near A15; center core near the U.S. Mail Drop.",
+      "Concourse B: outdoor deck on the west side near B7; center core near the U.S. Mail Drop.",
+      "Concourse C: outdoor deck on the east side near C67; center core near the U.S. Mail Drop."
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Which Denver hotels have no pet fee?",
+     "Kimpton Hotel Monaco Denver, Four Seasons Hotel Denver say on their official pages that they charge no pet fee.",
+     "hotels"
+    ],
+    [
+     "Where can my dog go to the bathroom at DEN?",
+     "Indoor relief rooms in the center core of Concourses A, B and C (near the U.S. Mail Drop), outdoor decks near A15, B7 and C67, and outside door 200 before security.",
+     "den"
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "kimpton-monaco-denver",
+     "name": "Kimpton Hotel Monaco Denver",
+     "brand": "Kimpton (IHG)",
+     "area": "Downtown",
+     "address": "1717 Champa Street, Denver, CO 80202",
+     "fee": "No pet fee, no deposit or cleaning fee",
+     "deposit": null,
+     "weight": "No size or weight limit (\"as long as they fit in the elevator\")",
+     "pets": "No limit on number",
+     "species": "Dogs, cats and other pets",
+     "amenities": "Water bowls, pick-up bags, door hangers; dedicated floors for travelers with pets.",
+     "restrictions": "Not stated on the official page",
+     "note": null,
+     "check": false,
+     "source": "https://www.monaco-denver.com/denver-boutique-hotel-amenities/pet-friendly/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Denver-Hotels-Kimpton-Hotel-Monaco-Denver.h139793.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "crawford-hotel-denver",
+     "name": "The Crawford Hotel",
+     "brand": null,
+     "area": "LoDo, Union Station",
+     "address": "1701 Wynkoop Street, Denver, CO 80202",
+     "fee": "$50 per pet, per night",
+     "deposit": null,
+     "weight": "Dogs up to 60 lb",
+     "pets": "Not stated on the official page",
+     "species": "Dogs only",
+     "amenities": "Dog bed, matching bowls, chew toy and local dog treats.",
+     "restrictions": "Tell the hotel before check-in. Limits do not apply to service animals.",
+     "note": null,
+     "check": false,
+     "source": "https://www.thecrawfordhotel.com/our-story/amenities/pet-friendly/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Denver-Hotels-The-Crawford-Hotel.h8260654.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "four-seasons-denver",
+     "name": "Four Seasons Hotel Denver",
+     "brand": "Four Seasons",
+     "area": "Downtown",
+     "address": "1111 14th Street, Denver, CO 80202",
+     "fee": "No upfront pet fee",
+     "deposit": null,
+     "weight": "All sizes",
+     "pets": "Not stated on the official page",
+     "species": "Not stated on the official page (\"pets\"; bed sizes from small pups to large breeds)",
+     "amenities": "Pet bed, bowls, treats, toy; dog-walking via the Concierge.",
+     "restrictions": "Leash or carrier in public areas; not left unattended (may stay in the suite if crated, with notice to housekeeping); not allowed in restaurants, bars, Health Club, Spa or pool; owner liable for damage; give advance notice.",
+     "note": "The page says \"no upfront pet fee\": ask whether anything is charged at check-out.",
+     "check": true,
+     "source": "https://www.fourseasons.com/denver/services-and-amenities/pet-friendly-stays/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Denver-Hotels-Four-Seasons-Hotel-Denver.h3849336.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "halcyon-cherry-creek",
+     "name": "Halcyon, a Hotel in Cherry Creek",
+     "brand": null,
+     "area": "Cherry Creek",
+     "address": "245 Columbine Street, Denver, CO",
+     "fee": "$150 cleaning fee per pet (per stay or per night not stated)",
+     "deposit": null,
+     "weight": "Up to 70 lb",
+     "pets": "Up to 2 per room",
+     "species": "Dogs (no cats)",
+     "amenities": "Homemade treats; pet gear from the Gear Garage.",
+     "restrictions": "No cats.",
+     "note": "The page says 10% of every \"monthly pet fee\" is donated, without saying whether the $150 is per stay: ask the hotel.",
+     "check": true,
+     "source": "https://www.halcyonhotelcherrycreek.com/hotel/halcyon-hounds/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Denver-Hotels-Halcyon-A-Hotel-In-Cherry-Creek.h14797469.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "brown-palace-denver",
+     "name": "The Brown Palace Hotel and Spa, Autograph Collection",
+     "brand": "Autograph Collection (Marriott)",
+     "area": "Downtown",
+     "address": "321 17th Street, Denver, CO 80202",
+     "fee": "$125 non-refundable, per stay",
+     "deposit": null,
+     "weight": "50 lb per pet",
+     "pets": "Up to 2 per room",
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Not stated on the official page",
+     "note": null,
+     "check": false,
+     "source": "https://www.marriott.com/en-us/hotels/denak-the-brown-palace-hotel-and-spa-autograph-collection/overview/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Denver-Hotels-The-Brown-Palace-Hotel-And-Spa.h14505.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    }
+   ]
+  },
+  {
+   "slug": "san-francisco",
+   "name": "San Francisco",
+   "state": "California",
+   "short": "San Francisco, CA",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=San%20Francisco%2C%20California&amenities=PETS",
+   "lead": "Fees, weight limits and the number of pets differ by brand and by hotel in San Francisco. Below: brand-wide chain rules, 5 San Francisco hotels whose own official pages publish a pet policy, and SFO airport pet relief areas.",
+   "quick_city": [
+    "San Francisco International Airport (SFO)",
+    "After security in Terminal 1 (B gates), Terminal 2, Terminal 3 and International A and G; before security at Terminals 2 and 3.",
+    "sfo"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "San Francisco International Airport (SFO) pet relief areas",
+     "src": "sfo",
+     "intro": "Indoor and outdoor animal relief areas, accessible for the disabled. Outdoor areas are fenced with water bowls and waste-bag dispensers (look for painted paw prints on the Arrivals Level curbside); indoor areas have a sink, paper towels and bags.",
+     "items": [
+      "After security: Harvey Milk Terminal 1 (B gates); Terminal 2; Terminal 3; International Terminal A; International Terminal G.",
+      "Before security: Terminal 2 and Terminal 3."
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Which San Francisco hotels have no pet fee?",
+     "Four Seasons Hotel San Francisco say on their official pages that they charge no pet fee.",
+     "hotels"
+    ],
+    [
+     "Where can my dog go to the bathroom at SFO?",
+     "After security in Terminal 1 (B gates), Terminal 2, Terminal 3 and International A and G; before security at Terminals 2 and 3.",
+     "sfo"
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "fairmont-san-francisco",
+     "name": "Fairmont San Francisco",
+     "brand": "Fairmont (Accor)",
+     "area": "Nob Hill",
+     "address": "950 Mason Street, San Francisco, CA",
+     "fee": "$100 per pet, per stay",
+     "deposit": null,
+     "weight": "Not stated on the official page",
+     "pets": "Not stated on the official page",
+     "species": "Not stated on the official page",
+     "amenities": null,
+     "restrictions": "Leash at all times; never left unattended in the room ($250 policy violation fee).",
+     "note": "The Fairmont.com page says $100 per pet per stay; the hotel FAQ says $100 per stay. We show the per-pet wording: confirm with the hotel.",
+     "check": true,
+     "source": "https://www.fairmont.com/en/hotels/san-francisco/fairmont-san-francisco/guest-services.html",
+     "source2": "https://www.fairmont-san-francisco.com/faqs/",
+     "expedia_target": "https://www.expedia.com/San-Francisco-Hotels-Fairmont-San-Francisco.h18200.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "hotel-nikko-san-francisco",
+     "name": "Hotel Nikko San Francisco",
+     "brand": null,
+     "area": "Union Square",
+     "address": "222 Mason Street, San Francisco, CA",
+     "fee": "$65 per night",
+     "deposit": "$150 refundable deposit",
+     "weight": "50 lb or less",
+     "pets": "Not stated on the official page",
+     "species": "Dogs only",
+     "amenities": "Fifth-floor outdoor Pet Terrace and dog run.",
+     "restrictions": "Register the dog at check-in; leash throughout the hotel; not left unattended in the room.",
+     "note": "Per-pet vs per-room basis of the nightly fee is not stated.",
+     "check": false,
+     "source": "https://www.hotelnikkosf.com/pet-policy",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/San-Francisco-Hotels-Hotel-Nikko-San-Francisco.h23406.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "palace-hotel-san-francisco",
+     "name": "Palace Hotel, a Luxury Collection Hotel",
+     "brand": "Luxury Collection (Marriott)",
+     "area": "Market Street, SoMa / Financial District",
+     "address": "2 New Montgomery Street, San Francisco, CA",
+     "fee": "$150 non-refundable, per stay (cleaning included)",
+     "deposit": null,
+     "weight": "Under 40 lb",
+     "pets": "1 per room",
+     "species": "Not stated on the official page (\"pets\"; \"Pamper your pooch\")",
+     "amenities": "Royal Paws Pet Package available.",
+     "restrictions": "Not stated on the official page",
+     "note": null,
+     "check": false,
+     "source": "https://www.sfpalace.com/amenities/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/San-Francisco-Hotels-Palace-Hotel.h27274.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "four-seasons-san-francisco",
+     "name": "Four Seasons Hotel San Francisco",
+     "brand": "Four Seasons",
+     "area": "Market Street, near Union Square",
+     "address": "757 Market Street, San Francisco, CA 94103",
+     "fee": "No pet fee (charges may apply for excessive cleaning or damage)",
+     "deposit": null,
+     "weight": "No weight limit; no size or breed restrictions",
+     "pets": "Up to 2 per room",
+     "species": "Dogs and cats",
+     "amenities": "Treats, pet bed, bowls, chew toy; pet-sitting on request.",
+     "restrictions": "Leash outside the room; not left unattended; arrange housekeeping times; not allowed inside MKT Restaurant.",
+     "note": null,
+     "check": false,
+     "source": "https://www.fourseasons.com/sanfrancisco/services-and-amenities/pet-friendly-stays/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/San-Francisco-Hotels-Four-Seasons-Hotel-San-Francisco.h791769.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "ritz-carlton-san-francisco",
+     "name": "The Ritz-Carlton, San Francisco",
+     "brand": "Ritz-Carlton (Marriott)",
+     "area": "Nob Hill",
+     "address": "600 Stockton Street, San Francisco, CA 94108",
+     "fee": "$200 non-refundable, per stay",
+     "deposit": null,
+     "weight": "35 lb each",
+     "pets": "Up to 2 per room",
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Not stated on the official page",
+     "note": null,
+     "check": false,
+     "source": "https://www.ritzcarlton.com/en/hotels/sforz-the-ritz-carlton-san-francisco/overview/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/San-Francisco-Hotels-The-Ritz-Carlton.h22148.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    }
+   ]
+  },
+  {
+   "slug": "atlanta",
+   "name": "Atlanta",
+   "state": "Georgia",
+   "short": "Atlanta, GA",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Atlanta%2C%20Georgia&amenities=PETS",
+   "lead": "Fees, weight limits and the number of pets differ by brand and by hotel in Atlanta. Below: brand-wide chain rules, 5 Atlanta hotels whose own official pages publish a pet policy, and ATL airport pet relief areas.",
+   "quick_city": [
+    "Hartsfield-Jackson Atlanta International Airport (ATL)",
+    "Indoor relief areas near T7, A10, B33, C19, D Centerpoint, E14 and F7; outdoor Poochie Park outside doors W1-W2 (Domestic South) and outside door A1 (International arrivals).",
+    "atl"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "Hartsfield-Jackson Atlanta International Airport (ATL) pet relief areas",
+     "src": "atl",
+     "intro": "ATL says its Service Animal Relief Areas are open to all passenger pets; each has pet supplies, turf, a drinking fountain, waste bags and a sink.",
+     "items": [
+      "Indoor relief areas, always open, near: T7, A10, B33, C19, D Centerpoint, E14 and F7.",
+      "Outdoor: Poochie Park in Ground Transportation on Domestic Terminal South, outside doors W1 and W2; and outside door A1 on the International Terminal arrivals level."
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Which Atlanta hotels have no pet fee?",
+     "Kimpton Sylvan Atlanta - Buckhead, Four Seasons Hotel Atlanta say on their official pages that they charge no pet fee.",
+     "hotels"
+    ],
+    [
+     "Where can my dog go to the bathroom at ATL?",
+     "Indoor relief areas near T7, A10, B33, C19, D Centerpoint, E14 and F7; outdoor Poochie Park outside doors W1-W2 (Domestic South) and outside door A1 (International arrivals).",
+     "atl"
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "loews-atlanta",
+     "name": "Loews Atlanta Hotel",
+     "brand": "Loews",
+     "area": "Midtown",
+     "address": "1065 Peachtree Street NE, Atlanta, GA 30309",
+     "fee": "$100 per accommodation, per stay",
+     "deposit": null,
+     "weight": "Not stated on the official page",
+     "pets": "Up to 2 per room",
+     "species": "Dogs and cats",
+     "amenities": "Bowls and a special treat for every pet.",
+     "restrictions": "Service animals are exempt from fees. Contact the hotel for the complete pet policy.",
+     "note": null,
+     "check": false,
+     "source": "https://www.loewshotels.com/atlanta-hotel/faqs",
+     "source2": "https://www.loewshotels.com/atlanta-hotel/discover/loews-loves-pets",
+     "expedia_target": "https://www.expedia.com/Atlanta-Hotels-Loews-Atlanta-Hotel.h3412214.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "kimpton-sylvan-atlanta",
+     "name": "Kimpton Sylvan Atlanta - Buckhead",
+     "brand": "Kimpton (IHG)",
+     "area": "Buckhead",
+     "address": "374 East Paces Ferry Road NE, Atlanta, GA 30305",
+     "fee": "No pet fee, no deposit or cleaning fee",
+     "deposit": null,
+     "weight": "No size or weight limit (\"as long as they fit in the elevator\")",
+     "pets": "No limit on number",
+     "species": "Dogs, cats and other pets",
+     "amenities": "Dedicated pet-friendly floor; bowls, beds and courtesy bags.",
+     "restrictions": "Not stated on the official page",
+     "note": null,
+     "check": false,
+     "source": "https://www.thesylvanhotel.com/hotel-amenities/pet-friendly/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Atlanta-Hotels-Kimpton-Sylvan-Hotel.h59825706.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "hotel-clermont-atlanta",
+     "name": "Hotel Clermont",
+     "brand": "Oliver Hotels",
+     "area": "Poncey-Highland",
+     "address": "789 Ponce de Leon Ave NE, Atlanta, GA 30306",
+     "fee": "$75 non-refundable, per stay",
+     "deposit": null,
+     "weight": "Not stated on the official page",
+     "pets": "Up to 2",
+     "species": "Dogs only (no cats)",
+     "amenities": null,
+     "restrictions": "No cats.",
+     "note": null,
+     "check": false,
+     "source": "https://www.hotelclermont.com/hotel-policy",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Atlanta-Hotels-Hotel-Clermont.h20646633.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "four-seasons-atlanta",
+     "name": "Four Seasons Hotel Atlanta",
+     "brand": "Four Seasons",
+     "area": "Midtown",
+     "address": "75 Fourteenth Street NE, Atlanta, GA 30309",
+     "fee": "No pet fee",
+     "deposit": null,
+     "weight": "Not stated on the official page",
+     "pets": "Not stated on the official page",
+     "species": "Dogs and cats",
+     "amenities": "Plush bed, bowls, piddle pads, treats; pet sitting via the concierge.",
+     "restrictions": "Fully house-trained, at least 6 months old and fully vaccinated; leash or carrier outside the room; never left unattended.",
+     "note": null,
+     "check": false,
+     "source": "https://www.fourseasons.com/atlanta/services-and-amenities/pet-friendly-stays/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Atlanta-Hotels-Four-Seasons-Hotel-Atlanta.h20993.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "st-regis-atlanta",
+     "name": "The St. Regis Atlanta",
+     "brand": "St. Regis (Marriott)",
+     "area": "Buckhead",
+     "address": "88 West Paces Ferry Road, Atlanta, GA 30305",
+     "fee": "$250 non-refundable, per stay; the same page also lists a $25 non-refundable fee per night",
+     "deposit": null,
+     "weight": "35 lb",
+     "pets": "Up to 2 per room",
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Fees and policy agreement required at check-in.",
+     "note": "The official page lists both a $250 per-stay fee and a $25 per-night fee; its FAQ mentions only the $250. Ask the hotel which applies.",
+     "check": true,
+     "source": "https://www.marriott.com/en-us/hotels/atlxr-the-st-regis-atlanta/overview/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Atlanta-Hotels-The-St-Regis-Atlanta.h2452497.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    }
+   ]
+  },
+  {
+   "slug": "boston",
+   "name": "Boston",
+   "state": "Massachusetts",
+   "short": "Boston, MA",
+   "expedia_target": "https://www.expedia.com/Hotel-Search?destination=Boston%2C%20Massachusetts&amenities=PETS",
+   "lead": "Fees, weight limits and the number of pets differ by brand and by hotel in Boston. Below: brand-wide chain rules, 5 Boston hotels whose own official pages publish a pet policy, and BOS airport pet relief areas.",
+   "quick_city": [
+    "Boston Logan International Airport (BOS)",
+    "One relief area after security in each terminal and one on the Arrivals-level curb outside every terminal; Massport gives no gate numbers on its accessibility page.",
+    "bos"
+   ],
+   "sections": [
+    {
+     "id": "airport",
+     "h": "Boston Logan International Airport (BOS) pet relief areas",
+     "src": "bos",
+     "intro": "Massport says animal relief areas are located in each terminal after security and on the Arrivals-level curb outside every terminal. It does not list exact gates on this page.",
+     "items": [
+      "After security: one animal relief area in each terminal (A, B, C and E). Use the terminal directories or the Boston Logan interactive map to find it.",
+      "Before security: on the Arrivals-level curb outside every terminal."
+     ]
+    }
+   ],
+   "faq": [
+    [
+     "Which Boston hotels have no pet fee?",
+     "None of the 5 hotels on this page.",
+     "hotels"
+    ],
+    [
+     "Where can my dog go to the bathroom at BOS?",
+     "One relief area after security in each terminal and one on the Arrivals-level curb outside every terminal; Massport gives no gate numbers on its accessibility page.",
+     "bos"
+    ]
+   ],
+   "luxury": [
+    {
+     "id": "fairmont-copley-plaza",
+     "name": "Fairmont Copley Plaza",
+     "brand": "Fairmont (Accor)",
+     "area": "Back Bay, Copley Square",
+     "address": "138 St. James Avenue, Boston, MA",
+     "fee": "$50 per pet, one-time (taxes not included)",
+     "deposit": null,
+     "weight": "All sizes",
+     "pets": "Up to 2",
+     "species": "Not stated on the official page (\"pets of all sizes\")",
+     "amenities": null,
+     "restrictions": "Leash at all times; not left unattended; sign a \"Pet Policy Disclaimer\" at check-in; only service animals inside OAK Long Bar + Kitchen (dogs welcome on its seasonal patio).",
+     "note": null,
+     "check": false,
+     "source": "https://www.fairmont.com/en/hotels/boston/fairmont-copley-plaza/guest-services.html",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Boston-Hotels-Fairmont-Copley-Plaza.h25981.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "ritz-carlton-boston",
+     "name": "The Ritz-Carlton, Boston",
+     "brand": "Ritz-Carlton (Marriott)",
+     "area": "Downtown, near Boston Common",
+     "address": "10 Avery Street, Boston, MA 02111",
+     "fee": "$250 non-refundable, per stay",
+     "deposit": null,
+     "weight": "60 lb per pet",
+     "pets": "Up to 2 per room",
+     "species": "Not stated on the official page (\"pets\")",
+     "amenities": null,
+     "restrictions": "Pets cannot be left unattended.",
+     "note": null,
+     "check": false,
+     "source": "https://www.ritzcarlton.com/en/hotels/bosrt-the-ritz-carlton-boston/overview/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Boston-Hotels-The-Ritz-Carlton.h695991.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "boston-harbor-hotel",
+     "name": "Boston Harbor Hotel",
+     "brand": null,
+     "area": "Waterfront, Rowes Wharf",
+     "address": "70 Rowes Wharf, Boston, MA",
+     "fee": "$100 per pet, per night (non-refundable)",
+     "deposit": null,
+     "weight": "One dog up to 80 lb, or two dogs up to 40 lb each (hotel pet letter)",
+     "pets": "Up to 2 per room",
+     "species": "Not stated in the FAQ (the hotel pet letter refers to dogs)",
+     "amenities": "Pet walking via the Concierge (fee).",
+     "restrictions": "Never left alone in the room ($250 penalty); leash or harness in public areas; not allowed in Rowes Wharf Sea Grille, Rowes Wharf Bar or the fitness center; the 15th floor is pet-free.",
+     "note": "Weight limits come from the hotel's own pet letter PDF dated September 2023; the FAQ page gives none. Confirm with the hotel.",
+     "check": true,
+     "source": "https://www.bostonharborhotel.com/faq/",
+     "source2": "https://bostonharborhotel-cdn.zambezimarketing.io/assets/files/1/pet-letter-pet-sitting-services-2023.pdf",
+     "expedia_target": "https://www.expedia.com/Boston-Hotels-Boston-Harbor-Hotel.h26146.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "lenox-boston",
+     "name": "The Lenox",
+     "brand": null,
+     "area": "Back Bay",
+     "address": "61 Exeter Street, Boston, MA",
+     "fee": "$75 one-time, per stay",
+     "deposit": null,
+     "weight": "50 lb and under",
+     "pets": "Up to 2 dogs per room",
+     "species": "Dogs only",
+     "amenities": null,
+     "restrictions": "Tell the hotel before arrival; dogs may not be left unaccompanied in the room. Pet-free rooms on the 11th floor.",
+     "note": null,
+     "check": false,
+     "source": "https://www.lenoxhotel.com/faqs/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Boston-Hotels-The-Lenox-Hotel-Boston.h6446.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    },
+    {
+     "id": "raffles-boston",
+     "name": "Raffles Boston",
+     "brand": "Raffles (Accor)",
+     "area": "Back Bay",
+     "address": "40 Trinity Place, Boston, MA",
+     "fee": "$150 per accommodation, per stay",
+     "deposit": null,
+     "weight": "Every size",
+     "pets": "Not stated on the official page",
+     "species": "Not stated on the official page (\"pet companions\")",
+     "amenities": null,
+     "restrictions": "Service animals exempt from the fee.",
+     "note": null,
+     "check": false,
+     "source": "https://www.raffles.com/boston/FAQs/",
+     "source2": null,
+     "expedia_target": "https://www.expedia.com/Boston-Hotels-Boston-Common-Hotel.h911477.Hotel-Information",
+     "expedia_is_property": true,
+     "checked": "2026-11-09",
+     "evidence": "Official rule"
+    }
+   ]
+  }
+ ],
+ "sources": {
+  "mco": "https://www.flymco.com/frequently-asked-questions/pets-service-animals/",
+  "ocfl": "https://www.ocfl.net/CultureParks/DogParks.aspx",
+  "loews": "https://www.loewshotels.com/loews-loves-pets",
+  "jfk": "https://www.jfkairport.com/explore-jfk/accessibility-services",
+  "nycparks": "https://www.nycgovparks.org/facilities/dogareas",
+  "laquinta": "https://www.wyndhamhotels.com/laquinta/about-us/pet-friendly/pet-policy-details",
+  "fs_nyd": "https://www.fourseasons.com/newyorkdowntown/services-and-amenities/pet-friendly-stays/",
+  "mia": "https://www.miami-airport.com/map-animal-relief-areas.asp",
+  "mdparks": "https://www.miamidade.gov/global/service.page?Mduid_service=ser1470943010772421",
+  "fs_mia": "https://www.fourseasons.com/miami/services-and-amenities/pet-friendly-stays/",
+  "lax": {
+   "name": "Los Angeles World Airports (LAX)",
+   "url": "https://www.flylax.com/lax-accessibility-services"
+  },
+  "ord": {
+   "name": "Chicago Department of Aviation (O'Hare)",
+   "url": "https://www.flychicago.com/ohare/servicesamenities/petrelief/pages/default.aspx"
+  },
+  "aus": {
+   "name": "Austin-Bergstrom International Airport",
+   "url": "https://www.austintexas.gov/department/airport"
+  },
+  "dtw": {
+   "name": "Detroit Metro Airport (DTW)",
+   "url": "https://www.metroairport.com/"
+  },
+  "iah": {
+   "name": "Houston Airport System (IAH)",
+   "url": "https://www.fly2houston.com/iah"
+  },
+  "sea": "https://www.portseattle.org/services-amenities/traveling-pets",
+  "den": "https://www.flydenver.com/at-the-airport/services-and-amenities/traveling-with-pets/",
+  "sfo": "https://www.flysfo.com/passengers/services/animal-relief-areas",
+  "atl": "https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/",
+  "bos": "https://www.massport.com/logan-airport/at-the-airport/ada-compliance-and-accessibility"
+ },
+ "luxury_brands": [
+  {
+   "brand": "Four Seasons",
+   "text": "No single brand rule: each hotel sets its own (Orlando: 1 pet up to 25 lb; New York Downtown: dogs and cats under 25 lb; Miami: pet-friendly rooms, details not published).",
+   "source": "https://www.fourseasons.com/orlando/accommodations/accessible_rooms/"
+  },
+  {
+   "brand": "Ritz-Carlton, St. Regis, EDITION (Marriott)",
+   "text": "Set per hotel and shown on each hotel’s Marriott page: e.g. Ritz-Carlton New York, Central Park takes 2 pets up to 60 lb for $300, while The St. Regis New York takes no pets.",
+   "source": "https://www.marriott.com/en-us/hotels/nycxr-the-st-regis-new-york/overview/"
+  },
+  {
+   "brand": "Waldorf Astoria (Hilton)",
+   "text": "Hilton says pet fees apply and vary by hotel; Waldorf Astoria Orlando takes 2 dogs, 40 lb combined, $125-$250 per stay.",
+   "source": "https://www.hilton.com/en/pet-friendly/"
+  },
+  {
+   "brand": "1 Hotels",
+   "text": "Brand page: no extra pet fees and up to two dogs, but policies vary by location (1 Hotel Brooklyn Bridge adds a $250 cleaning fee if the room gets dirty).",
+   "source": "https://www.1hotels.com/pets"
+  },
+  {
+   "brand": "Kimpton (IHG)",
+   "text": "No pet fee, no deposit and no size, weight or number limit, brand-wide; Kimpton EPIC Miami confirms this on its own page.",
+   "source": "https://www.ihg.com/kimptonhotels/content/us/en/promos/pet-friendly-hotels"
+  },
+  {
+   "brand": "Loews Hotels",
+   "text": "Up to 2 pets per room and up-to-date vaccinations; Loews says cleaning fees and property rules may apply (Loews Miami Beach: $50 per stay).",
+   "source": "https://www.loewshotels.com/loews-loves-pets"
+  },
+  {
+   "brand": "The Peninsula, Aman, Mandarin Oriental, Faena",
+   "text": "Rules are published per hotel, not brand-wide: see the New York and Miami pages for each hotel's own fee, weight and number limits.",
+   "source": "https://www.aman.com/hotels/aman-new-york/policy"
+  }
+ ]
 }

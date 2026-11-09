@@ -2321,6 +2321,7 @@ HOTELS_CSS = """<style>
 .ht-lux{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin:1em 0}
 .ht-card{border:1px solid var(--line,#d9d4c7);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column}
 .ht-card h3{margin:0 0 .15em;font-size:1.12em}.ht-card .ht-sub{margin:0 0 .6em;font-size:.9em;opacity:.8}
+.ht-card .ht-addr{margin:-.35em 0 .6em;font-size:.86em;opacity:.85}
 .ht-card table{width:100%;border-collapse:collapse;font-size:.93em;margin:0 0 .6em}
 .ht-card th{text-align:left;vertical-align:top;padding:4px 8px 4px 0;width:7.5em;font-weight:600}
 .ht-card td{vertical-align:top;padding:4px 0}.ht-card tr+tr th,.ht-card tr+tr td{border-top:1px solid var(--line,#ece8de)}
@@ -2386,16 +2387,21 @@ def hotel_city_links(ci, root, skip=None):
                    for x in ci["cities"] if x["slug"] != skip)
 
 
-def hotel_lux_link(cfg, h):
+def hotel_lux_link(cfg, h, city=None):
     """Booking button for one luxury hotel. Tracked URL from config.json hotel_affiliates.expedia.hotel_links[id]
-    (made in the Expedia Creator dashboard); empty -> plain untracked link to expedia_target (never a placeholder)."""
+    (made in the Expedia Creator dashboard); empty -> plain untracked link to expedia_target (never a placeholder).
+    If expedia_target is null and expedia_is_property is false, fall back to the city expedia_target search."""
     ex = (cfg.get("hotel_affiliates") or {}).get("expedia") or {}
     url = ((ex.get("hotel_links") or {}).get(h["id"]) or "").strip()
-    label = "Check rates on Expedia" if h.get("expedia_is_property") else "Search this hotel on Expedia"
+    is_prop = h.get("expedia_is_property", True)
+    label = "Check rates on Expedia" if is_prop else "Search this hotel on Expedia"
     if url:
         return f'<a class="btn" href="{e(url)}" rel="sponsored nofollow noopener" target="_blank">{label}</a>', True
+    target = h.get("expedia_target") or ((city or {}).get("expedia_target") if city else None)
+    if not target:
+        raise SystemExit(f"luxury {h.get('id')}: missing expedia_target and no city fallback")
     print(f"  NOTE: luxury {h['id']}: no tracked Expedia link yet -> plain expedia_target link")
-    return f'<a class="btn" href="{e(h["expedia_target"])}" rel="nofollow noopener" target="_blank">{label}</a>', False
+    return f'<a class="btn" href="{e(target)}" rel="nofollow noopener" target="_blank">{label}</a>', False
 
 
 def hotel_lux_section(cfg, c):
@@ -2419,18 +2425,20 @@ def hotel_lux_section(cfg, c):
                 continue
             trs.append(f"<tr><th>{k}</th><td>{(flag if k == 'Pet fee' else '')}{e(v) if v else na}</td></tr>")
         note = f'<p class="ht-note">{e(h["note"])}</p>' if h.get("note") else ""
-        btn, t = hotel_lux_link(cfg, h)
+        btn, t = hotel_lux_link(cfg, h, city=c)
         tracked = tracked or t
         s2 = f' &middot; {src(h["source2"], "more")}' if h.get("source2") else ""
+        sub = " &middot; ".join(x for x in ([e(h["brand"])] if h.get("brand") else []) + ([e(h["area"])] if h.get("area") else []) if x)
+        addr = f'<p class="ht-addr">{e(h["address"])}</p>' if h.get("address") else ""
         cards.append(f'<article class="ht-card" id="{e(h["id"])}"><h3>{e(h["name"])}</h3>'
-                     f'<p class="ht-sub">{e(h["brand"])} &middot; {e(h["area"])}</p>'
+                     f'<p class="ht-sub">{sub}</p>{addr}'
                      f'<table>{"".join(trs)}</table>{note}'
                      f'<p class="ht-foot">{btn}<span>{src(h["source"], "Hotel pet policy")}{s2} &middot; checked <time datetime="{e(h["checked"])}">{nice_date(h["checked"])}</time></span></p></article>')
     no = "".join(f'<li><b>{e(x["name"])}:</b> {e(x["text"])} {src(x["source"], "Official page")}</li>' for x in c.get("luxury_not") or [])
     no = f'<p class="ht-no"><b>Not pet-friendly:</b></p><ul class="ht-no">{no}</ul>' if no else ""
     disc = ('<p class="small disc">Affiliate disclosure: some booking buttons are affiliate links. If you book through them we may earn a commission at no extra cost to you. '
             'It never changes the pet rules we publish. <a href="{root}about.html#affiliates">Disclosure</a>.</p>') if tracked else ""
-    return (f'<h2 id="luxury">Luxury pet-friendly hotels in {e(c["name"])}</h2>'
+    return (f'<h2 id="luxury">Pet-friendly hotels in {e(c["name"])}</h2>'
             f'<p>Luxury hotels set their own pet rules, so we read each hotel&rsquo;s official pet policy rather than the brand&rsquo;s. Fees in US dollars, weights in pounds. '
             f'<span class="flag">Check</span> means the official page leaves something unclear or another source disagrees: call the hotel before you book. '
             f'</p>'
