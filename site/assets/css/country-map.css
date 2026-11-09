@@ -314,7 +314,7 @@ html.accent-maple #country-map{
   --accent:#b5473a; --accent-soft:#c4786a; --accent-ink:#f3e2d8; --accent-cream:#f0e2d0;
 }
 html.accent-maple #country-map .st.hub{fill:#2a2420}
-html.accent-maple #country-map .st.rule{fill:#1d3a35} /* keep deep teal for alerts, Option B */
+html.accent-maple #country-map .st.rule{/* USA model: .rule kept for a11y only — no fill/stroke of its own */}
 html.accent-maple #country-map .st.sel{fill:#6d5a2c;stroke:var(--gold-l,#f0d58c);stroke-width:2}
 /* Canada neighbor-distinct tones (2026-11-09 tweak): lighter mineral teal/forest ~USA luminance; soft t1; gold sel unchanged */
 /* Generic #country-map.st-t* left for non-maple; maple overrides with wider spread. */
@@ -340,7 +340,8 @@ html.accent-maple #country-map #l-NB,
 html.accent-maple #country-map #l-NS,
 html.accent-maple #country-map #l-NL{font-size:calc(12.5px*var(--kt,1));stroke-width:4px}
 
-#country-map .st.rule, html.accent-maple #country-map .st.rule{stroke:#b5473a !important; stroke-width:1.35 !important}
+#country-map .st.rule{stroke:#b5473a !important; stroke-width:1.35 !important}
+html.accent-maple #country-map .st.rule{stroke:#0b1719 !important; stroke-width:.9px !important}
 #country-map .st.sel, html.accent-maple #country-map .st.sel, html.accent-mxgreen #country-map .st.sel{fill:#6d5a2c !important;stroke:var(--gold-l,#f0d58c) !important;stroke-width:2 !important;filter:none !important}
 html.accent-maple #country-map .ct.sample circle{fill:#edeae2;stroke:#b5473a;stroke-width:1.8}
 html.accent-maple #country-map .ct.sample .ring{stroke:#b5473a;opacity:.75}
