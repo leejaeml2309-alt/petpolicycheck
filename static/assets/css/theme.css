@@ -729,3 +729,61 @@ header.top .nav a{
   /* Mobile: Menu drawer holds full list; keep Book visible next to Menu when space allows */
   .top .wrap{flex-wrap:wrap;row-gap:6px}
 }
+
+
+/* ── Special internal links (.plink) · Nov 9 2026 ─────────────────────────
+   Type A route guides use --theme-flight (glacier), NOT --theme-map, because
+   --theme-map is gold (#d9b765) reserved for map selection.
+   Type B snub-nosed rules use --theme-law (slate indigo). Label text is --head
+   on a ~12% tint of the type colour over --paper for AA contrast. */
+.plink{
+  --plink-c: var(--theme-flight, #98c6cc);
+  display:inline-flex;align-items:center;gap:8px;
+  max-width:100%;box-sizing:border-box;
+  padding:6px 12px;border-radius:999px;
+  border:1px solid var(--plink-c);
+  background:color-mix(in srgb, var(--plink-c) 12%, var(--paper, #11252a));
+  color:var(--head, #f5ecd6);
+  font:700 .9rem/1.25 var(--text, system-ui, sans-serif);
+  text-decoration:none;
+  transition:background .15s, border-width .15s, border-color .15s, box-shadow .15s;
+  vertical-align:middle;
+}
+.plink:hover{
+  background:color-mix(in srgb, var(--plink-c) 20%, var(--paper, #11252a));
+  border-width:2px;
+  padding:5px 11px; /* keep outer size stable when border thickens */
+}
+.plink:focus-visible{
+  outline:3px solid color-mix(in srgb, var(--plink-c) 70%, #f0d58c);
+  outline-offset:2px;
+}
+.plink__ico{
+  flex:none;width:18px;height:18px;border-radius:50%;
+  display:grid;place-items:center;
+  background:color-mix(in srgb, var(--plink-c) 22%, transparent);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--plink-c) 55%, transparent);
+  color:var(--plink-c);
+}
+.plink__ico svg{width:12px;height:12px;display:block}
+.plink__lbl{flex:1 1 auto;min-width:0}
+.plink__arrow{flex:none;opacity:.85;font-weight:700}
+.plink--route{--plink-c: var(--theme-flight, #98c6cc)}
+.plink--breeds{--plink-c: var(--theme-law, #a7b1d3)}
+.plink-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:.55em 0}
+.plink-callout{
+  margin:1em 0;padding:12px 14px;
+  border-radius:var(--r-m,10px);
+  border:1px solid var(--line, #23413f);
+  background:color-mix(in srgb, var(--paper, #11252a) 88%, #0b1719);
+}
+.plink-callout > p{
+  margin:0 0 .55em;font:600 .78rem/1.3 var(--text, system-ui, sans-serif);
+  letter-spacing:.06em;text-transform:uppercase;color:var(--mut, #a7b0a2);
+}
+.plink-callout .plink-row{margin:0}
+@media (max-width:720px){
+  .plink-callout .plink{width:100%;justify-content:flex-start}
+  .plink-row{flex-direction:column;align-items:stretch}
+  .plink-row > .plink{width:100%}
+}

@@ -1,0 +1,307 @@
+{
+  "console_errors": {
+    "home": [
+      {
+        "type": "error",
+        "text": "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8765' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      }
+    ],
+    "countries-canada": [
+      {
+        "type": "error",
+        "text": "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8765' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      }
+    ],
+    "usa-to-canada-air-canada": [
+      {
+        "type": "error",
+        "text": "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8765' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      }
+    ],
+    "veterans": [],
+    "usa-to-japan": [
+      {
+        "type": "error",
+        "text": "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8765' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: net::ERR_FAILED"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      },
+      {
+        "type": "error",
+        "text": "Failed to load resource: the server responded with a status of 400 ()"
+      }
+    ]
+  },
+  "failed_requests": {
+    "home": [
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=4584637408&adk=4198187771&adf=3985523845&pi=t.ma~as.4584637408&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2F&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210417291&bpp=1&bdt=181&idt=150&shv=r20261105&mjsv=m202611040101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=4992897704838&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404669%2C95407880%2C95408912%2C95409304%2C42533294%2C95405499%2C122882102&oid=2&pvsid=2138279251164160&tmod=486651229&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeonEr%7C&abl=CS&pfx=0&fu=32768&bc=31&bz=1&ifi=2&uci=a!2&fsb=1&dtd=155",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=9881497431&adk=2788051098&adf=3224018609&pi=t.ma~as.9881497431&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2F&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210417293&bpp=1&bdt=183&idt=168&shv=r20261105&mjsv=m202611040101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250&nras=1&correlator=4992897704838&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404669%2C95407880%2C95408912%2C95409304%2C42533294%2C95405499%2C122882102&oid=2&pvsid=2138279251164160&tmod=486651229&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeonEr%7C&abl=CS&pfx=0&fu=32768&bc=31&bz=1&ifi=5&uci=a!5&fsb=1&dtd=171",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=4584637408&adk=4198187771&adf=242646372&pi=t.ma~as.4584637408&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2F&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210417292&bpp=1&bdt=182&idt=163&shv=r20261105&mjsv=m202611040101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250&nras=1&correlator=4992897704838&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404669%2C95407880%2C95408912%2C95409304%2C42533294%2C95405499%2C122882102&oid=2&pvsid=2138279251164160&tmod=486651229&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeonEr%7C&abl=CS&pfx=0&fu=32768&bc=31&bz=1&ifi=4&uci=a!4&fsb=1&dtd=166",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=4584637408&adk=4198187771&adf=2199102204&pi=t.ma~as.4584637408&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2F&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210417292&bpp=1&bdt=182&idt=157&shv=r20261105&mjsv=m202611040101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250&nras=1&correlator=4992897704838&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404669%2C95407880%2C95408912%2C95409304%2C42533294%2C95405499%2C122882102&oid=2&pvsid=2138279251164160&tmod=486651229&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeonEr%7C&abl=CS&pfx=0&fu=32768&bc=31&bz=1&ifi=3&uci=a!3&fsb=1&dtd=160",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=9881497431&adk=2788051098&adf=3028066081&pi=t.ma~as.9881497431&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2F&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210417293&bpp=1&bdt=183&idt=174&shv=r20261105&mjsv=m202611040101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250%2C300x250&nras=1&correlator=4992897704838&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404669%2C95407880%2C95408912%2C95409304%2C42533294%2C95405499%2C122882102&oid=2&pvsid=2138279251164160&tmod=486651229&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeonEr%7C&abl=CS&pfx=0&fu=32768&bc=31&bz=1&ifi=6&uci=a!6&fsb=1&dtd=176",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=3852085178&adk=2786455082&adf=67038252&pi=t.ma~as.3852085178&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2F&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210417294&bpp=1&bdt=184&idt=207&shv=r20261105&mjsv=m202611040101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250&nras=1&correlator=4992897704838&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404669%2C95407880%2C95408912%2C95409304%2C42533294%2C95405499%2C122882102&oid=2&pvsid=2138279251164160&tmod=486651229&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeonEr%7C&abl=CS&pfx=0&fu=32768&bc=31&bz=1&ifi=12&uci=a!c&fsb=1&dtd=209",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=3852085178&adk=2786455082&adf=597205538&pi=t.ma~as.3852085178&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2F&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210417293&bpp=1&bdt=183&idt=192&shv=r20261105&mjsv=m202611040101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250&nras=1&correlator=4992897704838&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404669%2C95407880%2C95408912%2C95409304%2C42533294%2C95405499%2C122882102&oid=2&pvsid=2138279251164160&tmod=486651229&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeonEr%7C&abl=CS&pfx=0&fu=32768&bc=31&bz=1&ifi=9&uci=a!9&fsb=1&dtd=195",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=3852085178&adk=2786455082&adf=3318204619&pi=t.ma~as.3852085178&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2F&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210417293&bpp=1&bdt=184&idt=187&shv=r20261105&mjsv=m202611040101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250&nras=1&correlator=4992897704838&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404669%2C95407880%2C95408912%2C95409304%2C42533294%2C95405499%2C122882102&oid=2&pvsid=2138279251164160&tmod=486651229&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeonEr%7C&abl=CS&pfx=0&fu=32768&bc=31&bz=1&ifi=8&uci=a!8&fsb=1&dtd=189",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=9881497431&adk=2788051098&adf=602146125&pi=t.ma~as.9881497431&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2F&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210417293&bpp=1&bdt=184&idt=178&shv=r20261105&mjsv=m202611040101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250&nras=1&correlator=4992897704838&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404669%2C95407880%2C95408912%2C95409304%2C42533294%2C95405499%2C122882102&oid=2&pvsid=2138279251164160&tmod=486651229&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeonEr%7C&abl=CS&pfx=0&fu=32768&bc=31&bz=1&ifi=7&uci=a!7&fsb=1&dtd=180",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=3852085178&adk=2786455082&adf=1759043359&pi=t.ma~as.3852085178&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2F&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210417294&bpp=1&bdt=184&idt=203&shv=r20261105&mjsv=m202611040101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250&nras=1&correlator=4992897704838&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404669%2C95407880%2C95408912%2C95409304%2C42533294%2C95405499%2C122882102&oid=2&pvsid=2138279251164160&tmod=486651229&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeonEr%7C&abl=CS&pfx=0&fu=32768&bc=31&bz=1&ifi=11&uci=a!b&fsb=1&dtd=205",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=3852085178&adk=2786455082&adf=885327782&pi=t.ma~as.3852085178&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2F&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210417293&bpp=1&bdt=183&idt=198&shv=r20261105&mjsv=m202611040101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250&nras=1&correlator=4992897704838&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404669%2C95407880%2C95408912%2C95409304%2C42533294%2C95405499%2C122882102&oid=2&pvsid=2138279251164160&tmod=486651229&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeonEr%7C&abl=CS&pfx=0&fu=32768&bc=31&bz=1&ifi=10&uci=a!a&fsb=1&dtd=201",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=3852085178&adk=2786455082&adf=2492336405&pi=t.ma~as.3852085178&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2F&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210417294&bpp=1&bdt=185&idt=215&shv=r20261105&mjsv=m202611040101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250&nras=1&correlator=4992897704838&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=-12245933&ady=-12245933&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404669%2C95407880%2C95408912%2C95409304%2C42533294%2C95405499%2C122882102&oid=2&pvsid=2138279251164160&tmod=486651229&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeonEr%7C&abl=CS&pfx=0&fu=32768&bc=31&bz=1&ifi=13&uci=a!d&fsb=1&dtd=217",
+        "status": 400
+      }
+    ],
+    "countries-canada": [
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=4584637408&adk=3696546029&adf=2524613952&pi=t.ma~as.4584637408&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Fcountries%2Fcanada.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210419095&bpp=1&bdt=124&idt=142&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250&nras=1&correlator=8095959786385&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=490&ady=187&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404664%2C95407882%2C95408909%2C95408928%2C95409305%2C122882055%2C122882057%2C42533294&oid=2&pvsid=4060960981210244&tmod=1745503671&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoE%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=3&uci=a!3&fsb=1&dtd=144",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=4584637408&adk=3696546029&adf=2697564533&pi=t.ma~as.4584637408&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Fcountries%2Fcanada.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210419095&bpp=1&bdt=124&idt=148&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250&nras=1&correlator=8095959786385&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=806&ady=187&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404664%2C95407882%2C95408909%2C95408928%2C95409305%2C122882055%2C122882057%2C42533294&oid=2&pvsid=4060960981210244&tmod=1745503671&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoE%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=4&uci=a!4&fsb=1&dtd=150",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=4584637408&adk=3696546029&adf=32655509&pi=t.ma~as.4584637408&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Fcountries%2Fcanada.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210419094&bpp=1&bdt=123&idt=131&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=8095959786385&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=174&ady=187&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404664%2C95407882%2C95408909%2C95408928%2C95409305%2C122882055%2C122882057%2C42533294&oid=2&pvsid=4060960981210244&tmod=1745503671&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoE%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=2&uci=a!2&fsb=1&dtd=139",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=2114688057&adk=3929877909&adf=3916928675&pi=t.ma~as.2114688057&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Fcountries%2Fcanada.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210419096&bpp=1&bdt=125&idt=154&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250&nras=1&correlator=8095959786385&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=490&ady=4956&biw=1280&bih=900&scr_x=0&scr_y=1451&eid=95404664%2C95407882%2C95408909%2C95408928%2C95409305%2C122882055%2C122882057%2C42533294&oid=2&pvsid=4060960981210244&tmod=1745503671&uas=3&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoEbr%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=6&uci=a!6&btvi=1&fsb=1&dtd=1295",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=2114688057&adk=3929877909&adf=4158428806&pi=t.ma~as.2114688057&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Fcountries%2Fcanada.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210419096&bpp=1&bdt=125&idt=152&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250%2C300x250&nras=1&correlator=8095959786385&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=174&ady=4956&biw=1280&bih=900&scr_x=0&scr_y=1451&eid=95404664%2C95407882%2C95408909%2C95408928%2C95409305%2C122882055%2C122882057%2C42533294&oid=2&pvsid=4060960981210244&tmod=1745503671&uas=3&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoEbr%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=5&uci=a!5&btvi=2&fsb=1&dtd=1300",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=2114688057&adk=3929877909&adf=2435159062&pi=t.ma~as.2114688057&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Fcountries%2Fcanada.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210419096&bpp=1&bdt=125&idt=155&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250&nras=1&correlator=8095959786385&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=806&ady=4956&biw=1280&bih=900&scr_x=0&scr_y=1451&eid=95404664%2C95407882%2C95408909%2C95408928%2C95409305%2C122882055%2C122882057%2C42533294&oid=2&pvsid=4060960981210244&tmod=1745503671&uas=3&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoEbr%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=7&uci=a!7&btvi=3&fsb=1&dtd=1304",
+        "status": 400
+      }
+    ],
+    "usa-to-canada-air-canada": [
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=4584637408&adk=3696546029&adf=2697564533&pi=t.ma~as.4584637408&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Froutes%2Fusa-to-canada-air-canada.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210420779&bpp=1&bdt=143&idt=151&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250&nras=1&correlator=7454663310582&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=806&ady=187&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404664%2C95407882%2C95408909%2C95409304%2C122882054%2C122882143&oid=2&pvsid=6151881364254436&tmod=1391221370&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoE%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=4&uci=a!4&fsb=1&dtd=153",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=4584637408&adk=3696546029&adf=32655509&pi=t.ma~as.4584637408&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Froutes%2Fusa-to-canada-air-canada.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210420777&bpp=1&bdt=141&idt=139&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=7454663310582&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=174&ady=187&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404664%2C95407882%2C95408909%2C95409304%2C122882054%2C122882143&oid=2&pvsid=6151881364254436&tmod=1391221370&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoE%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=2&uci=a!2&fsb=1&dtd=145",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=4584637408&adk=3696546029&adf=2524613952&pi=t.ma~as.4584637408&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Froutes%2Fusa-to-canada-air-canada.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210420778&bpp=1&bdt=142&idt=147&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250&nras=1&correlator=7454663310582&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=490&ady=187&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404664%2C95407882%2C95408909%2C95409304%2C122882054%2C122882143&oid=2&pvsid=6151881364254436&tmod=1391221370&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoE%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=3&uci=a!3&fsb=1&dtd=150",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=2114688057&adk=3929877909&adf=4158428806&pi=t.ma~as.2114688057&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Froutes%2Fusa-to-canada-air-canada.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210420779&bpp=1&bdt=144&idt=156&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250&nras=1&correlator=7454663310582&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=174&ady=2348&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404664%2C95407882%2C95408909%2C95409304%2C122882054%2C122882143&oid=2&pvsid=6151881364254436&tmod=1391221370&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoEbr%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=5&uci=a!5&btvi=1&fsb=1&dtd=159",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=2114688057&adk=3929877909&adf=2435159062&pi=t.ma~as.2114688057&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Froutes%2Fusa-to-canada-air-canada.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210420780&bpp=1&bdt=145&idt=166&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250%2C300x250%2C300x250&nras=1&correlator=7454663310582&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=806&ady=2348&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404664%2C95407882%2C95408909%2C95409304%2C122882054%2C122882143&oid=2&pvsid=6151881364254436&tmod=1391221370&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoEbr%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=7&uci=a!7&btvi=3&fsb=1&dtd=168",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=2114688057&adk=3929877909&adf=3916928675&pi=t.ma~as.2114688057&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Froutes%2Fusa-to-canada-air-canada.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210420779&bpp=1&bdt=144&idt=162&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250%2C300x250%2C300x250&nras=1&correlator=7454663310582&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=490&ady=2348&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95404664%2C95407882%2C95408909%2C95409304%2C122882054%2C122882143&oid=2&pvsid=6151881364254436&tmod=1391221370&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoEbr%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=6&uci=a!6&btvi=2&fsb=1&dtd=164",
+        "status": 400
+      }
+    ],
+    "veterans": [],
+    "usa-to-japan": [
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=4584637408&adk=3696546029&adf=32655509&pi=t.ma~as.4584637408&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Froutes%2Fusa-to-japan.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210423809&bpp=1&bdt=125&idt=146&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0&nras=1&correlator=7460890100201&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=174&ady=187&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95401823%2C95404663%2C95407880%2C95408435%2C95408908%2C95409305%2C122881997%2C95405501&oid=2&pvsid=7158260514574183&tmod=682174488&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoE%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=2&uci=a!2&fsb=1&dtd=151",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=4584637408&adk=3696546029&adf=2524613952&pi=t.ma~as.4584637408&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Froutes%2Fusa-to-japan.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210423809&bpp=1&bdt=126&idt=155&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250&nras=1&correlator=7460890100201&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=490&ady=187&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95401823%2C95404663%2C95407880%2C95408435%2C95408908%2C95409305%2C122881997%2C95405501&oid=2&pvsid=7158260514574183&tmod=682174488&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoE%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=3&uci=a!3&fsb=1&dtd=158",
+        "status": 400
+      },
+      {
+        "url": "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-7693501377730690&output=html&h=250&slotname=4584637408&adk=3696546029&adf=2697564533&pi=t.ma~as.4584637408&abgtt=6&w=300&lmt=1794210347&format=300x250&url=http%3A%2F%2F127.0.0.1%3A8765%2Froutes%2Fusa-to-japan.html&aiof=14&asro=0&aimartd=4&aieuf=1&aicrs=1&uach=WyJMaW51eCIsIiIsIng4NiIsIiIsIjE1Ni4wLjgwNzguNCIsbnVsbCwwLG51bGwsIjY0IixbWyJOb3Q6QS1CcmFuZCIsIjguMC4wLjAiXSxbIkNocm9taXVtIiwiMTU2LjAuODA3OC40Il0sWyJIZWFkbGVzc0Nocm9tZSIsIjE1Ni4wLjgwNzguNCJdXSwwXQ..&dt=1794210423810&bpp=1&bdt=126&idt=159&shv=r20261105&mjsv=m202611030101&ptt=9&saldr=aa&abxe=1&cookie_enabled=1&eoidce=1&prev_fmts=0x0%2C300x250%2C300x250&nras=1&correlator=7460890100201&frm=20&pv=1&u_tz=540&u_his=2&u_h=900&u_w=1280&u_ah=900&u_aw=1280&u_cd=24&u_sd=1&dmc=16&adx=806&ady=187&biw=1280&bih=900&scr_x=0&scr_y=0&eid=95401823%2C95404663%2C95407880%2C95408435%2C95408908%2C95409305%2C122881997%2C95405501&oid=2&pvsid=7158260514574183&tmod=682174488&uas=0&nvt=1&fc=1920&brdim=0%2C0%2C0%2C0%2C1280%2C0%2C1280%2C900%2C1280%2C900&vis=1&rsz=%7C%7CeoE%7C&abl=CS&pfx=0&fu=0&bc=31&bz=1&ifi=4&uci=a!4&fsb=1&dtd=163",
+        "status": 400
+      }
+    ]
+  },
+  "plink_counts": {
+    "home": {
+      "route": 5,
+      "breeds": 0,
+      "callouts": 0
+    },
+    "countries-canada": {
+      "route": 1,
+      "breeds": 1,
+      "callouts": 1
+    },
+    "usa-to-canada-air-canada": {
+      "route": 1,
+      "breeds": 1,
+      "callouts": 1
+    },
+    "veterans": {
+      "route": 2,
+      "breeds": 1,
+      "callouts": 1
+    },
+    "usa-to-japan": {
+      "route": 0,
+      "breeds": 1,
+      "callouts": 0
+    }
+  },
+  "status": {
+    "/": 200,
+    "/countries/canada.html": 200,
+    "/routes/usa-to-canada-air-canada.html": 200,
+    "/veterans/": 200,
+    "/routes/usa-to-japan.html": 200
+  },
+  "internal_404s": []
+}

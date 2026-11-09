@@ -1,0 +1,13 @@
+Tokens used:
+  Type A .plink--route: --theme-flight #98c6cc (NOT --theme-map #d9b765 gold — reserved for map selection)
+  Type B .plink--breeds: --theme-law #a7b1d3
+  Label text: --head #f5ecd6 on tinted --paper
+  Border: type colour 1px (2px hover)
+  Background: color-mix(type 12%, paper) → 20% hover
+
+route 12% flight: bg #21383d  --head contrast 10.52:1 (AA)  --ink 9.76:1
+route 20% flight hover: bg #2c454a  --head contrast 8.68:1 (AA)  --ink 8.06:1
+breeds 12% law: bg #23363e  --head contrast 10.7:1 (AA)  --ink 9.93:1
+breeds 20% law hover: bg #2f414c  --head contrast 9.01:1 (AA)  --ink 8.37:1
+
+AA normal text requires 4.5:1. All --head ratios pass.
