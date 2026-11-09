@@ -316,13 +316,25 @@ html.accent-maple #country-map{
 html.accent-maple #country-map .st.hub{fill:#2a2420}
 html.accent-maple #country-map .st.rule{fill:#1d3a35} /* keep deep teal for alerts, Option B */
 html.accent-maple #country-map .st.sel{fill:#6d5a2c;stroke:var(--gold-l,#f0d58c);stroke-width:2}
-/* Canada neighbor-distinct tones (Marc 2026-11-09): 5 fills, distinct neighbours; sel outline unchanged */
-#country-map .st.st-t1, html.accent-maple #country-map .st.st-t1{fill:#244f48 !important}
-#country-map .st.st-t2, html.accent-maple #country-map .st.st-t2{fill:#1b3d45 !important}
-#country-map .st.st-t3, html.accent-maple #country-map .st.st-t3{fill:#2f4a3a !important}
-#country-map .st.st-t4, html.accent-maple #country-map .st.st-t4{fill:#16352f !important}
-#country-map .st.st-t5, html.accent-maple #country-map .st.st-t5{fill:#3a4f3e !important}
+/* Canada neighbor-distinct tones (2026-11-09 tweak): more varied teal/forest; gold sel unchanged */
+/* Generic #country-map.st-t* left for non-maple; maple overrides with wider spread. */
+#country-map .st.st-t1{fill:#244f48 !important}
+#country-map .st.st-t2{fill:#1b3d45 !important}
+#country-map .st.st-t3{fill:#2f4a3a !important}
+#country-map .st.st-t4{fill:#16352f !important}
+#country-map .st.st-t5{fill:#3a4f3e !important}
+html.accent-maple #country-map .st.st-t1{fill:#1e7a68 !important}
+html.accent-maple #country-map .st.st-t2{fill:#0c2a36 !important}
+html.accent-maple #country-map .st.st-t3{fill:#3f6b42 !important}
+html.accent-maple #country-map .st.st-t4{fill:#12241e !important}
+html.accent-maple #country-map .st.st-t5{fill:#2a5470 !important}
 html.accent-maple #country-map .st.hub{filter:saturate(1.06) brightness(1.05)}
+html.accent-maple #country-map .lbl{
+  fill:#fff8ec;font-weight:700;
+  paint-order:stroke;stroke:rgba(8,18,20,.92);stroke-width:3.2px;stroke-linejoin:round
+}
+html.accent-maple #country-map .lbl.sel{fill:#fff7df;stroke:rgba(8,18,20,.95);stroke-width:3.4px}
+
 #country-map .st.rule, html.accent-maple #country-map .st.rule{stroke:#b5473a !important; stroke-width:1.35 !important}
 #country-map .st.sel, html.accent-maple #country-map .st.sel, html.accent-mxgreen #country-map .st.sel{fill:#6d5a2c !important;stroke:var(--gold-l,#f0d58c) !important;stroke-width:2 !important;filter:none !important}
 html.accent-maple #country-map .ct.sample circle{fill:#edeae2;stroke:#b5473a;stroke-width:1.8}
