@@ -5,8 +5,6 @@
 const CFG = window.PPC_MAP; if(!CFG) return;
 const GEO = CFG.geo, AIRPORTS = CFG.airports || [], DATA = CFG.data, ACCENT = CFG.accent || 'maple';
 const ROOT = CFG.idRoot || 'country-map';
-/* Detail side-panel retired for all country-map pages (CA/MX): highlight-only, like map selection UX. */
-const SHOW_PANEL = false;
 const SITE = '..';
 const $ = s => document.querySelector(s);
 const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -66,7 +64,7 @@ function buildMap(){
     if(hubRegions.has(a)) cls.push('hub');
     if(DATA.tones && DATA.tones[a]) cls.push(DATA.tones[a]);
     const p = el('path', {id:'s-'+a, class:cls.join(' '), d:g.d, role:'button', tabindex:'0', 'aria-label':g.name, 'data-a':a});
-    p.addEventListener('click', e => { e.stopPropagation(); selectRegion(a); });
+    p.addEventListener('click', e => { e.stopPropagation(); selectRegion(a); if(e.detail){ try{p.blur()}catch(_){ } } });
     p.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); selectRegion(a); }});
     gs.appendChild(p);
     if(g.c){
@@ -82,7 +80,7 @@ function buildMap(){
       const right = c.x < 880;
       const tx = el('text', {x:c.x+(right?8:-8), y:c.y+3.5, 'text-anchor':right?'start':'end'});
       tx.textContent = c.n; g.appendChild(tx);
-      g.addEventListener('click', e => { e.stopPropagation(); selectRegion(a, c.n); });
+      g.addEventListener('click', e => { e.stopPropagation(); selectRegion(a, c.n); if(e.detail){ try{g.blur()}catch(_){ } } });
       gc.appendChild(g);
     }
   }
@@ -161,7 +159,7 @@ function buildAirports(){
     g.setAttribute('transform', `translate(${ap.x} ${ap.y})`);
     const tx = el('text', {x:0, y:14, 'text-anchor':'middle'}); tx.textContent = ap.code; g.appendChild(tx);
     const tt = el('title',{}); tt.textContent = `${ap.code} — ${ap.city}`; g.appendChild(tt);
-    g.addEventListener('click', e => { e.stopPropagation(); selectAirport(ap.code); });
+    g.addEventListener('click', e => { e.stopPropagation(); selectAirport(ap.code); if(e.detail){ try{g.blur()}catch(_){ } } });
     g.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); selectAirport(ap.code); }});
     ga.appendChild(g);
   }
@@ -354,9 +352,7 @@ function zoomAt(px,py,f,ms){const w=Math.min(975,Math.max(MINW,vb[2]/f)),s=w/vb[
  const t=[px-(px-vb[0])*s,py-(py-vb[1])*s,w,w*610/975];if(ms)animateTo(t,ms);else{stopAnim();applyViewBox(clampVB(t))}}
 
 function render(html){
-  if(!SHOW_PANEL) return;
-  const p=$('#panel'); if(!p) return;
-  p.innerHTML=html; p.scrollTop=0; applyStep(false);
+  const p=$('#panel'); p.innerHTML=html; p.scrollTop=0; applyStep(false);
   p.querySelectorAll('[data-ap]').forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
   if(innerWidth<=900&&cur)p.scrollIntoView({behavior:'smooth',block:'start'});
 }
@@ -381,7 +377,6 @@ function applyStep(scroll){
 }
 function selectRegion(a, city){
   cur={a,city}; hilite(a);
-  if(!SHOW_PANEL) return;
   const s=GEO[a];
   const hubs=hubForRegion(a);
   const hubNote = hubs.length ? ` · hub ${hubs.map(h=>h.iata).join(', ')}` : '';
@@ -392,11 +387,10 @@ function selectAirport(code){
   const ap = AIRPORTS.find(x=>x.code===code); if(!ap) return;
   const a = ap.province || ap.state;
   cur={a,ap:code}; hilite(a, code);
-  if(!SHOW_PANEL) return;
   render(header(code, ap.city+' · '+code, `${GEO[a]?GEO[a].name:a} · airport hub`) +
     lawSection(a)+roadSection(a)+planeSection(a, code)+hotelSection(a)+groomSection(a));
 }
-function resetAll(){ cur=null; hilite(null); if(SHOW_PANEL) render(welcome()); }
+function resetAll(){ cur=null; hilite(null); render(welcome()); }
 function welcome(){
   return `<div class="ph theme-map accent-head"><div class="mark">${esc(DATA.country)}</div><div><div class="ph-eye"><span>${esc(DATA.name)} pet-travel map</span></div><h2>Pick a ${esc(DATA.unit)}</h2><div class="sub">${esc(DATA.unitPlural)} · verified ${esc(DATA.lastChecked)}</div></div></div>
     <p>Click a region or airport, or use the dropdown. Plan in order: vet and laws, road or rail, plane, hotel, grooming.</p>
@@ -421,7 +415,7 @@ function initSteps(){
          had nothing to scroll to and felt dead. USA auto-selects NYC; we auto-select the
          primary hub region, then scroll/highlight the matching journey section. */
       if(!cur) selectRegion(defaultRegion());
-      if(SHOW_PANEL) applyStep(true);
+      applyStep(true);
     });
   });
   const reset=$('#reset'); if(reset) reset.onclick=resetAll;
@@ -479,16 +473,7 @@ function initFreeZoom(){const m=$('#map');if(!m)return;
 }
 
 document.documentElement.classList.add('accent-'+ACCENT);
-if(!SHOW_PANEL){
-  const root = document.getElementById(ROOT) || document.getElementById('country-map');
-  if(root) root.classList.add('no-detail-panel');
-  const panel = document.getElementById('panel');
-  if(panel){ panel.hidden = true; panel.setAttribute('aria-hidden','true'); }
-  const steps = document.getElementById('steps');
-  if(steps){ steps.hidden = true; steps.setAttribute('aria-hidden','true'); }
-}
-buildSwitcher(); buildMap(); initSteps(); initFreeZoom(); applyViewBox(FULL);
-if(SHOW_PANEL) render(welcome());
+buildSwitcher(); buildMap(); initSteps(); initFreeZoom(); applyViewBox(FULL); render(welcome());
 
 // deep link #ON or #ON/Toronto or #YYZ
 const hash = decodeURIComponent(location.hash.replace(/^#/,''));

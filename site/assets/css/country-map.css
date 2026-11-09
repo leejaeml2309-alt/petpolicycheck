@@ -323,7 +323,7 @@ html.accent-maple #country-map .st.sel{fill:#6b3a32;stroke:#d4a090;stroke-width:
 #country-map .st.st-t4, html.accent-maple #country-map .st.st-t4{fill:#16352f !important}
 #country-map .st.st-t5, html.accent-maple #country-map .st.st-t5{fill:#3a4f3e !important}
 html.accent-maple #country-map .st.hub{filter:saturate(1.06) brightness(1.05)}
-html.accent-maple #country-map .st.rule{stroke:#b5473a !important; stroke-width:1.35 !important}
+#country-map .st.rule, html.accent-maple #country-map .st.rule{stroke:#b5473a !important; stroke-width:1.35 !important}
 #country-map .st.sel, html.accent-maple #country-map .st.sel{fill:#6b3a32 !important; stroke:#d4a090 !important; stroke-width:1.7 !important; filter:none !important}
 html.accent-maple #country-map .ct.sample circle{fill:#edeae2;stroke:#b5473a;stroke-width:1.8}
 html.accent-maple #country-map .ct.sample .ring{stroke:#b5473a;opacity:.75}
@@ -440,9 +440,29 @@ html.accent-mxgreen #country-map .zoom button:hover:not(:disabled){border-color:
 #usa-map .maptools .state-picker,#country-map .maptools .state-picker{margin:0}
 #usa-map .panel,#country-map .panel{border:1px solid rgba(217,183,101,.28);box-shadow:0 10px 28px rgba(0,0,0,.28)}
 
+/* SVG focus must follow the geometry, never its rectangular bounding box.
+   Keep keyboard navigation; use the existing selected-region color as focus cue.
+   (USA already had .st:focus{outline:none}; CA/MX shared engine did not.) */
+#country-map .st:focus,
+#country-map .st:focus-visible,
+#country-map .ct:focus,
+#country-map .ct:focus-visible,
+#country-map .ap:focus,
+#country-map .ap:focus-visible,
+#country-map path.st:focus,
+#country-map path.st:focus-visible{
+  outline:none !important;
+  outline-width:0 !important;
+  outline-color:transparent !important;
+  outline-style:none !important;
+  box-shadow:none !important;
+}
+#country-map .st:focus-visible{
+  fill:#6b3a32 !important;
+  stroke:#d4a090 !important;
+  stroke-width:1.7 !important;
+  filter:none !important;
+}
+#country-map .ct:focus-visible circle{fill:#edeae2;stroke:var(--accent);stroke-width:3}
+#country-map .ap:focus-visible .pad{stroke:var(--accent-cream);stroke-width:2.2}
 
-/* Canada-only: hide detail panel, let map use full width (opt-in via DATA.detailPanel=false) */
-#country-map.no-detail-panel .app{grid-template-columns:1fr}
-#country-map.no-detail-panel .panel{display:none !important}
-#country-map.no-detail-panel .steps{display:none !important}
-#country-map.no-detail-panel .portal p{display:none}
