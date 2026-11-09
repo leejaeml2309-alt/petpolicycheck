@@ -10,7 +10,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VER = "20261110essearch1"
+VER = "20261110essearch2"
 
 # (href_abs, label, active_prefixes under /es/)
 # href_abs is site-root absolute path
