@@ -198,13 +198,20 @@
 
   function group(results) {
     var map = Object.create(null);
-    var order = [];
+    var best = Object.create(null);
     results.forEach(function (r) {
       var y = r.page.y || "Guides";
-      if (!map[y]) { map[y] = []; order.push(y); }
+      if (!map[y]) map[y] = [];
       map[y].push(r);
+      if (best[y] == null || r.score > best[y]) best[y] = r.score;
     });
-    order.sort(function (a, b) { return TYPE_ORDER.indexOf(a) - TYPE_ORDER.indexOf(b); });
+    // Prefer the type that holds the strongest hit (so exact "pug" → Guides before Airlines)
+    var order = Object.keys(map);
+    order.sort(function (a, b) {
+      var db = (best[b] || 0) - (best[a] || 0);
+      if (db) return db;
+      return TYPE_ORDER.indexOf(a) - TYPE_ORDER.indexOf(b);
+    });
     return order.map(function (y) { return { type: y, items: map[y] }; });
   }
 
