@@ -75,12 +75,14 @@ function buildMap(){
   for(const a of ABBRS){
     for(const c of (GEO[a].cities||[])){
       const g = el('g', {class:'ct'+(c.cap?' cap':'')+(c.sample?' sample':''), role:'button', tabindex:'0', 'data-s':a, 'data-k':a+'|'+c.n, 'aria-label':c.n+', '+GEO[a].name});
+      const ctt = el('title',{}); ctt.textContent = c.n+', '+GEO[a].name;
       g.appendChild(el('circle', {cx:c.x, cy:c.y, r:c.sample?5:3}));
       if(c.sample) g.appendChild(el('circle', {class:'ring', cx:c.x, cy:c.y, r:8.5}));
       const right = c.x < 880;
       const tx = el('text', {x:c.x+(right?8:-8), y:c.y+3.5, 'text-anchor':right?'start':'end'});
-      tx.textContent = c.n; g.appendChild(tx);
-      g.addEventListener('click', e => { e.stopPropagation(); selectRegion(a, c.n); if(e.detail){ try{g.blur()}catch(_){ } } });
+      tx.textContent = c.n; g.appendChild(tx); g.appendChild(ctt);
+      g.addEventListener('click', e => { e.stopPropagation(); selectCity(a, c.n); if(e.detail){ try{g.blur()}catch(_){ } } });
+      g.addEventListener('keydown', e => { if(e.key==='Enter'){ selectCity(a, c.n); }});
       gc.appendChild(g);
     }
   }
@@ -89,7 +91,7 @@ function buildMap(){
   if(pick){
     pick.innerHTML = `<option value="">Choose a ${DATA.unit}…</option>` +
       ABBRS.map(a => `<option value="${a}">${esc(GEO[a].name)} (${a})</option>`).join('');
-    pick.onchange = () => { if(pick.value) selectRegion(pick.value); else resetAll(); };
+    pick.onchange = () => { if(pick.value) selectRegion(pick.value); };
 
   /* Custom mineral-night region picker */
   (function mountCountryPicker(){
@@ -151,9 +153,9 @@ function buildAirports(){
     const region = ap.province || ap.state;
     const city = (GEO[region]&&GEO[region].cities||[]).find(c => c.n === ap.city) || (GEO[region]&&GEO[region].cities||[])[0];
     if(city){
-      ga.appendChild(el('line', {class:'ap-link', x1:city.x, y1:city.y, x2:ap.x, y2:ap.y, 'data-region':region, 'data-code':ap.code}));
+      ga.appendChild(el('line', {class:'ap-link', x1:city.x, y1:city.y, x2:ap.x, y2:ap.y, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'data-code':ap.code}));
     }
-    const g = el('g', {class:'ap', role:'button', tabindex:'0', 'data-code':ap.code, 'data-region':region, 'aria-label':ap.code+', '+ap.city});
+    const g = el('g', {class:'ap', role:'button', tabindex:'0', 'data-code':ap.code, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'aria-label':ap.code+', '+ap.city});
     g.appendChild(el('rect', {class:'pad', x:-8, y:-8, width:16, height:16, rx:2, transform:'rotate(45)'}));
     g.appendChild(el('path', {class:'glyph', d:PLANE, transform:'translate(-6.2,-6.2) scale(.52)'}));
     g.setAttribute('transform', `translate(${ap.x} ${ap.y})`);
@@ -172,7 +174,7 @@ function buildPortalGrid(){
     const hub = (DATA.provHub&&DATA.provHub[a]) || (DATA.stateHub&&DATA.stateHub[a]);
     return `<button type="button" data-a="${a}" class="${special?'rule':''}${hub?' hub':''}"><b>${a}</b><span>${esc(GEO[a].name)}</span>${special?'<em>Alert</em>':''}${hub?`<em class="hub">${hub}</em>`:''}</button>`;
   }).join('');
-  grid.querySelectorAll('button').forEach(b => b.onclick = () => selectRegion(b.dataset.a));
+  grid.querySelectorAll('button').forEach(b => b.onclick = () => { selectRegion(b.dataset.a); $('#panel').scrollIntoView({behavior:'smooth',block:'nearest'}); });
 }
 
 /* ---------- panel content ---------- */
@@ -273,14 +275,14 @@ function planeSection(a, apCode){
   s += `<div class="links">${lk('🧳','Airline pet policies','Cabin, fees, hold','../#compare','off').replace('Official','Site').replace(' target="_blank"','')}</div></section>`;
   return s;
 }
-function hotelSection(a){
+function hotelSection(a, qCity){
   let s = `<section class="sec" data-sec="4"><h3><span class="n">4</span>Hotel</h3>`;
   if(DATA.hotels && DATA.hotels.chains){
     s += `<h4>Verified Canadian chains</h4><div class="links">` +
       DATA.hotels.chains.map(c => lk('🏨', c.chain, c.policy, c.url, 'off')).join('') + `</div>`;
   }
   const hubs = hubForRegion(a);
-  const q = hubs[0] && hubs[0].hotel_q ? hubs[0].hotel_q : ((GEO[a]?GEO[a].name:a)+' pet friendly hotels');
+  const q = qCity || (hubs[0] && hubs[0].hotel_q ? hubs[0].hotel_q : ((GEO[a]?GEO[a].name:a)+' pet friendly hotels'));
   s += `<div class="links">${lk('🏨','Pet-friendly hotels on Expedia', q, expHotels(q),'srch')}${lk('🛏','Pet-friendly stays on Booking.com', q, bkgHotels(q),'srch')}</div>`;
   s += `<p class="disc">Search links are plain search URLs. Confirm the property&rsquo;s pet fee and weight limit before you book.</p></section>`;
   return s;
@@ -312,14 +314,18 @@ function groomSection(a){
   return s;
 }
 
-function hilite(a, apCode){
+/* Same steps as usa-map.js hilite(a,key,apCode): city key lights only that city's airports. */
+function hilite(a, key, apCode){
   document.querySelectorAll('.st.sel,.lbl.sel,.ct.sel,.ap.sel').forEach(e=>e.classList.remove('sel'));
   document.querySelectorAll('#grid button.sel').forEach(e=>e.classList.remove('sel'));
   if(a){ $('#s-'+a)?.classList.add('sel'); $('#l-'+a)?.classList.add('sel'); document.querySelector(`#grid button[data-a="${a}"]`)?.classList.add('sel'); }
+  if(key) document.querySelector(`.ct[data-k="${CSS.escape(key)}"]`)?.classList.add('sel');
   document.querySelectorAll('.ap,.ap-link').forEach(el=>{
     const mine = !a || el.dataset.region===a;
     el.classList.toggle('dim', !!a && !mine);
-    el.classList.toggle('hot', !!a && mine);
+    const cityHot = !!(key && el.dataset.citykey===key);
+    const stateHot = !!a && !key && mine;
+    el.classList.toggle('hot', cityHot || stateHot);
   });
   if(apCode) document.querySelector(`.ap[data-code="${CSS.escape(apCode)}"]`)?.classList.add('sel');
   const pick = $('#pick'); if(pick) pick.value = a||'';
@@ -353,6 +359,8 @@ function zoomAt(px,py,f,ms){const w=Math.min(975,Math.max(MINW,vb[2]/f)),s=w/vb[
 
 function render(html){
   const p=$('#panel'); p.innerHTML=html; p.scrollTop=0; applyStep(false);
+  p.querySelectorAll('[data-city]').forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
+  p.querySelectorAll('[data-state]').forEach(b=>b.onclick=()=>selectRegion(b.dataset.state));
   p.querySelectorAll('[data-ap]').forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
   if(innerWidth<=900&&cur)p.scrollIntoView({behavior:'smooth',block:'start'});
 }
@@ -375,27 +383,70 @@ function applyStep(scroll){
     }
   }
 }
-function selectRegion(a, city){
-  cur={a,city}; hilite(a);
+/* ---------- selections: same flow as usa-map.js (state → city → airport, hash, crumbs) ---------- */
+function setHash(a,n){
+  const h=n?a+'/'+encodeURIComponent(n):a;
+  if(decodeURIComponent(location.hash.replace(/^#/,''))!==(n?a+'/'+n:a)) history.replaceState(null,'','#'+h);
+}
+function airportsFor(a, city){ return AIRPORTS.filter(ap => (ap.province||ap.state)===a && (!city || ap.city===city)); }
+function airportChips(list, heading){
+  if(!list.length) return '';
+  return `<h4 class="hd">${esc(heading)}</h4><div class="citylist">${list.map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}" aria-label="${esc(ap.code)}, ${esc(ap.city)}">${esc(ap.code)} — ${esc(ap.city)}</button>`).join('')}</div>`;
+}
+function cityButtons(a){
+  const list = GEO[a].cities||[];
+  if(!list.length) return '';
+  return `<h4 class="hd">Main cities</h4><div class="citylist">${list.map(c=>`<button type="button" data-s="${a}" data-city="${esc(c.n)}" class="${c.sample?'sample':''}">${esc(c.n)}${c.cap?' (capital)':''}</button>`).join('')}</div>`;
+}
+function selectRegion(a){
+  cur={a}; hilite(a); setHash(a);
   const s=GEO[a];
   const hubs=hubForRegion(a);
   const hubNote = hubs.length ? ` · hub ${hubs.map(h=>h.iata).join(', ')}` : '';
-  render(header(a, s.name, `${a} · ${DATA.unit}${hubNote}`) +
+  render(header(a, s.name, `${a} · ${DATA.unit}${hubNote}`) + cityButtons(a) +
     lawSection(a)+roadSection(a)+planeSection(a)+hotelSection(a)+groomSection(a));
+}
+function selectCity(a, n){
+  const st=GEO[a]; if(!st) return;
+  const key=a+'|'+n; cur={a,n}; hilite(a,key); setHash(a,n);
+  const crumbs=`<p class="crumbs"><button type="button" data-state="${a}">← ${esc(st.name)}</button> · ${esc(n)}</p>`;
+  const aps=airportsFor(a,n);
+  const hub=aps.map(ap=>DATA.hubs[ap.code]).find(h=>h&&h.hotel_q);
+  render(crumbs+header(a, n, `${esc(st.name)} · city`)+airportChips(aps, 'Airports serving '+n)+
+    `<div class="stubbox"><b>Placeholder:</b> no separate city booking panel for ${esc(n)} on this map yet. ${esc(st.name)} links shown below.</div>`+
+    lawSection(a)+roadSection(a)+planeSection(a)+hotelSection(a, hub?hub.hotel_q:n+', '+st.name)+groomSection(a));
+}
+function airHead(ap){
+  const a=ap.province||ap.state;
+  return `<div class="ph"><div class="ap-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><path fill="#d9b765" d="${PLANE}"/></svg><b>${esc(ap.code)}</b></div><div><h2>${esc(ap.code)} — ${esc(ap.city)}</h2><div class="sub">${esc((DATA.hubs[ap.code]&&DATA.hubs[ap.code].name)||ap.city)} · ${esc(GEO[a]?GEO[a].name:a)}</div></div></div>`;
 }
 function selectAirport(code){
   const ap = AIRPORTS.find(x=>x.code===code); if(!ap) return;
   const a = ap.province || ap.state;
-  cur={a,ap:code}; hilite(a, code);
-  render(header(code, ap.city+' · '+code, `${GEO[a]?GEO[a].name:a} · airport hub`) +
-    lawSection(a)+roadSection(a)+planeSection(a, code)+hotelSection(a)+groomSection(a));
+  step=3;
+  cur={a,n:ap.city,ap:code}; hilite(a, a+'|'+ap.city, code); setHash(a, code);
+  const st=GEO[a];
+  const crumbs=`<p class="crumbs"><button type="button" data-state="${a}">← ${esc(st.name)}</button> · <button type="button" data-s="${a}" data-city="${esc(ap.city)}">${esc(ap.city)}</button> · ${esc(code)}</p>`;
+  const hub=DATA.hubs[code];
+  render(crumbs+airHead(ap)+
+    `<div class="btnrow" style="margin:0 0 4px"><button type="button" class="btn" data-s="${a}" data-city="${esc(ap.city)}">City panel: ${esc(ap.city)}</button></div>`+
+    lawSection(a)+roadSection(a)+planeSection(a, code)+hotelSection(a, hub&&hub.hotel_q)+groomSection(a));
+  applyStep(true);
 }
-function resetAll(){ cur=null; hilite(null); render(welcome()); }
-function welcome(){
-  return `<div class="ph theme-map accent-head"><div class="mark">${esc(DATA.country)}</div><div><div class="ph-eye"><span>${esc(DATA.name)} pet-travel map</span></div><h2>Pick a ${esc(DATA.unit)}</h2><div class="sub">${esc(DATA.unitPlural)} · verified ${esc(DATA.lastChecked)}</div></div></div>
-    <p>Click a region or airport, or use the dropdown. Plan in order: vet and laws, road or rail, plane, hotel, grooming.</p>
-    <div class="links">${lk('🏛', DATA.authority, 'Official authority', DATA.officialUrl, 'off')}${lk('📜', 'Full '+DATA.name+' guide', 'Federal rules + hubs', DATA.guideUrl, 'off').replace(' target="_blank"','').replace('Official','Site')}</div>
-    <section class="sec active focus" data-sec="1"><h3><span class="n">1</span>Federal snapshot</h3>${dogsCatsBlock()}${breedBlock(null)}<h4>Return to the US</h4><p>${esc(DATA.returnToUs)}</p></section>`;
+/* USA showAllStates(): clear selection, zoom, hash and panel. */
+function resetAll(){
+  cur=null; hilite(null);
+  if(location.hash) try{ history.replaceState(null,'',location.pathname+location.search) }catch(_){ location.hash='' }
+  empty(); const r=$('#reset'); if(r) r.hidden=true; const pk=$('#pick'); if(pk) pk.value='';
+}
+/* USA empty(): "Pick a state or city" + city and airport shortcuts. */
+function empty(){
+  const cities=[]; for(const a of ABBRS) for(const c of (GEO[a].cities||[])) if(c.sample) cities.push([a,c.n]);
+  $('#panel').innerHTML=`<div class="empty"><div class="big">Pick a ${esc(DATA.unit)} or city</div><p>Click any ${esc(DATA.unit)} on the map (or use the list) to open its panel. Plane marks are the airport hubs:</p>`+
+    (cities.length?`<div class="citylist">${cities.map(([a,n])=>`<button type="button" class="sample" data-s="${a}" data-city="${esc(n)}">${esc(n)}</button>`).join('')}</div>`:'')+
+    `<div class="citylist">${AIRPORTS.map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.city)}</button>`).join('')}</div><p class="disc">Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel → 5 grooming.</p></div>`;
+  $('#panel').querySelectorAll('[data-city]').forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
+  $('#panel').querySelectorAll('[data-ap]').forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
 }
 
 /* Default hub region when a journey step is pressed with nothing selected (mirrors USA → NYC). */
@@ -411,14 +462,18 @@ function initSteps(){
   document.querySelectorAll('#steps button').forEach(b=>{
     b.addEventListener('click',()=>{
       step=+b.dataset.step;
-      /* Root-cause fix: without a selection the welcome panel only has sec 1, so steps 2–5
-         had nothing to scroll to and felt dead. USA auto-selects NYC; we auto-select the
-         primary hub region, then scroll/highlight the matching journey section. */
-      if(!cur) selectRegion(defaultRegion());
+      /* Same as USA (auto-selects NYC): with nothing selected, open the default hub city, then scroll to the step. */
+      if(!cur){ const r=defaultRegion(); const c=(GEO[r].cities||[])[0]; c?selectCity(r,c.n):selectRegion(r); }
       applyStep(true);
     });
   });
-  const reset=$('#reset'); if(reset) reset.onclick=resetAll;
+  const reset=$('#reset'); if(reset){ reset.classList.remove('ghost'); reset.classList.add('reset-all'); reset.onclick=resetAll; }
+  /* USA: Escape clears the selection (capture phase, an open site menu keeps Escape) */
+  window.addEventListener('keydown',e=>{
+    if(e.key!=='Escape'||!cur||e.defaultPrevented) return;
+    const sm=document.getElementById('site-menu'); if(sm&&sm.classList.contains('open')) return;
+    resetAll();
+  },true);
 }
 
 /* Free zoom & pan — same UX as usa-map.js (wheel, drag, pinch, sideways pan, +/−/reset). */
@@ -473,15 +528,18 @@ function initFreeZoom(){const m=$('#map');if(!m)return;
 }
 
 document.documentElement.classList.add('accent-'+ACCENT);
-buildSwitcher(); buildMap(); initSteps(); initFreeZoom(); applyViewBox(FULL); render(welcome());
+buildSwitcher(); buildMap(); initSteps(); initFreeZoom(); applyViewBox(FULL); empty();
 
-// deep link #ON or #ON/Toronto or #YYZ
-const hash = decodeURIComponent(location.hash.replace(/^#/,''));
-if(hash){
-  if(AIRPORTS.some(a=>a.code===hash)) selectAirport(hash);
-  else {
-    const [a,city] = hash.split('/');
-    if(GEO[a]) selectRegion(a, city||null);
-  }
+// deep links (USA rules): #ON · #ON/Toronto · #QC/YUL · #YYZ
+{
+  const raw=decodeURIComponent((location.hash||'').replace(/^#/,'').replace(/\+/g,' '));
+  const slash=raw.indexOf('/');
+  const isAp=c=>AIRPORTS.some(x=>x.code===c);
+  if(slash>0){ const a=raw.slice(0,slash), n=raw.slice(slash+1);
+    if(isAp(n)) selectAirport(n);
+    else if(GEO[a]&&(GEO[a].cities||[]).some(c=>c.n===n)) selectCity(a,n);
+    else if(GEO[a]) selectRegion(a);
+  } else if(isAp(raw)) selectAirport(raw);
+  else if(GEO[raw]) selectRegion(raw);
 }
 })();
