@@ -1,0 +1,44 @@
+{
+  "desktop": {
+    "status": 200,
+    "console_errors": [],
+    "console_warnings_n": 0,
+    "page_errors": [],
+    "failed_requests": [],
+    "overflow": {
+      "scrollWidth": 1280,
+      "clientWidth": 1280,
+      "bodyScroll": 1280
+    },
+    "has_horizontal_overflow": false,
+    "box1_h2": "Service dog or emotional support animal? What changed on US flights in 2021",
+    "box2_h2": "Help with service dog costs: VA (US) and Veterans Affairs Canada",
+    "snow_h2": "Veteran snowbirds & VA / military lodging",
+    "crop_px": {
+      "top": 1843,
+      "bottom": 4638,
+      "img_h": 5099
+    }
+  },
+  "mobile": {
+    "status": 200,
+    "console_errors": [],
+    "console_warnings_n": 0,
+    "page_errors": [],
+    "failed_requests": [],
+    "overflow": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "bodyScroll": 390
+    },
+    "has_horizontal_overflow": false,
+    "box1_h2": "Service dog or emotional support animal? What changed on US flights in 2021",
+    "box2_h2": "Help with service dog costs: VA (US) and Veterans Affairs Canada",
+    "snow_h2": "Veteran snowbirds & VA / military lodging",
+    "crop_px": {
+      "top": 3037,
+      "bottom": 9610,
+      "img_h": 10865
+    }
+  }
+}
