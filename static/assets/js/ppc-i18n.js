@@ -2,7 +2,8 @@
    Persists ppc_lang + ?lang=. Single global switcher; syncs page-local switchers. */
 (function () {
   'use strict';
-  var LANGS = ['en', 'fr', 'es', 'de', 'ko', 'ja'];
+  var LANGS = ['en', 'es', 'fr', 'ko', 'ja', 'de'];
+  var LANG_LABELS = {en:'EN', es:'ES', fr:'FR', ko:'KR', ja:'JP', de:'DE'};
   var KEY = 'ppc_lang';
   var D = (window.PPC_I18N && window.PPC_I18N.strings) || {};
   var L = 'en';
@@ -209,7 +210,7 @@
     var aria = t('lang.aria') || 'Language';
     return '<div class="ppc-lang-sw" role="group" aria-label="' + aria + '">'
       + LANGS.map(function (c) {
-        return '<button type="button" data-setlang="' + c + '" lang="' + c + '" aria-pressed="' + (c === L ? 'true' : 'false') + '">' + c.toUpperCase() + '</button>';
+        return '<button type="button" data-setlang="' + c + '" lang="' + c + '" aria-pressed="' + (c === L ? 'true' : 'false') + '">' + (LANG_LABELS[c] || c.toUpperCase()) + '</button>';
       }).join('')
       + '</div>';
   }

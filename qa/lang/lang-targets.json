@@ -1,0 +1,72 @@
+[
+  {
+    "label": "EN",
+    "code": "en",
+    "local_status": 200,
+    "local_url": "http://127.0.0.1:8797/",
+    "live_status": 200,
+    "live_url": "https://petpolicycheck.com/",
+    "note": "Dedicated EN home",
+    "shown_in_switcher": true
+  },
+  {
+    "label": "ES",
+    "code": "es",
+    "local_status": 200,
+    "local_url": "http://127.0.0.1:8797/es/",
+    "live_status": 200,
+    "live_url": "https://petpolicycheck.com/es/",
+    "note": "Dedicated /es/ tree (full pages)",
+    "shown_in_switcher": true
+  },
+  {
+    "label": "FR",
+    "code": "fr",
+    "local_status": 200,
+    "local_url": "http://127.0.0.1:8797/?lang=fr",
+    "live_status": 200,
+    "live_url": "https://petpolicycheck.com/?lang=fr",
+    "note": "Hybrid ?lang=fr overlay on EN (+ some /routes/fr/*)",
+    "shown_in_switcher": true
+  },
+  {
+    "label": "KR",
+    "code": "ko",
+    "local_status": 200,
+    "local_url": "http://127.0.0.1:8797/?lang=ko",
+    "live_status": 200,
+    "live_url": "https://petpolicycheck.com/?lang=ko",
+    "note": "Hybrid ?lang=ko overlay on EN (+ some /routes/ko/*)",
+    "shown_in_switcher": true
+  },
+  {
+    "label": "JP",
+    "code": "ja",
+    "local_status": 200,
+    "local_url": "http://127.0.0.1:8797/?lang=ja",
+    "live_status": 200,
+    "live_url": "https://petpolicycheck.com/?lang=ja",
+    "note": "Hybrid ?lang=ja overlay on EN (+ some /routes/ja/*)",
+    "shown_in_switcher": true
+  },
+  {
+    "label": "DE",
+    "code": "de",
+    "local_status": 200,
+    "local_url": "http://127.0.0.1:8797/?lang=de",
+    "live_status": 200,
+    "live_url": "https://petpolicycheck.com/?lang=de",
+    "note": "Hybrid ?lang=de overlay on EN (+ some /routes/de/*)",
+    "shown_in_switcher": true
+  },
+  {
+    "label": "IT",
+    "code": "it",
+    "local_status": 200,
+    "local_url": "http://127.0.0.1:8797/?lang=it",
+    "live_status": 200,
+    "live_url": "https://petpolicycheck.com/?lang=it",
+    "note": "NOT shown in switcher \u2014 no IT tree yet",
+    "shown_in_switcher": false
+  }
+]
