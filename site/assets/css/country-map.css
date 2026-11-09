@@ -221,7 +221,7 @@ main.wrap:has(#country-map){max-width:1320px}
 #country-map svg#map{display:block;width:100%;height:auto;touch-action:pan-y;cursor:grab;user-select:none}
 #country-map .st{fill:#16302f;stroke:#0b1719;stroke-width:.9;cursor:pointer;transition:fill .15s;vector-effect:non-scaling-stroke}
 #country-map .st:hover{fill:#24494a}
-#country-map .st.rule{fill:#1d3a35}
+#country-map .st.rule{/* USA model: a11y class only — no fill of its own */}
 #country-map .st.hub{fill:#1a3530}
 #country-map .st.sel{fill:#6d5a2c;stroke:var(--gold-l);stroke-width:1.6}
 #country-map .lbl{font:600 calc(10px*var(--kt,1)) var(--text);fill:#cdbf9a;pointer-events:none;text-anchor:middle;dominant-baseline:central;letter-spacing:.04em}
@@ -340,7 +340,7 @@ html.accent-maple #country-map #l-NB,
 html.accent-maple #country-map #l-NS,
 html.accent-maple #country-map #l-NL{font-size:calc(12.5px*var(--kt,1));stroke-width:4px}
 
-#country-map .st.rule{stroke:#b5473a !important; stroke-width:1.35 !important}
+#country-map .st.rule{/* USA model: no alert stroke */}
 html.accent-maple #country-map .st.rule{stroke:#0b1719 !important; stroke-width:.9px !important}
 #country-map .st.sel, html.accent-maple #country-map .st.sel, html.accent-mxgreen #country-map .st.sel{fill:#6d5a2c !important;stroke:var(--gold-l,#f0d58c) !important;stroke-width:2 !important;filter:none !important}
 html.accent-maple #country-map .ct.sample circle{fill:#edeae2;stroke:#b5473a;stroke-width:1.8}
@@ -358,7 +358,7 @@ html.accent-mxgreen #country-map{
   --accent:#3f7a5a; --accent-soft:#6a9e80; --accent-ink:#e4f0e8; --accent-cream:#efe6d2;
 }
 html.accent-mxgreen #country-map .st.hub{fill:#1f3329}
-html.accent-mxgreen #country-map .st.rule{fill:#1d3a35} /* deep teal Option B for screwworm/border alerts */
+html.accent-mxgreen #country-map .st.rule{/* USA model: a11y only — alerts stay in the state panel */}
 html.accent-mxgreen #country-map .st.sel{fill:#6d5a2c;stroke:var(--gold-l,#f0d58c);stroke-width:2}
 html.accent-mxgreen #country-map .ct.sample circle{fill:#6a9e80}
 html.accent-mxgreen #country-map .ct.sample .ring{stroke:#6a9e80}

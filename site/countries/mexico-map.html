@@ -58,7 +58,7 @@ m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
 m.addEventListener('focusout',function(e){var r=e.relatedTarget;if(m.classList.contains('open')&&r&&!m.contains(r)&&T.indexOf(r)<0)set(false)})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script><script src="../assets/js/partner-banner.js" defer data-partner-root="../assets/partners/"></script>
 <main class="wrap" id="main">
-<link rel="stylesheet" href="../assets/css/country-map.css?v=20261109gold1">
+<link rel="stylesheet" href="../assets/css/country-map.css?v=20261109noalert-mx1">
 <div id="country-map" class="accent-mxgreen">
 <section class="intro">
  <div><h1>Travel Mexico with your pet</h1>
@@ -77,7 +77,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   <div class="maptools">
    <label for="pick">State</label>
    <select id="pick"><option value="">Choose a state…</option></select>
-   <div class="legend"><span><i style="background:#1d3a35;border:1px solid #3a5a56"></i>Border / screwworm alert</span><span><i style="background:#1f3329;border:1px solid #3f7a5a55"></i>Hub state</span><span><i style="background:#6d5a2c;box-shadow:0 0 0 1px #f0d58c"></i>Selected</span><span><i style="background:#9fb59a"></i>Capital</span><span><b class="lg-ap">✈</b>Airport hub</span></div>
+   <div class="legend"><span><i style="background:#1f3329;border:1px solid #3f7a5a55"></i>Hub state</span><span><i style="background:#6d5a2c;box-shadow:0 0 0 1px #f0d58c"></i>Selected</span><span><i style="background:#9fb59a"></i>Capital</span><span><b class="lg-ap">✈</b>Airport hub</span></div>
   </div>
   <button class="btn ghost" type="button" id="reset" hidden>Show all states</button>
   <svg id="map" viewBox="0 0 975 610" role="group" aria-label="Mexican states and airport hubs"><g id="g-st"></g><g id="g-lb"></g><g id="g-ct"></g><g id="g-ap"></g></svg>
