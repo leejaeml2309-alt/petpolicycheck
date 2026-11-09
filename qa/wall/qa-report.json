@@ -1,0 +1,138 @@
+{
+  "console_error_count": 0,
+  "page_error_count": 0,
+  "internal_404_count": 0,
+  "failed_request_count": 0,
+  "pages": [
+    {
+      "label": "desktop-empty",
+      "url": "http://127.0.0.1:8796/veterans/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "shot": "qa/wall/desktop-empty.png",
+      "cards": 6,
+      "empty_cards": 6,
+      "demo_banner": false,
+      "mailto_aria_disabled": "true",
+      "consent_checked": null,
+      "mailto_href_prefix": "#woh-consent",
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    {
+      "label": "desktop-empty-full",
+      "url": "http://127.0.0.1:8796/veterans/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "shot": "qa/wall/desktop-empty-full.png",
+      "cards": 6,
+      "empty_cards": 6,
+      "demo_banner": false,
+      "mailto_aria_disabled": "true",
+      "consent_checked": null,
+      "mailto_href_prefix": "#woh-consent",
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    {
+      "label": "mobile-empty",
+      "url": "http://127.0.0.1:8796/veterans/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "shot": "qa/wall/mobile-empty.png",
+      "cards": 6,
+      "empty_cards": 6,
+      "demo_banner": false,
+      "mailto_aria_disabled": "true",
+      "consent_checked": null,
+      "mailto_href_prefix": "#woh-consent",
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    {
+      "label": "desktop-demo",
+      "url": "http://127.0.0.1:8796/veterans/?demo=1",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "shot": "qa/wall/desktop-demo.png",
+      "cards": 3,
+      "empty_cards": 0,
+      "demo_banner": true,
+      "mailto_aria_disabled": "true",
+      "consent_checked": null,
+      "mailto_href_prefix": "#woh-consent",
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    {
+      "label": "desktop-demo-full",
+      "url": "http://127.0.0.1:8796/veterans/?demo=1",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "shot": "qa/wall/desktop-demo-full.png",
+      "cards": 3,
+      "empty_cards": 0,
+      "demo_banner": true,
+      "mailto_aria_disabled": "true",
+      "consent_checked": null,
+      "mailto_href_prefix": "#woh-consent",
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    {
+      "label": "submit-consent-off",
+      "url": "http://127.0.0.1:8796/veterans/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "shot": "qa/wall/submit-consent-off.png",
+      "cards": 6,
+      "empty_cards": 6,
+      "demo_banner": false,
+      "mailto_aria_disabled": "true",
+      "consent_checked": false,
+      "mailto_href_prefix": "#woh-consent",
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    },
+    {
+      "label": "submit-consent-on",
+      "url": "http://127.0.0.1:8796/veterans/",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "shot": "qa/wall/submit-consent-on.png",
+      "cards": 6,
+      "empty_cards": 6,
+      "demo_banner": false,
+      "mailto_aria_disabled": "false",
+      "consent_checked": true,
+      "mailto_href_prefix": "mailto:contact@petpolicy",
+      "console_errors": [],
+      "page_errors": [],
+      "failed_requests": []
+    }
+  ],
+  "console_errors": [],
+  "page_errors": [],
+  "internal_404": [],
+  "failed_requests": []
+}

@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "updated": "2026-11-10",
+  "demo": true,
+  "note": "DEMO ONLY — synthetic silhouettes, not real reader submissions. Loaded only with ?demo=1.",
+  "heroes": [
+    {
+      "id": "demo-a",
+      "name": "Ranger",
+      "role": "PTSD service dog · DEMO",
+      "years": "2019–2024",
+      "photo": "../assets/img/veterans-wall/demo-k9-a.svg",
+      "alt": "DEMO illustration: silhouette of a service dog named Ranger (not a real photo)"
+    },
+    {
+      "id": "demo-b",
+      "name": "Scout",
+      "role": "Mobility service dog · DEMO",
+      "years": "2020–present",
+      "photo": "../assets/img/veterans-wall/demo-k9-b.svg",
+      "alt": "DEMO illustration: silhouette of a service dog named Scout (not a real photo)"
+    },
+    {
+      "id": "demo-c",
+      "name": "Valor",
+      "role": "Guide dog · DEMO",
+      "years": "2018–2023",
+      "photo": "../assets/img/veterans-wall/demo-k9-c.svg",
+      "alt": "DEMO illustration: rear-view silhouette of a service dog named Valor (not a real photo)"
+    }
+  ]
+}
