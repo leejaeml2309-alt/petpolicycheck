@@ -15,3 +15,8 @@ YES — shown on ES passport timeline when a US state is selected: `passport-eng
 - `us_states[].cvi` and `us_states[].rabies` field values (displayed on passport)
 - Comparator `fee_usd_*` numerics / meta.rules (untouched per pack)
 - Brand names, airport codes, breed names, `needs_review`
+
+## Complements3 (2026-11-09)
+- us_states cvi/rabies: 52/52 via /es/-only overlay; timeline template ES with CVI gloss + «rabia»
+- comparator meta.rules[0..4] + uk_global_rule via /es/-only overlay (technical ids kept EN)
+- Visible leftover-EN phrase scan: 0 after complements3

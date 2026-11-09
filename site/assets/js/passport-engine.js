@@ -32,7 +32,9 @@ function ppcPassES(){try{var d=document.documentElement;if((d.getAttribute('data
       const anchorLeg = (r.id === 'us_hr_cert' && leg.n === 2) ? legs[0] : leg;
       const st = (F.us_states || []).find(s => s.code === inp.state);
       let text = r.text.replace('{state}', st ? st.name : 'your state');
-      if (r.id === 'us_state' && st) text += ` → ${st.name}: CVI ${st.cvi}; rabies ${st.rabies}.${st.verified ? '' : (ppcPassES()?' (página estatal no verificada: llame al veterinario estatal)':' (state page not verified: call the state vet)')}`;
+      if (r.id === 'us_state' && st) text += ppcPassES()
+        ? ` → ${st.name}: CVI (certificado de inspección veterinaria) ${st.cvi}; rabia ${st.rabies}.${st.verified ? '' : ' (página estatal no verificada: llame al veterinario estatal)'}`
+        : ` → ${st.name}: CVI ${st.cvi}; rabies ${st.rabies}.${st.verified ? '' : ' (state page not verified: call the state vet)'}`;
       timeline.push({ leg: anchorLeg.n, legLabel: `${anchorLeg.from} → ${anchorLeg.to}` + (anchorLeg !== leg ? (ppcPassES()?' (necesario para el regreso)':' (needed for the return)') : ''),
         when: r.when, date: minus(anchorLeg.date, OFF[r.when]), text, source: r.source, id: r.id });
     }));

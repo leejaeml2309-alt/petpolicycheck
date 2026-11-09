@@ -34,3 +34,25 @@ window.PPC_COMPARATOR={"meta":{"dataset":"PetPolicyCheck airline pet comparator 
   });
 })();
 
+/* ES overlays for comparator meta.rules (complements3) */
+(function(){
+  function lang(){
+    try{
+      if((document.documentElement.getAttribute('data-ppc-locale')||'')==='es') return 'es';
+      if((location.pathname||'').indexOf('/es/')===0) return 'es';
+      if((document.documentElement.lang||'').toLowerCase().indexOf('es')===0) return 'es';
+    }catch(e){}
+    return 'en';
+  }
+  if(lang()!=='es') return;
+  var C=window.PPC_COMPARATOR; if(!C||!C.meta) return;
+  var RULES=["Las tarifas son solo ida, por transportadora salvo indicación. fee_usd_* solo se rellena cuando la aerolínea publica un monto en USD (o CA/US$); las tarifas solo en KRW/MXN/EUR quedan en null en lugar de convertirse.", "weight_limit_type: explicit_no_limit (la aerolínea indica que no hay límite) | none_stated (no se publica cifra; la mascota debe caber en la transportadora) | combined (máx. mascota + transportadora) | not_applicable (sin mascotas en cabina).", "verification_level indica al equipo cuánto confiar en una fila: official_page_fetched > official_page_via_search_extract > *_needs_review.", "Las 12 aerolíneas existentes se derivaron de data/airlines/*.json; las filas re-verificadas el 2026-11-07 llevan la URL oficial + fecha directamente en este archivo.", "Norma universal de EE. UU. (CDC): todo perro que entre a EE. UU. debe tener 6+ meses, microchip y un recibo del CDC Dog Import Form. Esto prevalece sobre cualquier min_age de la aerolínea."];
+  var UK="GOV.UK: las mascotas que entran a Gran Bretaña por vía aérea comercial deben llegar como carga en bodega en una ruta aprobada; solo los perros de asistencia reconocidos vuelan en cabina. Ninguna aerolínea puede venderle un asiento de mascota en cabina HACIA el Reino Unido.";
+  if(Array.isArray(C.meta.rules) && RULES.length===C.meta.rules.length){
+    C.meta.rules=RULES.slice();
+  } else if(Array.isArray(C.meta.rules)){
+    for(var i=0;i<Math.min(RULES.length,C.meta.rules.length);i++) C.meta.rules[i]=RULES[i];
+  }
+  if(UK!=null) C.meta.uk_global_rule=UK;
+})();
+
