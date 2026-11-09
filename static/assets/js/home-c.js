@@ -1,18 +1,5 @@
 /* ES locale strings for /es/ home (BOOK_USA stays page-provided). */
-(function(){var ES={
-  guideAvail:' \u2022 gu\u00eda disponible',
-  guideParen:' (gu\u00eda disponible)',
-  guidesOG:'Gu\u00edas por pa\u00eds',
-  allOG:'Todos los pa\u00edses',
-  guideStar:'  \u2605 gu\u00eda',
-  close:'Cerrar',
-  bookH:'Reserve su viaje',
-  bookLede:'Vuelos, hoteles que admiten mascotas, traslados al aeropuerto, cl\u00ednicas veterinarias y seguros en una sola p\u00e1gina.',
-  bookCta:'Planifique y reserve su viaje \u2192',
-  usaSoon:'Gu\u00eda completa de EE. UU. pr\u00f3ximamente.',
-  reqPrefix:'Solicitud de gu\u00eda de pa\u00eds: ',
-  reqCta:'Solicitar este pa\u00eds'
-};
+(function(){var ES={guideAvail:" • guía disponible",guideParen:" (guía disponible)",guidesOG:"Guías por país",allOG:"Todos los países",guideStar:"  ★ guía",close:"Cerrar",bookH:"Reserve su viaje",bookLede:"Vuelos, hoteles que admiten mascotas, traslados al aeropuerto, clínicas veterinarias y seguros en una sola página.",bookCta:"Planifique y reserve su viaje →",usaSoon:"Guía completa de EE. UU. próximamente.",reqPrefix:"Solicitud de guía de país: ",reqCta:"Solicitar este país",topTitleLink:"Normas de viaje con mascotas · perros y gatos",mapNote:"Haga clic en un estado para las normas de entrada, luego en una ciudad para taxis, trenes, vuelos y hoteles que admiten mascotas.",flyingThere:"¿Vuela hacia allá?",comparePolicies:"Compare las políticas de mascotas de las aerolíneas ✈",underseat:"Medidas de transportadora bajo el asiento",topTitleUncovered:"Normas de importación de mascotas",notVerified:"Todavía no hemos verificado {name}.",uncoveredBody:"Cada guía de país en PetPolicyCheck se verifica con la fuente oficial del gobierno y se fecha, así que solo publicamos un país cuando eso está hecho. Guías hasta ahora: {list}.",forumCta:"Pregunte a la comunidad en el foro",airlineLink:"Políticas de mascotas de las aerolíneas ✈",topTitleLegacy:"Normas de importación de mascotas · perros y gatos",mainHealth:"Principales normas sanitarias y obligaciones",officialProc:"Procedimiento oficial",summaryNote:"Resumen de la página oficial, verificado {date}. Las normas cambian: siga siempre la página oficial y contacte al Animal Quarantine Service en su aeropuerto de llegada.",vetClinicsTokyo:"Clínicas veterinarias (Tokio, en inglés)",websiteSrc:"Sitio web / fuente ↗",clinicNote:"Datos de clínicas copiados del sitio de cada clínica (consultado el 23 oct 2026). Incluirlas no es un respaldo; llame antes para confirmar horarios y servicios."};
 function ppcHomeLang(){
   try{
     if((document.documentElement.getAttribute('data-ppc-locale')||'')==='es') return 'es';
@@ -135,28 +122,28 @@ function openCountry(id){
  cg.selectAll('.country').classed('sel',function(d){return d.id===id});
  var h;
  if(G&&G.kind==='link'){
-  h=top('Pet travel rules \u00b7 dogs &amp; cats',flag(G)+esc(G.title||G.name))+'<div class="pbody">'
+  h=top(ppcHS('topTitleLink','Pet travel rules · dogs & cats'),flag(G)+esc(G.title||G.name))+'<div class="pbody">'
   +'<p class="lede">'+esc(G.line)+'</p>'
   +(G.summary?'<p>'+esc(G.summary)+'</p>':'')
-  +(G.map_url?'<p><a class="btn big" href="'+esc(G.map_url)+'">'+esc(G.map_cta||'Explore the map')+' \u2192</a></p><p class="note">Click a state for entry rules, then a city for taxis, trains, flights and pet-friendly hotels.</p>':'')
+  +(G.map_url?'<p><a class="btn big" href="'+esc(G.map_url)+'">'+esc(G.map_cta||'Explore the map')+' \u2192</a></p><p class="note">'+ppcHS('mapNote','Click a state for entry rules, then a city for taxis, trains, flights and pet-friendly hotels.')+'</p>':'')
   +(G.url?'<p><a class="'+(G.map_url?'btn ghost':'btn big')+'" href="'+G.url+'">'+esc(G.cta)+' \u2192</a></p>':'<p class="lede">'+ppcHS('usaSoon','Full USA guide coming soon.')+'</p>')
   +(G.book==='usa'&&window.BOOK_USA?window.BOOK_USA:bookMini(G))
-  +'<h3>Flying there?</h3><p><a href="#compare">Compare airline pet policies \u2708</a> \u00b7 <a href="'+LIVE+'products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a></p></div>';
+  +'<h3>'+ppcHS('flyingThere','Flying there?')+'</h3><p><a href="#compare">'+ppcHS('comparePolicies','Compare airline pet policies \u2708')+'</a> \u00b7 <a href="'+LIVE+'products/under-seat-carrier-size-by-airline.html">'+ppcHS('underseat','Under-seat carrier sizes')+'</a></p></div>';
  }else if(G){
-  h=top('Pet import rules \u00b7 dogs &amp; cats',flag(G)+esc(G.name))+'<div class="pbody">'
+  h=top(ppcHS('topTitleLegacy','Pet import rules · dogs & cats'),flag(G)+esc(G.name))+'<div class="pbody">'
   +'<p style="margin-top:0;color:var(--mut);font-size:.9rem">'+esc(G.scope)+'</p>'
-  +'<h3>Main health rules &amp; obligations</h3><ul class="rules">'+G.rules.map(function(r){return '<li><b>'+r[0]+'</b><span>'+r[1]+'</span></li>'}).join('')+'</ul>'
-  +'<h3>Official procedure</h3><a class="src" href="'+G.source+'" target="_blank" rel="noopener"><strong>'+esc(G.source_name)+' \u2197</strong>'+esc(G.source)+'</a>'
-  +'<p class="note">Summary of the official page, checked '+esc(G.checked)+'. Rules change: always follow the official page and contact the Animal Quarantine Service at your arrival airport.</p>'
-  +'<h3>Veterinary clinics (Tokyo, English-speaking)</h3>'
-  +G.vets.map(function(v){return '<div class="vet"><strong>'+esc(v.name)+'</strong><div>'+esc(v.addr)+'</div><div>Tel: <a href="tel:+81'+v.tel.replace(/^0|-/g,'')+'">'+esc(v.tel)+'</a>'+(v.mail?' \u00b7 <a href="mailto:'+v.mail+'">'+esc(v.mail)+'</a>':'')+'</div>'+(v.hours?'<div>'+esc(v.hours)+'</div>':'')+'<div>'+esc(v.note)+' \u00b7 <a href="'+v.url+'" target="_blank" rel="noopener">Website / source \u2197</a></div></div>'}).join('')
-  +'<p class="note">Clinic details copied from each clinic\'s own website (accessed Oct 23, 2026). Listing is not an endorsement; call ahead to confirm hours and services.</p>'
-  +'<h3>Flying there?</h3><p><a href="#compare">Compare airline pet policies \u2708</a> \u00b7 <a href="'+LIVE+'products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a></p></div>';
+  +'<h3>'+ppcHS('mainHealth','Main health rules & obligations')+'</h3><ul class="rules">'+G.rules.map(function(r){return '<li><b>'+r[0]+'</b><span>'+r[1]+'</span></li>'}).join('')+'</ul>'
+  +'<h3>'+ppcHS('officialProc','Official procedure')+'</h3><a class="src" href="'+G.source+'" target="_blank" rel="noopener"><strong>'+esc(G.source_name)+' \u2197</strong>'+esc(G.source)+'</a>'
+  +'<p class="note">'+ppcHS('summaryNote','Summary of the official page, checked {date}. Rules change: always follow the official page and contact the Animal Quarantine Service at your arrival airport.').replace('{date}',esc(G.checked))+'</p>'
+  +'<h3>'+ppcHS('vetClinicsTokyo','Veterinary clinics (Tokyo, English-speaking)')+'</h3>'
+  +G.vets.map(function(v){return '<div class="vet"><strong>'+esc(v.name)+'</strong><div>'+esc(v.addr)+'</div><div>Tel: <a href="tel:+81'+v.tel.replace(/^0|-/g,'')+'">'+esc(v.tel)+'</a>'+(v.mail?' \u00b7 <a href="mailto:'+v.mail+'">'+esc(v.mail)+'</a>':'')+'</div>'+(v.hours?'<div>'+esc(v.hours)+'</div>':'')+'<div>'+esc(v.note)+' \u00b7 <a href="'+v.url+'" target="_blank" rel="noopener">'+ppcHS('websiteSrc','Website / source \u2197')+'</a></div></div>'}).join('')
+  +'<p class="note">'+ppcHS('clinicNote','Clinic details copied from each clinic\'s own website (accessed Oct 23, 2026). Listing is not an endorsement; call ahead to confirm hours and services.')+'</p>'
+  +'<h3>'+ppcHS('flyingThere','Flying there?')+'</h3><p><a href="#compare">'+ppcHS('comparePolicies','Compare airline pet policies \u2708')+'</a> \u00b7 <a href="'+LIVE+'products/under-seat-carrier-size-by-airline.html">'+ppcHS('underseat','Under-seat carrier sizes')+'</a></p></div>';
  }else{
-  h=top('Pet import rules',esc(f.properties.name))+'<div class="pbody"><p><b>We haven\'t verified '+esc(f.properties.name)+' yet.</b></p>'
-  +'<p>Every country guide on PetPolicyCheck is checked against the official government source and dated, so we only publish a country once that is done. Guides so far: '+Object.keys(GUIDES).map(function(k){return esc(GUIDES[k].name)}).join(', ')+'.</p>'
+  h=top(ppcHS('topTitleUncovered','Pet import rules'),esc(f.properties.name))+'<div class="pbody"><p><b>'+ppcHS('notVerified','We haven\'t verified {name} yet.').replace('{name}',esc(f.properties.name))+'</b></p>'
+  +'<p>'+ppcHS('uncoveredBody','Every country guide on PetPolicyCheck is checked against the official government source and dated, so we only publish a country once that is done. Guides so far: {list}.').replace('{list}',Object.keys(GUIDES).map(function(k){return esc(GUIDES[k].name)}).join(', '))+'</p>'
   +'<p><a class="btn" href="mailto:contact@petpolicycheck.com?subject='+encodeURIComponent(ppcHS('reqPrefix','Country guide request: ')+f.properties.name)+'">'+ppcHS('reqCta','Request this country')+'</a></p>'
-  +'<p><a href="'+LIVE+'forum/">Ask the community in the forum</a> \u00b7 <a href="#compare">Airline pet policies \u2708</a></p></div>';
+  +'<p><a href="'+LIVE+'forum/">'+ppcHS('forumCta','Ask the community in the forum')+'</a> \u00b7 <a href="#compare">'+ppcHS('airlineLink','Airline pet policies \u2708')+'</a></p></div>';
  }
  show(h);history.replaceState(null,'','#country='+encodeURIComponent(G?(G.slug||G.name):f.properties.name));
 }

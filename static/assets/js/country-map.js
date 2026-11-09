@@ -34,9 +34,9 @@ function buildSwitcher(){
   if(!host) return;
   const es = (location.pathname||'').indexOf('/es/')===0;
   const tabs = es ? [
-    {id:'usa', href:'/countries/usa-map.html', label:'Mapa de EE. UU.', accent:'usa'},
-    {id:'ca', href:'/countries/canada-map.html', label:'Mapa de Canadá', accent:'maple'},
-    {id:'mx', href:'mexico-map.html', label:'Mapa de México', accent:'mxgreen'}
+    {id:'usa', href:'/es/countries/usa-map.html', label:'Mapa de EE. UU.', accent:'usa'},
+    {id:'ca', href:'/es/countries/canada-map.html', label:'Mapa de Canadá', accent:'maple'},
+    {id:'mx', href:'/es/countries/mexico-map.html', label:'Mapa de México', accent:'mxgreen'}
   ] : [
     {id:'usa', href:'usa-map.html', label:'USA Map', accent:'usa'},
     {id:'ca', href:'canada-map.html', label:'Canada Map', accent:'maple'},

@@ -2,7 +2,27 @@
    Eight sample cities have booking links; every other city is an explicit placeholder. */
 const GEO = window.GEO;
 const RULES = window.USA_RULES;
-const SITE="..";
+const ON_ES=(location.pathname||'').indexOf('/es/')===0;
+const SITE=ON_ES?"":"..";
+function siteUrl(path){
+  /* path like /clinics/usa.html or /hotels/pet-friendly-….html */
+  var p=path.charAt(0)==='/'?path:'/'+path;
+  if(!ON_ES) return '..'+p;
+  /* Prefer /es/ when an ES page exists; else site-root EN. */
+  var ES={
+    'countries/usa.html':1,'countries/canada.html':1,'countries/mexico.html':1,
+    'countries/usa-map.html':1,'countries/canada-map.html':1,'countries/mexico-map.html':1,
+    'grooming/':1,'grooming/index.html':1,'fit/':1,'pet-travel-checklist/':1,
+    'routes/usa-canada.html':1,'routes/usa-mexico.html':1,'routes/usa-france.html':1,
+    'routes/usa-uk.html':1,'routes/usa-to-japan.html':1,
+    'airlines/snub-nosed-breeds.html':1,'airlines/compare/':1,'passport/':1
+  };
+  var rel=p.replace(/^\/+/, '');
+  var key=rel; if(key && key.slice(-1)!=='/' && key.indexOf('.html')<0) key=key+'/';
+  if(ES[rel]||ES[key]||ES[rel.replace(/\/$/,'')+'/index.html']) return '/es/'+rel;
+  return p;
+}
+
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const enc=encodeURIComponent;
@@ -353,7 +373,7 @@ function ruleKind(a){
 }
 function clinicCard(state, city){
  const c=CLINICS[state+"|"+city];
- const dir=lk("📋","USA clinics directory","Informational list, not a partnership",SITE+"/clinics/usa.html","off").replace("Official","Site");
+ const dir=lk("📋","USA clinics directory","Informational list, not a partnership",siteUrl("/clinics/usa.html"),"off").replace("Official","Site");
  if(!c) return `<h4>Clinic for ${esc(city)}</h4><div class="stubbox"><b>Placeholder:</b> no verified clinic for ${esc(city)} on this preview. Use the directory or the USDA accredited-vet search, then confirm with the clinic.</div><div class="links">${dir}${lk("🏛","USDA: find an accredited vet","Search by state and county","https://vsapps.aphis.usda.gov/vsps/public/VetSearch.do","off")}</div>`;
  return `<h4>Clinic for ${esc(city)}</h4><div class="links">${lk("🩺",c.name,c.place+" · "+c.source,c.url,c.tag)}${dir}</div><p class="disc">One clinic for this city. Informational only, not a partner. Confirm services, USDA accreditation and fees with the clinic.</p>`;
 }
@@ -363,7 +383,7 @@ function clinicsForState(a){
 }
 function stateClinics(a){
  const list=clinicsForState(a);
- const dir=lk("📋","USA clinics directory","Informational list, not a partnership",SITE+"/clinics/usa.html","off").replace("Official","Site");
+ const dir=lk("📋","USA clinics directory","Informational list, not a partnership",siteUrl("/clinics/usa.html"),"off").replace("Official","Site");
  const usda=lk("🏛","USDA: find an accredited vet","Search by state and county","https://vsapps.aphis.usda.gov/vsps/public/VetSearch.do","off");
  const hi=a==="HI"?`<p class="disc">Hawaii trips also need the FAVN rabies test and the quarantine steps above.</p>`:"";
  if(!list.length) return `<h4>Clinics in this state</h4><div class="stubbox"><b>No clinic listed for this state yet.</b> Use the directory or the USDA accredited-vet search, then confirm with the clinic.</div>${hi}<div class="links">${dir}${usda}</div>`;
@@ -393,7 +413,7 @@ function roadSection(a,city){
 function airFedLinks(){
  return lk("✈️","Search flights on Expedia","Then add the pet with the airline","https://expedia.com/affiliate/jnsZjjX","aff")
   +lk("🧳","Airline pet policies","Cabin, fees, hold","../#compare","off").replace("Official","Site").replace(' target="_blank"','')
-  +lk("🇺🇸","PetPolicyCheck: USA pet travel guide","Full federal and state table (source for this map)",SITE+"/countries/usa.html","off").replace("Official","Site")
+  +lk("🇺🇸","PetPolicyCheck: USA pet travel guide","Full federal and state table (source for this map)",siteUrl("/countries/usa.html"),"off").replace("Official","Site")
   +fed("aphisAir")+fed("cdc","🐕")+fed("dot","🦮");
 }
 function planeSection(a, cityName){
@@ -425,7 +445,7 @@ function airportRoad(ap){
 }
 function groomSection(){return window.PPC_GROOM?PPC_GROOM.section(cur):""}
 function hotelSection(q,extra){
- return `<section class="sec" data-sec="4"><h3><span class="n">4</span>Hotel</h3><div class="links">${extra||""}${lk("🏨","Pet-friendly hotels on Expedia",q+" · pets-allowed filter",expHotels(q),"srch")}${lk("🛏","Pet-friendly stays on Booking.com",q+" · pets-allowed filter",bkgHotels(q),"srch")}${lk("📋","Hotel chains: pet fees & weight limits","PetPolicyCheck",SITE+"/hotels/","off").replace('Official','Site')}</div><p class="disc">“Search” links are plain search URLs: swap for affiliate deep links before publish. “Affiliate” links may earn a commission at no extra cost to you.</p></section>`;
+ return `<section class="sec" data-sec="4"><h3><span class="n">4</span>Hotel</h3><div class="links">${extra||""}${lk("🏨","Pet-friendly hotels on Expedia",q+" · pets-allowed filter",expHotels(q),"srch")}${lk("🛏","Pet-friendly stays on Booking.com",q+" · pets-allowed filter",bkgHotels(q),"srch")}${lk("📋","Hotel chains: pet fees & weight limits","PetPolicyCheck",siteUrl("/hotels/"),"off").replace('Official','Site')}</div><p class="disc">“Search” links are plain search URLs: swap for affiliate deep links before publish. “Affiliate” links may earn a commission at no extra cost to you.</p></section>`;
 }
 function render(html){const p=$("#panel");p.innerHTML=html;p.scrollTop=0;applyStep(false);
  p.querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
@@ -495,7 +515,7 @@ function selectDC(){cur={a:"DC"};hilite(null);setHash("DC");
 function cityHotelExtra(a,n){
  const S=SAMPLE[a+"|"+n]; if(!S) return "";
  let extra="";
- if(S.guide) extra+=lk("📍","PetPolicyCheck: pet-friendly hotels in "+n,"Chain rules, luxury hotels, dog parks",SITE+S.guide,"off").replace("Official","Site");
+ if(S.guide) extra+=lk("📍","PetPolicyCheck: pet-friendly hotels in "+n,"Chain rules, luxury hotels, dog parks",siteUrl(S.guide),"off").replace("Official","Site");
  if(S.exp) extra+=lk("🏨","See pet-friendly hotels on Expedia","Live affiliate link from the site",S.exp,"aff");
  extra+=lk("🐕","BringFido: pet-friendly places",S.q,`https://www.bringfido.com/lodging/?q=${enc(S.q)}`,"srch");
  return extra;

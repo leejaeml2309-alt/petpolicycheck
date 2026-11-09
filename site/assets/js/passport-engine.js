@@ -1,3 +1,4 @@
+function ppcPassES(){try{var d=document.documentElement;if((d.getAttribute('data-ppc-locale')||'')==='es')return true;if((location.pathname||'').indexOf('/es/')===0)return true;if((d.lang||'').toLowerCase().indexOf('es')===0)return true;}catch(e){}return false;}
 /* PetPolicyCheck · Unified Route Engine v1 (#1 Pet Travel Passport)
  * Pure function: computePassport(input, DATA) -> {legs, timeline, traps, airline, url}
  * input = {from:'US', to:'MX', state:'FL'|null, airline:'delta'|null, pet:'dog'|'cat', ret:true|false, date:'YYYY-MM-DD'|null, retDate:...}
@@ -31,8 +32,8 @@
       const anchorLeg = (r.id === 'us_hr_cert' && leg.n === 2) ? legs[0] : leg;
       const st = (F.us_states || []).find(s => s.code === inp.state);
       let text = r.text.replace('{state}', st ? st.name : 'your state');
-      if (r.id === 'us_state' && st) text += ` → ${st.name}: CVI ${st.cvi}; rabies ${st.rabies}.${st.verified ? '' : ' (state page not verified: call the state vet)'}`;
-      timeline.push({ leg: anchorLeg.n, legLabel: `${anchorLeg.from} → ${anchorLeg.to}` + (anchorLeg !== leg ? ' (needed for the return)' : ''),
+      if (r.id === 'us_state' && st) text += ` → ${st.name}: CVI ${st.cvi}; rabies ${st.rabies}.${st.verified ? '' : (ppcPassES()?' (página estatal no verificada: llame al veterinario estatal)':' (state page not verified: call the state vet)')}`;
+      timeline.push({ leg: anchorLeg.n, legLabel: `${anchorLeg.from} → ${anchorLeg.to}` + (anchorLeg !== leg ? (ppcPassES()?' (necesario para el regreso)':' (needed for the return)') : ''),
         when: r.when, date: minus(anchorLeg.date, OFF[r.when]), text, source: r.source, id: r.id });
     }));
     timeline.sort((a, b) => a.leg - b.leg || OFF[b.when] - OFF[a.when]);
@@ -56,7 +57,7 @@
         const names = legs.flatMap(l => [F.countries[l.to] && F.countries[l.to].name, F.countries[l.from] && F.countries[l.from].name]).filter(Boolean);
         const br = (a.banned_routes || '').split(a.name.replace(/ \(.*\)/, '')).join('');
         names.forEach(nm => { const short = nm.replace(/ \(.*\)/, ''); if (short !== 'United States' && br.toLowerCase().includes(short.toLowerCase())) warn.push(`Route restriction on ${a.name}: "${a.banned_routes}"`); });
-        if (/needs_review|secondary|recheck/.test(a.verification_level)) warn.push('At least one number for this airline comes from a secondary source: confirm with the airline before paying.');
+        if (/needs_review|secondary|recheck/.test(a.verification_level)) warn.push((ppcPassES()?'Al menos una cifra de esta aerolínea proviene de una fuente secundaria: confírmela con la aerolínea antes de pagar.':'At least one number for this airline comes from a secondary source: confirm with the airline before paying.'));
         airline = Object.assign({ cabinOK, warn: [...new Set(warn)] }, a);
         if (cabinOK) timeline.push({ leg: 1, legLabel: `${legs[0].from} → ${legs[0].to}`, when: 'D-30', date: minus(legs[0].date, 30), id: 'airline_specific',
           text: `${a.name}: cabin fee ${a.cabin_fee_usd_or_local || 'n/a'} · weight ${a.max_weight_cabin_lb_kg} · carrier ${(a.underseat_soft_dims_in_cm || ['not published']).join(' / ')}`, source: a.official_policy_url });

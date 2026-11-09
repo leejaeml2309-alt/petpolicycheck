@@ -28,7 +28,7 @@ function filters(){return '<div class="gfilter" role="group" aria-label="Filter 
  '<button type="button" data-gf="resident" aria-pressed="false">🏠 Resident &amp; Expat</button>'+
  '<button type="button" data-gf="cats" aria-pressed="false" class="gf-tog">🐱 Cats OK</button></div>'}
 function uses(){return '<div class="guses"><div><b>✈️ On the road</b><span>One-off wash after the flight, near your hotel or a van that parks at the hotel.</span></div><div><b>🏠 Settling in</b><span>A regular neighbourhood groomer for residents and new expats: languages, cats without sedation, big dogs.</span></div></div>'}
-function partner(up){return '<p class="gpartner"><a class="btn ghost" href="'+(up||'../')+'contact.html?topic=groomer">Become a Verified Groomer / Partner</a><span>Groomers can apply to be listed; each listing is checked on the groomer’s official site.</span></p>'}
+function partner(up){return '<p class="gpartner"><a class="btn ghost" href="/contact.html?topic=groomer">Become a Verified Groomer / Partner</a><span>Groomers can apply to be listed; each listing is checked on the groomer’s official site.</span></p>'}
 var legend='<p class="glegend"><span class="gb gb-yes">confirmed</span> on the groomer’s official site · <span class="gb gb-ask">ask salon</span> not published, call before you book (vaccine and import papers vary).</p>';
 function list(keys){var h='';keys.forEach(function(k){var c=k.split('|')[1];h+='<div class="gmetro" data-m="'+e(k)+'"><h4>'+e(c)+'</h4><div class="ggrid">'+D[k].map(function(g){return card(g,c)}).join('')+'</div></div>'});return h}
 window.PPC_GROOM={
