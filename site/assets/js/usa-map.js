@@ -3,6 +3,8 @@
 const GEO = window.GEO;
 const RULES = window.USA_RULES;
 const SITE="..";
+/* Detail side-panel retired: highlight-only selection (preview). */
+const SHOW_PANEL = false;
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const enc=encodeURIComponent;
@@ -427,7 +429,7 @@ function groomSection(){return window.PPC_GROOM?PPC_GROOM.section(cur):""}
 function hotelSection(q,extra){
  return `<section class="sec" data-sec="4"><h3><span class="n">4</span>Hotel</h3><div class="links">${extra||""}${lk("🏨","Pet-friendly hotels on Expedia",q+" · pets-allowed filter",expHotels(q),"srch")}${lk("🛏","Pet-friendly stays on Booking.com",q+" · pets-allowed filter",bkgHotels(q),"srch")}${lk("📋","Hotel chains: pet fees & weight limits","PetPolicyCheck",SITE+"/hotels/","off").replace('Official','Site')}</div><p class="disc">“Search” links are plain search URLs: swap for affiliate deep links before publish. “Affiliate” links may earn a commission at no extra cost to you.</p></section>`;
 }
-function render(html){const p=$("#panel");p.innerHTML=html;p.scrollTop=0;applyStep(false);
+function render(html){if(!SHOW_PANEL) return;const p=$("#panel");if(!p) return;p.innerHTML=html;p.scrollTop=0;applyStep(false);
  p.querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
  p.querySelectorAll("[data-state]").forEach(b=>b.onclick=()=>selectState(b.dataset.state));
  p.querySelectorAll("[data-ap]").forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
@@ -536,6 +538,7 @@ function selectAirport(code){
  applyStep(true);
 }
 function empty(){
+ if(!SHOW_PANEL) return;
  $("#panel").innerHTML=`<div class="empty"><div class="big">Pick a state or city</div><p>Click any of the 50 states on the map (or use the list) to open its law portal. Gold cities have the full booking guide. Plane marks are that city’s airports:</p><div class="citylist">${Object.keys(SAMPLE).map(k=>{const[a,n]=k.split("|");return `<button class="sample" data-s="${a}" data-city="${esc(n)}">${esc(n)}</button>`}).join("")}</div><div class="citylist">${AIRPORTS.filter(ap=>ap.pets&&SAMPLE[ap.metroState+"|"+ap.metroCity]).map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.metroCity)}</button>`).join("")}</div><p class="disc">Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel → 5 grooming. Dashed plane marks (SFO, DFW) are placeholder hubs.</p></div>`;
  $("#panel").querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
  $("#panel").querySelectorAll("[data-ap]").forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
@@ -546,7 +549,7 @@ function applyStep(scroll){
  secs.forEach(s=>s.classList.toggle("focus",+s.dataset.sec===step));
  if(scroll){const t=document.querySelector(`#panel .sec[data-sec="${step}"]`);if(t){const p=$("#panel");if(innerWidth>900)p.scrollTo({top:p.scrollTop+t.getBoundingClientRect().top-p.getBoundingClientRect().top-6,behavior:"smooth"});else t.scrollIntoView({behavior:"smooth",block:"start"})}}
 }
-document.querySelectorAll("#steps button").forEach(b=>b.onclick=()=>{step=+b.dataset.step;if(!cur)selectCity("NY","New York City");applyStep(true)});
+document.querySelectorAll("#steps button").forEach(b=>b.onclick=()=>{step=+b.dataset.step;if(!cur)selectCity("NY","New York City");if(SHOW_PANEL)applyStep(true)});
 /* ---------- init ---------- */
 /* Back to the full multi-state view: clear selection, zoom, hash and panel. */
 function showAllStates(){
@@ -555,6 +558,14 @@ function showAllStates(){
  empty();$("#reset").hidden=true;$("#pick").value="";
 }
 {const r=$("#reset");r.classList.remove("ghost");r.classList.add("reset-all");r.onclick=showAllStates;}
+if(!SHOW_PANEL){
+  const root=document.getElementById("usa-map");
+  if(root) root.classList.add("no-detail-panel");
+  const panel=document.getElementById("panel");
+  if(panel){ panel.hidden=true; panel.setAttribute("aria-hidden","true"); }
+  const steps=document.getElementById("steps");
+  if(steps){ steps.hidden=true; steps.setAttribute("aria-hidden","true"); }
+}
 /* capture phase: runs before the site-menu Escape handler, so an open menu keeps Escape */
 window.addEventListener("keydown",e=>{
  if(e.key!=="Escape"||!cur||e.defaultPrevented)return;
@@ -682,7 +693,7 @@ const pick=$("#pick");ABBRS.forEach(a=>pick.add(new Option(GEO[a].name,a)));pick
 })();
 
 $("#grid").innerHTML=ABBRS.map(a=>`<button data-a="${a}">${mark(a)}<span>${esc(GEO[a].name)}</span></button>`).join("")+`<button data-a="DC">${mark("DC")}<span>Washington, DC</span></button>`;
-$("#grid").querySelectorAll("button").forEach(b=>b.onclick=()=>{b.dataset.a==="DC"?selectDC():selectState(b.dataset.a);$("#panel").scrollIntoView({behavior:"smooth",block:"nearest"})});
+$("#grid").querySelectorAll("button").forEach(b=>b.onclick=()=>{b.dataset.a==="DC"?selectDC():selectState(b.dataset.a);if(SHOW_PANEL)$("#panel").scrollIntoView({behavior:"smooth",block:"nearest"})});
 const raw=decodeURIComponent((location.hash||"").replace(/^#/,"").replace(/\+/g," "));
 const slash=raw.indexOf("/");
 if(slash>0){const a=raw.slice(0,slash), n=raw.slice(slash+1);
