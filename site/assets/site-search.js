@@ -262,7 +262,7 @@
         '<span class="ppc-search__ico" aria-hidden="true">' + SEARCH_ICO + "</span>" +
         '<input class="ppc-search__input" type="search" autocomplete="off" spellcheck="false" ' +
           'role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="' + root.id + '-list" ' +
-          'aria-haspopup="listbox" placeholder="' + (opts.placeholder || "Search airlines, routes, hotels…") + '">' +
+          'aria-haspopup="listbox" placeholder="' + (opts.placeholder || "Search the site…") + '">' +
         '<button type="button" class="ppc-search__clear" aria-label="Clear search">×</button>' +
       "</div>" +
       '<div class="ppc-search__panel" id="' + root.id + '-panel" hidden>' +

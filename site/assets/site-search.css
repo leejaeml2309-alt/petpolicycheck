@@ -256,3 +256,35 @@
 @media (min-width:901px){
   .ppc-drawer,.ppc-drawer-backdrop{display:none !important}
 }
+
+/* Hide native search clear (avoid double X with .ppc-search__clear) */
+.ppc-search__input[type="search"]::-webkit-search-cancel-button,
+.ppc-search__input[type="search"]::-webkit-search-decoration{
+  -webkit-appearance:none;
+  appearance:none;
+}
+.ppc-search__input[type="search"]::-ms-clear{display:none;width:0;height:0}
+
+/* Skip link: visually hidden until keyboard focus */
+a.skip{
+  position:absolute;
+  left:12px;
+  top:auto;
+  width:1px;height:1px;
+  padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);
+  white-space:nowrap;border:0;
+  z-index:100;
+}
+a.skip:focus-visible{
+  position:fixed;
+  top:10px;left:12px;
+  width:auto;height:auto;
+  margin:0;padding:8px 14px;
+  clip:auto;overflow:visible;
+  white-space:normal;
+  background:var(--pri,#d9b765);color:var(--on-pri,#0b1719);
+  border-radius:6px;
+  font:600 .9rem var(--text,system-ui,sans-serif);
+  text-decoration:none;
+}
