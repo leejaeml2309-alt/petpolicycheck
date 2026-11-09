@@ -1,0 +1,117 @@
+{
+  "console_errors": [],
+  "page_404s": [],
+  "searches": {
+    "delta": {
+      "n": 8,
+      "titles": [
+        "Política de mascotas de Delta Air Lines",
+        "Política de mascotas de Aeromexico",
+        "Política de mascotas de Alaska Airlines (and Hawaiian Airlines)",
+        "Política de mascotas de American Airlines",
+        "Viajar con mascota México a EE. UU. en Delta Air Lines",
+        "Viajar con mascota EE. UU. a México en Delta Air Lines",
+        "Flying a pet Mexico to USA on Delta Air Lines",
+        "Flying a pet USA to Mexico on Delta Air Lines"
+      ],
+      "hrefs": [
+        "/es/airlines/delta.html",
+        "/es/airlines/aeromexico.html",
+        "/es/airlines/alaska.html",
+        "/es/airlines/american.html",
+        "/es/routes/mexico-to-usa-delta.html",
+        "/es/routes/usa-to-mexico-delta.html",
+        "/routes/es/mexico-to-usa-delta.html",
+        "/routes/es/usa-to-mexico-delta.html"
+      ]
+    },
+    "perro": {
+      "n": 8,
+      "titles": [
+        "Viajar con perro o gato entre EE. UU. y Japón",
+        "Viajar con perro o gato entre EE. UU. y Canadá",
+        "Viajar con perro o gato entre EE. UU. y Francia",
+        "Viajar con perro o gato entre EE. UU. y México",
+        "Viajar con perro o gato entre EE. UU. y Gran Bretaña",
+        "Pet-friendly hotels in New York City: chain and luxury hotel pet fees, weight limits and local tips",
+        "Comparador de tarifas y cabina para mascotas",
+        "Compañeros de servicio & viajes de veteranos con mascotas"
+      ],
+      "hrefs": [
+        "/es/routes/usa-to-japan.html",
+        "/es/routes/usa-canada.html",
+        "/es/routes/usa-france.html",
+        "/es/routes/usa-mexico.html",
+        "/es/routes/usa-uk.html",
+        "/hotels/pet-friendly-hotels-new-york.html",
+        "/es/airlines/compare/",
+        "/es/veterans/"
+      ]
+    },
+    "hotel boston": {
+      "n": 8,
+      "titles": [
+        "Pet-friendly hotels in Boston: chain and luxury hotel pet fees, weight limits and local tips",
+        "Pet-friendly hotels in Austin: chain and luxury hotel pet fees, weight limits and local tips",
+        "Pet-friendly hotels in Chicago: chain and luxury hotel pet fees, weight limits and local tips",
+        "Pet-friendly hotels in Detroit: chain and luxury hotel pet fees, weight limits and local tips",
+        "Pet-friendly hotels in Houston: chain and luxury hotel pet fees, weight limits and local tips",
+        "Pet-friendly hotels in Los Angeles: chain and luxury hotel pet fees, weight limits and local tips",
+        "Pet-friendly hotels in Miami: chain and luxury hotel pet fees, weight limits and local tips",
+        "Pet-friendly hotels in New York City: chain and luxury hotel pet fees, weight limits and local tips"
+      ],
+      "hrefs": [
+        "/hotels/pet-friendly-hotels-boston.html",
+        "/hotels/pet-friendly-hotels-austin.html",
+        "/hotels/pet-friendly-hotels-chicago.html",
+        "/hotels/pet-friendly-hotels-detroit.html",
+        "/hotels/pet-friendly-hotels-houston.html",
+        "/hotels/pet-friendly-hotels-los-angeles.html",
+        "/hotels/pet-friendly-hotels-miami.html",
+        "/hotels/pet-friendly-hotels-new-york.html"
+      ]
+    },
+    "veteranos": {
+      "n": 4,
+      "titles": [
+        "Compañeros de servicio & viajes de veteranos con mascotas",
+        "Pet-friendly hotels in Miami: chain and luxury hotel pet fees, weight limits and local tips",
+        "Pet-friendly hotels in Orlando: chain and luxury hotel pet fees, weight limits and local tips",
+        "Pet-friendly hotels in New York City: chain and luxury hotel pet fees, weight limits and local tips"
+      ],
+      "hrefs": [
+        "/es/veterans/",
+        "/hotels/pet-friendly-hotels-miami.html",
+        "/hotels/pet-friendly-hotels-orlando.html",
+        "/hotels/pet-friendly-hotels-new-york.html"
+      ]
+    },
+    "aerolnea": {
+      "n": 4,
+      "titles": [
+        "Razas de hocico chato (braquicéfalas): normas de aerolíneas",
+        "Paw Pasaporte",
+        "Comparador de tarifas y cabina para mascotas",
+        "Viajar con perro o gato entre EE. UU. y Japón"
+      ],
+      "hrefs": [
+        "/es/airlines/snub-nosed-breeds.html",
+        "/es/",
+        "/es/airlines/compare/",
+        "/es/routes/usa-to-japan.html"
+      ]
+    },
+    "perro_mobile": {
+      "n": 8
+    }
+  },
+  "header_en": [],
+  "ok": true,
+  "focus_in_drawer": true,
+  "esc_closes": true,
+  "home_locale": "es",
+  "home_has_homec": true,
+  "home_ppcHS": "function",
+  "es_pages_crawled": 34,
+  "unique_404": []
+}

@@ -67,15 +67,19 @@ input,select{width:100%;max-width:420px;padding:8px 10px;border-radius:10px;bord
 @media print{header,footer,.partner-slot,.ppc-lang-sw,.no-print,.mode-sw{display:none!important} body{background:#fff} .print-sheet{display:block!important}}
 </style>
 
+<link rel="stylesheet" href="../../assets/site-search.css?v=20261110essearch1">
 </head>
 <body class="v-c theme-navy">
 <div class="ppc-preview-bar" role="status" style="position:sticky;top:0;z-index:9999;background:#7a1f1f;color:#fff;font:600 13px/1.35 Inter,system-ui,sans-serif;padding:8px 12px;text-align:center">LOCAL PREVIEW ONLY — /es/veterans/ Muro de Héroes · await Marc « publie »</div>
 <a class="skip" href="#main">Saltar al contenido</a>
-<header class="top"><div class="wrap">
-<a class="brand" href="../" aria-label="PetPolicyCheck — Home"><span class="lbadge"><img src="../../assets/img/logo-mark-header.png" width="62" height="48" alt="PetPolicyCheck"></span></a>
-<nav class="nav menu" id="site-menu" aria-label="Main"></nav>
-<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><span data-i18n="site.nav.menu">Menu</span></button>
-</div></header>
+<header class="ppc-topbar top" data-ppc-topbar><div class="wrap"><a class="brand" href="/es/" aria-label="PetPolicyCheck — Inicio"><span class="lbadge"><img src="../../assets/img/logo-mark-header.png" width="62" height="48" alt="PetPolicyCheck"></span></a><nav class="ppc-nav" aria-label="Navegación principal"><a href="/routes/">Rutas</a><a href="/es/airlines/compare/">Aerolíneas</a><a href="/es/countries/usa-map.html">Países/Mapas</a><a href="/hotels/">Hoteles</a><a href="/es/passport/">Herramientas</a></nav><div data-ppc-search data-lang="es" data-index-base="../../assets/" data-placeholder="Buscar aerolíneas, rutas, hoteles…"></div><button class="ppc-burger" type="button" data-ppc-burger aria-expanded="false" aria-controls="ppc-drawer" aria-label="Abrir menú"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg><span>Menú</span></button></div></header>
+<div class="ppc-drawer-backdrop" data-ppc-drawer-backdrop></div>
+<aside class="ppc-drawer" id="ppc-drawer" data-ppc-drawer aria-label="Menú del sitio">
+<div class="ppc-drawer__head"><h2>Menú</h2>
+<button type="button" class="ppc-drawer__close" data-ppc-drawer-close aria-label="Cerrar menú">×</button></div>
+<div data-ppc-search data-lang="es" data-index-base="../../assets/" data-placeholder="Buscar…"></div>
+<nav class="ppc-nav" aria-label="Navegación principal móvil"><a href="/routes/">Rutas</a><a href="/es/airlines/compare/">Aerolíneas</a><a href="/es/countries/usa-map.html">Países/Mapas</a><a href="/hotels/">Hoteles</a><a href="/es/passport/">Herramientas</a></nav>
+</aside>
 
 <main class="wrap" id="main">
 <section class="growth-hero">
@@ -352,4 +356,6 @@ window.addEventListener('ppc:lang',()=>{refresh();genCard();});
 <footer class="foot foot-compact"><div class="wrap">
 <p class="disc"><span data-i18n="site.foot.copyright">© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission.</span>
 See <a href="../terms.html" data-i18n="site.foot.terms">Terms</a>.</p></div></footer>
+<script src="../../assets/site-search.js?v=20261110essearch1" defer></script>
+<script src="../../assets/ppc-header.js?v=20261110essearch1" defer></script>
 </body></html>

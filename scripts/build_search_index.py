@@ -70,22 +70,48 @@ def tokens(s: str) -> list[str]:
     return WORD_RE.findall(norm(s))
 
 
-def infer_type(url_path: str) -> str:
+TYPE_LABELS = {
+    "en": {
+        "Routes": "Routes",
+        "Airlines": "Airlines",
+        "Countries": "Countries",
+        "Hotels": "Hotels",
+        "Tools": "Tools",
+        "Guides": "Guides",
+    },
+    "es": {
+        "Routes": "Rutas",
+        "Airlines": "Aerolíneas",
+        "Countries": "Países",
+        "Hotels": "Hoteles",
+        "Tools": "Herramientas",
+        "Guides": "Guías",
+    },
+}
+
+
+def infer_type_key(url_path: str) -> str:
     p = url_path.strip("/")
     if not p or p in ("index.html",):
         return "Tools"
-    top = p.split("/")[0]
+    parts = [x for x in p.split("/") if x]
+    if parts and parts[0] in LOCALE_SEGMENTS:
+        parts = parts[1:]
+        if not parts:
+            return "Tools"
+    top = parts[0]
+    rest = "/".join(parts)
     if top == "routes":
         return "Routes"
     if top == "airlines":
-        if "compare" in p:
+        if "compare" in rest:
             return "Tools"
-        if "snub-nosed" in p:
+        if "snub-nosed" in rest:
             return "Guides"
         return "Airlines"
     if top == "countries":
         return "Countries"
-    if top == "hotels" or top == "hotel-pets":
+    if top in ("hotels", "hotel-pets"):
         return "Hotels"
     if top in {
         "passport",
@@ -116,9 +142,15 @@ def infer_type(url_path: str) -> str:
         "advertise",
     }:
         return "Guides"
-    if p.endswith(".html") and "/" not in p:
+    if rest.endswith(".html") and "/" not in rest:
         return "Guides"
     return "Guides"
+
+
+def infer_type(url_path: str, lang: str = "en") -> str:
+    key = infer_type_key(url_path)
+    labels = TYPE_LABELS.get(lang) or TYPE_LABELS["en"]
+    return labels.get(key, key)
 
 
 def lang_from_html(text: str, rel: str) -> str:
@@ -314,7 +346,7 @@ def build_for_lang(lang: str, syn_flat: dict[str, list[str]], airline_hints: dic
         dm = DESC_RE.search(text) or DESC_RE2.search(text)
         desc = strip_tags(dm.group(1)) if dm else ""
 
-        ptype = infer_type(url)
+        ptype = infer_type(url, lang)
         kws = extract_keywords(text, url, title, desc)
 
         # airline slug hints
@@ -334,6 +366,28 @@ def build_for_lang(lang: str, syn_flat: dict[str, list[str]], airline_hints: dic
                 kws.append("hotel")
             if "hotels" not in kws:
                 kws.append("hotels")
+            if lang == "es":
+                for extra in ("hotel", "hoteles", "mascota", "perro", "gato"):
+                    if extra not in kws:
+                        kws.append(extra)
+
+        # ES topic boosts from path/title
+        if lang == "es":
+            blob = " ".join([title, desc, url])
+            low = norm(blob)
+            for term in (
+                "perro",
+                "gato",
+                "mascota",
+                "aerolinea",
+                "ruta",
+                "hotel",
+                "veterano",
+                "braquicefalo",
+                "hocico",
+            ):
+                if term in low and term not in kws:
+                    kws.append(term)
 
         pages.append(
             {
@@ -375,9 +429,27 @@ def main() -> int:
     STATIC_OUT.mkdir(parents=True, exist_ok=True)
 
     # EN now; structure ready for es/fr later
-    langs = ["en"]
+    langs = ["en", "es"]
     for lang in langs:
         data = build_for_lang(lang, syn_flat, airline_hints)
+        if lang == "es":
+            # No /es/hotels yet — include EN hotel pages so "hotel boston" etc. resolve.
+            en_hotels = build_for_lang("en", syn_flat, airline_hints)
+            seen = {p["u"] for p in data["pages"]}
+            for page in en_hotels["pages"]:
+                if not page["u"].startswith("/hotels/"):
+                    continue
+                if page["u"] in seen:
+                    continue
+                page = dict(page)
+                page["y"] = TYPE_LABELS["es"]["Hotels"]
+                # keep EN title (no ES twin); add Spanish query tokens
+                k = list(page.get("k") or [])
+                for extra_kw in ("hotel", "hoteles", "mascota", "perro", "gato"):
+                    if extra_kw not in k:
+                        k.append(extra_kw)
+                page["k"] = k[:40]
+                data["pages"].append(page)
         out = OUT_DIR / f"search-index.{lang}.json"
         payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
         out.write_text(payload + "\n", encoding="utf-8")

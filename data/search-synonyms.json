@@ -465,11 +465,16 @@
     "hotel": [
       "hotels",
       "pet-friendly hotel",
-      "pet friendly hotel"
+      "pet friendly hotel",
+      "hoteles",
+      "hotel",
+      "mascota"
     ],
     "hotels": [
       "hotel",
-      "pet-friendly"
+      "pet-friendly",
+      "hoteles",
+      "mascota"
     ],
     "usa mexico": [
       "usa-mexico",
@@ -508,6 +513,169 @@
       "usa-france",
       "us france",
       "france usa"
+    ],
+    "aerolinea": [
+      "airline",
+      "airlines",
+      "aerolineas"
+    ],
+    "aerolineas": [
+      "airline",
+      "airlines",
+      "aerolinea"
+    ],
+    "aerolínea": [
+      "airline",
+      "airlines",
+      "aerolinea"
+    ],
+    "aerolíneas": [
+      "airline",
+      "airlines",
+      "aerolinea"
+    ],
+    "ruta": [
+      "route",
+      "routes",
+      "rutas"
+    ],
+    "rutas": [
+      "route",
+      "routes",
+      "ruta"
+    ],
+    "perro": [
+      "dog",
+      "dogs",
+      "mascota",
+      "pet"
+    ],
+    "perros": [
+      "dog",
+      "dogs",
+      "perro",
+      "mascota"
+    ],
+    "gato": [
+      "cat",
+      "cats",
+      "mascota",
+      "pet"
+    ],
+    "gatos": [
+      "cat",
+      "cats",
+      "gato",
+      "mascota"
+    ],
+    "mascota": [
+      "pet",
+      "pets",
+      "perro",
+      "gato",
+      "animal"
+    ],
+    "mascotas": [
+      "pet",
+      "pets",
+      "mascota",
+      "perro",
+      "gato"
+    ],
+    "braquicefalo": [
+      "brachycephalic",
+      "brachy",
+      "snub-nosed",
+      "hocico chato"
+    ],
+    "braquicéfalo": [
+      "brachycephalic",
+      "brachy",
+      "snub-nosed",
+      "hocico chato"
+    ],
+    "braquicefalos": [
+      "brachycephalic",
+      "brachy",
+      "snub-nosed"
+    ],
+    "hocico chato": [
+      "brachycephalic",
+      "snub-nosed",
+      "brachy",
+      "braquicefalo"
+    ],
+    "veterano": [
+      "veteran",
+      "veterans",
+      "veteranos",
+      "service dog"
+    ],
+    "veteranos": [
+      "veteran",
+      "veterans",
+      "veterano",
+      "k9",
+      "service dog"
+    ],
+    "hoteles": [
+      "hotel",
+      "hotels",
+      "pet-friendly"
+    ],
+    "pais": [
+      "country",
+      "countries",
+      "paises",
+      "mapa"
+    ],
+    "país": [
+      "country",
+      "countries",
+      "mapa"
+    ],
+    "paises": [
+      "country",
+      "countries",
+      "mapa"
+    ],
+    "mapa": [
+      "map",
+      "maps",
+      "country",
+      "countries"
+    ],
+    "cabina": [
+      "cabin",
+      "in-cabin",
+      "in cabin"
+    ],
+    "bodega": [
+      "cargo",
+      "hold",
+      "checked"
+    ],
+    "transportadora": [
+      "carrier",
+      "kennel",
+      "soft carrier"
+    ],
+    "compania": [
+      "airline",
+      "aerolinea"
+    ],
+    "compañía": [
+      "airline",
+      "aerolinea"
+    ],
+    "perro de servicio": [
+      "service dog",
+      "service animal",
+      "esa"
+    ],
+    "animal de servicio": [
+      "service dog",
+      "service animal"
     ]
   }
 }

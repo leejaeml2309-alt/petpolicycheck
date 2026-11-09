@@ -226,8 +226,34 @@
     return "/assets/";
   }
 
+  var UI = {
+    en: {
+      clear: "Clear search",
+      placeholder: "Search the site…",
+      none: "No matches for “{q}”",
+      statusOne: "1 suggestion",
+      statusMany: "{n} suggestions",
+      unavailable: "Search index unavailable"
+    },
+    es: {
+      clear: "Borrar búsqueda",
+      placeholder: "Buscar aerolíneas, rutas, hoteles…",
+      none: "Sin resultados para “{q}”",
+      statusOne: "1 sugerencia",
+      statusMany: "{n} sugerencias",
+      unavailable: "Índice de búsqueda no disponible"
+    }
+  };
+
+  function uiFor(lang) {
+    return UI[lang] || UI.en;
+  }
+
   function detectLang(root) {
-    var lang = (root.getAttribute("data-lang") || document.documentElement.lang || "en").split("-")[0].toLowerCase();
+    var fromRoot = root && root.getAttribute("data-lang");
+    var fromHtml = document.documentElement.getAttribute("data-ppc-locale") || document.documentElement.lang;
+    var lang = (fromRoot || fromHtml || "en").split("-")[0].toLowerCase();
+    if (lang === "es" || lang === "en") return lang;
     return lang || "en";
   }
 
@@ -254,16 +280,19 @@
 
   function buildDom(root, opts) {
     opts = opts || {};
+    var lang = opts.lang || detectLang(root);
+    var uiStr = uiFor(lang);
     var hero = !!opts.hero || root.classList.contains("ppc-search--hero");
     root.classList.add("ppc-search");
     if (hero) root.classList.add("ppc-search--hero");
+    root.setAttribute("data-lang", lang);
     root.innerHTML =
       '<div class="ppc-search__box">' +
         '<span class="ppc-search__ico" aria-hidden="true">' + SEARCH_ICO + "</span>" +
         '<input class="ppc-search__input" type="search" autocomplete="off" spellcheck="false" ' +
           'role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="' + root.id + '-list" ' +
-          'aria-haspopup="listbox" placeholder="' + (opts.placeholder || "Search the site…") + '">' +
-        '<button type="button" class="ppc-search__clear" aria-label="Clear search">×</button>' +
+          'aria-haspopup="listbox" placeholder="' + (opts.placeholder || uiStr.placeholder) + '">' +
+        '<button type="button" class="ppc-search__clear" aria-label="' + uiStr.clear + '">×</button>' +
       "</div>" +
       '<div class="ppc-search__panel" id="' + root.id + '-panel" hidden>' +
         '<p class="ppc-search__status" role="status" aria-live="polite"></p>' +
@@ -274,7 +303,9 @@
       clear: root.querySelector(".ppc-search__clear"),
       panel: root.querySelector(".ppc-search__panel"),
       status: root.querySelector(".ppc-search__status"),
-      results: root.querySelector(".ppc-search__results")
+      results: root.querySelector(".ppc-search__results"),
+      lang: lang,
+      uiStr: uiStr
     };
   }
 
@@ -286,13 +317,16 @@
       close(ui, root);
       return;
     }
+    var uiStr = ui.uiStr || uiFor(ui.lang || detectLang(root));
     if (!results.length) {
-      ui.status.textContent = "No matches for “" + query + "”";
+      ui.status.textContent = uiStr.none.replace("{q}", query);
       box.innerHTML = "";
       open(ui, root);
       return;
     }
-    ui.status.textContent = results.length + " suggestion" + (results.length > 1 ? "s" : "");
+    ui.status.textContent = results.length === 1
+      ? uiStr.statusOne
+      : uiStr.statusMany.replace("{n}", String(results.length));
     var groups = group(results);
     groups.forEach(function (g) {
       var sec = document.createElement("div");
@@ -378,10 +412,10 @@
   function mount(root, opts) {
     if (!root || root.__ppcSearch) return root.__ppcSearch;
     if (!root.id) root.id = "ppc-search-" + Math.random().toString(36).slice(2, 8);
-    var ui = buildDom(root, opts || {});
+    var lang = (opts && opts.lang) || detectLang(root);
+    var ui = buildDom(root, Object.assign({}, opts || {}, { lang: lang }));
     ui.input.id = root.id + "-input";
     var base = assetBase(root);
-    var lang = detectLang(root);
     var indexPromise = null;
     var lastResults = [];
     var active = 0;
@@ -400,7 +434,7 @@
         render(ui, root, lastResults, norm(q) ? q.trim() : "");
         active = 0;
       }).catch(function () {
-        ui.status.textContent = "Search index unavailable";
+        ui.status.textContent = (ui.uiStr || uiFor(lang)).unavailable;
         open(ui, root);
       });
     }
@@ -456,7 +490,8 @@
     document.querySelectorAll("[data-ppc-search]").forEach(function (el) {
       mount(el, {
         hero: el.getAttribute("data-ppc-search") === "hero",
-        placeholder: el.getAttribute("data-placeholder") || undefined
+        placeholder: el.getAttribute("data-placeholder") || undefined,
+        lang: el.getAttribute("data-lang") || detectLang(el)
       });
     });
   }
