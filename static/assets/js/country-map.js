@@ -32,13 +32,18 @@ function el(tag, attrs){
 function buildSwitcher(){
   const host = document.getElementById('map-switch');
   if(!host) return;
-  const tabs = [
+  const es = (location.pathname||'').indexOf('/es/')===0;
+  const tabs = es ? [
+    {id:'usa', href:'/countries/usa-map.html', label:'Mapa de EE. UU.', accent:'usa'},
+    {id:'ca', href:'/countries/canada-map.html', label:'Mapa de Canadá', accent:'maple'},
+    {id:'mx', href:'mexico-map.html', label:'Mapa de México', accent:'mxgreen'}
+  ] : [
     {id:'usa', href:'usa-map.html', label:'USA Map', accent:'usa'},
     {id:'ca', href:'canada-map.html', label:'Canada Map', accent:'maple'},
     {id:'mx', href:'mexico-map.html', label:'Mexico Map', accent:'mxgreen'}
   ];
   const cur = DATA.country === 'CA' ? 'ca' : (DATA.country === 'MX' ? 'mx' : 'usa');
-  const back = `<a class="msw-tab world-back" href="../?view=map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>← World Map</span></a>`;
+  const back = `<a class="msw-tab world-back" href="../?view=map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${es?'← Mapa mundial':'← World Map'}</span></a>`;
   host.innerHTML = back + tabs.map(t =>
     `<a class="msw-tab accent-${t.accent}${t.id===cur?' is-current':''}" href="${t.href}"${t.id===cur?' aria-current="page"':''} style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${t.label}</span></a>`
   ).join('');

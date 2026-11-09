@@ -1,3 +1,31 @@
+/* ES locale strings for /es/ home (BOOK_USA stays page-provided). */
+(function(){var ES={
+  guideAvail:' \u2022 gu\u00eda disponible',
+  guideParen:' (gu\u00eda disponible)',
+  guidesOG:'Gu\u00edas por pa\u00eds',
+  allOG:'Todos los pa\u00edses',
+  guideStar:'  \u2605 gu\u00eda',
+  close:'Cerrar',
+  bookH:'Reserve su viaje',
+  bookLede:'Vuelos, hoteles que admiten mascotas, traslados al aeropuerto, cl\u00ednicas veterinarias y seguros en una sola p\u00e1gina.',
+  bookCta:'Planifique y reserve su viaje \u2192',
+  usaSoon:'Gu\u00eda completa de EE. UU. pr\u00f3ximamente.',
+  reqPrefix:'Solicitud de gu\u00eda de pa\u00eds: ',
+  reqCta:'Solicitar este pa\u00eds'
+};
+function ppcHomeLang(){
+  try{
+    if((document.documentElement.getAttribute('data-ppc-locale')||'')==='es') return 'es';
+    if((document.documentElement.lang||'').toLowerCase().indexOf('es')===0) return 'es';
+    if((location.pathname||'').indexOf('/es/')===0 || location.pathname==='/es') return 'es';
+  }catch(e){}
+  return 'en';
+}
+function ppcHS(k, en){return (ppcHomeLang()==='es' && ES[k]) ? ES[k] : en;}
+window.PPC_HOME_I18N={lang:ppcHomeLang,es:ES,t:ppcHS};
+window.ppcHS=ppcHS;
+})();
+var ppcHS=window.ppcHS;
 (function(){
 var W=960,H=500,VH=H,marks=[],svg=d3.select('#world-map'),tip=document.getElementById('tip'),box=document.getElementById('mapbox');
 var countries=topojson.feature(ATLAS,ATLAS.objects.countries).features.filter(function(f){return f.id!=='010'&&f.properties.name!=='Antarctica'});
@@ -19,10 +47,10 @@ cg.selectAll('path').data(countries).join('path')
    return 'country soon soon-'+soonTone(d.id)
  })
  .attr('d',path)
- .attr('tabindex',0).attr('role','button').attr('aria-label',function(d){return d.properties.name+(GUIDES[d.id]?' (guide available)':'')})
+ .attr('tabindex',0).attr('role','button').attr('aria-label',function(d){return d.properties.name+(GUIDES[d.id]?ppcHS('guideParen',' (guide available)'):'')})
  .on('click',function(e,d){openCountry(d.id)})
  .on('keydown',function(e,d){if(e.key==='Enter'||e.key===' '){e.preventDefault();openCountry(d.id)}})
- .on('mousemove',function(e,d){var r=box.getBoundingClientRect();tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px';tip.textContent=d.properties.name+(GUIDES[d.id]?' \u2022 guide available':'');tip.style.opacity=1})
+ .on('mousemove',function(e,d){var r=box.getBoundingClientRect();tip.style.left=(e.clientX-r.left)+'px';tip.style.top=(e.clientY-r.top)+'px';tip.textContent=d.properties.name+(GUIDES[d.id]?ppcHS('guideAvail',' \u2022 guide available'):'');tip.style.opacity=1})
  .on('mouseleave',function(){tip.style.opacity=0});
 // decorative routes between hubs of airlines we cover
 var hubs={ICN:[126.45,37.46],CDG:[2.55,49.0],FRA:[8.57,50.03],LHR:[-0.45,51.47],ATL:[-84.43,33.64],YYZ:[-79.6,43.68],JFK:[-73.78,40.64],SEA:[-122.3,47.45],NRT:[140.39,35.77]};
@@ -85,10 +113,10 @@ document.getElementById('zreset').onclick=function(){svg.transition().duration(3
 })();
 // select list (accessible alternative)
 var pick=document.getElementById('pick');
-var og=document.createElement('optgroup');og.label='Country guides';pick.appendChild(og);
+var og=document.createElement('optgroup');og.label=ppcHS('guidesOG','Country guides');pick.appendChild(og);
 Object.keys(GUIDES).forEach(function(id){var G=GUIDES[id],o=document.createElement('option');o.value=id;o.textContent=G.option||G.name+'  \u2605 guide';og.appendChild(o)});
-var oa=document.createElement('optgroup');oa.label='All countries';pick.appendChild(oa);
-countries.slice().sort(function(a,b){return a.properties.name.localeCompare(b.properties.name)}).forEach(function(c){var o=document.createElement('option');o.value=c.id;o.textContent=c.properties.name+(GUIDES[c.id]?'  \u2605 guide':'');oa.appendChild(o)});
+var oa=document.createElement('optgroup');oa.label=ppcHS('allOG','All countries');pick.appendChild(oa);
+countries.slice().sort(function(a,b){return a.properties.name.localeCompare(b.properties.name)}).forEach(function(c){var o=document.createElement('option');o.value=c.id;o.textContent=c.properties.name+(GUIDES[c.id]?ppcHS('guideStar','  \u2605 guide'):'');oa.appendChild(o)});
 pick.onchange=function(){if(pick.value)openCountry(pick.value);pick.value=''};
 // panel
 var panel=document.getElementById('panel'),scrim=document.getElementById('scrim');
@@ -96,10 +124,10 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return
 function show(h){panel.innerHTML=h;panel.classList.add('on');scrim.classList.add('on');panel.scrollTop=0;var x=panel.querySelector('.x');x.onclick=close;x.focus()}
 function close(){panel.classList.remove('on');scrim.classList.remove('on');cg.selectAll('.country').classed('sel',false);if(location.hash)history.replaceState(null,'',location.pathname)}
 scrim.onclick=close;document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
-function top(k,t){return '<div class="ph-top"><div><div class="k">'+k+'</div><h2 id="ptitle">'+t+'</h2></div><button class="x" type="button" aria-label="Close">\u00d7</button></div>'}
+function top(k,t){return '<div class="ph-top"><div><div class="k">'+k+'</div><h2 id="ptitle">'+t+'</h2></div><button class="x" type="button" aria-label="'+ppcHS('close','Close')+'">\u00d7</button></div>'}
 // small SVG flag (assets/img/flags/<iso2>.svg); emoji flags render as letters ("US") on Windows
 function flag(G){return G&&G.flag_src?'<img class="flag" src="'+G.flag_src+'" width="21" height="14" alt="" aria-hidden="true">':''}
-function bookMini(G){return '<section class="book" aria-labelledby="bookm-h"><h3 id="bookm-h">Book your trip</h3><p class="book-lede">Flights, pet-friendly hotels, airport rides, vet clinics and pet insurance on one page.</p><p class="book-btns"><a class="btn" href="'+((G&&G.book_url)||LIVE+'book/')+'">Plan and book your trip \u2192</a></p></section>'}
+function bookMini(G){return '<section class="book" aria-labelledby="bookm-h"><h3 id="bookm-h">'+ppcHS('bookH','Book your trip')+'</h3><p class="book-lede">'+ppcHS('bookLede','Flights, pet-friendly hotels, airport rides, vet clinics and pet insurance on one page.')+'</p><p class="book-btns"><a class="btn" href="'+((G&&G.book_url)||LIVE+'book/')+'">'+ppcHS('bookCta','Plan and book your trip \u2192')+'</a></p></section>'}
 function openCountry(id){
  var G=GUIDES[id];
  if(G&&G.map_url){window.location.href=G.map_url;return}
@@ -111,7 +139,7 @@ function openCountry(id){
   +'<p class="lede">'+esc(G.line)+'</p>'
   +(G.summary?'<p>'+esc(G.summary)+'</p>':'')
   +(G.map_url?'<p><a class="btn big" href="'+esc(G.map_url)+'">'+esc(G.map_cta||'Explore the map')+' \u2192</a></p><p class="note">Click a state for entry rules, then a city for taxis, trains, flights and pet-friendly hotels.</p>':'')
-  +(G.url?'<p><a class="'+(G.map_url?'btn ghost':'btn big')+'" href="'+G.url+'">'+esc(G.cta)+' \u2192</a></p>':'<p class="lede">Full USA guide coming soon.</p>')
+  +(G.url?'<p><a class="'+(G.map_url?'btn ghost':'btn big')+'" href="'+G.url+'">'+esc(G.cta)+' \u2192</a></p>':'<p class="lede">'+ppcHS('usaSoon','Full USA guide coming soon.')+'</p>')
   +(G.book==='usa'&&window.BOOK_USA?window.BOOK_USA:bookMini(G))
   +'<h3>Flying there?</h3><p><a href="#compare">Compare airline pet policies \u2708</a> \u00b7 <a href="'+LIVE+'products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes</a></p></div>';
  }else if(G){
@@ -127,7 +155,7 @@ function openCountry(id){
  }else{
   h=top('Pet import rules',esc(f.properties.name))+'<div class="pbody"><p><b>We haven\'t verified '+esc(f.properties.name)+' yet.</b></p>'
   +'<p>Every country guide on PetPolicyCheck is checked against the official government source and dated, so we only publish a country once that is done. Guides so far: '+Object.keys(GUIDES).map(function(k){return esc(GUIDES[k].name)}).join(', ')+'.</p>'
-  +'<p><a class="btn" href="mailto:contact@petpolicycheck.com?subject='+encodeURIComponent('Country guide request: '+f.properties.name)+'">Request this country</a></p>'
+  +'<p><a class="btn" href="mailto:contact@petpolicycheck.com?subject='+encodeURIComponent(ppcHS('reqPrefix','Country guide request: ')+f.properties.name)+'">'+ppcHS('reqCta','Request this country')+'</a></p>'
   +'<p><a href="'+LIVE+'forum/">Ask the community in the forum</a> \u00b7 <a href="#compare">Airline pet policies \u2708</a></p></div>';
  }
  show(h);history.replaceState(null,'','#country='+encodeURIComponent(G?(G.slug||G.name):f.properties.name));

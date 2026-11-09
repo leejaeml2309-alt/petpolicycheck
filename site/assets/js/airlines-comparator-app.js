@@ -130,4 +130,4 @@ paintStatic();
 setMilitary(militaryOn, false);
 $('#fMilitary').addEventListener('change', () => setMilitary($('#fMilitary').checked,true));
 window.addEventListener('popstate',()=>setMilitary(new URLSearchParams(location.search).get('military')==='1',false));
-fetch('../../assets/data/military-airlines.json?v=20261107mil1').then(r=>{if(!r.ok)throw new Error('Military policy data unavailable');return r.json();}).then(d=>{militaryData=d;if(militaryOn)render();}).catch(()=>{militaryFailed=true;if(militaryOn)render();});
+fetch('/assets/data/military-airlines.json?v=20261107mil1').then(r=>{if(!r.ok)throw new Error('Military policy data unavailable');return r.json();}).then(d=>{militaryData=d;if(militaryOn)render();}).catch(()=>{militaryFailed=true;if(militaryOn)render();});

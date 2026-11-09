@@ -1,0 +1,1292 @@
+{
+  "pages": [
+    {
+      "id": "home",
+      "url": "/es/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41h1v9285320629za208zd9285320629xf1&_p=1794210839632&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1658455489&are=1&cid=465283988.1794210840&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=4&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938466~115938469~118897920~118897930~120385422~120412526~120420414~120469145~120469153~121049589~121246026~121246034~123814185~124013662&sid=1794210839&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2F&dt=PetPolicyCheck%20-%20El%20pasaporte%20de%20su%20mascota%20al%20mundo.%20Planif%C3%ADquelo%20todo%20aqu%C3%AD.&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=220",
+          "err": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41h1v9285320629za208zd9285320629xf1&_p=1794210841080&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1658455489&_eu=AAAAAAQ&are=1&cid=465283988.1794210840&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=0&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938466~115938468~118897920~118897930~120385423~120412528~120420416~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210839&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fes%2F%3Fview%3Dmap&dt=PetPolicyCheck%20-%20El%20pasaporte%20de%20su%20mascota%20al%20mundo.%20Planif%C3%ADquelo%20todo%20aqu%C3%AD.&en=page_view&tfd=284",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: En el vuelo de Asiana Airlines, llevar dos gatos en cabina significó que no podíamos sentarnos juntos. Miraba a mi mujer",
+        "Compare :: Compare tarifas y luego reserve el cupo de su mascota directamente con la aerolínea: el espacio en cabina es limitado po",
+        "Airlines :: Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: American Airlines",
+        "Airlines :: Mascotas documentadas solo para militares de EE. UU. en servicio activo y Foreign Service del Departamento de Estado con",
+        "Airlines :: Hawaiian Airlines",
+        "Airlines :: Southwest Airlines",
+        "Airlines :: United Airlines"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "home",
+      "url": "/es/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210842449&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=680462476&are=1&cid=1437398302.1794210843&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=9&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938466~115938468~118897920~118897930~119793974~120385422~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210842&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2F&dt=PetPolicyCheck%20-%20El%20pasaporte%20de%20su%20mascota%20al%20mundo.%20Planif%C3%ADquelo%20todo%20aqu%C3%AD.&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=188",
+          "err": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210843787&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=680462476&_eu=AAAAAAQ&are=1&cid=1437398302.1794210843&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=15&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385422~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210842&sct=1&seg=1&dl=http%3A%2F%2F127.0.0.1%2Fes%2F%3Fview%3Dmap&dt=PetPolicyCheck%20-%20El%20pasaporte%20de%20su%20mascota%20al%20mundo.%20Planif%C3%ADquelo%20todo%20aqu%C3%AD.&en=page_view&tfd=177",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: En el vuelo de Asiana Airlines, llevar dos gatos en cabina significó que no podíamos sentarnos juntos. Miraba a mi mujer",
+        "Compare :: Compare tarifas y luego reserve el cupo de su mascota directamente con la aerolínea: el espacio en cabina es limitado po",
+        "Airlines :: Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: American Airlines",
+        "Airlines :: Mascotas documentadas solo para militares de EE. UU. en servicio activo y Foreign Service del Departamento de Estado con",
+        "Airlines :: Hawaiian Airlines",
+        "Airlines :: Southwest Airlines",
+        "Airlines :: United Airlines"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "mexico",
+      "url": "/es/countries/mexico.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210845133&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=220366605&are=1&cid=542547314.1794210845&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=6&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~120385422~120412528~120420414~120469145~120469153~121049589~121246026~121246034~123814185~124013662&sid=1794210845&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fcountries%2Fmexico.html&dt=Normas%20de%20viaje%20con%20mascotas%20en%20M%C3%A9xico%3A%20SENASICA%2C%20OISA%20y%20certificado%20NWS%20del%20gusano%20barrenador%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=194",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "mexico",
+      "url": "/es/countries/mexico.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210846500&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1036605419&are=1&cid=1693995886.1794210847&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=6&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385423~120412528~120420414~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210846&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fcountries%2Fmexico.html&dt=Normas%20de%20viaje%20con%20mascotas%20en%20M%C3%A9xico%3A%20SENASICA%2C%20OISA%20y%20certificado%20NWS%20del%20gusano%20barrenador%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=174",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "mexico-map",
+      "url": "/es/countries/mexico-map.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (File not found)",
+        "Failed to load resource: the server responded with a status of 404 (File not found)"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210847873&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=2007080549&are=1&cid=1053725626.1794210848&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=19&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385423~120412528~120420416~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210848&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fcountries%2Fmexico-map.html&dt=Mapa%20de%20viaje%20con%20mascotas%20de%20M%C3%A9xico%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=196",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": [
+        "/es/countries/usa-map.html",
+        "/es/countries/canada-map.html"
+      ],
+      "clickedState": true
+    },
+    {
+      "id": "mexico-map",
+      "url": "/es/countries/mexico-map.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (File not found)",
+        "Failed to load resource: the server responded with a status of 404 (File not found)"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210850083&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=2091732582&are=1&cid=2071021163.1794210850&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=8&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938465~115938469~118897920~118897930~120385422~120412526~120420414~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210850&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fcountries%2Fmexico-map.html&dt=Mapa%20de%20viaje%20con%20mascotas%20de%20M%C3%A9xico%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=173",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": [
+        "/es/countries/usa-map.html",
+        "/es/countries/canada-map.html"
+      ],
+      "clickedState": true
+    },
+    {
+      "id": "usa-mexico",
+      "url": "/es/routes/usa-mexico.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210852233&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=2089077269&are=1&cid=302212094.1794210852&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=15&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938465~115938469~118897920~118897930~120385423~120412528~120420414~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210852&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fusa-mexico.html&dt=EE.%20UU.%20%E2%86%94%20M%C3%A9xico%20con%20perro%20o%20gato%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=182",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "usa-mexico",
+      "url": "/es/routes/usa-mexico.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "[Report Only] Refused to frame 'https://www.google.com/' because an ancestor violates the following Content Security Policy directive: \"frame-ancestors 'self'\".\n"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210853679&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=821135005&are=1&cid=705241483.1794210854&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=13&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385423~120412528~120420414~120469145~120469153~121049589~121246026~121246034~123814185~124013662&sid=1794210853&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fusa-mexico.html&dt=EE.%20UU.%20%E2%86%94%20M%C3%A9xico%20con%20perro%20o%20gato%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=187",
+          "err": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://csp.withgoogle.com/csp/frame-ancestors/38fac9d5b82543fc4729580d18ff2d3d",
+          "err": "net::ERR_BLOCKED_BY_ORB"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "usa-to-mexico-alaska",
+      "url": "/es/routes/usa-to-mexico-alaska.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210855619&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1121047437&are=1&cid=1927113973.1794210856&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=18&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~119860443~120385422~120412528~120420416~120469145~120469153~121049589~121246026~121246034~123814185~124013662&sid=1794210855&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fusa-to-mexico-alaska.html&dt=Mascota%20en%20Alaska%20Airlines%20(and%20Hawaiian%20Airlines)%3A%20EE.%20UU.%20a%20M%C3%A9xico%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=191",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: EE. UU. → México · Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: Viajar con mascota EE. UU. a México en Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: ¿Cabina o bodega en Alaska Airlines (and Hawaiian Airlines)?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "usa-to-mexico-alaska",
+      "url": "/es/routes/usa-to-mexico-alaska.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41h1v9285320629za208zd9285320629xf1&_p=1794210856962&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=761932300&are=1&cid=214816244.1794210857&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=6&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938468~118897920~118897930~119404696~120385423~120412528~120420416~120469145~120469153~121049589~121246026~121246034~123329123~123814185&sid=1794210857&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fusa-to-mexico-alaska.html&dt=Mascota%20en%20Alaska%20Airlines%20(and%20Hawaiian%20Airlines)%3A%20EE.%20UU.%20a%20M%C3%A9xico%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=191",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: EE. UU. → México · Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: Viajar con mascota EE. UU. a México en Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: ¿Cabina o bodega en Alaska Airlines (and Hawaiian Airlines)?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "usa-to-mexico-american",
+      "url": "/es/routes/usa-to-mexico-american.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210858343&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=459438309&are=1&cid=28764455.1794210859&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=16&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938465~115938469~118897920~118897930~120385422~120412528~120420416~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210858&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fusa-to-mexico-american.html&dt=Mascota%20en%20American%20Airlines%3A%20EE.%20UU.%20a%20M%C3%A9xico%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=188",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: EE. UU. → México · American Airlines",
+        "Airlines :: Viajar con mascota EE. UU. a México en American Airlines",
+        "Airlines :: American Airlines",
+        "Airlines :: Mascotas documentadas solo para militares de EE. UU. en servicio activo y Foreign Service del Departamento de Estado con",
+        "Airlines :: ¿Cabina o bodega en American Airlines?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "usa-to-mexico-american",
+      "url": "/es/routes/usa-to-mexico-american.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210859725&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1013342066&are=1&cid=2060054190.1794210860&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=19&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385423~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210859&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fusa-to-mexico-american.html&dt=Mascota%20en%20American%20Airlines%3A%20EE.%20UU.%20a%20M%C3%A9xico%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=166",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: EE. UU. → México · American Airlines",
+        "Airlines :: Viajar con mascota EE. UU. a México en American Airlines",
+        "Airlines :: American Airlines",
+        "Airlines :: Mascotas documentadas solo para militares de EE. UU. en servicio activo y Foreign Service del Departamento de Estado con",
+        "Airlines :: ¿Cabina o bodega en American Airlines?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "usa-to-mexico-delta",
+      "url": "/es/routes/usa-to-mexico-delta.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210861153&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1462501999&are=1&cid=967919950.1794210861&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=13&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938466~115938469~118012007~118897920~118897930~120385422~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210861&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fusa-to-mexico-delta.html&dt=Mascota%20en%20Delta%20Air%20Lines%3A%20EE.%20UU.%20a%20M%C3%A9xico%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=161",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "usa-to-mexico-delta",
+      "url": "/es/routes/usa-to-mexico-delta.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210862590&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1523930432&are=1&cid=691784855.1794210863&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=13&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385422~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814183~124013660&sid=1794210862&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fusa-to-mexico-delta.html&dt=Mascota%20en%20Delta%20Air%20Lines%3A%20EE.%20UU.%20a%20M%C3%A9xico%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=167",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "usa-to-mexico-united",
+      "url": "/es/routes/usa-to-mexico-united.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210864155&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1720372474&are=1&cid=65030739.1794210864&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=3&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385422~120412526~120420414~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210864&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fusa-to-mexico-united.html&dt=Mascota%20en%20United%20Airlines%3A%20EE.%20UU.%20a%20M%C3%A9xico%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=177",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: EE. UU. → México · United Airlines",
+        "Airlines :: Viajar con mascota EE. UU. a México en United Airlines",
+        "Airlines :: United Airlines",
+        "Airlines :: ¿Cabina o bodega en United Airlines?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "usa-to-mexico-united",
+      "url": "/es/routes/usa-to-mexico-united.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210866047&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1514721868&are=1&cid=409183293.1794210866&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=13&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938465~115938468~118897920~118897930~120385423~120412528~120420414~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210866&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fusa-to-mexico-united.html&dt=Mascota%20en%20United%20Airlines%3A%20EE.%20UU.%20a%20M%C3%A9xico%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=151",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: EE. UU. → México · United Airlines",
+        "Airlines :: Viajar con mascota EE. UU. a México en United Airlines",
+        "Airlines :: United Airlines",
+        "Airlines :: ¿Cabina o bodega en United Airlines?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "mexico-to-usa-alaska",
+      "url": "/es/routes/mexico-to-usa-alaska.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210867445&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1656783000&are=1&cid=1109283995.1794210868&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=17&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938465~115938468~118897920~118897930~120385423~120412528~120420416~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210867&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fmexico-to-usa-alaska.html&dt=Mascota%20en%20Alaska%20Airlines%20(and%20Hawaiian%20Airlines)%3A%20M%C3%A9xico%20a%20EE.%20UU.%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=195",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: México → EE. UU. · Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: Viajar con mascota México a EE. UU. en Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: ¿Cabina o bodega en Alaska Airlines (and Hawaiian Airlines)?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "mexico-to-usa-alaska",
+      "url": "/es/routes/mexico-to-usa-alaska.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210868820&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=2146346486&are=1&cid=910541624.1794210869&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=7&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938468~118897920~118897930~120385422~120412528~120420416~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210868&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fmexico-to-usa-alaska.html&dt=Mascota%20en%20Alaska%20Airlines%20(and%20Hawaiian%20Airlines)%3A%20M%C3%A9xico%20a%20EE.%20UU.%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=165",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: México → EE. UU. · Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: Viajar con mascota México a EE. UU. en Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: ¿Cabina o bodega en Alaska Airlines (and Hawaiian Airlines)?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "mexico-to-usa-american",
+      "url": "/es/routes/mexico-to-usa-american.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210870751&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=531982351&are=1&cid=1757467185.1794210871&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=17&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385422~120412528~120420414~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210870&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fmexico-to-usa-american.html&dt=Mascota%20en%20American%20Airlines%3A%20M%C3%A9xico%20a%20EE.%20UU.%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=191",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: México → EE. UU. · American Airlines",
+        "Airlines :: Viajar con mascota México a EE. UU. en American Airlines",
+        "Airlines :: American Airlines",
+        "Airlines :: Mascotas documentadas solo para militares de EE. UU. en servicio activo y Foreign Service del Departamento de Estado con",
+        "Airlines :: ¿Cabina o bodega en American Airlines?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "mexico-to-usa-american",
+      "url": "/es/routes/mexico-to-usa-american.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210872131&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=904747415&are=1&cid=1285763217.1794210872&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=7&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385423~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210872&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fmexico-to-usa-american.html&dt=Mascota%20en%20American%20Airlines%3A%20M%C3%A9xico%20a%20EE.%20UU.%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=188",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: México → EE. UU. · American Airlines",
+        "Airlines :: Viajar con mascota México a EE. UU. en American Airlines",
+        "Airlines :: American Airlines",
+        "Airlines :: Mascotas documentadas solo para militares de EE. UU. en servicio activo y Foreign Service del Departamento de Estado con",
+        "Airlines :: ¿Cabina o bodega en American Airlines?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "mexico-to-usa-delta",
+      "url": "/es/routes/mexico-to-usa-delta.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210873512&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1121087045&are=1&cid=1742532071.1794210874&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=1&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385423~120412526~120420414~120469145~120469153~121049589~121246026~121246034~123814185~124013660&sid=1794210873&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fmexico-to-usa-delta.html&dt=Mascota%20en%20Delta%20Air%20Lines%3A%20M%C3%A9xico%20a%20EE.%20UU.%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=154",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "mexico-to-usa-delta",
+      "url": "/es/routes/mexico-to-usa-delta.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210874958&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=38897943&are=1&cid=1601199931.1794210875&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=13&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938466~115938469~118897920~118897930~120385423~120412528~120420414~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210875&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fmexico-to-usa-delta.html&dt=Mascota%20en%20Delta%20Air%20Lines%3A%20M%C3%A9xico%20a%20EE.%20UU.%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=180",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "mexico-to-usa-united",
+      "url": "/es/routes/mexico-to-usa-united.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210876311&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1467655694&are=1&cid=1792780142.1794210876&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=9&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~120385423~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210876&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fmexico-to-usa-united.html&dt=Mascota%20en%20United%20Airlines%3A%20M%C3%A9xico%20a%20EE.%20UU.%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=192",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: México → EE. UU. · United Airlines",
+        "Airlines :: Viajar con mascota México a EE. UU. en United Airlines",
+        "Airlines :: United Airlines",
+        "Airlines :: ¿Cabina o bodega en United Airlines?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "mexico-to-usa-united",
+      "url": "/es/routes/mexico-to-usa-united.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210877686&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=868086373&are=1&cid=231397261.1794210878&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=2&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118897920~118897930~120385423~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210877&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Froutes%2Fmexico-to-usa-united.html&dt=Mascota%20en%20United%20Airlines%3A%20M%C3%A9xico%20a%20EE.%20UU.%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=173",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: México → EE. UU. · United Airlines",
+        "Airlines :: Viajar con mascota México a EE. UU. en United Airlines",
+        "Airlines :: United Airlines",
+        "Airlines :: ¿Cabina o bodega en United Airlines?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "aeromexico",
+      "url": "/es/airlines/aeromexico.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210879020&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1046338712&are=1&cid=436881812.1794210879&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=16&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385423~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210879&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Faeromexico.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20Aeromexico%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=181",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "aeromexico",
+      "url": "/es/airlines/aeromexico.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210880511&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=2099294033&are=1&cid=506708518.1794210881&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=11&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118012007~118897920~118897930~120385422~120412528~120420414~120469145~120469153~121049589~121246026~121246034~123329125~123785233~123814183~124013662&sid=1794210880&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Faeromexico.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20Aeromexico%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=166",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "volaris",
+      "url": "/es/airlines/volaris.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210882052&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=425480886&are=1&cid=1850262976.1794210882&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=7&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938469~118897920~118897930~120385422~120412528~120420414~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210882&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Fvolaris.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20Volaris%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=195",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "volaris",
+      "url": "/es/airlines/volaris.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41h1v9285320629za208zd9285320629xf1&_p=1794210883437&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=2021112469&are=1&cid=986637373.1794210884&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=1&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938466~115938469~118897920~118897930~120385422~120412526~120420414~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210883&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Fvolaris.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20Volaris%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=184",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "viva-aerobus",
+      "url": "/es/airlines/viva-aerobus.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210884843&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1193412420&are=1&cid=67394144.1794210885&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=15&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938466~115938469~118897920~118897930~120385422~120412526~120420414~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210885&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Fviva-aerobus.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20Viva%20Aerobus%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=190",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "viva-aerobus",
+      "url": "/es/airlines/viva-aerobus.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210886241&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=95543914&are=1&cid=703330677.1794210886&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=3&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385423~120412528~120420414~120469145~120469153~121049589~121246026~121246034~123814185~124013661&sid=1794210886&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Fviva-aerobus.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20Viva%20Aerobus%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=194",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [],
+      "brokenInternal": []
+    },
+    {
+      "id": "delta",
+      "url": "/es/airlines/delta.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41h1v9285320629za208zd9285320629xf1&_p=1794210888142&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=311914143&are=1&cid=901552286.1794210888&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=16&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938466~115938469~118897920~118897930~120385422~120412528~120420416~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210888&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Fdelta.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20Delta%20Air%20Lines%20(perros%20y%20gatos%20en%20cabina)%3A%20verificada%2022%20oct%202026&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=194",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Compare :: Compare las normas oficiales de cabina y bodega/carga para perros y gatos de hocico corto en 12 aerolíneas:",
+        "Compare :: Compare tarifas en Delta Air Lines y otras aerolíneas, luego tramite el cupo de su mascota directamente con la aerolínea"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "delta",
+      "url": "/es/airlines/delta.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210889514&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1021973777&are=1&cid=693224899.1794210890&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=4&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385422~120412528~120420414~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210889&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Fdelta.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20Delta%20Air%20Lines%20(perros%20y%20gatos%20en%20cabina)%3A%20verificada%2022%20oct%202026&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=198",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Compare :: Compare las normas oficiales de cabina y bodega/carga para perros y gatos de hocico corto en 12 aerolíneas:",
+        "Compare :: Compare tarifas en Delta Air Lines y otras aerolíneas, luego tramite el cupo de su mascota directamente con la aerolínea"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "united",
+      "url": "/es/airlines/united.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210890904&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1112849951&are=1&cid=1238394017.1794210891&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=0&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938466~115938469~118897920~118897930~120385423~120412528~120420416~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210891&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Funited.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20United%20Airlines%20(perros%20y%20gatos%20en%20cabina)%3A%20verificada%2022%20oct%202026&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=187",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: › United Airlines",
+        "Airlines :: Política de mascotas de United Airlines",
+        "Airlines :: página oficial de política de mascotas de United Airlines",
+        "Compare :: Compare las normas oficiales de cabina y bodega/carga para perros y gatos de hocico corto en 12 aerolíneas:",
+        "Airlines :: Compare tarifas en United Airlines y otras aerolíneas, luego tramite el cupo de su mascota directamente con la aerolínea",
+        "Compare :: Compare tarifas en United Airlines y otras aerolíneas, luego tramite el cupo de su mascota directamente con la aerolínea",
+        "Airlines :: ¿Cómo fue en la práctica volar con mascota en United Airlines?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "united",
+      "url": "/es/airlines/united.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210892277&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=488324593&are=1&cid=1648593375.1794210892&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=7&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938469~118897920~118897930~120385422~120412526~120420414~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210892&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Funited.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20United%20Airlines%20(perros%20y%20gatos%20en%20cabina)%3A%20verificada%2022%20oct%202026&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=192",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: › United Airlines",
+        "Airlines :: Política de mascotas de United Airlines",
+        "Airlines :: página oficial de política de mascotas de United Airlines",
+        "Compare :: Compare las normas oficiales de cabina y bodega/carga para perros y gatos de hocico corto en 12 aerolíneas:",
+        "Airlines :: Compare tarifas en United Airlines y otras aerolíneas, luego tramite el cupo de su mascota directamente con la aerolínea",
+        "Compare :: Compare tarifas en United Airlines y otras aerolíneas, luego tramite el cupo de su mascota directamente con la aerolínea",
+        "Airlines :: ¿Cómo fue en la práctica volar con mascota en United Airlines?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "american",
+      "url": "/es/airlines/american.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210893672&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1970320288&are=1&cid=1595369544.1794210894&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=19&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938468~118897920~118897930~120385422~120412528~120420416~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210893&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Famerican.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20American%20Airlines%20(perros%20y%20gatos%20en%20cabina)%3A%20verificada%2022%20oct%202026&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=161",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: › American Airlines",
+        "Airlines :: Política de mascotas de American Airlines",
+        "Airlines :: página oficial de política de mascotas de American Airlines",
+        "Compare :: Compare las normas oficiales de cabina y bodega/carga para perros y gatos de hocico corto en 12 aerolíneas:",
+        "Airlines :: Mascotas documentadas solo para militares de EE. UU. en servicio activo y Foreign Service del Departamento de Estado con",
+        "Airlines :: Compare tarifas en American Airlines y otras aerolíneas, luego tramite el cupo de su mascota directamente con la aerolín",
+        "Compare :: Compare tarifas en American Airlines y otras aerolíneas, luego tramite el cupo de su mascota directamente con la aerolín",
+        "Airlines :: ¿Cómo fue en la práctica volar con mascota en American Airlines?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "american",
+      "url": "/es/airlines/american.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210895215&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1366397742&are=1&cid=1327954159.1794210895&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=1&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938466~115938468~118897920~118897930~120385422~120412526~120420414~120469145~120469153~121049589~121246026~121246034~123814185~124013661&sid=1794210895&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Famerican.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20American%20Airlines%20(perros%20y%20gatos%20en%20cabina)%3A%20verificada%2022%20oct%202026&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=180",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: › American Airlines",
+        "Airlines :: Política de mascotas de American Airlines",
+        "Airlines :: página oficial de política de mascotas de American Airlines",
+        "Compare :: Compare las normas oficiales de cabina y bodega/carga para perros y gatos de hocico corto en 12 aerolíneas:",
+        "Airlines :: Mascotas documentadas solo para militares de EE. UU. en servicio activo y Foreign Service del Departamento de Estado con",
+        "Airlines :: Compare tarifas en American Airlines y otras aerolíneas, luego tramite el cupo de su mascota directamente con la aerolín",
+        "Compare :: Compare tarifas en American Airlines y otras aerolíneas, luego tramite el cupo de su mascota directamente con la aerolín",
+        "Airlines :: ¿Cómo fue en la práctica volar con mascota en American Airlines?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "alaska",
+      "url": "/es/airlines/alaska.html",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210896591&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=340735312&are=1&cid=844215980.1794210897&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=0&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938465~115938469~118897920~118897930~120385423~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210896&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Falaska.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20Alaska%20Airlines%20(and%20Hawaiian%20Airlines)%20(perros%20y%20gatos%20en%20cabina)%3A%20verificada%2022%20oct%202026&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=222",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: › Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: Política de mascotas de Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: página oficial de política de mascotas de Alaska Airlines (and Hawaiian Airlines)",
+        "Compare :: Compare las normas oficiales de cabina y bodega/carga para perros y gatos de hocico corto en 12 aerolíneas:",
+        "Airlines :: Compare tarifas en Alaska Airlines (and Hawaiian Airlines) y otras aerolíneas, luego tramite el cupo de su mascota direc",
+        "Compare :: Compare tarifas en Alaska Airlines (and Hawaiian Airlines) y otras aerolíneas, luego tramite el cupo de su mascota direc",
+        "Airlines :: ¿Cómo fue en la práctica volar con mascota en Alaska Airlines (and Hawaiian Airlines)?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "alaska",
+      "url": "/es/airlines/alaska.html",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210898026&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=514720790&are=1&cid=796780133.1794210898&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=9&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938465~115938468~118897920~118897930~120385423~120412528~120420414~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210898&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Falaska.html&dt=Pol%C3%ADtica%20de%20mascotas%20de%20Alaska%20Airlines%20(and%20Hawaiian%20Airlines)%20(perros%20y%20gatos%20en%20cabina)%3A%20verificada%2022%20oct%202026&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=189",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: › Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: Política de mascotas de Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: página oficial de política de mascotas de Alaska Airlines (and Hawaiian Airlines)",
+        "Compare :: Compare las normas oficiales de cabina y bodega/carga para perros y gatos de hocico corto en 12 aerolíneas:",
+        "Airlines :: Compare tarifas en Alaska Airlines (and Hawaiian Airlines) y otras aerolíneas, luego tramite el cupo de su mascota direc",
+        "Compare :: Compare tarifas en Alaska Airlines (and Hawaiian Airlines) y otras aerolíneas, luego tramite el cupo de su mascota direc",
+        "Airlines :: ¿Cómo fue en la práctica volar con mascota en Alaska Airlines (and Hawaiian Airlines)?"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "comparator",
+      "url": "/es/airlines/compare/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210899727&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=431231529&are=1&cid=1585853597.1794210900&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=13&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616985~115938466~115938468~118897920~118897930~120385422~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210899&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Fcompare%2F&dt=Tarifas%20y%20normas%20de%20cabina%20de%20mascotas%20comparadas%20(30%20aerol%C3%ADneas)%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=191",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: Copa Airlines",
+        "Airlines :: Yes: hold up to 45 kg (America zone USD 340-455 per segment); cargo via IAG Cargo / WOOF Airlines.",
+        "Airlines :: Porter Airlines",
+        "Airlines :: Alaska Airlines",
+        "Airlines :: Hawaiian Airlines",
+        "Airlines :: Southwest Airlines",
+        "Airlines :: Spirit Airlines",
+        "Airlines :: Frontier Airlines",
+        "Airlines :: American Airlines",
+        "Airlines :: Checked only for active-duty U.S. Military / State Dept on orders; everyone else via American Airlines Cargo (PetEmbark)",
+        "Airlines :: United Airlines",
+        "Airlines :: Asiana Airlines",
+        "Airlines :: KLM Royal Dutch Airlines",
+        "Airlines :: LATAM Airlines",
+        "Airlines :: Turkish Airlines"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "comparator",
+      "url": "/es/airlines/compare/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210900667&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1436395123&are=1&cid=619317748.1794210901&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=11&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938465~115938469~118897920~118897930~120385423~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210900&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fairlines%2Fcompare%2F&dt=Tarifas%20y%20normas%20de%20cabina%20de%20mascotas%20comparadas%20(30%20aerol%C3%ADneas)%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=180",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: Copa Airlines",
+        "Airlines :: Yes: hold up to 45 kg (America zone USD 340-455 per segment); cargo via IAG Cargo / WOOF Airlines.",
+        "Airlines :: Porter Airlines",
+        "Airlines :: Alaska Airlines",
+        "Airlines :: Hawaiian Airlines",
+        "Airlines :: Southwest Airlines",
+        "Airlines :: Spirit Airlines",
+        "Airlines :: Frontier Airlines",
+        "Airlines :: American Airlines",
+        "Airlines :: Checked only for active-duty U.S. Military / State Dept on orders; everyone else via American Airlines Cargo (PetEmbark)",
+        "Airlines :: United Airlines",
+        "Airlines :: Asiana Airlines",
+        "Airlines :: KLM Royal Dutch Airlines",
+        "Airlines :: LATAM Airlines",
+        "Airlines :: Turkish Airlines"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "passport",
+      "url": "/es/passport/",
+      "viewport": "1280x800",
+      "status": 200,
+      "consoleErrors": [],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41v9285320629za208zd9285320629xf1&_p=1794210901644&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1372404334&are=1&cid=1002242274.1794210902&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=14&sr=1280x800&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115938466~115938468~118897920~118897930~120385422~120412528~120420416~120469145~120469153~121049589~121246026~121246034~123814185&sid=1794210901&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fpassport%2F&dt=Pet%20Travel%20Passport%20%E2%80%94%20checklist%20con%20fechas%20por%20ruta%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=172",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: United Airlines",
+        "Airlines :: American Airlines",
+        "Airlines :: Southwest Airlines",
+        "Airlines :: Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: Hawaiian Airlines",
+        "Airlines :: Spirit Airlines",
+        "Airlines :: Frontier Airlines",
+        "Airlines :: Porter Airlines",
+        "Airlines :: KLM Royal Dutch Airlines",
+        "Airlines :: Turkish Airlines",
+        "Airlines :: Copa Airlines",
+        "Airlines :: LATAM Airlines",
+        "Airlines :: Asiana Airlines",
+        "Airlines :: Japan Airlines (JAL)"
+      ],
+      "brokenInternal": []
+    },
+    {
+      "id": "passport",
+      "url": "/es/passport/",
+      "viewport": "390x844",
+      "status": 200,
+      "consoleErrors": [],
+      "failedRequests": [
+        {
+          "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-K45B2WNXMC&gtm=45je6b41h1v9285320629za208zd9285320629xf1&_p=1794210902526&em=tv.1~ec.e3&emd=tvd.1&gcd=13l3l3l3l1l1&npa=0&dma=0&ecid=1881277039&are=1&cid=420779573.1794210903&ec_mode=a&frm=0&ngs=1&pscdl=noapi&rcb=14&sr=390x844&uaa=x86&uab=64&uafvl=Chromium%3B130.0.6723.31%7CHeadlessChrome%3B130.0.6723.31%7CNot%253FA_Brand%3B99.0.0.0&uam=&uamb=0&uap=Linux&uapv=6.12.113&uaw=0&ul=en-us&_s=1&tag_exp=115616986~115938465~115938469~118012007~118897920~118897930~120385423~120412526~120420416~120469145~120469153~121049589~121246026~121246034~123814183&sid=1794210902&sct=1&seg=0&dl=http%3A%2F%2F127.0.0.1%2Fes%2Fpassport%2F&dt=Pet%20Travel%20Passport%20%E2%80%94%20checklist%20con%20fechas%20por%20ruta%20%7C%20PetPolicyCheck&en=page_view&_fv=1&_nsi=1&_ss=1&tfd=152",
+          "err": "net::ERR_ABORTED"
+        }
+      ],
+      "leftovers": [
+        "Airlines :: United Airlines",
+        "Airlines :: American Airlines",
+        "Airlines :: Southwest Airlines",
+        "Airlines :: Alaska Airlines (and Hawaiian Airlines)",
+        "Airlines :: Hawaiian Airlines",
+        "Airlines :: Spirit Airlines",
+        "Airlines :: Frontier Airlines",
+        "Airlines :: Porter Airlines",
+        "Airlines :: KLM Royal Dutch Airlines",
+        "Airlines :: Turkish Airlines",
+        "Airlines :: Copa Airlines",
+        "Airlines :: LATAM Airlines",
+        "Airlines :: Asiana Airlines",
+        "Airlines :: Japan Airlines (JAL)"
+      ],
+      "brokenInternal": []
+    }
+  ],
+  "enSmoke": [
+    {
+      "url": "/",
+      "status": 200,
+      "errs": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ]
+    },
+    {
+      "url": "/airlines/aeromexico.html",
+      "status": 200,
+      "errs": [
+        "Access to script at 'http://emrldtp.cc/chunk.SJM36BpI.js' from origin 'http://127.0.0.1:8795' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ]
+    },
+    {
+      "url": "/countries/mexico-map.html",
+      "status": 200,
+      "errs": []
+    },
+    {
+      "url": "/passport/",
+      "status": 200,
+      "errs": []
+    },
+    {
+      "url": "/airlines/compare/",
+      "status": 200,
+      "errs": []
+    }
+  ],
+  "summary": {
+    "pages": 21,
+    "totalRuns": 42,
+    "consoleErrors": 342,
+    "failedRequests": 45,
+    "brokenInternal": 4,
+    "leftoverHits": 174,
+    "enSmokeErrors": 20
+  }
+}

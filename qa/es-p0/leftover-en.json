@@ -1,0 +1,53 @@
+{
+  "home": [
+    "Airlines",
+    "Compare"
+  ],
+  "mexico": [],
+  "mexico-map": [],
+  "usa-mexico": [],
+  "usa-to-mexico-alaska": [
+    "Airlines"
+  ],
+  "usa-to-mexico-american": [
+    "Airlines"
+  ],
+  "usa-to-mexico-delta": [],
+  "usa-to-mexico-united": [
+    "Airlines"
+  ],
+  "mexico-to-usa-alaska": [
+    "Airlines"
+  ],
+  "mexico-to-usa-american": [
+    "Airlines"
+  ],
+  "mexico-to-usa-delta": [],
+  "mexico-to-usa-united": [
+    "Airlines"
+  ],
+  "aeromexico": [],
+  "volaris": [],
+  "viva-aerobus": [],
+  "delta": [
+    "Compare"
+  ],
+  "united": [
+    "Airlines",
+    "Compare"
+  ],
+  "american": [
+    "Airlines",
+    "Compare"
+  ],
+  "alaska": [
+    "Airlines",
+    "Compare"
+  ],
+  "comparator": [
+    "Airlines"
+  ],
+  "passport": [
+    "Airlines"
+  ]
+}

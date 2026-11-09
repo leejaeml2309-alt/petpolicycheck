@@ -24,10 +24,31 @@ function boot(){
  document.body.insertAdjacentHTML('afterbegin',sp);
  var path=location.pathname || '/';
  /* Exact relative root: /countries/usa-map.html → '../'; /airlines/compare/ → '../../' */
+ /* /es/* pages: treat /es as locale root so nav stays under /es/ when a page exists. */
  var segs=path.replace(/\/+$/,'').split('/').filter(Boolean);
  /* Drop the file segment when path ends with a filename (*.html) */
  if(segs.length && /\.[a-z0-9]+$/i.test(segs[segs.length-1])) segs=segs.slice(0,-1);
+ var ppcLangRoot='';
+ if(segs[0]==='es'){ ppcLangRoot='/es'; segs=segs.slice(1); }
  var up=segs.length ? '../'.repeat(segs.length) : '';
+ /* Absolute helpers: ES-available destinations stay under /es; others use site root. */
+ var ES_OK={'':1,'/':1,'index.html':1,'airlines/aeromexico.html':1,'airlines/volaris.html':1,'airlines/viva-aerobus.html':1,'airlines/delta.html':1,'airlines/united.html':1,'airlines/american.html':1,'airlines/alaska.html':1,'airlines/compare/':1,'airlines/compare/index.html':1,'passport/':1,'passport/index.html':1,'countries/mexico.html':1,'countries/mexico-map.html':1,'routes/usa-mexico.html':1,'routes/usa-to-mexico-alaska.html':1,'routes/usa-to-mexico-american.html':1,'routes/usa-to-mexico-delta.html':1,'routes/usa-to-mexico-united.html':1,'routes/mexico-to-usa-alaska.html':1,'routes/mexico-to-usa-american.html':1,'routes/mexico-to-usa-delta.html':1,'routes/mexico-to-usa-united.html':1};
+ function ppcHref(rel){
+   rel=rel||'';
+   var bare=rel.replace(/^\/+/,'').split('#')[0].split('?')[0];
+   var q=rel.indexOf('?')>=0?'?'+rel.split('?')[1].split('#')[0]:'';
+   var h=rel.indexOf('#')>=0?'#'+rel.split('#').pop():'';
+   if(!ppcLangRoot) return up+rel;
+   if(bare==='' || bare==='?' || rel.charAt(0)==='?' || rel.charAt(0)==='#') return (ppcLangRoot||'')+'/'+(rel.charAt(0)==='?'||rel.charAt(0)==='#'?rel.replace(/^\//,''):'');
+   /* map home */
+   if(bare==='' || rel.indexOf('?view=map')===0) return ppcLangRoot+'/'+(rel.indexOf('?')===0||rel.indexOf('#')===0?rel:'');
+   var key=bare; if(key && key.slice(-1)!=='/' && key.indexOf('.html')<0) key=key+'/';
+   if(ES_OK[bare] || ES_OK[key] || ES_OK[bare.replace(/\/$/,'')+'/index.html']){
+     return ppcLangRoot+'/'+bare.replace(/^\/+/,'') + (bare.indexOf('.html')>=0||bare.slice(-1)==='/'?'': (bare?'':'')) + q + h;
+   }
+   return '/'+bare.replace(/^\/+/,'') + q + h;
+ }
+
  /* Country sub-maps (usa/canada/mexico-map) must NOT mark World map as current. */
  var onCountryMap=/\/countries\/(?:usa|canada|mexico)-map\.html$/.test(path);
  var cur=document.documentElement.dataset.section||(
@@ -37,12 +58,14 @@ function boot(){
   /\/(?:pro|extension|b2b-pet-desk)\/?$|\/(?:terms|refund-policy|privacy)\.html/.test(path)?'b2b':
   onCountryMap?'':(/usa-map|\/map/.test(path)?'map':''));
  /* Homepage unlocked world-map view (?view=map) marks World map current */
- try{ if((path==='/'||/\/(index\.html)?$/.test(path)) && new URLSearchParams(location.search).get('view')==='map') cur='map'; }catch(e){}
+ try{ if((path==='/'||path==='/es'||path==='/es/'||/\/(index\.html)?$/.test(path)) && new URLSearchParams(location.search).get('view')==='map') cur='map'; }catch(e){}
+ var PAST_ES={map:'Mapa mundial',flight:'Aerolíneas',hotel:'Hoteles',grooming:'Peluquería',ground:'Traslados',shop:'Productos',law:'Normas',forum:'Foro',veterans:'Veteranos',b2b:'Para empresas',Compare:'Comparar',Guides:'Guías',Updates:'Actualizaciones',About:'Acerca de',Book:'Reservar',Advertise:'Anúnciese'};
+ var plab=function(en,key){return ppcLangRoot&&PAST_ES[key||en]?PAST_ES[key||en]:en;};
  var V=(new URLSearchParams(location.search).get('nav'))||document.documentElement.dataset.nav||'8';
  /* '8' = 8 liens (Rides garde sa place) ; '7g' (reco) = Rides fusionne dans Book (hub de réservation), Grooming prend sa place */
  /* World map uses ?view=map (NO #hash) so browsers never native-scroll to an id */
- var S=[['map','World map',up+'?view=map'],['flight','Airlines',up+'airlines/'],['hotel','Hotels',up+'hotels/'],
-        ['grooming','Grooming',up+'grooming/'],['ground','Rides',up+'book/#rides'],['shop','Products',up+'products/'],['law','Rules',up+'countries/usa.html#federal'],['forum','Forum',up+'forum/'],['veterans','Veterans',up+'veterans/'],['b2b','For Business',up+'pro/']];
+ var S=[['map',plab('World map','map'),ppcHref('?view=map')],['flight',plab('Airlines','flight'),ppcHref('airlines/')],['hotel',plab('Hotels','hotel'),ppcHref('hotels/')],
+        ['grooming',plab('Grooming','grooming'),ppcHref('grooming/')],['ground',plab('Rides','ground'),ppcHref('book/#rides')],['shop',plab('Products','shop'),ppcHref('products/')],['law',plab('Rules','law'),ppcHref('countries/usa.html#federal')],['forum',plab('Forum','forum'),ppcHref('forum/')],['veterans',plab('Veterans','veterans'),ppcHref('veterans/')],['b2b',plab('For Business','b2b'),ppcHref('pro/')]];
  if(V==='7g') S=S.filter(function(x){return x[0]!=='ground'});
  document.documentElement.classList.add('nav-v'+V);
  var bookCur=false; if(V==='7g'&&cur==='ground'){cur='';bookCur=true}
@@ -52,16 +75,16 @@ function boot(){
  var NAV_I18N={map:'site.nav.map',flight:'site.nav.airlines',hotel:'site.nav.hotels',grooming:'site.nav.grooming',ground:'site.nav.rides',shop:'site.nav.products',law:'site.nav.rules',forum:'site.nav.forum',veterans:'site.nav.veterans',b2b:'site.nav.pro'};
  var h=S.map(function(s){var extra=s[0]==='b2b'?' nav-biz':(s[0]==='veterans'?' nav-vet':'');var ik=NAV_I18N[s[0]]||'';return '<a class="sec theme-'+s[0]+extra+'" href="'+s[2]+'"'+(s[0]===cur?' aria-current="page"':'')+(ik?' data-i18n="'+ik+'"':'')+'>'+pst(s[0])+'<span class="lbl">'+s[1]+'</span></a>'}).join('');
  h+='<span class="menu-sep menu-only" aria-hidden="true"></span>'+
-    ['Compare|'+up+'#compare','Guides|'+up+'#gear','Updates|'+up+'updates.html','About|'+up+'about.html'].map(function(x){x=x.split('|');return '<a class="menu-only sub" href="'+x[1]+'">'+x[0]+'</a>'}).join('')+
-    (V==='7g'?'<a class="nav-book" data-i18n="site.nav.book"'+(bookCur?' aria-current="page"':'')+' href="'+up+'book/" title="Flights, hotels, rides, vets, insurance">Book<span class="bk-sub"> · rides</span></a>':'<a class="nav-book" data-i18n="site.nav.book" href="'+up+'book/">Book</a>')+'<a class="cta" data-i18n="site.nav.advertise" href="'+up+'advertise/">Advertise</a>';
+    [(plab('Compare')+'|'+ppcHref('#compare')),(plab('Guides')+'|'+ppcHref('#gear')),(plab('Updates')+'|'+ppcHref('updates.html')),(plab('About')+'|'+ppcHref('about.html'))].map(function(x){x=x.split('|');return '<a class="menu-only sub" href="'+x[1]+'">'+x[0]+'</a>'}).join('')+
+    (V==='7g'?'<a class="nav-book" data-i18n="site.nav.book"'+(bookCur?' aria-current="page"':'')+' href="'+ppcHref('book/')+'" title="Flights, hotels, rides, vets, insurance">Book<span class="bk-sub"> · rides</span></a>':'<a class="nav-book" data-i18n="site.nav.book" href="'+ppcHref('book/')+'">'+plab('Book')+'</a>')+'<a class="cta" data-i18n="site.nav.advertise" href="'+ppcHref('advertise/')+'">'+plab('Advertise')+'</a>';
  m.innerHTML=h; m.classList.add('pst-nav');
  /* badge d'en-tête de section, même tampon que la nav (taille page) */
  var h1=document.querySelector('main h1, #main h1, h1');
  /* Country maps: clickable back-link to the homepage World map (never a dead div). */
  if(onCountryMap&&h1&&!document.querySelector('.sec-eyebrow')){
-  h1.insertAdjacentHTML('beforebegin','<a class="sec-eyebrow theme-map" href="'+up+'?view=map" style="text-decoration:none;cursor:pointer;pointer-events:auto;touch-action:manipulation">'+pst('map','pst-lg')+'<span data-i18n="site.nav.world_back">\u2190 World map</span></a>');
+  h1.insertAdjacentHTML('beforebegin','<a class="sec-eyebrow theme-map" href="'+ppcHref('?view=map')+'" style="text-decoration:none;cursor:pointer;pointer-events:auto;touch-action:manipulation">'+pst('map','pst-lg')+'<span data-i18n="site.nav.world_back">\u2190 World map</span></a>');
  }else if(cur&&h1&&!document.querySelector('.sec-eyebrow')){
-  var L={map:'World map',flight:'Airlines',hotel:'Hotels',ground:'Rides',shop:'Products',law:'Rules & health certificate',forum:'Forum',grooming:'Care & Grooming (Travel + Expat)',veterans:'Veterans',b2b:'B2B Pet Desk'};
+  var L={map:plab('World map','map'),flight:plab('Airlines','flight'),hotel:plab('Hotels','hotel'),ground:plab('Rides','ground'),shop:plab('Products','shop'),law:ppcLangRoot?'Normas y certificado de salud':'Rules & health certificate',forum:plab('Forum','forum'),grooming:ppcLangRoot?'Cuidado y peluquería (viaje + expat)':'Care & Grooming (Travel + Expat)',veterans:plab('Veterans','veterans'),b2b:ppcLangRoot?'B2B Pet Desk':'B2B Pet Desk'};
   h1.insertAdjacentHTML('beforebegin','<div class="sec-eyebrow theme-'+cur+'">'+pst(cur,'pst-lg')+'<span>'+L[cur]+'</span></div>');
  }
 
@@ -69,6 +92,7 @@ function boot(){
  var brand=document.querySelector('header.top a.brand, header.map-nav a.brand');
  if(brand){
   brand.setAttribute('aria-label','PetPolicyCheck — Home');
+  if(ppcLangRoot){ try{ brand.setAttribute('href', ppcLangRoot+'/'); }catch(e){} }
   if(!brand.querySelector('.lbadge')){
    brand.insertAdjacentHTML('afterbegin','<span class="lbadge"><img src="'+up+'assets/img/logo-mark-header.png" width="62" height="48" alt="PetPolicyCheck"></span>');
   } else {

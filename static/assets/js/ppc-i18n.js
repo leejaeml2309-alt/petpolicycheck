@@ -7,7 +7,19 @@
   var D = (window.PPC_I18N && window.PPC_I18N.strings) || {};
   var L = 'en';
 
+  function ppcPathLocale() {
+    try {
+      var p = location.pathname || '/';
+      if (p === '/es' || p.indexOf('/es/') === 0) return 'es';
+      /* future: /fr/ /de/ /ko/ /ja/ */
+      var m = p.match(/^\/(fr|de|ko|ja)(?=\/|$)/);
+      if (m) return m[1];
+    } catch (e) {}
+    return null;
+  }
   function detect() {
+    var pathLang = ppcPathLocale();
+    if (pathLang) return pathLang;
     try {
       var q = new URLSearchParams(location.search).get('lang');
       if (q) { q = q.toLowerCase().slice(0, 2); if (LANGS.indexOf(q) >= 0) return q; }
@@ -33,10 +45,34 @@
 
   function setLang(lang, pushUrl) {
     if (LANGS.indexOf(lang) < 0) lang = 'en';
+    var prevPathLang = ppcPathLocale();
     L = lang;
     try { localStorage.setItem(KEY, L); } catch (e) {}
     try {
       if (pushUrl !== false) {
+        var path = location.pathname || '/';
+        var search = location.search || '';
+        var hash = location.hash || '';
+        /* Dedicated /es/ tree (P0): switching EN↔ES navigates between trees.
+           Other langs keep hybrid ?lang= on the current tree. */
+        if (lang === 'es' && prevPathLang !== 'es') {
+          /* From EN home → /es/ (preserve ?view=map); from other EN pages → /es/ counterpart if known, else /es/ */
+          var dest = '/es/';
+          if (path === '/' || path === '/index.html') {
+            dest = '/es/' + search + hash;
+            if (search.indexOf('view=') < 0 && (hash === '#map' || hash === '#world-map')) dest = '/es/?view=map';
+          } else {
+            dest = '/es' + path + search + hash;
+          }
+          location.assign(dest);
+          return;
+        }
+        if (lang === 'en' && prevPathLang === 'es') {
+          var enPath = path.replace(/^\/es(?=\/|$)/, '') || '/';
+          if (enPath === '') enPath = '/';
+          location.assign(enPath + search + hash);
+          return;
+        }
         var u = new URL(location.href);
         if (L === 'en') u.searchParams.delete('lang');
         else u.searchParams.set('lang', L);
@@ -45,6 +81,7 @@
     } catch (e) {}
     document.documentElement.setAttribute('lang', L === 'en' ? 'en-US' : L);
     document.documentElement.setAttribute('data-ppc-lang', L);
+    /* On /es/ dedicated pages, baked usted HTML wins — still apply for chrome pastilles inject */
     apply();
     syncLocalSwitchers();
     try { window.dispatchEvent(new CustomEvent('ppc:lang', { detail: { lang: L } })); } catch (e) {}

@@ -1,5 +1,8 @@
 /* PetPolicyCheck airline comparator UI — v2 (2026-11-07): search, i18n (6 langs), mobile cards, "Check with airline" for unverified values */
 const DATA = window.PPC_COMPARATOR;
+let militaryOn = new URLSearchParams(location.search).get('military') === '1';
+let militaryData = null, militaryFailed = false;
+
 const A = DATA.airlines, $ = s => document.querySelector(s);
 const EN_FALLBACK = (window.PPC_I18N && window.PPC_I18N.strings && window.PPC_I18N.strings.en) || {};
 function t(k, vars){
@@ -23,6 +26,9 @@ function fits(a){
   return opts.some(o => { const f = o.unit === 'cm' ? 1 : 2.54; return mine[0] <= o.L*f && mine[1] <= o.W*f && mine[2] <= o.H*f; }) ? 'ok' : 'ko'; }
 function rowsFiltered(useCabin = true){
   const q = fold($('#fQ').value);
+  if (militaryOn) return A.filter(a => (!$('#fRegion').value || a.region === $('#fRegion').value)
+    && (!q || fold(a.name + ' ' + a.iata + ' ' + a.id).includes(q)))
+    .sort((a,b) => militaryRank(b) - militaryRank(a) || a.name.localeCompare(b.name));
   let r = A.filter(a => (!$('#fDog').checked || a.cabin_dogs) && (!$('#fCat').checked || a.cabin_cats)
     && (!useCabin || !$('#fCabin').checked || cabinOK(a))
     && (!$('#fNoLimit').checked || NOLIM.includes(a.weight_limit_type))
@@ -33,7 +39,43 @@ function rowsFiltered(useCabin = true){
   r.sort((x, y) => s === 'name' ? x.name.localeCompare(y.name) : ((x[key] ?? 1e9) - (y[key] ?? 1e9)) || x.name.localeCompare(y.name));
   return r; }
 function cell(label, html, cls){ return `<td${cls ? ` class="${cls}"` : ''} data-label="${esc(label)}"><div class="v">${html}</div></td>`; }
+function militaryRank(a){
+  const d = militaryData && militaryData.airlines[a.id];
+  return d ? (d.service.status === 'verified' ? 1 : 0) + (d.military.some(f => f.status === 'verified') ? 2 : 0) : 0;
+}
+function militaryFact(f){
+  if (!f || f.status !== 'verified') return `<p class="mil-unknown">${esc(t('mil.unknown'))}</p>`;
+  return `<div class="mil-fact">${f.keys.map(k=>`<p>${esc(t(k))}</p>`).join('')}
+    <p class="mil-evidence"><a href="${esc(f.url)}" rel="noopener" target="_blank">${esc(t('mil.source'))} ↗</a>
+    <span>${esc(t('mil.checked',{d:f.checked}))}</span></p></div>`;
+}
+function renderMilitary(){
+  const r = rowsFiltered();
+  $('#count').textContent = t('compare.count', {n:r.length,t:A.length});
+  $('#mil-dot-date').textContent = $('#mil-amc-date').textContent = militaryData ? t('mil.checked',{d:militaryData.meta.checked_date}) : '';
+  $('#military-results').innerHTML = !militaryData ? `<p role="status">${esc(t(militaryFailed?'mil.error':'mil.loading'))}</p>` : !r.length ? `<p>${esc(t('compare.count.none'))}</p>` : r.map(a=>{
+    const d = militaryData.airlines[a.id];
+    return `<article class="mil-card" data-slug="${esc(a.id)}"><header><h3>${esc(a.name)}</h3><small>${esc(a.iata)} · ${esc(t('compare.r.'+a.region))}</small></header>
+      <section><h4>${esc(t('mil.service'))}</h4>${militaryFact(d && d.service)}</section>
+      <section><h4>${esc(t('mil.military'))}</h4>${(d ? d.military : [null]).map(militaryFact).join('')}</section>
+      <p class="mil-policy"><a href="${esc(d ? d.official_policy_url : a.official_policy_url)}" target="_blank" rel="noopener">${esc(t('mil.policy'))} ↗</a></p></article>`;
+  }).join('');
+}
+function setMilitary(on, updateURL){
+  militaryOn = on;
+  $('#fMilitary').checked = on;
+  document.body.classList.toggle('military-mode', on);
+  $('#milNote').hidden = $('#military-results').hidden = $('#mil-unknown-note').hidden = !on;
+  const meta = document.querySelector('meta[name="theme-color"]');
+  meta.content = on ? '#001f3f' : '#0b1719';
+  if(updateURL){const u=new URL(location.href);if(on)u.searchParams.set('military','1');else u.searchParams.delete('military');history.replaceState(history.state,'',u);}
+  $('#comparator-heading').setAttribute('data-i18n', on ? 'mil.title' : 'compare.h1');
+  $('#comparator-heading').textContent = t(on ? 'mil.title' : 'compare.h1');
+  render();
+}
 function render(){
+  if (militaryOn) { renderMilitary(); return; }
+
   const r = rowsFiltered(), all = rowsFiltered(false), hidden = all.length - r.length;
   let c = t('compare.count', {n: r.length, t: A.length});
   if ($('#fCabin').checked && hidden > 0) c += ' · ' + t('compare.count.cabin', {h: hidden});
@@ -58,13 +100,14 @@ function render(){
     ${cell(L('source'), src + guide + '<br>' + when, 'src')}</tr>`; }).join('');
 }
 function paintStatic(){
+  $('#comparator-heading').textContent = t(militaryOn ? 'mil.title' : 'compare.h1');
   $('#ukrule').textContent = t('compare.uk_rule');
   $('#gen').textContent = DATA.meta.generated;
   const sel = $('#fRegion'), cur = sel.value;
   sel.innerHTML = `<option value="">${esc(t('compare.f.allregions'))}</option>` + REGIONS.map(r => `<option value="${esc(r)}">${esc(t('compare.r.' + r))}</option>`).join('');
   sel.value = cur;
   render(); }
-document.querySelectorAll('.filters input,.filters select,#fQ').forEach(e => e.addEventListener('input', render));
+document.querySelectorAll('.filters input:not(#fMilitary),.filters select,#fQ').forEach(e => e.addEventListener('input', render));
 document.querySelectorAll('th[data-k]').forEach(th => th.addEventListener('click', () => { $('#fSort').value = th.dataset.k; render(); }));
 function toast(x){ const e = $('#toast'); e.textContent = x; e.style.display = 'block'; setTimeout(() => e.style.display = 'none', 2200); }
 function summary(){
@@ -84,32 +127,7 @@ $('#card').onclick = () => { const c = $('#cv'), x = c.getContext('2d'), r = row
   const l = document.createElement('a'); l.download = 'ppc-pet-fee-card.png'; l.href = c.toDataURL('image/png'); l.click(); };
 window.addEventListener('ppc:lang', paintStatic);
 paintStatic();
-
-/* Military & Service Dog filter (Step C V3) */
-(function(){
-  function bootMil(){
-    var filters=document.querySelector('.filters');
-    if(!filters || document.getElementById('fMilitary')) return;
-    var lab=document.createElement('label');
-    lab.innerHTML='<input type="checkbox" id="fMilitary"> <span data-i18n="compare.military">Military & Service Dog</span>';
-    filters.insertBefore(lab, filters.firstChild);
-    var note=document.createElement('div');
-    note.id='milNote'; note.className='gcard'; note.style.cssText='display:none;margin:10px 0;padding:10px 12px;border:1px solid rgba(212,175,55,.35);border-radius:10px;background:linear-gradient(165deg,rgba(0,31,63,.92),rgba(3,40,79,.88));color:#f4f6fa';
-    note.innerHTML='<b>Military / Service Dog view</b>: Highlights carriers often used on PCS orders (Delta, United, American, Alaska). DOT service dogs: $0 cabin under 14 CFR Part 382. Canada CTA may require ADI/IGDF school certification. AMC Space-A: leisure pets generally barred — service dogs / Patriot Express PCS slots differ. JTR pet reimbursement overview: up to $550 CONUS / $2,000 OCONUS (confirm on dfas.mil / defense.gov). See <a href="../../veterans/">Veterans hub</a> · <a href="../../military-pcs/">PCS kit</a>.';
-    filters.parentNode.insertBefore(note, filters.nextSibling);
-    var milSlugs={delta:1,united:1,american:1,alaska:1,'air-canada':1};
-    function apply(){
-      var on=document.getElementById('fMilitary').checked;
-      note.style.display=on?'block':'none';
-      document.querySelectorAll('#tb tr').forEach(function(tr){
-        var slug=(tr.getAttribute('data-slug')||tr.id||'').toLowerCase();
-        if(!slug){ var a=tr.querySelector('a'); slug=(a&&a.href||'').toLowerCase(); }
-        var hit=Object.keys(milSlugs).some(function(k){return slug.indexOf(k)>=0 || (tr.textContent||'').toLowerCase().indexOf(k.replace('-',' '))>=0});
-        if(on && !hit) tr.style.opacity='0.35'; else tr.style.opacity='';
-      });
-    }
-    document.getElementById('fMilitary').addEventListener('change', apply);
-    if(new URLSearchParams(location.search).get('military')==='1'){ document.getElementById('fMilitary').checked=true; apply(); }
-  }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', bootMil); else bootMil();
-})();
+setMilitary(militaryOn, false);
+$('#fMilitary').addEventListener('change', () => setMilitary($('#fMilitary').checked,true));
+window.addEventListener('popstate',()=>setMilitary(new URLSearchParams(location.search).get('military')==='1',false));
+fetch('/assets/data/military-airlines.json?v=20261107mil1').then(r=>{if(!r.ok)throw new Error('Military policy data unavailable');return r.json();}).then(d=>{militaryData=d;if(militaryOn)render();}).catch(()=>{militaryFailed=true;if(militaryOn)render();});
