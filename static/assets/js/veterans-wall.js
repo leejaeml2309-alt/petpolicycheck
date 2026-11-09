@@ -1,42 +1,88 @@
 (function () {
-  'use strict';
+  "use strict";
 
-  var ROOT = document.getElementById('wall-of-heroes');
+  var ROOT = document.getElementById("wall-of-heroes");
   if (!ROOT) return;
 
-  var grid = document.getElementById('woh-grid');
-  var consent = document.getElementById('woh-consent');
-  var mailBtn = document.getElementById('woh-mailto');
-  var MAILTO = {
-    to: 'contact@petpolicycheck.com',
-    subject: 'Wall of Heroes — K9 photo submission',
-    body: [
-      'Hello PetPolicyCheck team,',
-      '',
-      'I would like to submit a photo for the Wall of Heroes on petpolicycheck.com/veterans/.',
-      '',
-      'Dog first name: ',
-      'Role / general unit (no insignia, badge, or rank): ',
-      'Years of service (optional): ',
-      'City / country (optional): ',
-      '',
-      'I confirm:',
-      '- I own the rights to the photo(s).',
-      '- 1 to 3 photos attached; the dog alone or from behind; no human face or name; no military insignia, badge, rank, or license plate.',
-      '- I consent to publication of the approved photo(s) on petpolicycheck.com only (Wall of Heroes).',
-      '- I understand each photo is reviewed by your team before it goes live, and I can ask for removal at any time.',
-      '',
-      'Thank you.'
-    ].join('\n')
-  };
+  var grid = document.getElementById("woh-grid");
+  var consent = document.getElementById("woh-consent");
+  var mailBtn = document.getElementById("woh-mailto");
+  var loc = (document.documentElement.getAttribute("data-ppc-locale") ||
+             document.documentElement.getAttribute("lang") || "en").toLowerCase();
+  var isEs = loc === "es" || loc.indexOf("es") === 0;
 
-  var EMPTY_SLOTS = [
-    { title: 'Your K9 could be here', sub: 'Be the first hero' },
-    { title: 'Your K9 could be here', sub: 'Share a photo' },
-    { title: 'Be the first hero', sub: 'Service dogs welcome' },
-    { title: 'Your K9 could be here', sub: 'Reviewed before publish' },
-    { title: 'Honor a partner', sub: 'Name the dog only' }
-  ];
+  var PACK = isEs
+    ? {
+        mailto: {
+          to: "contact@petpolicycheck.com",
+          subject: "Muro de Héroes — envío de foto K9",
+          body: [
+            "Hola equipo de PetPolicyCheck,",
+            "",
+            "Deseo enviar una foto para el Muro de Héroes en petpolicycheck.com/veterans/.",
+            "",
+            "Nombre del compañero: ",
+            "Rol / unidad general (sin insignia, distintivo ni rango): ",
+            "Años de servicio (opcional): ",
+            "Ciudad / país (opcional): ",
+            "",
+            "Confirmo:",
+            "- Soy titular de los derechos de la(s) foto(s).",
+            "- 1 a 3 fotos adjuntas; el compañero solo o de espalda; sin rostro ni nombre humano; sin insignia militar, distintivo, rango ni placa de vehículo.",
+            "- Consiento la publicación de la(s) foto(s) aprobada(s) únicamente en petpolicycheck.com (Muro de Héroes).",
+            "- Entiendo que cada foto es revisada por su equipo antes de publicarse, y que puedo pedir su retirada en cualquier momento.",
+            "",
+            "Gracias."
+          ].join("\n")
+        },
+        emptySlots: [
+          { title: "Su compañero K9 podría estar aquí", sub: "Sea el primer héroe" },
+          { title: "Su compañero K9 podría estar aquí", sub: "Comparta una foto" },
+          { title: "Sea el primer héroe", sub: "Compañeros de servicio bienvenidos" },
+          { title: "Su compañero K9 podría estar aquí", sub: "Revisado antes de publicar" },
+          { title: "Honre a un compañero", sub: "Solo el nombre del compañero" }
+        ],
+        emptyAria: "Espacio vacío de la galería",
+        awaiting: "En espera de un envío verificado",
+        defaultAlt: "Compañero de servicio"
+      }
+    : {
+        mailto: {
+          to: "contact@petpolicycheck.com",
+          subject: "Wall of Heroes — K9 photo submission",
+          body: [
+            "Hello PetPolicyCheck team,",
+            "",
+            "I would like to submit a photo for the Wall of Heroes on petpolicycheck.com/veterans/.",
+            "",
+            "Dog first name: ",
+            "Role / general unit (no insignia, badge, or rank): ",
+            "Years of service (optional): ",
+            "City / country (optional): ",
+            "",
+            "I confirm:",
+            "- I own the rights to the photo(s).",
+            "- 1 to 3 photos attached; the dog alone or from behind; no human face or name; no military insignia, badge, rank, or license plate.",
+            "- I consent to publication of the approved photo(s) on petpolicycheck.com only (Wall of Heroes).",
+            "- I understand each photo is reviewed by your team before it goes live, and I can ask for removal at any time.",
+            "",
+            "Thank you."
+          ].join("\n")
+        },
+        emptySlots: [
+          { title: "Your K9 could be here", sub: "Be the first hero" },
+          { title: "Your K9 could be here", sub: "Share a photo" },
+          { title: "Be the first hero", sub: "Service dogs welcome" },
+          { title: "Your K9 could be here", sub: "Reviewed before publish" },
+          { title: "Honor a partner", sub: "Name the dog only" }
+        ],
+        emptyAria: "Empty gallery slot",
+        awaiting: "Awaiting a verified submission",
+        defaultAlt: "Service dog"
+      };
+
+  var MAILTO = PACK.mailto;
+  var EMPTY_SLOTS = PACK.emptySlots;
 
   var PAW_SVG =
     '<svg class="woh-placeholder__ico" viewBox="0 0 64 64" aria-hidden="true" fill="none">' +
@@ -45,53 +91,53 @@
     '<circle cx="12" cy="34" r="6" stroke="#8a96a8" stroke-width="2"/>' +
     '<circle cx="52" cy="34" r="6" stroke="#8a96a8" stroke-width="2"/>' +
     '<ellipse cx="32" cy="44" rx="14" ry="12" stroke="#8a96a8" stroke-width="2"/>' +
-    '</svg>';
+    "</svg>";
 
   function esc(s) {
-    return String(s == null ? '' : s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
   }
 
   function emptyCard(slot) {
     return (
-      '<article class="woh-card woh-card--empty" aria-label="Empty gallery slot">' +
+      '<article class="woh-card woh-card--empty" aria-label="' + esc(PACK.emptyAria) + '">' +
       '<div class="woh-card__media"><div class="woh-placeholder">' +
       PAW_SVG +
       '<strong style="display:block;color:#c9d3e0">' +
       esc(slot.title) +
-      '</strong>' +
+      "</strong>" +
       esc(slot.sub) +
       '</div></div>' +
-      '<div class="woh-card__body"><p class="woh-card__meta">Awaiting a verified submission</p></div>' +
-      '</article>'
+      '<div class="woh-card__body"><p class="woh-card__meta">' + esc(PACK.awaiting) + "</p></div>" +
+      "</article>"
     );
   }
 
   function heroCard(h) {
-    var meta = [h.role, h.years].filter(Boolean).join(' · ');
+    var meta = [h.role, h.years].filter(Boolean).join(" · ");
     return (
       '<article class="woh-card">' +
       '<div class="woh-card__media">' +
       '<img src="' +
       esc(h.photo) +
       '" alt="' +
-      esc(h.alt || h.name || 'Service dog') +
+      esc(h.alt || h.name || PACK.defaultAlt) +
       '" loading="lazy" width="640" height="480">' +
-      '</div>' +
+      "</div>" +
       '<div class="woh-card__body">' +
       '<p class="woh-card__name">' +
-      esc(h.name || 'K9') +
-      '</p>' +
-      (meta ? '<p class="woh-card__meta">' + esc(meta) + '</p>' : '') +
-      '</div></article>'
+      esc(h.name || "K9") +
+      "</p>" +
+      (meta ? '<p class="woh-card__meta">' + esc(meta) + "</p>" : "") +
+      "</div></article>"
     );
   }
 
   function renderEmpty() {
-    grid.innerHTML = EMPTY_SLOTS.map(emptyCard).join('');
+    grid.innerHTML = EMPTY_SLOTS.map(emptyCard).join("");
   }
 
   function renderHeroes(heroes) {
@@ -99,39 +145,35 @@
       renderEmpty();
       return;
     }
-    grid.innerHTML = heroes.map(function (h) {
-      return heroCard(h);
-    }).join('');
+    grid.innerHTML = heroes.map(heroCard).join("");
   }
 
   function dataUrl() {
-    return '../data/veterans-wall.json';
+    return "/data/veterans-wall.json";
   }
 
   function syncMailto() {
     var ok = !!(consent && consent.checked);
     if (!mailBtn) return;
-    mailBtn.setAttribute('aria-disabled', ok ? 'false' : 'true');
+    mailBtn.setAttribute("aria-disabled", ok ? "false" : "true");
     if (ok) {
-      mailBtn.removeAttribute('tabindex');
+      mailBtn.removeAttribute("tabindex");
       mailBtn.href =
-        'mailto:' +
+        "mailto:" +
         MAILTO.to +
-        '?subject=' +
+        "?subject=" +
         encodeURIComponent(MAILTO.subject) +
-        '&body=' +
+        "&body=" +
         encodeURIComponent(MAILTO.body);
     } else {
-      mailBtn.href = '#woh-consent';
-      mailBtn.setAttribute('tabindex', '-1');
+      mailBtn.href = "#woh-consent";
+      mailBtn.setAttribute("tabindex", "-1");
     }
   }
 
-  if (consent) {
-    consent.addEventListener('change', syncMailto);
-  }
+  if (consent) consent.addEventListener("change", syncMailto);
   if (mailBtn) {
-    mailBtn.addEventListener('click', function (e) {
+    mailBtn.addEventListener("click", function (e) {
       if (!consent || !consent.checked) {
         e.preventDefault();
         if (consent) consent.focus();
@@ -140,14 +182,13 @@
   }
   syncMailto();
 
-  fetch(dataUrl(), { credentials: 'same-origin' })
+  fetch(dataUrl(), { credentials: "same-origin" })
     .then(function (r) {
-      if (!r.ok) throw new Error('wall data ' + r.status);
+      if (!r.ok) throw new Error("wall data " + r.status);
       return r.json();
     })
     .then(function (data) {
-      var heroes = (data && data.heroes) || [];
-      renderHeroes(heroes);
+      renderHeroes((data && data.heroes) || []);
     })
     .catch(function () {
       renderEmpty();
