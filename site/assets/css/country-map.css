@@ -316,6 +316,15 @@ html.accent-maple #country-map{
 html.accent-maple #country-map .st.hub{fill:#2a2420}
 html.accent-maple #country-map .st.rule{fill:#1d3a35} /* keep deep teal for alerts, Option B */
 html.accent-maple #country-map .st.sel{fill:#6b3a32;stroke:#d4a090;stroke-width:1.7}
+/* Canada neighbor-distinct tones (Marc 2026-11-09): 5 fills, distinct neighbours; sel outline unchanged */
+#country-map .st.st-t1, html.accent-maple #country-map .st.st-t1{fill:#244f48 !important}
+#country-map .st.st-t2, html.accent-maple #country-map .st.st-t2{fill:#1b3d45 !important}
+#country-map .st.st-t3, html.accent-maple #country-map .st.st-t3{fill:#2f4a3a !important}
+#country-map .st.st-t4, html.accent-maple #country-map .st.st-t4{fill:#16352f !important}
+#country-map .st.st-t5, html.accent-maple #country-map .st.st-t5{fill:#3a4f3e !important}
+html.accent-maple #country-map .st.hub{filter:saturate(1.06) brightness(1.05)}
+#country-map .st.rule, html.accent-maple #country-map .st.rule{stroke:#b5473a !important; stroke-width:1.35 !important}
+#country-map .st.sel, html.accent-maple #country-map .st.sel{fill:#6b3a32 !important; stroke:#d4a090 !important; stroke-width:1.7 !important; filter:none !important}
 html.accent-maple #country-map .ct.sample circle{fill:#edeae2;stroke:#b5473a;stroke-width:1.8}
 html.accent-maple #country-map .ct.sample .ring{stroke:#b5473a;opacity:.75}
 html.accent-maple #country-map .ct.cap circle{fill:#edeae2;stroke:#b5473a;stroke-width:1.4}

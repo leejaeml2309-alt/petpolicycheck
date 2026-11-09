@@ -62,6 +62,7 @@ function buildMap(){
     const cls = ['st'];
     if(specialSet.has(a) || alertSet.has(a)) cls.push('rule');
     if(hubRegions.has(a)) cls.push('hub');
+    if(DATA.tones && DATA.tones[a]) cls.push(DATA.tones[a]);
     const p = el('path', {id:'s-'+a, class:cls.join(' '), d:g.d, role:'button', tabindex:'0', 'aria-label':g.name, 'data-a':a});
     p.addEventListener('click', e => { e.stopPropagation(); selectRegion(a); });
     p.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); selectRegion(a); }});
