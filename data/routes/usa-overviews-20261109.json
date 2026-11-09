@@ -1,0 +1,1223 @@
+{
+  "generated": "2026-11-09",
+  "label_policy": "Every factual claim is tagged 'Official rule' with source URL + 'Checked Nov 9, 2026'. Gaps use 'Not stated on the official page'. No invented fees or durations.",
+  "reuse": [
+    "/workspace/hotels-wt/data/routes/usa-japan.json",
+    "/workspace/hotels-wt/data/countries/usa.json",
+    "/workspace/vague-a-international-20261106/canada/canada-vague-a.json",
+    "/workspace/vague-a-international-20261106/countries-5/mexico.json",
+    "/workspace/vague-a-international-20261106/countries-5/uk.json",
+    "/workspace/vague-a-international-20261106/countries-5/france.json"
+  ],
+  "routes": [
+    {
+      "slug": "usa-canada",
+      "title": "USA ↔ Canada with a dog or cat",
+      "h1": "Travelling with a dog or cat between the USA and Canada",
+      "pair": [
+        "USA",
+        "Canada"
+      ],
+      "lead": "Personal pets moving between the United States and Canada usually need only a valid rabies certificate to enter Canada, and the free CDC Dog Import Form (plus age and microchip rules) to return to the United States. Always confirm with CFIA and CDC before you travel.",
+      "cdc_risk": "low",
+      "ppc_links": {
+        "country_pages": [
+          "https://petpolicycheck.com/countries/usa.html",
+          "https://petpolicycheck.com/countries/canada.html"
+        ],
+        "airlines": [
+          "https://petpolicycheck.com/airlines/air-canada.html",
+          "https://petpolicycheck.com/airlines/united.html",
+          "https://petpolicycheck.com/airlines/delta.html",
+          "https://petpolicycheck.com/airlines/american.html",
+          "https://petpolicycheck.com/airlines/alaska.html"
+        ],
+        "airline_routes_live": [
+          "https://petpolicycheck.com/routes/usa-to-canada-air-canada.html",
+          "https://petpolicycheck.com/routes/usa-to-canada-united.html",
+          "https://petpolicycheck.com/routes/usa-to-canada-delta.html",
+          "https://petpolicycheck.com/routes/usa-to-canada-american.html",
+          "https://petpolicycheck.com/routes/usa-to-canada-alaska.html",
+          "https://petpolicycheck.com/routes/canada-to-usa-air-canada.html"
+        ],
+        "clinics": [
+          "https://petpolicycheck.com/clinics/usa.html",
+          "https://petpolicycheck.com/partner-vets/"
+        ],
+        "tools": [
+          "https://petpolicycheck.com/passport/",
+          "https://petpolicycheck.com/airport/"
+        ]
+      },
+      "quick": [
+        {
+          "text": "Dogs older than 8 months and cats entering Canada as personal pets: a current rabies vaccination certificate from a licensed vet (English or French, identifying the animal) is enough. No USDA APHIS health-certificate endorsement is required for these cases.",
+          "label": "Official rule",
+          "source_key": "aphis_canada",
+          "source_title": "USDA APHIS: Pet travel US to Canada",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-canada",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Dogs 3–8 months travelling with their owner: rabies certificate if 3 months or older. Dogs under 3 months: no rabies vaccine required, but carry proof of age.",
+          "label": "Official rule",
+          "source_key": "aphis_canada",
+          "source_title": "USDA APHIS: Pet travel US to Canada",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-canada",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Unaccompanied dogs under 8 months: health certificate issued by a licensed US vet within 72 hours of arrival in Canada; APHIS endorsement is not required for that certificate.",
+          "label": "Official rule",
+          "source_key": "aphis_canada",
+          "source_title": "USDA APHIS: Pet travel US to Canada",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-canada",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Return to the US (dogs): Canada is not on the CDC high-risk dog-rabies list. Every dog needs the free CDC Dog Import Form receipt, must be 6 months or older, microchipped, and look healthy. The same receipt can be reused for 6 months for US↔Canada trips if the dog visits no other country.",
+          "label": "Official rule",
+          "source_key": "cdc_low",
+          "source_title": "CDC: Dogs from rabies-free or low-risk countries",
+          "source_url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Cats returning to the US: no federal rabies proof or USDA health certificate required; the cat must appear healthy. State and airline rules still apply.",
+          "label": "Official rule",
+          "source_key": "aphis_cats_us",
+          "source_title": "USDA APHIS: Cats entering the US",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/cats",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "leaving_usa": [
+        {
+          "text": "Destination (Canada) sets entry rules. For most personal dogs over 8 months and for cats, APHIS does not require a VEHCS-endorsed export health certificate — only rabies proof as above.",
+          "label": "Official rule",
+          "source_key": "aphis_canada",
+          "source_title": "USDA APHIS: Pet travel US to Canada",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-canada",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "If a health certificate is needed (e.g. unaccompanied puppy under 8 months), a licensed US vet issues it; APHIS endorsement is not required for that Canada certificate.",
+          "label": "Official rule",
+          "source_key": "aphis_canada",
+          "source_title": "USDA APHIS: Pet travel US to Canada",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-canada",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Airlines may still ask for a health/acclimation certificate within about 10 days of travel — check your airline page.",
+          "label": "Official rule",
+          "source_key": "aphis_export",
+          "source_title": "USDA APHIS: Take a pet from the US to another country",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "entering_destination": [
+        {
+          "text": "CFIA personal dogs ≥8 months: valid rabies certificate only. No microchip and no quarantine stated for personal accompanied dogs.",
+          "label": "Official rule",
+          "source_key": "cfia_pets",
+          "source_title": "CFIA: Importing pets to Canada",
+          "source_url": "https://inspection.canada.ca/en/importing-food-plants-animals/pets",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "CFIA cats ≥3 months: rabies certificate (or allowed alternatives on the CFIA page). Cats under 3 months: no CFIA restrictions stated.",
+          "label": "Official rule",
+          "source_key": "cfia_pets",
+          "source_title": "CFIA: Importing pets to Canada",
+          "source_url": "https://inspection.canada.ca/en/importing-food-plants-animals/pets",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Commercial dogs (adoption, rescue, fostering, resale, breeding, show) need an import permit; commercial dogs from CFIA high-risk countries have been prohibited since 28 Sep 2022. The US is not on that list.",
+          "label": "Official rule",
+          "source_key": "cfia_pets",
+          "source_title": "CFIA: Importing pets to Canada",
+          "source_url": "https://inspection.canada.ca/en/importing-food-plants-animals/pets",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Border checks are carried out by CBSA using CFIA rules.",
+          "label": "Official rule",
+          "source_key": "cbsa_animals",
+          "source_title": "CBSA: Animals",
+          "source_url": "https://www.cbsa-asfc.gc.ca/services/fpa-apa/animals-animaux-eng.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Ontario and some cities (e.g. Winnipeg) restrict certain pit-bull-type breeds — separate from federal import rules.",
+          "label": "Official rule",
+          "source_key": "cfia_pets",
+          "source_title": "CFIA: Importing pets to Canada",
+          "source_url": "https://inspection.canada.ca/en/importing-food-plants-animals/pets",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "return_usa": [
+        {
+          "text": "Since 1 Aug 2024, every dog entering or returning to the US needs the CDC Dog Import Form receipt, age ≥6 months, a microchip readable by a universal scanner, and must appear healthy.",
+          "label": "Official rule",
+          "source_key": "cdc_dogs",
+          "source_title": "CDC: Bringing a dog into the United States",
+          "source_url": "https://www.cdc.gov/importation/dogs/index.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Dogs that spent the past 6 months only in dog-rabies-free or low-risk countries (Canada is not on the CDC high-risk list) need no extra rabies document for CDC.",
+          "label": "Official rule",
+          "source_key": "cdc_low",
+          "source_title": "CDC: Dogs from rabies-free or low-risk countries",
+          "source_url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Cats: CDC/APHIS — appear healthy; no federal rabies certificate required. Confirm destination US state rules.",
+          "label": "Official rule",
+          "source_key": "aphis_cats_us",
+          "source_title": "USDA APHIS: Cats entering the US",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/cats",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "exit_destination": [
+        {
+          "text": "CFIA/APHIS pages for personal pets returning to the US do not state a Canada exit health certificate requirement. Confirm with your airline and any provincial rules before departure.",
+          "label": "Official rule",
+          "source_key": "cfia_pets",
+          "source_title": "CFIA: Importing pets to Canada",
+          "source_url": "https://inspection.canada.ca/en/importing-food-plants-animals/pets",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Complete the CDC Dog Import Form before arrival in the US and carry the receipt (and microchip reader if the chip is non-ISO).",
+          "label": "Official rule",
+          "source_key": "cdc_low",
+          "source_title": "CDC: Dogs from rabies-free or low-risk countries",
+          "source_url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "timeline": [
+        {
+          "when": "Anytime before travel",
+          "what": "Confirm rabies vaccine is current (dogs/cats ≥3 months). Carry the original certificate in English or French."
+        },
+        {
+          "when": "If unaccompanied dog <8 months",
+          "what": "Book a licensed-vet exam so the health certificate is issued within 72 hours of arrival in Canada."
+        },
+        {
+          "when": "Before US return (dogs)",
+          "what": "Submit the free CDC Dog Import Form; print/save the receipt. Same receipt reusable 6 months for US↔Canada only."
+        },
+        {
+          "when": "Day of travel",
+          "what": "Clean carrier; airline documents; arrive early for CBSA/CDC checks."
+        }
+      ],
+      "checklist_out": [
+        "Rabies certificate (dogs ≥3 mo / cats ≥3 mo) — Official rule",
+        "Proof of age if dog or cat under 3 months",
+        "Health certificate ≤72 h if unaccompanied dog under 8 months",
+        "Airline pet booking + any airline health form",
+        "No APHIS VEHCS endorsement needed for typical personal adult dogs/cats (confirm your case on APHIS Canada page)"
+      ],
+      "checklist_return": [
+        "CDC Dog Import Form receipt (dogs)",
+        "Dog ≥6 months old",
+        "Microchip (dogs)",
+        "Pet appears healthy",
+        "Cats: healthy appearance; check US state + airline"
+      ],
+      "faq": [
+        {
+          "q": "Do I need USDA APHIS endorsement to take my adult dog to Canada?",
+          "a": "Usually no. APHIS states pet dogs older than 8 months and cats do not require a health certificate for Canada — only proof of rabies vaccination. Confirm your exact case on the APHIS Canada page. Checked Nov 9, 2026."
+        },
+        {
+          "q": "Is Canada high-risk for dog rabies under CDC rules?",
+          "a": "No. Canada is not on the CDC high-risk list, so dogs that stayed only in low-risk countries need the CDC Dog Import Form, age, microchip and a healthy look — not an extra rabies titer for CDC. Checked Nov 9, 2026."
+        },
+        {
+          "q": "Can the same CDC Dog Import Form receipt be reused?",
+          "a": "Yes for frequent US↔Canada travel for up to 6 months, unless the dog visits a different country or a high-risk country. Checked Nov 9, 2026."
+        }
+      ],
+      "gaps": [
+        "No dollar amounts for CBSA/CFIA inspection fees stated on the pet pages reviewed — marked Not stated on the official page.",
+        "Ontario/Winnipeg breed rules are provincial/municipal; not a substitute for federal import rules."
+      ]
+    },
+    {
+      "slug": "usa-mexico",
+      "title": "USA ↔ Mexico with a dog or cat",
+      "h1": "Travelling with a dog or cat between the USA and Mexico",
+      "pair": [
+        "USA",
+        "Mexico"
+      ],
+      "lead": "Since 3 August 2026, US-origin dogs need a New World screwworm (NWS) inspection certificate signed by a USDA-accredited vet within 5 days of entry into Mexico (no APHIS endorsement). Cats still need no health certificate. Returning dogs also need a SENASICA screwworm-freedom certificate plus the CDC Dog Import Form.",
+      "cdc_risk": "low",
+      "ppc_links": {
+        "country_pages": [
+          "https://petpolicycheck.com/countries/usa.html",
+          "https://petpolicycheck.com/countries/mexico.html"
+        ],
+        "airlines": [
+          "https://petpolicycheck.com/airlines/delta.html",
+          "https://petpolicycheck.com/airlines/united.html",
+          "https://petpolicycheck.com/airlines/american.html",
+          "https://petpolicycheck.com/airlines/alaska.html"
+        ],
+        "airline_routes_live": [
+          "https://petpolicycheck.com/routes/usa-to-mexico-delta.html",
+          "https://petpolicycheck.com/routes/usa-to-mexico-united.html",
+          "https://petpolicycheck.com/routes/usa-to-mexico-american.html",
+          "https://petpolicycheck.com/routes/usa-to-mexico-alaska.html",
+          "https://petpolicycheck.com/routes/mexico-to-usa-delta.html"
+        ],
+        "clinics": [
+          "https://petpolicycheck.com/clinics/usa.html",
+          "https://petpolicycheck.com/partner-vets/"
+        ],
+        "tools": [
+          "https://petpolicycheck.com/passport/",
+          "https://petpolicycheck.com/airport/"
+        ]
+      },
+      "quick": [
+        {
+          "text": "Dogs US → Mexico (since 3 Aug 2026): NWS Inspection Certificate for Pet Dogs Moving from the US to Mexico, signed by a USDA-accredited veterinarian within 5 days before entry. No APHIS endorsement. Missing or improper NWS paperwork can mean denied entry or holding at the border.",
+          "label": "Official rule",
+          "source_key": "aphis_mexico",
+          "source_title": "USDA APHIS: Pet travel US to Mexico",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-mexico",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Cats US → Mexico: no health certificate and no NWS document since 16 Dec 2019. Do not add cats to the dog NWS form — that invalidates it.",
+          "label": "Official rule",
+          "source_key": "aphis_mexico",
+          "source_title": "USDA APHIS: Pet travel US to Mexico",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-mexico",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "At Mexico OISA (SENASICA): pet must show no disease signs, no ectoparasites, no fresh/healing wounds. Dirty bedding, toys and extra food are removed/destroyed; only that day’s food ration is allowed.",
+          "label": "Official rule",
+          "source_key": "aphis_mexico",
+          "source_title": "USDA APHIS: Pet travel US to Mexico",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-mexico",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Return dogs Mexico → US: Mexico has been screwworm-affected since 22 Nov 2024. Every dog needs a screwworm-freedom certificate from a SENASICA-approved vet (inspection ≤5 days before travel) PLUS CDC Dog Import Form, age ≥6 months, microchip, healthy appearance.",
+          "label": "Official rule",
+          "source_key": "aphis_dogs_us",
+          "source_title": "USDA APHIS: Dogs entering the US",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/dogs",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Mexico is not on the CDC high-risk dog-rabies list (low-risk for CDC rabies rules). Screwworm rules are separate USDA/SENASICA requirements.",
+          "label": "Official rule",
+          "source_key": "cdc_low",
+          "source_title": "CDC: Dogs from rabies-free or low-risk countries",
+          "source_url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "leaving_usa": [
+        {
+          "text": "For dogs: obtain the NWS inspection certificate from a USDA-accredited vet ≤5 days before Mexican entry. APHIS endorsement is not required for this dog form.",
+          "label": "Official rule",
+          "source_key": "aphis_mexico",
+          "source_title": "USDA APHIS: Pet travel US to Mexico",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-mexico",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "For cats: no USDA export health certificate required for Mexico entry.",
+          "label": "Official rule",
+          "source_key": "aphis_mexico",
+          "source_title": "USDA APHIS: Pet travel US to Mexico",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-mexico",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Airlines may still require their own health/acclimation paperwork — confirm on your airline page.",
+          "label": "Official rule",
+          "source_key": "aphis_export",
+          "source_title": "USDA APHIS: Take a pet from the US to another country",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "entering_destination": [
+        {
+          "text": "Present the dog at OISA with the NWS certificate; SENASICA issues the Certificado Zoosanitario para Importación (CZI) after inspection.",
+          "label": "Official rule",
+          "source_key": "senasica",
+          "source_title": "SENASICA (Mexico)",
+          "source_url": "https://www.gob.mx/senasica",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Cats are inspected at OISA without a health certificate.",
+          "label": "Official rule",
+          "source_key": "aphis_mexico",
+          "source_title": "USDA APHIS: Pet travel US to Mexico",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-mexico",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Frequent-traveler Pet Program registration is available via SENASICA (phone numbers on the APHIS Mexico page).",
+          "label": "Official rule",
+          "source_key": "aphis_mexico",
+          "source_title": "USDA APHIS: Pet travel US to Mexico",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-mexico",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "No federal breed import ban found in SENASICA/APHIS sources reviewed.",
+          "label": "Official rule",
+          "source_key": "aphis_mexico",
+          "source_title": "USDA APHIS: Pet travel US to Mexico",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-mexico",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "return_usa": [
+        {
+          "text": "CDC (since 1 Aug 2024): Dog Import Form receipt, ≥6 months, microchip, healthy. Mexico is low-risk for CDC dog-rabies purposes if the dog was not in a high-risk country in the past 6 months.",
+          "label": "Official rule",
+          "source_key": "cdc_low",
+          "source_title": "CDC: Dogs from rabies-free or low-risk countries",
+          "source_url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "USDA APHIS: screwworm-freedom certificate from a SENASICA-approved veterinarian, inspection within 5 days before shipment/travel into the US.",
+          "label": "Official rule",
+          "source_key": "aphis_dogs_us",
+          "source_title": "USDA APHIS: Dogs entering the US",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/dogs",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Use the SENASICA directory of approved clinic veterinarians (MVRA) to find a qualifying vet in Mexico.",
+          "label": "Official rule",
+          "source_key": "senasica_mvra",
+          "source_title": "SENASICA: Directory of approved veterinarians (MVRA)",
+          "source_url": "https://www.gob.mx/senasica/documentos/directorio-de-mvra-en-clinicas-y-hospitales-veterinarios?state=published",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Cats: appear healthy; no federal rabies certificate. State/airline rules may apply.",
+          "label": "Official rule",
+          "source_key": "aphis_cats_us",
+          "source_title": "USDA APHIS: Cats entering the US",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/cats",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "exit_destination": [
+        {
+          "text": "Before leaving Mexico with a dog: book a SENASICA-approved vet for the screwworm-freedom inspection ≤5 days before US arrival.",
+          "label": "Official rule",
+          "source_key": "aphis_dogs_us",
+          "source_title": "USDA APHIS: Dogs entering the US",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/dogs",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Complete the CDC Dog Import Form listing Mexico as the departure country; a prior Canada/US-only receipt is not valid if the dog visited Mexico.",
+          "label": "Official rule",
+          "source_key": "cdc_low",
+          "source_title": "CDC: Dogs from rabies-free or low-risk countries",
+          "source_url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "timeline": [
+        {
+          "when": "≤5 days before Mexico entry (dogs)",
+          "what": "USDA-accredited vet issues NWS inspection certificate (no APHIS endorsement)."
+        },
+        {
+          "when": "Arrival in Mexico",
+          "what": "Go to OISA with clean carrier; inspection; CZI issued."
+        },
+        {
+          "when": "≤5 days before US return (dogs)",
+          "what": "SENASICA-approved vet issues screwworm-freedom certificate."
+        },
+        {
+          "when": "Before US arrival (dogs)",
+          "what": "CDC Dog Import Form receipt; microchip; age ≥6 months."
+        }
+      ],
+      "checklist_out": [
+        "Dogs: NWS inspection certificate ≤5 days (USDA-accredited vet, no APHIS endorsement)",
+        "Cats: no health certificate for Mexico entry",
+        "Clean carrier; only day’s food ration",
+        "Airline pet booking"
+      ],
+      "checklist_return": [
+        "Dogs: SENASICA screwworm-freedom certificate ≤5 days",
+        "Dogs: CDC Dog Import Form (departure country = Mexico)",
+        "Dogs: ≥6 months + microchip + healthy",
+        "Cats: healthy appearance; state/airline checks"
+      ],
+      "faq": [
+        {
+          "q": "Do dogs need APHIS endorsement to enter Mexico?",
+          "a": "No for the NWS dog inspection certificate effective 3 Aug 2026 — a USDA-accredited vet signs it directly. Checked Nov 9, 2026 on APHIS Mexico page."
+        },
+        {
+          "q": "Can I put my cat on the dog NWS form?",
+          "a": "No. APHIS warns that adding cats invalidates the dog form and can lead to denial or holding. Checked Nov 9, 2026."
+        },
+        {
+          "q": "Is Mexico high-risk for CDC dog rabies?",
+          "a": "No — Mexico is not on the CDC high-risk list. Screwworm certification is a separate USDA requirement. Checked Nov 9, 2026."
+        }
+      ],
+      "gaps": [
+        "Exact OISA cash fees: Not stated on the APHIS/SENASICA pages reviewed for dogs/cats.",
+        "Land-border vs airport procedural differences beyond OISA: confirm locally."
+      ]
+    },
+    {
+      "slug": "usa-uk",
+      "title": "USA ↔ United Kingdom (Great Britain) with a dog or cat",
+      "h1": "Travelling with a dog or cat between the USA and Great Britain",
+      "pair": [
+        "USA",
+        "United Kingdom (Great Britain)"
+      ],
+      "lead": "Great Britain requires an ISO microchip, rabies vaccination with a 21-day wait, a Great Britain pet health certificate endorsed by USDA APHIS (ink endorsement), and — for dogs — tapeworm treatment 24–120 hours before arrival. Pets may not travel in the cabin on commercial flights into GB; use an approved route. Returning to the US follows CDC low-risk rules.",
+      "cdc_risk": "low",
+      "ppc_links": {
+        "country_pages": [
+          "https://petpolicycheck.com/countries/usa.html"
+        ],
+        "airlines": [
+          "https://petpolicycheck.com/airlines/british-airways.html",
+          "https://petpolicycheck.com/airlines/delta.html",
+          "https://petpolicycheck.com/airlines/united.html",
+          "https://petpolicycheck.com/airlines/american.html"
+        ],
+        "airline_routes_live": [
+          "https://petpolicycheck.com/routes/uk-to-france-british-airways.html"
+        ],
+        "clinics": [
+          "https://petpolicycheck.com/clinics/usa.html",
+          "https://petpolicycheck.com/partner-vets/"
+        ],
+        "tools": [
+          "https://petpolicycheck.com/passport/",
+          "https://petpolicycheck.com/airport/",
+          "https://petpolicycheck.com/titer-calculator/"
+        ]
+      },
+      "quick": [
+        {
+          "text": "Microchip before (or same day as) rabies vaccine; rabies at ≥12 weeks; wait ≥21 full days after primary vaccination before entering GB.",
+          "label": "Official rule",
+          "source_key": "govuk_bring",
+          "source_title": "GOV.UK: Bring a pet to Great Britain",
+          "source_url": "https://www.gov.uk/bring-pet-to-great-britain",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "From the US: Great Britain pet health certificate issued by a USDA-accredited vet and endorsed by APHIS. APHIS requires original ink endorsement (not digital-only). Enter GB within 10 days of the certificate (APHIS timing: arrive within 10 days of APHIS endorsement).",
+          "label": "Official rule",
+          "source_key": "aphis_uk",
+          "source_title": "USDA APHIS: Pet travel US to United Kingdom / Great Britain",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-united-kingdom-great-britain-england-scotland",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Dogs: tapeworm (praziquantel) treatment by a USDA-accredited vet 24–120 hours before entering GB, recorded on the certificate.",
+          "label": "Official rule",
+          "source_key": "govuk_tape",
+          "source_title": "GOV.UK: Tapeworm treatment for dogs",
+          "source_url": "https://www.gov.uk/bring-pet-to-great-britain/tapeworm-treatment-dogs",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "No pets in the cabin on commercial flights into Great Britain — pets travel as cargo on approved routes (e.g. HARC at Heathrow, AAC at Gatwick, Pets on Jets at Manchester).",
+          "label": "Official rule",
+          "source_key": "govuk_routes",
+          "source_title": "GOV.UK: Travel routes for pets",
+          "source_url": "https://www.gov.uk/bring-pet-to-great-britain/travel-routes-pets",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Return to the US: UK is not on the CDC high-risk list. Dogs need CDC Dog Import Form, ≥6 months, microchip, healthy look.",
+          "label": "Official rule",
+          "source_key": "cdc_low",
+          "source_title": "CDC: Dogs from rabies-free or low-risk countries",
+          "source_url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "leaving_usa": [
+        {
+          "text": "USDA-accredited vet completes the correct GB health certificate (non-commercial vs commercial rules) and submits via VEHCS. APHIS ink-signs and embosses; arrange prepaid return mail for the paper certificate.",
+          "label": "Official rule",
+          "source_key": "aphis_uk",
+          "source_title": "USDA APHIS: Pet travel US to United Kingdom / Great Britain",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-united-kingdom-great-britain-england-scotland",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Non-commercial certificate: typically ≤5 pets travelling within 5 days of the owner/designated person. Owner declaration on the final page must travel with the pet.",
+          "label": "Official rule",
+          "source_key": "aphis_uk",
+          "source_title": "USDA APHIS: Pet travel US to United Kingdom / Great Britain",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-united-kingdom-great-britain-england-scotland",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Schedule tapeworm treatment for dogs inside the 24–120 hour window before GB arrival.",
+          "label": "Official rule",
+          "source_key": "govuk_tape",
+          "source_title": "GOV.UK: Tapeworm treatment for dogs",
+          "source_url": "https://www.gov.uk/bring-pet-to-great-britain/tapeworm-treatment-dogs",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "entering_destination": [
+        {
+          "text": "Use an approved air, sea or rail route/carrier (GOV.UK list). Exception: travel from Ireland / within the UK.",
+          "label": "Official rule",
+          "source_key": "govuk_routes",
+          "source_title": "GOV.UK: Travel routes for pets",
+          "source_url": "https://www.gov.uk/bring-pet-to-great-britain/travel-routes-pets",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Non-compliance can mean quarantine up to 4 months or refusal of entry, at the owner’s cost.",
+          "label": "Official rule",
+          "source_key": "govuk_bring",
+          "source_title": "GOV.UK: Bring a pet to Great Britain",
+          "source_url": "https://www.gov.uk/bring-pet-to-great-britain",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Banned types (Dangerous Dogs Act / XL Bully rules): Pit Bull Terrier, Japanese Tosa, Dogo Argentino, Fila Brasileiro, XL Bully — cannot bring a banned type into GB without a valid Certificate of Exemption.",
+          "label": "Official rule",
+          "source_key": "govuk_banned",
+          "source_title": "GOV.UK: Banned dogs",
+          "source_url": "https://www.gov.uk/control-dog-public/banned-dogs",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Northern Ireland follows EU pet rules (DAERA), not GB rules — do not mix the two regimes.",
+          "label": "Official rule",
+          "source_key": "govuk_bring",
+          "source_title": "GOV.UK: Bring a pet to Great Britain",
+          "source_url": "https://www.gov.uk/bring-pet-to-great-britain",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "return_usa": [
+        {
+          "text": "CDC Dog Import Form, age ≥6 months, microchip, healthy. UK is low-risk for CDC dog-rabies purposes if no high-risk country visit in 6 months.",
+          "label": "Official rule",
+          "source_key": "cdc_low",
+          "source_title": "CDC: Dogs from rabies-free or low-risk countries",
+          "source_url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Cats: appear healthy at federal level; check airline and US state rules.",
+          "label": "Official rule",
+          "source_key": "aphis_cats_us",
+          "source_title": "USDA APHIS: Cats entering the US",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/cats",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "exit_destination": [
+        {
+          "text": "Leaving Great Britain for a non-EU destination such as the US: follow destination (CDC/APHIS) rules. GOV.UK “taking your pet abroad” focuses on EU travel with an animal health certificate; for the US, complete the CDC Dog Import Form and confirm any APHA/export paperwork your carrier asks for.",
+          "label": "Official rule",
+          "source_key": "govuk_abroad",
+          "source_title": "GOV.UK: Taking your pet abroad",
+          "source_url": "https://www.gov.uk/taking-your-pet-abroad",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Not stated on the official GB pages reviewed: a mandatory GB exit health certificate solely for return to the US. Confirm with APHA Pet Travel helpline and your airline before departure.",
+          "label": "Official rule",
+          "source_key": "govuk_abroad",
+          "source_title": "GOV.UK: Taking your pet abroad",
+          "source_url": "https://www.gov.uk/taking-your-pet-abroad",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "timeline": [
+        {
+          "when": "≥12 weeks age",
+          "what": "ISO microchip, then rabies vaccine."
+        },
+        {
+          "when": "+ ≥21 days",
+          "what": "Earliest GB entry after primary rabies (day of vaccine = day 0 per APHIS UK wording)."
+        },
+        {
+          "when": "Before travel",
+          "what": "USDA-accredited vet issues GB PHC; submit VEHCS; wait for APHIS ink endorsement; book approved cargo route."
+        },
+        {
+          "when": "24–120 h before GB arrival (dogs)",
+          "what": "Tapeworm treatment recorded on certificate."
+        },
+        {
+          "when": "Within 10 days of APHIS endorsement",
+          "what": "Arrive in Great Britain."
+        },
+        {
+          "when": "Before US return",
+          "what": "CDC Dog Import Form receipt."
+        }
+      ],
+      "checklist_out": [
+        "ISO microchip before/with rabies",
+        "Rabies + 21-day wait",
+        "GB pet health certificate + APHIS ink endorsement (VEHCS)",
+        "Dogs: tapeworm 24–120 h before arrival",
+        "Approved route / cargo booking (no cabin on commercial flights into GB)",
+        "Owner declaration signed"
+      ],
+      "checklist_return": [
+        "CDC Dog Import Form (dogs)",
+        "≥6 months + microchip + healthy",
+        "Airline acceptance for US-bound pet",
+        "Confirm any APHA/export docs airline requires"
+      ],
+      "faq": [
+        {
+          "q": "Can my dog fly in the cabin to London?",
+          "a": "Not on commercial flights into Great Britain for ordinary pets. GOV.UK requires approved routes; pets typically travel as cargo to designated centres. Assistance dogs have separate rules. Checked Nov 9, 2026."
+        },
+        {
+          "q": "Does APHIS digitally endorse UK certificates?",
+          "a": "No — APHIS states original ink endorsement is required for GB. Plan mailing time. Checked Nov 9, 2026."
+        },
+        {
+          "q": "Do cats need tapeworm treatment?",
+          "a": "No. Tapeworm treatment applies to dogs (with listed exemptions for certain countries). Checked Nov 9, 2026."
+        }
+      ],
+      "gaps": [
+        "No dedicated live PPC country page for the UK yet (404 on /countries/uk.html).",
+        "No live USA↔UK overview route page; only UK→France airline pages and other corridors exist.",
+        "Exact cargo centre fees: Not stated as a single official amount on GOV.UK bring-pet pages reviewed."
+      ]
+    },
+    {
+      "slug": "usa-japan",
+      "title": "USA ↔ Japan with a dog or cat",
+      "h1": "Travelling with a dog or cat between the USA and Japan",
+      "pair": [
+        "USA",
+        "Japan"
+      ],
+      "lead": "Japan treats the US mainland (except Hawaii and Guam) as a non-designated region: ISO microchip, two rabies shots, a rabies titer ≥0.5 IU/ml, then a 180-day wait, plus 40-day advance notice to AQS. USDA APHIS endorses the health certificate digitally for dogs/cats to Japan. Returning to the US follows CDC low-risk rules; leaving Japan needs an AQS export inspection.",
+      "cdc_risk": "low",
+      "ppc_links": {
+        "country_pages": [
+          "https://petpolicycheck.com/countries/usa.html",
+          "https://petpolicycheck.com/routes/usa-to-japan.html"
+        ],
+        "airlines": [
+          "https://petpolicycheck.com/airlines/united.html",
+          "https://petpolicycheck.com/airlines/delta.html",
+          "https://petpolicycheck.com/airlines/american.html",
+          "https://petpolicycheck.com/airlines/alaska.html"
+        ],
+        "airline_routes_live": [
+          "https://petpolicycheck.com/routes/usa-to-japan.html",
+          "https://petpolicycheck.com/routes/usa-to-japan-united.html",
+          "https://petpolicycheck.com/routes/usa-to-japan-delta.html",
+          "https://petpolicycheck.com/routes/usa-to-japan-american.html",
+          "https://petpolicycheck.com/routes/japan-to-usa-united.html"
+        ],
+        "clinics": [
+          "https://petpolicycheck.com/clinics/usa.html",
+          "https://petpolicycheck.com/partner-vets/"
+        ],
+        "tools": [
+          "https://petpolicycheck.com/titer-calculator/",
+          "https://petpolicycheck.com/passport/",
+          "https://petpolicycheck.com/airport/"
+        ]
+      },
+      "quick": [
+        {
+          "text": "US mainland dogs & cats: ISO microchip, two rabies vaccinations, rabies titer ≥0.5 IU/ml at an approved lab, 180-day wait after the blood draw, AQS notification ≥40 days before arrival, vet exam within 10 days before boarding, government-endorsed certificate. Quarantine then within 12 hours if compliant.",
+          "label": "Official rule",
+          "source_key": "aqs_other",
+          "source_title": "Japan AQS: Import from non-designated regions",
+          "source_url": "https://www.maff.go.jp/aqs/english/animal/dog/import-other.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Health certificate: Form AC (or alternatives) by USDA-accredited vet via VEHCS; APHIS digitally endorses dog/cat certificates to Japan — carry a printed copy.",
+          "label": "Official rule",
+          "source_key": "aphis_japan",
+          "source_title": "USDA APHIS: Pet travel US to Japan",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-japan",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Hawaii/Guam (designated): no titer/180-day wait; residence rules, Form AB, 40-day notice.",
+          "label": "Official rule",
+          "source_key": "aqs_free",
+          "source_title": "Japan AQS: Import from designated regions",
+          "source_url": "https://www.maff.go.jp/aqs/english/animal/dog/import-free.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Return to US: Japan not on CDC high-risk list — CDC Dog Import Form, ≥6 months, microchip, healthy.",
+          "label": "Official rule",
+          "source_key": "cdc_low",
+          "source_title": "CDC: Dogs from rabies-free or low-risk countries",
+          "source_url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Leaving Japan: dogs and cats need an AQS export inspection; AQS asks you to apply at least 14 days before departure.",
+          "label": "Official rule",
+          "source_key": "aqs_other",
+          "source_title": "Japan AQS: Import from non-designated regions",
+          "source_url": "https://www.maff.go.jp/aqs/english/animal/dog/import-other.html",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "leaving_usa": [
+        {
+          "text": "USDA-accredited vet prepares Form AC (or Form A+C / 7001+A) and submits through VEHCS for digital APHIS endorsement; print and carry the endorsed certificate.",
+          "label": "Official rule",
+          "source_key": "aphis_japan",
+          "source_title": "USDA APHIS: Pet travel US to Japan",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-japan",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Vet exam within 10 days before boarding confirming no rabies signs (and for dogs, leptospirosis) and microchip check.",
+          "label": "Official rule",
+          "source_key": "aqs_other",
+          "source_title": "Japan AQS: Import from non-designated regions",
+          "source_url": "https://www.maff.go.jp/aqs/english/animal/dog/import-other.html",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "entering_destination": [
+        {
+          "text": "Microchip ISO 11784/11785 before or same day as first rabies shot. Chips starting 900 202 not accepted for now.",
+          "label": "Official rule",
+          "source_key": "aqs_other",
+          "source_title": "Japan AQS: Import from non-designated regions",
+          "source_url": "https://www.maff.go.jp/aqs/english/animal/dog/import-other.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "First rabies ≥91 days old; second ≥30 days later within DOI; inactivated/recombinant only.",
+          "label": "Official rule",
+          "source_key": "aqs_other",
+          "source_title": "Japan AQS: Import from non-designated regions",
+          "source_url": "https://www.maff.go.jp/aqs/english/animal/dog/import-other.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "FAVN/titer after second shot at Japan-approved lab; ≥0.5 IU/ml; valid 2 years from blood draw. APHIS lists KSU Rabies Lab and DOD VFADL among US labs.",
+          "label": "Official rule",
+          "source_key": "aphis_japan",
+          "source_title": "USDA APHIS: Pet travel US to Japan",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-japan",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Arrive ≥180 days after blood draw (draw = day 0). Early arrival = quarantine for missing days.",
+          "label": "Official rule",
+          "source_key": "aqs_other",
+          "source_title": "Japan AQS: Import from non-designated regions",
+          "source_url": "https://www.maff.go.jp/aqs/english/animal/dog/import-other.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Notify AQS ≥40 days ahead (NACCS or email). Dogs enter only through designated ports (Narita, Haneda, Kansai, etc.).",
+          "label": "Official rule",
+          "source_key": "aqs_other",
+          "source_title": "Japan AQS: Import from non-designated regions",
+          "source_url": "https://www.maff.go.jp/aqs/english/animal/dog/import-other.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "If requirements not met: detention up to 180 days at owner’s cost, or ship back.",
+          "label": "Official rule",
+          "source_key": "aqs_other",
+          "source_title": "Japan AQS: Import from non-designated regions",
+          "source_url": "https://www.maff.go.jp/aqs/english/animal/dog/import-other.html",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "return_usa": [
+        {
+          "text": "CDC Dog Import Form, ≥6 months, microchip, healthy; Japan low-risk for CDC if no high-risk visit in 6 months.",
+          "label": "Official rule",
+          "source_key": "cdc_low",
+          "source_title": "CDC: Dogs from rabies-free or low-risk countries",
+          "source_url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Cats: appear healthy federally; state/airline rules apply.",
+          "label": "Official rule",
+          "source_key": "aphis_cats_us",
+          "source_title": "USDA APHIS: Cats entering the US",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/cats",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "exit_destination": [
+        {
+          "text": "Apply to AQS for export inspection at least 14 days before departure from Japan.",
+          "label": "Official rule",
+          "source_key": "aqs_other",
+          "source_title": "Japan AQS: Import from non-designated regions",
+          "source_url": "https://www.maff.go.jp/aqs/english/animal/dog/import-other.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Keep the import quarantine certificate — AQS notes it cannot be reissued and is needed to leave Japan.",
+          "label": "Official rule",
+          "source_key": "aqs_other",
+          "source_title": "Japan AQS: Import from non-designated regions",
+          "source_url": "https://www.maff.go.jp/aqs/english/animal/dog/import-other.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Dogs: register with city/town within 30 days of arrival and keep annual rabies vaccination while in Japan.",
+          "label": "Official rule",
+          "source_key": "aqs_other",
+          "source_title": "Japan AQS: Import from non-designated regions",
+          "source_url": "https://www.maff.go.jp/aqs/english/animal/dog/import-other.html",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "timeline": [
+        {
+          "when": "Day 0+",
+          "what": "ISO microchip → first rabies (≥91 days old)."
+        },
+        {
+          "when": "+ ≥30 days",
+          "what": "Second rabies → blood draw for titer (same day as 2nd shot allowed)."
+        },
+        {
+          "when": "+ lab turnaround",
+          "what": "Receive titer ≥0.5 IU/ml (result valid 2 years from draw)."
+        },
+        {
+          "when": "+ 180 days from draw",
+          "what": "Earliest arrival in Japan without extra quarantine days."
+        },
+        {
+          "when": "≥40 days before arrival",
+          "what": "Notify AQS; obtain approval."
+        },
+        {
+          "when": "≤10 days before boarding",
+          "what": "Vet exam; VEHCS certificate; APHIS digital endorsement; print copy."
+        },
+        {
+          "when": "≥14 days before leaving Japan",
+          "what": "Apply for AQS export inspection; complete CDC form for US return."
+        }
+      ],
+      "checklist_out": [
+        "ISO microchip timing correct vs first rabies",
+        "Two rabies shots (inactivated/recombinant)",
+        "Approved-lab titer ≥0.5 IU/ml + 180-day wait",
+        "AQS advance notice ≥40 days",
+        "Vet exam ≤10 days + APHIS-endorsed Form AC (printed)",
+        "Arrive via designated dog port"
+      ],
+      "checklist_return": [
+        "AQS export inspection (≥14 days notice)",
+        "CDC Dog Import Form (dogs)",
+        "≥6 months + microchip + healthy",
+        "Import quarantine certificate retained"
+      ],
+      "faq": [
+        {
+          "q": "How early should I start for Japan?",
+          "a": "By AQS timing, after first shot (≥91 days old), second shot ≥30 days later, then 180 days after the titer blood draw — roughly 7+ months before arrival for a mainland US pet. Checked Nov 9, 2026."
+        },
+        {
+          "q": "Is APHIS endorsement digital for Japan?",
+          "a": "Yes for dog and cat certificates to Japan per APHIS; still carry a printed endorsed copy. Checked Nov 9, 2026."
+        },
+        {
+          "q": "What if I arrive before day 180?",
+          "a": "AQS holds the pet for the missing days (up to 180) at your cost, or the pet may be returned. Checked Nov 9, 2026."
+        }
+      ],
+      "gaps": [
+        "Live overview page already exists at /routes/usa-to-japan.html (checked Oct 24, 2026 on live). This pack refreshes to Checked Nov 9, 2026 and adds explicit return/exit checklist structure for the country-pair series.",
+        "AQS import inspection fee amount: Not stated on AQS dog/cat import pages."
+      ]
+    },
+    {
+      "slug": "usa-france",
+      "title": "USA ↔ France (EU) with a dog or cat",
+      "h1": "Travelling with a dog or cat between the USA and France",
+      "pair": [
+        "USA",
+        "France (EU)"
+      ],
+      "lead": "France follows EU pet-entry rules: ISO microchip before rabies, rabies at ≥12 weeks with a 21-day wait, and an EU animal health certificate issued by a USDA-accredited vet and ink-endorsed by APHIS. The US is a listed third country — no rabies titer. New EU non-commercial certificates took effect 1 October 2026. Category 1 dogs are banned from import and transit.",
+      "cdc_risk": "low",
+      "ppc_links": {
+        "country_pages": [
+          "https://petpolicycheck.com/countries/usa.html"
+        ],
+        "airlines": [
+          "https://petpolicycheck.com/airlines/air-france.html",
+          "https://petpolicycheck.com/airlines/delta.html",
+          "https://petpolicycheck.com/airlines/united.html",
+          "https://petpolicycheck.com/airlines/american.html"
+        ],
+        "airline_routes_live": [
+          "https://petpolicycheck.com/routes/usa-to-france-air-france.html",
+          "https://petpolicycheck.com/routes/usa-to-france-delta.html",
+          "https://petpolicycheck.com/routes/usa-to-france-united.html",
+          "https://petpolicycheck.com/routes/usa-to-france-american.html",
+          "https://petpolicycheck.com/routes/france-to-usa-air-france.html"
+        ],
+        "clinics": [
+          "https://petpolicycheck.com/clinics/usa.html",
+          "https://petpolicycheck.com/partner-vets/"
+        ],
+        "tools": [
+          "https://petpolicycheck.com/passport/",
+          "https://petpolicycheck.com/airport/",
+          "https://petpolicycheck.com/titer-calculator/"
+        ]
+      },
+      "quick": [
+        {
+          "text": "ISO 11784/11785 microchip implanted before or on the same day as rabies vaccination; rabies at ≥12 weeks; wait ≥21 days after primary vaccination.",
+          "label": "Official rule",
+          "source_key": "aphis_france",
+          "source_title": "USDA APHIS: Pet travel US to France",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "US is listed → no rabies antibody titer required for entry into the EU/France from the US.",
+          "label": "Official rule",
+          "source_key": "eu_entry",
+          "source_title": "European Commission: Entry of dogs, cats and ferrets into the Union",
+          "source_url": "https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/entry-union_en",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Non-commercial EU health certificate: USDA-accredited vet issues; APHIS original ink endorsement required. Endorsement must fall within 10 days of arrival in the EU. New non-commercial certificates effective 1 Oct 2026 (EU 2026/131 & 2026/848).",
+          "label": "Official rule",
+          "source_key": "aphis_france",
+          "source_title": "USDA APHIS: Pet travel US to France",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Max 5 pets for non-commercial movement; written non-commercial declaration; documents in French (or bilingual / sworn translation) when presenting in France.",
+          "label": "Official rule",
+          "source_key": "fr_sp",
+          "source_title": "Service-Public.fr: Importation d'un animal de compagnie",
+          "source_url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F1839",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Catégorie 1 dogs (certain non-LOF morphotypes): import AND transit into France prohibited. Catégorie 2 allowed only with French paperwork.",
+          "label": "Official rule",
+          "source_key": "fr_cat",
+          "source_title": "Ministère de l'Agriculture: Chiens de catégorie 1 et 2",
+          "source_url": "https://agriculture.gouv.fr/les-chiens-de-categorie-1-et-2-et-les-chiens-dangereux",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Return to US: France not on CDC high-risk list — CDC Dog Import Form, ≥6 months, microchip, healthy.",
+          "label": "Official rule",
+          "source_key": "cdc_low",
+          "source_title": "CDC: Dogs from rabies-free or low-risk countries",
+          "source_url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "leaving_usa": [
+        {
+          "text": "Choose non-commercial vs commercial EU certificate per APHIS France page. Non-commercial: owner or designated person within 5 days, ≤5 pets (event exceptions exist).",
+          "label": "Official rule",
+          "source_key": "aphis_france",
+          "source_title": "USDA APHIS: Pet travel US to France",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Submit via VEHCS; APHIS ink-signs and embosses; prepaid return label needed. Carry original endorsed paper certificate + owner declaration.",
+          "label": "Official rule",
+          "source_key": "aphis_france",
+          "source_title": "USDA APHIS: Pet travel US to France",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Primary US rabies for EU purposes is valid 1 year even if a 3-year product was used; keep continuous booster history without gaps.",
+          "label": "Official rule",
+          "source_key": "aphis_france",
+          "source_title": "USDA APHIS: Pet travel US to France",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "entering_destination": [
+        {
+          "text": "Present spontaneously to French customs at a travellers’ point of entry; no import permit for compliant non-commercial pets.",
+          "label": "Official rule",
+          "source_key": "fr_sp",
+          "source_title": "Service-Public.fr: Importation d'un animal de compagnie",
+          "source_url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F1839",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Dogs from third countries must have at least one adult tooth (Code rural).",
+          "label": "Official rule",
+          "source_key": "fr_agri",
+          "source_title": "Ministère de l'Agriculture: FAQ importation animaux de compagnie pays tiers",
+          "source_url": "https://agriculture.gouv.fr/faq-modalites-dimportation-des-animaux-de-compagnie-en-provenance-de-pays-tiers",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Sanctions for non-compliance can include return, quarantine or euthanasia at owner’s cost.",
+          "label": "Official rule",
+          "source_key": "fr_sp",
+          "source_title": "Service-Public.fr: Importation d'un animal de compagnie",
+          "source_url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F1839",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "EU certificate remains usable for onward EU travel up to 4–6 months per regime wording on APHIS/EU pages while rabies remains valid — confirm the certificate model you hold.",
+          "label": "Official rule",
+          "source_key": "aphis_france",
+          "source_title": "USDA APHIS: Pet travel US to France",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "return_usa": [
+        {
+          "text": "CDC Dog Import Form, ≥6 months, microchip, healthy; France low-risk for CDC if no high-risk visit in 6 months.",
+          "label": "Official rule",
+          "source_key": "cdc_low",
+          "source_title": "CDC: Dogs from rabies-free or low-risk countries",
+          "source_url": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Cats: appear healthy federally; state/airline rules apply.",
+          "label": "Official rule",
+          "source_key": "aphis_cats_us",
+          "source_title": "USDA APHIS: Cats entering the US",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/cats",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "exit_destination": [
+        {
+          "text": "If the pet became an EU resident with an EU pet passport, return rules to the US still follow CDC/APHIS; the passport alone does not replace the CDC Dog Import Form for dogs.",
+          "label": "Official rule",
+          "source_key": "cdc_dogs",
+          "source_title": "CDC: Bringing a dog into the United States",
+          "source_url": "https://www.cdc.gov/importation/dogs/index.html",
+          "checked": "Nov 9, 2026"
+        },
+        {
+          "text": "Temporary US visitors usually return with the same microchip/rabies history plus CDC form. Any French/EU exit certificate requirement solely for US return: Not stated as mandatory on the APHIS France / CDC pages reviewed — confirm with your airline and a French vet if asked.",
+          "label": "Official rule",
+          "source_key": "aphis_france",
+          "source_title": "USDA APHIS: Pet travel US to France",
+          "source_url": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france",
+          "checked": "Nov 9, 2026"
+        }
+      ],
+      "timeline": [
+        {
+          "when": "Before rabies",
+          "what": "Implant/scan ISO microchip."
+        },
+        {
+          "when": "≥12 weeks age",
+          "what": "Primary rabies; wait ≥21 days (or manufacturer period recorded on certificate)."
+        },
+        {
+          "when": "Before travel",
+          "what": "USDA-accredited vet issues new (post-1 Oct 2026) EU non-commercial certificate; VEHCS → APHIS ink endorsement within 10 days of EU arrival."
+        },
+        {
+          "when": "Arrival France",
+          "what": "Present to customs with certificate + declaration; French-language readiness."
+        },
+        {
+          "when": "Before US return",
+          "what": "CDC Dog Import Form; confirm airline pet rules."
+        }
+      ],
+      "checklist_out": [
+        "ISO microchip before/with rabies",
+        "Rabies + 21-day wait (US listed → no titer)",
+        "EU non-commercial health certificate (new model from 1 Oct 2026) + APHIS ink endorsement",
+        "Owner/designated-person declaration",
+        "≤5 pets non-commercial",
+        "Not a Catégorie 1 dog; Cat-2 paperwork if applicable",
+        "French/bilingual documents as required"
+      ],
+      "checklist_return": [
+        "CDC Dog Import Form (dogs)",
+        "≥6 months + microchip + healthy",
+        "Airline acceptance"
+      ],
+      "faq": [
+        {
+          "q": "Do I need a rabies titer for France from the US?",
+          "a": "No. The US is a listed third country for EU pet entry; titer applies to unlisted/high-risk third countries. Checked Nov 9, 2026."
+        },
+        {
+          "q": "What changed in October 2026?",
+          "a": "APHIS requires new EU non-commercial health certificates effective 1 Oct 2026 (commercial model 17 Oct 2026) under EU 2026/131 and 2026/848. Old certificates in process could be endorsed only through 30 Sep 2026. Checked Nov 9, 2026."
+        },
+        {
+          "q": "Can a pit-bull-type dog transit France to another country?",
+          "a": "Catégorie 1 morphotype dogs: French law bans import and transit. Do not plan a French connection for those dogs. Checked Nov 9, 2026."
+        }
+      ],
+      "gaps": [
+        "No live PPC /countries/france.html page yet.",
+        "agriculture.gouv.fr often times out to automated fetch; service-public.fr and APHIS/EU pages used as primary confirmations.",
+        "Exact customs presentation tips vary by airport — Not stated as a single national fee/amount on pages reviewed."
+      ]
+    }
+  ]
+}

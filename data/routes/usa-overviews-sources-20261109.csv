@@ -1,0 +1,34 @@
+route_slug,source_title,source_url,checked,http_note,used_for
+usa-canada,USDA APHIS: Pet travel US to Canada,https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-canada,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebFetch/WebSearch Nov 9, 2026",quick
+usa-canada,CDC: Dogs from rabies-free or low-risk countries,https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebSearch/official snippets Nov 9, 2026",quick
+usa-canada,USDA APHIS: Cats entering the US,https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/cats,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebFetch/WebSearch Nov 9, 2026",quick
+usa-canada,USDA APHIS: Take a pet from the US to another country,https://www.aphis.usda.gov/pet-travel/us-to-another-country-export,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebFetch/WebSearch Nov 9, 2026",leaving_usa
+usa-canada,CFIA: Importing pets to Canada,https://inspection.canada.ca/en/importing-food-plants-animals/pets,"Nov 9, 2026",HTTP 200,entering_destination
+usa-canada,CBSA: Animals,https://www.cbsa-asfc.gc.ca/services/fpa-apa/animals-animaux-eng.html,"Nov 9, 2026",HTTP 200,entering_destination
+usa-canada,CDC: Bringing a dog into the United States,https://www.cdc.gov/importation/dogs/index.html,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebSearch/official snippets Nov 9, 2026",return_usa
+usa-mexico,USDA APHIS: Pet travel US to Mexico,https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-mexico,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebFetch/WebSearch Nov 9, 2026",quick
+usa-mexico,USDA APHIS: Dogs entering the US,https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/dogs,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebFetch/WebSearch Nov 9, 2026",quick
+usa-mexico,SENASICA (Mexico),https://www.gob.mx/senasica,"Nov 9, 2026",HTTP 200,entering_destination
+usa-mexico,SENASICA: Directory of approved veterinarians (MVRA),https://www.gob.mx/senasica/documentos/directorio-de-mvra-en-clinicas-y-hospitales-veterinarios?state=published,"Nov 9, 2026",HTTP 200,return_usa
+usa-uk,GOV.UK: Bring a pet to Great Britain,https://www.gov.uk/bring-pet-to-great-britain,"Nov 9, 2026",HTTP 200,quick
+usa-uk,USDA APHIS: Pet travel US to United Kingdom / Great Britain,https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-united-kingdom-great-britain-england-scotland,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebFetch/WebSearch Nov 9, 2026",quick
+usa-uk,GOV.UK: Tapeworm treatment for dogs,https://www.gov.uk/bring-pet-to-great-britain/tapeworm-treatment-dogs,"Nov 9, 2026",HTTP 200,quick
+usa-uk,GOV.UK: Travel routes for pets,https://www.gov.uk/bring-pet-to-great-britain/travel-routes-pets,"Nov 9, 2026",HTTP 200,quick
+usa-uk,GOV.UK: Banned dogs,https://www.gov.uk/control-dog-public/banned-dogs,"Nov 9, 2026",HTTP 200,entering_destination
+usa-uk,GOV.UK: Taking your pet abroad,https://www.gov.uk/taking-your-pet-abroad,"Nov 9, 2026",HTTP 200,exit_destination
+usa-japan,Japan AQS: Import from non-designated regions,https://www.maff.go.jp/aqs/english/animal/dog/import-other.html,"Nov 9, 2026",HTTP 200,quick
+usa-japan,USDA APHIS: Pet travel US to Japan,https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-japan,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebFetch/WebSearch Nov 9, 2026",quick
+usa-japan,Japan AQS: Import from designated regions,https://www.maff.go.jp/aqs/english/animal/dog/import-free.html,"Nov 9, 2026",HTTP 200,quick
+usa-france,USDA APHIS: Pet travel US to France,https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebFetch/WebSearch Nov 9, 2026",quick
+usa-france,"European Commission: Entry of dogs, cats and ferrets into the Union",https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/entry-union_en,"Nov 9, 2026",HTTP 200,quick
+usa-france,Service-Public.fr: Importation d'un animal de compagnie,https://www.service-public.gouv.fr/particuliers/vosdroits/F1839,"Nov 9, 2026",HTTP 200,quick
+usa-france,Ministère de l'Agriculture: Chiens de catégorie 1 et 2,https://agriculture.gouv.fr/les-chiens-de-categorie-1-et-2-et-les-chiens-dangereux,"Nov 9, 2026",timeout/no response to curl from box historically — content confirmed via WebFetch/search; service-public 200,quick
+usa-france,Ministère de l'Agriculture: FAQ importation animaux de compagnie pays tiers,https://agriculture.gouv.fr/faq-modalites-dimportation-des-animaux-de-compagnie-en-provenance-de-pays-tiers,"Nov 9, 2026",timeout/no response to curl from box historically — content confirmed via WebFetch/search; service-public 200,entering_destination
+shared,CDC: High-risk countries for dog rabies,https://www.cdc.gov/importation/dogs/high-risk-countries.html,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebSearch/official snippets Nov 9, 2026",reference
+shared,USDA APHIS: Cost to endorse,https://www.aphis.usda.gov/pet-travel/us-to-foreign-country/cost-to-endorse,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebFetch/WebSearch Nov 9, 2026",reference
+shared,USDA APHIS: VEHCS,https://www.aphis.usda.gov/pet-travel/vehcs,"Nov 9, 2026","HTTP 403 to curl (bot protection) — content confirmed via WebFetch/WebSearch Nov 9, 2026",reference
+shared,Japan AQS: Contact,https://www.maff.go.jp/aqs/english/contactus.html,"Nov 9, 2026",HTTP 200,reference
+shared,Japan AQS: Office list,https://www.maff.go.jp/aqs/english/officelist.html,"Nov 9, 2026",HTTP 200,reference
+shared,Japan AQS: Quarantine for dogs and cats,https://www.maff.go.jp/aqs/english/animal/dog/index.html,"Nov 9, 2026",HTTP 200,reference
+shared,CFIA: Pet import reference document,https://inspection.canada.ca/en/animal-health/terrestrial-animals/imports/import-policies/general/reference-document,"Nov 9, 2026",HTTP 200,reference
+shared,GOV.UK: Great Britain pet health certificate,https://www.gov.uk/bring-pet-to-great-britain/great-britain-pet-health-certificate,"Nov 9, 2026",HTTP 200,reference
