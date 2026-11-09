@@ -5,80 +5,70 @@
       "viewport": "desktop",
       "status": 200,
       "console_errors": [],
-      "failed_requests": [],
-      "shot": "qa/routes/usa-canada-desktop.png"
+      "failed_requests": []
     },
     {
       "page": "usa-canada",
       "viewport": "mobile",
       "status": 200,
       "console_errors": [],
-      "failed_requests": [],
-      "shot": "qa/routes/usa-canada-mobile.png"
+      "failed_requests": []
     },
     {
       "page": "usa-mexico",
       "viewport": "desktop",
       "status": 200,
       "console_errors": [],
-      "failed_requests": [],
-      "shot": "qa/routes/usa-mexico-desktop.png"
+      "failed_requests": []
     },
     {
       "page": "usa-mexico",
       "viewport": "mobile",
       "status": 200,
       "console_errors": [],
-      "failed_requests": [],
-      "shot": "qa/routes/usa-mexico-mobile.png"
+      "failed_requests": []
     },
     {
       "page": "usa-uk",
       "viewport": "desktop",
       "status": 200,
       "console_errors": [],
-      "failed_requests": [],
-      "shot": "qa/routes/usa-uk-desktop.png"
+      "failed_requests": []
     },
     {
       "page": "usa-uk",
       "viewport": "mobile",
       "status": 200,
       "console_errors": [],
-      "failed_requests": [],
-      "shot": "qa/routes/usa-uk-mobile.png"
+      "failed_requests": []
     },
     {
       "page": "usa-japan",
       "viewport": "desktop",
       "status": 200,
       "console_errors": [],
-      "failed_requests": [],
-      "shot": "qa/routes/usa-japan-desktop.png"
+      "failed_requests": []
     },
     {
       "page": "usa-japan",
       "viewport": "mobile",
       "status": 200,
       "console_errors": [],
-      "failed_requests": [],
-      "shot": "qa/routes/usa-japan-mobile.png"
+      "failed_requests": []
     },
     {
       "page": "usa-france",
       "viewport": "desktop",
       "status": 200,
       "console_errors": [],
-      "failed_requests": [],
-      "shot": "qa/routes/usa-france-desktop.png"
+      "failed_requests": []
     },
     {
       "page": "usa-france",
       "viewport": "mobile",
       "status": 200,
       "console_errors": [],
-      "failed_requests": [],
-      "shot": "qa/routes/usa-france-mobile.png"
+      "failed_requests": []
     }
   ],
   "bad": 0
