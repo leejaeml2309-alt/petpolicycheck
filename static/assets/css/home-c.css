@@ -161,9 +161,9 @@ a.btn.btn-navy:hover,a.btn-navy:hover{
 }
 
 /* EU map coverage (preview 2026-11-10) — flag-light fills; neighbors stay default */
-.legend .sw.cov-uk{background:#C8102E;box-shadow:inset 0 0 0 1.5px #f4f6fa}
-.legend .sw.cov-fr{background:#0055A4}
-.legend .sw.cov-de{background:#DD0000;box-shadow:inset 0 0 0 1.5px #FFCE00}
-.country.cov-uk{fill:#C8102E;stroke:#f4f6fa;stroke-width:.55}.country.cov-uk:hover,.country.cov-uk:focus{fill:#e02a48}
-.country.cov-fr{fill:#0055A4;stroke:#e8e4dc;stroke-width:.55}.country.cov-fr:hover,.country.cov-fr:focus{fill:#1a6fbf}
-.country.cov-de{fill:#DD0000;stroke:#FFCE00;stroke-width:.6}.country.cov-de:hover,.country.cov-de:focus{fill:#f01010}
+.legend .sw.cov-uk{background:#b5475a;box-shadow:inset 0 0 0 1.5px #f4f6fa}
+.legend .sw.cov-fr{background:#3d6a9e}
+.legend .sw.cov-de{background:#8a5a4a;box-shadow:inset 0 0 0 1.5px #c4a574}
+.country.cov-uk{fill:#b5475a;stroke:#f4f6fa;stroke-width:.55}.country.cov-uk:hover,.country.cov-uk:focus{fill:#c45a6a}
+.country.cov-fr{fill:#3d6a9e;stroke:#e8e4dc;stroke-width:.55}.country.cov-fr:hover,.country.cov-fr:focus{fill:#4a7ab0}
+.country.cov-de{fill:#8a5a4a;stroke:#c4a574;stroke-width:.6}.country.cov-de:hover,.country.cov-de:focus{fill:#9c6a58}

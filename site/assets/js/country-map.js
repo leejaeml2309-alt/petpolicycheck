@@ -243,12 +243,16 @@ function lawSection(a){
   const nm = GEO[a]?GEO[a].name:a;
   let s = `<section class="sec" data-sec="1"><h3><span class="n">1</span>Vet + laws</h3>`;
   if(DATA.entry_note) s += `<p class="disc">${esc(DATA.entry_note)}</p>`;
-  s += `<h4>${esc(DATA.authority)}</h4>`;
+  /* Authority is body copy (muted), never a gold uppercase h4 — gold is for map selection + short section labels. */
+  s += `<h4>Authority</h4>`;
+  if(DATA.authority && DATA.authority !== 'Coming soon'){
+    s += `<p class="disc">${esc(DATA.authority)}</p>`;
+  } else {
+    s += `<p class="disc">Coming soon</p>`;
+  }
   if(DATA.officialUrl){
     const checked = DATA.lastChecked ? ('Checked '+DATA.lastChecked) : '';
     s += `<div class="links">${lk('🏛', DATA.name+' official pet-entry page', checked, DATA.officialUrl, 'off')}</div>`;
-  } else if(DATA.authority !== 'Coming soon'){
-    s += `<p class="disc">Coming soon</p>`;
   }
   s += dogsCatsBlock();
   s += breedBlock(a);
