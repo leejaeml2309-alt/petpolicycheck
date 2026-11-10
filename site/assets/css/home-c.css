@@ -164,3 +164,18 @@ a.btn.btn-navy:hover,a.btn-navy:hover{
 .country.cov-uk{fill:#b5475a;stroke:#f4f6fa;stroke-width:.55}.country.cov-uk:hover,.country.cov-uk:focus{fill:#c45a6a}
 .country.cov-fr{fill:#3d6a9e;stroke:#e8e4dc;stroke-width:.55}.country.cov-fr:hover,.country.cov-fr:focus{fill:#4a7ab0}
 .country.cov-de{fill:#c62828;stroke:#f4efe6;stroke-width:.55}.country.cov-de:hover,.country.cov-de:focus{fill:#d84343}
+
+/* Map view only: visually move the Pet Desk promo (.biz-banner) to the end of
+   <main>, just before the footer, so the world map sits directly under the nav.
+   Other unlocked home views (#compare, #gear, …) keep the current DOM order.
+   Same box, same content, same links — flex order only. */
+html.map-view main#main{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+}
+html.map-view main#main > .biz-banner{
+  order:100;
+  width:100%;
+  box-sizing:border-box;
+}
