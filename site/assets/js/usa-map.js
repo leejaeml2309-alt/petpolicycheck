@@ -1,5 +1,5 @@
 /* USA pet-travel map behavior. GEO and USA_RULES are loaded first.
-   Eight sample cities have booking links; every other city is an explicit placeholder. */
+   Eight sample cities have local transport and hotel-guide links; every other city is an explicit placeholder. */
 const GEO = window.GEO;
 const RULES = window.USA_RULES;
 const ON_ES=(location.pathname||'').indexOf('/es/')===0;
@@ -31,8 +31,6 @@ const TINY=["VT","NH","MA","RI","CT","NJ","DE","MD"];
 /* ---------- links ---------- */
 const TAG={aff:"Affiliate",off:"Official",srch:"Search",stub:"Stub"};
 function lk(ic,title,sub,href,tag){return `<a class="lk" href="${esc(href)}" target="_blank" rel="${tag==='aff'?'sponsored nofollow noopener':'noopener'}"><span class="ic" aria-hidden="true">${ic}</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:""}</span><span class="tag ${tag}">${TAG[tag]}</span></a>`}
-const expHotels=(q)=>`https://www.expedia.com/Hotel-Search?destination=${enc(q)}&amenities=PETS`;
-const bkgHotels=(q)=>`https://www.booking.com/searchresults.html?ss=${enc(q)}&nflt=hotelfacility%3D4`;
 const FED={
  cdc:["https://www.cdc.gov/importation/dogs/index.html","CDC: Bringing a dog into the US","Dog Import Form + rules for dogs arriving from abroad"],
  aphisIn:["https://www.aphis.usda.gov/pet-travel/another-country-to-us-import","USDA APHIS: Bring a pet into the US","Cats, dogs and other pets entering from another country"],
@@ -47,7 +45,7 @@ const RIDES=lk("🚗","Uber Pet","One pet per trip, surcharge in the upfront far
 const AMTRAK_NOTE="Amtrak: dogs and cats, 20 lb max incl. carrier, trips up to 7 hours, Coach (+Acela Business); reserve the pet spot.";
 /* ---------- 8 sample cities ---------- */
 const SAMPLE={
- "NY|New York City":{q:"New York, NY",amtrak:["nyp","New York Penn Station (NYP)"],guide:"/hotels/pet-friendly-hotels-new-york.html",exp:"https://expedia.com/affiliate/XuC5FQA",
+ "NY|New York City":{q:"New York, NY",amtrak:["nyp","New York Penn Station (NYP)"],guide:"/hotels/pet-friendly-hotels-new-york.html",
   taxi:[["🚕","NYC Taxi & Limousine Commission","Yellow/green cabs and for-hire rules","https://www.nyc.gov/site/tlc/index.page","off"]],
   transit:[["🚇","MTA: subway, buses, LIRR, Metro-North","Check MTA pet rule before riding","https://new.mta.info/","off"]],
   rail:[["🚆","NJ Transit","Trains to New Jersey / Newark Airport","https://www.njtransit.com/","off"]]},
@@ -59,7 +57,7 @@ const SAMPLE={
   taxi:[["🚕","City of Chicago: Taxis (BACP)","Licensed taxis & rideshare rules","https://www.chicago.gov/city/en/depts/bacp.html","off"]],
   transit:[["🚇","CTA","'L' trains and buses","https://www.transitchicago.com/","off"]],
   rail:[["🚆","Metra","Commuter rail to the suburbs","https://metra.com/","off"]]},
- "FL|Miami":{q:"Miami, FL",amtrak:["mia","Miami station (MIA)"],guide:"/hotels/pet-friendly-hotels-miami.html",exp:"https://expedia.com/affiliate/g3j20Y7",
+ "FL|Miami":{q:"Miami, FL",amtrak:["mia","Miami station (MIA)"],guide:"/hotels/pet-friendly-hotels-miami.html",
   taxi:[["🚕","Miami-Dade: for-hire vehicles","County-regulated taxis","https://www.miamidade.gov/global/transportation/home.page","off"]],
   transit:[["🚌","Miami-Dade Transit","Metrobus, Metrorail, Metromover","https://www.miamidade.gov/global/transportation/home.page","off"]],
   rail:[["🚄","Brightline","Miami ↔ Orlando (check its pet policy)","https://www.gobrightline.com/","off"],["🚆","Tri-Rail","South Florida commuter rail","https://www.tri-rail.com/","off"]]},
@@ -411,8 +409,7 @@ function roadSection(a,city){
  return s+`</section>`;
 }
 function airFedLinks(){
- return lk("✈️","Search flights on Expedia","Then add the pet with the airline","https://expedia.com/affiliate/jnsZjjX","aff")
-  +lk("🧳","Airline pet policies","Cabin, fees, hold","../#compare","off").replace("Official","Site").replace(' target="_blank"','')
+ return lk("🧳","Airline pet policies","Cabin, fees, hold","../#compare","off").replace("Official","Site").replace(' target="_blank"','')
   +lk("🇺🇸","PetPolicyCheck: USA pet travel guide","Full federal and state table (source for this map)",siteUrl("/countries/usa.html"),"off").replace("Official","Site")
   +fed("aphisAir")+fed("cdc","🐕")+fed("dot","🦮");
 }
@@ -445,7 +442,7 @@ function airportRoad(ap){
 }
 function groomSection(){return window.PPC_GROOM?PPC_GROOM.section(cur):""}
 function hotelSection(q,extra){
- return `<section class="sec" data-sec="4"><h3><span class="n">4</span>Hotel</h3><div class="links">${extra||""}${lk("🏨","Pet-friendly hotels on Expedia",q+" · pets-allowed filter",expHotels(q),"srch")}${lk("🛏","Pet-friendly stays on Booking.com",q+" · pets-allowed filter",bkgHotels(q),"srch")}${lk("📋","Hotel chains: pet fees & weight limits","PetPolicyCheck",siteUrl("/hotels/"),"off").replace('Official','Site')}</div><p class="disc">“Search” links are plain search URLs: swap for affiliate deep links before publish. “Affiliate” links may earn a commission at no extra cost to you.</p></section>`;
+ return `<section class="sec" data-sec="4"><h3><span class="n">4</span>Hotel</h3><div class="links">${extra||""}${lk("📋","Hotel chains: pet fees & weight limits","PetPolicyCheck",siteUrl("/hotels/"),"off").replace('Official','Site')}</div></section>`;
 }
 function render(html){const p=$("#panel");p.innerHTML=html;p.scrollTop=0;applyStep(false);
  p.querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
@@ -516,8 +513,6 @@ function cityHotelExtra(a,n){
  const S=SAMPLE[a+"|"+n]; if(!S) return "";
  let extra="";
  if(S.guide) extra+=lk("📍","PetPolicyCheck: pet-friendly hotels in "+n,"Chain rules, luxury hotels, dog parks",siteUrl(S.guide),"off").replace("Official","Site");
- if(S.exp) extra+=lk("🏨","See pet-friendly hotels on Expedia","Live affiliate link from the site",S.exp,"aff");
- extra+=lk("🐕","BringFido: pet-friendly places",S.q,`https://www.bringfido.com/lodging/?q=${enc(S.q)}`,"srch");
  return extra;
 }
 function selectCity(a,n){
@@ -525,7 +520,7 @@ function selectCity(a,n){
  const crumbs=`<p class="crumbs"><button data-state="${a}">← ${esc(st.name)}</button> · ${esc(n)}</p>`;
  const chips=airportChips(airportsFor(a,n), "Airports serving "+n);
  if(!S){
-  render(crumbs+header(a,n,`${esc(st.name)} · city`)+chips+`<div class="stubbox"><b>Placeholder:</b> the full city booking panel (local taxis, transit, stations, hotels) is built for 8 sample cities in this preview. State-level links shown below.</div>`+lawSection(a,true,n)+roadSection(a)+planeSection(a,n)+hotelSection(n+", "+a)+groomSection());
+  render(crumbs+header(a,n,`${esc(st.name)} · city`)+chips+`<div class="stubbox"><b>Placeholder:</b> the full city information panel (local taxis, transit, stations, hotels) is built for 8 sample cities in this preview. State-level links shown below.</div>`+lawSection(a,true,n)+roadSection(a)+planeSection(a,n)+hotelSection(n+", "+a)+groomSection());
   return;
  }
  const L=arr=>arr.map(x=>lk(...x)).join("");

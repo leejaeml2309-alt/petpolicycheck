@@ -187,8 +187,7 @@ def ensure_ga4_tree(out, cfg):
     return n
 
 
-TP_DRIVE = '<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">\n  (function () {\n      var script = document.createElement("script");\n      script.async = 1;\n      script.setAttribute("data-cmp-ab","2");\n      script.src = \'https://emrldtp.cc/NTg4ODAy.js?t=588802\';\n      document.head.appendChild(script);\n  })();\n</script>'
-
+TP_DRIVE = ''  # disabled 2026-11-10: no Travelpayouts/Emerald (Paddle AUP)
 
 LOGO = ('<svg class="logo" viewBox="0 0 40 40" width="38" height="38" aria-hidden="true" focusable="false">'
         '<circle cx="20" cy="20" r="19" fill="#1d4f55"/><circle cx="20" cy="20" r="16.4" fill="none" stroke="#d9b765" stroke-width=".9"/>'
@@ -199,7 +198,7 @@ LOGO = ('<svg class="logo" viewBox="0 0 40 40" width="38" height="38" aria-hidde
         '<path d="M0-5l1 .6v3l4 2.4v1l-4-1.1v2.5l1.3 1v.8L0 4.8l-2.3.4v-.8l1.3-1V.8l-4 1.1v-1l4-2.4v-3z" fill="#d9b765" transform="translate(29.6 13.4) rotate(32) scale(.62)"/></svg>')
 # Main nav: identical to the design-C home header (static/home-c.html). (href, label, i18n key, aria-current path prefixes)
 # "#..." hrefs point to sections of the home page. Airlines opens the dedicated policy index.
-NAV = [("?view=map", "World map", "site.nav.map", ()), ("book/", "Book", "site.nav.book", ("book/",)), ("airlines/", "Airlines", "site.nav.airlines", ("airlines/",)),
+NAV = [("?view=map", "World map", "site.nav.map", ()), ("airlines/", "Airlines", "site.nav.airlines", ("airlines/",)),
        ("countries/usa.html#federal", "Health certificate", "site.nav.health", ()),  # no dedicated page yet: USA federal rules (CDC/USDA) section, leads to the state CVI table
        ("airlines/compare/", "Compare", "site.nav.compare", ("airlines/compare/",)), ("products/", "Products", "site.nav.products", ("products/",)),
        ("#gear", "Guides", "site.nav.guides", ()), ("updates.html", "Updates", "site.nav.updates", ("updates.html",)),
@@ -423,12 +422,12 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
     return f"""<footer class="foot foot-compact">
 <div class="wrap cols">
 <div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p>{FB_SOC}</div>
-<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.foot.book", "Book your trip")}{li(root + "airlines/", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}{li(root + "routes/", "site.nav.guides", "Routes")}{li(root + "veterans/", "site.nav.pro", "Veterans")}{li(root + "fit/", "site.nav.compare", "Carrier fit")}</ul></div>
+<div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(root + "airlines/", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}{li(root + "routes/", "site.nav.guides", "Routes")}{li(root + "veterans/", "site.nav.pro", "Veterans")}{li(root + "fit/", "site.nav.compare", "Carrier fit")}</ul></div>
 <div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{li(root + "extension/", "site.foot.extension", "Chrome Extension")}{(li(root + "advertise/", "site.nav.advertise", "Advertise") if SHOW_ADS else "")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "terms.html", "site.foot.terms", "Terms")}{li(root + "refund-policy.html", "site.foot.refund", "Refund policy")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
 {band}
-<div class="wrap"><p class="disc"><span{ti("site.foot.aff", fi)}>Some links may be affiliate links; we may earn a commission at no extra cost to you. This never affects our data.</span> &copy; {dt.date.today().year} PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See <a href="{root}terms.html"{ti("site.foot.terms", fi)}>Terms</a>.</p></div></footer>"""
+<div class="wrap"><p class="disc"><span{ti("site.foot.aff", fi)}>As an Amazon Associate I earn from qualifying purchases.</span> &copy; {dt.date.today().year} PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See <a href="{root}terms.html"{ti("site.foot.terms", fi)}>Terms</a>.</p></div></footer>"""
 
 
 def css_version():
@@ -569,7 +568,6 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 <html lang="{e(cfg.get('language','en-US'))}">
 <head>
 <meta charset="utf-8">
-<meta name="impact-site-verification" value="60bdcaa0-2f59-492a-85f2-bf25a93a4644">
 {ads_head}
 <meta name="viewport" content="width=device-width,initial-scale=1">{chr(10) + '<meta name="robots" content="noindex,follow">' if noindex else ''}
 <title>{e(title)}</title>
@@ -858,13 +856,13 @@ def build_about(cfg):
 <h2>Disclaimer</h2>
 <p>Information may change at any time and may contain errors. It is provided for general guidance only and is not legal, veterinary or travel advice. <b>Always confirm with the airline before booking or travelling</b>, and check the government entry rules (e.g. CDC, USDA APHIS, CFIA, DEFRA) for every country on your route. We are not affiliated with any airline.</p>
 <h2 id="affiliates">Affiliate disclosure</h2>
-<p>Some pages may contain affiliate links (for example to pet carriers, pet insurance or hotel booking sites such as Expedia). If you buy through them we may earn a commission at no extra cost to you. Affiliate relationships never change the policy information we publish.</p>
+<p>Some product pages contain Amazon Associates links to items on Amazon.com. As an Amazon Associate I earn from qualifying purchases. We do not use other affiliate programs. That never changes the policy information we publish.</p>
 <p>{AMAZON_DISCLOSURE} Product pages may link to Amazon.com through the Amazon Associates Program.</p>
 <h2 id="affiliates-ads">How the site is funded</h2>
-<p>We do not currently show Google AdSense units on this site. Affiliate links are disclosed on the pages that use them and never change the policy information we publish. See our <a href="privacy.html">privacy policy</a>.</p>
+<p>We do not currently show Google AdSense units on this site. The only affiliate program we use is Amazon Associates, disclosed on the product pages that link to Amazon.com. See our <a href="privacy.html">privacy policy</a>.</p>
 <h2>Corrections</h2>
 <p>Spotted something out of date? Please tell us via our <a href="contact.html">contact page</a>.</p>"""
-    return page(cfg, f"About & disclaimer | {cfg['site_name']}", "How we verify airline pet policies, our disclaimer and affiliate disclosure.", body, "about.html", "")
+    return page(cfg, f"About & disclaimer | {cfg['site_name']}", "How we verify airline pet policies, our disclaimer and Amazon Associates disclosure.", body, "about.html", "")
 
 
 def obf_mail(addr):
@@ -920,11 +918,11 @@ def forum_privacy(cfg):
 def build_privacy(cfg):
     mail = obf_mail(cfg.get("privacy_email") or cfg["contact_email"])
     ga_on = bool(ga4_measurement_id(cfg))
-    services = "analytics and affiliate" if ga_on else "affiliate"
-    cookie_parties = "analytics and affiliate" if ga_on else "affiliate"
-    desc = ("Privacy policy for PetPolicyCheck: cookies, Google Analytics 4, Travelpayouts and affiliate links, and GitHub Pages hosting explained."
+    services = "analytics and, on some product pages, Amazon Associates" if ga_on else "Amazon Associates"
+    cookie_parties = "analytics service and Amazon Associates" if ga_on else "Amazon Associates"
+    desc = ("Privacy policy for PetPolicyCheck: cookies, Google Analytics 4, Amazon Associates links, and GitHub Pages hosting explained."
             if ga_on else
-            "Privacy policy for PetPolicyCheck: cookies, Travelpayouts and affiliate links, and GitHub Pages hosting explained.")
+            "Privacy policy for PetPolicyCheck: cookies, Amazon Associates links, and GitHub Pages hosting explained.")
     body = f"""<h1>Privacy policy</h1>
 <p class="small">Effective date: {EFFECTIVE} &middot; Last updated: {PRIVACY_UPDATED}</p>
 <p>{e(cfg['site_name'])} is a simple static website. This page explains, in plain English, what data is and isn't collected when you visit, including by the {services} services we use.</p>
@@ -936,10 +934,8 @@ def build_privacy(cfg):
 <h2>Google AdSense</h2>
 <p>We do not currently load Google AdSense on these pages, so AdSense cookies are not set from this site today. Our publisher account may still appear in ads.txt. If we show AdSense units again, Google and its vendors may use cookies to show ads based on prior visits. You can use <a href="https://adssettings.google.com" rel="noopener" target="_blank">Google Ads Settings</a> and <a href="https://www.aboutads.info" rel="noopener" target="_blank">www.aboutads.info</a>. If you use those controls, any future units would not be personalized.</p>
 <p>To learn more, see <a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">How Google uses information from sites or apps that use our services</a>.</p>
-<h2>Travelpayouts</h2>
-<p>Our pages load a script from Travelpayouts, an affiliate network for travel brands. It may turn links to travel partners (such as airlines, hotels or booking sites) into affiliate links, and Travelpayouts or its partners may use cookies or similar technology to record that a visit or booking came from our site, so we can be paid a commission. This is governed by the <a href="https://support.travelpayouts.com/hc/en-us/articles/360004121052-Privacy-Policy" rel="noopener" target="_blank">Travelpayouts privacy policy</a>.</p>
-<h2>Affiliate links and partner cookies</h2>
-<p>Some pages include affiliate links to partners, for example brands on the Impact network (such as Chewy, Trupanion or Lemonade), Amazon.com, Booking.com and Travelpayouts partners. If you buy through one, we may earn a commission at no extra cost to you. When you click an affiliate link, you leave our site and the partner (or its affiliate network) may set cookies or use similar technology to record that the visit came from us. Those cookies are governed by the partner's own privacy policy, not ours. We don't receive personal information about you from these partners, only aggregated sales or commission reports. Affiliate relationships never change the policy information we publish.</p>
+<h2>Amazon Associates</h2>
+<p>Some product pages include Amazon Associates links to Amazon.com. If you buy through one, we may earn a commission at no extra cost to you. When you click an Amazon Associates link, you leave our site and Amazon may set cookies or use similar technology to record that the visit came from us, under Amazon's own privacy notice. We don't receive personal information about you from Amazon, only aggregated sales or commission reports. This never changes the policy information we publish. We do not use other affiliate programs.</p>
 <p>{AMAZON_DISCLOSURE} {e(cfg['site_name'])} participates in the Amazon Services LLC Associates Program; Amazon may use cookies to record that a visit or purchase came from our links, under Amazon's own privacy notice.</p>
 {analytics_privacy(cfg)}
 <h2 id="paddle-billing">B2B Subscriptions &amp; Billing (Paddle.com — Merchant of Record)</h2>
@@ -1306,17 +1302,15 @@ def buy_links(cfg, p):
     out = []
     if slot.get("amazon_url"):
         out.append(f'<a class="btn" href="{e(amazon_tagged(cfg, slot["amazon_url"]))}" rel="sponsored nofollow noopener" target="_blank">View at Amazon</a>')
-    if slot.get("chewy_url"):
-        out.append(f'<a class="btn" href="{e(slot["chewy_url"])}" rel="sponsored nofollow noopener" target="_blank">View at Chewy</a>')
     if not out:
         out.append(f'<a class="btn" href="{e(p["official_url"])}" rel="noopener" target="_blank">View on the official {e(p["brand"])} site</a>')
     return '<p class="buy">' + " ".join(out) + "</p>"
 
 
 def disclosure(root):
-    return (f'<p class="disc small">Affiliate disclosure: some links on this page may be affiliate links; if you buy through them we may earn a commission at no extra cost to you. '
-            f'It never changes the dimensions or fit results shown. We have not tested these products ourselves: every figure comes from the linked manufacturer page. '
-            f'{AMAZON_DISCLOSURE} <a href="{root}about.html#affiliates">Disclosure</a>.</p>')
+    return (f'<p class="disc small">{AMAZON_DISCLOSURE} Product links to Amazon.com may earn a commission at no extra cost to you. '
+            f'That never changes the dimensions or fit results shown. We have not tested these products ourselves: every figure comes from the linked manufacturer page. '
+            f'<a href="{root}about.html#affiliates">Disclosure</a>.</p>')
 
 
 def verified_p(p, v, root):
@@ -1700,31 +1694,15 @@ def airline_gear_box(cfg, a, pd, lims):
     nofit = "" if any(p["category"] in ("soft_carrier", "backpack") for p, _, _ in items) or a.get("in_cabin_allowed") is False else \
         f"<p class='small'>No cabin carrier size is confirmed for {e(a['name'])} on this page, so we only suggest general travel items here.</p>"
     return (f'<aside class="reco gear"><h2>Gear that fits this airline</h2>{nofit}<ul class="gear-list">{"".join(li)}</ul>'
-            f'<p class="small disc">Affiliate links: we may earn a commission at no extra cost to you. {AMAZON_DISCLOSURE} '
+            f'<p class="small disc">{AMAZON_DISCLOSURE} '
             + ('Fit is based on manufacturer dimensions vs. the limits above, not a guarantee. ' if any(p["category"] in ("soft_carrier", "backpack") for p, _, _ in items) else '')
             + f'Prices aren&rsquo;t shown because they change often. '
             f'<a href="../about.html#affiliates">Disclosure</a>.</p></aside>')
 
 
 def flight_box(cfg, a):
-    """'Book this flight' box from config.json flight_affiliates [{label, url_template, note}]; entries with an empty
-    url_template are skipped, and the whole box is hidden when none is set. {airline} / {iata} are URL-encoded."""
-    btns, notes = [], []
-    for f in cfg.get("flight_affiliates") or []:
-        t = (f.get("url_template") or "").strip()
-        if not t or not f.get("label"):
-            continue
-        url = t.replace("{airline}", urllib.parse.quote(a["name"])).replace("{iata}", urllib.parse.quote(a.get("iata") or ""))
-        btns.append(f'<a class="btn" href="{e(url)}" rel="sponsored nofollow noopener" target="_blank">{e(f["label"])}</a>')
-        if f.get("note"):
-            notes.append(e(f["note"]))
-    if not btns:
-        return ""
-    return (f'<aside class="reco flights"><h2>Book a pet-friendly flight</h2>'
-            f'<p>Compare fares on {e(a["name"])} and other airlines, then arrange your pet&rsquo;s place directly with the airline (see the rules above): pet space is limited per flight.</p>'
-            f'<p class="buy">{" ".join(btns)}</p>{"".join(f"<p class=small>{n}</p>" for n in notes)}'
-            f'<p class="small disc">Affiliate link: we may earn a commission at no extra cost to you. <a href="../about.html#affiliates">Disclosure</a>.</p></aside>')
-
+    """Disabled 2026-11-10: no travel-booking affiliate boxes (Paddle AUP)."""
+    return ""
 
 def build_advertise(cfg):
     mail = obf_mail(cfg["contact_email"])
@@ -1836,7 +1814,7 @@ BOOK_CSS = """<style>
 
 
 BOOK_HOME_CSS = """<style>
-.book-home .bh-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.book-home .bh-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;align-items:stretch}
 .book-home .book-g{border:1px solid var(--line);border-top:3px solid var(--acc);border-radius:var(--r-m);padding:18px 18px 14px;background:var(--paper);box-shadow:var(--shadow-s);display:flex;flex-direction:column}
 .book-home .book-g h3{font-size:.82rem;margin:0 0 10px}
 .book-home .book-g h3 svg{width:1.15em;height:1.15em;fill:var(--acc);vertical-align:-0.2em;margin-right:0.4em}
@@ -1854,14 +1832,8 @@ BOOK_HOME_CSS = """<style>
 
 
 def flight_aff_buttons(cfg, dest=None):
-    """Sponsored flight search buttons from config.json flight_affiliates (shared by booking_block, /book/ and the route pages).
-    dest ('south-korea', 'japan') picks the entry's dest_urls[dest] so route pages search that country, not a generic/US page."""
-    btns = []
-    for f in cfg.get("flight_affiliates") or []:
-        u = ((f.get("dest_urls") or {}).get(dest) or f.get("url_template") or "").strip()
-        if u and f.get("label") and "{" not in u:
-            btns.append(f'<a class="btn" href="{e(u)}" rel="sponsored nofollow noopener" target="_blank">{e(f["label"])}</a>')
-    return btns
+    """Disabled 2026-11-10: no travel-booking affiliate buttons (Paddle AUP)."""
+    return []
 
 
 FLIGHT_DISC = 'Affiliate links: we may earn a commission at no extra cost to you. <a href="{root}about.html#affiliates">Disclosure</a>.'
@@ -1953,12 +1925,12 @@ def booking_block(cfg, root, full=False, home=False):
                 f'<p class="book-disc">{e(rs["service_animals_note"])} Official pages checked {chk}; no affiliate links. <a href="{root}countries/usa.html#book">Details</a>.</p></div>')
     if home:
         return ('<section class="blk wrap book-home" id="plan-trip" aria-labelledby="plan-trip-h">'
-                '<h2 id="plan-trip-h">Plan and book your whole pet trip in one place</h2>'
-                '<p class="sub">Flights, pet-friendly hotels and airport rides with your dog or cat: everything ready before you go.</p>'
+                '<h2 id="plan-trip-h">Pet-friendly hotels and airport rides</h2>'
+                '<p class="sub">Hotel pet rules by city, and airport-to-hotel rides with your dog or cat.</p>'
                 f'<div class="bh-grid">{ride}{fl}{ho}</div></section>')
     h = "h2" if full else "h3"
-    lede = "Flights, pet-friendly hotels by city, and a ride from the airport with your pet." if full else "Flights, hotels by city and pet-friendly rides."
-    return f'<section class="book" id="book" aria-labelledby="book-h"><{h} id="book-h">Book your trip</{h}><p class="book-lede">{lede}</p>{fl}{ho}{ride}</section>'
+    lede = "Hotel pet rules by city, and a ride from the airport with your pet." if full else "Hotel pet rules by city, and airport-to-hotel rides."
+    return f'<section class="book" id="book" aria-labelledby="book-h"><{h} id="book-h">Pet-friendly hotels and airport rides</{h}><p class="book-lede">{lede}</p>{fl}{ho}{ride}</section>'
 
 
 CHECKLIST_PDF = "downloads/pet-travel-checklist-usa.pdf"
@@ -2189,10 +2161,6 @@ def build_route_usa_japan(cfg, airlines):
                     f'<p class="ht-foot"><a href="{e(h["url"])}" rel="noopener" target="_blank">Pet policy (official site) &#8599;</a></p></article>')
         def jp_city(c):
             srch = ""
-            if trk and c.get("search"):
-                u = f'https://www.expedia.com/Hotel-Search?destination={_q(c["search"])}&amenities=PETS&{trk}'
-                srch = (f'<p class="buy jp-hs"><a class="btn" href="{e(u)}" rel="sponsored noopener" target="_blank">'
-                        f'Search pet-friendly hotels in {e(c["city"])} on Expedia &#8599;</a></p>')
             return (f'<h3 id="hotels-{e(c["city"].lower())}">{e(c["city"])}</h3>{srch}'
                     f'<div class="kr-ht">{"".join(jp_card(h) for h in c["hotels"])}</div>')
         jchk = f'<time datetime="{e(jh["checked"])}">{nice_date(jh["checked"])}</time>'
@@ -2201,9 +2169,7 @@ def build_route_usa_japan(cfg, airlines):
                      + f'<p class="warn usa-warn">Policies checked {jchk} on each hotel&rsquo;s official site; confirm with the hotel before booking. Fees are in Japanese yen. '
                      f'Where a card says &ldquo;confirm with hotel&rdquo;, the official page is unclear or its pages disagree.</p>'
                      + "".join(jp_city(c) for c in jh["cities"])
-                     + f'<p class="small">Each card links to the hotel&rsquo;s own pet policy or pet plan page. The Expedia buttons open a hotel search for that city with Expedia&rsquo;s pet-friendly filter; '
-                     f'pet rules on booking sites can be incomplete, so book the pet room or plan with the hotel. Affiliate links: we may earn a commission at no extra cost to you. '
-                     f'<a href="{root}about.html#affiliates">Disclosure</a>.</p>')
+                     + f'<p class="small">Each card links to the hotel&rsquo;s own pet policy or pet plan page.</p>')
     gl = "".join(f"<li><a href='{root}products/{g}.html'>{e(t)}</a></li>" for g, (t, _) in GUIDE_META.items() if g != "dog-road-trip-packing-list")
     css = """<style>
 .usa-quick{background:var(--sage-l);border:0;border-left:4px solid var(--sage);border-radius:10px;padding:14px 18px}
@@ -2326,7 +2292,7 @@ def build_route_usa_korea(cfg, airlines):
         trs = "".join(f"<tr><th>{k}</th><td>{e(h[f])}</td></tr>" for k, f in
                       (("Species", "species"), ("Weight limit", "weight"), ("Max pets", "pets"), ("Fee", "fee"), ("Conditions", "conditions")))
         return (f'<article class="ht-card"><h4>{e(h["name"])}</h4><p class="ht-sub">{e(h["area"])}</p><table>{trs}</table>'
-                f'<p class="ht-foot"><a href="{e(h["url"])}" rel="noopener" target="_blank">Pet policy &amp; booking &#8599;</a></p></article>')
+                f'<p class="ht-foot"><a href="{e(h["url"])}" rel="noopener" target="_blank">Pet policy (official site) &#8599;</a></p></article>')
     kr_hotels = (f'<h2 id="hotels">Pet-friendly hotels in South Korea</h2>'
                  + "".join(f"<p>{e(t)}</p>" for t in kh["intro"])
                  + f'<p class="warn usa-warn">Policies checked {hchk}; confirm with the hotel before booking. Fees in Korean won with approximate US dollars '
@@ -2457,19 +2423,8 @@ def hotel_aff_url(cfg, c):
 
 
 def hotel_aff_box(cfg, c):
-    """Expedia box for one city. Tracked URL comes from config.json hotel_affiliates.expedia.links[slug] (dashboard-generated);
-    empty -> clearly marked placeholder (never a guessed tracking URL)."""
-    ex, url = hotel_aff_url(cfg, c)
-    disc = ('<p class="small disc">Affiliate disclosure: this is an affiliate link. If you book through it we may earn a commission at no extra cost to you. '
-            'It never changes the pet rules we publish. <a href="{root}about.html#affiliates">Disclosure</a>.</p>')
-    head = (f'<aside class="reco flights" id="book"><h2>Find a pet-friendly hotel in {e(c["name"])}</h2>'
-            f'<p>Search hotels in {e(c["short"])} with the pet-friendly filter on, then check the hotel&rsquo;s own pet policy (fee, weight, number of pets) before you pay.</p>')
-    if url:
-        return head + f'<p class="buy"><a class="btn" href="{e(url)}" rel="sponsored nofollow noopener" target="_blank">{e(ex.get("label") or "See pet-friendly hotels on Expedia")}</a></p>' + disc + "</aside>"
-    # No tracked link yet: plain Expedia search with the pet-friendly filter (untracked; swapped for a tracked link later).
-    print(f"  NOTE: hotels/{c['slug']}: no tracked Expedia link yet -> plain expedia_target link")
-    return head + f'<p class="buy"><a class="btn" href="{e(c["expedia_target"])}" rel="nofollow noopener" target="_blank">{e(ex.get("label") or "See pet-friendly hotels on Expedia")}</a></p>' + "</aside>"
-
+    """Disabled 2026-11-10: no hotel-booking affiliate boxes (Paddle AUP)."""
+    return ""
 
 def hotel_city_links(ci, root, skip=None):
     return "".join(f'<a href="{root}hotels/pet-friendly-hotels-{e(x["slug"])}.html"><b>{e(x["name"])}</b>Pet-friendly hotel rules and local tips</a>'
@@ -2477,21 +2432,8 @@ def hotel_city_links(ci, root, skip=None):
 
 
 def hotel_lux_link(cfg, h, city=None):
-    """Booking button for one luxury hotel. Tracked URL from config.json hotel_affiliates.expedia.hotel_links[id]
-    (made in the Expedia Creator dashboard); empty -> plain untracked link to expedia_target (never a placeholder).
-    If expedia_target is null and expedia_is_property is false, fall back to the city expedia_target search."""
-    ex = (cfg.get("hotel_affiliates") or {}).get("expedia") or {}
-    url = ((ex.get("hotel_links") or {}).get(h["id"]) or "").strip()
-    is_prop = h.get("expedia_is_property", True)
-    label = "Check rates on Expedia" if is_prop else "Search this hotel on Expedia"
-    if url:
-        return f'<a class="btn" href="{e(url)}" rel="sponsored nofollow noopener" target="_blank">{label}</a>', True
-    target = h.get("expedia_target") or ((city or {}).get("expedia_target") if city else None)
-    if not target:
-        raise SystemExit(f"luxury {h.get('id')}: missing expedia_target and no city fallback")
-    print(f"  NOTE: luxury {h['id']}: no tracked Expedia link yet -> plain expedia_target link")
-    return f'<a class="btn" href="{e(target)}" rel="nofollow noopener" target="_blank">{label}</a>', False
-
+    """Disabled 2026-11-10: no Expedia rate buttons (Paddle AUP). Official pet-policy links stay on the card."""
+    return "", False
 
 def hotel_lux_section(cfg, c):
     lux = c.get("luxury") or []
@@ -2813,94 +2755,22 @@ BOOK_PAGE_CSS = """<style>
 
 
 def build_book(cfg, airlines):
-    """/book/: one page for every booking a pet trip needs (flights, hotels, airport rides, vets, insurance).
-    Everything comes from existing data: config.json flight_affiliates / hotel_affiliates, data/hotels/us-cities.json,
-    data/rideshare/us.json, data/partner_vets.json (clinics only once they accepted; official tools meanwhile)
-    and data/insurance/us-pet-insurers.json. No clinic, ride or booking link is invented here."""
-    root = "../"
-    ext = lambda u, t: f'<a href="{e(u)}" rel="noopener" target="_blank">{t} &#8599;</a>'
-    rs = json.loads((ROOT / "data" / "rideshare" / "us.json").read_text())
-    pv = json.loads((ROOT / "data" / "partner_vets.json").read_text())
-    _, ci = hotels_data()
-    ins = load_insurers()
-    # flights
-    btns = flight_aff_buttons(cfg)
-    al = "".join(f'<li><a href="{root}airlines/{e(a["slug"])}.html">{e(a["name"])}</a></li>' for a in airlines)
-    flights = f"""<section class="bk-sec" id="flights" aria-labelledby="flights-h"><span class="bk-k">Step 1</span><h2 id="flights-h">Flights</h2>
-<p>Compare fares, then book your pet&rsquo;s spot directly with the airline: in-cabin pet space is limited per flight, so call or add the pet right after you buy the ticket. Check the airline&rsquo;s pet policy and carrier size first.</p>
-<div class="bk-grid two"><div class="bk-card"><h3>Search flights</h3>{'<p class="book-btns">' + "".join(btns) + '</p>' if btns else '<p>Flight search links coming soon.</p>'}
-<p class="book-disc">{FLIGHT_DISC.replace("{root}", root)}</p></div>
-<div class="bk-card"><h3>Airline pet policies</h3><p>Fees, cabin and hold rules, each checked against the airline&rsquo;s official page:</p>
-<ul class="book-cities">{al}</ul>
-<p><a href="{root}#compare">Compare airlines side by side</a> &middot; <a href="{root}products/under-seat-carrier-size-by-airline.html">Under-seat carrier sizes by airline</a></p></div></div></section>"""
-    # hotels
-    cards, tracked = [], False
-    for c in ci["cities"]:
-        ex, url = hotel_aff_url(cfg, c)
-        label = e(ex.get("label") or "See pet-friendly hotels on Expedia")
-        tracked = tracked or bool(url)
-        btn = (f'<a class="btn" href="{e(url)}" rel="sponsored nofollow noopener" target="_blank">{label}</a>' if url
-               else f'<a class="btn" href="{e(c["expedia_target"])}" rel="nofollow noopener" target="_blank">{label}</a>')
-        nlux = len(c.get("luxury") or [])
-        lux = f'<li><a href="{root}hotels/pet-friendly-hotels-{e(c["slug"])}.html#luxury">{nlux} luxury hotels and their own pet rules</a></li>' if nlux else ""
-        cards.append(f'<div class="bk-card"><h3>{e(c["name"])}</h3>' + (f'<p class="small">{e(c["short"])}</p>' if c["short"] != c["name"] else "") +
-                     f'<ul><li><a href="{root}hotels/pet-friendly-hotels-{e(c["slug"])}.html">City guide: chain pet fees, weight limits, airport relief areas, dog parks</a></li>{lux}</ul>'
-                     f'<p class="book-btns">{btn}</p></div>')
-    hotels = f"""<section class="bk-sec" id="hotels" aria-labelledby="hotels-h"><span class="bk-k">Step 2</span><h2 id="hotels-h">Pet-friendly hotels</h2>
-<p>Pick a city for each chain&rsquo;s pet fee, weight limit and number of pets (read on the official sites), luxury hotels&rsquo; own pet policies and local tips. The Expedia buttons open a search with the pet-friendly filter on: always check the hotel&rsquo;s own pet policy before you pay.</p>
-<div class="bk-grid">{''.join(cards)}</div>
-<p><a href="{root}hotels/"><b>All US hotel chains: pet fees &amp; weight limits</b></a> &middot; <a href="{root}hotels/#luxury">Luxury brands&rsquo; pet rules</a></p>
-<p class="small">More cities are being added gradually. Policies checked <time datetime="{ci["checked"]}">{nice_date(ci["checked"])}</time>.</p></section>"""
-    # rides
-    chk = f'<time datetime="{rs["checked"]}">{nice_date(rs["checked"])}</time>'
-    svc = ""
-    for s in rs["services"]:
-        dl = "".join(f'<dt>{e(k)}</dt><dd>{e(v)}</dd>' for k, v, _ in s["facts"])
-        srcs = " &middot; ".join(ext(u, e(t)) for t, u in s["sources"].values())
-        svc += f'<div class="bk-card bk-ride"><h3>{e(s["name"])}</h3><dl>{dl}</dl><p class="book-disc">Official source: {srcs}</p></div>'
-    rob = "".join(f'<li><b>{e(r["name"])}:</b> {e(r["rule"])} {ext(r["src"][1], e(r["src"][0]))}</li>' for r in rs["robotaxis"])
-    rides = f"""<section class="bk-sec" id="rides" aria-labelledby="rides-h"><span class="bk-k">Step 3</span><h2 id="rides-h">Taxis &amp; airport rides with your pet</h2>
-<p>From the airport to your hotel: request a pet ride in the Uber or Lyft app (US). Rules below are from their official help pages; there are no affiliate links in this section.</p>
-<div class="bk-grid two">{svc}</div>
-<h3>Robotaxis: service animals only</h3><ul class="book-ride">{rob}</ul>
-<p class="book-disc">{e(rs["service_animals_note"])} Checked on the official Uber, Lyft, Waymo, Zoox and Tesla pages on {chk}; fees and availability change, so check the app before you ride.</p></section>"""
-    # vets
-    clinics = pv.get("clinics") or []
-    if clinics:
-        places = sorted({f'{c["city"]}, {c["country"]}' for c in clinics})
-        partner = (f'<p><b>{len(clinics)} partner clinic{"s" if len(clinics) != 1 else ""}</b> ({e("; ".join(places))}) help with travel paperwork. '
-                   f'<a href="{root}partner-vets/">See partner clinics and how to contact them</a>.</p>')
-    else:
-        partner = (f'<div class="bk-empty"><p><b>Partner clinics coming soon.</b> We only list veterinary clinics that have agreed to be listed, '
-                   f'and none has confirmed yet. They will appear here and on <a href="{root}partner-vets/">Partner vets</a> by country and city as soon as they confirm. '
-                   f'Until then, use the official tools below to find a vet who can sign your pet&rsquo;s health certificate.</p></div>')
-    tchk = pv.get("tools_checked")
-    tools = "".join(f'<li>{ext(t["url"], e(t["label"]))}<br>{e(t["text"])}</li>' for t in pv.get("official_tools") or [])
-    vets = f"""<section class="bk-sec" id="vets" aria-labelledby="vets-h"><span class="bk-k">Before you fly</span><h2 id="vets-h">Vet clinics &amp; health certificates</h2>
-<p>Flying abroad, or to some states, usually means a health certificate, up-to-date rabies vaccination and sometimes a microchip, tests or a permit, all within strict time windows. In the US, a <b>USDA-accredited veterinarian</b> issues the certificate and USDA APHIS endorses it for international travel. Book that vet visit early.</p>
-{partner}
-<h3>Find an accredited vet: official tools</h3><ul class="bk-tools">{tools}</ul>
-{f'<p class="book-disc">Official USDA pages checked <time datetime="{tchk}">{nice_date(tchk)}</time>. We do not book vet appointments and are not paid for referrals.</p>' if tchk else ''}
-<h3>Paperwork by destination</h3><ul class="bk-links">
-<li><a href="{root}countries/usa.html">Pet travel rules for the USA</a>: federal rules and each state&rsquo;s health certificate and rabies rules.</li>
-<li><a href="{root}routes/usa-to-japan.html">USA to Japan</a>: the Japan health certificate (Form AC) completed by a USDA-accredited vet, microchip, rabies titer test and the 180-day wait.</li>
-<li><a href="{root}routes/usa-to-south-korea.html">USA to South Korea</a>: ISO microchip, rabies vaccination, a rabies antibody (FAVN) test and a health certificate endorsed by USDA APHIS within 30 days of export.</li>
-<li><a href="{root}partner-vets/">Are you a vet? List your clinic</a> (free listing).</li></ul></section>"""
-    # insurance
-    insurance = f"""<section class="bk-sec" id="insurance" aria-labelledby="ins-h"><span class="bk-k">Peace of mind</span><h2 id="ins-h">Pet insurance for the trip</h2>
-<div class="bk-card"><p>Will your pet&rsquo;s insurance pay for an emergency vet away from home? We compared what {len(ins["insurers"])} US insurers say about coverage in the US, Canada and abroad, waiting periods and reimbursement.</p>
-<p><a href="{root}{INS_SLUG}"><b>Pet insurance for travelers: coverage compared</b></a> &rsaquo;</p></div></section>"""
-    body = f"""{BOOK_CSS}{BOOK_PAGE_CSS}<nav class="crumbs"><a href="{root}index.html">Home</a> &rsaquo; Book your trip</nav>
-<h1>Book your pet trip: flights, hotels, airport rides &amp; vets</h1>
-<p class="lead bk-lead">Everything to book for a trip with your dog or cat, in one place: flights, pet-friendly hotels, a taxi or rideshare from the airport, the vet visit for the health certificate, and travel insurance. Every rule is from the official source and dated.</p>
-<nav aria-label="On this page"><ul class="bk-jump"><li><a href="#flights">&#9992; Flights</a></li><li><a href="#hotels">&#127976; Hotels</a></li><li><a href="#rides">&#128661; Rides</a></li><li><a href="#vets">&#129658; Vets</a></li><li><a href="#insurance">&#128737; Insurance</a></li></ul></nav>
-{flights}{hotels}{rides}{vets}{insurance}
-<p class="note bk-disc"><b>Affiliate disclosure:</b> some links on this page ({"the flight search and Expedia hotel buttons" if tracked else "the flight search buttons"}) are affiliate links. If you book through them we may earn a commission at no extra cost to you. It never changes the pet rules we publish. Ride, vet and insurance links go to the official sites with no affiliate. <a href="{root}about.html#affiliates">Disclosure</a>. Always confirm pet rules with the airline, hotel or service before you book.</p>"""
-    return page(cfg, f"Book your pet trip: flights, hotels, airport rides & vets | {cfg['site_name']}",
-                "Book a trip with your dog or cat in one place: flights, pet-friendly hotels in Orlando, New York, Miami, Los Angeles, Chicago, Austin, Detroit and Houston, Uber Pet and Lyft Pet airport rides, USDA-accredited vets for health certificates, and pet travel insurance.",
-                body, "book/", root, jsonld=[bc_ld(cfg, [("Home", ""), ("Book your trip", "book/")])])
-
-
+    """/book/ is a noindex redirect to /hotels/. Kept so old URLs do not 404."""
+    return """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="refresh" content="0; url=../hotels/">
+<link rel="canonical" href="https://petpolicycheck.com/hotels/">
+<title>Redirecting to pet-friendly hotel information</title>
+<script>location.replace("../hotels/");</script>
+</head>
+<body>
+<p><a href="../hotels/">Continue to pet-friendly hotel information</a></p>
+</body>
+</html>
+"""
 
 def build_grooming(cfg):
     """Verified pet grooming for travelers and local expats (dogs & cats)."""
@@ -3583,8 +3453,6 @@ def main():
     urls.append((f"{base}/hotels/", hci["checked"]))
     urls += [(f"{base}/hotels/pet-friendly-hotels-{c['slug']}.html", hci["checked"]) for c in hci["cities"]]
     urls.append((f"{base}/{INS_SLUG}", load_insurers()["checked"]))
-    urls.append((f"{base}/book/", max(hci["checked"], json.loads((ROOT / "data" / "rideshare" / "us.json").read_text())["checked"],
-                                      json.loads((ROOT / "data" / "partner_vets.json").read_text()).get("tools_checked") or "", load_insurers()["checked"])))
     urls.append((f"{base}/pet-travel-checklist/", "2026-10-24"))
     urls.append((f"{base}/clinics/usa.html", "2026-10-25"))
     urls.append((f"{base}/pro/", "2026-11-06"))

@@ -1,0 +1,381 @@
+{
+  "pages": [
+    {
+      "name": "home",
+      "path": "/",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/",
+      "empty": [],
+      "shot": "/workspace/notravel-preview-20261110/qa/notravel/after-home-desktop.png",
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "home",
+      "path": "/",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/",
+      "empty": [],
+      "shot": "/workspace/notravel-preview-20261110/qa/notravel/after-home-mobile.png",
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "es-home",
+      "path": "/es/",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/es/",
+      "empty": [],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "es-home",
+      "path": "/es/",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/es/",
+      "empty": [],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "usa",
+      "path": "/countries/usa.html",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/countries/usa.html",
+      "empty": [
+        {
+          "tag": "IMG",
+          "cls": "",
+          "h": 83,
+          "w": 64
+        }
+      ],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "usa",
+      "path": "/countries/usa.html",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/countries/usa.html",
+      "empty": [
+        {
+          "tag": "IMG",
+          "cls": "",
+          "h": 62,
+          "w": 48
+        }
+      ],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "france",
+      "path": "/countries/france.html",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/countries/france.html",
+      "empty": [],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "france",
+      "path": "/countries/france.html",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/countries/france.html",
+      "empty": [],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "united",
+      "path": "/airlines/united.html",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/airlines/united.html",
+      "empty": [],
+      "shot": "/workspace/notravel-preview-20261110/qa/notravel/after-united-desktop.png",
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "united",
+      "path": "/airlines/united.html",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/airlines/united.html",
+      "empty": [],
+      "shot": "/workspace/notravel-preview-20261110/qa/notravel/after-united-mobile.png",
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "hotels-list",
+      "path": "/hotels/",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/hotels/",
+      "empty": [],
+      "shot": "/workspace/notravel-preview-20261110/qa/notravel/after-hotels-list-desktop.png",
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "hotels-list",
+      "path": "/hotels/",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/hotels/",
+      "empty": [],
+      "shot": "/workspace/notravel-preview-20261110/qa/notravel/after-hotels-list-mobile.png",
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "hotel-austin",
+      "path": "/hotels/pet-friendly-hotels-austin.html",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/hotels/pet-friendly-hotels-austin.html",
+      "empty": [],
+      "shot": "/workspace/notravel-preview-20261110/qa/notravel/after-hotel-austin-desktop.png",
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "hotel-austin",
+      "path": "/hotels/pet-friendly-hotels-austin.html",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/hotels/pet-friendly-hotels-austin.html",
+      "empty": [],
+      "shot": "/workspace/notravel-preview-20261110/qa/notravel/after-hotel-austin-mobile.png",
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "es-hotel-austin",
+      "path": "/es/hotels/pet-friendly-hotels-austin.html",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/es/hotels/pet-friendly-hotels-austin.html",
+      "empty": [],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "es-hotel-austin",
+      "path": "/es/hotels/pet-friendly-hotels-austin.html",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/es/hotels/pet-friendly-hotels-austin.html",
+      "empty": [],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "book",
+      "path": "/book/",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/hotels/",
+      "empty": [],
+      "shot": "/workspace/notravel-preview-20261110/qa/notravel/after-book-desktop.png",
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "book",
+      "path": "/book/",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/hotels/",
+      "empty": [],
+      "shot": "/workspace/notravel-preview-20261110/qa/notravel/after-book-mobile.png",
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "route-japan",
+      "path": "/routes/usa-to-japan.html",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/routes/usa-to-japan.html",
+      "empty": [],
+      "shot": "/workspace/notravel-preview-20261110/qa/notravel/after-route-japan-desktop.png",
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "route-japan",
+      "path": "/routes/usa-to-japan.html",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/routes/usa-to-japan.html",
+      "empty": [],
+      "shot": "/workspace/notravel-preview-20261110/qa/notravel/after-route-japan-mobile.png",
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "routes-index",
+      "path": "/routes/",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/routes/",
+      "empty": [],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "routes-index",
+      "path": "/routes/",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/routes/",
+      "empty": [],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "passport",
+      "path": "/passport/",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/passport/",
+      "empty": [
+        {
+          "tag": "INPUT",
+          "cls": "",
+          "h": 41,
+          "w": 161
+        },
+        {
+          "tag": "INPUT",
+          "cls": "",
+          "h": 41,
+          "w": 161
+        }
+      ],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "passport",
+      "path": "/passport/",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/passport/",
+      "empty": [
+        {
+          "tag": "INPUT",
+          "cls": "",
+          "h": 41,
+          "w": 160
+        },
+        {
+          "tag": "INPUT",
+          "cls": "",
+          "h": 41,
+          "w": 160
+        }
+      ],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "pro",
+      "path": "/pro/",
+      "vp": "desktop",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/pro/",
+      "empty": [],
+      "console_errors": [],
+      "404s": []
+    },
+    {
+      "name": "pro",
+      "path": "/pro/",
+      "vp": "mobile",
+      "status": 200,
+      "final_url": "http://127.0.0.1:8812/pro/",
+      "empty": [],
+      "console_errors": [],
+      "404s": []
+    }
+  ],
+  "console_errors": [],
+  "internal_404s": [],
+  "empty_over_40": [
+    {
+      "page": "usa",
+      "vp": "desktop",
+      "items": [
+        {
+          "tag": "IMG",
+          "cls": "",
+          "h": 83,
+          "w": 64
+        }
+      ]
+    },
+    {
+      "page": "usa",
+      "vp": "mobile",
+      "items": [
+        {
+          "tag": "IMG",
+          "cls": "",
+          "h": 62,
+          "w": 48
+        }
+      ]
+    },
+    {
+      "page": "passport",
+      "vp": "desktop",
+      "items": [
+        {
+          "tag": "INPUT",
+          "cls": "",
+          "h": 41,
+          "w": 161
+        },
+        {
+          "tag": "INPUT",
+          "cls": "",
+          "h": 41,
+          "w": 161
+        }
+      ]
+    },
+    {
+      "page": "passport",
+      "vp": "mobile",
+      "items": [
+        {
+          "tag": "INPUT",
+          "cls": "",
+          "h": 41,
+          "w": 160
+        },
+        {
+          "tag": "INPUT",
+          "cls": "",
+          "h": 41,
+          "w": 160
+        }
+      ]
+    }
+  ],
+  "ok": false
+}

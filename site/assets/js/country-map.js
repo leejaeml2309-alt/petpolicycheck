@@ -16,8 +16,6 @@ function lk(ic,title,sub,href,tag){
   if(!href) return `<span class="lk soon"><span class="ic" aria-hidden="true">${ic}</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:''}</span><span class="tag soon">${TAG.stub}</span></span>`;
   return `<a class="lk" href="${esc(href)}" target="_blank" rel="${tag==='aff'?'sponsored nofollow noopener':'noopener'}"><span class="ic" aria-hidden="true">${ic}</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:''}</span><span class="tag ${tag}">${TAG[tag]||TAG.off}</span></a>`;
 }
-const expHotels = q => `https://www.expedia.com/Hotel-Search?destination=${enc(q)}&amenities=PETS`;
-const bkgHotels = q => `https://www.booking.com/searchresults.html?ss=${enc(q)}&nflt=hotelfacility%3D4`;
 function honest(v, fallback){
   if(v==null || v==='' || v===false) return fallback || 'Not published on official page — confirm directly';
   return v;
@@ -321,10 +319,7 @@ function hotelSection(a, qCity){
     s += `<h4>Hotel chains</h4><div class="links">` +
       DATA.hotels.chains.map(c => lk('🏨', c.chain, c.policy, c.url, 'off')).join('') + `</div>`;
   }
-  const hubs = hubForRegion(a);
-  const q = qCity || (hubs[0] && hubs[0].hotel_q ? hubs[0].hotel_q : ((GEO[a]?GEO[a].name:a)+' pet friendly hotels'));
-  s += `<div class="links">${lk('🏨','Pet-friendly hotels on Expedia', q, expHotels(q),'srch')}${lk('🛏','Pet-friendly stays on Booking.com', q, bkgHotels(q),'srch')}</div>`;
-  s += `<p class="disc">Search links are plain search URLs. Confirm the property&rsquo;s pet fee and weight limit before you book.</p></section>`;
+  s += `<p class="disc">Confirm the property&rsquo;s pet fee and weight limit with the hotel before you stay.</p></section>`;
   return s;
 }
 function groomSection(a){
