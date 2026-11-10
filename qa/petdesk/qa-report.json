@@ -1,0 +1,41 @@
+{
+  "consoleErrors": [],
+  "status404": [],
+  "shots": [
+    "/workspace/petdesk-preview-20261110/qa/petdesk/terms-desktop.png",
+    "/workspace/petdesk-preview-20261110/qa/petdesk/refund-desktop.png",
+    "/workspace/petdesk-preview-20261110/qa/petdesk/privacy-desktop.png",
+    "/workspace/petdesk-preview-20261110/qa/petdesk/pro-desktop.png",
+    "/workspace/petdesk-preview-20261110/qa/petdesk/hotel-ny-desktop.png",
+    "/workspace/petdesk-preview-20261110/qa/petdesk/country-canada-desktop.png",
+    "/workspace/petdesk-preview-20261110/qa/petdesk/terms-mobile.png",
+    "/workspace/petdesk-preview-20261110/qa/petdesk/refund-mobile.png",
+    "/workspace/petdesk-preview-20261110/qa/petdesk/privacy-mobile.png",
+    "/workspace/petdesk-preview-20261110/qa/petdesk/pro-mobile.png",
+    "/workspace/petdesk-preview-20261110/qa/petdesk/hotel-ny-mobile.png",
+    "/workspace/petdesk-preview-20261110/qa/petdesk/country-canada-mobile.png"
+  ],
+  "checks": [
+    {
+      "p": "terms",
+      "trial": 1
+    },
+    {
+      "p": "refund",
+      "trial": 1
+    },
+    {
+      "p": "pro",
+      "cta": "Start your free 14-day trial"
+    },
+    {
+      "p": "hotel-ny",
+      "banner": 1
+    },
+    {
+      "p": "country-canada",
+      "banner": 1
+    }
+  ],
+  "ok": true
+}

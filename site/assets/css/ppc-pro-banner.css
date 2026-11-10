@@ -1,0 +1,60 @@
+/* Pet Desk “For pros” banner — shared component. Uses site tokens; CTA = --pri. No --bg/--paper/--ink redefine. No gold map colour. */
+.ppc-pro-banner{
+  margin:1.1rem 0 1.25rem;
+  border:1px solid color-mix(in srgb, var(--pri,#d9b765) 35%, transparent);
+  border-left:4px solid var(--pri,#d9b765);
+  border-radius:12px;
+  background:color-mix(in srgb, var(--pri,#d9b765) 8%, transparent);
+  padding:14px 16px 16px;
+}
+.ppc-pro-banner__inner{display:flex;flex-direction:column;gap:.35rem;max-width:52rem}
+.ppc-pro-banner__eyebrow{
+  margin:0;
+  font:700 .72rem/1.3 Inter,system-ui,sans-serif;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--mut,#a7b0a2);
+}
+.ppc-pro-banner__title{
+  margin:0;
+  font-family:Marcellus,serif;
+  font-weight:400;
+  font-size:clamp(1.05rem,2.2vw,1.28rem);
+  line-height:1.25;
+  color:var(--head,#f5ecd6);
+}
+.ppc-pro-banner__body{
+  margin:0;
+  font-size:.92rem;
+  line-height:1.45;
+  color:var(--ink,#ece4d0);
+}
+.ppc-pro-banner__actions{
+  margin:.35rem 0 0;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.65rem 1rem;
+}
+.ppc-pro-banner__cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  border-radius:999px;
+  padding:.62rem 1.05rem;
+  font:700 .88rem Inter,system-ui,sans-serif;
+  background:var(--pri,#d9b765);
+  color:var(--on-pri,#0b1719);
+}
+.ppc-pro-banner__cta:hover{filter:brightness(1.06)}
+.ppc-pro-banner__note{
+  font-size:.78rem;
+  line-height:1.35;
+  color:var(--mut,#a7b0a2);
+}
+@media (max-width:390px){
+  .ppc-pro-banner{padding:12px 12px 14px}
+  .ppc-pro-banner__actions{flex-direction:column;align-items:stretch}
+  .ppc-pro-banner__cta{width:100%}
+}
