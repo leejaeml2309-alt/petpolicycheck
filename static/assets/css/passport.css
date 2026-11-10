@@ -22,13 +22,10 @@
 #ppc-passport a{color:var(--p-plane)}
 #ppc-passport .air{border-top:4px solid var(--p-plane)}
 #ppc-passport .warn{color:var(--p-crit);font-weight:600}
-#ppc-passport .partners{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:560px){#ppc-passport .partners{grid-template-columns:1fr}}
-#ppc-passport .partner-slot-pp{border:1px dashed #3a5a56;border-radius:10px;padding:12px;background:var(--paper,#0f2226);font-size:.88rem;color:var(--mut,#a9b3a4)}
 #ppc-passport #pass{display:none}
 @media print{
   body *{visibility:hidden!important}
   #pass,#pass *{visibility:visible!important}
   #pass{display:block!important;position:absolute;left:0;top:0;width:100%}
-  header.top,.partner-slot,.hdr-ad,#site-menu,nav,footer,.cookie,.pp-grid form,#out{display:none!important}
+  header.top,#site-menu,nav,footer,.cookie,.pp-grid form,#out{display:none!important}
 }

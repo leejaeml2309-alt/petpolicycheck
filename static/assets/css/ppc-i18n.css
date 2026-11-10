@@ -27,7 +27,7 @@ header.top, header.map-nav, header.top.map-nav{position:sticky;top:0;z-index:60}
 .ppc-lang-intro-wrap{display:none!important}
 header.top .ppc-lang-sw, header.map-nav .ppc-lang-sw{display:none!important}
 header.top .lang-sw[hidden], header.top .langsw[hidden]{display:none!important}
-.partner-slot, .partner-top, .biz-banner, .hdr-band{position:relative;z-index:10}
+.biz-banner{position:relative;z-index:10}
 @media (max-width:820px){
   .ppc-lang-bar .wrap{padding:0 16px;justify-content:center}
 }

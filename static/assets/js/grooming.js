@@ -17,7 +17,7 @@ function card(g,metro){
  if(g.large_dogs_25kg_plus===true) b+=badge('soft','🐕 Dogs 25 kg+');
  var langs=(g.languages||[]).join(' · ');
  return '<article class="gcard" data-travel="'+(isTravel(g)?1:0)+'" data-resident="'+(g.resident_regular===true?1:0)+'" data-cats="'+(g.cats_accepted===true?1:0)+'">'+
-  '<div class="gc-h"><a href="'+e(g.url)+'" target="_blank" rel="noopener">'+e(g.name)+'</a>'+(langs?'<span class="gl" title="Languages advertised">🗣 '+e(langs)+'</span>':'')+'</div>'+
+  '<div class="gc-h"><a href="'+e(g.url)+'" target="_blank" rel="noopener">'+e(g.name)+'</a>'+(langs?'<span class="gl" title="Languages listed">🗣 '+e(langs)+'</span>':'')+'</div>'+
   '<p class="gc-m">'+e(g.district||metro)+' · '+e(types(g))+'</p>'+
   '<div class="gbs">'+b+'</div>'+
   '<p class="gc-f"><a href="'+e(g.url)+'" target="_blank" rel="noopener">Official site ↗</a>'+(g.phone?' · <span>'+e(g.phone)+'</span>':'')+'</p></article>';

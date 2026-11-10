@@ -20,45 +20,45 @@ var CSHORT={'United States':'USA','Canada':'Canada','Mexico':'Mexico','United Ki
 var TYPES={airline:'Airline',train:'Train / Ferry',hotel:'Hotel / Stay',city:'City / Border Hub',grooming:'Grooming & Care'};
 var GUSE={trip:'In-trip / Hotel Mobile Grooming',local:'Resident & Expat Trusted Salon'};
 var HUBS=[['Miami','United States'],['San Diego / CBX','United States · Mexico'],['Toronto','Canada'],['CDMX / Cancún','Mexico'],['London + Folkestone','United Kingdom'],['Frankfurt FRA','Germany'],['Punta Cana / Las Terrenas','Dominican Republic'],['Paris','France']];
-var SPONSOR_LABEL={none:'None · Open slot CTA',winwin:'Win-Win Gear',paid:'Paid Sponsor'};
+var MENTION_LABEL={none:'None',winwin:'Gear mention',paid:'Product mention'};
 var REJECT=['Policy inaccurate','Copyright music','Unreadable / >30s','Privacy visible','Animal welfare concern'];
 
 /* ---------- i18n (100% EN default; 4-language toggle EN / FR / ES / DE aligned with Wave A glossary) ---------- */
 var LOC={
-fr:{tab_gallery:'Guides terrain',tab_submit:'Envoyer un conseil',nav_fg:'Guides terrain',nav_adv:'Annonceurs',
+fr:{tab_gallery:'Guides terrain',tab_submit:'Envoyer un conseil',nav_fg:'Guides terrain',nav_adv:'Contact',
 a_dept:'Hub Communauté, Vérifs terrain & City Scouts · une seule porte, sans compte',a_ttl:'Partagez ce qui s’est vraiment passé avec votre animal',
 a_lead:'Postez un clip de 30 s, signalez un écart avec la règle officielle ou devenez Founding City Scout. Environ 60 secondes, sans compte. Un humain vérifie tout avant publication, avec crédit à votre nom.',
 c_dept:'Guides terrain Paw Passport · filmés par des voyageurs avec animaux',c_ttl:'Micro-guides terrain de 30 secondes — <span>corridors Vague A</span>',
 c_lead:'Des clips verticaux tournés par ceux qui viennent de le faire : le comptoir, la frontière, la file du ferry, le toiletteur. Chaque clip est vérifié par un humain face à la règle officielle et daté comme note terrain.',
 c_submit:'Envoyer un conseil 30 s',c_submitn:'Sans compte · relu par un humain',c_more:'Tous les épisodes approuvés',
-c_pdept:'Pour les marques animales · emplacements natifs relus par un humain',c_ph:'Sponsoriser un épisode · Devenir partenaire',
+c_pdept:'',c_ph:'',
 c_pp:'Une marque par épisode, affichée « Pet Tip présenté par … » sous le vrai conseil terrain — jamais dans les faits de la règle.',
-c_pl1:'Lancement : partenariat matériel gagnant-gagnant (produit pour tests terrain honnêtes + crédit)',c_pl2:'Ensuite : sponsoring d’épisode payant, facturé manuellement',c_pl3:'Toujours balisé « Sponsorisé » ; le contenu réglementaire reste indépendant',
-c_pcta:'Sponsoriser un épisode · Devenir partenaire →',
-c_disc:'Exemple : les épisodes d’exemple illustrent de vraies règles Vague A ; les @pseudos sont des exemples génériques, pas de vrais comptes. Les marques des emplacements d’exemple ne sont pas des sponsors actuels.'},
-es:{tab_gallery:'Guías de campo',tab_submit:'Enviar un consejo',nav_fg:'Guías de campo',nav_adv:'Anunciarse',
+c_pl1:'Lancement : partenariat matériel gagnant-gagnant (produit pour tests terrain honnêtes + crédit)',c_pl2:'',c_pl3:'',
+c_pcta:'',
+c_disc:'Exemple : les épisodes d’exemple illustrent de vraies règles Vague A ; les @pseudos sont des exemples génériques, pas de vrais comptes.'},
+es:{tab_gallery:'Guías de campo',tab_submit:'Enviar un consejo',nav_fg:'Guías de campo',nav_adv:'Contacto',
 a_dept:'Hub Comunidad, Verificaciones & City Scouts · una puerta, sin cuenta',a_ttl:'Comparte lo que realmente pasó con tu mascota',
 a_lead:'Sube un clip de 30 s, avisa si el control real difirió de la norma oficial o postula como Founding City Scout. Toma unos 60 segundos, sin cuenta. Un humano verifica todo antes de publicar, con crédito a tu @usuario.',
 c_dept:'Guías de campo Paw Passport · grabadas por viajeros con mascotas',c_ttl:'Microguías reales de 30 segundos — <span>corredores Ola A</span>',
 c_lead:'Clips verticales de quienes acaban de viajar: mostrador, frontera (SENASICA / CDC), ferry o peluquería fear-free. Revisados por un humano frente a la regla oficial y fechados como nota de campo.',
 c_submit:'Enviar consejo de 30 s',c_submitn:'Sin cuenta · revisado por un humano',c_more:'Todos los episodios aprobados',
-c_pdept:'Para marcas de mascotas · espacios nativos revisados',c_ph:'Patrocinar un episodio · Ser socio',
+c_pdept:'',c_ph:'',
 c_pp:'Una marca por episodio, mostrada como « Pet Tip presentado por … » debajo del consejo real — nunca dentro de la regla oficial.',
-c_pl1:'Lanzamiento: alianza win-win de equipamiento (producto para pruebas reales + crédito)',c_pl2:'Después: patrocinio de episodio con facturación manual',c_pl3:'Siempre etiquetado « Patrocinado »; las reglas oficiales se mantienen independientes',
-c_pcta:'Patrocinar un episodio · Ser socio →',
+c_pl1:'Lanzamiento: alianza win-win de equipamiento (producto para pruebas reales + crédito)',c_pl2:'',c_pl3:'',
+c_pcta:'',
 c_disc:'Vista previa: episodios de ejemplo basados en reglas reales Ola A; los @usuarios son marcadores genéricos. Las marcas mostradas son ejemplos ilustrativos.'},
-de:{tab_gallery:'Praxis-Guides',tab_submit:'Tipp senden',nav_fg:'Praxis-Guides',nav_adv:'Werben',
+de:{tab_gallery:'Praxis-Guides',tab_submit:'Tipp senden',nav_fg:'Praxis-Guides',nav_adv:'Kontakt',
 a_dept:'Community-, Praxischeck- & City-Scouts-Hub · ein Einstieg, kein Konto',a_ttl:'Teile, was mit deinem Haustier wirklich passiert ist',
 a_lead:'30-Sek.-Clip senden, Abweichung zur offiziellen Regel melden oder Founding City Scout werden. Dauert ca. 60 Sekunden ohne Registrierung. Jede Einsendung wird vor Veröffentlichung menschlich geprüft — mit Namensnennung.',
 c_dept:'Paw Passport Praxis-Guides · gefilmt von Reisenden mit Haustier',c_ttl:'Echte 30-Sekunden-Praxis-Guides — <span>Wave-A-Korridore</span>',
 c_lead:'Kurze Hochformat-Clips direkt vom Check-in, der Grenzkontrolle, der Fähre oder dem stressfreien Hundesalon. Menschlich gegen die offizielle Regel geprüft und mit Datum versehen.',
 c_submit:'30-Sek.-Tipp senden',c_submitn:'Ohne Konto · menschlich geprüft',c_more:'Alle freigegebenen Episoden',
-c_pdept:'Für Heimtiermarken · native, geprüfte Platzierungen',c_ph:'Episode sponsern · Partner werden',
+c_pdept:'',c_ph:'',
 c_pp:'Eine Marke pro Episode als „Pet Tip präsentiert von …“ unterhalb des echten Praxistipps — niemals innerhalb der offiziellen Regel.',
-c_pl1:'Start: Win-Win-Ausstattungspartnerschaft (Produkt für ehrliche Praxistests + Nennung)',c_pl2:'Danach: bezahltes Episoden-Sponsoring auf manuelle Rechnung',c_pl3:'Immer als „Gesponsert“ gekennzeichnet; Regelwerke bleiben unabhängig',
-c_pcta:'Episode sponsern · Partner werden →',
+c_pl1:'Start: Win-Win-Ausstattungspartnerschaft (Produkt für ehrliche Praxistests + Nennung)',c_pl2:'',c_pl3:'',
+c_pcta:'',
 c_disc:'Vorschau: Beispielepisoden auf Basis echter Wave-A-Regeln; @Handles sind generische Platzhalter. Genannte Marken dienen nur als Beispiel.'},
-ko:{tab_gallery:'필드 가이드',tab_submit:'팁 보내기',nav_fg:'필드 가이드',nav_adv:'광고',
+ko:{tab_gallery:'필드 가이드',tab_submit:'팁 보내기',nav_fg:'필드 가이드',nav_adv:'문의',
 a_dept:'커뮤니티 · 현장 점검 & City Scouts 허브 · 계정 없이 한 곳에서',a_ttl:'반려동물과 실제로 겪은 일을 공유해 주세요',
 a_lead:'30초 클립을 올리거나, 공식 규정과 달랐던 점을 알려 주거나, Founding City Scout이 되어 보세요. 약 60초, 계정 불필요. 사람이 공식 규정과 대조한 뒤 게시하며 크레딧을 남겨 드려요.',
 a_s1:'클립',a_up:'≤ 30초 영상 업로드',a_ln:'기존 클립 링크',a_drop:'세로 클립을 여기로 드래그',a_or:'또는',a_browse:'찾아보기',a_dropn:'최대 30초 (35초 허용) · 9:16 권장',
@@ -68,12 +68,12 @@ a_s4:'크레딧 & 권리',a_handle:'@핸들 (클립에 표시)',a_social:'크레
 c_dept:'Paw Passport 필드 가이드 · 반려 여행자가 촬영',c_ttl:'30초 실제 펫 정책 필드 가이드 — <span>Wave A 코리도</span>',
 c_lead:'방금 겪은 사람들의 세로 클립: 카운터, 국경, 페리 줄, 미용사. 모든 클립은 공식 규정과 대조해 사람이 확인하고 현장 노트로 날짜를 남깁니다.',
 c_submit:'30초 팁 보내기',c_submitn:'계정 불필요 · 사람 검토',c_more:'승인된 모든 에피소드',
-c_pdept:'펫 브랜드용 · 네이티브, 사람 검토 플레이스먼트',c_ph:'에피소드 스폰서 · 파트너 되기',
+c_pdept:'',c_ph:'',
 c_pp:'에피소드당 브랜드 하나, 실제 현장 팁 아래 “Pet Tip presented by …”로 표시 — 정책 사실 안에는 넣지 않아요.',
-c_pl1:'런칭: 윈윈 장비 파트너십 (정직한 현장 테스트용 제품 + 크레딧)',c_pl2:'이후: 유료 에피소드 스폰서십, 수동 청구',c_pl3:'항상 “Sponsored” 표기; 정책 콘텐츠는 독립 유지',
-c_pcta:'에피소드 스폰서 · 파트너 되기 →',
+c_pl1:'런칭: 윈윈 장비 파트너십 (정직한 현장 테스트용 제품 + 크레딧)',c_pl2:'',c_pl3:'',
+c_pcta:'',
 c_disc:'예시 에피소드는 실제 Wave A 규칙을 보여 주며, @핸들은 일반 예시입니다.'},
-ja:{tab_gallery:'フィールドガイド',tab_submit:'ヒントを送る',nav_fg:'フィールドガイド',nav_adv:'広告',
+ja:{tab_gallery:'フィールドガイド',tab_submit:'ヒントを送る',nav_fg:'フィールドガイド',nav_adv:'お問い合わせ',
 a_dept:'コミュニティ・現地チェック＆City Scoutsハブ · アカウント不要の一窓口',a_ttl:'ペットとの実体験を共有してください',
 a_lead:'30秒クリップの投稿、公式ルールとの違いの報告、Founding City Scoutへの応募。約60秒、アカウント不要。人が公式ルールと照合してから公開し、クレジットを付けます。',
 a_s1:'クリップ',a_up:'≤30秒の動画をアップロード',a_ln:'既存クリップのリンク',a_drop:'縦型クリップをここにドラッグ',a_or:'または',a_browse:'参照',a_dropn:'最大30秒（35秒許容）· 9:16推奨',
@@ -83,19 +83,19 @@ a_s4:'クレジット＆権利',a_handle:'@ハンドル（クリップ表示）'
 c_dept:'Paw Passport フィールドガイド · ペット旅行者が撮影',c_ttl:'30秒リアル・ペット政策フィールドガイド — <span>Wave A回廊</span>',
 c_lead:'ついさっき体験した人の縦型クリップ：カウンター、国境、フェリー列、グルーマー。すべて公式ルールと人が照合し、現地メモとして日付付きです。',
 c_submit:'30秒ヒントを送る',c_submitn:'アカウント不要 · 人が確認',c_more:'承認済みエピソード一覧',
-c_pdept:'ペットブランド向け · ネイティブ、人確認の掲載',c_ph:'エピソードをスポンサー · パートナーになる',
+c_pdept:'',c_ph:'',
 c_pp:'エピソードにつき1ブランド。「Pet Tip presented by …」として実ヒントの下に表示 — 政策本文の中には入れません。',
-c_pl1:'ローンチ：ウィンウィン器材提携（正直な現地テスト用製品＋クレジット）',c_pl2:'その後：有料エピソードスポンサー、手動請求',c_pl3:'常に「Sponsored」表示；政策コンテンツは独立',
-c_pcta:'エピソードをスポンサー · パートナーになる →',
+c_pl1:'ローンチ：ウィンウィン器材提携（正直な現地テスト用製品＋クレジット）',c_pl2:'',c_pl3:'',
+c_pcta:'',
 c_disc:'サンプルエピソードは実在のWave Aルールを示し、@ハンドルは一般例です。'}
 };
 var UI={
-en:{filmed:'Filmed by',presented:'Pet Tip presented by',visit:'Visit Partner ↗',sponsored:'Sponsored · Example',fv:'Field-Verified',official:'Official rule ↗',openslot:'Open sponsor slot on this episode.',opencta:'Sponsor an episode / Become a partner →',all:'All Wave A',airlines:'Airlines',ferries:'Ferries & Trains',hotels:'Hotels & Cities',groom:'Grooming & Care',country:'Country',type:'Type',episodes:'episodes',featured:'Featured episode',vbadge:'✓ Verified Corridor Traveler',vtip:'Earned by a traveler whose clip or rule check passed human review. Share your episode — your @handle links back to your profile.',nores:'No approved episode for this filter yet — be the first to submit one.',trip:'Trip',brandother:'Your brand on another episode?',reported:'Reported by',seatopen:'Seat open — apply →'},
-fr:{filmed:'Filmé par',presented:'Pet Tip présenté par',visit:'Voir le partenaire ↗',sponsored:'Sponsorisé · Exemple',fv:'Vérifié terrain',official:'Règle officielle ↗',openslot:'Emplacement sponsor libre sur cet épisode.',opencta:'Sponsoriser un épisode / Devenir partenaire →',all:'Toute la Vague A',airlines:'Compagnies',ferries:'Ferries & trains',hotels:'Hôtels & villes',groom:'Toilettage & soins',country:'Pays',type:'Type',episodes:'épisodes',featured:'Épisode à la une',vbadge:'✓ Verified Corridor Traveler',vtip:'Obtenu par un voyageur dont le clip ou la vérif de règle a passé la relecture humaine. Partagez votre épisode : votre @pseudo renvoie vers votre profil.',nores:'Aucun épisode approuvé pour ce filtre — soyez le premier à en envoyer un.',trip:'Voyage',brandother:'Votre marque ici sur un autre épisode ?',reported:'Signalé par',seatopen:'Poste ouvert →'},
-es:{filmed:'Grabado por',presented:'Pet Tip presentado por',visit:'Ver socio ↗',sponsored:'Patrocinado · Ejemplo',fv:'Verificado en campo',official:'Regla oficial ↗',openslot:'Espacio patrocinador libre en este episodio.',opencta:'Patrocinar un episodio / Ser socio →',all:'Toda la Ola A',airlines:'Aerolíneas',ferries:'Ferries y trenes',hotels:'Hoteles y ciudades',groom:'Peluquería y cuidados',country:'País',type:'Tipo',episodes:'episodios',featured:'Episodio destacado',vbadge:'✓ Verified Corridor Traveler',vtip:'Otorgado al viajero cuyo clip o verificación superó la revisión humana. Tu @usuario enlaza a tu perfil.',nores:'Aún no hay episodios aprobados para este filtro.',trip:'Viaje',brandother:'¿Tu marca en otro episodio?',reported:'Reportado por',seatopen:'Plaza abierta →'},
-de:{filmed:'Gefilmt von',presented:'Pet Tip präsentiert von',visit:'Partner ansehen ↗',sponsored:'Gesponsert · Beispiel',fv:'Praxisgeprüft',official:'Offizielle Regel ↗',openslot:'Freier Sponsorenplatz in dieser Episode.',opencta:'Episode sponsern / Partner werden →',all:'Alle Wave A',airlines:'Airlines',ferries:'Fähren & Züge',hotels:'Hotels & Städte',groom:'Grooming & Pflege',country:'Land',type:'Typ',episodes:'Episoden',featured:'Empfohlene Episode',vbadge:'✓ Verified Corridor Traveler',vtip:'Für Reisende, deren Clip oder Regel-Check die menschliche Prüfung bestanden hat. Dein @Handle verlinkt auf dein Profil.',nores:'Noch keine freigegebene Episode für diesen Filter.',trip:'Reise',brandother:'Ihre Marke in einer anderen Episode?',reported:'Gemeldet von',seatopen:'Platz frei — bewerben →'},
-ko:{filmed:'촬영',presented:'Pet Tip 제공',visit:'파트너 보기 ↗',sponsored:'스폰서 · 예시',fv:'현장 검증',official:'공식 규정 ↗',openslot:'이 에피소드 스폰서 자리 열림.',opencta:'에피소드 스폰서 / 파트너 되기 →',all:'Wave A 전체',airlines:'항공사',ferries:'페리 & 기차',hotels:'호텔 & 도시',groom:'그루밍 & 케어',country:'국가',type:'유형',episodes:'에피소드',featured:'추천 에피소드',vbadge:'✓ Verified Corridor Traveler',vtip:'사람 검토를 통과한 여행자. @핸들이 프로필로 연결돼요.',nores:'이 필터에 승인된 에피소드가 아직 없어요.',trip:'여행',brandother:'다른 에피소드에 브랜드를?',reported:'제보',seatopen:'자리 열림 →'},
-ja:{filmed:'撮影',presented:'Pet Tip 提供',visit:'パートナーを見る ↗',sponsored:'スポンサー · 例',fv:'現地検証',official:'公式ルール ↗',openslot:'このエピソードのスポンサースロット空き',opencta:'エピソードをスポンサー / パートナーになる →',all:'Wave Aすべて',airlines:'航空会社',ferries:'フェリー＆列車',hotels:'ホテル＆都市',groom:'グルーミング＆ケア',country:'国',type:'種類',episodes:'エピソード',featured:'注目エピソード',vbadge:'✓ Verified Corridor Traveler',vtip:'人の確認を通過した旅行者。@ハンドルがプロフィールへリンクします。',nores:'このフィルターの承認エピソードはまだありません。',trip:'旅行',brandother:'別エピソードにブランドを？',reported:'報告',seatopen:'席空き →'}};
+en:{filmed:'Filmed by',presented:'Pet Tip presented by',visit:'Visit Partner ↗',mentionNote:'',fv:'Field-Verified',official:'Official rule ↗',openslot:'',opencta:'',all:'All Wave A',airlines:'Airlines',ferries:'Ferries & Trains',hotels:'Hotels & Cities',groom:'Grooming & Care',country:'Country',type:'Type',episodes:'episodes',featured:'Featured episode',vbadge:'✓ Verified Corridor Traveler',vtip:'Earned by a traveler whose clip or rule check passed human review. Share your episode — your @handle links back to your profile.',nores:'No approved episode for this filter yet — be the first to submit one.',trip:'Trip',brandother:'Your brand on another episode?',reported:'Reported by',seatopen:'Seat open — apply →'},
+fr:{filmed:'Filmé par',presented:'Pet Tip présenté par',visit:'Voir le partenaire ↗',mentionNote:'',fv:'Vérifié terrain',official:'Règle officielle ↗',openslot:'',opencta:'',all:'Toute la Vague A',airlines:'Compagnies',ferries:'Ferries & trains',hotels:'Hôtels & villes',groom:'Toilettage & soins',country:'Pays',type:'Type',episodes:'épisodes',featured:'Épisode à la une',vbadge:'✓ Verified Corridor Traveler',vtip:'Obtenu par un voyageur dont le clip ou la vérif de règle a passé la relecture humaine. Partagez votre épisode : votre @pseudo renvoie vers votre profil.',nores:'Aucun épisode approuvé pour ce filtre — soyez le premier à en envoyer un.',trip:'Voyage',brandother:'Votre marque ici sur un autre épisode ?',reported:'Signalé par',seatopen:'Poste ouvert →'},
+es:{filmed:'Grabado por',presented:'Pet Tip presentado por',visit:'Ver socio ↗',mentionNote:'',fv:'Verificado en campo',official:'Regla oficial ↗',openslot:'',opencta:'',all:'Toda la Ola A',airlines:'Aerolíneas',ferries:'Ferries y trenes',hotels:'Hoteles y ciudades',groom:'Peluquería y cuidados',country:'País',type:'Tipo',episodes:'episodios',featured:'Episodio destacado',vbadge:'✓ Verified Corridor Traveler',vtip:'Otorgado al viajero cuyo clip o verificación superó la revisión humana. Tu @usuario enlaza a tu perfil.',nores:'Aún no hay episodios aprobados para este filtro.',trip:'Viaje',brandother:'¿Tu marca en otro episodio?',reported:'Reportado por',seatopen:'Plaza abierta →'},
+de:{filmed:'Gefilmt von',presented:'Pet Tip präsentiert von',visit:'Partner ansehen ↗',mentionNote:'',fv:'Praxisgeprüft',official:'Offizielle Regel ↗',openslot:'',opencta:'',all:'Alle Wave A',airlines:'Airlines',ferries:'Fähren & Züge',hotels:'Hotels & Städte',groom:'Grooming & Pflege',country:'Land',type:'Typ',episodes:'Episoden',featured:'Empfohlene Episode',vbadge:'✓ Verified Corridor Traveler',vtip:'Für Reisende, deren Clip oder Regel-Check die menschliche Prüfung bestanden hat. Dein @Handle verlinkt auf dein Profil.',nores:'Noch keine freigegebene Episode für diesen Filter.',trip:'Reise',brandother:'Ihre Marke in einer anderen Episode?',reported:'Gemeldet von',seatopen:'Platz frei — bewerben →'},
+ko:{filmed:'촬영',presented:'Pet Tip 제공',visit:'파트너 보기 ↗',mentionNote:'',fv:'현장 검증',official:'공식 규정 ↗',openslot:'',opencta:'',all:'Wave A 전체',airlines:'항공사',ferries:'페리 & 기차',hotels:'호텔 & 도시',groom:'그루밍 & 케어',country:'국가',type:'유형',episodes:'에피소드',featured:'추천 에피소드',vbadge:'✓ Verified Corridor Traveler',vtip:'사람 검토를 통과한 여행자. @핸들이 프로필로 연결돼요.',nores:'이 필터에 승인된 에피소드가 아직 없어요.',trip:'여행',brandother:'다른 에피소드에 브랜드를?',reported:'제보',seatopen:'자리 열림 →'},
+ja:{filmed:'撮影',presented:'Pet Tip 提供',visit:'パートナーを見る ↗',mentionNote:'',fv:'現地検証',official:'公式ルール ↗',openslot:'',opencta:'',all:'Wave Aすべて',airlines:'航空会社',ferries:'フェリー＆列車',hotels:'ホテル＆都市',groom:'グルーミング＆ケア',country:'国',type:'種類',episodes:'エピソード',featured:'注目エピソード',vbadge:'✓ Verified Corridor Traveler',vtip:'人の確認を通過した旅行者。@ハンドルがプロフィールへリンクします。',nores:'このフィルターの承認エピソードはまだありません。',trip:'旅行',brandother:'別エピソードにブランドを？',reported:'報告',seatopen:'席空き →'}};
 var VALID_LANGS=['en','fr','es','de','ko','ja'];
 var lang=localStorage.getItem(LKEY)||'en';
 if(VALID_LANGS.indexOf(lang)<0)lang='en';
@@ -115,31 +115,31 @@ function applyI18n(){
 function seed(){return [
  {id:'c-af',kind:'clip',status:'approved',sample:true,mode:'link',platform:'Instagram Reels',type:'airline',country:'France',entity:'Air France · JFK → CDG (cabin)',route:'JFK → CDG',date:'2026-10',
   tip:'The agent weighed pet + carrier together at the counter: 8 kg total, not 8 kg for the cat alone.',caption:'8 kg = cat + carrier together',bag:'Soft carrier · cat 5.1 kg + bag 2.4 kg',handle:'@chloe_cats_nyc',
-  official:'Air France: in cabin, pet + carrier max 8 kg; over 8 kg travels in the hold.',officialUrl:'https://petpolicycheck.com/airlines/air-france.html',sponsor:'paid',brand:'Sleepypod',brandUrl:'https://sleepypod.com/',brandLine:'Under-seat carriers sized for the 8 kg cabin rule.',reviewedAt:'2026-11-03',badge:'traveler'},
+  official:'Air France: in cabin, pet + carrier max 8 kg; over 8 kg travels in the hold.',officialUrl:'https://petpolicycheck.com/airlines/air-france.html',mention:'paid',brand:'Sleepypod',brandUrl:'https://sleepypod.com/',brandLine:'Under-seat carriers sized for the 8 kg cabin rule.',reviewedAt:'2026-11-03',badge:'traveler'},
  {id:'c-ls',kind:'clip',status:'approved',sample:true,mode:'upload',platform:'Upload',type:'train',country:'United Kingdom',entity:'LeShuttle (Eurotunnel) · Calais → Folkestone',route:'Calais → Folkestone',date:'2026-10',
   tip:'Pet Reception in Calais reads the hour the vet wrote for the tapeworm dose: 24–120 h before UK arrival, so book the vet slot by the hour.',caption:'Tapeworm dose: 24–120 h before UK arrival',bag:'Golden retriever · car crate',handle:'@lucas_golden_eu',
-  official:'GB entry from the EU: dogs need tapeworm treatment by a vet 1–5 days (24–120 h) before arrival.',officialUrl:'https://www.gov.uk/bring-pet-to-great-britain',sponsor:'winwin',brand:'Kurgo',brandUrl:'https://kurgo.com/',brandLine:'Crash-tested car harnesses for the drive onto the shuttle.',reviewedAt:'2026-11-02',badge:'traveler'},
+  official:'GB entry from the EU: dogs need tapeworm treatment by a vet 1–5 days (24–120 h) before arrival.',officialUrl:'https://www.gov.uk/bring-pet-to-great-britain',mention:'winwin',brand:'Kurgo',brandUrl:'https://kurgo.com/',brandLine:'Crash-tested car harnesses for the drive onto the shuttle.',reviewedAt:'2026-11-02',badge:'traveler'},
  {id:'c-cdc',kind:'clip',status:'approved',sample:true,mode:'link',platform:'TikTok',type:'airline',country:'United States',entity:'Aeroméxico · MEX → LAX',route:'MEX → LAX',date:'2026-09',
   tip:'Have the CDC Dog Import Form receipt ready at check-in: the agent scanned it before printing the boarding pass, not only at US arrival.',caption:'CDC receipt checked at MEX check-in',bag:'Dog 7 kg · soft carrier',handle:'@maya.flies.dogs',
-  official:'All dogs entering the US need a CDC Dog Import Form receipt (dog ≥ 6 months, microchipped).',officialUrl:'https://www.cdc.gov/importation/dogs/index.html',sponsor:'none',reviewedAt:'2026-11-01',badge:'traveler'},
+  official:'All dogs entering the US need a CDC Dog Import Form receipt (dog ≥ 6 months, microchipped).',officialUrl:'https://www.cdc.gov/importation/dogs/index.html',mention:'none',reviewedAt:'2026-11-01',badge:'traveler'},
  {id:'c-gm',kind:'clip',status:'approved',sample:true,mode:'link',platform:'YouTube Shorts',type:'grooming',guse:'trip',country:'United States',entity:'Mobile groomer at a Miami hotel (post-flight bath)',route:'Miami · hotel visit',date:'2026-10',
   tip:'Book the mobile van for the day after landing, not the same night — and ask the hotel where the van may park before you book.',caption:'Post-flight bath: book day 2, check van parking',bag:'Boxer 29 kg',handle:'@ben.boxer.miami',
-  official:'Field tip only — no official rule. Look for Fear Free–trained groomers.',officialUrl:'https://fearfreepets.com/',sponsor:'none',reviewedAt:'2026-11-04',badge:'traveler'},
+  official:'Field tip only — no official rule. Look for Fear Free–trained groomers.',officialUrl:'https://fearfreepets.com/',mention:'none',reviewedAt:'2026-11-04',badge:'traveler'},
  {id:'c-gc',kind:'clip',status:'approved',sample:true,mode:'link',platform:'TikTok',type:'grooming',guse:'trip',country:'Germany',entity:'Calming groom before FRA cabin flight (SAMPLE)',route:'Frankfurt · pre-flight salon',date:'2026-11',
   tip:'Book a short calming groom 24–48 h before cabin travel: trim nails, clean eyes, skip heavy perfume sprays that can stress the pet at security.',caption:'SAMPLE · Calm groom 24–48 h before cabin flight',bag:'Dachshund 6 kg · soft cabin bag',handle:'@preview.groom.fra',
-  official:'Field tip only — Example sample. Not a live salon listing. Prefer Fear Free–trained groomers before travel.',officialUrl:'https://fearfreepets.com/',sponsor:'none',reviewedAt:'2026-11-06',badge:'traveler'},
+  official:'Field tip only — Example sample. Not a live salon listing. Prefer Fear Free–trained groomers before travel.',officialUrl:'https://fearfreepets.com/',mention:'none',reviewedAt:'2026-11-06',badge:'traveler'},
  {id:'c-wj',kind:'clip',status:'approved',sample:true,mode:'link',platform:'TikTok',type:'airline',country:'Dominican Republic',entity:'WestJet · YYZ → PUJ',route:'YYZ → PUJ',date:'2026-11',
   tip:'Hold booking for our 30 kg dog was refused online until 1 November — the heat embargo is airline-side, so cabin-size pets were unaffected.',caption:'No pets in hold to PUJ 15 May–31 Oct',bag:'Lab 30 kg · IATA crate',handle:'@sam.and.biscuit',
-  official:'WestJet: no pets in the baggage hold to most Dominican Republic airports 15 May–31 Oct (La Romana year-round).',officialUrl:'https://www.westjet.com/en-ca/pets',sponsor:'none',reviewedAt:'2026-11-05',badge:'traveler'},
+  official:'WestJet: no pets in the baggage hold to most Dominican Republic airports 15 May–31 Oct (La Romana year-round).',officialUrl:'https://www.westjet.com/en-ca/pets',mention:'none',reviewedAt:'2026-11-05',badge:'traveler'},
  {id:'c-lh',kind:'clip',status:'pending',sample:true,mode:'upload',platform:'Upload',type:'airline',country:'Germany',entity:'Lufthansa · FRA → MUC (cabin)',route:'FRA → MUC',date:'2026-10',duration:27,
   tip:'Gate staff measured the carrier against 55×40×23 cm; our soft bag passed because it squashes at the top.',caption:'Cabin bag sizer at the FRA gate',bag:'Dachshund 6.5 kg · soft bag',handle:'@lena.dackel.travels',social:'#example-profile',
-  official:'Lufthansa: in cabin, pet + carrier max 8 kg; carrier max 55×40×23 cm.',officialUrl:'https://www.lufthansa.com/',consentAt:'2026-11-06 20:41 KST',sponsor:'none',checks:{policy:true,audio:true}},
+  official:'Lufthansa: in cabin, pet + carrier max 8 kg; carrier max 55×40×23 cm.',officialUrl:'https://www.lufthansa.com/',consentAt:'2026-11-06 20:41 KST',mention:'none',checks:{policy:true,audio:true}},
  {id:'c-gp',kind:'clip',status:'approved',sample:true,mode:'link',platform:'Instagram Reels',type:'grooming',guse:'local',country:'France',entity:'Fear-free cat salon · Paris District 11 (EN/FR spoken)',route:'Paris · resident / expat',date:'2026-10',duration:29,
   tip:'Ask for a no-sedation cat groom: a good fear-free salon books short slots, skips the cage dryer and stops if the cat is stressed.',caption:'No-sedation cat groom, EN/FR spoken',bag:'Persian cat 4.2 kg',handle:'@ines.chats.paris',social:'#example-profile',
-  official:'Field tip only — no official rule. Fear Free handling guidance.',officialUrl:'https://fearfreepets.com/',sponsor:'none',reviewedAt:'2026-11-06',badge:'traveler',note:'SAMPLE content · salon not named; welfare: no sedation, calm handling.'},
+  official:'Field tip only — no official rule. Fear Free handling guidance.',officialUrl:'https://fearfreepets.com/',mention:'none',reviewedAt:'2026-11-06',badge:'traveler',note:'SAMPLE content · salon not named; welfare: no sedation, calm handling.'},
  {id:'c-ba',kind:'clip',status:'rejected',sample:true,mode:'link',platform:'TikTok',type:'airline',country:'United Kingdom',entity:'British Airways · LHR → JFK',route:'LHR → JFK',date:'2026-08',duration:31,
   tip:'Brought my small dog in the cabin on BA, no problem.',caption:'Dog in the cabin on BA?',handle:'@pat.parrot.uk',social:'#example-profile',
-  official:'British Airways: no pets in the cabin (except assistance dogs); pets travel in the hold via partners.',officialUrl:'https://petpolicycheck.com/airlines/british-airways.html',consentAt:'2026-11-05 22:10 KST',sponsor:'none',rejectReason:'Policy inaccurate',note:'Contradicts BA official policy; likely assistance dog — asked contributor to clarify.'},
+  official:'British Airways: no pets in the cabin (except assistance dogs); pets travel in the hold via partners.',officialUrl:'https://petpolicycheck.com/airlines/british-airways.html',consentAt:'2026-11-05 22:10 KST',mention:'none',rejectReason:'Policy inaccurate',note:'Contradicts BA official policy; likely assistance dog — asked contributor to clarify.'},
  {id:'r-sen',kind:'rule',status:'pending',sample:true,country:'Mexico',checkpoint:'Border / customs',route:'LAX → MEX T1 · SENASICA desk',date:'2026-10',
   official:'Mexico: dogs & cats from the US/Canada need no import health certificate; SENASICA inspects the pet on arrival.',officialUrl:'https://www.gob.mx/senasica',
   diff:'Officer also asked to see the paper rabies record, not only the phone copy, before the visual check.',proof:'Blurred photo of the desk sign (attached)',handle:'@nico.paws.mx',social:'#example-profile',consentAt:'2026-11-06 18:22 KST'},
@@ -220,16 +220,7 @@ function credit(it){var l=(it.handle||'@?').replace('@','').charAt(0).toUpperCas
   return '<div class="credit"><span class="avatar" aria-hidden="true">'+esc(l)+'</span><span class="by">'+u('filmed')+'</span> <a class="h" href="'+esc(it.social||'#example-profile')+'" title="'+(it.sample?'Example handle — not a real account':'Contributor profile')+'" rel="nofollow noopener">'+esc(it.handle)+'</a> '+vbadge()+'</div>'}
 function logo(name){var c=name.charAt(0);
   return '<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="2" y="2" width="44" height="44" rx="11" fill="#0b1719"/><rect x="5" y="5" width="38" height="38" rx="9" fill="none" stroke="#d9b765" stroke-width="1.5"/><text x="24" y="31" text-anchor="middle" font-family="Marcellus,Georgia,serif" font-size="21" fill="#f0d58c">'+esc(c)+'</text><g fill="#d9b765"><circle cx="35" cy="37" r="2.2"/><circle cx="31.5" cy="34" r="1.1"/><circle cx="35" cy="32.6" r="1.1"/><circle cx="38.5" cy="34" r="1.1"/></g></svg>'}
-function sponsorBlock(it,compact){
-  if(it.sponsor&&it.sponsor!=='none'&&it.brand){
-    if(compact)return '<div class="mini-sp">'+u('presented')+' '+esc(it.brand)+' · <span style="color:var(--mut)">Sponsored</span></div>';
-    return '<div class="spons"><span class="logo">'+logo(it.brand)+'</span><div><div class="k">'+u('presented')+' <b>'+esc(it.brand)+'</b></div><p>'+esc(it.brandLine||'')+'</p>'+
-    '<div style="margin-top:6px;display:flex;gap:6px;flex-wrap:wrap"><span class="sample">'+u('sponsored')+'</span><span class="sample">Example partner slot · '+esc(it.brand)+' · '+(it.sponsor==='paid'?'Paid Sponsor':'Win-Win Gear Partner')+'</span></div></div>'+
-    '<div class="go"><a href="'+esc(it.brandUrl||'#')+'" target="_blank" rel="sponsored noopener">'+u('visit')+'</a></div></div>';
-  }
-  if(compact)return '<div class="mini-sp open"><a href="advertise.html">'+u('opencta')+'</a></div>';
-  return '<div class="openslot"><svg width="18" height="18" viewBox="0 0 24 24" fill="#d9b765" aria-hidden="true"><path d="M12 2l2.9 6.9L22 9.3l-5.4 4.7L18.2 21 12 17.3 5.8 21l1.6-7L2 9.3l7.1-.4z"/></svg>'+u('openslot')+' <a href="advertise.html">'+u('opencta')+'</a></div>';
-}
+function mentionBlock(it,compact){ return ''; }
 
 /* ---------- zero-backend submission transport (static GitHub Pages safe) ---------- */
 /* CRITICAL: localStorage alone never reaches Marc/Veilleur on a visitor's browser.
@@ -312,7 +303,7 @@ function renderGallery(){
   $$('[data-c]',f).forEach(function(b){b.onclick=function(){gC=b.getAttribute('data-c');featId=null;renderGallery()}});
   $$('[data-t]',f).forEach(function(b){b.onclick=function(){gT=b.getAttribute('data-t');featId=null;renderGallery()}});
   var list=DB.filter(function(x){return x.kind==='clip'&&x.status==='approved'&&(gC==='all'||x.country===gC)&&(gT==='all'||typeGroup(x.type)===gT)});
-  list.sort(function(a,b){return (b.sponsor==='paid')-(a.sponsor==='paid')||String(b.reviewedAt).localeCompare(a.reviewedAt)});
+  list.sort(function(a,b){return (b.mention==='paid')-(a.mention==='paid')||String(b.reviewedAt).localeCompare(a.reviewedAt)});
   $('#gcount').textContent=list.length+' '+u('episodes');
   var fe=list.filter(function(x){return x.id===featId})[0]||list[0];
   if(!fe){$('#feat').innerHTML='<div class="empty" style="grid-column:1/-1">'+u('nores')+'</div>';$('#cards').innerHTML='';}
@@ -323,11 +314,11 @@ function renderGallery(){
      '<h2>'+esc(fe.entity)+'</h2><p class="tipq">“'+esc(fe.tip)+'”</p>'+credit(fe)+
      '<div class="fv"><span class="chip off">Official rule</span><span style="flex:1;min-width:240px">'+esc(fe.official)+' <a href="'+esc(fe.officialUrl)+'" target="_blank" rel="noopener">'+u('official')+'</a></span></div>'+
      '<div class="fv"><span class="chip gold">'+u('fv')+' · '+mon((fe.reviewedAt||'').slice(0,7))+'</span><span>'+u('trip')+': '+mon(fe.date)+(fe.bag?' · '+esc(fe.bag):'')+'</span></div>'+
-     sponsorBlock(fe,false)+(fe.sponsor&&fe.sponsor!=='none'?'<div class="openslot" style="margin-top:10px">'+u('brandother')+' <a href="advertise.html">'+u('opencta')+'</a></div>':'')+'</div>';
+     mentionBlock(fe,false)+(fe.mention&&fe.mention!=='none'?'<div class="openslot" style="margin-top:10px">'+u('brandother')+' <a href="../contact.html#suggest-a-product">'+u('opencta')+'</a></div>':'')+'</div>';
     bindPlay($('#feat'));
     $('#cards').innerHTML=list.map(function(it){return '<article class="panel card'+(it.id===featId?' sel':'')+'" data-id="'+it.id+'">'+player(it,true)+
      '<div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip">'+esc(CSHORT[it.country])+'</span><span class="chip'+(it.type==='grooming'?' gold':'')+'">'+esc(TYPES[it.type])+'</span></div>'+
-     '<h3>'+esc(it.entity)+'</h3>'+credit(it)+'<span class="chip gold" style="align-self:flex-start">'+u('fv')+' · '+mon((it.reviewedAt||'').slice(0,7))+'</span>'+sponsorBlock(it,true)+'</article>'}).join('');
+     '<h3>'+esc(it.entity)+'</h3>'+credit(it)+'<span class="chip gold" style="align-self:flex-start">'+u('fv')+' · '+mon((it.reviewedAt||'').slice(0,7))+'</span>'+mentionBlock(it,true)+'</article>'}).join('');
     $$('#cards .card').forEach(function(c){c.onclick=function(e){if(e.target.closest('a,.badge-v'))return;featId=c.getAttribute('data-id');renderGallery();$('#feat').scrollIntoView({behavior:'smooth',block:'center'})}});
     bindPlay($('#cards'));
   }
@@ -339,10 +330,10 @@ function renderGallery(){
   $('#hubgrid').innerHTML=HUBS.map(function(h){var s=DB.filter(function(x){return x.kind==='scout'&&x.hub===h[0]&&x.status==='approved'})[0];
     return '<div class="hubt'+(s?' live':'')+'"><b>'+esc(h[0])+'</b><span>'+esc(h[1])+'</span><span class="dots" title="Vet · Grooming · Big-Dog Taxi · Stay">'+[0,1,2,3].map(function(){return '<i'+(s?' class="on"':'')+'></i>'}).join('')+'</span>'+
     (s?'<span class="badge-s">★ '+esc(s.handle)+'</span><span class="sample">Example</span>':'<a href="?view=submit&amp;mode=scout">'+u('seatopen')+'</a>')+'</div>'}).join('');
-  var openN=list.filter(function(x){return !x.sponsor||x.sponsor==='none'}).length;
-  $('#slots').innerHTML='<div class="slot"><span class="logo" style="width:34px;height:34px;border-radius:8px;background:#fdf8ef;display:grid;place-items:center">'+logo('S').replace('viewBox','width="28" height="28" viewBox')+'</span><div><b>Example partner slot · Sleepypod</b><br><span style="color:var(--mut)">Paid Sponsor · Air France 8 kg episode</span></div><span class="chip gold">Sample</span></div>'+
-   '<div class="slot"><span class="logo" style="width:34px;height:34px;border-radius:8px;background:#fdf8ef;display:grid;place-items:center">'+logo('K').replace('viewBox','width="28" height="28" viewBox')+'</span><div><b>Example partner slot · Kurgo</b><br><span style="color:var(--mut)">Win-Win Gear Partner · LeShuttle episode</span></div><span class="chip gold">Sample</span></div>'+
-   '<div class="slot"><div><b>'+openN+' open episode slots</b><br><span style="color:var(--mut)">Incl. Grooming &amp; Care, CDC, WestJet heat embargo</span></div><a class="chip" href="advertise.html" style="text-decoration:none">'+u('opencta')+'</a></div>';
+  var openN=list.filter(function(x){return !x.mention||x.mention==='none'}).length;
+  $('#slots').innerHTML='<div class="slot"><span class="logo" style="width:34px;height:34px;border-radius:8px;background:#fdf8ef;display:grid;place-items:center">'+logo('S').replace('viewBox','width="28" height="28" viewBox')+'</span><div><b>Example product mention · Sleepypod</b><br><span style="color:var(--mut)">Product mention · Air France 8 kg episode</span></div><span class="chip gold">Sample</span></div>'+
+   '<div class="slot"><span class="logo" style="width:34px;height:34px;border-radius:8px;background:#fdf8ef;display:grid;place-items:center">'+logo('K').replace('viewBox','width="28" height="28" viewBox')+'</span><div><b>Example product mention · Kurgo</b><br><span style="color:var(--mut)">Product mention · LeShuttle episode</span></div><span class="chip gold">Sample</span></div>'+
+   '<div class="slot"><div><b>'+openN+' open episode slots</b><br><span style="color:var(--mut)">Incl. Grooming &amp; Care, CDC, WestJet heat embargo</span></div><a class="chip" href="../contact.html#suggest-a-product" style="text-decoration:none">'+u('opencta')+'</a></div>';
 }
 
 /* (b) moderation */
@@ -372,7 +363,7 @@ function renderQueue(){
     var ap=$('.approve',el), boxes=$$('.ck input',el);
     function upd(){var all=boxes.every(function(b){return b.checked});ap.disabled=!all;ap.title=all?'':'Tick all 4 checks to enable';}
     boxes.forEach(function(b){b.onchange=function(){it.checks=it.checks||{};it.checks[b.name]=b.checked;save(DB);upd()}});upd();
-    $('.sp-sel',el)&&($('.sp-sel',el).onchange=function(){it.sponsor=this.value;save(DB)});
+    $('.sp-sel',el)&&($('.sp-sel',el).onchange=function(){it.mention=this.value;save(DB)});
     $('.sp-brand',el)&&($('.sp-brand',el).oninput=function(){it.brand=this.value;save(DB)});
     $('.note',el).oninput=function(){it.note=this.value;save(DB)};
     $('.rsn',el).onchange=function(){it.rejectReason=this.value;save(DB)};
@@ -385,7 +376,7 @@ function renderQueue(){
 var OPEN={};
 function qCompact(it){
   var t=it.kind==='clip'?it.entity:(it.kind==='rule'?it.route:'Founding City Scout · '+it.hub);
-  return '<article class="panel qitem compact st-'+it.status+'" data-id="'+it.id+'"><span class="qi"><svg viewBox="0 0 24 24"><path d="'+(it.kind==='clip'?(ICON[it.type]||ICON.airline):ICON[it.kind])+'"/></svg></span><div class="cm"><b>'+esc(t)+'</b><div class="chips"><span class="kindtag '+it.kind+'">'+kindLabel(it.kind)+'</span>'+stChip(it)+'<span class="chip">'+esc(CSHORT[it.country]||it.country)+'</span>'+(it.type==='grooming'||it.kind==='scout'?'<span class="chip gold">Grooming</span>':'')+'<span class="chip">'+esc(it.handle)+' · '+(it.badge==='scout'?'★ Founding City Scout':(it.status==='approved'?'✓ Verified Corridor Traveler':'no badge'))+'</span>'+(it.kind==='clip'&&it.status==='approved'?'<span class="chip'+(it.sponsor&&it.sponsor!=='none'?' gold':'')+'">Sponsor: '+esc(it.sponsor&&it.sponsor!=='none'?SPONSOR_LABEL[it.sponsor]+' · '+(it.brand||''):'Open slot CTA')+'</span>':'')+(it.sample?'<span class="sample">Example</span>':'')+'</div>'+(it.note?'<div class="audit">Note: '+esc(it.note)+'</div>':'')+'</div><div class="acts"><button class="btn ghost sm openit" type="button">Review details</button><button class="btn ghost sm pend" type="button">Back to L0</button></div></article>'}
+  return '<article class="panel qitem compact st-'+it.status+'" data-id="'+it.id+'"><span class="qi"><svg viewBox="0 0 24 24"><path d="'+(it.kind==='clip'?(ICON[it.type]||ICON.airline):ICON[it.kind])+'"/></svg></span><div class="cm"><b>'+esc(t)+'</b><div class="chips"><span class="kindtag '+it.kind+'">'+kindLabel(it.kind)+'</span>'+stChip(it)+'<span class="chip">'+esc(CSHORT[it.country]||it.country)+'</span>'+(it.type==='grooming'||it.kind==='scout'?'<span class="chip gold">Grooming</span>':'')+'<span class="chip">'+esc(it.handle)+' · '+(it.badge==='scout'?'★ Founding City Scout':(it.status==='approved'?'✓ Verified Corridor Traveler':'no badge'))+'</span>'+(it.kind==='clip'&&it.status==='approved'?'<span class="chip'+(it.mention&&it.mention!=='none'?' gold':'')+'">Mention: '+esc(it.mention&&it.mention!=='none'?MENTION_LABEL[it.mention]+' · '+(it.brand||''):'Contact')+'</span>':'')+(it.sample?'<span class="sample">Example</span>':'')+'</div>'+(it.note?'<div class="audit">Note: '+esc(it.note)+'</div>':'')+'</div><div class="acts"><button class="btn ghost sm openit" type="button">Review details</button><button class="btn ghost sm pend" type="button">Back to L0</button></div></article>'}
 function qItem(it){
   if(it.status!=='pending'&&!OPEN[it.id])return qCompact(it);
   var left,meta,isClip=it.kind==='clip';
@@ -400,7 +391,7 @@ function qItem(it){
   var c=it.checks||{}, appr=it.status==='approved';
   var g='<div class="grid4"><h4>4 mandatory checks</h4>'+CHECKS.map(function(k){var on=appr||c[k[0]];return '<label class="ck"><input type="checkbox" name="'+k[0]+'"'+(on?' checked':'')+'><span><b>'+k[1]+'</b><span>'+k[2]+'</span></span></label>'}).join('')+
    '<div class="ctl"><div><div class="lbl">Badge on approve</div><select class="bdg"><option value="auto">Auto (by ladder)</option><option value="traveler"'+(it.badge==='traveler'?' selected':'')+'>Verified Corridor Traveler</option><option value="scout"'+(it.badge==='scout'?' selected':'')+(it.kind!=='scout'?' disabled':'')+'>Founding City Scout</option></select></div>'+
-   (isClip?'<div><div class="lbl">Sponsor slot</div><select class="sp-sel">'+Object.keys(SPONSOR_LABEL).map(function(k){return '<option value="'+k+'"'+((it.sponsor||'none')===k?' selected':'')+'>'+SPONSOR_LABEL[k]+'</option>'}).join('')+'</select></div>':'<div><div class="lbl">Sponsor slot</div><select disabled><option>n/a (clips only)</option></select></div>')+
+   (isClip?'<div><div class="lbl">Product mention</div><select class="sp-sel">'+Object.keys(MENTION_LABEL).map(function(k){return '<option value="'+k+'"'+((it.mention||'none')===k?' selected':'')+'>'+MENTION_LABEL[k]+'</option>'}).join('')+'</select></div>':'<div><div class="lbl">Product mention</div><select disabled><option>n/a (clips only)</option></select></div>')+
    '<div><div class="lbl">Reject reason</div><select class="rsn"><option value="">—</option>'+REJECT.map(function(r){return '<option'+(it.rejectReason===r?' selected':'')+'>'+r+'</option>'}).join('')+'</select></div>'+
    (isClip?'<div><div class="lbl">Partner brand</div><input class="sp-brand" type="text" value="'+esc(it.brand||'')+'" placeholder="e.g. Sleepypod"></div>':'<div></div>')+
    '<div class="full"><div class="lbl">Moderator note</div><input class="note" type="text" value="'+esc(it.note||'')+'" placeholder="Internal note / reason sent to contributor"></div></div>'+
@@ -446,7 +437,7 @@ function initSubmit(){
     if(err.length){$('#formErr').textContent='Almost there: '+err.join(' · ')+'.';return}$('#formErr').textContent='';
     var id='c-'+Date.now(),ct=$('#country').value,gu=type==='grooming'?$('input[name="guse"]:checked').value:undefined,ent=$('#entity').value.trim();
     var it={id:id,kind:'clip',status:'pending',mode:mode,platform:mode==='upload'?'Upload':plat(url),url:mode==='link'?url:'',type:type,guse:gu,country:ct,entity:ent,route:ent.split('·').pop().trim().slice(0,30),date:$('#date').value,duration:mode==='upload'?upDur:undefined,
-      tip:$('#tip').value.trim(),caption:$('#tip').value.trim().split(/[.:;—]/)[0].slice(0,60),bag:$('#bag').value.trim(),handle:$('#handle').value.trim(),social:$('#social').value.trim(),consentAt:new Date().toLocaleString(),thumb:mode==='upload'?upThumb:null,sponsor:'none',official:'(moderator to add the official rule + source)'};
+      tip:$('#tip').value.trim(),caption:$('#tip').value.trim().split(/[.:;—]/)[0].slice(0,60),bag:$('#bag').value.trim(),handle:$('#handle').value.trim(),social:$('#social').value.trim(),consentAt:new Date().toLocaleString(),thumb:mode==='upload'?upThumb:null,mention:'none',official:'(moderator to add the official rule + source)'};
     if(upFile)SESSION_MEDIA[id]=upFile.url;
     var handoff=queueSubmission(it);doneMsg(this,'clip',handoff);};
   $('#ruleForm').onsubmit=function(e){e.preventDefault();var err=[];if(!$('#rRoute').value.trim())err.push('place / route');if($('#rDiff').value.trim().length<15)err.push('what differed');if(!handleOk($('#rHandle').value))err.push('@handle');

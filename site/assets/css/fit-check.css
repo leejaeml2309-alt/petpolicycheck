@@ -71,4 +71,4 @@ body.v-c{background:#0b1719;color:#e8e0d0}
   .fit-card{padding:14px}
   .fit-res th,.fit-res td{padding:6px 4px}
 }
-@media print{header,footer,.partner-slot,.ppc-lang-sw,.fit-actions,.no-print{display:none!important} body{background:#fff;color:#000}}
+@media print{header,footer,.ppc-lang-sw,.fit-actions,.no-print{display:none!important} body{background:#fff;color:#000}}

@@ -39,7 +39,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:var(--hw,400);color:var(--head);mar
 @media (max-width:820px){.brand .lbadge{width:62px;height:47px;border-radius:12px}.brand .lbadge img{width:54px}}
 :root{--wall:url("../img/wallpaper-tile.png")}
 @media (max-width:820px){.wrap{padding:0 16px}.top .wrap{gap:10px;min-height:58px;flex-wrap:wrap;padding-top:8px}.nav{width:100%;margin:0 -16px;padding:0 12px 8px}.brand .wm{font-size:1.15rem}.foot .cols{grid-template-columns:1fr 1fr}}
-/* Header (fix6 v3): logo + 10 nav links in one row; under 1100px they collapse into the "Menu" dropdown (which adds Advertise).
+/* Header (fix6 v3): logo + 10 nav links in one row; under 1100px they collapse into the "Menu" dropdown .
    Below the header line: a row of three 300×250 units (one column under 700px). */
 .top .wrap{position:relative}
 .top .nav.menu{margin-left:auto;gap:2px}
@@ -57,135 +57,6 @@ h1,h2,h3{font-family:var(--disp);font-weight:var(--hw,400);color:var(--head);mar
  .top .nav.menu a.nav-book,.top .nav.menu a.cta{margin:4px 0;text-align:center}}
 @media (max-width:820px){.top .wrap{flex-wrap:nowrap;padding-top:0}.brand{margin-right:auto}.menu-btn{padding:0 12px}
  .top .nav.menu{right:16px;left:16px;width:auto;top:calc(100% - 2px)}}
-.hdr-band{padding:14px 0 10px}
-.hdr-ad{display:flex;justify-content:center}
-.hdr-box{position:relative;width:728px;height:90px;min-height:90px;max-width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hdr-ins{display:block;width:728px;height:90px;min-height:90px}
-.hdr-ad .adl{position:absolute;inset:auto auto 50% 50%;transform:translate(-50%,50%);font:600 .64rem var(--text);letter-spacing:.16em;text-transform:uppercase;color:var(--mut);opacity:.7;pointer-events:none}
-.hdr-ad.empty .hdr-box{border:1px dashed #d9b76566;border-radius:var(--r-s);background:#d9b76508}
-@media (max-width:767px){.hdr-band{padding:10px 0 4px}.hdr-box,.hdr-ins{width:320px;height:100px;min-height:100px}}
-/* Content-width empty ad frames (728 max, fixed min-height). Not used inside the Paw Passport intro. */
-.adframe{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;max-width:728px;min-height:90px;margin:28px auto;padding:12px 16px;box-sizing:border-box;border:1px dashed #d9b76599;border-radius:var(--r-s,10px);background:#d9b7650d;text-align:center;overflow:hidden}
-.adframe .adl{font:600 .64rem var(--text,inherit);letter-spacing:.16em;text-transform:uppercase;color:var(--mut,#a7b0a2);opacity:.8;pointer-events:none}
-.adframe-cta{font-weight:600;text-decoration:none;border-bottom:1px dotted currentColor}
-.adframe-cta:hover{border-bottom-style:solid}
-.adframe img{max-width:100%;height:auto;display:block;margin:4px auto 0}
-.adframe-live{display:grid;grid-template-columns:1fr;align-items:center;justify-items:center;padding:0}
-.adframe-min{grid-area:1/1;width:100%;height:90px;visibility:hidden;pointer-events:none}
-.adframe-box{grid-area:1/1;display:flex;align-items:center;justify-content:center;width:100%;z-index:1}
-.adframe-box ins.adsbygoogle{width:100%}
-.foot .adframe{margin:14px auto 6px}
-.foot .adframe .adl{color:var(--foot-ink);opacity:.6}
-.home-mid-ad{margin:4px auto 8px}
-.home-mid-ad .adframe{margin:12px auto}
-html.intro-lock .adframe,html.intro-lock .adgrid,.intro .adframe,.intro .adgrid{display:none !important}
-.adframe-live{border:0;background:transparent;padding:0;overflow:visible}
-.adgrid{display:flex;flex-wrap:wrap;justify-content:center;align-items:stretch;gap:16px;margin:22px auto;max-width:948px}
-.hdr-band .adgrid{margin:0 auto}
-.adgrid .adframe-rect{flex:0 1 300px;width:300px;max-width:300px;height:250px;min-height:250px;max-height:250px;margin:0;overflow:hidden}
-.adgrid .adframe-rect .adframe-min{width:100%;height:250px;min-height:250px}
-.adframe-ck{max-width:336px;min-height:280px}
-.adframe-ck .adframe-min{height:280px;min-height:280px}
-.adframe-fo{max-width:300px;min-height:250px}
-.adframe-fo .adframe-min{height:250px;min-height:250px}
-.home-mid-ad .adgrid{margin:8px auto 12px}
-@media (max-width:700px){
- /* Mobile adgrids v3 20261101 — 3-en-ligne, collapse unfilled, tighter hdr */
- .adgrid{
-  display:flex !important;
-  flex-direction:row !important;
-  flex-wrap:nowrap !important;
-  justify-content:center !important;
-  align-items:stretch !important;
-  gap:6px !important;
-  margin:8px auto !important;
-  max-width:100% !important;
-  padding:0 6px !important;
-  min-height:0 !important;
-  box-sizing:border-box;
- }
- .adgrid .adframe-rect{
-  flex:1 1 0 !important;
-  width:auto !important;
-  min-width:0 !important;
-  max-width:none !important;
-  height:auto !important;
-  min-height:0 !important;
-  max-height:none !important;
-  aspect-ratio:300 / 250;
-  margin:0 !important;
-  padding:4px !important;
-  box-sizing:border-box;
-  overflow:hidden !important;
- }
- .adgrid .adframe-rect .adframe-min{
-  display:none !important;
-  height:0 !important;
-  min-height:0 !important;
- }
- .adgrid .adframe-empty{
-  min-height:0 !important;
-  gap:1px !important;
-  padding:4px 2px !important;
- }
- .adgrid .adframe-empty .adl{font-size:.5rem;letter-spacing:.08em}
- .adgrid .adframe-empty .adframe-cta{font-size:.72rem}
- .adgrid .adframe-live{
-  aspect-ratio:auto !important;
-  min-height:0 !important;
-  padding:0 !important;
-  border:0 !important;
-  background:transparent !important;
- }
- .adgrid .adframe-live:has(ins.adsbygoogle:not([data-ad-status="filled"])),
- .adgrid .adframe-live:has(ins.adsbygoogle[data-ad-status="unfilled"]),
- .adgrid .adframe-live:has(ins.adsbygoogle:not([data-ad-status])){
-  display:none !important;
-  flex:0 0 0 !important;
-  width:0 !important;
-  max-width:0 !important;
-  margin:0 !important;
-  padding:0 !important;
-  overflow:hidden !important;
-  border:0 !important;
- }
- .adgrid .adframe-live:has(ins.adsbygoogle[data-ad-status="filled"]){
-  display:flex !important;
-  flex:1 1 0 !important;
-  aspect-ratio:300 / 250 !important;
- }
- .hdr-band{
-  padding:2px 0 0 !important;
-  min-height:0 !important;
-  margin:0 !important;
- }
- .hdr-band .adgrid{margin:0 auto 2px !important}
- .hdr-band:not(:has(.adframe-empty)):not(:has(.adframe-live:has(ins.adsbygoogle[data-ad-status="filled"]))){
-  display:none !important;
-  height:0 !important;
-  padding:0 !important;
-  margin:0 !important;
- }
- .foot .adgrid,
- .sfad-wrap .adgrid{margin:8px auto 4px !important}
- .sfad-wrap{margin-top:2px !important;min-height:0 !important}
- .sfad-wrap .sfad-adv{margin:4px 0 !important}
- main, .wrap > .crumbs, .crumbs, .breadcrumb, nav.crumbs{
-  margin-top:0 !important;
- }
-}
-@media (max-width:360px){
- .adgrid{gap:4px !important;padding:0 4px !important}
- .adgrid .adframe-empty .adframe-cta{font-size:.65rem}
-}
-@media (max-width:767px){
- .adframe:not(.adframe-ck):not(.adframe-fo):not(.adframe-rect),
- .adframe:not(.adframe-ck):not(.adframe-fo):not(.adframe-rect) .adframe-min{min-height:100px}
- .adframe:not(.adframe-ck):not(.adframe-fo):not(.adframe-rect) .adframe-min{height:100px}
- .adframe{margin:18px auto}
- .adgrid .adframe{margin:0}
-}
-
 /* ==== PPC PASTILLES + DEPARTMENT PALETTE (Version A + V3) ==== */
 /* PetPolicyCheck · Pastilles de section Version A + palettes thématiques « Juste milieu minéral »
    PetPolicyCheck department pastilles Version A + mineral palette (V3). */
@@ -584,83 +455,6 @@ html.theme-b2b .notice{border-color:color-mix(in srgb,var(--theme-flight) 40%,tr
 .pro-sign .lead{ position:relative; margin:0; max-width:48rem; color:#c9c2b4; font-size:1.02rem; line-height:1.55; }
 
 
-/* ---- Sitewide Partner leaderboard slot (under top nav) ---- */
-/* Match .biz-banner width/padding/margins so the slot is identical on every page. */
-.partner-slot{
-  position:relative; box-sizing:border-box;
-  margin:10px auto 6px; max-width:1200px; width:100%; padding:0 20px;
-}
-.partner-slot .partner-card{
-  position:relative; overflow:hidden; box-sizing:border-box;
-  display:grid; place-items:center;
-  width:100%; max-width:100%;
-  min-height:90px; height:90px;
-  border-radius:14px;
-  border:1px solid color-mix(in srgb,var(--gold,#d9b765) 38%, transparent);
-  background:
-    radial-gradient(ellipse 80% 120% at 0% 50%, color-mix(in srgb,var(--gold,#d9b765) 12%, transparent), transparent 55%),
-    linear-gradient(135deg, #0c191d, #0b1719 60%, color-mix(in srgb,var(--gold,#d9b765) 8%, #0b1719));
-  box-shadow:0 10px 28px #0005;
-}
-/* Single discreet label INSIDE the card, padded clear of the border (no duplicate / no ::before). */
-.partner-slot .partner-label{
-  position:absolute; top:10px; left:16px; z-index:2;
-  margin:0; padding:0;
-  font:600 .62rem Inter,system-ui,sans-serif; letter-spacing:.16em; text-transform:uppercase;
-  color:color-mix(in srgb,var(--gold,#d9b765) 75%, #c9c2b4);
-  opacity:.85; pointer-events:none;
-}
-.partner-slot .partner-label + .partner-ph,
-.partner-slot .partner-label + .partner-creative,
-.partner-slot .partner-label + .partner-html{
-  /* leave room under the label so copy never collides */
-}
-.partner-slot .partner-ph{
-  display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px 18px;
-  padding:12px 18px; text-align:center; width:100%;
-}
-.partner-slot .partner-ph .pst-mini{
-  display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px;
-  color:var(--gold,#d9b765);
-  background:color-mix(in srgb,var(--gold,#d9b765) 14%, #0b1719);
-  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--gold,#d9b765) 55%,transparent),0 0 0 2px #0b1719,0 0 0 3px color-mix(in srgb,var(--gold,#d9b765) 28%,transparent);
-}
-.partner-slot .partner-ph p{
-  margin:0; font:400 .92rem/1.35 Inter,system-ui,sans-serif; color:#c9c2b4;
-}
-.partner-slot .partner-ph p b{
-  font-family:Marcellus,Georgia,serif; font-weight:400; color:#f0e6c8; letter-spacing:.02em;
-}
-.partner-slot .partner-cta{
-  display:inline-flex; align-items:center; gap:6px;
-  padding:7px 14px; border-radius:999px;
-  border:1px solid color-mix(in srgb,var(--gold,#d9b765) 55%, transparent);
-  color:var(--gold,#d9b765); text-decoration:none;
-  font:600 .78rem Inter,system-ui,sans-serif; letter-spacing:.04em;
-  background:color-mix(in srgb,var(--gold,#d9b765) 10%, transparent);
-}
-.partner-slot .partner-cta:hover{ background:var(--gold,#d9b765); color:#0b1719; }
-.partner-slot a.partner-creative{
-  display:block; width:100%; height:100%;
-}
-.partner-slot a.partner-creative img{
-  display:block; width:100%; height:100%; object-fit:contain; object-position:center;
-}
-.partner-slot .partner-html{ width:100%; height:100%; display:grid; place-items:center; }
-@media (max-width:720px){
-  .partner-slot{ margin:8px auto 4px; padding:0 14px; width:100%; max-width:1200px; }
-  .partner-slot .partner-card{ width:100%; min-height:100px; height:100px; border-radius:12px; }
-  .partner-slot .partner-label{ top:8px; left:12px; }
-  .partner-slot .partner-ph{ padding:10px 12px; gap:8px; }
-  .partner-slot .partner-ph p{ font-size:.82rem; }
-  /* QA 2026-11-07: placeholder copy wraps to 2 lines in FR/ES/DE → CTA was cut off by the fixed 100px height
-     and the label overlapped the copy. Placeholder only (live creatives keep the fixed 100px box). */
-  .partner-slot .partner-card:has(> .partner-ph){ height:auto; }
-  .partner-slot .partner-ph{ padding:24px 12px 12px; }
-  .partner-slot .partner-ph .pst-mini{ display:none; }
-}
-
-
 /* ---- Top bar: logo-only brand + zero-truncation nav (Marc 2026-11-07) ---- */
 header.top a.brand .wm,
 header.map-nav a.brand .wm,
@@ -719,7 +513,7 @@ header.top .nav a{
   header.top .wrap, header.map-nav .wrap{flex-wrap:wrap}
 }
 
-/* Advertise + Book stay in the top bar (not only in the drawer) */
+/* Book stays in the top bar (not only in the drawer) */
 @media (min-width:1100px){
   .top .nav.pst-nav a.nav-book,
   .top .nav.pst-nav a.cta{display:inline-flex!important;visibility:visible;opacity:1}

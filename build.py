@@ -206,7 +206,9 @@ NAV = [("?view=map", "World map", "site.nav.map", ()), ("book/", "Book", "site.n
        ("about.html", "About", "site.nav.about", ("about.html",)),
        ("veterans/", "Veterans", "site.nav.veterans", ("veterans/",)),
        ("pro/", "For Business", "site.nav.pro", ("pro/", "extension/", "b2b-pet-desk/")),  # briefcase pastille via pastilles.js theme-b2b
-       ("advertise/", "Advertise", "site.nav.advertise", ("advertise/",))]
+]
+if SHOW_ADS:
+    NAV.append(("advertise/", "Advertise", "site.nav.advertise", ("advertise/",)))
 LOGO_BADGE = '<span class="lbadge"><img src="{root}assets/img/logo-mark-header.png" width="62" height="48" alt="PetPolicyCheck"></span>'
 
 
@@ -255,6 +257,9 @@ def nav_links(root, path, i18n=False):
 # Header (fix6 v3): logo + horizontal nav (10 links) in the header row; under ~1100px the nav collapses into the "Menu" dropdown
 # (which also shows Advertise). A leaderboard ad band sits below the header line, site-wide.
 ADSENSE_CLIENT = "ca-pub-7693501377730690"
+# Reversible preview switch (2026-11-10). True restores AdSense units,
+# partner placeholders, and the /advertise/ offer. See docs/paddle-noads-reversible.md.
+SHOW_ADS = False
 MENU_BTN = ('<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">'
             '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>'
             '<span data-i18n="site.nav.menu">Menu</span></button>')
@@ -330,7 +335,7 @@ def header_ad(cfg, ads=True):
     """Three 300×250 units under the header (one column under 700px). config.json "adsense_header_slot"
     is repeated on each <ins>, same pattern as mid-home. ads=False pages get no band.
     Empty slot -> three dashed Advertise-here cells."""
-    if not ads:
+    if not SHOW_ADS or not ads:
         return ""  # no-AdSense pages (e.g. /pet-travel-checklist/): no ad band at all
     slot = ad_unit_id(cfg.get("adsense_header_slot"))
     if slot:
@@ -345,6 +350,8 @@ def header_ad(cfg, ads=True):
 def home_footer_ad(cfg):
     """Homepage bottom band: three 300×250 units. config.json "adsense_home_footer_slot" on each <ins>.
     Empty -> three dashed Advertise-here cells."""
+    if not SHOW_ADS:
+        return ""
     slot = ad_unit_id(cfg.get("adsense_home_footer_slot"))
     if slot:
         grid = medium_rect_grid(slot, "home_bottom")
@@ -363,6 +370,8 @@ def site_footer_ad(cfg, root, fi):
     """Three 300×250 units in the shared site footer (unit "PPC site footer"). config.json ads.site_footer.adsense_slot
     is repeated on each <ins>. Empty, SITE_FOOTER_SLOT_TBD, or a reused header/home-bottom id -> dashed Advertise-here cells.
     A discreet 'Advertise here' link stays under the row."""
+    if not SHOW_ADS:
+        return ""
     slot = str(((cfg.get("ads") or {}).get("site_footer") or {}).get("adsense_slot") or "").strip()
     if slot in RESERVED_AD_SLOTS:
         print(f"  WARNING: ads.site_footer.adsense_slot reuses the {RESERVED_AD_SLOTS[slot]} slot {slot}; rendering placeholder")
@@ -389,6 +398,8 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
     h = home_url(root)
     li = lambda href, key, label: f'<li><a href="{href}"{ti(key, fi)}>{label}</a></li>'
     forum = (li(f"{root}forum/", "nav.forum", "Forum") + li(f"{root}forum/pet-travel-stories/", "site.foot.stories", "Stories")) if FORUM_ON else ""
+    if not SHOW_ADS:
+        sponsor = "off"
     if sponsor == "auto":
         sponsor = "frame" if ads else "ph"
     if sponsor == "off":
@@ -405,7 +416,7 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
 <div class="wrap cols">
 <div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
 <div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.foot.book", "Book your trip")}{li(root + "airlines/", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}{li(root + "routes/", "site.nav.guides", "Routes")}{li(root + "veterans/", "site.nav.pro", "Veterans")}{li(root + "fit/", "site.nav.compare", "Carrier fit")}</ul></div>
-<div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{li(root + "extension/", "site.foot.extension", "Chrome Extension")}{li(root + "advertise/", "site.nav.advertise", "Advertise")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
+<div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{li(root + "extension/", "site.foot.extension", "Chrome Extension")}{(li(root + "advertise/", "site.nav.advertise", "Advertise") if SHOW_ADS else "")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "terms.html", "site.foot.terms", "Terms")}{li(root + "refund-policy.html", "site.foot.refund", "Refund policy")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
 {band}
@@ -494,6 +505,8 @@ def load_partner_cfg(slot="top-partner"):
 
 
 def partner_banner(root, slot="top-partner"):
+    if not SHOW_ADS:
+        return ""
     """Sitewide leaderboard under the top nav. Build-time render; partner-banner.js can refresh inactive slots."""
     cfg = load_partner_cfg(slot)
     # One label only, inside the card (top-left). Do NOT also place one outside the card.
@@ -531,7 +544,9 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
     # GA4 is sitewide (including pages that do not load AdSense). Empty measurement id skips the tag.
     ga = ga4_head(cfg)
     ga_nl = (ga + "\n") if ga else ""
-    if ads:
+    if not SHOW_ADS:
+        ads_head = ga_nl + (TP_DRIVE + "\n" if ads else "")
+    elif ads:
         ads_head = ga_nl + ADSENSE + "\n" + TP_DRIVE + "\n"
     elif extra_live:
         ads_head = ga_nl + ADSENSE + "\n"
@@ -580,7 +595,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main"{ti("site.skip", fi)}>Skip to content</a>
-{compact_header(root, path)}{partner_banner(root)}{header_ad(cfg, ads)}<script src="{root}assets/js/partner-banner.js" defer data-partner-root="{root}assets/partners/"></script>
+{compact_header(root, path)}{partner_banner(root)}{header_ad(cfg, ads)}{(("" if not SHOW_ADS else '<script src="'+root+'assets/js/partner-banner.js" defer data-partner-root="'+root+'assets/partners/"></script>'))}
 <main class="wrap" id="main">
 {body.replace('{root}', root)}
 </main>
@@ -837,8 +852,8 @@ def build_about(cfg):
 <h2 id="affiliates">Affiliate disclosure</h2>
 <p>Some pages may contain affiliate links (for example to pet carriers, pet insurance or hotel booking sites such as Expedia). If you buy through them we may earn a commission at no extra cost to you. Affiliate relationships never change the policy information we publish.</p>
 <p>{AMAZON_DISCLOSURE} Product pages may link to Amazon.com through the Amazon Associates Program.</p>
-<h2 id="advertising">Advertising</h2>
-<p>The site shows ads served by Google AdSense and may load affiliate scripts such as Travelpayouts. Advertisers never change the policy information we publish. See our <a href="privacy.html">privacy policy</a> for how advertising cookies work and how to opt out of personalized ads.</p>
+<h2 id="affiliates-ads">How the site is funded</h2>
+<p>We do not currently show Google AdSense units on this site. Affiliate links are disclosed on the pages that use them and never change the policy information we publish. See our <a href="privacy.html">privacy policy</a>.</p>
 <h2>Corrections</h2>
 <p>Spotted something out of date? Please tell us via our <a href="contact.html">contact page</a>.</p>"""
     return page(cfg, f"About & disclaimer | {cfg['site_name']}", "How we verify airline pet policies, our disclaimer and affiliate disclosure.", body, "about.html", "")
@@ -874,7 +889,7 @@ def forum_privacy(cfg):
     fm = obf_mail((cfg.get("forum") or {}).get("contact_email") or cfg["contact_email"])
     return f"""<h2 id="forum">Forum accounts</h2>
 <p>Reading the <a href="forum/">forum</a> needs no account. If you create one to post or comment, we store: your <b>email address</b> (to sign you in and for account emails such as confirmation and password reset; never shown publicly), your <b>display name</b> (public, shown next to your posts), a hashed password (if you don't use Google sign-in), and what you post: <b>posts, comments, reports</b>, their categories and dates, and the moderation status and reason. If you choose "Continue with Google", Google shares your email address and basic profile with us for sign-in; we don't use your Google name or photo publicly.</p>
-<p><b>Processor:</b> accounts and forum content are stored by <a href="https://supabase.com/privacy" rel="noopener" target="_blank">Supabase</a> (our database and sign-in provider), which processes the data on our behalf; our project is hosted in Supabase's Northeast Asia (Seoul) region. Supabase may log technical data such as IP addresses for security. Sign-in keeps a session token in your browser's local storage (not an advertising cookie); signing out removes it.</p>
+<p><b>Processor:</b> accounts and forum content are stored by <a href="https://supabase.com/privacy" rel="noopener" target="_blank">Supabase</a> (our database and sign-in provider), which processes the data on our behalf; our project is hosted in Supabase's Northeast Asia (Seoul) region. Supabase may log technical data such as IP addresses for security. Sign-in keeps a session token in your browser's local storage (not an ad-network cookie); signing out removes it.</p>
 <p><b>Moderation:</b> posts and comments are checked before publication by an automatic keyword filter and by a moderator (assisted by an AI tool that reads only the text you submitted). Published posts and comments, with your display name, are public and may be included in search engines.</p>
 <p><b>Your choices:</b> you can delete your own posts and comments at any time from <a href="forum/account.html">My account</a>, and change your display name. To delete your account and all its data, or to get a copy of it, email {fm}; we handle requests within 30 days. Your data is kept while your account exists.</p>
 <p>Forum pages for signing in and posting don't show ads or load affiliate scripts.</p>
@@ -897,11 +912,11 @@ def forum_privacy(cfg):
 def build_privacy(cfg):
     mail = obf_mail(cfg.get("privacy_email") or cfg["contact_email"])
     ga_on = bool(ga4_measurement_id(cfg))
-    services = "advertising, analytics and affiliate" if ga_on else "advertising and affiliate"
-    cookie_parties = "advertising, analytics and affiliate" if ga_on else "advertising and affiliate"
-    desc = ("Privacy policy for PetPolicyCheck: Google AdSense advertising cookies and how to opt out, Google Analytics 4, Travelpayouts and affiliate links, and GitHub Pages hosting explained."
+    services = "analytics and affiliate" if ga_on else "affiliate"
+    cookie_parties = "analytics and affiliate" if ga_on else "affiliate"
+    desc = ("Privacy policy for PetPolicyCheck: cookies, Google Analytics 4, Travelpayouts and affiliate links, and GitHub Pages hosting explained."
             if ga_on else
-            "Privacy policy for PetPolicyCheck: Google AdSense advertising cookies and how to opt out, Travelpayouts and affiliate links, and GitHub Pages hosting explained.")
+            "Privacy policy for PetPolicyCheck: cookies, Travelpayouts and affiliate links, and GitHub Pages hosting explained.")
     body = f"""<h1>Privacy policy</h1>
 <p class="small">Effective date: {EFFECTIVE} &middot; Last updated: {PRIVACY_UPDATED}</p>
 <p>{e(cfg['site_name'])} is a simple static website. This page explains, in plain English, what data is and isn't collected when you visit, including by the {services} services we use.</p>
@@ -910,9 +925,8 @@ def build_privacy(cfg):
 <p>The site is hosted on GitHub Pages, a service of GitHub, Inc. When you load a page, GitHub's servers may log technical information such as your IP address, browser type and the page requested, for security and operations. We don't receive or control those logs. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" target="_blank">GitHub Privacy Statement</a>.</p>
 <h2>Cookies</h2>
 <p>Our own code sets no cookies. The third-party {cookie_parties} services described below may set and read cookies, or use similar technologies such as web beacons and device identifiers, when you visit our pages or click a link. You can block or delete cookies in your browser settings.</p>
-<h2>Advertising (Google AdSense)</h2>
-<p>We use Google AdSense to show ads on this site. Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to our users based on their visit to our site and/or other sites on the Internet.</p>
-<p>You may opt out of personalized advertising by visiting <a href="https://adssettings.google.com" rel="noopener" target="_blank">Google Ads Settings</a>. You can also opt out of some third-party vendors' use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" rel="noopener" target="_blank">www.aboutads.info</a>. If you opt out, you may still see ads, but they won't be personalized.</p>
+<h2>Google AdSense</h2>
+<p>We do not currently load Google AdSense on these pages, so AdSense cookies are not set from this site today. Our publisher account may still appear in ads.txt. If we show AdSense units again, Google and its vendors may use cookies to show ads based on prior visits. You can use <a href="https://adssettings.google.com" rel="noopener" target="_blank">Google Ads Settings</a> and <a href="https://www.aboutads.info" rel="noopener" target="_blank">www.aboutads.info</a>. If you use those controls, any future units would not be personalized.</p>
 <p>To learn more, see <a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">How Google uses information from sites or apps that use our services</a>.</p>
 <h2>Travelpayouts</h2>
 <p>Our pages load a script from Travelpayouts, an affiliate network for travel brands. It may turn links to travel partners (such as airlines, hotels or booking sites) into affiliate links, and Travelpayouts or its partners may use cookies or similar technology to record that a visit or booking came from our site, so we can be paid a commission. This is governed by the <a href="https://support.travelpayouts.com/hc/en-us/articles/360004121052-Privacy-Policy" rel="noopener" target="_blank">Travelpayouts privacy policy</a>.</p>
@@ -943,10 +957,10 @@ def build_contact(cfg):
 <p>Email: <b>{mail}</b></p>
 <h2>Corrections to airline data</h2>
 <p>Found a pet policy detail that's out of date or wrong? Please email us with the airline, what's wrong, and a link to the airline's official page showing the current rule. We check every correction against the official source before updating, and the page's "last verified" date changes when we do.</p>
-<h2>Partnerships &amp; sponsorship</h2>
-<p>Pet travel brands, insurers and travel companies interested in partnerships or sponsorship are welcome to get in touch. Sponsorship never changes the airline policy data we publish (see our <a href="about.html#affiliates">disclosure</a>).</p>
+<h2 id="suggest-a-product">Suggest a product</h2>
+<p>If you make a pet-travel product (a carrier, crate, or similar gear) and would like us to consider it for our product guides, email us with the product name, a link to the official page, and the official dimensions. A listing is not guaranteed; we compare official dimensions with airline limits and keep editorial independence (see our <a href="about.html#affiliates">disclosure</a>).</p>
 <p class="small">We can't book flights or answer questions about a specific reservation: please contact your airline for that.</p>"""
-    return page(cfg, f"Contact | {cfg['site_name']}", "Contact PetPolicyCheck for corrections to airline pet policy data, partnerships or sponsorship.", body, "contact.html", "")
+    return page(cfg, f"Contact | {cfg['site_name']}", "Contact PetPolicyCheck for corrections to airline pet policy data, or to suggest a product for our guides.", body, "contact.html", "")
 
 
 # ---------------------------------------------------------------- products & ads
@@ -1017,6 +1031,8 @@ def unit_configured(cfg, key):
 
 
 def ad_ph(root, i18n=False):
+    if not SHOW_ADS:
+        return ""
     """Small Advertise link kept for ads=False pages that are not getting a framed slot (map, coming soon)."""
     return f'<p class="adph"><a href="{root}advertise/"{ti("site.adhere", i18n)}>Advertise here</a></p>'
 
@@ -1035,6 +1051,8 @@ def live_ins(slot, key):
 
 
 def ad_frame(cfg, key, root, i18n=False, attrs=""):
+    if not SHOW_ADS:
+        return ""
     """Content-width frame. Sponsor image wins, then a dedicated adsense_slot, else Advertise here.
     attrs is extra attributes on the <aside> (forum uses data-ad-keep so JS can put the frame back)."""
     s = (cfg.get("ads") or {}).get(key) or {}
@@ -1065,17 +1083,23 @@ def ad_frame(cfg, key, root, i18n=False, attrs=""):
 
 
 def ad_slot(cfg, key, root, i18n=False):
+    if not SHOW_ADS:
+        return ""
     """airline_top / guide_sponsor / sidebar_or_footer: three 300×250 cells. Empty creative stays Advertise here."""
     return ad_grid(cfg, key, root, i18n)
 
 
 def ad_grid(cfg, key, root, i18n=False, n=3):
+    if not SHOW_ADS:
+        return ""
     """Flex-wrap row of medium rectangles (300×250). Same slot id is repeated; empty slots stay Advertise-here boxes."""
     cells = "".join(ad_frame(cfg, key, root, i18n) for _ in range(n))
     return f'<div class="adgrid adgrid-{e(key)}">{cells}</div>'
 
 
 def medium_rect_grid(slot, key, n=3):
+    if not SHOW_ADS:
+        return ""
     """Three (or n) live 300×250 cells repeating one exclusive slot id. One push() per <ins>."""
     key_e = e(key)
     cell = (f'<aside class="adframe adframe-live adframe-rect ad-{key_e}" data-ad-key="{key_e}" '
@@ -1086,6 +1110,8 @@ def medium_rect_grid(slot, key, n=3):
 
 
 def medium_rect_empty_grid(root, key, i18n=False, todo="", n=3):
+    if not SHOW_ADS:
+        return ""
     """Dashed 300×250 Advertise-here cells when an exclusive slot id is missing."""
     key_e = e(key)
     cell = (f'<aside class="adframe adframe-empty adframe-rect ad-{key_e}" data-ad-key="{key_e}" '
@@ -1770,7 +1796,7 @@ def build_partner_vets(cfg):
 <p class="small">Partner clinics are independent practices. {e(cfg['site_name'])} does not provide veterinary advice and is not paid for referrals; always confirm requirements with the clinic and the destination country's official authority.</p>
 <h2>Partner clinics</h2>
 {listing}
-<h2>Are you a vet? Become a partner</h2>
+<h2>Are you a vet? List your clinic</h2>
 <p>If your clinic issues pet travel health certificates, vaccinations or export paperwork, we would be glad to list you here free of charge so pet owners planning a trip can contact you directly. Email {mail} with your clinic's name, city, website and the travel services you offer.</p>"""
     return page(cfg, f"Partner vets for pet travel paperwork | {cfg['site_name']}",
                 "Veterinary clinics that help pet owners prepare health certificates, vaccinations and travel paperwork before flying with a dog or cat.",
@@ -2614,17 +2640,17 @@ def load_insurers():
 
 
 def ins_affiliate_url(cfg, key):
-    """config.json insurance_affiliates.<key>.url; empty until a program accepts the site (then the page shows a sponsored quote link)."""
+    """config.json insurance_affiliates.<key>.url; empty until a program accepts the site (then the page shows an affiliate quote link)."""
     v = (cfg.get("insurance_affiliates") or {}).get(key) or {}
     return (v.get("url") or "").strip(), v.get("label") or ""
 
 
 def ins_disclosure(cfg, root):
     live = any(ins_affiliate_url(cfg, k)[0] for k in (cfg.get("insurance_affiliates") or {}) if not k.startswith("_"))
-    ftc = ("<b>Disclosure:</b> PetPolicyCheck may earn a fee if you request a quote or buy a policy through links marked &ldquo;sponsored&rdquo; on this page. "
+    ftc = ("<b>Disclosure:</b> PetPolicyCheck may earn a fee if you request a quote or buy a policy through affiliate links on this page. "
            "This doesn&rsquo;t change what you pay or how we describe products." if live else
            "<b>Disclosure:</b> we have no affiliate relationship with any insurer on this page today, and every link goes to the insurer&rsquo;s own site. "
-           "If that changes, quote links will be marked &ldquo;sponsored&rdquo;; PetPolicyCheck may then earn a fee if you request a quote or buy a policy through them. "
+           "If that changes, quote links will be marked as affiliate links; PetPolicyCheck may then earn a fee if you request a quote or buy a policy through them. "
            "That won&rsquo;t change what you pay or how we describe products.")
     return (f'<div class="note ins-disc"><p>{ftc} <a href="{root}about.html#affiliates">Affiliate disclosure</a>.</p>'
             f'<p><b>Not advice:</b> {e(INS_NOT_AGENT)}</p></div>')
@@ -2673,7 +2699,7 @@ def build_insurance_travel(cfg):
     rows = []
     for i in ins:
         aurl, alabel = ins_affiliate_url(cfg, i["key"])
-        link = (f'<a class="btn" href="{e(aurl)}" rel="sponsored nofollow noopener" target="_blank">{e(alabel)}</a> <span class="small">sponsored</span>' if aurl
+        link = (f'<a class="btn" href="{e(aurl)}" rel="sponsored nofollow noopener" target="_blank">{e(alabel)}</a> <span class="small">affiliate</span>' if aurl
                 else src(i["official_url"], "Official site"))
         srcs = "<br>".join(src(u, e(t)) for t, u in i["sources"])
         extra = f"<br><span class='small'>{e(i['extra'])}</span>" if i.get("extra") else ""
@@ -2851,7 +2877,7 @@ def build_book(cfg, airlines):
 <li><a href="{root}countries/usa.html">Pet travel rules for the USA</a>: federal rules and each state&rsquo;s health certificate and rabies rules.</li>
 <li><a href="{root}routes/usa-to-japan.html">USA to Japan</a>: the Japan health certificate (Form AC) completed by a USDA-accredited vet, microchip, rabies titer test and the 180-day wait.</li>
 <li><a href="{root}routes/usa-to-south-korea.html">USA to South Korea</a>: ISO microchip, rabies vaccination, a rabies antibody (FAVN) test and a health certificate endorsed by USDA APHIS within 30 days of export.</li>
-<li><a href="{root}partner-vets/">Are you a vet? Become a partner clinic</a> (free listing).</li></ul></section>"""
+<li><a href="{root}partner-vets/">Are you a vet? List your clinic</a> (free listing).</li></ul></section>"""
     # insurance
     insurance = f"""<section class="bk-sec" id="insurance" aria-labelledby="ins-h"><span class="bk-k">Peace of mind</span><h2 id="ins-h">Pet insurance for the trip</h2>
 <div class="bk-card"><p>Will your pet&rsquo;s insurance pay for an emergency vet away from home? We compared what {len(ins["insurers"])} US insurers say about coverage in the US, Canada and abroad, waiting periods and reimbursement.</p>
@@ -2934,7 +2960,7 @@ def _ensure_for_business_nav(html, root):
 
 def _ensure_partner_slot(html, root):
     """Insert partner banner immediately after </header> when missing."""
-    if "partner-slot" in html:
+    if not SHOW_ADS or "partner-slot" in html:
         return html
     slot = partner_banner(root)
     if "</head>" in html and "partner-banner.js" not in html:
@@ -3413,7 +3439,7 @@ def main():
         home = home.replace(gmark, gjs, 1).replace(cmark, "", 1)
         assert "<!--HOME_FOOTER_AD-->" in home
         home = home.replace("<!--HOME_FOOTER_AD-->", home_footer_ad(cfg), 1)
-        mid_ad = f'<div class="wrap home-mid-ad">{ad_grid(cfg, "home_mid", "")}</div>'
+        mid_ad = f'<div class="wrap home-mid-ad">{ad_grid(cfg, "home_mid", "")}</div>' if SHOW_ADS else ""
         for n in ("1", "2"):
             mark = f"<!--HOME_MID_AD:{n}-->"
             assert mark in home, mark
@@ -3532,7 +3558,7 @@ def main():
     base = site_base(cfg)
     newest = max(a["last_verified"] for a in airlines if a.get("last_verified"))
     urls = [(f"{base}/", newest), (f"{base}/updates.html", newest), (f"{base}/about.html", newest),
-            (f"{base}/privacy.html", newest), (f"{base}/contact.html", newest), (f"{base}/advertise/", newest), (f"{base}/partner-vets/", newest),
+            (f"{base}/privacy.html", newest), (f"{base}/contact.html", newest)] + ([(f"{base}/advertise/", newest)] if SHOW_ADS else []) + [(f"{base}/partner-vets/", newest),
             (f"{base}/products/", pd["verified"])]
     urls += [(f"{base}/products/{x['slug']}.html", pd["verified"]) for x in pd["products"] + pd["guides"]]
     urls += [(f"{base}/airlines/{a['slug']}.html", a.get("last_verified") or a.get("last_checked") or newest) for a in airlines]
