@@ -1,0 +1,28 @@
+{
+  "ok": true,
+  "console": {
+    "es-routes-hub:desktop": [],
+    "es-routes-hub:mobile": [],
+    "es-route-usa-canada:desktop": [],
+    "es-route-usa-canada:mobile": []
+  },
+  "direct_404": [],
+  "link_404": [],
+  "shots": [
+    "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-routes-hub-desktop.png",
+    "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-routes-hub-mobile.png",
+    "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-route-usa-canada-desktop.png",
+    "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-route-usa-canada-mobile.png"
+  ],
+  "hub_check": {
+    "h2": "EE. UU. ↔ país",
+    "items": [
+      "EE. UU. ↔ Canada",
+      "EE. UU. ↔ Mexico",
+      "EE. UU. ↔ Reino Unido (Great Britain)",
+      "EE. UU. ↔ Japan",
+      "EE. UU. ↔ Francia (EU)"
+    ]
+  },
+  "raw_path_sample": []
+}
