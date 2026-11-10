@@ -118,7 +118,7 @@ main.wrap:has(#usa-map){max-width:1320px}
 #usa-map .tag.aff{background:#3a2f17;color:var(--gold-l)}
 #usa-map .tag.off{background:#1d3b2a;color:#a8dca9}
 #usa-map .tag.srch{background:#1f2f45;color:#a9c8f0}
-#usa-map .tag.stub{background:#3b1d22;color:#f0a3a3}
+#usa-map .tag.soon{background:#3b1d22;color:#f0a3a3}
 #usa-map .stubbox{border:1px dashed #f0a3a399;border-radius:10px;padding:8px 10px;font-size:.84rem;color:#e8c9c9;margin:6px 0}
 #usa-map .stubbox b{color:#f0a3a3}
 #usa-map .disc{font-size:.76rem;color:var(--mut);margin-top:10px}
@@ -197,7 +197,19 @@ main.wrap:has(#country-map){max-width:1320px}
 #country-map *{box-sizing:border-box}
 #country-map a{color:var(--gold-l);text-underline-offset:3px;text-decoration-color:#d9b76566}
 #country-map a:hover{color:#f8e7b5}
-#country-map :focus-visible{outline:3px solid var(--gold-l);outline-offset:2px;border-radius:4px}
+#country-map a:focus-visible,
+#country-map button:focus-visible,
+#country-map .state-picker-btn:focus-visible,
+#country-map select:focus-visible{
+  outline:3px solid var(--gold-l);outline-offset:2px;border-radius:4px
+}
+/* Never draw a rectangular focus box on map geometry (CA/MX rule). */
+#country-map .st:focus-visible,
+#country-map path.st:focus-visible,
+#country-map .ct:focus-visible,
+#country-map .ap:focus-visible{
+  outline:none !important; outline-offset:0 !important; border-radius:0 !important;
+}
 #country-map h1,#country-map h2,#country-map h3,#country-map h4{font-family:var(--disp);font-weight:400;color:var(--head);margin:0}
 #country-map .intro{padding:22px 0 8px}
 #country-map .intro h1{font-size:clamp(1.55rem,3vw,2.2rem);line-height:1.15}
@@ -533,7 +545,7 @@ html.accent-mxgreen #country-map .zoom button:hover:not(:disabled){border-color:
 #country-map .lk .tag.aff{background:#3a2f17;color:var(--gold-l)}
 #country-map .lk .tag.off{background:#1d3b2a;color:#a8dca9}
 #country-map .lk .tag.srch{background:#1f2f45;color:#a9c8f0}
-#country-map .lk .tag.stub{background:#3b1d22;color:#f0a3a3}
+#country-map .lk .tag.soon{background:#3b1d22;color:#f0a3a3}
 #country-map .stubbox{border:1px dashed #f0a3a399;border-radius:10px;padding:8px 10px;font-size:.84rem;color:#e8c9c9;margin:6px 0;background:none}
 #country-map .stubbox b{color:#f0a3a3}
 #country-map .stubbox.alert{border-color:color-mix(in srgb,var(--accent,#b5473a) 55%,#3a5a56);color:var(--ink)}
@@ -634,3 +646,15 @@ html.accent-tricolore #country-map .st.sel,
 html.accent-schwarzrotgold #country-map .st.sel,
 html.accent-de-altb #country-map .st.sel,
 #country-map .st.sel{fill:#6d5a2c !important;stroke:#f0d58c !important;stroke-width:2 !important}
+
+/* EU focus-box kill (2026-11-10): same as CA/MX — gold fill/stroke only, never a rect bbox */
+html.accent-unionjack #country-map .st:focus,
+html.accent-unionjack #country-map .st:focus-visible,
+html.accent-tricolore #country-map .st:focus,
+html.accent-tricolore #country-map .st:focus-visible,
+html.accent-schwarzrotgold #country-map .st:focus,
+html.accent-schwarzrotgold #country-map .st:focus-visible,
+html.accent-de-altb #country-map .st:focus,
+html.accent-de-altb #country-map .st:focus-visible{
+  outline:none !important; outline-width:0 !important; box-shadow:none !important; filter:none !important;
+}

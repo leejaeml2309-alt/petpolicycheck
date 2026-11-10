@@ -11,9 +11,9 @@ const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&l
 const enc = encodeURIComponent;
 const ABBRS = Object.keys(GEO).sort((a,b)=>GEO[a].name.localeCompare(GEO[b].name));
 const PLANE = 'M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5z';
-const TAG = {aff:'Affiliate',off:'Official',srch:'Search',stub:'Stub'};
+const TAG = {aff:'Affiliate',off:'Official',srch:'Search',stub:'Coming soon'};
 function lk(ic,title,sub,href,tag){
-  if(!href) return `<span class="lk stub"><span class="ic" aria-hidden="true">${ic}</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:''}</span><span class="tag stub">${TAG.stub}</span></span>`;
+  if(!href) return `<span class="lk soon"><span class="ic" aria-hidden="true">${ic}</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:''}</span><span class="tag soon">${TAG.stub}</span></span>`;
   return `<a class="lk" href="${esc(href)}" target="_blank" rel="${tag==='aff'?'sponsored nofollow noopener':'noopener'}"><span class="ic" aria-hidden="true">${ic}</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:''}</span><span class="tag ${tag}">${TAG[tag]||TAG.off}</span></a>`;
 }
 const expHotels = q => `https://www.expedia.com/Hotel-Search?destination=${enc(q)}&amenities=PETS`;
@@ -236,9 +236,14 @@ function vetCard(hub){
 function lawSection(a){
   const nm = GEO[a]?GEO[a].name:a;
   let s = `<section class="sec" data-sec="1"><h3><span class="n">1</span>Vet + laws</h3>`;
-  if(DATA.entry_note) s += `<p class="disc"><b>Note:</b> ${esc(DATA.entry_note)}</p>`;
+  if(DATA.entry_note) s += `<p class="disc">${esc(DATA.entry_note)}</p>`;
   s += `<h4>${esc(DATA.authority)}</h4>`;
-  s += `<div class="links">${lk('🏛', DATA.name+' official pet-entry page', 'Checked '+DATA.lastChecked, DATA.officialUrl, 'off')}</div>`;
+  if(DATA.officialUrl){
+    const checked = DATA.lastChecked ? ('Checked '+DATA.lastChecked) : '';
+    s += `<div class="links">${lk('🏛', DATA.name+' official pet-entry page', checked, DATA.officialUrl, 'off')}</div>`;
+  } else if(DATA.authority !== 'Coming soon'){
+    s += `<p class="disc">Coming soon</p>`;
+  }
   s += dogsCatsBlock();
   s += breedBlock(a);
   s += `<h4>Return to the US</h4><p>${esc(DATA.returnToUs)}</p>`;
@@ -412,7 +417,8 @@ function cityButtons(a){
   return `<h4 class="hd">Main cities</h4><div class="citylist">${list.map(c=>`<button type="button" data-s="${a}" data-city="${esc(c.n)}" class="${c.sample?'sample':''}">${esc(c.n)}${c.cap?' (capital)':''}</button>`).join('')}</div>`;
 }
 function selectRegion(a){
-  cur={a}; hilite(a); setHash(a);
+    document.querySelectorAll('#g-st path.st:focus, #g-st path.st:focus-visible').forEach(function(el){ try{el.blur()}catch(_){ } });
+cur={a}; hilite(a); setHash(a);
   const s=GEO[a];
   const hubs=hubForRegion(a);
   const hubNote = hubs.length ? ` · hub ${hubs.map(h=>h.iata).join(', ')}` : '';
