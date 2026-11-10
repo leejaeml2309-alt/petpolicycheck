@@ -174,9 +174,9 @@ function buildAirports(){
     const region = ap.province || ap.state;
     const city = (GEO[region]&&GEO[region].cities||[]).find(c => c.n === ap.city) || (GEO[region]&&GEO[region].cities||[])[0];
     if(city){
-      ga.appendChild(el('line', {class:'ap-link', x1:city.x, y1:city.y, x2:ap.x, y2:ap.y, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'data-code':ap.code}));
+      ga.appendChild(el('line', {class:'ap-link'+(ap.zoomOnly?' ap-zoomonly':''), x1:city.x, y1:city.y, x2:ap.x, y2:ap.y, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'data-code':ap.code}));
     }
-    const g = el('g', {class:'ap', role:'button', tabindex:'0', 'data-code':ap.code, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'aria-label':ap.code+', '+ap.city});
+    const g = el('g', {class:'ap'+(ap.zoomOnly?' ap-zoomonly':'')+(ap.major?' ap-major':''), role:'button', tabindex:ap.zoomOnly?'-1':'0', 'data-code':ap.code, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'aria-label':ap.code+', '+ap.city});
     g.appendChild(el('rect', {class:'pad', x:-8, y:-8, width:16, height:16, rx:2, transform:'rotate(45)'}));
     g.appendChild(el('path', {class:'glyph', d:PLANE, transform:'translate(-6.2,-6.2) scale(.52)'}));
     g.setAttribute('transform', `translate(${ap.x} ${ap.y})`);
@@ -393,6 +393,7 @@ function applyViewBox(v){vb=v.slice();const m=$('#map');if(!m)return;
  syncZoomUI()}
 function isFull(){return vb[2]>=MAP_W-0.5}
 function syncZoomUI(){const m=$('#map');if(!m)return;const full=isFull();m.classList.toggle('is-zoomed',!full);
+ m.querySelectorAll('#g-ap .ap.ap-zoomonly').forEach(g=>g.setAttribute('tabindex', full?'-1':'0'));
  const zi=$('#zin'),zo=$('#zout'),zr=$('#zreset');
  if(zi)zi.disabled=vb[2]<=MINW+0.5;if(zo)zo.disabled=full;if(zr)zr.disabled=full}
 function stopAnim(){if(animId){cancelAnimationFrame(animId);animId=0}}

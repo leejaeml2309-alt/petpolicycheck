@@ -719,3 +719,8 @@ html.accent-hinomaru #country-map .st.sel,
   #country-map .ap text.map-label{font-size:11px}
   #country-map .ap text.map-name{font-size:10px}
 }
+
+/* JP (and later EU): secondary international airports appear only once zoomed.
+   Threshold = svg#map.is-zoomed, i.e. not the full viewBox — same isFull() test as usa-map.js. */
+#country-map svg#map:not(.is-zoomed) .ap.ap-zoomonly,
+#country-map svg#map:not(.is-zoomed) .ap-link.ap-zoomonly{display:none}

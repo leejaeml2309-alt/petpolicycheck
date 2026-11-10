@@ -367,6 +367,11 @@ def attach_airports(specs, oa, meta_for_region):
         if s["code"] in {"ICN", "GMP", "PUS", "CJU", "NRT", "HND", "KIX", "NGO", "FUK", "CTS", "OKA"}:
             item["mapLabel"] = s["code"]
             item["mapName"] = s["name"].replace(" International Airport", "").replace(" Airport", "")
+        # JP: only these 7 at full view (see module docstring / geo header).
+        if s["code"] in {"NRT", "HND", "KIX", "NGO", "FUK", "CTS", "OKA"}:
+            item["major"] = True
+        elif s["code"] not in {"ICN", "GMP", "PUS", "CJU", "CJJ", "TAE", "MWX", "YNY"}:
+            item["zoomOnly"] = True
         out.append(item)
     return out
 
