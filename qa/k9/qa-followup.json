@@ -1,0 +1,221 @@
+{
+  "footer": {
+    "/@1280": {
+      "status": 200,
+      "preview_bar": 0,
+      "k9_text": "K9",
+      "k9_href": "k9/",
+      "vet_text": "Service dogs & Veterans",
+      "vet_href": "veterans/",
+      "pro_href": null,
+      "same_section": {
+        "ok": true,
+        "parentA": "",
+        "parentB": "",
+        "tagA": "LI",
+        "tagB": "LI"
+      }
+    },
+    "/k9/@1280": {
+      "status": 200,
+      "preview_bar": 0,
+      "k9_text": "K9",
+      "k9_href": "../k9/",
+      "vet_text": "Service dogs & Veterans",
+      "vet_href": "../veterans/",
+      "pro_href": "../pro/",
+      "same_section": {
+        "ok": true,
+        "parentA": "foot-more",
+        "parentB": "foot-more",
+        "tagA": "P",
+        "tagB": "P"
+      }
+    },
+    "/es/k9/@1280": {
+      "status": 200,
+      "preview_bar": 0,
+      "k9_text": "K9",
+      "k9_href": "/es/k9/",
+      "vet_text": "Perros de servicio y Veteranos",
+      "vet_href": "/es/veterans/",
+      "pro_href": "/pro/",
+      "same_section": {
+        "ok": true,
+        "parentA": "foot-more",
+        "parentB": "foot-more",
+        "tagA": "P",
+        "tagB": "P"
+      }
+    },
+    "/about.html@1280": {
+      "status": 200,
+      "preview_bar": 0,
+      "k9_text": "K9",
+      "k9_href": "k9/",
+      "vet_text": "Perros de servicio y Veteranos",
+      "vet_href": "veterans/",
+      "pro_href": "pro/",
+      "same_section": {
+        "ok": true,
+        "parentA": "",
+        "parentB": "",
+        "tagA": "LI",
+        "tagB": "LI"
+      }
+    },
+    "/es/veterans/@1280": {
+      "status": 200,
+      "preview_bar": 0,
+      "k9_text": "K9",
+      "k9_href": "/es/k9/",
+      "vet_text": "Perros de servicio y Veteranos",
+      "vet_href": "/es/veterans/",
+      "pro_href": "/pro/",
+      "same_section": {
+        "ok": true,
+        "parentA": "foot-more",
+        "parentB": "foot-more",
+        "tagA": "P",
+        "tagB": "P"
+      }
+    },
+    "/es/@1280": {
+      "status": 200,
+      "preview_bar": 0,
+      "k9_text": "K9",
+      "k9_href": "/es/k9/",
+      "vet_text": "Perros de servicio y Veteranos",
+      "vet_href": "/es/veterans/",
+      "pro_href": null,
+      "same_section": {
+        "ok": true,
+        "parentA": "",
+        "parentB": "",
+        "tagA": "LI",
+        "tagB": "LI"
+      }
+    },
+    "/@390": {
+      "status": 200,
+      "preview_bar": 0,
+      "k9_text": "K9",
+      "k9_href": "k9/",
+      "vet_text": "Service dogs & Veterans",
+      "vet_href": "veterans/",
+      "pro_href": null,
+      "same_section": {
+        "ok": true,
+        "parentA": "",
+        "parentB": "",
+        "tagA": "LI",
+        "tagB": "LI"
+      }
+    },
+    "/k9/@390": {
+      "status": 200,
+      "preview_bar": 0,
+      "k9_text": "K9",
+      "k9_href": "../k9/",
+      "vet_text": "Service dogs & Veterans",
+      "vet_href": "../veterans/",
+      "pro_href": "../pro/",
+      "same_section": {
+        "ok": true,
+        "parentA": "foot-more",
+        "parentB": "foot-more",
+        "tagA": "P",
+        "tagB": "P"
+      }
+    },
+    "/es/k9/@390": {
+      "status": 200,
+      "preview_bar": 0,
+      "k9_text": "K9",
+      "k9_href": "/es/k9/",
+      "vet_text": "Perros de servicio y Veteranos",
+      "vet_href": "/es/veterans/",
+      "pro_href": "/pro/",
+      "same_section": {
+        "ok": true,
+        "parentA": "foot-more",
+        "parentB": "foot-more",
+        "tagA": "P",
+        "tagB": "P"
+      }
+    },
+    "/about.html@390": {
+      "status": 200,
+      "preview_bar": 0,
+      "k9_text": "K9",
+      "k9_href": "k9/",
+      "vet_text": "Perros de servicio y Veteranos",
+      "vet_href": "veterans/",
+      "pro_href": "pro/",
+      "same_section": {
+        "ok": true,
+        "parentA": "",
+        "parentB": "",
+        "tagA": "LI",
+        "tagB": "LI"
+      }
+    },
+    "/es/veterans/@390": {
+      "status": 200,
+      "preview_bar": 0,
+      "k9_text": "K9",
+      "k9_href": "/es/k9/",
+      "vet_text": "Perros de servicio y Veteranos",
+      "vet_href": "/es/veterans/",
+      "pro_href": "/pro/",
+      "same_section": {
+        "ok": true,
+        "parentA": "foot-more",
+        "parentB": "foot-more",
+        "tagA": "P",
+        "tagB": "P"
+      }
+    },
+    "/es/@390": {
+      "status": 200,
+      "preview_bar": 0,
+      "k9_text": "K9",
+      "k9_href": "/es/k9/",
+      "vet_text": "Perros de servicio y Veteranos",
+      "vet_href": "/es/veterans/",
+      "pro_href": null,
+      "same_section": {
+        "ok": true,
+        "parentA": "",
+        "parentB": "",
+        "tagA": "LI",
+        "tagB": "LI"
+      }
+    }
+  },
+  "terms": {
+    "href": "../../terms.html",
+    "abs": "http://127.0.0.1:8817/terms.html",
+    "status": 200
+  },
+  "search": {
+    "/": [
+      {
+        "t": "Traveling with working dogs and retired K9sVeterans",
+        "href": "/k9/"
+      }
+    ],
+    "/k9/": [
+      {
+        "t": "Traveling with working dogs and retired K9sVeterans",
+        "href": "/k9/"
+      },
+      {
+        "t": "K9",
+        "href": "../k9/"
+      }
+    ]
+  },
+  "console": [],
+  "footer_404": []
+}

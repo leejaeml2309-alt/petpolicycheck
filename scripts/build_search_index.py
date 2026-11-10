@@ -223,7 +223,7 @@ def infer_type_key(url_path: str) -> str:
     if top == "taxi" or leaf in ("taxi.html",) or "/taxi" in f"/{rest}":
         if top == "taxi":
             return "Transport"
-    if top in {"veterans", "military-pcs"}:
+    if top in {"veterans", "military-pcs", "k9"}:
         return "Veterans"
     if top in {"pro", "b2b-pet-desk"}:
         return "Pro"

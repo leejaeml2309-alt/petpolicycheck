@@ -1,0 +1,111 @@
+{
+  "generated": "2026-11-10T23:34:03Z",
+  "langs": {
+    "en": {
+      "pages": 253,
+      "bytes": 362153,
+      "gzip": 64319,
+      "types": {
+        "Airlines": 28,
+        "Airports": 59,
+        "Cities": 52,
+        "Countries": 14,
+        "Guides": 11,
+        "Hotels": 8,
+        "Legal": 7,
+        "Pro": 2,
+        "Routes": 50,
+        "Tools": 8,
+        "Transport": 11,
+        "Veterans": 3
+      }
+    },
+    "es": {
+      "pages": 247,
+      "bytes": 374794,
+      "gzip": 69295,
+      "types": {
+        "Airlines": 28,
+        "Airports": 59,
+        "Cities": 45,
+        "Countries": 14,
+        "Guides": 11,
+        "Hotels": 7,
+        "Legal": 7,
+        "Pro": 2,
+        "Routes": 51,
+        "Tools": 9,
+        "Transport": 11,
+        "Veterans": 3
+      }
+    }
+  },
+  "excluded": {
+    "en": {
+      "count": 69,
+      "by_reason": {
+        "commercial hotel listing": 13,
+        "forum tool or partner page": 4,
+        "advertise/sponsor page": 1,
+        "partner page": 1,
+        "affiliate/product page": 50
+      },
+      "examples": {
+        "commercial hotel listing": [
+          "/hotels/pet-friendly-hotels-austin.html",
+          "/hotels/pet-friendly-hotels-atlanta.html",
+          "/hotels/pet-friendly-hotels-boston.html",
+          "/hotels/pet-friendly-hotels-orlando.html",
+          "/hotels/pet-friendly-hotels-houston.html",
+          "/hotels/pet-friendly-hotels-san-francisco.html",
+          "/hotels/pet-friendly-hotels-chicago.html",
+          "/hotels/pet-friendly-hotels-miami.html"
+        ],
+        "forum tool or partner page": [
+          "/forum/admin.html",
+          "/forum/account.html",
+          "/forum/new.html",
+          "/forum/post.html"
+        ],
+        "advertise/sponsor page": [
+          "/contact.html"
+        ],
+        "partner page": [
+          "/partner-vets/"
+        ],
+        "affiliate/product page": [
+          "/products/travel-water-bowls.html",
+          "/products/thundershirt-for-dogs.html",
+          "/products/under-seat-carrier-size-by-airline.html",
+          "/products/cat-travel-checklist.html",
+          "/products/pet-carrier-backpacks-for-flying.html",
+          "/products/kurgo-skybox-booster.html",
+          "/products/ruffwear-dirtbag-seat-cover.html",
+          "/products/feliway-classic-spray.html"
+        ]
+      }
+    },
+    "es": {
+      "count": 13,
+      "by_reason": {
+        "commercial hotel listing": 13
+      },
+      "examples": {
+        "commercial hotel listing": [
+          "/es/hotels/pet-friendly-hotels-austin.html",
+          "/es/hotels/pet-friendly-hotels-atlanta.html",
+          "/es/hotels/pet-friendly-hotels-boston.html",
+          "/es/hotels/pet-friendly-hotels-orlando.html",
+          "/es/hotels/pet-friendly-hotels-houston.html",
+          "/es/hotels/pet-friendly-hotels-san-francisco.html",
+          "/es/hotels/pet-friendly-hotels-chicago.html",
+          "/es/hotels/pet-friendly-hotels-miami.html"
+        ]
+      }
+    }
+  },
+  "synthetics": {
+    "en": 101,
+    "es": 41
+  }
+}
