@@ -124,6 +124,35 @@ def dissolve(groups: dict[str, list]):
     return out
 
 
+# Main-islands lon/lat box: Hokkaidō–Kyūshū. Excludes Okinawa (~26°N) and remote
+# Pacific outliers (Ogasawara, Minamitorishima / Ōtorishima, etc.) that otherwise
+# shrink the fit to a third of the viewBox (same problem as un-inset Alaska).
+JP_MAIN_W, JP_MAIN_S, JP_MAIN_E, JP_MAIN_N = 128.0, 30.05, 146.2, 45.75
+# Okinawa main chain for the inset (drop Daitō / further outliers)
+JP_OKI_W, JP_OKI_S, JP_OKI_E, JP_OKI_N = 122.5, 23.8, 131.5, 28.6
+
+
+def keep_parts_in_box(g, west, south, east, north):
+    """Keep polygon parts whose centroid lies inside the lon/lat box."""
+    from shapely.geometry import MultiPolygon, Polygon
+
+    def ok(poly):
+        c = poly.centroid
+        return west <= c.x <= east and south <= c.y <= north
+
+    if g is None or g.is_empty:
+        return None
+    if g.geom_type == "Polygon":
+        return g if ok(g) else None
+    if g.geom_type == "MultiPolygon":
+        keep = [p for p in g.geoms if ok(p)]
+        if not keep:
+            return None
+        return keep[0] if len(keep) == 1 else MultiPolygon(keep)
+    return g
+
+
+
 def pack(svg_geoms: dict, names: dict[str, str], extra: dict | None = None):
     extra = extra or {}
     geo = {}
@@ -227,24 +256,33 @@ def build_japan():
         names[code] = name
     assert len(by) == 47, f"expected 47 JP prefectures, got {len(by)}"
 
-    # Main islands without Okinawa (47) — USA insets AK/HI, so offset Okinawa
-    main = {k: v for k, v in by.items() if k != "47"}
-    oki = by.get("47")
-    g_main = dissolve(main)
-    svg, meta = fit_project(g_main)
-    geo = pack(svg, {k: names[k] for k in g_main})
-    tones = color_tones(g_main, n_tones=5)
+    # Clip each prefecture to main-island parts before dissolve/fit (drops Ogasawara etc.)
+    main_raw = {k: v for k, v in by.items() if k != "47"}
+    main_clipped = {}
+    for code, geoms in main_raw.items():
+        u = unary_union(geoms)
+        clipped = keep_parts_in_box(u, JP_MAIN_W, JP_MAIN_S, JP_MAIN_E, JP_MAIN_N)
+        if clipped is None or clipped.is_empty:
+            raise SystemExit(f"JP {code} {names[code]} empty after mainland clip")
+        main_clipped[code] = clipped.simplify(0.02, preserve_topology=True)
 
+    svg, meta = fit_project(main_clipped, view=(W, H, 18))  # tighter pad → fill frame
+    geo = pack(svg, {k: names[k] for k in main_clipped})
+    tones = color_tones(main_clipped, n_tones=5)
+
+    oki = by.get("47")
     if oki:
-        og = unary_union(oki).simplify(0.02, preserve_topology=True)
-        # inset slot bottom-left (similar visual role to USA Hawaii)
-        slot = (40, 470, 200, 120)
+        og = unary_union(oki)
+        og = keep_parts_in_box(og, JP_OKI_W, JP_OKI_S, JP_OKI_E, JP_OKI_N) or og
+        og = og.simplify(0.02, preserve_topology=True)
+        # Bottom-left inset like USA Hawaii
+        slot = (36, 455, 230, 140)
         fwd = Transformer.from_crs("EPSG:4326", "EPSG:3857", always_xy=True)
-        pg = transform(lambda x, y: fwd.transform(x, y), og.simplify(0.05, preserve_topology=True))
+        pg = transform(lambda x, y: fwd.transform(x, y), og.simplify(0.04, preserve_topology=True))
         minx, miny, maxx, maxy = pg.bounds
         bw, bh = max(maxx - minx, 1e-6), max(maxy - miny, 1e-6)
         x0, y0, sw, sh = slot
-        sc = min((sw - 10) / bw, (sh - 10) / bh)
+        sc = min((sw - 12) / bw, (sh - 12) / bh)
         ox = x0 + (sw - bw * sc) / 2
         oy = y0 + (sh - bh * sc) / 2
 
@@ -253,7 +291,7 @@ def build_japan():
             sy = y0 + sh - ((oy - y0) + (y - miny) * sc)
             return (sx, sy)
 
-        sg = transform(_t, pg).simplify(0.4, preserve_topology=True)
+        sg = transform(_t, pg).simplify(0.35, preserve_topology=True)
         c = sg.representative_point()
         geo["47"] = {
             "name": names["47"],
@@ -311,6 +349,7 @@ def main():
         "license": "Public domain (Natural Earth)",
         "url": "https://www.naturalearthdata.com/",
         "okinawa": "inset (USA-style AK/HI offset)",
+        "mainland_fit": "lon/lat box excludes Ogasawara/Minamitorishima; Okinawa inset separately",
     }
     qa = ROOT / "qa/krjp"
     qa.mkdir(parents=True, exist_ok=True)

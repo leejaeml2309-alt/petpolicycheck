@@ -208,5 +208,6 @@
   "source": "Natural Earth 10m Cultural admin-1 states and provinces",
   "license": "Public domain (Natural Earth)",
   "url": "https://www.naturalearthdata.com/",
-  "okinawa": "inset (USA-style AK/HI offset)"
+  "okinawa": "inset (USA-style AK/HI offset)",
+  "mainland_fit": "lon/lat box excludes Ogasawara/Minamitorishima; Okinawa inset separately"
 }
