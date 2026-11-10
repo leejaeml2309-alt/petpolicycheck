@@ -46,7 +46,24 @@ var rg=g.append('g').attr('pointer-events','none');
 routes.forEach(function(r){rg.append('path').attr('class','arc').attr('d',path({type:'LineString',coordinates:[hubs[r[0]],hubs[r[1]]]}))});
 Object.keys(hubs).forEach(function(k){var p=proj(hubs[k]);rg.append('circle').attr('class','hub').attr('cx',p[0]).attr('cy',p[1]).attr('r',2.2)});
 // pins for countries with a guide
-Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return c.id===id});if(!f)return;var c=GUIDES[id].pin?proj(GUIDES[id].pin):path.centroid(f);
+// Prefer GUIDES[id].pin [lon,lat]. If missing, do NOT use the full MultiPolygon
+// centroid (Japan's lands between Honshu/Kyushu/Hokkaido and falls in the sea).
+// Use the largest polygon's centroid instead.
+function guidePinXY(id,f){
+  if(GUIDES[id].pin) return proj(GUIDES[id].pin);
+  var g=f&&f.geometry;
+  if(g&&g.type==='MultiPolygon'&&g.coordinates&&g.coordinates.length){
+    var best=null,bestA=-1;
+    g.coordinates.forEach(function(poly){
+      var feat={type:'Feature',properties:{},geometry:{type:'Polygon',coordinates:poly}};
+      var a=Math.abs(path.area(feat));
+      if(a>bestA){bestA=a;best=feat}
+    });
+    if(best) return path.centroid(best);
+  }
+  return path.centroid(f);
+}
+Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return c.id===id});if(!f)return;var c=guidePinXY(id,f);
  var pin=g.append('g').attr('class','pin').attr('transform','translate('+c+')');marks.push([pin,c]);pin.style('cursor','pointer').on('click',function(){openCountry(id)});
  pin.append('circle').attr('class','ring').attr('r',6);pin.append('circle').attr('class','p').attr('r',5);
  var Gpin=GUIDES[id], lx=Gpin.label_dx!=null?Gpin.label_dx:(Gpin.label_left?-9:9), ly=Gpin.label_dy!=null?Gpin.label_dy:4;
