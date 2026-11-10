@@ -52,20 +52,20 @@ function boot(){
  /* Country sub-maps (usa/canada/mexico-map) must NOT mark World map as current. */
  var onCountryMap=/\/countries\/(?:usa|canada|mexico)-map\.html$/.test(path);
  var cur=document.documentElement.dataset.section||(
-  /\/airlines\//.test(path)?'flight':/\/hotels\//.test(path)?'hotel':/\/book\//.test(path)?'ground':
+  /\/airlines\//.test(path)?'flight':/\/hotels\//.test(path)?'hotel':/\/taxi\//.test(path)?'ground':
   /\/products\//.test(path)?'shop':/\/countries\/usa\.html/.test(path)?'law':/\/forum\//.test(path)?'forum':/\/grooming\//.test(path)?'grooming':
   /\/veterans\//.test(path)?'veterans':
-  /\/(?:pro|extension|b2b-pet-desk)\/?$|\/(?:terms|refund-policy|privacy)\.html/.test(path)?'b2b':
+  /\/(?:pro|b2b-pet-desk)\/?$|\/(?:terms|refund-policy|privacy)\.html/.test(path)?'b2b':
   onCountryMap?'':(/usa-map|\/map/.test(path)?'map':''));
  /* Homepage unlocked world-map view (?view=map) marks World map current */
  try{ if((path==='/'||path==='/es'||path==='/es/'||/\/(index\.html)?$/.test(path)) && new URLSearchParams(location.search).get('view')==='map') cur='map'; }catch(e){}
- var PAST_ES={map:'Mapa mundial',flight:'Aerolíneas',hotel:'Hoteles',grooming:'Peluquería',ground:'Traslados',shop:'Productos',law:'Normas',forum:'Foro',veterans:'Veteranos',b2b:'Para empresas',Compare:'Comparar',Guides:'Guías',Updates:'Actualizaciones',About:'Acerca de',Book:'Reservar'};
+ var PAST_ES={map:'Mapa mundial',flight:'Aerolíneas',hotel:'Hoteles',grooming:'Peluquería',ground:'Traslados',shop:'Productos',law:'Normas',forum:'Foro',veterans:'Veteranos',b2b:'Para empresas',Compare:'Comparar',Guides:'Guías',Updates:'Actualizaciones',About:'Acerca de'};
  var plab=function(en,key){return ppcLangRoot&&PAST_ES[key||en]?PAST_ES[key||en]:en;};
  var V=(new URLSearchParams(location.search).get('nav'))||document.documentElement.dataset.nav||'8';
  /* '8' = 8 liens (Rides garde sa place) ; '7g' (reco) = Rides fusionne dans Book (hub de réservation), Grooming prend sa place */
  /* World map uses ?view=map (NO #hash) so browsers never native-scroll to an id */
  var S=[['map',plab('World map','map'),ppcHref('?view=map')],['flight',plab('Airlines','flight'),ppcHref('airlines/')],['hotel',plab('Hotels','hotel'),ppcHref('hotels/')],
-        ['grooming',plab('Grooming','grooming'),ppcHref('grooming/')],['ground',plab('Rides','ground'),ppcHref('book/#rides')],['shop',plab('Products','shop'),ppcHref('products/')],['law',plab('Rules','law'),ppcHref('countries/usa.html#federal')],['forum',plab('Forum','forum'),ppcHref('forum/')],['veterans',plab('Veterans','veterans'),ppcHref('veterans/')],['b2b',plab('For Business','b2b'),ppcHref('pro/')]];
+        ['grooming',plab('Grooming','grooming'),ppcHref('grooming/')],['ground',plab('Rides','ground'),ppcHref('taxi/')],['shop',plab('Products','shop'),ppcHref('products/')],['law',plab('Rules','law'),ppcHref('countries/usa.html#federal')],['forum',plab('Forum','forum'),ppcHref('forum/')],['veterans',plab('Veterans','veterans'),ppcHref('veterans/')],['b2b',plab('For Business','b2b'),ppcHref('pro/')]];
  if(V==='7g') S=S.filter(function(x){return x[0]!=='ground'});
  document.documentElement.classList.add('nav-v'+V);
  var bookCur=false; if(V==='7g'&&cur==='ground'){cur='';bookCur=true}
@@ -75,8 +75,7 @@ function boot(){
  var NAV_I18N={map:'site.nav.map',flight:'site.nav.airlines',hotel:'site.nav.hotels',grooming:'site.nav.grooming',ground:'site.nav.rides',shop:'site.nav.products',law:'site.nav.rules',forum:'site.nav.forum',veterans:'site.nav.veterans',b2b:'site.nav.pro'};
  var h=S.map(function(s){var extra=s[0]==='b2b'?' nav-biz':(s[0]==='veterans'?' nav-vet':'');var ik=NAV_I18N[s[0]]||'';return '<a class="sec theme-'+s[0]+extra+'" href="'+s[2]+'"'+(s[0]===cur?' aria-current="page"':'')+(ik?' data-i18n="'+ik+'"':'')+'>'+pst(s[0])+'<span class="lbl">'+s[1]+'</span></a>'}).join('');
  h+='<span class="menu-sep menu-only" aria-hidden="true"></span>'+
-    [(plab('Compare')+'|'+ppcHref('#compare')),(plab('Guides')+'|'+ppcHref('#gear')),(plab('Updates')+'|'+ppcHref('updates.html')),(plab('About')+'|'+ppcHref('about.html'))].map(function(x){x=x.split('|');return '<a class="menu-only sub" href="'+x[1]+'">'+x[0]+'</a>'}).join('')+
-    (V==='7g'?'<a class="nav-book" data-i18n="site.nav.book"'+(bookCur?' aria-current="page"':'')+' href="'+ppcHref('book/')+'" title="Flights, hotels, rides, vets, insurance">Book<span class="bk-sub"> · rides</span></a>':'<a class="nav-book" data-i18n="site.nav.book" href="'+ppcHref('book/')+'">'+plab('Book')+'</a>');
+    [(plab('Compare')+'|'+ppcHref('#compare')),(plab('Guides')+'|'+ppcHref('#gear')),(plab('Updates')+'|'+ppcHref('updates.html')),(plab('About')+'|'+ppcHref('about.html'))].map(function(x){x=x.split('|');return '<a class="menu-only sub" href="'+x[1]+'">'+x[0]+'</a>'}).join('');
  m.innerHTML=h; m.classList.add('pst-nav');
  /* badge d'en-tête de section, même tampon que la nav (taille page) */
  var h1=document.querySelector('main h1, #main h1, h1');

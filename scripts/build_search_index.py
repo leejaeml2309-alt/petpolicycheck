@@ -178,6 +178,8 @@ def classify_exclude(url: str, rel: str) -> str | None:
         return "partner page"
     if p.rstrip("/").endswith("/book") or "/book/" in p:
         return "booking page"
+    if "/extension" in p:
+        return "removed extension page"
     if "/products/" in p:
         return "affiliate/product page"
     # Commercial city hotel listings (Expedia/booking cards), not chain policy pages.
@@ -233,7 +235,6 @@ def infer_type_key(url_path: str) -> str:
         "titer-calculator",
         "pet-travel-checklist",
         "widgets",
-        "extension",
     }:
         return "Tools"
     return "Guides"

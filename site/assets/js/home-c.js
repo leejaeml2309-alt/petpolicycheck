@@ -134,7 +134,7 @@ scrim.onclick=close;document.addEventListener('keydown',function(e){if(e.key==='
 function top(k,t){return '<div class="ph-top"><div><div class="k">'+k+'</div><h2 id="ptitle">'+t+'</h2></div><button class="x" type="button" aria-label="'+ppcHS('close','Close')+'">\u00d7</button></div>'}
 // small SVG flag (assets/img/flags/<iso2>.svg); emoji flags render as letters ("US") on Windows
 function flag(G){return G&&G.flag_src?'<img class="flag" src="'+G.flag_src+'" width="21" height="14" alt="" aria-hidden="true">':''}
-function bookMini(G){return '<section class="book" aria-labelledby="bookm-h"><h3 id="bookm-h">'+ppcHS('bookH','Pet-friendly hotels and airport rides')+'</h3><p class="book-lede">'+ppcHS('bookLede','Hotel pet rules by city, and airport-to-hotel ride information.')+'</p><p class="book-btns"><a class="btn" href="'+(LIVE+'hotels/')+'">'+ppcHS('bookCta','Pet-friendly hotel information →')+'</a></p></section>'}
+function bookMini(G){return '<section class="book" aria-labelledby="bookm-h"><h3 id="bookm-h">'+ppcHS('bookH','Pet-friendly hotels and airport rides')+'</h3><p class="book-lede">'+ppcHS('bookLede','Hotel pet rules by city, and airport-to-hotel ride information.')+'</p><p><a class="btn" href="'+(LIVE+'hotels/')+'">'+ppcHS('bookCta','Pet-friendly hotel information →')+'</a></p></section>'}
 function openCountry(id){
  var G=GUIDES[id];
  if(G&&G.map_url){window.location.href=G.map_url;return}

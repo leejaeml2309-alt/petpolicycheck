@@ -152,7 +152,7 @@ def ga4_head(cfg):
     )
 
 
-GA4_SKIP_PARTS = ("extension/unpacked",)  # Chrome extension UI: MV3 forbids remote scripts
+GA4_SKIP_PARTS = ()
 
 
 def ensure_ga4_html(html, cfg):
@@ -204,7 +204,7 @@ NAV = [("?view=map", "World map", "site.nav.map", ()), ("airlines/", "Airlines",
        ("#gear", "Guides", "site.nav.guides", ()), ("updates.html", "Updates", "site.nav.updates", ("updates.html",)),
        ("about.html", "About", "site.nav.about", ("about.html",)),
        ("veterans/", "Veterans", "site.nav.veterans", ("veterans/",)),
-       ("pro/", "For Business", "site.nav.pro", ("pro/", "extension/", "b2b-pet-desk/")),  # briefcase pastille via pastilles.js theme-b2b
+       ("pro/", "For Business", "site.nav.pro", ("pro/", "b2b-pet-desk/")),  # briefcase pastille via pastilles.js theme-b2b
 ]
 if SHOW_ADS:
     NAV.append(("advertise/", "Advertise", "site.nav.advertise", ("advertise/",)))
@@ -423,7 +423,7 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
 <div class="wrap cols">
 <div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p>{FB_SOC}</div>
 <div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(root + "airlines/", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}{li(root + "routes/", "site.nav.guides", "Routes")}{li(root + "veterans/", "site.nav.pro", "Veterans")}{li(root + "fit/", "site.nav.compare", "Carrier fit")}</ul></div>
-<div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{li(root + "extension/", "site.foot.extension", "Chrome Extension")}{(li(root + "advertise/", "site.nav.advertise", "Advertise") if SHOW_ADS else "")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
+<div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{(li(root + "advertise/", "site.nav.advertise", "Advertise") if SHOW_ADS else "")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "terms.html", "site.foot.terms", "Terms")}{li(root + "refund-policy.html", "site.foot.refund", "Refund policy")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
 {band}
@@ -2764,7 +2764,7 @@ def build_book(cfg, airlines):
 <meta http-equiv="refresh" content="0; url=../hotels/">
 <link rel="canonical" href="https://petpolicycheck.com/hotels/">
 <title>Redirecting to pet-friendly hotel information</title>
-<script>location.replace("../hotels/");</script>
+<script>location.replace("../hotels/" + location.search + location.hash);</script>
 </head>
 <body>
 <p><a href="../hotels/">Continue to pet-friendly hotel information</a></p>
@@ -2855,9 +2855,9 @@ def _polish_static_html(path, root):
     path = Path(path)
     if not path.exists() or path.suffix != ".html":
         return
-    # Chrome extension UI, redirect stubs, and similar non-site documents stay untouched
+    # Redirect stubs and similar non-site documents stay untouched
     posix = path.as_posix().replace("\\", "/")
-    if "extension/unpacked" in posix or "/b2b-pet-desk/" in posix or posix.endswith("/b2b-pet-desk/index.html"):
+    if "/b2b-pet-desk/" in posix or posix.endswith("/b2b-pet-desk/index.html"):
         return
     html = path.read_text()
     orig = html
@@ -3349,7 +3349,7 @@ def main():
     (OUT / "updates.html").write_text(build_updates(cfg, airlines, updates))
     (OUT / "about.html").write_text(build_about(cfg))
     (OUT / "privacy.html").write_text(build_privacy(cfg))
-    # Hand-authored Paddle / B2B / extension pages (also mirrored under static/).
+    # Hand-authored Paddle / B2B pages (also mirrored under static/).
     # Copied after generated pages so a future refresh.py / build.py run keeps them live.
     def _copy_static_page(rel: str):
         src = ROOT / "static" / rel
@@ -3368,7 +3368,6 @@ def main():
         "terms.html",
         "refund-policy.html",
         "pro",
-        "extension",
         "b2b-pet-desk",
     ):
         _copy_static_page(_rel)
@@ -3377,7 +3376,6 @@ def main():
         (OUT / "terms.html", ""),
         (OUT / "refund-policy.html", ""),
         (OUT / "pro" / "index.html", "../"),
-        (OUT / "extension" / "index.html", "../"),
         (OUT / "b2b-pet-desk" / "index.html", "../"),
     ):
         _polish_static_html(_p, _root)
@@ -3391,11 +3389,25 @@ def main():
             shutil.rmtree(_fg_dst)
         shutil.copytree(_fg_src, _fg_dst)
         _polish_static_html(_fg_dst / "index.html", "../")
-    # Optional zip download for the Chrome extension (binary-safe copy)
-    _zip = ROOT / "static" / "downloads" / "pets-allowed-chrome-extension-v1.zip"
-    if _zip.exists():
-        (OUT / "downloads").mkdir(parents=True, exist_ok=True)
-        shutil.copy2(_zip, OUT / "downloads" / _zip.name)
+    # Former /extension/ landing page: bare noindex redirect (no extension wording).
+    (OUT / "extension").mkdir(parents=True, exist_ok=True)
+    (OUT / "extension" / "index.html").write_text(
+        """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="refresh" content="0; url=../passport/">
+<link rel="canonical" href="https://petpolicycheck.com/passport/">
+<title>Redirecting to the pet travel passport</title>
+<script>location.replace("../passport/" + location.search + location.hash);</script>
+</head>
+<body>
+<p><a href="../passport/">Continue to the pet travel passport</a></p>
+</body>
+</html>
+"""
+    )
     # privacy.html is generated above (includes Paddle MoR section). Keep static/privacy.html
     # as a reference mirror only — do not overwrite the generated page.
     (OUT / "contact.html").write_text(build_contact(cfg))
@@ -3456,7 +3468,6 @@ def main():
     urls.append((f"{base}/pet-travel-checklist/", "2026-10-24"))
     urls.append((f"{base}/clinics/usa.html", "2026-10-25"))
     urls.append((f"{base}/pro/", "2026-11-06"))
-    urls.append((f"{base}/extension/", "2026-11-06"))
     urls.append((f"{base}/airlines/compare/", "2026-11-06"))
     urls.append((f"{base}/passport/", "2026-11-06"))
     urls.append((f"{base}/field-guides/", "2026-11-06"))

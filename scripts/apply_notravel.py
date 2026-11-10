@@ -383,7 +383,7 @@ def inject_preview(html: str) -> str:
     return html
 
 
-def process_html(html: str, rel: str) -> tuple[str, dict]:
+def process_html(html: str, rel: str, preview: bool = False) -> tuple[str, dict]:
     stats = {
         "emrldtp": 0,
         "impact_meta": 0,
@@ -469,7 +469,8 @@ def process_html(html: str, rel: str) -> tuple[str, dict]:
     )
 
     html = update_footer_aff(html)
-    html = inject_preview(html)
+    if preview:
+        html = inject_preview(html)
     return html, stats
 
 
