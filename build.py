@@ -388,6 +388,13 @@ def site_footer_ad(cfg, root, fi):
     return f'<div class="wrap sfad-wrap">{inner}{adv}</div>'
 
 
+
+FB_PAGE_HREF = 'https://www.facebook.com/profile.php?id=61596615981846'
+FB_SOC = (
+    '<p class="soc"><a href="' + FB_PAGE_HREF + '" rel="noopener" target="_blank" aria-label="Facebook">'
+    '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.83c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"/></svg></a><a href="https://x.com/PetPolicyCheck" rel="noopener" target="_blank" aria-label="X"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.725-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></p>'
+)
+
 def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
     """Compact shared footer (brand + Explore / Shop / About), then on ads=True pages a large AdSense band
     (site_footer_ad). sponsor: auto | frame | ph | off.
@@ -415,7 +422,7 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
         band = slot_html
     return f"""<footer class="foot foot-compact">
 <div class="wrap cols">
-<div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p></div>
+<div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p>{FB_SOC}</div>
 <div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(BOOK_NAV_LOCAL.get(path, root + "book/"), "site.foot.book", "Book your trip")}{li(root + "airlines/", "site.foot.airlines", "Airline policies")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}{li(root + "routes/", "site.nav.guides", "Routes")}{li(root + "veterans/", "site.nav.pro", "Veterans")}{li(root + "fit/", "site.nav.compare", "Carrier fit")}</ul></div>
 <div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{li(root + "extension/", "site.foot.extension", "Chrome Extension")}{(li(root + "advertise/", "site.nav.advertise", "Advertise") if SHOW_ADS else "")}{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "terms.html", "site.foot.terms", "Terms")}{li(root + "refund-policy.html", "site.foot.refund", "Refund policy")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
