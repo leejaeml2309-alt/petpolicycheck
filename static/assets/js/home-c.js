@@ -49,7 +49,10 @@ Object.keys(hubs).forEach(function(k){var p=proj(hubs[k]);rg.append('circle').at
 Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return c.id===id});if(!f)return;var c=GUIDES[id].pin?proj(GUIDES[id].pin):path.centroid(f);
  var pin=g.append('g').attr('class','pin').attr('transform','translate('+c+')');marks.push([pin,c]);pin.style('cursor','pointer').on('click',function(){openCountry(id)});
  pin.append('circle').attr('class','ring').attr('r',6);pin.append('circle').attr('class','p').attr('r',5);
- pin.append('text').attr('x',GUIDES[id].label_left?-9:9).attr('text-anchor',GUIDES[id].label_left?'end':null).attr('y',4).text((GUIDES[id].short||GUIDES[id].name)+' guide')});
+ var Gpin=GUIDES[id], lx=Gpin.label_dx!=null?Gpin.label_dx:(Gpin.label_left?-9:9), ly=Gpin.label_dy!=null?Gpin.label_dy:4;
+ var anchor=Gpin.label_left?'end':(Gpin.label_anchor||null);
+ if(Math.hypot(lx,ly)>14){pin.append('line').attr('class','pin-leader').attr('x1',0).attr('y1',0).attr('x2',lx*0.82).attr('y2',ly*0.82)}
+ pin.append('text').attr('x',lx).attr('text-anchor',anchor).attr('y',ly).text((Gpin.short||Gpin.name)+' guide')});
 // zoom & pan (d3-zoom, already loaded): mouse drag, Ctrl/Cmd + wheel (and trackpad pinch), +/-/reset buttons.
 // Touch is handled below so one-finger vertical swipes keep scrolling the page (#world-map has touch-action:pan-y):
 // one finger sideways = move the map, two fingers = pinch-zoom + move, double-tap = zoom in.

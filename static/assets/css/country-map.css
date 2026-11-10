@@ -576,20 +576,20 @@ html.accent-mxgreen #country-map .zoom button:hover:not(:disabled){border-color:
 }
 
 /* ===== EU preview accents (2026-11-10) — flag-derived, lightened; selection gold unchanged ===== */
-#map-switch .msw-tab.accent-unionjack i{background:#c45a6a;box-shadow:inset 0 0 0 1.5px #f4f6fa,0 0 0 2px #0b1719,0 0 0 3px rgba(70,100,160,.45)}
-#map-switch .msw-tab.accent-tricolore i{background:#4a6fa5;box-shadow:inset 0 0 0 1.5px #f4f6fa,0 0 0 2px #0b1719,0 0 0 3px rgba(196,90,106,.4)}
-#map-switch .msw-tab.accent-schwarzrotgold i{background:#8a6e52;box-shadow:inset 0 0 0 1.5px #d4a574,0 0 0 2px #0b1719,0 0 0 3px rgba(138,110,82,.45)}
+#map-switch .msw-tab.accent-unionjack i{background:#C8102E;box-shadow:inset 0 0 0 1.5px #f4f6fa,0 0 0 2px #0b1719,0 0 0 3px rgba(70,100,160,.45)}
+#map-switch .msw-tab.accent-tricolore i{background:#0055A4;box-shadow:inset 0 0 0 1.5px #f4f6fa,0 0 0 2px #0b1719,0 0 0 3px rgba(196,90,106,.4)}
+#map-switch .msw-tab.accent-schwarzrotgold i{background:#DD0000;box-shadow:inset 0 0 0 1.5px #d4a574,0 0 0 2px #0b1719,0 0 0 3px rgba(138,110,82,.45)}
 #map-switch .msw-tab.accent-unionjack.is-current{border-color:#c45a6a;background:color-mix(in srgb,#4a6fa5 16%,#0f2226)}
 #map-switch .msw-tab.accent-tricolore.is-current{border-color:#4a6fa5;background:color-mix(in srgb,#4a6fa5 16%,#0f2226)}
 #map-switch .msw-tab.accent-schwarzrotgold.is-current{border-color:#8a6e52;background:color-mix(in srgb,#8a6e52 16%,#0f2226)}
 
 /* UK — soft red / ivory / slate-blue (no bright navy that darkens regions) */
-html.accent-unionjack #country-map{--accent:#c45a6a;--accent-ink:#f4f6fa}
-html.accent-unionjack #country-map .st.st-t1{fill:#c45a6a !important}
+html.accent-unionjack #country-map{--accent:#C8102E;--accent-ink:#f4f6fa}
+html.accent-unionjack #country-map .st.st-t1{fill:#C8102E !important}
 html.accent-unionjack #country-map .st.st-t2{fill:#e8e4dc !important}
-html.accent-unionjack #country-map .st.st-t3{fill:#6a86b0 !important}
-html.accent-unionjack #country-map .st.st-t4{fill:#a86a78 !important}
-html.accent-unionjack #country-map .st.st-t5{fill:#7a94b8 !important}
+html.accent-unionjack #country-map .st.st-t3{fill:#3a5f9a !important}
+html.accent-unionjack #country-map .st.st-t4{fill:#a82a40 !important}
+html.accent-unionjack #country-map .st.st-t5{fill:#2450a0 !important}
 html.accent-unionjack #country-map .st.hub{filter:saturate(1.05) brightness(1.06)}
 html.accent-unionjack #country-map .lbl{fill:#f4f6fa;stroke:rgba(8,16,24,.88);stroke-width:3.4px;paint-order:stroke;font:700 13px var(--text)}
 html.accent-unionjack #country-map .lbl.sel{fill:#fff7df;stroke:rgba(6,14,16,.92);stroke-width:3.8px}
@@ -600,12 +600,12 @@ html.accent-unionjack #country-map .sec.active h3 .n,
 html.accent-unionjack #country-map .steps button[aria-pressed=true] b{background:#4a6fa5;border-color:#4a6fa5;color:#f4f6fa}
 
 /* France — soft blue / ivory / soft red */
-html.accent-tricolore #country-map{--accent:#4a6fa5;--accent-ink:#f4f6fa}
-html.accent-tricolore #country-map .st.st-t1{fill:#4a6fa5 !important}
+html.accent-tricolore #country-map{--accent:#0055A4;--accent-ink:#f4f6fa}
+html.accent-tricolore #country-map .st.st-t1{fill:#0055A4 !important}
 html.accent-tricolore #country-map .st.st-t2{fill:#e8e4dc !important}
-html.accent-tricolore #country-map .st.st-t3{fill:#c45a6a !important}
-html.accent-tricolore #country-map .st.st-t4{fill:#6a86b0 !important}
-html.accent-tricolore #country-map .st.st-t5{fill:#a86a78 !important}
+html.accent-tricolore #country-map .st.st-t3{fill:#EF4135 !important}
+html.accent-tricolore #country-map .st.st-t4{fill:#3a7ab8 !important}
+html.accent-tricolore #country-map .st.st-t5{fill:#c45a5a !important}
 html.accent-tricolore #country-map .st.hub{filter:saturate(1.05) brightness(1.06)}
 html.accent-tricolore #country-map .lbl{fill:#f4f6fa;stroke:rgba(8,16,24,.88);stroke-width:3.4px;paint-order:stroke;font:700 11px var(--text)}
 html.accent-tricolore #country-map .lbl.sel{fill:#fff7df;stroke:rgba(6,14,16,.92);stroke-width:3.8px}
@@ -616,12 +616,12 @@ html.accent-tricolore #country-map .sec.active h3 .n,
 html.accent-tricolore #country-map .steps button[aria-pressed=true] b{background:#4a6fa5;border-color:#4a6fa5;color:#f4f6fa}
 
 /* Germany — slate / soft red / pale amber (NOT flag black, NOT selection gold) */
-html.accent-schwarzrotgold #country-map{--accent:#8a6e52;--accent-ink:#f4efe6}
-html.accent-schwarzrotgold #country-map .st.st-t1{fill:#6a7580 !important} /* slate */
-html.accent-schwarzrotgold #country-map .st.st-t2{fill:#b86a6a !important} /* soft red */
-html.accent-schwarzrotgold #country-map .st.st-t3{fill:#c4a574 !important} /* pale amber */
-html.accent-schwarzrotgold #country-map .st.st-t4{fill:#7a8690 !important}
-html.accent-schwarzrotgold #country-map .st.st-t5{fill:#9a7070 !important}
+html.accent-schwarzrotgold #country-map{--accent:#DD0000;--accent-ink:#f4efe6}
+html.accent-schwarzrotgold #country-map .st.st-t1{fill:#3a3a3a !important} /* slate */
+html.accent-schwarzrotgold #country-map .st.st-t2{fill:#DD0000 !important} /* soft red */
+html.accent-schwarzrotgold #country-map .st.st-t3{fill:#FFCE00 !important} /* pale amber */
+html.accent-schwarzrotgold #country-map .st.st-t4{fill:#5a5a5a !important}
+html.accent-schwarzrotgold #country-map .st.st-t5{fill:#c44a4a !important}
 html.accent-schwarzrotgold #country-map .st.hub{filter:saturate(1.04) brightness(1.08)}
 html.accent-schwarzrotgold #country-map .lbl{fill:#f4f6fa;stroke:rgba(8,16,24,.9);stroke-width:3.4px;paint-order:stroke;font:700 12px var(--text)}
 html.accent-schwarzrotgold #country-map .lbl.sel{fill:#fff7df;stroke:rgba(6,14,16,.92);stroke-width:3.8px}

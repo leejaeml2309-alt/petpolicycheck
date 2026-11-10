@@ -208,8 +208,14 @@ function dogsCatsBlock(){
   ((c.special_notes||[]).map(n=>`<p class="note">${esc(n)}</p>`).join(''));
 }
 function breedBlock(a){
-  const b = DATA.breeds||{};
-  let s = `<h4>Breed rules</h4><p>${esc(honest(b.national, 'No federal breed ban found.'))}</p>`;
+  /* EU data uses `breed`; CA/MX use `breeds`. Never claim a US-style "no federal ban". */
+  const b = DATA.breed || DATA.breeds || {};
+  const eu = /^(UK|FR|DE)$/.test(DATA.country||'');
+  const national = eu
+    ? (b.national && String(b.national).trim() ? b.national : 'Policy details coming soon')
+    : honest(b.national, 'Policy details coming soon');
+  let s = `<h4>Breed rules</h4><p>${esc(national)}</p>`;
+  if(eu) return s; /* no inherited US/CA subnational breed claims on EU maps */
   const sub = (b.subnational||[]).filter(x => !a || (x.jurisdiction||'').toLowerCase().includes((GEO[a]?GEO[a].name:'').toLowerCase().split(' ')[0]) || (a==='ON'&&/ontario/i.test(x.jurisdiction)) || (a==='MB'&&/winnipeg/i.test(x.jurisdiction)));
   const list = a ? sub : (b.subnational||[]);
   if(list.length){
@@ -261,8 +267,16 @@ function roadSection(a){
   if(DATA.rail && DATA.rail.via_rail){
     s += `<h4>VIA Rail</h4><p>${esc(DATA.rail.via_rail.rule)}</p><div class="links">${lk('🚆','VIA Rail: travelling with pets','',DATA.rail.via_rail.url,'off')}</div>`;
   }
+  if(DATA.rail && DATA.rail.train){
+    s += `<h4>Train</h4><p>${esc(DATA.rail.train.rule)}</p>`;
+    if(DATA.rail.train.url) s += `<div class="links">${lk('🚆','Official train pet rules','',DATA.rail.train.url,'off')}</div>`;
+  }
+  if(DATA.rail && DATA.rail.bus){
+    s += `<h4>Bus / coach</h4><p>${esc(DATA.rail.bus.rule)}</p>`;
+    if(DATA.rail.bus.url) s += `<div class="links">${lk('🚌','Official bus pet rules','',DATA.rail.bus.url,'off')}</div>`;
+  }
   if(DATA.rail && DATA.rail.uber_pet){
-    s += `<h4>Rides</h4><div class="links">${lk('🚗','Uber Pet (Canada)','',DATA.rail.uber_pet.url,'off')}</div><p>${esc(DATA.rail.uber_pet.rule)}</p>`;
+    s += `<h4>Rides</h4><div class="links">${lk('🚗','Uber Pet','',DATA.rail.uber_pet.url,'off')}</div><p>${esc(DATA.rail.uber_pet.rule)}</p>`;
   }
   if(DATA.country==='MX'){
     s += `<h4>Ground transport</h4><p>SENASICA OISA inspection happens on arrival before you leave the airport. Rideshare pet acceptance varies by driver — confirm in the app. Hotel-zone taxis: confirm pets when you book.</p>`;
@@ -296,7 +310,7 @@ function planeSection(a, apCode){
 function hotelSection(a, qCity){
   let s = `<section class="sec" data-sec="4"><h3><span class="n">4</span>Hotel</h3>`;
   if(DATA.hotels && DATA.hotels.chains){
-    s += `<h4>Verified Canadian chains</h4><div class="links">` +
+    s += `<h4>Hotel chains</h4><div class="links">` +
       DATA.hotels.chains.map(c => lk('🏨', c.chain, c.policy, c.url, 'off')).join('') + `</div>`;
   }
   const hubs = hubForRegion(a);
