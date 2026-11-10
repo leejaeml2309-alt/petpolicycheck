@@ -258,3 +258,14 @@ main.wrap:has(#usa-map){max-width:1320px}
 .state-picker-menu li .sp-code{flex:none;font:600 .72rem Inter,system-ui,sans-serif;letter-spacing:.06em;color:rgba(217,183,101,.85)}
 #usa-map .maptools .state-picker,#country-map .maptools .state-picker{margin:0}
 #usa-map .panel,#country-map .panel{border:1px solid rgba(217,183,101,.28);box-shadow:0 10px 28px rgba(0,0,0,.28)}
+
+#map-switch .msw-tab.accent-unionjack i{background:#C8102E;box-shadow:inset 0 0 0 1.5px #f4f6fa,0 0 0 2px #0b1719,0 0 0 3px rgba(70,100,160,.45)}
+#map-switch .msw-tab.accent-unionjack.is-current{border-color:#c45a6a;background:color-mix(in srgb,#4a6fa5 16%,#0f2226)}
+#map-switch .msw-tab.accent-tricolore i{background:#0055A4;box-shadow:inset 0 0 0 1.5px #f4f6fa,0 0 0 2px #0b1719,0 0 0 3px rgba(196,90,106,.4)}
+#map-switch .msw-tab.accent-tricolore.is-current{border-color:#4a6fa5;background:color-mix(in srgb,#4a6fa5 16%,#0f2226)}
+#map-switch .msw-tab.accent-schwarzrotgold i{background:#DD0000;box-shadow:inset 0 0 0 1.5px #d4a574,0 0 0 2px #0b1719,0 0 0 3px rgba(138,110,82,.45)}
+#map-switch .msw-tab.accent-schwarzrotgold.is-current{border-color:#8a6e52;background:color-mix(in srgb,#8a6e52 16%,#0f2226)}
+#map-switch .msw-tab.accent-taegeuk i{background:#CD2E3A;box-shadow:inset 0 0 0 1.5px #f4f6fa,0 0 0 2px #0b1719,0 0 0 3px rgba(0,71,160,.45)}
+#map-switch .msw-tab.accent-taegeuk.is-current{border-color:#CD2E3A;background:color-mix(in srgb,#0047A0 14%,#0f2226)}
+#map-switch .msw-tab.accent-hinomaru i{background:#BC002D;box-shadow:0 0 0 2px #0b1719,0 0 0 3px rgba(188,0,45,.5)}
+#map-switch .msw-tab.accent-hinomaru.is-current{border-color:#BC002D;background:color-mix(in srgb,#BC002D 14%,#0f2226)}
