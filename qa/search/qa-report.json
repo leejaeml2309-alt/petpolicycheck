@@ -1,13 +1,605 @@
 {
-  "errors": [],
-  "shots": {
-    "desktop:delta": "qa/search/desktop-delta.png",
-    "desktop:usa-mexico": "qa/search/desktop-usa-mexico.png",
-    "desktop:pug": "qa/search/desktop-pug.png",
-    "mobile:delta": "qa/search/mobile-delta.png",
-    "mobile:usa-mexico": "qa/search/mobile-usa-mexico.png",
-    "mobile:pug": "qa/search/mobile-pug.png",
-    "mobile:menu": "qa/search/mobile-menu-open.png"
+  "console_errors": {
+    "before": [
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8811' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8811' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8811' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8811' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8811' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8811' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8811' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8811' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED"
+    ],
+    "after": [
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Failed to load resource: net::ERR_FAILED",
+      "Access to script at 'http://emrldtp.cc/chunk.C75tmuOT.js' from origin 'http://127.0.0.1:8810' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "Failed to load resource: net::ERR_FAILED"
+    ]
   },
-  "error_count": 0
+  "link_404s": [],
+  "shots": [
+    {
+      "file": "/workspace/search-fix-preview-20261110/qa/search/paris-before-1280.png",
+      "query": "Paris",
+      "phase": "before",
+      "width": 1280,
+      "items": [
+        {
+          "title": "Pet-friendly hotels in Miami: chain and luxury hotel pet fees, weight limits and local tips",
+          "type": "HOTELS",
+          "href": "/hotels/pet-friendly-hotels-miami.html"
+        },
+        {
+          "title": "Pet-friendly hotels in New York City: chain and luxury hotel pet fees, weight limits and local tips",
+          "type": "HOTELS",
+          "href": "/hotels/pet-friendly-hotels-new-york.html"
+        },
+        {
+          "title": "Pet-friendly hotels in Orlando: chain and luxury hotel pet fees, weight limits and local tips",
+          "type": "HOTELS",
+          "href": "/hotels/pet-friendly-hotels-orlando.html"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/search-fix-preview-20261110/qa/search/newyork-before-1280.png",
+      "query": "New York",
+      "phase": "before",
+      "width": 1280,
+      "items": [
+        {
+          "title": "Pet-friendly hotels in New York City: chain and luxury hotel pet fees, weight limits and local tips",
+          "type": "HOTELS",
+          "href": "/hotels/pet-friendly-hotels-new-york.html"
+        },
+        {
+          "title": "Share your trip",
+          "type": "GUIDES",
+          "href": "/forum/new.html"
+        },
+        {
+          "title": "Book your pet trip: flights, hotels, airport rides & vets",
+          "type": "GUIDES",
+          "href": "/book/"
+        },
+        {
+          "title": "My account",
+          "type": "GUIDES",
+          "href": "/forum/account.html"
+        },
+        {
+          "title": "Airport pet travel guides",
+          "type": "GUIDES",
+          "href": "/airport/"
+        },
+        {
+          "title": "EWR airport pet travel guide",
+          "type": "GUIDES",
+          "href": "/airport/EWR/"
+        },
+        {
+          "title": "JFK airport pet travel guide",
+          "type": "GUIDES",
+          "href": "/airport/JFK/"
+        },
+        {
+          "title": "Travelling with a dog or cat between the USA and Mexico",
+          "type": "ROUTES",
+          "href": "/routes/usa-mexico.html"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/search-fix-preview-20261110/qa/search/tokyo-before-1280.png",
+      "query": "Tokyo",
+      "phase": "before",
+      "width": 1280,
+      "items": [
+        {
+          "title": "HND airport pet travel guide",
+          "type": "GUIDES",
+          "href": "/airport/HND/"
+        },
+        {
+          "title": "NRT airport pet travel guide",
+          "type": "GUIDES",
+          "href": "/airport/NRT/"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/search-fix-preview-20261110/qa/search/paris-before-390.png",
+      "query": "Paris",
+      "phase": "before",
+      "width": 390,
+      "items": [
+        {
+          "title": "Pet-friendly hotels in Miami: chain and luxury hotel pet fees, weight limits and local tips",
+          "type": "HOTELS",
+          "href": "/hotels/pet-friendly-hotels-miami.html"
+        },
+        {
+          "title": "Pet-friendly hotels in New York City: chain and luxury hotel pet fees, weight limits and local tips",
+          "type": "HOTELS",
+          "href": "/hotels/pet-friendly-hotels-new-york.html"
+        },
+        {
+          "title": "Pet-friendly hotels in Orlando: chain and luxury hotel pet fees, weight limits and local tips",
+          "type": "HOTELS",
+          "href": "/hotels/pet-friendly-hotels-orlando.html"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/search-fix-preview-20261110/qa/search/newyork-before-390.png",
+      "query": "New York",
+      "phase": "before",
+      "width": 390,
+      "items": [
+        {
+          "title": "Pet-friendly hotels in New York City: chain and luxury hotel pet fees, weight limits and local tips",
+          "type": "HOTELS",
+          "href": "/hotels/pet-friendly-hotels-new-york.html"
+        },
+        {
+          "title": "Share your trip",
+          "type": "GUIDES",
+          "href": "/forum/new.html"
+        },
+        {
+          "title": "Book your pet trip: flights, hotels, airport rides & vets",
+          "type": "GUIDES",
+          "href": "/book/"
+        },
+        {
+          "title": "My account",
+          "type": "GUIDES",
+          "href": "/forum/account.html"
+        },
+        {
+          "title": "Airport pet travel guides",
+          "type": "GUIDES",
+          "href": "/airport/"
+        },
+        {
+          "title": "EWR airport pet travel guide",
+          "type": "GUIDES",
+          "href": "/airport/EWR/"
+        },
+        {
+          "title": "JFK airport pet travel guide",
+          "type": "GUIDES",
+          "href": "/airport/JFK/"
+        },
+        {
+          "title": "Travelling with a dog or cat between the USA and Mexico",
+          "type": "ROUTES",
+          "href": "/routes/usa-mexico.html"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/search-fix-preview-20261110/qa/search/tokyo-before-390.png",
+      "query": "Tokyo",
+      "phase": "before",
+      "width": 390,
+      "items": [
+        {
+          "title": "HND airport pet travel guide",
+          "type": "GUIDES",
+          "href": "/airport/HND/"
+        },
+        {
+          "title": "NRT airport pet travel guide",
+          "type": "GUIDES",
+          "href": "/airport/NRT/"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/search-fix-preview-20261110/qa/search/paris-after-1280.png",
+      "query": "Paris",
+      "phase": "after",
+      "width": 1280,
+      "items": [
+        {
+          "title": "Paris — France",
+          "type": "CITIES",
+          "href": "/countries/france.html"
+        },
+        {
+          "title": "Nice — France",
+          "type": "CITIES",
+          "href": "/countries/france.html"
+        },
+        {
+          "title": "Lyon — France",
+          "type": "CITIES",
+          "href": "/countries/france.html"
+        },
+        {
+          "title": "ORY — Paris (Orly) · Île-de-France",
+          "type": "AIRPORTS",
+          "href": "/countries/france.html#hubs"
+        },
+        {
+          "title": "CDG — Paris (Roissy) · Île-de-France",
+          "type": "AIRPORTS",
+          "href": "/countries/france.html#hubs"
+        },
+        {
+          "title": "Pet travel rules for France: EU entry, customs and category-dog bans",
+          "type": "COUNTRIES",
+          "href": "/countries/france.html"
+        },
+        {
+          "title": "Bus, metro, RER and tram (RATP) — France",
+          "type": "TRANSPORT",
+          "href": "/countries/france.html#bus"
+        },
+        {
+          "title": "Taxi and private hire (VTC) — France",
+          "type": "TRANSPORT",
+          "href": "/countries/france.html#taxi"
+        },
+        {
+          "title": "Train (SNCF and Eurostar) — France",
+          "type": "TRANSPORT",
+          "href": "/countries/france.html#train"
+        },
+        {
+          "title": "Hotels — France",
+          "type": "HOTELS",
+          "href": "/countries/france.html#hotels"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/search-fix-preview-20261110/qa/search/newyork-after-1280.png",
+      "query": "New York",
+      "phase": "after",
+      "width": 1280,
+      "items": [
+        {
+          "title": "New York City — United States",
+          "type": "CITIES",
+          "href": "/countries/usa.html"
+        },
+        {
+          "title": "EWR airport pet travel guide — New York City",
+          "type": "AIRPORTS",
+          "href": "/airport/EWR/"
+        },
+        {
+          "title": "JFK airport pet travel guide — New York City",
+          "type": "AIRPORTS",
+          "href": "/airport/JFK/"
+        },
+        {
+          "title": "YQM — Moncton · New Brunswick (NB)",
+          "type": "AIRPORTS",
+          "href": "/countries/canada.html#hubs"
+        },
+        {
+          "title": "YYT — St. John's · Newfoundland and Labrador (NL)",
+          "type": "AIRPORTS",
+          "href": "/countries/canada.html#hubs"
+        },
+        {
+          "title": "Airport pet travel guides",
+          "type": "AIRPORTS",
+          "href": "/airport/"
+        },
+        {
+          "title": "Pet travel rules for Mexico: SENASICA, OISA and the NWS screwworm certificate",
+          "type": "COUNTRIES",
+          "href": "/countries/mexico.html"
+        },
+        {
+          "title": "Pet travel rules for the United Kingdom: entering Great Britain with a dog or cat",
+          "type": "COUNTRIES",
+          "href": "/countries/uk.html"
+        },
+        {
+          "title": "Travelling with a dog or cat between the USA and Mexico",
+          "type": "ROUTES",
+          "href": "/routes/usa-mexico.html"
+        },
+        {
+          "title": "Pet policy updates",
+          "type": "GUIDES",
+          "href": "/updates.html"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/search-fix-preview-20261110/qa/search/tokyo-after-1280.png",
+      "query": "Tokyo",
+      "phase": "after",
+      "width": 1280,
+      "items": [
+        {
+          "title": "Tokyo — Japan",
+          "type": "CITIES",
+          "href": "/countries/japan-map.html"
+        },
+        {
+          "title": "HND airport pet travel guide — Haneda, Tokyo",
+          "type": "AIRPORTS",
+          "href": "/airport/HND/"
+        },
+        {
+          "title": "NRT airport pet travel guide — Narita, Tokyo",
+          "type": "AIRPORTS",
+          "href": "/airport/NRT/"
+        },
+        {
+          "title": "Airport pet travel guides",
+          "type": "AIRPORTS",
+          "href": "/airport/"
+        },
+        {
+          "title": "Travelling with a dog or cat between the USA and Japan",
+          "type": "ROUTES",
+          "href": "/routes/usa-to-japan.html"
+        },
+        {
+          "title": "Aeromexico pet policy",
+          "type": "AIRLINES",
+          "href": "/airlines/aeromexico.html"
+        },
+        {
+          "title": "ZIPAIR pet policy",
+          "type": "AIRLINES",
+          "href": "/airlines/zipair.html"
+        },
+        {
+          "title": "Military PCS pet move kit",
+          "type": "VETERANS",
+          "href": "/military-pcs/"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/search-fix-preview-20261110/qa/search/paris-after-390.png",
+      "query": "Paris",
+      "phase": "after",
+      "width": 390,
+      "items": [
+        {
+          "title": "Paris — France",
+          "type": "CITIES",
+          "href": "/countries/france.html"
+        },
+        {
+          "title": "Nice — France",
+          "type": "CITIES",
+          "href": "/countries/france.html"
+        },
+        {
+          "title": "Lyon — France",
+          "type": "CITIES",
+          "href": "/countries/france.html"
+        },
+        {
+          "title": "ORY — Paris (Orly) · Île-de-France",
+          "type": "AIRPORTS",
+          "href": "/countries/france.html#hubs"
+        },
+        {
+          "title": "CDG — Paris (Roissy) · Île-de-France",
+          "type": "AIRPORTS",
+          "href": "/countries/france.html#hubs"
+        },
+        {
+          "title": "Pet travel rules for France: EU entry, customs and category-dog bans",
+          "type": "COUNTRIES",
+          "href": "/countries/france.html"
+        },
+        {
+          "title": "Bus, metro, RER and tram (RATP) — France",
+          "type": "TRANSPORT",
+          "href": "/countries/france.html#bus"
+        },
+        {
+          "title": "Taxi and private hire (VTC) — France",
+          "type": "TRANSPORT",
+          "href": "/countries/france.html#taxi"
+        },
+        {
+          "title": "Train (SNCF and Eurostar) — France",
+          "type": "TRANSPORT",
+          "href": "/countries/france.html#train"
+        },
+        {
+          "title": "Hotels — France",
+          "type": "HOTELS",
+          "href": "/countries/france.html#hotels"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/search-fix-preview-20261110/qa/search/newyork-after-390.png",
+      "query": "New York",
+      "phase": "after",
+      "width": 390,
+      "items": [
+        {
+          "title": "New York City — United States",
+          "type": "CITIES",
+          "href": "/countries/usa.html"
+        },
+        {
+          "title": "EWR airport pet travel guide — New York City",
+          "type": "AIRPORTS",
+          "href": "/airport/EWR/"
+        },
+        {
+          "title": "JFK airport pet travel guide — New York City",
+          "type": "AIRPORTS",
+          "href": "/airport/JFK/"
+        },
+        {
+          "title": "YQM — Moncton · New Brunswick (NB)",
+          "type": "AIRPORTS",
+          "href": "/countries/canada.html#hubs"
+        },
+        {
+          "title": "YYT — St. John's · Newfoundland and Labrador (NL)",
+          "type": "AIRPORTS",
+          "href": "/countries/canada.html#hubs"
+        },
+        {
+          "title": "Airport pet travel guides",
+          "type": "AIRPORTS",
+          "href": "/airport/"
+        },
+        {
+          "title": "Pet travel rules for Mexico: SENASICA, OISA and the NWS screwworm certificate",
+          "type": "COUNTRIES",
+          "href": "/countries/mexico.html"
+        },
+        {
+          "title": "Pet travel rules for the United Kingdom: entering Great Britain with a dog or cat",
+          "type": "COUNTRIES",
+          "href": "/countries/uk.html"
+        },
+        {
+          "title": "Travelling with a dog or cat between the USA and Mexico",
+          "type": "ROUTES",
+          "href": "/routes/usa-mexico.html"
+        },
+        {
+          "title": "Pet policy updates",
+          "type": "GUIDES",
+          "href": "/updates.html"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/search-fix-preview-20261110/qa/search/tokyo-after-390.png",
+      "query": "Tokyo",
+      "phase": "after",
+      "width": 390,
+      "items": [
+        {
+          "title": "Tokyo — Japan",
+          "type": "CITIES",
+          "href": "/countries/japan-map.html"
+        },
+        {
+          "title": "HND airport pet travel guide — Haneda, Tokyo",
+          "type": "AIRPORTS",
+          "href": "/airport/HND/"
+        },
+        {
+          "title": "NRT airport pet travel guide — Narita, Tokyo",
+          "type": "AIRPORTS",
+          "href": "/airport/NRT/"
+        },
+        {
+          "title": "Airport pet travel guides",
+          "type": "AIRPORTS",
+          "href": "/airport/"
+        },
+        {
+          "title": "Travelling with a dog or cat between the USA and Japan",
+          "type": "ROUTES",
+          "href": "/routes/usa-to-japan.html"
+        },
+        {
+          "title": "Aeromexico pet policy",
+          "type": "AIRLINES",
+          "href": "/airlines/aeromexico.html"
+        },
+        {
+          "title": "ZIPAIR pet policy",
+          "type": "AIRLINES",
+          "href": "/airlines/zipair.html"
+        },
+        {
+          "title": "Military PCS pet move kit",
+          "type": "VETERANS",
+          "href": "/military-pcs/"
+        }
+      ]
+    }
+  ]
 }

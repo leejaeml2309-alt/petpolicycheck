@@ -277,6 +277,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 # Compact header hubs (Marc 2026-11-09) + site search. Full NAV stays available for legacy menus.
 SEARCH_CSS_VER = "20261110search1"
+SEARCH_UI_VER = "20261110search3"
 SEARCH_HUBS = [
     ("routes/", "Routes", ("routes/",)),
     ("airlines/", "Airlines", ("airlines/",)),
@@ -297,12 +298,12 @@ def search_hub_links(root, path, mobile=False):
 
 
 def search_assets_head(root):
-    return f'<link rel="stylesheet" href="{root}assets/site-search.css?v={SEARCH_CSS_VER}">'
+    return f'<link rel="stylesheet" href="{root}assets/site-search.css?v={SEARCH_UI_VER}">'
 
 
 def search_assets_foot(root):
     return (
-        f'<script src="{root}assets/site-search.js?v={SEARCH_CSS_VER}" defer></script>'
+        f'<script src="{root}assets/site-search.js?v={SEARCH_UI_VER}" defer></script>'
         f'<script src="{root}assets/ppc-header.js?v={SEARCH_CSS_VER}" defer></script>'
     )
 
@@ -3599,6 +3600,14 @@ def main():
     for a in airlines:
         print(f"  {a['slug']:16} confirmed {confirmed_count(a)}/{len(FIELDS)}  status={a.get('fetch_status')}")
     print(f"GA4: tag added to {ensure_ga4_tree(OUT, cfg)} HTML file(s) that were missing it")
+    # Keep the on-page search index in sync with generated HTML (information pages only).
+    try:
+        import subprocess, sys as _sys
+        subprocess.check_call([_sys.executable, str(ROOT / "scripts" / "build_search_index.py")])
+    except Exception as exc:
+        print(f"search index: skipped ({exc})")
+
+
 
 
 if __name__ == "__main__":

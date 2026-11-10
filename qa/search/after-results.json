@@ -1,0 +1,744 @@
+{
+  "after": {
+    "en": {
+      "Paris": [
+        {
+          "n": 1,
+          "score": 1696,
+          "exact": true,
+          "type": "Cities",
+          "title": "Paris — France",
+          "url": "/countries/france.html"
+        },
+        {
+          "n": 2,
+          "score": 1583,
+          "exact": true,
+          "type": "Airports",
+          "title": "ORY — Paris (Orly) · Île-de-France",
+          "url": "/countries/france.html#hubs"
+        },
+        {
+          "n": 3,
+          "score": 1457,
+          "exact": true,
+          "type": "Airports",
+          "title": "CDG — Paris (Roissy) · Île-de-France",
+          "url": "/countries/france.html#hubs"
+        },
+        {
+          "n": 4,
+          "score": 355,
+          "exact": false,
+          "type": "Countries",
+          "title": "Pet travel rules for France: EU entry, customs and category-dog bans",
+          "url": "/countries/france.html"
+        },
+        {
+          "n": 5,
+          "score": 321,
+          "exact": false,
+          "type": "Transport",
+          "title": "Bus, metro, RER and tram (RATP) — France",
+          "url": "/countries/france.html#bus"
+        },
+        {
+          "n": 6,
+          "score": 321,
+          "exact": false,
+          "type": "Transport",
+          "title": "Taxi and private hire (VTC) — France",
+          "url": "/countries/france.html#taxi"
+        },
+        {
+          "n": 7,
+          "score": 321,
+          "exact": false,
+          "type": "Transport",
+          "title": "Train (SNCF and Eurostar) — France",
+          "url": "/countries/france.html#train"
+        },
+        {
+          "n": 8,
+          "score": 276,
+          "exact": false,
+          "type": "Hotels",
+          "title": "Hotels — France",
+          "url": "/countries/france.html#hotels"
+        }
+      ],
+      "London": [
+        {
+          "n": 1,
+          "score": 1638,
+          "exact": true,
+          "type": "Cities",
+          "title": "London — United Kingdom",
+          "url": "/countries/uk.html"
+        },
+        {
+          "n": 2,
+          "score": 1444,
+          "exact": true,
+          "type": "Airports",
+          "title": "LHR — London · England",
+          "url": "/countries/uk.html#hubs"
+        },
+        {
+          "n": 3,
+          "score": 1444,
+          "exact": true,
+          "type": "Airports",
+          "title": "LGW — London · England (West Sussex)",
+          "url": "/countries/uk.html#hubs"
+        },
+        {
+          "n": 4,
+          "score": 263,
+          "exact": false,
+          "type": "Transport",
+          "title": "Bus (TfL and National Express) — United Kingdom",
+          "url": "/countries/uk.html#bus"
+        },
+        {
+          "n": 5,
+          "score": 263,
+          "exact": false,
+          "type": "Transport",
+          "title": "Taxi and private hire (VTC) — United Kingdom",
+          "url": "/countries/uk.html#taxi"
+        },
+        {
+          "n": 6,
+          "score": 263,
+          "exact": false,
+          "type": "Transport",
+          "title": "Train (National Rail, LNER, Eurostar) — United Kingdom",
+          "url": "/countries/uk.html#train"
+        },
+        {
+          "n": 7,
+          "score": 218,
+          "exact": false,
+          "type": "Hotels",
+          "title": "Hotels — United Kingdom",
+          "url": "/countries/uk.html#hotels"
+        },
+        {
+          "n": 8,
+          "score": 206,
+          "exact": false,
+          "type": "Countries",
+          "title": "Travel the UK with your pet",
+          "url": "/countries/uk-map.html"
+        }
+      ],
+      "Berlin": [
+        {
+          "n": 1,
+          "score": 1777,
+          "exact": true,
+          "type": "Cities",
+          "title": "Berlin — Germany",
+          "url": "/countries/germany.html"
+        },
+        {
+          "n": 2,
+          "score": 1444,
+          "exact": true,
+          "type": "Airports",
+          "title": "BER — Berlin · Brandenburg (serves Berlin)",
+          "url": "/countries/germany.html#hubs"
+        },
+        {
+          "n": 3,
+          "score": 362,
+          "exact": false,
+          "type": "Transport",
+          "title": "Bus (BVG and FlixBus) — Germany",
+          "url": "/countries/germany.html#bus"
+        },
+        {
+          "n": 4,
+          "score": 362,
+          "exact": false,
+          "type": "Transport",
+          "title": "Taxi and private hire (VTC) — Germany",
+          "url": "/countries/germany.html#taxi"
+        },
+        {
+          "n": 5,
+          "score": 362,
+          "exact": false,
+          "type": "Transport",
+          "title": "Train (Deutsche Bahn and Eurostar) — Germany",
+          "url": "/countries/germany.html#train"
+        },
+        {
+          "n": 6,
+          "score": 317,
+          "exact": false,
+          "type": "Hotels",
+          "title": "Hotels — Germany",
+          "url": "/countries/germany.html#hotels"
+        },
+        {
+          "n": 7,
+          "score": 224,
+          "exact": false,
+          "type": "Countries",
+          "title": "Pet travel rules for Germany: EU entry, designated points and the breed-import ban",
+          "url": "/countries/germany.html"
+        },
+        {
+          "n": 8,
+          "score": 216,
+          "exact": false,
+          "type": "Cities",
+          "title": "Frankfurt am Main — Germany",
+          "url": "/countries/germany.html"
+        }
+      ],
+      "Tokyo": [
+        {
+          "n": 1,
+          "score": 1638,
+          "exact": true,
+          "type": "Cities",
+          "title": "Tokyo — Japan",
+          "url": "/countries/japan-map.html"
+        },
+        {
+          "n": 2,
+          "score": 1376,
+          "exact": true,
+          "type": "Airports",
+          "title": "HND airport pet travel guide — Haneda, Tokyo",
+          "url": "/airport/HND/"
+        },
+        {
+          "n": 3,
+          "score": 1376,
+          "exact": true,
+          "type": "Airports",
+          "title": "NRT airport pet travel guide — Narita, Tokyo",
+          "url": "/airport/NRT/"
+        },
+        {
+          "n": 4,
+          "score": 190,
+          "exact": false,
+          "type": "Routes",
+          "title": "Travelling with a dog or cat between the USA and Japan",
+          "url": "/routes/usa-to-japan.html"
+        },
+        {
+          "n": 5,
+          "score": 146,
+          "exact": false,
+          "type": "Airports",
+          "title": "Airport pet travel guides",
+          "url": "/airport/"
+        },
+        {
+          "n": 6,
+          "score": 93,
+          "exact": false,
+          "type": "Airlines",
+          "title": "Aeromexico pet policy",
+          "url": "/airlines/aeromexico.html"
+        },
+        {
+          "n": 7,
+          "score": 75,
+          "exact": false,
+          "type": "Airlines",
+          "title": "ZIPAIR pet policy",
+          "url": "/airlines/zipair.html"
+        },
+        {
+          "n": 8,
+          "score": 56,
+          "exact": false,
+          "type": "Veterans",
+          "title": "Military PCS pet move kit",
+          "url": "/military-pcs/"
+        }
+      ],
+      "Seoul": [
+        {
+          "n": 1,
+          "score": 1638,
+          "exact": true,
+          "type": "Cities",
+          "title": "Seoul",
+          "url": "/airport/ICN/"
+        },
+        {
+          "n": 2,
+          "score": 1376,
+          "exact": true,
+          "type": "Airports",
+          "title": "ICN airport pet travel guide — Incheon, Seoul",
+          "url": "/airport/ICN/"
+        },
+        {
+          "n": 3,
+          "score": 128,
+          "exact": false,
+          "type": "Airports",
+          "title": "Airport pet travel guides",
+          "url": "/airport/"
+        },
+        {
+          "n": 4,
+          "score": 53,
+          "exact": false,
+          "type": "Airlines",
+          "title": "Air Premia pet policy",
+          "url": "/airlines/air-premia.html"
+        },
+        {
+          "n": 5,
+          "score": 38,
+          "exact": false,
+          "type": "Veterans",
+          "title": "Military PCS pet move kit",
+          "url": "/military-pcs/"
+        }
+      ],
+      "New York": [
+        {
+          "n": 1,
+          "score": 3318,
+          "exact": true,
+          "type": "Cities",
+          "title": "New York City — United States",
+          "url": "/countries/usa.html"
+        },
+        {
+          "n": 2,
+          "score": 1656,
+          "exact": true,
+          "type": "Airports",
+          "title": "EWR airport pet travel guide — New York City",
+          "url": "/airport/EWR/"
+        },
+        {
+          "n": 3,
+          "score": 1656,
+          "exact": true,
+          "type": "Airports",
+          "title": "JFK airport pet travel guide — New York City",
+          "url": "/airport/JFK/"
+        },
+        {
+          "n": 4,
+          "score": 350,
+          "exact": false,
+          "type": "Airports",
+          "title": "YQM — Moncton · New Brunswick (NB)",
+          "url": "/countries/canada.html#hubs"
+        },
+        {
+          "n": 5,
+          "score": 250,
+          "exact": false,
+          "type": "Airports",
+          "title": "YYT — St. John's · Newfoundland and Labrador (NL)",
+          "url": "/countries/canada.html#hubs"
+        },
+        {
+          "n": 6,
+          "score": 240,
+          "exact": false,
+          "type": "Countries",
+          "title": "Pet travel rules for Mexico: SENASICA, OISA and the NWS screwworm certificate",
+          "url": "/countries/mexico.html"
+        },
+        {
+          "n": 7,
+          "score": 186,
+          "exact": false,
+          "type": "Airports",
+          "title": "Airport pet travel guides",
+          "url": "/airport/"
+        },
+        {
+          "n": 8,
+          "score": 180,
+          "exact": false,
+          "type": "Routes",
+          "title": "Travelling with a dog or cat between the USA and Mexico",
+          "url": "/routes/usa-mexico.html"
+        }
+      ]
+    },
+    "es": {
+      "París": [
+        {
+          "n": 1,
+          "score": 1696,
+          "exact": true,
+          "type": "Cities",
+          "title": "Paris — France",
+          "url": "/countries/france.html"
+        },
+        {
+          "n": 2,
+          "score": 1583,
+          "exact": true,
+          "type": "Airports",
+          "title": "ORY — Paris (Orly) · Île-de-France",
+          "url": "/countries/france.html#hubs"
+        },
+        {
+          "n": 3,
+          "score": 1457,
+          "exact": true,
+          "type": "Airports",
+          "title": "CDG — Paris (Roissy) · Île-de-France",
+          "url": "/countries/france.html#hubs"
+        },
+        {
+          "n": 4,
+          "score": 355,
+          "exact": false,
+          "type": "Countries",
+          "title": "Pet travel rules for France: EU entry, customs and category-dog bans",
+          "url": "/countries/france.html"
+        },
+        {
+          "n": 5,
+          "score": 321,
+          "exact": false,
+          "type": "Transport",
+          "title": "Bus, metro, RER and tram (RATP) — France",
+          "url": "/countries/france.html#bus"
+        },
+        {
+          "n": 6,
+          "score": 321,
+          "exact": false,
+          "type": "Transport",
+          "title": "Taxi and private hire (VTC) — France",
+          "url": "/countries/france.html#taxi"
+        },
+        {
+          "n": 7,
+          "score": 321,
+          "exact": false,
+          "type": "Transport",
+          "title": "Train (SNCF and Eurostar) — France",
+          "url": "/countries/france.html#train"
+        },
+        {
+          "n": 8,
+          "score": 276,
+          "exact": false,
+          "type": "Hotels",
+          "title": "Hotels — France",
+          "url": "/countries/france.html#hotels"
+        }
+      ],
+      "Londres": [
+        {
+          "n": 1,
+          "score": 1416,
+          "exact": true,
+          "type": "Cities",
+          "title": "London — United Kingdom",
+          "url": "/countries/uk.html"
+        },
+        {
+          "n": 2,
+          "score": 322,
+          "exact": false,
+          "type": "Airports",
+          "title": "LHR — London · England",
+          "url": "/countries/uk.html#hubs"
+        },
+        {
+          "n": 3,
+          "score": 322,
+          "exact": false,
+          "type": "Airports",
+          "title": "LGW — London · England (West Sussex)",
+          "url": "/countries/uk.html#hubs"
+        },
+        {
+          "n": 4,
+          "score": 113,
+          "exact": false,
+          "type": "Transport",
+          "title": "Bus (TfL and National Express) — United Kingdom",
+          "url": "/countries/uk.html#bus"
+        },
+        {
+          "n": 5,
+          "score": 113,
+          "exact": false,
+          "type": "Transport",
+          "title": "Taxi and private hire (VTC) — United Kingdom",
+          "url": "/countries/uk.html#taxi"
+        },
+        {
+          "n": 6,
+          "score": 113,
+          "exact": false,
+          "type": "Transport",
+          "title": "Train (National Rail, LNER, Eurostar) — United Kingdom",
+          "url": "/countries/uk.html#train"
+        },
+        {
+          "n": 7,
+          "score": 98,
+          "exact": false,
+          "type": "Countries",
+          "title": "Pet travel rules for the United Kingdom: entering Great Britain with a dog or cat",
+          "url": "/countries/uk.html"
+        },
+        {
+          "n": 8,
+          "score": 68,
+          "exact": false,
+          "type": "Hotels",
+          "title": "Hotels — United Kingdom",
+          "url": "/countries/uk.html#hotels"
+        }
+      ],
+      "Berlín": [
+        {
+          "n": 1,
+          "score": 1777,
+          "exact": true,
+          "type": "Cities",
+          "title": "Berlin — Germany",
+          "url": "/countries/germany.html"
+        },
+        {
+          "n": 2,
+          "score": 1444,
+          "exact": true,
+          "type": "Airports",
+          "title": "BER — Berlin · Brandenburg (serves Berlin)",
+          "url": "/countries/germany.html#hubs"
+        },
+        {
+          "n": 3,
+          "score": 362,
+          "exact": false,
+          "type": "Transport",
+          "title": "Bus (BVG and FlixBus) — Germany",
+          "url": "/countries/germany.html#bus"
+        },
+        {
+          "n": 4,
+          "score": 362,
+          "exact": false,
+          "type": "Transport",
+          "title": "Taxi and private hire (VTC) — Germany",
+          "url": "/countries/germany.html#taxi"
+        },
+        {
+          "n": 5,
+          "score": 362,
+          "exact": false,
+          "type": "Transport",
+          "title": "Train (Deutsche Bahn and Eurostar) — Germany",
+          "url": "/countries/germany.html#train"
+        },
+        {
+          "n": 6,
+          "score": 317,
+          "exact": false,
+          "type": "Hotels",
+          "title": "Hotels — Germany",
+          "url": "/countries/germany.html#hotels"
+        },
+        {
+          "n": 7,
+          "score": 224,
+          "exact": false,
+          "type": "Countries",
+          "title": "Pet travel rules for Germany: EU entry, designated points and the breed-import ban",
+          "url": "/countries/germany.html"
+        },
+        {
+          "n": 8,
+          "score": 216,
+          "exact": false,
+          "type": "Cities",
+          "title": "Frankfurt am Main — Germany",
+          "url": "/countries/germany.html"
+        }
+      ],
+      "Tokio": [
+        {
+          "n": 1,
+          "score": 1484,
+          "exact": true,
+          "type": "Cities",
+          "title": "Tokyo — Japan",
+          "url": "/countries/japan-map.html"
+        },
+        {
+          "n": 2,
+          "score": 322,
+          "exact": false,
+          "type": "Airports",
+          "title": "HND airport pet travel guide — Haneda, Tokyo",
+          "url": "/airport/HND/"
+        },
+        {
+          "n": 3,
+          "score": 322,
+          "exact": false,
+          "type": "Airports",
+          "title": "NRT airport pet travel guide — Narita, Tokyo",
+          "url": "/airport/NRT/"
+        },
+        {
+          "n": 4,
+          "score": 124,
+          "exact": false,
+          "type": "Airports",
+          "title": "Airport pet travel guides",
+          "url": "/airport/"
+        },
+        {
+          "n": 5,
+          "score": 93,
+          "exact": false,
+          "type": "Airlines",
+          "title": "Política de mascotas de Aeromexico",
+          "url": "/es/airlines/aeromexico.html"
+        },
+        {
+          "n": 6,
+          "score": 56,
+          "exact": false,
+          "type": "Veterans",
+          "title": "Military PCS pet move kit",
+          "url": "/military-pcs/"
+        },
+        {
+          "n": 7,
+          "score": 53,
+          "exact": false,
+          "type": "Airlines",
+          "title": "ZIPAIR pet policy",
+          "url": "/airlines/zipair.html"
+        }
+      ],
+      "Seúl": [
+        {
+          "n": 1,
+          "score": 1484,
+          "exact": true,
+          "type": "Cities",
+          "title": "Seoul",
+          "url": "/airport/ICN/"
+        },
+        {
+          "n": 2,
+          "score": 322,
+          "exact": false,
+          "type": "Airports",
+          "title": "ICN airport pet travel guide — Incheon, Seoul",
+          "url": "/airport/ICN/"
+        },
+        {
+          "n": 3,
+          "score": 106,
+          "exact": false,
+          "type": "Airports",
+          "title": "Airport pet travel guides",
+          "url": "/airport/"
+        },
+        {
+          "n": 4,
+          "score": 53,
+          "exact": false,
+          "type": "Airlines",
+          "title": "Air Premia pet policy",
+          "url": "/airlines/air-premia.html"
+        },
+        {
+          "n": 5,
+          "score": 38,
+          "exact": false,
+          "type": "Veterans",
+          "title": "Military PCS pet move kit",
+          "url": "/military-pcs/"
+        }
+      ],
+      "Nueva York": [
+        {
+          "n": 1,
+          "score": 602,
+          "exact": false,
+          "type": "Airports",
+          "title": "EWR airport pet travel guide — New York City",
+          "url": "/airport/EWR/"
+        },
+        {
+          "n": 2,
+          "score": 602,
+          "exact": false,
+          "type": "Airports",
+          "title": "JFK airport pet travel guide — New York City",
+          "url": "/airport/JFK/"
+        },
+        {
+          "n": 3,
+          "score": 196,
+          "exact": false,
+          "type": "Airports",
+          "title": "YQM — Moncton · New Brunswick (NB)",
+          "url": "/es/countries/canada.html#hubs"
+        },
+        {
+          "n": 4,
+          "score": 164,
+          "exact": false,
+          "type": "Airports",
+          "title": "Airport pet travel guides",
+          "url": "/airport/"
+        },
+        {
+          "n": 5,
+          "score": 151,
+          "exact": false,
+          "type": "Airports",
+          "title": "YYT — St. John's · Newfoundland and Labrador (NL)",
+          "url": "/es/countries/canada.html#hubs"
+        },
+        {
+          "n": 6,
+          "score": 121,
+          "exact": false,
+          "type": "Countries",
+          "title": "Pet travel rules for the United Kingdom: entering Great Britain with a dog or cat",
+          "url": "/countries/uk.html"
+        },
+        {
+          "n": 7,
+          "score": 111,
+          "exact": false,
+          "type": "Airlines",
+          "title": "Lufthansa pet policy",
+          "url": "/airlines/lufthansa.html"
+        },
+        {
+          "n": 8,
+          "score": 98,
+          "exact": false,
+          "type": "Routes",
+          "title": "Viajar con perro o gato entre EE. UU. y México",
+          "url": "/es/routes/usa-mexico.html"
+        }
+      ]
+    }
+  }
+}

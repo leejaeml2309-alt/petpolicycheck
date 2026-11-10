@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VER = "20261110search1"
+VER = "20261110search3"
 HUBS = [
     ("routes/", "Routes", ("routes/",)),
     ("airlines/", "Airlines", ("airlines/",)),
