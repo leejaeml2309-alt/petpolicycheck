@@ -658,3 +658,37 @@ html.accent-de-altb #country-map .st:focus,
 html.accent-de-altb #country-map .st:focus-visible{
   outline:none !important; outline-width:0 !important; box-shadow:none !important; filter:none !important;
 }
+
+/* --- South Korea (taegeuk) + Japan (hinomaru) — KR/JP maps 2026-11-10 --- */
+.accent-taegeuk i{background:#CD2E3A;box-shadow:inset 0 0 0 1.5px #f4f6fa,0 0 0 2px #0b1719,0 0 0 3px rgba(0,71,160,.45)}
+.accent-taegeuk.is-current{border-color:#CD2E3A;background:color-mix(in srgb,#0047A0 14%,#0f2226)}
+html.accent-taegeuk #country-map{--accent:#CD2E3A;--accent-ink:#f4f6fa}
+/* Flag palette: white / red / blue / light charcoal — mid brightness (no near-black) */
+html.accent-taegeuk #country-map .st.st-t1{fill:#e8e4dc !important}
+html.accent-taegeuk #country-map .st.st-t2{fill:#CD2E3A !important}
+html.accent-taegeuk #country-map .st.st-t3{fill:#0047A0 !important}
+html.accent-taegeuk #country-map .st.st-t4{fill:#5c5c5c !important}
+html.accent-taegeuk #country-map .st.st-t5{fill:#a83a48 !important}
+html.accent-taegeuk #country-map .st.sel,
+html.accent-taegeuk #country-map .st.sel:hover{fill:#6d5a2c !important;stroke:#f0d58c !important;stroke-width:2 !important;filter:none !important}
+html.accent-taegeuk #country-map .ap.sel .pad{fill:#6d5a2c;stroke:#f0d58c;stroke-width:2}
+html.accent-taegeuk #country-map .lbl.sel{fill:#fff7df;stroke:rgba(6,14,16,.92);stroke-width:3.8px}
+
+.accent-hinomaru i{background:#BC002D;box-shadow:0 0 0 2px #0b1719,0 0 0 3px rgba(188,0,45,.5)}
+.accent-hinomaru.is-current{border-color:#BC002D;background:color-mix(in srgb,#BC002D 14%,#0f2226)}
+html.accent-hinomaru #country-map{--accent:#BC002D;--accent-ink:#f4efe6}
+/* White → #BC002D red shades so neighbours stay distinct; mid brightness */
+html.accent-hinomaru #country-map .st.st-t1{fill:#f2e8e6 !important}
+html.accent-hinomaru #country-map .st.st-t2{fill:#e8a8a8 !important}
+html.accent-hinomaru #country-map .st.st-t3{fill:#d45a5a !important}
+html.accent-hinomaru #country-map .st.st-t4{fill:#BC002D !important}
+html.accent-hinomaru #country-map .st.st-t5{fill:#c87878 !important}
+html.accent-hinomaru #country-map .st.sel,
+html.accent-hinomaru #country-map .st.sel:hover{fill:#6d5a2c !important;stroke:#f0d58c !important;stroke-width:2 !important;filter:none !important}
+html.accent-hinomaru #country-map .ap.sel .pad{fill:#6d5a2c;stroke:#f0d58c;stroke-width:2}
+html.accent-hinomaru #country-map .lbl.sel{fill:#fff7df;stroke:rgba(6,14,16,.92);stroke-width:3.8px}
+
+/* Ensure gold selection wins for new accents too */
+html.accent-taegeuk #country-map .st.sel,
+html.accent-hinomaru #country-map .st.sel,
+#country-map .st.sel{fill:#6d5a2c !important;stroke:var(--gold-l,#f0d58c) !important}

@@ -39,16 +39,20 @@ function buildSwitcher(){
     {id:'mx', href:'/es/countries/mexico-map.html', label:'Mapa de México', accent:'mxgreen'},
     {id:'uk', href:'/es/countries/uk-map.html', label:'Mapa del Reino Unido', accent:'unionjack'},
     {id:'fr', href:'/es/countries/france-map.html', label:'Mapa de Francia', accent:'tricolore'},
-    {id:'de', href:'/es/countries/germany-map.html', label:'Mapa de Alemania', accent:'schwarzrotgold'}
+    {id:'de', href:'/es/countries/germany-map.html', label:'Mapa de Alemania', accent:'schwarzrotgold'},
+    {id:'kr', href:'/es/countries/south-korea-map.html', label:'Mapa de Corea del Sur', accent:'taegeuk'},
+    {id:'jp', href:'/es/countries/japan-map.html', label:'Mapa de Japón', accent:'hinomaru'}
   ] : [
     {id:'usa', href:'usa-map.html', label:'USA Map', accent:'usa'},
     {id:'ca', href:'canada-map.html', label:'Canada Map', accent:'maple'},
     {id:'mx', href:'mexico-map.html', label:'Mexico Map', accent:'mxgreen'},
     {id:'uk', href:'uk-map.html', label:'UK Map', accent:'unionjack'},
     {id:'fr', href:'france-map.html', label:'France Map', accent:'tricolore'},
-    {id:'de', href:'germany-map.html', label:'Germany Map', accent:'schwarzrotgold'}
+    {id:'de', href:'germany-map.html', label:'Germany Map', accent:'schwarzrotgold'},
+    {id:'kr', href:'south-korea-map.html', label:'Korea Map', accent:'taegeuk'},
+    {id:'jp', href:'japan-map.html', label:'Japan Map', accent:'hinomaru'}
   ];
-  const cur = ({CA:'ca',MX:'mx',UK:'uk',FR:'fr',DE:'de'}[DATA.country]) || 'usa';
+  const cur = ({CA:'ca',MX:'mx',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp'}[DATA.country]) || 'usa';
   const back = `<a class="msw-tab world-back" href="../?view=map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${es?'← Mapa mundial':'← World Map'}</span></a>`;
   host.innerHTML = back + tabs.map(t =>
     `<a class="msw-tab accent-${t.accent}${t.id===cur?' is-current':''}" href="${t.href}"${t.id===cur?' aria-current="page"':''} style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${t.label}</span></a>`
@@ -488,6 +492,9 @@ function empty(){
 
 /* Default hub region when a journey step is pressed with nothing selected (mirrors USA → NYC). */
 function defaultRegion(){
+  if(DATA.country==='KR' && GEO['11']) return '11'; /* Seoul */
+  if(DATA.country==='JP' && GEO['13']) return '13'; /* Tokyo */
+
   if(DATA.country==='CA') return 'ON';
   if(DATA.country==='MX') return 'CMX';
   if(DATA.country==='UK') return 'ENG';
