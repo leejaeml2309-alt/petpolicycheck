@@ -123,7 +123,7 @@ function buildMap(){
     const menu = document.createElement('ul');
     menu.className = 'state-picker-menu';
     menu.setAttribute('role', 'listbox');
-    const head = ({CA:'Provinces & territories', MX:'States', UK:'Nations', FR:'Regions', DE:'Länder'}[DATA && DATA.country]) || 'Regions';
+    const head = ({CA:'Provinces & territories', MX:'States', UK:'Regions', FR:'Regions', DE:'Länder'}[DATA && DATA.country]) || 'Regions';
     menu.innerHTML = '<li class="sp-head" aria-hidden="true">' + head + '</li>' +
       ABBRS.map(a => `<li role="option" data-a="${a}" aria-selected="false"><span class="sp-name">${esc(GEO[a].name)}</span><span class="sp-code">${a}</span></li>`).join('');
     wrap.append(btn, menu);
