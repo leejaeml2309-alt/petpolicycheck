@@ -80,9 +80,17 @@ function buildMap(){
     p.addEventListener('click', e => { e.stopPropagation(); selectRegion(a); if(e.detail){ try{p.blur()}catch(_){ } } });
     p.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); selectRegion(a); }});
     gs.appendChild(p);
-    if(g.c){
-      const t = el('text', {id:'l-'+a, class:'lbl', x:g.c[0], y:g.c[1]});
-      t.textContent = a; gl.appendChild(t);
+    /* KR/JP: English names (USA uses 2-letter codes). Tiny regions get
+       USA-style leader lines when geo[a].callout is set by the geo pack. */
+    const useNames = !!(DATA && (DATA.country==='KR' || DATA.country==='JP'));
+    if(g.callout && g.lx!=null && g.ly!=null){
+      const ln = el('line', {class:'lbl-lead', x1:g.c[0], y1:g.c[1], x2:g.lx, y2:g.ly});
+      gl.appendChild(ln);
+      const t = el('text', {id:'l-'+a, class:'lbl lbl-callout', x:g.lx, y:g.ly, 'text-anchor': (g.lx < g.c[0] ? 'end' : 'start')});
+      t.textContent = useNames ? g.name : a; gl.appendChild(t);
+    } else if(g.c){
+      const t = el('text', {id:'l-'+a, class:'lbl'+(g.labelZoom?' lbl-zoom':''), x:g.lx||g.c[0], y:g.ly||g.c[1]});
+      t.textContent = useNames ? g.name : a; gl.appendChild(t);
     }
   }
   for(const a of ABBRS){
@@ -172,8 +180,12 @@ function buildAirports(){
     g.appendChild(el('rect', {class:'pad', x:-8, y:-8, width:16, height:16, rx:2, transform:'rotate(45)'}));
     g.appendChild(el('path', {class:'glyph', d:PLANE, transform:'translate(-6.2,-6.2) scale(.52)'}));
     g.setAttribute('transform', `translate(${ap.x} ${ap.y})`);
-    const tx = el('text', {x:0, y:14, 'text-anchor':'middle'}); tx.textContent = ap.code; g.appendChild(tx);
-    const tt = el('title',{}); tt.textContent = `${ap.code} — ${ap.city}`; g.appendChild(tt);
+    const ax=ap.ldx||0, ay=ap.ldy==null?14:ap.ldy, ta=ap.anchor||'middle';
+    const tx = el('text', {x:ax, y:ay, 'text-anchor':ta, class:ap.mapLabel?'map-label':''});
+    tx.textContent = ap.mapLabel||ap.code; g.appendChild(tx);
+    if(ap.mapName){ const t2=el('text',{x:ax,y:ay+11,'text-anchor':ta,class:'map-name'}); t2.textContent=ap.mapName; g.appendChild(t2); }
+    const tt = el('title',{}); tt.textContent = `${ap.code} — ${ap.name||ap.city}`; g.appendChild(tt);
+    g.setAttribute('aria-label', `${ap.code}, ${ap.name||''}, ${ap.city}`);
     g.addEventListener('click', e => { e.stopPropagation(); selectAirport(ap.code); if(e.detail){ try{g.blur()}catch(_){ } } });
     g.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); selectAirport(ap.code); }});
     ga.appendChild(g);
@@ -456,7 +468,9 @@ function selectCity(a, n){
 }
 function airHead(ap){
   const a=ap.province||ap.state;
-  return `<div class="ph"><div class="ap-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><path fill="#d9b765" d="${PLANE}"/></svg><b>${esc(ap.code)}</b></div><div><h2>${esc(ap.code)} — ${esc(ap.city)}</h2><div class="sub">${esc((DATA.hubs[ap.code]&&DATA.hubs[ap.code].name)||ap.city)} · ${esc(GEO[a]?GEO[a].name:a)}</div></div></div>`;
+  const title=ap.name?`${esc(ap.code)} — ${esc(ap.name)}`:`${esc(ap.code)} — ${esc(ap.city)}`;
+  const page=ap.page?`<div class="links" style="margin-top:6px">${lk('🛫', ap.code+' airport page', ap.name||ap.city, ap.page, 'off').replace('Official','Site')}</div>`:'';
+  return `<div class="ph"><div class="ap-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><path fill="#d9b765" d="${PLANE}"/></svg><b>${esc(ap.code)}</b></div><div><h2>${title}</h2><div class="sub">${esc(ap.city)} · ${esc(GEO[a]?GEO[a].name:a)}</div>${page}</div></div>`;
 }
 function selectAirport(code){
   const ap = AIRPORTS.find(x=>x.code===code); if(!ap) return;

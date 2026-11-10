@@ -692,3 +692,30 @@ html.accent-hinomaru #country-map .lbl.sel{fill:#fff7df;stroke:rgba(6,14,16,.92)
 html.accent-taegeuk #country-map .st.sel,
 html.accent-hinomaru #country-map .st.sel,
 #country-map .st.sel{fill:#6d5a2c !important;stroke:var(--gold-l,#f0d58c) !important}
+
+/* KR/JP preview 2026-11-11: English region names + USA-style halo, leader lines
+   and airport name labels. Scoped to taegeuk/hinomaru so CA/MX/UK/FR/DE stay as-is. */
+#country-map.accent-taegeuk .lbl,
+#country-map.accent-hinomaru .lbl{
+  fill:#fff8ec;
+  paint-order:stroke;
+  stroke:rgba(11,23,25,.78);
+  stroke-width:2.4px;
+  stroke-linejoin:round;
+  letter-spacing:.02em;
+}
+#country-map.accent-taegeuk .lbl.sel,
+#country-map.accent-hinomaru .lbl.sel{fill:#fff7df}
+#country-map .lbl-lead{stroke:#3a5a56;stroke-width:.8;fill:none;pointer-events:none;vector-effect:non-scaling-stroke}
+#country-map .lbl-zoom{opacity:0}
+#country-map svg#map.is-zoomed .lbl-zoom{opacity:1}
+#country-map.accent-taegeuk .st.sel,
+#country-map.accent-hinomaru .st.sel{stroke-width:2;stroke:var(--gold-l,#f0d58c)}
+#country-map .ap text.map-label{font-size:8.5px;letter-spacing:.02em}
+#country-map .ap text.map-name{font:600 7.5px var(--text);fill:#cdbf9a;paint-order:stroke;stroke:#0b1719;stroke-width:2.5px;stroke-linejoin:round}
+@media (max-width:720px){
+  #country-map.accent-taegeuk .lbl,
+  #country-map.accent-hinomaru .lbl{font-size:calc(12px*var(--kt,1))}
+  #country-map .ap text.map-label{font-size:11px}
+  #country-map .ap text.map-name{font-size:10px}
+}
