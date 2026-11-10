@@ -1,0 +1,60 @@
+{
+  "uk": [
+    "NIR",
+    "WLS",
+    "ENG",
+    "SCT"
+  ],
+  "uk_eng_regions": [
+    "NW",
+    "WM",
+    "SW",
+    "NE",
+    "YH",
+    "EM",
+    "EE",
+    "SE",
+    "GL"
+  ],
+  "fr": [
+    "HDF",
+    "GES",
+    "PAC",
+    "ARA",
+    "NAQ",
+    "OCC",
+    "BFC",
+    "PDL",
+    "BRE",
+    "NOR",
+    "COR",
+    "CVL",
+    "IDF",
+    "GF",
+    "MQ",
+    "GP",
+    "RE",
+    "YT"
+  ],
+  "de": [
+    "SN",
+    "BY",
+    "RP",
+    "SL",
+    "SH",
+    "NI",
+    "NW",
+    "BW",
+    "BB",
+    "MV",
+    "HB",
+    "HH",
+    "HE",
+    "TH",
+    "ST",
+    "BE"
+  ],
+  "source": "Natural Earth 10m Cultural admin-1 states and provinces",
+  "license": "Public domain (Natural Earth)",
+  "url": "https://www.naturalearthdata.com/"
+}

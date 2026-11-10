@@ -36,13 +36,19 @@ function buildSwitcher(){
   const tabs = es ? [
     {id:'usa', href:'/es/countries/usa-map.html', label:'Mapa de EE. UU.', accent:'usa'},
     {id:'ca', href:'/es/countries/canada-map.html', label:'Mapa de Canadá', accent:'maple'},
-    {id:'mx', href:'/es/countries/mexico-map.html', label:'Mapa de México', accent:'mxgreen'}
+    {id:'mx', href:'/es/countries/mexico-map.html', label:'Mapa de México', accent:'mxgreen'},
+    {id:'uk', href:'/es/countries/uk-map.html', label:'Mapa del Reino Unido', accent:'unionjack'},
+    {id:'fr', href:'/es/countries/france-map.html', label:'Mapa de Francia', accent:'tricolore'},
+    {id:'de', href:'/es/countries/germany-map.html', label:'Mapa de Alemania', accent:'schwarzrotgold'}
   ] : [
     {id:'usa', href:'usa-map.html', label:'USA Map', accent:'usa'},
     {id:'ca', href:'canada-map.html', label:'Canada Map', accent:'maple'},
-    {id:'mx', href:'mexico-map.html', label:'Mexico Map', accent:'mxgreen'}
+    {id:'mx', href:'mexico-map.html', label:'Mexico Map', accent:'mxgreen'},
+    {id:'uk', href:'uk-map.html', label:'UK Map', accent:'unionjack'},
+    {id:'fr', href:'france-map.html', label:'France Map', accent:'tricolore'},
+    {id:'de', href:'germany-map.html', label:'Germany Map', accent:'schwarzrotgold'}
   ];
-  const cur = DATA.country === 'CA' ? 'ca' : (DATA.country === 'MX' ? 'mx' : 'usa');
+  const cur = ({CA:'ca',MX:'mx',UK:'uk',FR:'fr',DE:'de'}[DATA.country]) || 'usa';
   const back = `<a class="msw-tab world-back" href="../?view=map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${es?'← Mapa mundial':'← World Map'}</span></a>`;
   host.innerHTML = back + tabs.map(t =>
     `<a class="msw-tab accent-${t.accent}${t.id===cur?' is-current':''}" href="${t.href}"${t.id===cur?' aria-current="page"':''} style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${t.label}</span></a>`
@@ -117,7 +123,7 @@ function buildMap(){
     const menu = document.createElement('ul');
     menu.className = 'state-picker-menu';
     menu.setAttribute('role', 'listbox');
-    const head = (DATA && DATA.country === 'canada') ? 'Provinces & territories' : (DATA && DATA.country === 'mexico') ? 'States' : 'Regions';
+    const head = ({CA:'Provinces & territories', MX:'States', UK:'Nations', FR:'Regions', DE:'Länder'}[DATA && DATA.country]) || 'Regions';
     menu.innerHTML = '<li class="sp-head" aria-hidden="true">' + head + '</li>' +
       ABBRS.map(a => `<li role="option" data-a="${a}" aria-selected="false"><span class="sp-name">${esc(GEO[a].name)}</span><span class="sp-code">${a}</span></li>`).join('');
     wrap.append(btn, menu);
@@ -230,6 +236,7 @@ function vetCard(hub){
 function lawSection(a){
   const nm = GEO[a]?GEO[a].name:a;
   let s = `<section class="sec" data-sec="1"><h3><span class="n">1</span>Vet + laws</h3>`;
+  if(DATA.entry_note) s += `<p class="disc"><b>Note:</b> ${esc(DATA.entry_note)}</p>`;
   s += `<h4>${esc(DATA.authority)}</h4>`;
   s += `<div class="links">${lk('🏛', DATA.name+' official pet-entry page', 'Checked '+DATA.lastChecked, DATA.officialUrl, 'off')}</div>`;
   s += dogsCatsBlock();
@@ -459,6 +466,9 @@ function empty(){
 function defaultRegion(){
   if(DATA.country==='CA') return 'ON';
   if(DATA.country==='MX') return 'CMX';
+  if(DATA.country==='UK') return 'ENG';
+  if(DATA.country==='FR') return 'IDF';
+  if(DATA.country==='DE') return 'BY';
   const hubs = DATA.provHub || DATA.stateHub || {};
   return Object.keys(hubs)[0] || ABBRS[0];
 }
@@ -486,7 +496,7 @@ function initSteps(){
 function initFreeZoom(){const m=$('#map');if(!m)return;
  let wrap=m.parentNode;if(!wrap.classList.contains('mapwrap')){wrap=document.createElement('div');wrap.className='mapwrap';m.parentNode.insertBefore(wrap,m);wrap.appendChild(m)}
  /* Country-specific empty-space placement: CA Pacific SW, MX Pacific SW (desktop). Mobile: under map. */
- wrap.classList.add('zoom-pos-'+(DATA.country==='MX'?'mx':'ca'));
+ wrap.classList.add('zoom-pos-'+({MX:'mx',CA:'ca',UK:'uk',FR:'fr',DE:'de'}[DATA.country]||'ca'));
  if(!$('#zin')){const z=document.createElement('div');z.className='zoom';z.setAttribute('role','group');z.setAttribute('aria-label','Map zoom');
   z.innerHTML='<button type="button" id="zin" aria-label="Zoom in" title="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out" title="Zoom out">&minus;</button><button type="button" id="zreset" aria-label="Reset map view" title="Reset map view">&#8634;</button>';
   wrap.appendChild(z)}

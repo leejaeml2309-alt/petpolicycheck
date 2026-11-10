@@ -26,7 +26,7 @@ g.append('path').attr('class','sphere').attr('d',path({type:'Sphere'}));
 g.append('path').attr('class','grat').attr('d',path(d3.geoGraticule10()));
 var cg=g.append('g');
 /* Distinct fills: covered guides get signature country colors; uncovered get muted tonal variety so neighbors stay readable on Option B ocean. */
-var COV_KEY={'840':'us','124':'ca','484':'mx','410':'kr','392':'jp'};
+var COV_KEY={'840':'us','124':'ca','484':'mx','410':'kr','392':'jp','826':'uk','250':'fr','276':'de'};
 function soonTone(id){var n=0,s=String(id||'');for(var i=0;i<s.length;i++)n=((n<<5)-n)+s.charCodeAt(i)|0;return Math.abs(n)%5}
 cg.selectAll('path').data(countries).join('path')
  .attr('class',function(d){

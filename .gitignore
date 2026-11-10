@@ -6,3 +6,8 @@ raw/
 .DS_Store
 *.log
 reports/cron.log
+
+# Local Natural Earth downloads (public domain) — regenerate via tools/eu-maps/build_eu_geo.py
+data/eu-geo/ne10/
+data/eu-geo/*.zip
+data/eu-geo/ne_50m_admin_1_states_provinces.*
