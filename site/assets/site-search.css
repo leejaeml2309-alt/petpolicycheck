@@ -9,6 +9,12 @@
   --ppc-s-hotel: var(--theme-shop, #dfa572);
   --ppc-s-tool: var(--theme-law, #a7b1d3);
   --ppc-s-guide: var(--theme-law, #a7b1d3);
+  --ppc-s-city: var(--theme-law, #a7b1d3);
+  --ppc-s-airport: var(--theme-flight, #98c6cc);
+  --ppc-s-transport: var(--theme-flight, #98c6cc);
+  --ppc-s-veterans: var(--theme-law, #a7b1d3);
+  --ppc-s-pro: var(--theme-law, #a7b1d3);
+  --ppc-s-legal: var(--mut, #a7b0a2);
   position:relative;
   flex:1 1 220px;
   min-width:0;
@@ -142,6 +148,12 @@
 .ppc-search__item[data-type="Hotels"]{--ppc-s-c: var(--ppc-s-hotel)}
 .ppc-search__item[data-type="Tools"]{--ppc-s-c: var(--ppc-s-tool)}
 .ppc-search__item[data-type="Guides"]{--ppc-s-c: var(--ppc-s-guide)}
+.ppc-search__item[data-type="Cities"]{--ppc-s-c: var(--ppc-s-city)}
+.ppc-search__item[data-type="Airports"]{--ppc-s-c: var(--ppc-s-airport)}
+.ppc-search__item[data-type="Transport"]{--ppc-s-c: var(--ppc-s-transport)}
+.ppc-search__item[data-type="Veterans"]{--ppc-s-c: var(--ppc-s-veterans)}
+.ppc-search__item[data-type="Pro"]{--ppc-s-c: var(--ppc-s-pro)}
+.ppc-search__item[data-type="Legal"]{--ppc-s-c: var(--ppc-s-legal)}
 .ppc-search__meta{
   flex:none;
   margin-left:auto;
@@ -151,6 +163,10 @@
   color:var(--mut, #a7b0a2);
 }
 .ppc-search__title{flex:1 1 auto;min-width:0}
+@media (max-width:420px){
+  .ppc-search__meta{max-width:40%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ppc-search__item{align-items:flex-start}
+}
 
 @media (max-width:720px){
   .ppc-search{max-width:none;flex-basis:100%}
@@ -158,8 +174,14 @@
     position:fixed;
     left:12px;right:12px;top:auto;
     bottom:12px;
-    max-height:min(62vh, 480px);
-    z-index:120;
+    max-height:min(56vh, 380px);
+    z-index:130;
+  }
+  .ppc-drawer .ppc-search.is-open .ppc-search__panel{
+    /* Stay inside the drawer on 390px, below the preview bar */
+    left:12px;right:12px;
+    bottom:12px;
+    max-height:min(50vh, 340px);
   }
 }
 

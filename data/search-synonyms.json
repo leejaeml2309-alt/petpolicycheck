@@ -317,6 +317,121 @@
     ],
     "mia": [
       "miami"
+    ],
+    "paris": [
+      "parís",
+      "cdg",
+      "ory",
+      "orly",
+      "france"
+    ],
+    "parís": [
+      "paris",
+      "cdg",
+      "ory",
+      "orly"
+    ],
+    "cdg": [
+      "paris",
+      "charles de gaulle",
+      "roissy"
+    ],
+    "ory": [
+      "paris",
+      "orly"
+    ],
+    "orly": [
+      "ory",
+      "paris"
+    ],
+    "london": [
+      "londres",
+      "lhr",
+      "lgw",
+      "heathrow",
+      "gatwick",
+      "uk"
+    ],
+    "londres": [
+      "london",
+      "lhr",
+      "lgw"
+    ],
+    "lhr": [
+      "london",
+      "heathrow"
+    ],
+    "lgw": [
+      "london",
+      "gatwick"
+    ],
+    "berlin": [
+      "berlín",
+      "ber",
+      "germany"
+    ],
+    "berlín": [
+      "berlin",
+      "ber"
+    ],
+    "tokio": [
+      "tokyo",
+      "nrt",
+      "hnd"
+    ],
+    "seúl": [
+      "seoul",
+      "icn"
+    ],
+    "seul": [
+      "seoul",
+      "icn"
+    ],
+    "nueva york": [
+      "new york",
+      "nyc",
+      "jfk",
+      "ewr"
+    ],
+    "nyc": [
+      "new york",
+      "jfk",
+      "ewr"
+    ],
+    "francia": [
+      "france",
+      "paris"
+    ],
+    "alemania": [
+      "germany",
+      "berlin"
+    ],
+    "japon": [
+      "japan",
+      "tokyo"
+    ],
+    "japón": [
+      "japan",
+      "tokyo"
+    ],
+    "reino unido": [
+      "uk",
+      "london"
+    ],
+    "corea": [
+      "korea",
+      "seoul"
+    ],
+    "corea del sur": [
+      "south korea",
+      "seoul"
+    ],
+    "nueva": [
+      "new"
+    ],
+    "york": [
+      "new york",
+      "nyc"
     ]
   },
   "topics": {

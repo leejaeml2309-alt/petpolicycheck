@@ -2,15 +2,40 @@
 (function (global) {
   "use strict";
 
-  var TYPE_ORDER = ["Routes", "Airlines", "Countries", "Hotels", "Tools", "Guides"];
-  var MAX_RESULTS = 8;
+  var TYPE_ORDER = ["Countries", "Cities", "Airports", "Transport", "Airlines", "Routes", "Guides", "Veterans", "Hotels", "Pro", "Tools", "Legal"];
+  var MAX_RESULTS = 10;
+  var TYPE_BOOST = {
+    Countries: 80, Cities: 90, Airports: 70, Transport: 45,
+    Airlines: 35, Routes: 30, Guides: 20, Veterans: 20,
+    Hotels: 0, Pro: 8, Tools: 8, Legal: -50
+  };
+  var TYPE_LABELS = {
+    en: {
+      Countries: "Countries", Cities: "Cities", Airports: "Airports",
+      Transport: "Transport", Airlines: "Airlines", Routes: "Routes",
+      Hotels: "Hotels", Guides: "Guides", Veterans: "Veterans",
+      Pro: "Pet Desk Pro", Tools: "Tools", Legal: "Legal"
+    },
+    es: {
+      Countries: "Países", Cities: "Ciudades", Airports: "Aeropuertos",
+      Transport: "Transporte", Airlines: "Aerolíneas", Routes: "Rutas",
+      Hotels: "Hoteles", Guides: "Guías", Veterans: "Veteranos",
+      Pro: "Pet Desk Pro", Tools: "Herramientas", Legal: "Legal"
+    }
+  };
   var ICONS = {
     Routes: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3.5 12a8.5 8.5 0 1 1 15.4 4.9l1.6 1.6-1.4 1.4-1.6-1.6A8.5 8.5 0 0 1 3.5 12zm2 0a6.5 6.5 0 1 0 6.5-6.5A6.5 6.5 0 0 0 5.5 12zm5-4v4.2l3 1.8-.9 1.5-3.6-2.2V8z"/></svg>',
     Airlines: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2 1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>',
     Countries: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2c1.7 0 3.3.5 4.6 1.4L12 12V4zm0 16a8 8 0 0 1-7.5-5.3L12 12l7.5 2.7A8 8 0 0 1 12 20z"/></svg>',
+    Cities: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2C8 2 4.5 6 4.5 10.5 4.5 16 12 22 12 22s7.5-6 7.5-11.5C19.5 6 16 2 12 2zm0 8.5A2.5 2.5 0 1 1 14.5 8 2.5 2.5 0 0 1 12 10.5z"/></svg>',
+    Airports: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0 0 11.5 2 1.5 1.5 0 0 0 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>',
+    Transport: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c-4.5 0-8 1.2-8 4v9c0 1.1.9 2 2 2h1a2 2 0 1 0 4 0h2a2 2 0 1 0 4 0h1c1.1 0 2-.9 2-2V6c0-2.8-3.5-4-8-4zM6.5 17.5A1.5 1.5 0 1 1 8 16a1.5 1.5 0 0 1-1.5 1.5zm11 0A1.5 1.5 0 1 1 19 16a1.5 1.5 0 0 1-1.5 1.5zM6 6h12v5H6z"/></svg>',
     Hotels: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 11V3h16v8h2v10h-2v-3H4v3H2V11h2zm2-6v6h4V5H6zm6 0v6h4V5h-4zm6 0v6h2V5h-2z"/></svg>',
     Tools: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22.7 19.3l-3.1-3.1a7.5 7.5 0 0 0-9.3-9.3L12 8.5l1.5 1.5 1.6-1.6a5.5 5.5 0 0 1 6.5 6.5L20 16.5l1.5 1.5 1.2-1.2zM3.5 13.5L2 15l7 7 1.5-1.5-7-7z"/></svg>',
-    Guides: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>'
+    Guides: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5L14 3.5zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>',
+    Veterans: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l2.4 7.2H22l-6 4.4 2.3 7.2L12 16.8 5.7 20.8 8 13.6 2 9.2h7.6z"/></svg>',
+    Pro: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h16v4H4zm0 6h16v10H4zm3 3v4h10v-4z"/></svg>',
+    Legal: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5h18v2H3zm0 6h18v2H3zm0 6h12v2H3z"/></svg>'
   };
   var SEARCH_ICO = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>';
 
@@ -55,7 +80,9 @@
   function fuzzyOk(q, w) {
     if (!q || !w) return false;
     if (q === w) return true;
-    var max = w.length >= 8 ? 2 : (w.length >= 4 ? 1 : 0);
+    // Tight: "paris" must not match "parks". Require length >= 6 and same first letter.
+    if (q.charAt(0) !== w.charAt(0)) return false;
+    var max = w.length >= 8 ? 2 : (w.length >= 6 ? 1 : 0);
     if (!max) return false;
     return damerau(q, w) <= max;
   }
@@ -64,7 +91,8 @@
     var out = toks.slice();
     var phrases = [];
     var seen = Object.create(null);
-    toks.forEach(function (t) { seen[t] = 1; });
+    var byToken = Object.create(null);
+    toks.forEach(function (t) { seen[t] = 1; byToken[t] = []; });
     function addToken(x) {
       if (!x || seen[x]) return;
       // skip ultra-generic expansions that collide with airline names
@@ -81,7 +109,19 @@
     toks.forEach(function (t) {
       var syns = synonyms[t];
       if (!syns) return;
-      syns.forEach(addSynValue);
+      syns.forEach(function (s) {
+        addSynValue(s);
+        var n = norm(s);
+        tokens(n).forEach(function (x) {
+          if (!x || x === t) return;
+          if (!byToken[t]) byToken[t] = [];
+          if (byToken[t].indexOf(x) === -1) byToken[t].push(x);
+        });
+        if (n && n.indexOf(" ") !== -1) {
+          if (!byToken[t]) byToken[t] = [];
+          if (byToken[t].indexOf(n) === -1) byToken[t].push(n);
+        }
+      });
     });
     var joined = toks.join(" ");
     Object.keys(synonyms).forEach(function (k) {
@@ -92,72 +132,116 @@
       }
     });
     out._phrases = phrases;
+    out._byToken = byToken;
     return out;
+  }
+
+  function typeLabel(type, lang) {
+    var pack = TYPE_LABELS[lang] || TYPE_LABELS.en;
+    return pack[type] || type;
   }
 
   function scorePage(page, qToks, qNorm, expanded) {
     var titleN = norm(page.t);
     var titleToks = tokens(page.t);
+    var headN = norm(page.h || "");
+    var headToks = tokens(page.h || "");
+    var bodyN = norm(page.b || "");
     var urlN = norm(page.u);
+    var rawPath = String(page.u || "").toLowerCase();
     var kws = (page.k || []).map(norm);
     var score = 0;
     var exactTitle = false;
     var phrases = expanded._phrases || [];
+    var type = page.y || "Guides";
 
     if (titleN === qNorm || titleN.indexOf(qNorm) === 0) {
       score += 1200;
       exactTitle = true;
-    }
-    // slug / path exact-ish ("usa mexico" ↔ usa-mexico)
-    var slug = urlN.replace(/^.*\//, "").replace(/\.html$/, "").replace(/-/g, " ");
-    var slugCompact = slug.replace(/\s+/g, "");
-    var qCompact = qNorm.replace(/\s+/g, "");
-    if (slug === qNorm || slugCompact === qCompact) {
-      score += 1400;
-      exactTitle = true;
-    } else if (slugCompact.indexOf(qCompact) !== -1 && qCompact.length >= 5) {
+    } else if (qNorm.length >= 4 && titleN.indexOf(qNorm) !== -1) {
       score += 900;
       exactTitle = true;
     }
-    // overview route pages: /routes/usa-mexico.html beats airline-specific children
-    if (page.y === "Routes" && /\/routes\/[a-z0-9-]+\.html$/.test(page.u) && page.u.indexOf("-to-") === -1) {
-      if (qToks.length >= 2 && qToks.every(function (t) { return slug.indexOf(t) !== -1 || urlN.indexOf(t) !== -1; })) {
-        score += 500;
-        exactTitle = true;
-      }
+    // Accent / ES aliases: «Londres» matches a title that STARTS with London.
+    // Do not treat related places (france, cdg) as a title-exact hit on "Nice — France".
+    if (!exactTitle) {
+      var aliases = (expanded._phrases || []).concat(expanded.filter ? expanded.filter(function (x) { return x && x !== qNorm; }) : []);
+      aliases.forEach(function (al) {
+        if (exactTitle || !al || al.length < 4 || /^[a-z]{3}$/.test(al)) return;
+        if (titleN === al || titleN.indexOf(al + " ") === 0 || titleN.indexOf(al + "—") === 0 || titleN.indexOf(al + " -") === 0 || titleToks[0] === al) {
+          score += 1200;
+          exactTitle = true;
+        }
+      });
     }
+
+    var slug = urlN.replace(/^.*\//, "").replace(/\.html$/, "").replace(/-/g, " ").replace(/#.*$/, "");
+    var slugPath = rawPath.split("#")[0];
+    if (slug === qNorm) {
+      score += 1100;
+      exactTitle = true;
+    }
+
     phrases.forEach(function (ph) {
       var ph2 = ph.replace(/-/g, " ");
-      if (slug === ph2 || slugCompact === ph.replace(/[\s-]/g, "") || urlN.indexOf(ph.replace(/\s+/g, "-")) !== -1) {
+      if (titleN === ph2 || titleN.indexOf(ph2) === 0) {
         score += 700;
         exactTitle = true;
       }
     });
 
+    function bestField(qt) {
+      if (!qt) return null;
+      if (titleToks.indexOf(qt) !== -1) return "title";
+      if (titleN.indexOf(qt) !== -1 || titleToks.some(function (t) { return t.indexOf(qt) === 0; })) return "title-prefix";
+      if (headToks.indexOf(qt) !== -1) return "head";
+      if (headN.indexOf(qt) !== -1 || headToks.some(function (t) { return t.indexOf(qt) === 0; })) return "head-prefix";
+      if (kws.indexOf(qt) !== -1) return "kw";
+      if (kws.some(function (k) { return k.indexOf(qt) === 0; })) return "kw-prefix";
+      if (urlN.indexOf(qt) !== -1 || slugPath.indexOf(qt) !== -1) return "url";
+      if (bodyN.indexOf(qt) !== -1) return "body";
+      if (titleToks.some(function (t) { return fuzzyOk(qt, t); }) ||
+          headToks.some(function (t) { return fuzzyOk(qt, t); }) ||
+          kws.some(function (k) { return fuzzyOk(qt, k); })) return "fuzzy";
+      return null;
+    }
+
+    var FIELD_SCORE = {
+      title: 280, "title-prefix": 180,
+      head: 160, "head-prefix": 100,
+      kw: 150, "kw-prefix": 90,
+      url: 50, body: 40, fuzzy: 20
+    };
+
+    var missing = false;
     qToks.forEach(function (qt) {
-      if (!qt) return;
-      if (titleToks.indexOf(qt) !== -1) score += 220;
-      else if (titleN.indexOf(qt) === 0 || titleToks.some(function (t) { return t.indexOf(qt) === 0; })) score += 140;
-      else if (titleToks.some(function (t) { return fuzzyOk(qt, t); })) score += 70;
-
-      if (kws.indexOf(qt) !== -1) score += 160;
-      else if (kws.some(function (k) { return k.indexOf(qt) === 0; })) score += 90;
-      else if (kws.some(function (k) { return fuzzyOk(qt, k); })) score += 50;
-
-      if (urlN.indexOf(qt) !== -1) score += 40;
-      // IATA / short codes in path (norm() strips slashes, so also check raw path)
-      if (qt.length === 3) {
-        var rawPath = String(page.u || "").toLowerCase();
-        if (rawPath.indexOf("/" + qt) !== -1 || rawPath.indexOf("/" + qt + "/") !== -1) score += 800;
-        if (kws.indexOf(qt) !== -1) score += 200;
+      var f = bestField(qt);
+      if (!f) {
+        // Only synonyms of THIS token (not the whole query) may satisfy AND.
+        // Otherwise "new york" → jfk would make any JFK mention satisfy "york".
+        var synHit = false;
+        var syns = (expanded && expanded._byToken && expanded._byToken[qt]) || [];
+        syns.forEach(function (et) {
+          if (synHit || et === qt) return;
+          if (bestField(et)) synHit = true;
+        });
+        if (!synHit) missing = true;
+        return;
+      }
+      score += FIELD_SCORE[f] || 0;
+      // IATA boost: only real airport codes, never common words like "new"
+      var IATA_STOP = {new:1,the:1,and:1,for:1,you:1,all:1,any:1,but:1,not:1,are:1,was:1,usa:1,use:1,our:1,out:1,off:1,can:1,may:1,per:1,pro:1,pet:1,cat:1,dog:1,faq:1};
+      if (qt.length === 3 && !IATA_STOP[qt] && (type === "Airports" || /\/airport\//.test(rawPath) || /#[a-z]*hubs/.test(rawPath))) {
+        if (rawPath.indexOf("/" + qt) !== -1 || kws.indexOf(qt) !== -1 || titleToks.indexOf(qt) !== -1) score += 400;
       }
     });
+    if (missing) return { score: 0, exact: false };
 
     expanded.forEach(function (et) {
       if (qToks.indexOf(et) !== -1) return;
-      if (titleToks.indexOf(et) !== -1 || kws.indexOf(et) !== -1) score += 100;
-      else if (kws.some(function (k) { return k.indexOf(et) === 0; }) || titleToks.some(function (t) { return t.indexOf(et) === 0; })) score += 60;
-      else if (urlN.indexOf(et.replace(/\s+/g, "-")) !== -1) score += 40;
+      var f = bestField(et);
+      if (!f) return;
+      score += Math.round((FIELD_SCORE[f] || 0) * 0.45);
     });
 
     // Breed / snub-nosed guide should win for pug/bulldog/brachy queries
@@ -170,10 +254,11 @@
       exactTitle = true;
     }
 
-    if (page.y === "Airlines" && qToks.length === 1 && qToks[0].length <= 3) {
+    if (type === "Airlines" && qToks.length === 1 && qToks[0].length <= 3) {
       if (kws.indexOf(qToks[0]) !== -1) score += 300;
     }
 
+    score += (TYPE_BOOST[type] != null ? TYPE_BOOST[type] : 0);
     return { score: score, exact: exactTitle };
   }
 
@@ -192,27 +277,33 @@
       if (b.score !== a.score) return b.score - a.score;
       return TYPE_ORDER.indexOf(a.page.y) - TYPE_ORDER.indexOf(b.page.y);
     });
-    // boost exact-ish first page already handled; trim
-    return scored.slice(0, MAX_RESULTS);
+    // Drop only exact URL+title duplicates. CDG and ORY may share #hubs;
+    // "Paris — France" may share the country URL.
+    var seen = Object.create(null);
+    var uniq = [];
+    scored.forEach(function (r) {
+      var key = r.page.u + "\t" + r.page.t;
+      if (seen[key]) return;
+      seen[key] = 1;
+      uniq.push(r);
+    });
+    return uniq.slice(0, MAX_RESULTS);
   }
 
   function group(results) {
-    var map = Object.create(null);
-    var best = Object.create(null);
+    // Keep score order. A type label is shown when the type changes, but
+    // weaker same-type hits (Nice/Lyon for « Paris ») must not jump above
+    // stronger airports or the country page.
+    var out = [];
     results.forEach(function (r) {
       var y = r.page.y || "Guides";
-      if (!map[y]) map[y] = [];
-      map[y].push(r);
-      if (best[y] == null || r.score > best[y]) best[y] = r.score;
+      if (!out.length || out[out.length - 1].type !== y) {
+        out.push({ type: y, items: [r] });
+      } else {
+        out[out.length - 1].items.push(r);
+      }
     });
-    // Prefer the type that holds the strongest hit (so exact "pug" → Guides before Airlines)
-    var order = Object.keys(map);
-    order.sort(function (a, b) {
-      var db = (best[b] || 0) - (best[a] || 0);
-      if (db) return db;
-      return TYPE_ORDER.indexOf(a) - TYPE_ORDER.indexOf(b);
-    });
-    return order.map(function (y) { return { type: y, items: map[y] }; });
+    return out;
   }
 
   function assetBase(el) {
@@ -333,7 +424,7 @@
       sec.className = "ppc-search__group";
       var lab = document.createElement("p");
       lab.className = "ppc-search__group-label";
-      lab.textContent = g.type;
+      lab.textContent = typeLabel(g.type, ui.lang || "en");
       sec.appendChild(lab);
       var ul = document.createElement("div");
       ul.className = "ppc-search__list";
@@ -349,7 +440,7 @@
           '<span class="ppc-search__title"></span>' +
           '<span class="ppc-search__meta"></span>';
         a.querySelector(".ppc-search__title").textContent = r.page.t;
-        a.querySelector(".ppc-search__meta").textContent = r.page.y;
+        a.querySelector(".ppc-search__meta").textContent = typeLabel(r.page.y, ui.lang || "en");
         ul.appendChild(a);
       });
       sec.appendChild(ul);

@@ -1,0 +1,155 @@
+{
+  "generated": "2026-11-10T06:31:32.047Z",
+  "before": {
+    "en": {
+      "Paris": [
+        {
+          "n": 1,
+          "score": 50,
+          "exact": false,
+          "type": "Hotels",
+          "title": "Pet-friendly hotels in Miami: chain and luxury hotel pet fees, weight limits and local tips",
+          "url": "/hotels/pet-friendly-hotels-miami.html"
+        },
+        {
+          "n": 2,
+          "score": 50,
+          "exact": false,
+          "type": "Hotels",
+          "title": "Pet-friendly hotels in New York City: chain and luxury hotel pet fees, weight limits and local tips",
+          "url": "/hotels/pet-friendly-hotels-new-york.html"
+        },
+        {
+          "n": 3,
+          "score": 50,
+          "exact": false,
+          "type": "Hotels",
+          "title": "Pet-friendly hotels in Orlando: chain and luxury hotel pet fees, weight limits and local tips",
+          "url": "/hotels/pet-friendly-hotels-orlando.html"
+        }
+      ],
+      "London": [],
+      "Berlin": [],
+      "Tokyo": [
+        {
+          "n": 1,
+          "score": 100,
+          "exact": false,
+          "type": "Guides",
+          "title": "HND airport pet travel guide",
+          "url": "/airport/HND/"
+        },
+        {
+          "n": 2,
+          "score": 100,
+          "exact": false,
+          "type": "Guides",
+          "title": "NRT airport pet travel guide",
+          "url": "/airport/NRT/"
+        }
+      ],
+      "Seoul": [
+        {
+          "n": 1,
+          "score": 100,
+          "exact": false,
+          "type": "Guides",
+          "title": "ICN airport pet travel guide",
+          "url": "/airport/ICN/"
+        }
+      ],
+      "New York": [
+        {
+          "n": 1,
+          "score": 2840,
+          "exact": true,
+          "type": "Hotels",
+          "title": "Pet-friendly hotels in New York City: chain and luxury hotel pet fees, weight limits and local tips",
+          "url": "/hotels/pet-friendly-hotels-new-york.html"
+        },
+        {
+          "n": 2,
+          "score": 1200,
+          "exact": false,
+          "type": "Guides",
+          "title": "Share your trip",
+          "url": "/forum/new.html"
+        },
+        {
+          "n": 3,
+          "score": 520,
+          "exact": false,
+          "type": "Guides",
+          "title": "Book your pet trip: flights, hotels, airport rides & vets",
+          "url": "/book/"
+        },
+        {
+          "n": 4,
+          "score": 360,
+          "exact": false,
+          "type": "Routes",
+          "title": "Travelling with a dog or cat between the USA and Mexico",
+          "url": "/routes/usa-mexico.html"
+        },
+        {
+          "n": 5,
+          "score": 360,
+          "exact": false,
+          "type": "Guides",
+          "title": "My account",
+          "url": "/forum/account.html"
+        },
+        {
+          "n": 6,
+          "score": 200,
+          "exact": false,
+          "type": "Guides",
+          "title": "Airport pet travel guides",
+          "url": "/airport/"
+        },
+        {
+          "n": 7,
+          "score": 100,
+          "exact": false,
+          "type": "Guides",
+          "title": "EWR airport pet travel guide",
+          "url": "/airport/EWR/"
+        },
+        {
+          "n": 8,
+          "score": 100,
+          "exact": false,
+          "type": "Guides",
+          "title": "JFK airport pet travel guide",
+          "url": "/airport/JFK/"
+        }
+      ]
+    },
+    "es": {
+      "París": [
+        {
+          "n": 1,
+          "score": 50,
+          "exact": false,
+          "type": "Hoteles",
+          "title": "Hoteles pet-friendly en Miami: tarifas por mascota de cadenas y lujo, límites de peso y consejos locales",
+          "url": "/es/hotels/pet-friendly-hotels-miami.html"
+        }
+      ],
+      "Londres": [],
+      "Berlín": [],
+      "Tokio": [],
+      "Seúl": [],
+      "Nueva York": [
+        {
+          "n": 1,
+          "score": 420,
+          "exact": false,
+          "type": "Hoteles",
+          "title": "Hoteles pet-friendly en New York City: tarifas por mascota de cadenas y lujo, límites de peso y consejos locales",
+          "url": "/es/hotels/pet-friendly-hotels-new-york.html"
+        }
+      ]
+    }
+  }
+}
