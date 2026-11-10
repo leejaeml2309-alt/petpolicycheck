@@ -374,15 +374,17 @@ function hilite(a, key, apCode){
 }
 
 /* ---------- view box: zoomTo (region select on phones) + free zoom/pan (mirrors usa-map.js) ---------- */
-const FULL=[0,0,975,610],MAXZ=8,MINW=975/MAXZ;let vb=FULL.slice(),animId=0;
-function clampVB(v){const w=Math.min(975,Math.max(MINW,v[2])),h=w*610/975;
+const FULL=(CFG.view&&CFG.view.length===4)?CFG.view.slice():[0,0,975,610];
+const MAP_W=FULL[2],MAP_H=FULL[3],MAP_X=FULL[0],MAP_Y=FULL[1];
+const MAXZ=8,MINW=MAP_W/MAXZ;let vb=FULL.slice(),animId=0;
+function clampVB(v){const w=Math.min(MAP_W,Math.max(MINW,v[2])),h=w*MAP_H/MAP_W;
  const cx=v[0]+v[2]/2,cy=v[1]+v[3]/2;let x=cx-w/2,y=cy-h/2;
- x=Math.max(0,Math.min(975-w,x));y=Math.max(0,Math.min(610-h,y));return [x,y,w,h]}
+ x=Math.max(MAP_X,Math.min(MAP_X+MAP_W-w,x));y=Math.max(MAP_Y,Math.min(MAP_Y+MAP_H-h,y));return [x,y,w,h]}
 function applyViewBox(v){vb=v.slice();const m=$('#map');if(!m)return;
- const k=vb[2]/975;m.setAttribute('viewBox',vb.map(n=>+n.toFixed(2)).join(' '));m.style.setProperty('--k',k.toFixed(3));m.style.setProperty('--kt',Math.sqrt(k).toFixed(3));
+ const k=vb[2]/MAP_W;m.setAttribute('viewBox',vb.map(n=>+n.toFixed(2)).join(' '));m.style.setProperty('--k',k.toFixed(3));m.style.setProperty('--kt',Math.sqrt(k).toFixed(3));
  m.querySelectorAll('#g-ap .ap').forEach(g=>{const b=g.dataset.at||(g.dataset.at=g.getAttribute('transform'));g.setAttribute('transform',k>0.999?b:b+' scale('+k.toFixed(4)+')');});
  syncZoomUI()}
-function isFull(){return vb[2]>=974.5}
+function isFull(){return vb[2]>=MAP_W-0.5}
 function syncZoomUI(){const m=$('#map');if(!m)return;const full=isFull();m.classList.toggle('is-zoomed',!full);
  const zi=$('#zin'),zo=$('#zout'),zr=$('#zreset');
  if(zi)zi.disabled=vb[2]<=MINW+0.5;if(zo)zo.disabled=full;if(zr)zr.disabled=full}
@@ -391,11 +393,11 @@ function animateTo(t,ms){stopAnim();t=clampVB(t);const f=vb.slice(),t0=performan
  (function an(n){const k=Math.min(1,(n-t0)/ms),e=k*(2-k);applyViewBox(f.map((v,i)=>v+(t[i]-v)*e));animId=k<1?requestAnimationFrame(an):0})(t0)}
 /* Phones (<=900): zoom into the selected region. Desktop keeps free-zoom unless clearing selection. */
 function zoomTo(a){let t=null;
- if(a&&innerWidth<=900){const node=$('#s-'+a);if(node){const b=node.getBBox();const w=Math.max(b.width*1.5,220),h=Math.max(b.height*1.5,150);const sc=Math.max(w/975,h/610);const W=975*sc,H=610*sc;t=[b.x+b.width/2-W/2,b.y+b.height/2-H/2,W,H];}}
+ if(a&&innerWidth<=900){const node=$('#s-'+a);if(node){const b=node.getBBox();const w=Math.max(b.width*1.5,220),h=Math.max(b.height*1.5,150);const sc=Math.max(w/MAP_W,h/MAP_H);const W=MAP_W*sc,H=MAP_H*sc;t=[b.x+b.width/2-W/2,b.y+b.height/2-H/2,W,H];}}
  else if(!cur)t=FULL;
  if(t)animateTo(t,350)}
-function zoomAt(px,py,f,ms){const w=Math.min(975,Math.max(MINW,vb[2]/f)),s=w/vb[2];
- const t=[px-(px-vb[0])*s,py-(py-vb[1])*s,w,w*610/975];if(ms)animateTo(t,ms);else{stopAnim();applyViewBox(clampVB(t))}}
+function zoomAt(px,py,f,ms){const w=Math.min(MAP_W,Math.max(MINW,vb[2]/f)),s=w/vb[2];
+ const t=[px-(px-vb[0])*s,py-(py-vb[1])*s,w,w*MAP_H/MAP_W];if(ms)animateTo(t,ms);else{stopAnim();applyViewBox(clampVB(t))}}
 
 function render(html){
   const p=$('#panel'); p.innerHTML=html; p.scrollTop=0; applyStep(false);
@@ -539,7 +541,7 @@ function initFreeZoom(){const m=$('#map');if(!m)return;
  if(note&&!note.querySelector('.mhint')){note.insertAdjacentHTML('afterbegin','<span class="mhint">Pinch with two fingers to zoom, swipe sideways to move the map. </span><span class="dhint">Scroll over the map to zoom, drag to move. </span>')}
  syncZoomUI();
  const toSVG=(cx,cy)=>{const r=m.getBoundingClientRect();return [vb[0]+(cx-r.left)*vb[2]/r.width,vb[1]+(cy-r.top)*vb[3]/r.height]};
- const perPx=()=>vb[2]/(m.getBoundingClientRect().width||975);
+ const perPx=()=>vb[2]/(m.getBoundingClientRect().width||MAP_W);
  let eatClick=false;
  m.addEventListener('click',e=>{if(eatClick){eatClick=false;e.stopPropagation();e.preventDefault()}},true);
  const armEat=()=>{eatClick=true;setTimeout(()=>{eatClick=false},350)};
@@ -561,7 +563,7 @@ function initFreeZoom(){const m=$('#map');if(!m)return;
  m.addEventListener('touchmove',e=>{
   if(mode==='pinch'&&e.touches.length>=2){if(!e.cancelable)return;e.preventDefault();
    const a=e.touches[0],b=e.touches[1],c=mid(a,b),r=m.getBoundingClientRect();
-   const w=Math.min(975,Math.max(MINW,T0[2]*P0.d/dist(a,b))),h=w*610/975;
+   const w=Math.min(MAP_W,Math.max(MINW,T0[2]*P0.d/dist(a,b))),h=w*MAP_H/MAP_W;
    applyViewBox(clampVB([P0.w[0]-(c[0]-r.left)*w/r.width,P0.w[1]-(c[1]-r.top)*h/r.height,w,h]));return}
   if(mode==='maybe'){const t=e.touches[0],dx=t.clientX-c0[0],dy=t.clientY-c0[1];
    if(Math.abs(dx)<8&&Math.abs(dy)<8)return;
