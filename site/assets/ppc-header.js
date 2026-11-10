@@ -69,38 +69,3 @@
   else init();
   window.PPCHeader = { init: init };
 })();
-
-  /* LOCAL PREVIEW ONLY — remove this IIFE (and noindex it adds) before publishing. */
-  (function () {
-    function mount() {
-      if (document.querySelector(".ppc-preview-bar")) return;
-      document.documentElement.classList.add("ppc-preview");
-      if (!document.querySelector('meta[name="robots"]')) {
-        var meta = document.createElement("meta");
-        meta.name = "robots";
-        meta.content = "noindex,nofollow";
-        (document.head || document.documentElement).appendChild(meta);
-      }
-      if (!document.getElementById("ppc-preview-style")) {
-        var st = document.createElement("style");
-        st.id = "ppc-preview-style";
-        st.textContent =
-          'html.ppc-preview{--preview-h:36px;}' +
-          '.ppc-preview-bar{position:fixed;top:0;left:0;right:0;z-index:80;background:#7a1f1f;color:#fff;' +
-          'font:600 13px/1.35 Inter,system-ui,sans-serif;padding:8px 12px;text-align:center;box-sizing:border-box;}' +
-          'html.ppc-preview body{padding-top:var(--preview-h);}' +
-          'html.ppc-preview .ppc-topbar,html.ppc-preview header.top{top:var(--preview-h);}' +
-          'html.ppc-preview.intro-lock,html.ppc-preview.intro-lock body.intro-home{padding-top:0;}' +
-          'html.ppc-preview.intro-lock body.intro-home > section.intro{top:var(--preview-h)!important;height:calc(100dvh - var(--preview-h))!important;max-height:calc(100dvh - var(--preview-h))!important;}';
-        (document.head || document.documentElement).appendChild(st);
-      }
-      var bar = document.createElement("div");
-      bar.className = "ppc-preview-bar";
-      bar.setAttribute("role", "status");
-      bar.textContent = "LOCAL PREVIEW ONLY — world map: Pet Desk promo moved below, just before the footer · await Marc « publie » · remove bar + noindex before publish";
-      var parent = document.body;
-      if (parent) parent.insertBefore(bar, parent.firstChild);
-    }
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);
-    else mount();
-  })();
