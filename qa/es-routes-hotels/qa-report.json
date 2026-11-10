@@ -1,0 +1,114 @@
+{
+  "shots": [
+    {
+      "id": "es-routes-hub:desktop",
+      "url": "/es/routes/",
+      "shot": "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-routes-hub-desktop.png"
+    },
+    {
+      "id": "es-routes-hub:mobile",
+      "url": "/es/routes/",
+      "shot": "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-routes-hub-mobile.png"
+    },
+    {
+      "id": "es-hotels-hub:desktop",
+      "url": "/es/hotels/",
+      "shot": "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-hotels-hub-desktop.png"
+    },
+    {
+      "id": "es-hotels-hub:mobile",
+      "url": "/es/hotels/",
+      "shot": "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-hotels-hub-mobile.png"
+    },
+    {
+      "id": "es-route-usa-canada:desktop",
+      "url": "/es/routes/usa-canada.html",
+      "shot": "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-route-usa-canada-desktop.png"
+    },
+    {
+      "id": "es-route-usa-canada:mobile",
+      "url": "/es/routes/usa-canada.html",
+      "shot": "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-route-usa-canada-mobile.png"
+    },
+    {
+      "id": "es-route-usa-to-south-korea:desktop",
+      "url": "/es/routes/usa-to-south-korea.html",
+      "shot": "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-route-usa-to-south-korea-desktop.png"
+    },
+    {
+      "id": "es-route-usa-to-south-korea:mobile",
+      "url": "/es/routes/usa-to-south-korea.html",
+      "shot": "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-route-usa-to-south-korea-mobile.png"
+    },
+    {
+      "id": "es-hotel-boston:desktop",
+      "url": "/es/hotels/pet-friendly-hotels-boston.html",
+      "shot": "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-hotel-boston-desktop.png"
+    },
+    {
+      "id": "es-hotel-boston:mobile",
+      "url": "/es/hotels/pet-friendly-hotels-boston.html",
+      "shot": "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-hotel-boston-mobile.png"
+    },
+    {
+      "id": "es-hotel-new-york:desktop",
+      "url": "/es/hotels/pet-friendly-hotels-new-york.html",
+      "shot": "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-hotel-new-york-desktop.png"
+    },
+    {
+      "id": "es-hotel-new-york:mobile",
+      "url": "/es/hotels/pet-friendly-hotels-new-york.html",
+      "shot": "/workspace/es-routes-hotels-preview-20261110/qa/es-routes-hotels/es-hotel-new-york-mobile.png"
+    }
+  ],
+  "console_errors": {
+    "es-routes-hub:desktop": [],
+    "es-hotels-hub:desktop": [],
+    "es-route-usa-canada:desktop": [],
+    "es-route-usa-to-south-korea:desktop": [],
+    "es-hotel-boston:desktop": [],
+    "es-hotel-new-york:desktop": []
+  },
+  "page_count": 64,
+  "direct_404": [],
+  "link_404": [],
+  "search": {
+    "query": "perro Nueva York",
+    "items": [
+      {
+        "href": "/es/hotels/pet-friendly-hotels-new-york.html",
+        "text": "Hoteles pet-friendly en New York City: tarifas por mascota de cadenas y lujo, límites de peso y consejos locales"
+      },
+      {
+        "href": "/es/hotels/pet-friendly-hotels-miami.html",
+        "text": "Hoteles pet-friendly en Miami: tarifas por mascota de cadenas y lujo, límites de peso y consejos locales"
+      },
+      {
+        "href": "/es/routes/usa-canada.html",
+        "text": "Viajar con perro o gato entre EE. UU. y Canadá"
+      },
+      {
+        "href": "/es/routes/usa-france.html",
+        "text": "Viajar con perro o gato entre EE. UU. y Francia"
+      },
+      {
+        "href": "/es/routes/usa-mexico.html",
+        "text": "Viajar con perro o gato entre EE. UU. y México"
+      },
+      {
+        "href": "/es/routes/usa-to-japan.html",
+        "text": "Viajar con perro o gato entre EE. UU. y Japón"
+      },
+      {
+        "href": "/es/routes/usa-to-south-korea.html",
+        "text": "Viajar a Corea del Sur con su perro o gato"
+      },
+      {
+        "href": "/es/routes/usa-uk.html",
+        "text": "Viajar con perro o gato entre EE. UU. y Gran Bretaña"
+      }
+    ],
+    "es_hits": 8
+  },
+  "ok": true
+}

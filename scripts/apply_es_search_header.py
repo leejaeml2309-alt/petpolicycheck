@@ -15,10 +15,10 @@ VER = "20261110essearch2"
 # (href_abs, label, active_prefixes under /es/)
 # href_abs is site-root absolute path
 HUBS = [
-    ("/routes/", "Rutas", ("es/routes/", "routes/")),
+    ("/es/routes/", "Rutas", ("es/routes/",)),
     ("/es/airlines/compare/", "Aerolíneas", ("es/airlines/",)),
     ("/es/countries/usa-map.html", "Países/Mapas", ("es/countries/",)),
-    ("/hotels/", "Hoteles", ("hotels/", "es/hotels/")),
+    ("/es/hotels/", "Hoteles", ("es/hotels/",)),
     ("/es/passport/", "Herramientas", ("es/passport/", "es/fit/", "es/pet-travel-checklist/")),
 ]
 

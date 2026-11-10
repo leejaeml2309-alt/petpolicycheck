@@ -320,9 +320,10 @@ def build_for_lang(lang: str, syn_flat: dict[str, list[str]], airline_hints: dic
         page_lang = lang_from_html(text, rel)
         if page_lang != lang:
             continue
-        # Skip localized route copies living under /routes/fr/ etc. when lang=en
+        # Skip localized route copies living under /routes/fr|es/ etc.
+        # Canonical locale pages live under /es/routes/ (and peers); leave /routes/es/* files untouched on disk.
         parts = Path(rel).parts
-        if lang == "en" and len(parts) >= 2 and parts[0] == "routes" and parts[1] in LOCALE_SEGMENTS:
+        if len(parts) >= 2 and parts[0] == "routes" and parts[1] in LOCALE_SEGMENTS:
             continue
 
         url = url_path_from_file(rel)
@@ -433,17 +434,17 @@ def main() -> int:
     for lang in langs:
         data = build_for_lang(lang, syn_flat, airline_hints)
         if lang == "es":
-            # No /es/hotels yet — include EN hotel pages so "hotel boston" etc. resolve.
+            # EN hotel fallback only when no /es twin exists yet.
             en_hotels = build_for_lang("en", syn_flat, airline_hints)
             seen = {p["u"] for p in data["pages"]}
             for page in en_hotels["pages"]:
                 if not page["u"].startswith("/hotels/"):
                     continue
-                if page["u"] in seen:
+                es_twin = "/es" + page["u"]
+                if es_twin in seen or page["u"] in seen:
                     continue
                 page = dict(page)
                 page["y"] = TYPE_LABELS["es"]["Hotels"]
-                # keep EN title (no ES twin); add Spanish query tokens
                 k = list(page.get("k") or [])
                 for extra_kw in ("hotel", "hoteles", "mascota", "perro", "gato"):
                     if extra_kw not in k:
