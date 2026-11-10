@@ -1,0 +1,59 @@
+{
+  "console": [],
+  "missing": [],
+  "nav": {
+    "/k9/@1280": {
+      "status": 200,
+      "preview_bar": true,
+      "topbar": true,
+      "nav_visible": true,
+      "burger_visible": null,
+      "footer_k9": "../veterans/",
+      "footer_pro": "../pro/",
+      "robots": "noindex,nofollow",
+      "h1": "Traveling with working dogs and retired K9s"
+    },
+    "/es/k9/@1280": {
+      "status": 200,
+      "preview_bar": true,
+      "topbar": true,
+      "nav_visible": true,
+      "burger_visible": null,
+      "footer_k9": "/es/veterans/",
+      "footer_pro": "/pro/",
+      "robots": "noindex,nofollow",
+      "h1": "Viajar con perros de trabajo y K9 retirados"
+    },
+    "/k9/@390": {
+      "status": 200,
+      "preview_bar": true,
+      "topbar": true,
+      "nav_visible": true,
+      "burger_visible": true,
+      "footer_k9": "../veterans/",
+      "footer_pro": "../pro/",
+      "robots": "noindex,nofollow",
+      "h1": "Traveling with working dogs and retired K9s",
+      "drawer_open": true
+    },
+    "/es/k9/@390": {
+      "status": 200,
+      "preview_bar": true,
+      "topbar": true,
+      "nav_visible": true,
+      "burger_visible": true,
+      "footer_k9": "/es/veterans/",
+      "footer_pro": "/pro/",
+      "robots": "noindex,nofollow",
+      "h1": "Viajar con perros de trabajo y K9 retirados",
+      "drawer_open": true
+    }
+  },
+  "http": {
+    "/k9/@1280": 200,
+    "/es/k9/@1280": 200,
+    "/k9/@390": 200,
+    "/es/k9/@390": 200
+  },
+  "shots": []
+}
