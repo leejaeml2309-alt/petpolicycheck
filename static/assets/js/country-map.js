@@ -84,7 +84,7 @@ function buildMap(){
        USA-style leader lines when geo[a].callout is set by the geo pack. */
     const useNames = !!(DATA && /^(KR|JP|UK|FR|DE)$/.test(DATA.country||''));
     if(g.callout && g.lx!=null && g.ly!=null){
-      const ln = el('line', {class:'lbl-lead', x1:g.c[0], y1:g.c[1], x2:g.lx, y2:g.ly});
+      const ln = el('line', {class:'lbl-lead', x1:g.c[0], y1:g.c[1], x2:g.lx, y2:g.ly, 'data-a':a});
       gl.appendChild(ln);
       const t = el('text', {id:'l-'+a, class:'lbl lbl-callout', x:g.lx, y:g.ly, 'text-anchor': (g.lx < g.c[0] ? 'end' : 'start')});
       t.textContent = useNames ? g.name : a; gl.appendChild(t);
@@ -179,13 +179,15 @@ function buildAirports(){
       ga.appendChild(el('line', {class:'ap-link'+(ap.zoomOnly?' ap-zoomonly':''), x1:city.x, y1:city.y, x2:ap.x, y2:ap.y, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'data-code':ap.code}));
     }
     const g = el('g', {class:'ap'+(ap.zoomOnly?' ap-zoomonly':'')+(ap.major?' ap-major':''), role:'button', tabindex:ap.zoomOnly?'-1':'0', 'data-code':ap.code, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'aria-label':ap.code+', '+ap.city});
-    g.appendChild(el('rect', {class:'pad', x:-8, y:-8, width:16, height:16, rx:2, transform:'rotate(45)'}));
-    g.appendChild(el('path', {class:'glyph', d:PLANE, transform:'translate(-6.2,-6.2) scale(.52)'}));
+    const mark=el('g',{class:'ap-mark'});
+    mark.appendChild(el('rect', {class:'pad', x:-8, y:-8, width:16, height:16, rx:2, transform:'rotate(45)'}));
+    mark.appendChild(el('path', {class:'glyph', d:PLANE, transform:'translate(-6.2,-6.2) scale(.52)'}));
+    g.appendChild(mark);
     g.setAttribute('transform', `translate(${ap.x} ${ap.y})`);
-    const ax=ap.ldx||0, ay=ap.ldy==null?14:ap.ldy, ta=ap.anchor||'middle';
-    const tx = el('text', {x:ax, y:ay, 'text-anchor':ta, class:ap.mapLabel?'map-label':''});
+    const ax=ap.ldx||0, ay=ap.ldy==null?16:ap.ldy, ta=ap.anchor||'middle';
+    const tx = el('text', {x:ax, y:ay, 'text-anchor':ta, class:ap.mapLabel?'map-label':'map-label'});
     tx.textContent = ap.mapLabel||ap.code; g.appendChild(tx);
-    if(ap.mapName){ const t2=el('text',{x:ax,y:ay+11,'text-anchor':ta,class:'map-name'}); t2.textContent=ap.mapName; g.appendChild(t2); }
+    if(ap.mapName){ const t2=el('text',{x:ax,y:ay+14,'text-anchor':ta,class:'map-name'}); t2.textContent=ap.mapName; g.appendChild(t2); }
     const tt = el('title',{}); tt.textContent = `${ap.code} — ${ap.name||ap.city}`; g.appendChild(tt);
     g.setAttribute('aria-label', `${ap.code}, ${ap.name||''}, ${ap.city}`);
     g.addEventListener('click', e => { e.stopPropagation(); selectAirport(ap.code); if(e.detail){ try{g.blur()}catch(_){ } } });
@@ -412,15 +414,228 @@ const MAXZ=8,MINW=MAP_W/MAXZ;let vb=FULL.slice(),animId=0;
 function clampVB(v){const w=Math.min(MAP_W,Math.max(MINW,v[2])),h=w*MAP_H/MAP_W;
  const cx=v[0]+v[2]/2,cy=v[1]+v[3]/2;let x=cx-w/2,y=cy-h/2;
  x=Math.max(MAP_X,Math.min(MAP_X+MAP_W-w,x));y=Math.max(MAP_Y,Math.min(MAP_Y+MAP_H-h,y));return [x,y,w,h]}
+
+function syncLabelScale(){
+  const m=$('#map'); if(!m) return;
+  const w=m.getBoundingClientRect().width||MAP_W;
+  m.style.setProperty('--map-w-px', Math.max(1,w).toFixed(1));
+}
+function _box(el){
+  const b=el.getBoundingClientRect();
+  if(b.width<2||b.height<2||b.bottom<=0||b.right<=0) return null;
+  return b;
+}
+function _overlap(a,b,pad){
+  return !(a.right+pad<b.left || a.left-pad>b.right || a.bottom+pad<b.top || a.top-pad>b.bottom);
+}
+/* Hide secondary labels that collide. Priority (kept first): major airports,
+   capitals, large region names, then minor cities, then small region names.
+   Secondaries are allowed back when zoom gives them room. */
+function _userPerPx(){
+  const m=$('#map'); if(!m) return 1;
+  const w=m.getBoundingClientRect().width||MAP_W;
+  const vb=(m.viewBox&&m.viewBox.baseVal&&m.viewBox.baseVal.width)||MAP_W;
+  return vb/w;
+}
+function _rememberPos(el){
+  if(el.dataset.ox==null){
+    el.dataset.ox=el.getAttribute('x')||'0';
+    el.dataset.oy=el.getAttribute('y')||'0';
+    el.dataset.ota=el.getAttribute('text-anchor')||'';
+  }
+}
+function _restorePos(el){
+  _rememberPos(el);
+  el.setAttribute('x', el.dataset.ox);
+  el.setAttribute('y', el.dataset.oy);
+  if(el.dataset.ota) el.setAttribute('text-anchor', el.dataset.ota);
+  else el.removeAttribute('text-anchor');
+}
+function _applyPos(el, s){
+  el.setAttribute('x', (+s.x).toFixed(1));
+  el.setAttribute('y', (+s.y).toFixed(1));
+  if(s.anchor) el.setAttribute('text-anchor', s.anchor);
+}
+function _slotRing(x, y, anchors, maxPx){
+  const u=_userPerPx();
+  const out=[{x,y,anchor:anchors||null}];
+  [16,28,42,58,76].filter(px=>maxPx==null||px<=maxPx).forEach(px=>{
+    const d=px*u;
+    [[d,0,'start'],[-d,0,'end'],[0,d,anchors],[0,-d,anchors],
+     [d,d,'start'],[-d,d,'end'],[d,-d,'start'],[-d,-d,'end']].forEach(p=>{
+      out.push({x:x+p[0], y:y+p[1], anchor:p[2]||anchors||null});
+    });
+  });
+  return out;
+}
+function _overlapArea(a,b,pad){
+  const x=Math.max(0, Math.min(a.right,b.right)-Math.max(a.left,b.left)+2*pad);
+  const y=Math.max(0, Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)+2*pad);
+  return (x>0 && y>0) ? x*y : 0;
+}
+function _scoreSlot(box, placed, pad){
+  let n=0, area=0;
+  for(const p of placed){
+    const a=_overlapArea(box,p.box,pad);
+    if(a){ n++; area+=a; }
+  }
+  return {n, area};
+}
+function resolveLabelOverlaps(){
+  const m=$('#map'); if(!m) return;
+  m.querySelectorAll('#g-lb line.lbl-lead[data-temp="1"]').forEach(n=>n.remove());
+  m.querySelectorAll('.lbl-crowd,.ct-crowd,.ap-crowd,.ap-name-crowd,.ap-code-crowd').forEach(n=>n.classList.remove('lbl-crowd','ct-crowd','ap-crowd','ap-name-crowd','ap-code-crowd'));
+  const vis=el=>{
+    const cs=getComputedStyle(el);
+    if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity===0) return null;
+    const b=el.getBoundingClientRect();
+    return (b.width>2 && b.height>2) ? b : null;
+  };
+  const mapBox=m.getBoundingClientRect();
+  const inMap=box=>!(box.right<mapBox.left+4 || box.left>mapBox.right-4 || box.bottom<mapBox.top+4 || box.top>mapBox.bottom-4);
+  const items=[];
+  m.querySelectorAll('#g-lb text.lbl').forEach(t=>{
+    _restorePos(t);
+    const id=(t.id||'').replace(/^l-/,'');
+    const path=document.getElementById('s-'+id);
+    let area=0;
+    if(path && path.getBBox){ try{ const bb=path.getBBox(); area=bb.width*bb.height; }catch(_){ } }
+    const lead=m.querySelector('#g-lb line.lbl-lead[data-a="'+id+'"]');
+    if(lead && lead.dataset.ox2==null){ lead.dataset.ox2=lead.getAttribute('x2')||''; lead.dataset.oy2=lead.getAttribute('y2')||''; lead.dataset.ox1=lead.getAttribute('x1')||''; lead.dataset.oy1=lead.getAttribute('y1')||''; }
+    if(lead && lead.dataset.ox2!=null){ lead.setAttribute('x2', lead.dataset.ox2); lead.setAttribute('y2', lead.dataset.oy2); }
+    const c=(typeof GEO!=='undefined' && GEO[id] && GEO[id].c) ? GEO[id].c : null;
+    items.push({el:t, pri: area>12000?34: area>5000?40:48, kind:'region', hide:'lbl-crowd', id, path, lead, keep:false, c,
+      orig:{x:+(t.dataset.ox), y:+(t.dataset.oy), anchor:t.dataset.ota||t.getAttribute('text-anchor')||'middle'}});
+  });
+  m.querySelectorAll('#g-ct .ct').forEach(g=>{
+    const t=g.querySelector('text'); if(!t) return;
+    _restorePos(t);
+    const cap=g.classList.contains('cap');
+    items.push({el:t, pri: cap?20:54, kind: cap?'cap':'city', hide: cap?null:'ct-crowd', hideEl: cap?null:g, keep:!!cap,
+      orig:{x:+(t.dataset.ox), y:+(t.dataset.oy), anchor:t.dataset.ota||t.getAttribute('text-anchor')||'start'}});
+  });
+  m.querySelectorAll('#g-ap .ap').forEach(g=>{
+    if(getComputedStyle(g).display==='none') return;
+    const major=g.classList.contains('ap-major');
+    const code=g.querySelector('text.map-label, text:not(.map-name)');
+    const name=g.querySelector('text.map-name');
+    if(code){
+      _restorePos(code);
+      items.push({el:code, pri: major?10:64, kind: major?'ap-major':'ap-code', hide: major?null:'ap-code-crowd', keep:!!major,
+        orig:{x:+(code.dataset.ox), y:+(code.dataset.oy), anchor:code.dataset.ota||code.getAttribute('text-anchor')||'middle'}});
+    }
+    if(name){
+      _restorePos(name);
+      items.push({el:name, pri:72, kind:'ap-name', hide:'ap-name-crowd', keep:false,
+        orig:{x:+(name.dataset.ox), y:+(name.dataset.oy), anchor:name.dataset.ota||name.getAttribute('text-anchor')||'middle'}});
+    }
+  });
+  function tryPlace(it, slots, placed, opts){
+    opts=opts||{};
+    let best=null;
+    for(const s of slots){
+      _applyPos(it.el, {x:s.x, y:s.y, anchor:s.anchor||it.orig.anchor});
+      const box=vis(it.el);
+      if(!box) continue;
+      if(opts.requireInMap && !inMap(box)) continue;
+      if(it.kind==='region'){
+        const isOrig=Math.abs(s.x-it.orig.x)<0.2 && Math.abs(s.y-it.orig.y)<0.2;
+        if(!isOrig){
+          const c=it.c||[it.orig.x,it.orig.y];
+          const maxU=52*_userPerPx();
+          const dx=s.x-c[0], dy=s.y-c[1];
+          if(dx*dx+dy*dy>maxU*maxU) continue;
+        }
+      }
+      if(opts.requireInPath && it.path && it.path.isPointInFill){
+        try{
+          const svg=it.path.ownerSVGElement;
+          const p=svg.createSVGPoint(); p.x=s.x; p.y=s.y;
+          if(!it.path.isPointInFill(p) && (s.x!==it.orig.x || s.y!==it.orig.y)) continue;
+        }catch(_){ }
+      }
+      const sc=_scoreSlot(box, placed, 3);
+      if(sc.n===0){ return {s, box, sc}; }
+      if(!best || sc.n<best.sc.n || (sc.n===best.sc.n && sc.area<best.sc.area)){
+        best={s, box, sc};
+      }
+    }
+    return best;
+  }
+  const placed=[];
+  items.sort((a,b)=>a.pri-b.pri);
+  for(const it of items){
+    if(it.kind==='ap-name'){
+      const code=it.el.parentNode && it.el.parentNode.querySelector('text.map-label, text:not(.map-name)');
+      if(code){
+        const u=_userPerPx();
+        it.orig={x:+(code.getAttribute('x')||it.orig.x), y:+(code.getAttribute('y')||it.orig.y)+14*u, anchor:code.getAttribute('text-anchor')||it.orig.anchor};
+      }
+    }
+    const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, it.kind==='region'?48:76);
+    const requireInPath=(it.kind==='region' && it.path && !it.lead);
+    let found=tryPlace(it, slots, placed, {requireInPath, requireInMap:true});
+    if(found && found.sc.n===0){
+      _applyPos(it.el, {x:found.s.x, y:found.s.y, anchor:found.s.anchor||it.orig.anchor});
+      if(it.lead){ it.lead.setAttribute('x2', (+found.s.x).toFixed(1)); it.lead.setAttribute('y2', (+found.s.y).toFixed(1)); }
+      it.box=found.box;
+      placed.push(it);
+    } else if(it.keep){
+      // pick the least-overlap slot rather than forcing the original
+      if(!found) found=tryPlace(it, slots, placed, {requireInMap:true});
+      const use=found && found.s ? found : {s:it.orig, box:null};
+      _applyPos(it.el, {x:use.s.x, y:use.s.y, anchor:use.s.anchor||it.orig.anchor});
+      it.box=use.box||vis(it.el);
+      if(it.box) placed.push(it);
+    } else {
+      _applyPos(it.el, it.orig);
+      if(it.lead){
+        if(it.lead.dataset.ox2!=null){ it.lead.setAttribute('x2', it.lead.dataset.ox2); it.lead.setAttribute('y2', it.lead.dataset.oy2); }
+        it.lead.classList.add('lbl-crowd');
+      }
+      (it.hideEl||it.el).classList.add(it.hide);
+      it._hidden=true;
+    }
+  }
+  // Rescue hidden region names with a short leader into a free nearby slot (including just outside the region).
+  items.filter(it=>it.kind==='region' && it._hidden).forEach(it=>{
+    const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, 48);
+    const found=tryPlace(it, slots, placed, {requireInMap:true, requireInPath:false});
+    if(found && found.sc.n===0){
+      it.el.classList.remove('lbl-crowd');
+      _applyPos(it.el, {x:found.s.x, y:found.s.y, anchor:found.s.anchor||it.orig.anchor});
+      let lead=it.lead;
+      const c=it.c||[it.orig.x, it.orig.y];
+      if(!lead){
+        lead=el('line',{class:'lbl-lead', x1:c[0], y1:c[1], x2:found.s.x, y2:found.s.y, 'data-a':it.id, 'data-temp':'1'});
+        const gl=$('#g-lb'); if(gl) gl.insertBefore(lead, it.el);
+        it.lead=lead;
+      } else {
+        lead.classList.remove('lbl-crowd');
+        lead.setAttribute('x2', (+found.s.x).toFixed(1));
+        lead.setAttribute('y2', (+found.s.y).toFixed(1));
+      }
+      it.box=found.box;
+      it._hidden=false;
+      placed.push(it);
+    }
+  });
+}
+function refreshLabels(){
+  syncLabelScale();
+  requestAnimationFrame(()=>{ syncLabelScale(); resolveLabelOverlaps(); });
+}
+
 function applyViewBox(v){vb=v.slice();const m=$('#map');if(!m)return;
  const k=vb[2]/MAP_W;m.setAttribute('viewBox',vb.map(n=>+n.toFixed(2)).join(' '));m.style.setProperty('--k',k.toFixed(3));m.style.setProperty('--kt',Math.sqrt(k).toFixed(3));
- m.querySelectorAll('#g-ap .ap').forEach(g=>{const b=g.dataset.at||(g.dataset.at=g.getAttribute('transform'));g.setAttribute('transform',k>0.999?b:b+' scale('+k.toFixed(4)+')');});
+ m.querySelectorAll('#g-ap .ap .ap-mark').forEach(g=>{g.setAttribute('transform',k>0.999?'':'scale('+k.toFixed(4)+')');});
  syncZoomUI()}
 function isFull(){return vb[2]>=MAP_W-0.5}
 function syncZoomUI(){const m=$('#map');if(!m)return;const full=isFull();m.classList.toggle('is-zoomed',!full);
  m.querySelectorAll('#g-ap .ap.ap-zoomonly').forEach(g=>g.setAttribute('tabindex', full?'-1':'0'));
  const zi=$('#zin'),zo=$('#zout'),zr=$('#zreset');
- if(zi)zi.disabled=vb[2]<=MINW+0.5;if(zo)zo.disabled=full;if(zr)zr.disabled=full}
+ if(zi)zi.disabled=vb[2]<=MINW+0.5;if(zo)zo.disabled=full;if(zr)zr.disabled=full;
+ refreshLabels()}
 function stopAnim(){if(animId){cancelAnimationFrame(animId);animId=0}}
 function animateTo(t,ms){stopAnim();t=clampVB(t);const f=vb.slice(),t0=performance.now();ms=ms||350;
  (function an(n){const k=Math.min(1,(n-t0)/ms),e=k*(2-k);applyViewBox(f.map((v,i)=>v+(t[i]-v)*e));animId=k<1?requestAnimationFrame(an):0})(t0)}
@@ -613,6 +828,9 @@ function initFreeZoom(){const m=$('#map');if(!m)return;
 
 document.documentElement.classList.add('accent-'+ACCENT);
 buildSwitcher(); buildMap(); initSteps(); initFreeZoom(); applyViewBox(FULL); empty();
+ window.PPC_mapView={zoomAt:typeof zoomAt==='function'?zoomAt:null, applyViewBox, refreshLabels, isFull};
+ (function(){const m=$('#map'); if(!m||typeof ResizeObserver==='undefined'){window.addEventListener('resize',refreshLabels);return;}
+  const ro=new ResizeObserver(()=>refreshLabels()); ro.observe(m);})();
 
 // deep links (USA rules): #ON · #ON/Toronto · #QC/YUL · #YYZ
 {

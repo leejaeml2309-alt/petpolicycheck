@@ -209,6 +209,7 @@ DE_CITIES = [
 ]
 
 UK_MAJORS = {"LHR", "LGW", "MAN", "STN", "LTN", "BHX", "EDI", "BRS"}
+UK_AIRPORT_DROP = {"FAB", "BQH", "OXF", "DND", "KOI", "WIC"}  # biz / oil / tiny intl, Marc 11/11
 FR_MAJORS = {"CDG", "ORY", "NCE", "MRS", "LYS", "BSL", "TLS", "NTE", "BVA", "BOD"}
 DE_MAJORS = {"FRA", "MUC", "BER", "DUS", "HAM", "CGN", "STR"}
 
@@ -531,7 +532,8 @@ def build_uk(oa, places):
     geo = K.pack(svg, names)
     K.assign_callouts_fixed(geo, ["GL"], x_col=852, side="east")
     add_cities(geo, UK_CITIES, meta, places, ALIASES)
-    airports = attach_airports(UK_AIRPORTS, oa, meta, ll, UK_MAJORS)
+    uk_specs = [s for s in UK_AIRPORTS if s["code"] not in UK_AIRPORT_DROP]
+    airports = attach_airports(uk_specs, oa, meta, ll, UK_MAJORS)
     return geo, airports, meta
 
 
@@ -559,16 +561,25 @@ def build_france(oa, places):
     extra = set(ll) - expected
     if missing or extra:
         raise SystemExit(f"FR key mismatch missing={missing} extra={extra}")
-    # top gutter for Île-de-France callout
+    # Keep the same pads as the 7d97795 projection so lx/ly stay in that frame.
     svg, meta = K.fit_project(ll, pads=(28, 72, 28, 28))
     geo = K.pack(svg, names)
-    # place IDF label in the top gutter, centred on its x
-    if "IDF" in geo:
-        geo["IDF"]["callout"] = True
-        geo["IDF"]["lx"] = K.round_f(geo["IDF"]["c"][0])
-        geo["IDF"]["ly"] = 28
+    # Short USA-style leaders, labels kept on or close to their region
+    # (IDF was previously parked in the top gutter at y=28, far from Paris).
+    for code, lx, ly in (
+        ("IDF", 538.0, 224.0),  # east-southeast of the Paris / CDG / ORY cluster
+        ("PAC", 632.0, 428.0),  # inland, north of Marseille / Nice
+        ("BFC", 572.0, 310.0),  # just south of Dijon (city sits on the centroid)
+        ("CVL", 448.0, 282.0),
+        ("ARA", 574.0, 396.0),
+    ):
+        if code in geo:
+            geo[code]["callout"] = True
+            geo[code]["lx"] = lx
+            geo[code]["ly"] = ly
     add_cities(geo, FR_CITIES, meta, places, ALIASES)
-    airports = attach_airports(FR_AIRPORTS, oa, meta, ll, FR_MAJORS)
+    fr_specs = [s for s in FR_AIRPORTS if s["code"] in FR_MAJORS]
+    airports = attach_airports(fr_specs, oa, meta, ll, FR_MAJORS)
     return geo, airports, meta
 
 
