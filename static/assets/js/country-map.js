@@ -82,7 +82,7 @@ function buildMap(){
     gs.appendChild(p);
     /* KR/JP: English names (USA uses 2-letter codes). Tiny regions get
        USA-style leader lines when geo[a].callout is set by the geo pack. */
-    const useNames = !!(DATA && (DATA.country==='KR' || DATA.country==='JP'));
+    const useNames = !!(DATA && /^(KR|JP|UK|FR|DE)$/.test(DATA.country||''));
     if(g.callout && g.lx!=null && g.ly!=null){
       const ln = el('line', {class:'lbl-lead', x1:g.c[0], y1:g.c[1], x2:g.lx, y2:g.ly});
       gl.appendChild(ln);
@@ -97,8 +97,9 @@ function buildMap(){
     for(const c of (GEO[a].cities||[])){
       const g = el('g', {class:'ct'+(c.cap?' cap':'')+(c.sample?' sample':''), role:'button', tabindex:'0', 'data-s':a, 'data-k':a+'|'+c.n, 'aria-label':c.n+', '+GEO[a].name});
       const ctt = el('title',{}); ctt.textContent = c.n+', '+GEO[a].name;
-      g.appendChild(el('circle', {cx:c.x, cy:c.y, r:c.sample?5:3}));
-      if(c.sample) g.appendChild(el('circle', {class:'ring', cx:c.x, cy:c.y, r:8.5}));
+      g.appendChild(el('circle', {cx:c.x, cy:c.y, r:c.cap?3.2:c.sample?5:2.6}));
+      if(c.cap) g.appendChild(el('circle', {class:'ring', cx:c.x, cy:c.y, r:6}));
+      else if(c.sample) g.appendChild(el('circle', {class:'ring', cx:c.x, cy:c.y, r:8.5}));
       const right = c.x < 880;
       const tx = el('text', {x:c.x+(right?8:-8), y:c.y+3.5, 'text-anchor':right?'start':'end'});
       tx.textContent = c.n; g.appendChild(tx); g.appendChild(ctt);
@@ -108,6 +109,7 @@ function buildMap(){
     }
   }
   buildAirports();
+  mountLabelLegend();
   const pick = $('#pick');
   if(pick){
     pick.innerHTML = `<option value="">Choose a ${DATA.unit}…</option>` +
@@ -190,6 +192,29 @@ function buildAirports(){
     g.addEventListener('keydown', e => { if(e.key==='Enter'||e.key===' '){ e.preventDefault(); selectAirport(ap.code); }});
     ga.appendChild(g);
   }
+}
+
+
+function mountLabelLegend(){
+  const root = $('#country-map') || document.getElementById('country-map');
+  const host = root && root.querySelector('.mapcard');
+  if(!host || host.querySelector('.lbl-legend')) return;
+  const lang = ((document.documentElement.lang||'') + ' ' + (document.documentElement.getAttribute('data-lang')||'')).toLowerCase();
+  let es = /\bes\b/.test(lang);
+  try{ es = es || (localStorage.getItem('ppc_lang')||'')==='es'; }catch(_){}
+  const L = es
+    ? {r:'Regiones', c:'Ciudades', k:'Capital', a:'Aeropuertos internacionales'}
+    : {r:'Regions', c:'Cities', k:'Capital', a:'International airports'};
+  const box = document.createElement('div');
+  box.className = 'lbl-legend';
+  box.setAttribute('role','note');
+  box.setAttribute('aria-label', es ? 'Leyenda de etiquetas' : 'Label colour legend');
+  box.innerHTML =
+    '<span class="ll-r"><i aria-hidden="true"></i>'+L.r+'</span>'+
+    '<span class="ll-c"><i aria-hidden="true"></i>'+L.c+'</span>'+
+    '<span class="ll-k"><i aria-hidden="true"></i>'+L.k+'</span>'+
+    '<span class="ll-a"><b aria-hidden="true">✈</b>'+L.a+'</span>';
+  host.appendChild(box);
 }
 
 function buildPortalGrid(){
@@ -539,7 +564,7 @@ function initSteps(){
 function initFreeZoom(){const m=$('#map');if(!m)return;
  let wrap=m.parentNode;if(!wrap.classList.contains('mapwrap')){wrap=document.createElement('div');wrap.className='mapwrap';m.parentNode.insertBefore(wrap,m);wrap.appendChild(m)}
  /* Country-specific empty-space placement: CA Pacific SW, MX Pacific SW (desktop). Mobile: under map. */
- wrap.classList.add('zoom-pos-'+({MX:'mx',CA:'ca',UK:'uk',FR:'fr',DE:'de'}[DATA.country]||'ca'));
+ wrap.classList.add('zoom-pos-'+({MX:'mx',CA:'ca',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp'}[DATA.country]||'ca'));
  if(!$('#zin')){const z=document.createElement('div');z.className='zoom';z.setAttribute('role','group');z.setAttribute('aria-label','Map zoom');
   z.innerHTML='<button type="button" id="zin" aria-label="Zoom in" title="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out" title="Zoom out">&minus;</button><button type="button" id="zreset" aria-label="Reset map view" title="Reset map view">&#8634;</button>';
   wrap.appendChild(z)}
