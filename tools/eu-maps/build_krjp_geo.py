@@ -132,24 +132,39 @@ JP_MAIN_W, JP_MAIN_S, JP_MAIN_E, JP_MAIN_N = 128.0, 30.05, 146.2, 45.75
 JP_OKI_W, JP_OKI_S, JP_OKI_E, JP_OKI_N = 122.5, 23.8, 131.5, 28.6
 
 
-def keep_parts_in_box(g, west, south, east, north):
-    """Keep polygon parts whose centroid lies inside the lon/lat box."""
-    from shapely.geometry import MultiPolygon, Polygon
+def keep_parts_in_box(g, west, south, east, north, near_deg=1.55):
+    """Keep polygon parts inside the lon/lat box and near the largest landmass.
 
-    def ok(poly):
+    The near_deg filter drops remote crumbs still inside the box (e.g. Tokyo's
+    Torishima ~30.5°N) that would otherwise stretch a prefecture south and
+    shrink the whole mainland fit.
+    """
+    from shapely.geometry import MultiPolygon
+
+    def in_box(poly):
         c = poly.centroid
         return west <= c.x <= east and south <= c.y <= north
 
     if g is None or g.is_empty:
         return None
-    if g.geom_type == "Polygon":
-        return g if ok(g) else None
-    if g.geom_type == "MultiPolygon":
-        keep = [p for p in g.geoms if ok(p)]
-        if not keep:
-            return None
-        return keep[0] if len(keep) == 1 else MultiPolygon(keep)
-    return g
+    parts = list(g.geoms) if g.geom_type == "MultiPolygon" else [g]
+    keep = [p for p in parts if in_box(p)]
+    if not keep:
+        return None
+    largest = max(keep, key=lambda p: p.area)
+    lc = largest.centroid
+    near = []
+    for p in keep:
+        c = p.centroid
+        # Large landmasses always kept; smaller islands only if near the core
+        # (drops Hachijōjima / Torishima that stretch Tokyo south and shrink the fit).
+        if p.area >= largest.area * 0.25:
+            near.append(p)
+        elif abs(c.x - lc.x) <= near_deg and abs(c.y - lc.y) <= near_deg:
+            near.append(p)
+    if not near:
+        near = [largest]
+    return near[0] if len(near) == 1 else MultiPolygon(near)
 
 
 
