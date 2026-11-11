@@ -56,7 +56,7 @@
  <div class="hubmodes" role="tablist" aria-label="What do you want to share?">
   <button type="button" role="tab" data-pane="clip" class="on"><i>#4</i><strong>Post a 30s Field Clip</strong><span>Upload ≤ 30 s or link TikTok / Reels / Shorts</span></button>
   <button type="button" role="tab" data-pane="rule"><i>#9</i><strong>Flag a Rule Difference</strong><span>5 fields: what differed from the official rule?</span></button>
-  <button type="button" role="tab" data-pane="scout"><i>#11</i><strong>Apply as Founding City Scout</strong><span>8 Wave A pilot hubs · 4 local checks</span></button>
+  <button type="button" role="tab" data-pane="scout"><i>#11</i><strong>Apply as Founding City Scout</strong><span>8 pilot hubs · 4 local checks</span></button>
  </div>
  <form id="subForm" class="pane" data-pane="clip" novalidate>
   <div class="sec">
@@ -80,7 +80,7 @@
    </div>
   </div>
   <div class="sec">
-   <div class="step"><b>2</b><h3 data-i18n="a_s2">What does it show? (Wave A)</h3></div>
+   <div class="step"><b>2</b><h3 data-i18n="a_s2">What does it show?</h3></div>
    <div class="fl" data-i18n="a_type">Type</div>
    <div class="types" id="types">
     <label><input type="radio" name="type" value="airline" checked><span><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>Airline</span></label>
@@ -97,7 +97,7 @@
     </div>
    </div>
    <div class="row3" style="margin-top:14px">
-    <label><div class="fl" data-i18n="a_ctry">Wave A country / corridor</div>
+    <label><div class="fl" data-i18n="a_ctry">Country / corridor</div>
      <select id="country"><option>United States</option><option>Canada</option><option>Mexico</option><option>United Kingdom</option><option>Germany</option><option>Dominican Republic</option><option>France</option></select></label>
     <label><div class="fl" data-i18n="a_date">Trip date <em>(YYYY-MM)</em></div><input type="month" id="date" value="2026-10" min="2024-01" max="2026-11"></label>
     <label class="full"><div class="fl" data-i18n="a_ent">Exact airline / hotel / city / salon</div>
@@ -128,7 +128,7 @@
   <div class="sec">
    <div class="step"><b>1</b><h3>Where and at which checkpoint?</h3></div>
    <div class="row3">
-    <label><div class="fl">Route / corridor (Wave A)</div><select id="rCorr"><option>United States</option><option>Canada</option><option selected>Mexico</option><option>United Kingdom</option><option>Germany</option><option>Dominican Republic</option><option>France</option></select></label>
+    <label><div class="fl">Route / corridor</div><select id="rCorr"><option>United States</option><option>Canada</option><option selected>Mexico</option><option>United Kingdom</option><option>Germany</option><option>Dominican Republic</option><option>France</option></select></label>
     <label><div class="fl">Checkpoint</div><select id="rCheck"><option>Airline check-in / gate</option><option selected>Border / customs</option><option>Vet / health certificate</option><option>Grooming &amp; Care (salon / mobile)</option></select></label>
     <label class="full"><div class="fl">Exact place or route <em>(e.g. LAX→MEX, Calais Pet Reception)</em></div><input type="text" id="rRoute" placeholder="e.g. LAX → MEX T1, SENASICA desk"></label>
    </div>
@@ -173,7 +173,7 @@
   <h3>Contributor Ladder</h3>
   <ol class="ladder">
    <li><i>1</i><div><small>Step 1</small><strong>Verified Corridor Traveler</strong><span>From 1 approved 30s clip or 1 approved rule check: clickable “Filmed by” credit + gold badge.</span><span class="badge-v" tabindex="0">✓ Verified Corridor Traveler<span class="tip">Shown next to your @handle on every approved clip and rule check, with a link to your profile.</span></span></div></li>
-   <li><i>2</i><div><small>Step 2</small><strong>Founding City Scout</strong><span>4 local checks (incl. Grooming) on 1 of the 8 Wave A hubs: dedicated Paw Passport profile and credit on the guides.</span><span class="badge-s">★ Founding City Scout</span></div></li>
+   <li><i>2</i><div><small>Step 2</small><strong>Founding City Scout</strong><span>4 local checks (incl. Grooming) on 1 of the 8 hubs: dedicated Paw Passport profile and credit on the guides.</span><span class="badge-s">★ Founding City Scout</span></div></li>
   </ol>
   <ul class="ticks">
    <li><i>✓</i><div><strong>No account required</strong><span>A clip or a note, plus your @handle.</span></div></li>
@@ -195,7 +195,7 @@
  </div>
  <div class="toolbar">
   <label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">Status</span><select id="fStatus"><option value="all">All statuses</option><option value="pending">Pending L0 (Internal only)</option><option value="approved">Approved L2 — Field-Verified</option><option value="rejected">Rejected</option></select></label>
-  <label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">Corridor</span><select id="fCorr"><option value="all">All Wave A</option><option>United States</option><option>Canada</option><option>Mexico</option><option>United Kingdom</option><option>Germany</option><option>Dominican Republic</option><option>France</option></select></label>
+  <label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">Corridor</span><select id="fCorr"><option value="all">All</option><option>United States</option><option>Canada</option><option>Mexico</option><option>United Kingdom</option><option>Germany</option><option>Dominican Republic</option><option>France</option></select></label>
   <label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">Type</span><select id="fType"><option value="all">All Queue</option><option value="clip">30s Clips (#4)</option><option value="rule">Rule Checks (#9)</option><option value="scout">City Scout Packs (#11)</option><option value="grooming">Grooming &amp; Care (any type)</option></select></label>
   <div class="sp"><button class="btn ghost sm" type="button" id="exportJson">Export Approved JSON</button></div>
  </div>
@@ -206,7 +206,7 @@
 <main class="view wrap" id="v-gallery" hidden>
  <section class="hero">
   <div><div class="dept" data-i18n="c_dept">Paw Passport Field Guides</div>
-  <h1 data-i18n-html="c_ttl">Pet Policy Field Guides — <span>Wave A Corridors</span></h1>
+  <h1 data-i18n-html="c_ttl">Pet Policy Field Guides — <span>Main pet-travel corridors</span></h1>
   <p class="lead" data-i18n="c_lead">Example tiles show official pet-travel rules for main corridors. Submit a 30s tip for review.</p></div>
   <div class="acts2"><a class="btn gold" href="?view=submit" data-i18n="c_submit">Submit a 30s Tip</a><small style="color:var(--mut)" data-i18n="c_submitn">No account · reviewed by a human</small></div>
  </section>
@@ -217,11 +217,11 @@
  <div class="ghead"><h2 data-i18n="c_rules">Example official rule checks <small class="kind">#9</small></h2><span data-i18n="c_rulessub">Official rules only — these tiles are examples.</span></div>
  <div class="rules" id="rules"></div>
  <section class="panel scouts">
-  <div class="sh"><div><div class="dept">#11 · Founding City Scouts</div><h2>8 Wave A Founding City Scouts</h2><p>Locals and expats who verify 4 things that make or break a pet trip in their city.</p></div>
+  <div class="sh"><div><div class="dept">#11 · Founding City Scouts</div><h2>8 Founding City Scouts</h2><p>Locals and expats who verify 4 things that make or break a pet trip in their city.</p></div>
   <div class="packrow"><span class="chip gold">Vet</span><span class="chip gold">Grooming</span><span class="chip gold">Big-Dog Taxi</span><span class="chip gold">Stay</span><a class="btn gold sm" href="?view=submit&amp;mode=scout">Apply as Founding City Scout</a></div></div>
   <div class="hubgrid" id="hubgrid"></div>
  </section>
- <p class="disc" data-i18n="c_disc">Preview seed: illustrative episodes built on real Wave A rules. Brand names in sample slots are examples only. They will be replaced by real human-approved submissions.</p>
+ <p class="disc" data-i18n="c_disc">Preview seed: illustrative episodes built on official rules. Brand names in sample slots are examples only. They will be replaced by real human-approved submissions.</p>
 </main>
 
 <footer class="foot foot-compact">
@@ -234,10 +234,8 @@
 </div>
 <div class="wrap"><p class="disc" data-i18n="site.foot.copyright">© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See <a href="../terms.html">Terms</a>.</p></div>
 </footer>
-<script src="ugc.js?v=20261112i18n"></script>
+<script src="ugc.js?v=20261112pub"></script>
 <script src="../assets/site-search.js?v=20261110search3" defer></script>
 <script src="../assets/ppc-header.js?v=20261110footerk9" defer></script>
-
-
 </body>
 </html>
