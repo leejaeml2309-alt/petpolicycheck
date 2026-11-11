@@ -104,9 +104,27 @@ function buildMap(){
       g.appendChild(el('circle', {cx:c.x, cy:c.y, r:c.cap?3.2:c.sample?5:2.6}));
       if(c.cap) g.appendChild(el('circle', {class:'ring', cx:c.x, cy:c.y, r:6}));
       else if(c.sample) g.appendChild(el('circle', {class:'ring', cx:c.x, cy:c.y, r:8.5}));
+      const place = c.place || '';
       const right = c.x < 880;
-      const tx = el('text', {x:c.x+(right?8:-8), y:c.y+3.5, 'text-anchor':right?'start':'end'});
-      tx.textContent = c.n; g.appendChild(tx); g.appendChild(ctt);
+      const anchor = c.anchor || (place==='above' ? 'middle' : (right?'start':'end'));
+      let lx, ly;
+      if(c.lx!=null && c.ly!=null){ lx=c.lx; ly=c.ly; }
+      else if(place==='above'){ lx=c.x; ly=c.y; }
+      else { lx=c.x+(anchor==='end'?-8:anchor==='middle'?0:8); ly=c.y+3.5; }
+      const tx = el('text', {x:lx, y:ly, 'text-anchor':anchor});
+      const lines = (c.lines && c.lines.length) ? c.lines : [c.n];
+      if(lines.length===1 && place!=='above'){ tx.textContent = lines[0]; }
+      else {
+        lines.forEach((line,i)=>{
+          const sp=el('tspan',{x:lx});
+          /* Font-relative so the stack stays clear of the city mark at 1280 and 390. */
+          if(place==='above') sp.setAttribute('dy', i===0 ? '-1.85em' : '1.15em');
+          else sp.setAttribute('dy', i===0 ? '0' : '1.15em');
+          sp.textContent=line; tx.appendChild(sp);
+        });
+      }
+      if(c.pinLabel) tx.setAttribute('data-pin','1');
+      g.appendChild(tx); g.appendChild(ctt);
       g.addEventListener('click', e => { e.stopPropagation(); selectCity(a, c.n); if(e.detail){ try{g.blur()}catch(_){ } } });
       g.addEventListener('keydown', e => { if(e.key==='Enter'){ selectCity(a, c.n); }});
       gc.appendChild(g);
@@ -537,7 +555,8 @@ function resolveLabelOverlaps(){
     const t=g.querySelector('text'); if(!t) return;
     _restorePos(t);
     const cap=g.classList.contains('cap');
-    items.push({el:t, pri: cap?(tight?8:20):54, kind: cap?'cap':'city', hide: tight?'ct-label-crowd':'ct-crowd', hideEl: tight?t:g, keep:false, labelOnlyHide:tight,
+    const pin=t.getAttribute('data-pin')==='1';
+    items.push({el:t, pri: pin?5: cap?(tight?8:20):54, kind: cap?'cap':'city', hide: tight?'ct-label-crowd':'ct-crowd', hideEl: tight?t:g, keep:false, pin, labelOnlyHide:tight,
       orig:{x:+(t.dataset.ox), y:+(t.dataset.oy), anchor:t.dataset.ota||t.getAttribute('text-anchor')||'start'}});
   });
   m.querySelectorAll('#g-ap .ap').forEach(g=>{
@@ -580,6 +599,7 @@ function resolveLabelOverlaps(){
       const box=vis(it.el);
       if(!box) continue;
       if(opts.requireInMap && !inMap(box)) continue;
+      if(opts.requireInMapFull && !(box.left>=mapBox.left+1 && box.right<=mapBox.right-1 && box.top>=mapBox.top+1 && box.bottom<=mapBox.bottom-1)) continue;
       if(it.kind==='region'){
         const isOrig=Math.abs(s.x-it.orig.x)<0.2 && Math.abs(s.y-it.orig.y)<0.2;
         if(!isOrig){
@@ -630,12 +650,19 @@ function resolveLabelOverlaps(){
       else hideItem(it);
       continue;
     }
+    if(it.pin){
+      _applyPos(it.el, it.orig);
+      const box=vis(it.el);
+      const fully=box && box.left>=mapBox.left+1 && box.right<=mapBox.right-1 && box.top>=mapBox.top+1 && box.bottom<=mapBox.bottom-1;
+      const sc=box?_scoreSlot(box, placed, 4, it):{n:1,area:1};
+      if(box && fully && sc.n===0){ it.box=box; placed.push(it); continue; }
+    }
     const maxPx = tight
       ? (it.kind==='region'?76 : it.kind==='cap'?36 : (it.kind==='city'||it.kind==='ap-major'||it.kind==='ap-code')?28 : 24)
       : (it.kind==='region'?48:76);
     const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, maxPx);
     const requireInPath=(it.kind==='region' && it.path && (!it.lead || tight));
-    const found=tryPlace(it, slots, placed, {requireInPath, requireInMap:true});
+    const found=tryPlace(it, slots, placed, {requireInPath, requireInMap:true, requireInMapFull:!!it.pin});
     if(found && found.sc.n===0){
       _applyPos(it.el, {x:found.s.x, y:found.s.y, anchor:found.s.anchor||it.orig.anchor});
       if(it.lead){ it.lead.setAttribute('x2', (+found.s.x).toFixed(1)); it.lead.setAttribute('y2', (+found.s.y).toFixed(1)); }

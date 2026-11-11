@@ -419,6 +419,11 @@ html.accent-mxgreen #country-map .stubbox.alert{border-color:color-mix(in srgb,#
   #country-map .mapwrap.zoom-pos-kr > .zoom,
   #country-map .mapwrap.zoom-pos-jp > .zoom{
     left:8px!important;right:auto!important;top:auto!important;bottom:22%!important;transform:none!important}
+  /* Italy / Spain: empty water is on the east, not the SW. Spain's Canaries
+     inset occupies the SW corner, so left+bottom would cover it and the caption. */
+  #country-map .mapwrap.zoom-pos-it > .zoom,
+  #country-map .mapwrap.zoom-pos-es > .zoom{
+    left:auto!important;right:8px!important;top:auto!important;bottom:22%!important;transform:none!important}
 }
 /* Phones: row under the map — never overlaps geometry */
 @media (max-width:900px){

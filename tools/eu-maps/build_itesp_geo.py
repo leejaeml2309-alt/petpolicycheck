@@ -298,7 +298,7 @@ DISPLAY = {
     "Vitoria": "Vitoria-Gasteiz",
     "Santiago": "Santiago de Compostela",
     "Las Palmas": "Las Palmas",
-    "Santa Cruz de Tenerife": "Santa Cruz",
+    "Santa Cruz de Tenerife": "Santa Cruz de Tenerife",
     "L'Aquila": "L'Aquila",
 }
 
@@ -463,6 +463,24 @@ def apply_interior_labels(geo: dict, svg: dict):
             print(f"labelZoom {code} {name} (text {tw:.0f}x{th:.0f} vs bbox {bw:.0f}x{bh:.0f})")
 
 
+
+def tune_canaries_label(geo):
+    """Write «Santa Cruz de Tenerife» in full, stacked above the city so the
+    long name stays inside the inset / adjacent water at 1280 and 390."""
+    for c in (geo.get("CN") or {}).get("cities") or []:
+        if c.get("n") != "Santa Cruz de Tenerife":
+            continue
+        c["lines"] = ["Santa Cruz", "de Tenerife"]
+        c["anchor"] = "start"
+        # Pinned two-line block above the western Canaries, fully on-map at
+        # 1280 and 390 (middle/city-x placements clipped the left edge at 390).
+        c["lx"] = 24.0
+        c["ly"] = 478.0
+        c["pinLabel"] = True
+        return
+    print("WARN Santa Cruz de Tenerife city missing from Canaries")
+
+
 def build_italy(oa, places):
     rows = gather_rows("ITA", IT_REGION)
     with tempfile.TemporaryDirectory() as td:
@@ -481,7 +499,7 @@ def build_italy(oa, places):
         ("SIC", 12.591, 35.509, "Lampedusa"),
         ("SIC", 12.031, 36.787, "Pantelleria"),
     ])
-    svg, meta = K.fit_project(ll, pads=(36, 36, 48, 28))
+    svg, meta = K.fit_project(ll, pads=(16, 8, 16, 10))
     geo = K.pack(svg, names)
     apply_interior_labels(geo, svg)
     add_cities(geo, IT_CITIES, lambda _r: meta, places, ALIASES)
@@ -529,6 +547,7 @@ def build_spain(oa, places):
         return cn_meta if region == "CN" and cn_meta else meta
 
     add_cities(geo, ES_CITIES, meta_for, places, ALIASES)
+    tune_canaries_label(geo)
 
     # Project airports with the matching meta (Canaries → inset).
     out = []
