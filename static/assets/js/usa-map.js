@@ -289,7 +289,7 @@ function buildMap(){
   const s=GEO[a];
   const special=!!(RULES[a]&&RULES[a].differs), unver=!!(RULES[a]&&!RULES[a].verified);
   const tier=tiers[a]||1;
-  const p=el("path",{d:s.d,class:"st st-t"+tier+(special?" rule":""),id:"s-"+a,"data-tier":String(tier),"data-density":String((window.PPC_USA_DENSITY_SCORES||{})[a]||0),tabindex:a==="DC"?-1:0,role:"button","aria-label":s.name+(special?" (special entry rules)":"")+(unver?" (placeholder, confirm with the state veterinarian)":"")+", density tier "+tier});
+  const p=el("path",{d:s.d,class:"st st-t"+tier+(special?" rule":""),id:"s-"+a,"data-tier":String(tier),"data-density":String((window.PPC_USA_DENSITY_SCORES||{})[a]||0),tabindex:a==="DC"?-1:0,role:"button","aria-label":s.name+(special?" (special entry rules)":"")+", density tier "+tier});
   const t=el("title",{});t.textContent=s.name;p.appendChild(t);
   p.addEventListener("click",()=>a==="DC"?selectDC():selectState(a));
   p.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();selectState(a)}});
@@ -368,13 +368,13 @@ function header(a,title,sub){const P=window.PPC_PST?PPC_PST("map","pst-ph"):"";r
 function ruleKind(a){
  const r=RULES[a];
  if(r&&r.differs) return "<b style='color:#f0d58c'>Special entry rules</b>";
- if(r&&!r.verified) return "<b style='color:#f0a3a3'>Placeholder — confirm with the state vet</b>";
+ if(r&&!r.verified) return "";
  return "State entry rules";
 }
 function clinicCard(state, city){
  const c=CLINICS[state+"|"+city];
  const dir=lk("📋","USA clinics directory","Informational list, not a partnership",siteUrl("/clinics/usa.html"),"off").replace("Official","Site");
- if(!c) return `<h4>Clinic for ${esc(city)}</h4><div class="stubbox"><b>Placeholder:</b> no verified clinic for ${esc(city)} on this preview. Use the directory or the USDA accredited-vet search, then confirm with the clinic.</div><div class="links">${dir}${lk("🏛","USDA: find an accredited vet","Search by state and county","https://vsapps.aphis.usda.gov/vsps/public/VetSearch.do","off")}</div>`;
+ if(!c) return `<h4>Clinic for ${esc(city)}</h4><div class="links">${dir}${lk("🏛","USDA: find an accredited vet","Search by state and county","https://vsapps.aphis.usda.gov/vsps/public/VetSearch.do","off")}</div>`;
  return `<h4>Clinic for ${esc(city)}</h4><div class="links">${lk("🩺",c.name,c.place+" · "+c.source,c.url,c.tag)}${dir}</div><p class="disc">One clinic for this city. Informational only, not a partner. Confirm services, USDA accreditation and fees with the clinic.</p>`;
 }
 function clinicsForState(a){
@@ -394,9 +394,6 @@ function lawSection(a,compact,cityName,clinicState){
  let s=`<section class="sec" data-sec="1"><h3><span class="n">1</span>Vet + laws</h3><h4>${esc(nm)} entry rules</h4>`;
  if(r){
   s+=`<dl class="kv"><dt>Health certificate</dt><dd>${esc(r.cvi)}</dd><dt>Rabies</dt><dd>${esc(r.rabies)}</dd></dl><p>${esc(r.notes)}</p>`+lk("📜",nm+": official entry requirements","Checked Oct 23, 2026 (live usa.html table)",r.src,"off");
-  if(!r.verified) s+=`<div class="stubbox"><b>Placeholder:</b> this row could not be confirmed on the official page. It matches the Check row on the live USA table. Confirm with the state veterinarian before you travel.</div>`;
- }else{
-  s+=`<div class="stubbox"><b>Placeholder:</b> no published entry rule for ${esc(nm)} on this map yet. See the <a href="usa.html#states">USA rules table</a>.</div>`;
  }
  s+=`<details class="fd"${compact?"":" open"}><summary>Federal rules (apply in every state)</summary><div class="links">${fed("aphisSS")}${fed("cdc","🐕")}${fed("aphisIn")}${fed("aphisOut")}</div><p class="disc">Same CDC and USDA pages as <a href="usa.html#federal">the USA federal table</a>. State rules still decide travel between states.</p></details>`;
  s+=`<h4>Sanitary / vet visit</h4><p>Airlines may ask for a health and acclimation certificate signed by a licensed vet within 10 days. Book a USDA-accredited vet for the CVI and rabies certificate; keep paper and photo copies.</p>`;
@@ -424,8 +421,7 @@ function planeSection(a, cityName){
   s+=`<p class="disc">Open an airport for its relief page. The dashed line on the map ties it to ${cityName?esc(cityName):"its city"}.</p>`;
  }
  s+=`<div class="links">${airFedLinks()}</div>`;
- if(!list.length) s+=`<div class="stubbox"><b>Placeholder:</b> ${a==="HI"?"Honolulu (HNL) direct-release window and neighbor-island rules. ":a==="AK"?"Anchorage (ANC) is marked on the map. ":"Airports in "+esc(nm)+" are not all listed on this map yet. "}${a==="HI"||a==="AK"?"":""}</div>`;
- else if(!cityName) s+=`<p class="disc">Only mapped airports are listed. Any other airport in ${esc(nm)} is still a placeholder.</p>`;
+ if(list.length && !cityName) s+=`<p class="disc">Only mapped airports are listed.</p>`;
  return s+`</section>`;
 }
 function transconUiLang(){
@@ -440,9 +436,9 @@ function transconUiLang(){
 }
 /* Partner pet-mover pages for SFO, LAX and JFK only. URLs checked 12 Nov 2026 (KST). No EWR link. */
 const TRANSCON={
- SFO:{url:"https://transconpet.com/san-francisco-pet-shipping-services/", title:"Pet mover: Transcon Pet Movers", sub:""},
+ SFO:{url:"https://transconpet.com/san-francisco-pet-shipping-services/", title:"Pet mover: Transcon Pet Movers", sub:"San Francisco office"},
  LAX:{url:"https://transconpet.com/los-angeles-pet-shipping/", title:"Pet mover: Transcon Pet Movers", sub:"Los Angeles office"},
- JFK:{url:"https://transconpet.com/new-york-pet-shipping/", title:"Pet mover: Transcon Pet Movers", sub:""}
+ JFK:{url:"https://transconpet.com/new-york-pet-shipping/", title:"Pet mover: Transcon Pet Movers", sub:"New York service"}
 };
 function transconLink(ap){
  const t=TRANSCON[ap.code];
@@ -457,7 +453,6 @@ function airportPlane(ap){
  let s=`<section class="sec" data-sec="3"><h3><span class="n">3</span>Plane</h3><h4>${esc(ap.code)} · ${esc(ap.name)}</h4><p>${esc(ap.code)} serves ${esc(ap.metroCity)}. Relief areas are the airport’s; the airline still sets cabin and cargo rules.</p><div class="links">`;
  s+=lk("🛫", ap.site[1], ap.name, ap.site[0], "off");
  if(ap.pets) s+=lk("🐾", ap.pets[1], ap.pets[2]||"Official pet or relief page", ap.pets[0], "off");
- else s+=`</div><div class="stubbox"><b>Placeholder:</b> a pet-relief or traveling-with-pets page for ${esc(ap.code)} is not verified on this preview. Use the official airport site and confirm before you fly.</div><div class="links">`;
  s+=transconLink(ap);
  s+=airFedLinks()+`</div>`;
  if(ap.placeState!==ap.metroState) s+=`<p class="disc">${esc(ap.code)} is in ${esc(GEO[ap.placeState].name)}. Taxis and hotels continue on the ${esc(ap.metroCity)} panel.</p>`;
@@ -842,20 +837,19 @@ function selectCity(a,n){
  const crumbs=`<p class="crumbs"><button data-state="${a}">← ${esc(st.name)}</button> · ${esc(n)}</p>`;
  const chips=airportChips(airportsFor(a,n), "Airports serving "+n);
  if(!S){
-  render(crumbs+header(a,n,`${esc(st.name)} · city`)+chips+`<div class="stubbox"><b>Placeholder:</b> the full city information panel (local taxis, transit, stations, hotels) is built for 8 sample cities in this preview. State-level links shown below.</div>`+lawSection(a,true,n)+roadSection(a)+planeSection(a,n)+hotelSection(n+", "+a)+groomSection());
+  render(crumbs+header(a,n,`${esc(st.name)} · city`)+chips+lawSection(a,true,n)+roadSection(a)+planeSection(a,n)+hotelSection(n+", "+a)+groomSection());
   return;
  }
  const L=arr=>arr.map(x=>lk(...x)).join("");
  const city=`<h4>Taxis &amp; rideshare</h4><div class="links">${L(S.taxi)}${RIDES}</div>`+
   `<h4>Trains</h4><p>${AMTRAK_NOTE}</p><div class="links">${lk("🚆","Amtrak: "+S.amtrak[1],"Station page · then book on amtrak.com","https://www.amtrak.com/stations/"+S.amtrak[0],"off")}${lk("🐾","Amtrak: Pets on trains","Reserve the pet spot when you book","https://www.amtrak.com/pets","off")}${L(S.rail)}</div>`+
-  `<h4>Buses &amp; local transit</h4><div class="links">${L(S.transit)}${lk("🚌","Greyhound","Service animals only, no pets (carrier policy; verify)","https://www.greyhound.com/","off")}</div><div class="stubbox"><b>Placeholder:</b> local transit pet rules (carrier size, fares, rush-hour limits) to be verified per agency.</div>`;
+  `<h4>Buses &amp; local transit</h4><div class="links">${L(S.transit)}${lk("🚌","Greyhound","Service animals only, no pets (carrier policy; verify)","https://www.greyhound.com/","off")}</div>`;
  render(crumbs+header(a,n,`${esc(st.name)} · city booking guide`)+
   `<div class="btnrow" style="margin:0 0 4px"><button class="btn ghost" data-state="${a}">State laws for ${esc(st.name)}</button></div>`+
   chips+lawSection(a,true,n)+roadSection(a,city)+planeSection(a,n)+hotelSection(S.q,cityHotelExtra(a,n))+groomSection());
 }
 function airHead(ap){
- const tag=ap.pets?"":` · <b style="color:#f0a3a3">Placeholder hub</b>`;
- return `<div class="ph"><div class="ap-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><path fill="#d9b765" d="${PLANE}"/></svg><b>${esc(ap.code)}</b></div><div><h2>${esc(ap.code)} — ${esc(ap.metroCity)}</h2><div class="sub">${esc(ap.name)} · ${esc(GEO[ap.placeState].name)}${tag}</div></div></div>`;
+ return `<div class="ph"><div class="ap-badge" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28"><path fill="#d9b765" d="${PLANE}"/></svg><b>${esc(ap.code)}</b></div><div><h2>${esc(ap.code)} — ${esc(ap.metroCity)}</h2><div class="sub">${esc(ap.name)} · ${esc(GEO[ap.placeState].name)}</div></div></div>`;
 }
 function selectAirport(code){
  const ap=airportByCode(code); if(!ap) return;
@@ -873,7 +867,7 @@ function selectAirport(code){
  applyStep(true);
 }
 function empty(){
- $("#panel").innerHTML=`<div class="empty"><div class="big">Pick a state or city</div><p>Click any of the 50 states on the map (or use the list) to open its law portal. Gold cities have the full booking guide. Plane marks are that city’s airports:</p><div class="citylist">${Object.keys(SAMPLE).map(k=>{const[a,n]=k.split("|");return `<button class="sample" data-s="${a}" data-city="${esc(n)}">${esc(n)}</button>`}).join("")}</div><div class="citylist">${AIRPORTS.filter(ap=>ap.pets&&SAMPLE[ap.metroState+"|"+ap.metroCity]).map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.metroCity)}</button>`).join("")}</div><p class="disc">Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel → 5 grooming. Dashed plane marks (SFO, DFW) are placeholder hubs.</p></div>`;
+ $("#panel").innerHTML=`<div class="empty"><div class="big">Pick a state or city</div><p>Click any of the 50 states on the map (or use the list) to open its law portal. Gold cities have the full booking guide. Plane marks are that city’s airports:</p><div class="citylist">${Object.keys(SAMPLE).map(k=>{const[a,n]=k.split("|");return `<button class="sample" data-s="${a}" data-city="${esc(n)}">${esc(n)}</button>`}).join("")}</div><div class="citylist">${AIRPORTS.filter(ap=>ap.pets&&SAMPLE[ap.metroState+"|"+ap.metroCity]).map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.metroCity)}</button>`).join("")}</div><p class="disc">Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel → 5 grooming.</p></div>`;
  $("#panel").querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
  $("#panel").querySelectorAll("[data-ap]").forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
 }
