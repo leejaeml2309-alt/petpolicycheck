@@ -885,3 +885,73 @@ html.accent-mxgreen #country-map .lbl.sel,
   #country-map .ap text.map-name{font-size:10px}
   #country-map .lbl-legend{font-size:11px;gap:8px 12px;margin-top:10px}
 }
+
+
+/* Label readability (Marc 11/11: « bonne visibilité de lecture »).
+   --lbl-*-px is the target on-screen size. --map-w-px is the SVG's CSS width
+   so user-unit font-size renders at that size (min ~11px at 390 for regions,
+   capitals and major airports). Halo + ink rim unchanged. */
+#country-map, #country-map svg#map{
+  --lbl-region-px:12px;
+  --lbl-city-px:11px;
+  --lbl-capital-px:12px;
+  --lbl-airport-px:11px;
+  --map-w-px:975;
+}
+@media (max-width:720px){
+  #country-map, #country-map svg#map{
+    --lbl-region-px:11px;
+    --lbl-city-px:11px;
+    --lbl-capital-px:11px;
+    --lbl-airport-px:11px;
+  }
+}
+#country-map .lbl,
+html.accent-unionjack #country-map .lbl,
+html.accent-tricolore #country-map .lbl,
+html.accent-schwarzrotgold #country-map .lbl,
+html.accent-taegeuk #country-map .lbl,
+html.accent-hinomaru #country-map .lbl,
+html.accent-maple #country-map .lbl,
+html.accent-mxgreen #country-map .lbl,
+#country-map.accent-taegeuk .lbl,
+#country-map.accent-hinomaru .lbl{
+  font-size:calc(var(--lbl-region-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+  stroke-width:calc(0.28 * var(--lbl-region-px) * 975 / var(--map-w-px) * var(--kt, 1));
+}
+#country-map .ct text{
+  font-size:calc(var(--lbl-city-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+  stroke-width:calc(0.28 * var(--lbl-city-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+}
+#country-map .ct.cap text{
+  font-size:calc(var(--lbl-capital-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+}
+#country-map .ap text,
+#country-map .ap text.map-label,
+#country-map .ap text.map-name{
+  font-size:calc(var(--lbl-airport-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+  stroke-width:calc(0.26 * var(--lbl-airport-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+}
+#country-map .ap text.map-name{
+  font-size:calc(var(--lbl-airport-px) * 0.9 * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+}
+#country-map .lbl.lbl-crowd,
+#country-map .lbl-lead.lbl-crowd,
+#country-map .ct.ct-crowd,
+#country-map .ap.ap-crowd{
+  display:none !important;
+}
+
+#country-map svg#map:not(.is-zoomed) .ap text.map-name{
+  display:none !important;
+}
+#country-map .ap text.map-name.ap-name-crowd,
+#country-map .ap text.map-label.ap-code-crowd,
+#country-map .ap text.ap-code-crowd{
+  display:none !important;
+}
+
+#country-map .ct.ct-crowd,
+#country-map .ct text.lbl-crowd,
+#usa-map .ct.ct-crowd,
+#usa-map .ct text.lbl-crowd{display:none !important}
