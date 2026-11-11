@@ -97,7 +97,7 @@
       var bar = document.createElement("div");
       bar.className = "ppc-preview-bar";
       bar.setAttribute("role", "status");
-      bar.textContent = "LOCAL PREVIEW ONLY — UK, France & Germany maps: English names, real borders, cities & official international airports, shared label colours · await Marc « publie » · remove bar + noindex before publish";
+      bar.textContent = "LOCAL PREVIEW ONLY — 8-map release merge in progress";
       var parent = document.body;
       if (parent) parent.insertBefore(bar, parent.firstChild);
     }
