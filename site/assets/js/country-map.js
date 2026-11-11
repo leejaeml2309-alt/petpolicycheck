@@ -481,6 +481,16 @@ function _scoreSlot(box, placed, pad){
   }
   return {n, area};
 }
+function _airportRank(code){
+  const R={ATL:0,LAX:1,ORD:2,DFW:3,DEN:4,JFK:5,SFO:6,LAS:7,SEA:8,MIA:9,CLT:10,PHX:11,EWR:12,MCO:13,IAH:14,BOS:15,MSP:16,DTW:17,FLL:18,PHL:19,LGA:20,BWI:21,DCA:22,IAD:23,SLC:24,SAN:25,TPA:26,PDX:27,HNL:28,
+    LHR:0,LGW:1,MAN:2,STN:3,LTN:4,BHX:5,EDI:6,BRS:7,
+    CDG:0,ORY:1,NCE:2,MRS:3,LYS:4,BSL:5,TLS:6,NTE:7,BVA:8,BOD:9,
+    FRA:0,MUC:1,BER:2,DUS:3,HAM:4,CGN:5,STR:6,
+    ICN:0,GMP:1,PUS:2,CJU:3,
+    HND:0,NRT:1,KIX:2,ITM:3,FUK:4,CTS:5,NGO:6,OKA:7};
+  const n=R[(code||'').toUpperCase()];
+  return (n==null)?25:n;
+}
 function resolveLabelOverlaps(){
   const m=$('#map'); if(!m) return;
   m.querySelectorAll('#g-lb line.lbl-lead[data-temp="1"]').forEach(n=>n.remove());
@@ -493,6 +503,13 @@ function resolveLabelOverlaps(){
   };
   const mapBox=m.getBoundingClientRect();
   const inMap=box=>!(box.right<mapBox.left+4 || box.left>mapBox.right-4 || box.bottom<mapBox.top+4 || box.top>mapBox.bottom-4);
+  const full=(typeof isFull==='function')?isFull():true;
+  const nCap=m.querySelectorAll('#g-ct .ct.cap').length;
+  const nMaj=m.querySelectorAll('#g-ap .ap.ap-major').length;
+  const nAp=[...m.querySelectorAll('#g-ap .ap')].filter(g=>getComputedStyle(g).display!=='none').length;
+  const cc=(typeof DATA!=='undefined' && DATA.country)||(document.getElementById('usa-map')&&'US')||'';
+  /* Marc 09:03 KST: at 390, crowded maps keep capitals + major airports; region names wait for zoom. */
+  const crowdedMobile=full && mapBox.width<500 && (/^(FR|UK|DE|US)$/.test(cc) || (/^(KR|JP)$/.test(cc) && (nCap+(nMaj||nAp))>=12));
   const items=[];
   m.querySelectorAll('#g-lb text.lbl').forEach(t=>{
     _restorePos(t);
@@ -505,31 +522,48 @@ function resolveLabelOverlaps(){
     if(lead && lead.dataset.ox2!=null){ lead.setAttribute('x2', lead.dataset.ox2); lead.setAttribute('y2', lead.dataset.oy2); }
     const c=(typeof GEO!=='undefined' && GEO[id] && GEO[id].c) ? GEO[id].c : null;
     items.push({el:t, pri: area>12000?34: area>5000?40:48, kind:'region', hide:'lbl-crowd', id, path, lead, keep:false, c,
+      defer:crowdedMobile,
       orig:{x:+(t.dataset.ox), y:+(t.dataset.oy), anchor:t.dataset.ota||t.getAttribute('text-anchor')||'middle'}});
   });
   m.querySelectorAll('#g-ct .ct').forEach(g=>{
     const t=g.querySelector('text'); if(!t) return;
     _restorePos(t);
     const cap=g.classList.contains('cap');
-    items.push({el:t, pri: cap?20:54, kind: cap?'cap':'city', hide: cap?null:'ct-crowd', hideEl: cap?null:g, keep:!!cap,
+    items.push({el:t, pri: cap?20:54, kind: cap?'cap':'city', hide:'ct-crowd', hideEl:g, keep:false,
       orig:{x:+(t.dataset.ox), y:+(t.dataset.oy), anchor:t.dataset.ota||t.getAttribute('text-anchor')||'start'}});
   });
   m.querySelectorAll('#g-ap .ap').forEach(g=>{
     if(getComputedStyle(g).display==='none') return;
-    const major=g.classList.contains('ap-major');
-    const code=g.querySelector('text.map-label, text:not(.map-name)');
+    const major=g.classList.contains('ap-major') || !!document.getElementById('usa-map');
+    const codeEl=g.querySelector('text.map-label, text:not(.map-name)');
     const name=g.querySelector('text.map-name');
-    if(code){
-      _restorePos(code);
-      items.push({el:code, pri: major?10:64, kind: major?'ap-major':'ap-code', hide: major?null:'ap-code-crowd', keep:!!major,
-        orig:{x:+(code.dataset.ox), y:+(code.dataset.oy), anchor:code.dataset.ota||code.getAttribute('text-anchor')||'middle'}});
+    const code=(g.getAttribute('data-code')||(codeEl&&codeEl.textContent)||'').trim();
+    if(codeEl){
+      _restorePos(codeEl);
+      /* Codes are hideable if they cannot be placed with zero overlap (lower-rank goes to zoom). */
+      items.push({el:codeEl, pri: 10+_airportRank(code)*0.4, kind: major?'ap-major':'ap-code', hide:'ap-code-crowd', keep:false,
+        orig:{x:+(codeEl.dataset.ox), y:+(codeEl.dataset.oy), anchor:codeEl.dataset.ota||codeEl.getAttribute('text-anchor')||'middle'}});
     }
     if(name){
       _restorePos(name);
-      items.push({el:name, pri:72, kind:'ap-name', hide:'ap-name-crowd', keep:false,
+      items.push({el:name, pri:90, kind:'ap-name', hide:'ap-name-crowd', keep:false, nameOnly:true,
         orig:{x:+(name.dataset.ox), y:+(name.dataset.oy), anchor:name.dataset.ota||name.getAttribute('text-anchor')||'middle'}});
     }
   });
+  function hideItem(it){
+    it._hidden=true;
+    _applyPos(it.el, it.orig);
+    if(it.lead){
+      if(it.lead.dataset.ox2!=null){ it.lead.setAttribute('x2', it.lead.dataset.ox2); it.lead.setAttribute('y2', it.lead.dataset.oy2); }
+      it.lead.classList.add('lbl-crowd');
+    }
+    if(it.kind==='cap'||it.kind==='city'){
+      const g=it.hideEl||it.el.closest&&it.el.closest('.ct')||it.el;
+      g.classList.add('ct-crowd');
+    } else {
+      (it.hideEl||it.el).classList.add(it.hide||'lbl-crowd');
+    }
+  }
   function tryPlace(it, slots, placed, opts){
     opts=opts||{};
     let best=null;
@@ -554,7 +588,7 @@ function resolveLabelOverlaps(){
           if(!it.path.isPointInFill(p) && (s.x!==it.orig.x || s.y!==it.orig.y)) continue;
         }catch(_){ }
       }
-      const sc=_scoreSlot(box, placed, 3);
+      const sc=_scoreSlot(box, placed, 4);
       if(sc.n===0){ return {s, box, sc}; }
       if(!best || sc.n<best.sc.n || (sc.n===best.sc.n && sc.area<best.sc.area)){
         best={s, box, sc};
@@ -565,65 +599,91 @@ function resolveLabelOverlaps(){
   const placed=[];
   items.sort((a,b)=>a.pri-b.pri);
   for(const it of items){
+    if(it.defer){ hideItem(it); continue; }
     if(it.kind==='ap-name'){
       const code=it.el.parentNode && it.el.parentNode.querySelector('text.map-label, text:not(.map-name)');
       if(code){
         const u=_userPerPx();
         it.orig={x:+(code.getAttribute('x')||it.orig.x), y:+(code.getAttribute('y')||it.orig.y)+14*u, anchor:code.getAttribute('text-anchor')||it.orig.anchor};
       }
+      /* Subtitle only in its natural place under the code, otherwise just the IATA. */
+      _applyPos(it.el, it.orig);
+      const box=vis(it.el);
+      const sc=box?_scoreSlot(box, placed, 4):{n:1,area:1};
+      if(box && inMap(box) && sc.n===0){ it.box=box; placed.push(it); }
+      else hideItem(it);
+      continue;
     }
     const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, it.kind==='region'?48:76);
     const requireInPath=(it.kind==='region' && it.path && !it.lead);
-    let found=tryPlace(it, slots, placed, {requireInPath, requireInMap:true});
+    const found=tryPlace(it, slots, placed, {requireInPath, requireInMap:true});
     if(found && found.sc.n===0){
       _applyPos(it.el, {x:found.s.x, y:found.s.y, anchor:found.s.anchor||it.orig.anchor});
       if(it.lead){ it.lead.setAttribute('x2', (+found.s.x).toFixed(1)); it.lead.setAttribute('y2', (+found.s.y).toFixed(1)); }
       it.box=found.box;
       placed.push(it);
-    } else if(it.keep){
-      // pick the least-overlap slot rather than forcing the original
-      if(!found) found=tryPlace(it, slots, placed, {requireInMap:true});
-      const use=found && found.s ? found : {s:it.orig, box:null};
-      _applyPos(it.el, {x:use.s.x, y:use.s.y, anchor:use.s.anchor||it.orig.anchor});
-      it.box=use.box||vis(it.el);
-      if(it.box) placed.push(it);
     } else {
-      _applyPos(it.el, it.orig);
-      if(it.lead){
-        if(it.lead.dataset.ox2!=null){ it.lead.setAttribute('x2', it.lead.dataset.ox2); it.lead.setAttribute('y2', it.lead.dataset.oy2); }
-        it.lead.classList.add('lbl-crowd');
-      }
-      (it.hideEl||it.el).classList.add(it.hide);
-      it._hidden=true;
+      hideItem(it);
     }
   }
-  // Rescue hidden region names with a short leader into a free nearby slot (including just outside the region).
-  items.filter(it=>it.kind==='region' && it._hidden).forEach(it=>{
-    const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, 48);
-    const found=tryPlace(it, slots, placed, {requireInMap:true, requireInPath:false});
-    if(found && found.sc.n===0){
-      it.el.classList.remove('lbl-crowd');
-      _applyPos(it.el, {x:found.s.x, y:found.s.y, anchor:found.s.anchor||it.orig.anchor});
-      let lead=it.lead;
-      const c=it.c||[it.orig.x, it.orig.y];
-      if(!lead){
-        lead=el('line',{class:'lbl-lead', x1:c[0], y1:c[1], x2:found.s.x, y2:found.s.y, 'data-a':it.id, 'data-temp':'1'});
-        const gl=$('#g-lb'); if(gl) gl.insertBefore(lead, it.el);
-        it.lead=lead;
-      } else {
-        lead.classList.remove('lbl-crowd');
-        lead.setAttribute('x2', (+found.s.x).toFixed(1));
-        lead.setAttribute('y2', (+found.s.y).toFixed(1));
+  /* Rescue hidden region names on zoom (or on a desktop full view) with a short nearby leader. */
+  if(!crowdedMobile){
+    items.filter(it=>it.kind==='region' && it._hidden).forEach(it=>{
+      const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, 48);
+      const found=tryPlace(it, slots, placed, {requireInMap:true, requireInPath:false});
+      if(found && found.sc.n===0){
+        it.el.classList.remove('lbl-crowd');
+        it._hidden=false;
+        _applyPos(it.el, {x:found.s.x, y:found.s.y, anchor:found.s.anchor||it.orig.anchor});
+        let lead=it.lead;
+        const c=it.c||[it.orig.x, it.orig.y];
+        if(!lead){
+          lead=el('line',{class:'lbl-lead', x1:c[0], y1:c[1], x2:found.s.x, y2:found.s.y, 'data-a':it.id, 'data-temp':'1'});
+          const gl=$('#g-lb'); if(gl) gl.insertBefore(lead, it.el);
+          it.lead=lead;
+        } else {
+          lead.classList.remove('lbl-crowd');
+          lead.setAttribute('x2', (+found.s.x).toFixed(1));
+          lead.setAttribute('y2', (+found.s.y).toFixed(1));
+        }
+        it.box=found.box;
+        placed.push(it);
       }
-      it.box=found.box;
-      it._hidden=false;
-      placed.push(it);
+    });
+  }
+  /* Final sweep: no on-map overlaps. Drop the more disposable of each colliding pair. */
+  const pad=4;
+  let changed=true;
+  while(changed){
+    changed=false;
+    const live=placed.filter(p=>p.box && !p._hidden);
+    for(let i=0;i<live.length;i++){
+      for(let j=i+1;j<live.length;j++){
+        const a=live[i], b=live[j];
+        if(!inMap(a.box) || !inMap(b.box)) continue;
+        if(!_overlap(a.box,b.box,pad)) continue;
+        const drop=(a.keep&&!b.keep)?b:(b.keep&&!a.keep)?a:(a.pri>=b.pri?a:b);
+        hideItem(drop);
+        const ix=placed.indexOf(drop);
+        if(ix>=0) placed.splice(ix,1);
+        changed=true;
+        break;
+      }
+      if(changed) break;
     }
-  });
+  }
 }
+let _lblRaf=0;
 function refreshLabels(){
   syncLabelScale();
-  requestAnimationFrame(()=>{ syncLabelScale(); resolveLabelOverlaps(); });
+  if(_lblRaf) cancelAnimationFrame(_lblRaf);
+  _lblRaf=requestAnimationFrame(function(){
+    _lblRaf=requestAnimationFrame(function(){
+      _lblRaf=0;
+      syncLabelScale();
+      resolveLabelOverlaps();
+    });
+  });
 }
 
 function applyViewBox(v){vb=v.slice();const m=$('#map');if(!m)return;
