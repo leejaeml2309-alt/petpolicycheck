@@ -1,0 +1,201 @@
+{
+  "console": {
+    "it-home:1280": [],
+    "it-airlines:1280": [],
+    "it-delta:1280": [],
+    "it-airfrance:1280": [],
+    "it-checklist:1280": [],
+    "it-italy-map:1280": [],
+    "it-compare:1280": [],
+    "it-italy-guide:1280": [],
+    "en-home:1280": [],
+    "es-home:1280": [],
+    "it-home:390": [],
+    "it-airlines:390": [],
+    "it-delta:390": [],
+    "it-airfrance:390": [],
+    "it-checklist:390": [],
+    "it-italy-map:390": [],
+    "it-compare:390": [],
+    "it-italy-guide:390": []
+  },
+  "links": {
+    "unique_internal": 349,
+    "ok": 349,
+    "not_ok": 0,
+    "broken": []
+  },
+  "raw_keys": {
+    "it-home:1280": [],
+    "it-airlines:1280": [],
+    "it-delta:1280": [],
+    "it-airfrance:1280": [],
+    "it-checklist:1280": [],
+    "it-italy-map:1280": [],
+    "it-compare:1280": [],
+    "it-italy-guide:1280": [],
+    "en-home:1280": [],
+    "es-home:1280": [],
+    "it-home:390": [],
+    "it-airlines:390": [],
+    "it-delta:390": [],
+    "it-airfrance:390": [],
+    "it-checklist:390": [],
+    "it-italy-map:390": [],
+    "it-compare:390": [],
+    "it-italy-guide:390": []
+  },
+  "tu": {
+    "it-home:1280": [],
+    "it-airlines:1280": [],
+    "it-delta:1280": [],
+    "it-airfrance:1280": [],
+    "it-checklist:1280": [],
+    "it-italy-map:1280": [],
+    "it-compare:1280": [],
+    "it-italy-guide:1280": [
+      "prova"
+    ],
+    "en-home:1280": [],
+    "es-home:1280": [],
+    "it-home:390": [],
+    "it-airlines:390": [],
+    "it-delta:390": [],
+    "it-airfrance:390": [],
+    "it-checklist:390": [],
+    "it-italy-map:390": [],
+    "it-compare:390": [],
+    "it-italy-guide:390": [
+      "prova"
+    ]
+  },
+  "english_visible": {
+    "it-home:1280": [],
+    "it-airlines:1280": [],
+    "it-delta:1280": [],
+    "it-airfrance:1280": [],
+    "it-checklist:1280": [],
+    "it-italy-map:1280": [],
+    "it-compare:1280": [],
+    "it-italy-guide:1280": [],
+    "en-home:1280": [],
+    "es-home:1280": [],
+    "it-home:390": [],
+    "it-airlines:390": [],
+    "it-delta:390": [],
+    "it-airfrance:390": [],
+    "it-checklist:390": [],
+    "it-italy-map:390": [],
+    "it-compare:390": [],
+    "it-italy-guide:390": []
+  },
+  "english_file_residues": {
+    "it/airlines/compare/index.html": [
+      "Primary"
+    ],
+    "it/countries/italy-map.html": [
+      "Primary"
+    ],
+    "it/countries/italy.html": [
+      "Primary"
+    ],
+    "it/index.html": [
+      "Primary"
+    ]
+  },
+  "shots": [
+    "/workspace/it-site-20261111/qa/it-p1fix/it-home-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-home-390.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-airlines-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-airlines-390.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-delta-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-delta-390.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-airfrance-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-airfrance-390.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-checklist-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-checklist-390.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-italy-map-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-italy-map-390.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-compare-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-compare-390.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-italy-guide-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-italy-guide-390.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/it-italy-guide-entry-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/en-home-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1fix/es-home-1280.png"
+  ],
+  "preview": {
+    "it-home:1280": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-airlines:1280": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-delta:1280": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-airfrance:1280": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-checklist:1280": {
+      "bar": false,
+      "noindex": false
+    },
+    "it-italy-map:1280": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-compare:1280": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-italy-guide:1280": {
+      "bar": true,
+      "noindex": true
+    },
+    "en-home:1280": {
+      "bar": true,
+      "noindex": true
+    },
+    "es-home:1280": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-home:390": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-airlines:390": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-delta:390": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-airfrance:390": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-checklist:390": {
+      "bar": false,
+      "noindex": false
+    },
+    "it-italy-map:390": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-compare:390": {
+      "bar": true,
+      "noindex": true
+    },
+    "it-italy-guide:390": {
+      "bar": true,
+      "noindex": true
+    }
+  }
+}

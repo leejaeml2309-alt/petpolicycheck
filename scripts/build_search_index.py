@@ -39,7 +39,7 @@ SKIP_NAMES = {
 SKIP_PREFIXES = (
     "68d2b450",
 )
-LOCALE_SEGMENTS = {"fr", "es", "de", "ko", "ja", "zh"}
+LOCALE_SEGMENTS = {"fr", "es", "it", "de", "ko", "ja", "zh"}
 
 TAG_RE = re.compile(r"<[^>]+>")
 WS_RE = re.compile(r"\s+")
@@ -110,6 +110,20 @@ TYPE_LABELS = {
         "Pro": "Pet Desk Pro",
         "Tools": "Herramientas",
         "Legal": "Legal",
+    },
+    "it": {
+        "Countries": "Paesi",
+        "Cities": "Città",
+        "Airports": "Aeroporti",
+        "Transport": "Trasporto",
+        "Airlines": "Compagnie aeree",
+        "Routes": "Percorsi",
+        "Hotels": "Hotel",
+        "Guides": "Guide",
+        "Veterans": "Veterani",
+        "Pro": "Pet Desk Pro",
+        "Tools": "Strumenti",
+        "Legal": "Legale",
     },
 }
 
@@ -921,7 +935,7 @@ def fallback_en_into_es(en_pages: list[dict], es_urls: set[str]) -> list[dict]:
     out = []
     for p in en_pages:
         u = p["u"]
-        if u in es_urls or u.startswith("/es/"):
+        if u in es_urls or u.startswith("/es/") or u.startswith("/it/"):
             continue
         # Only fill gaps that matter for ES users: country, city, airport,
         # transport, airline, route, veterans, pro, legal, guides — never
@@ -942,7 +956,7 @@ def fallback_en_into_es(en_pages: list[dict], es_urls: set[str]) -> list[dict]:
         }:
             continue
         # Skip EN pages that already have an obvious /es twin path
-        if ("/es" + u) in es_urls:
+        if ("/es" + u) in es_urls or ("/it" + u) in es_urls:
             continue
         q = dict(p)
         out.append(q)
@@ -980,6 +994,7 @@ def main() -> int:
     # Build EN first so ES can borrow missing information pages.
     en_pages, en_excl, en_syn = collect_records("en", syn_flat, airline_hints)
     es_pages, es_excl, es_syn = collect_records("es", syn_flat, airline_hints)
+    it_pages, it_excl, it_syn = collect_records("it", syn_flat, airline_hints)
 
     # Dedup synthetics against real pages (same exact URL keeps the richer record,
     # but #hash airport/city entries are kept beside the country page).
@@ -1000,6 +1015,9 @@ def main() -> int:
     es_all = merge(es_pages, es_syn)
     es_urls = {p["u"] for p in es_all}
     es_all.extend(fallback_en_into_es(en_all, es_urls))
+    it_all = merge(it_pages, it_syn)
+    it_urls = {p["u"] for p in it_all}
+    it_all.extend(fallback_en_into_es(en_all, it_urls))
 
     # Stable order: sitemap-listed first, then type, then url
     sm = sitemap_paths()
@@ -1012,11 +1030,12 @@ def main() -> int:
 
     en_all.sort(key=sort_key)
     es_all.sort(key=sort_key)
+    it_all.sort(key=sort_key)
 
     syn_out = {k: v for k, v in sorted(syn_flat.items()) if v}
 
     sizes = {}
-    for lang, pages in (("en", en_all), ("es", es_all)):
+    for lang, pages in (("en", en_all), ("es", es_all), ("it", it_all)):
         data = {
             "lang": lang,
             "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -1047,13 +1066,15 @@ def main() -> int:
     report["langs"] = sizes
     report["excluded"]["en"] = summarize_excl(en_excl)
     report["excluded"]["es"] = summarize_excl(es_excl)
-    report["synthetics"] = {"en": len(en_syn), "es": len(es_syn)}
+    report["excluded"]["it"] = summarize_excl(it_excl)
+    report["synthetics"] = {"en": len(en_syn), "es": len(es_syn), "it": len(it_syn)}
     REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {REPORT}")
     print("Excluded EN:", report["excluded"]["en"]["by_reason"], "n=", report["excluded"]["en"]["count"])
     print("Excluded ES:", report["excluded"]["es"]["by_reason"], "n=", report["excluded"]["es"]["count"])
-    print("Synthetics EN/ES:", report["synthetics"])
+    print("Excluded IT:", report["excluded"]["it"]["by_reason"], "n=", report["excluded"]["it"]["count"])
+    print("Synthetics EN/ES/IT:", report["synthetics"])
     return 0
 
 

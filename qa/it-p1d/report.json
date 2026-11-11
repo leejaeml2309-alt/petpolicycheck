@@ -1,0 +1,2624 @@
+{
+  "console_errors": [
+    {
+      "page": "it/airlines/aeromexico.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/air-canada.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/air-france.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/air-premia.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/alaska.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/american.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/ana.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/asiana.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/british-airways.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/compare/index.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/delta.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/frontier.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/hawaiian.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/jal.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/jeju-air.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/jetblue.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/korean-air.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/lufthansa.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/peach.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/porter.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/southwest.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/spirit.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/tway.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/united.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/viva-aerobus.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/volaris.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/westjet.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/airlines/zipair.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/countries/canada-map.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/countries/canada.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/countries/france-map.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/countries/france.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/countries/germany-map.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/countries/germany.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/countries/italy-map.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/countries/italy.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/countries/uk-map.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/countries/uk.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/countries/usa-map.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/countries/usa.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/index.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED",
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/canada-to-usa-air-canada.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/canada-to-usa-alaska.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/canada-to-usa-american.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/canada-to-usa-delta.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/canada-to-usa-united.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/france-to-usa-air-france.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/france-to-usa-delta.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/france-to-usa-united.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/index.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/japan-to-usa-american.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/japan-to-usa-delta.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/japan-to-usa-united.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/mexico-to-usa-alaska.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/mexico-to-usa-american.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/mexico-to-usa-delta.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/mexico-to-usa-united.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/south-korea-to-usa-delta.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/south-korea-to-usa-korean-air.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/south-korea-to-usa-united.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/uk-to-france-air-france.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/uk-to-france-british-airways.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-canada.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-france.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-mexico.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-canada-air-canada.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-canada-alaska.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-canada-american.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-canada-delta.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-canada-united.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-france-air-france.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-france-american.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-france-delta.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-france-united.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-germany-delta.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-germany-lufthansa.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-germany-united.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-japan-american.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-japan-delta.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-japan-korean-air.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-japan-united.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-japan.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-mexico-alaska.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-mexico-american.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-mexico-delta.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-mexico-united.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-south-korea-delta.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-south-korea-korean-air.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-south-korea-united.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-south-korea.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/routes/usa-uk.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/vet-info/index.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "it/vet-prep/index.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "countries/france-map.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "countries/germany-map.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "countries/uk-map.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "countries/usa-map.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "es/countries/usa-map.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    },
+    {
+      "page": "es/countries/canada-map.html",
+      "errors": [
+        "Failed to load resource: net::ERR_FAILED"
+      ]
+    }
+  ],
+  "english_residues": [
+    {
+      "page": "it/airlines/snub-nosed-breeds.html",
+      "hits": [
+        {
+          "pattern": "\\bPetPolicyCheck — Home\\b",
+          "match": "PetPolicyCheck — Home",
+          "snippet": "zione scritta. See Termini. aria-label: PetPolicyCheck — Home alt: PetPolicyCheck aria-label: Navigaz"
+        }
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-japan.html",
+      "hits": [
+        {
+          "pattern": "\\bPetPolicyCheck — Home\\b",
+          "match": "PetPolicyCheck — Home",
+          "snippet": "zione scritta. See Termini. aria-label: PetPolicyCheck — Home alt: PetPolicyCheck aria-label: Navigaz"
+        }
+      ]
+    },
+    {
+      "page": "it/routes/usa-to-south-korea.html",
+      "hits": [
+        {
+          "pattern": "\\bPetPolicyCheck — Home\\b",
+          "match": "PetPolicyCheck — Home",
+          "snippet": "zione scritta. See Termini. aria-label: PetPolicyCheck — Home alt: PetPolicyCheck aria-label: Navigaz"
+        }
+      ]
+    },
+    {
+      "page": "countries/france-map.html",
+      "hits": [
+        {
+          "pattern": "\\bChoose a (state|region|country|nation|province|Land)\\b",
+          "match": "Choose a region",
+          "snippet": "→ 3 Plane → 4 Hotel → 5 Grooming Region Choose a region… Auvergne-Rhône-Alpes (ARA) Bourgogne-F"
+        },
+        {
+          "pattern": "\\bChoose a (state|region|country|nation|province|Land)\\b",
+          "match": "Choose a region",
+          "snippet": "(PDL) Provence-Alpes-Côte d'Azur (PAC) Choose a region… Hub province Verified hub Capital ✈Air"
+        },
+        {
+          "pattern": "\\bHub province\\b",
+          "match": "Hub province",
+          "snippet": "lpes-Côte d'Azur (PAC) Choose a region… Hub province Verified hub Capital ✈Airport hub AUVER"
+        },
+        {
+          "pattern": "\\bVerified hub\\b",
+          "match": "Verified hub",
+          "snippet": "zur (PAC) Choose a region… Hub province Verified hub Capital ✈Airport hub AUVERGNE-RHÔNE-ALP"
+        },
+        {
+          "pattern": "\\bAirport hub\\b",
+          "match": "Airport hub",
+          "snippet": "ion… Hub province Verified hub Capital ✈Airport hub AUVERGNE-RHÔNE-ALPES BOURGOGNE-FRANCHE-"
+        },
+        {
+          "pattern": "\\bLabel colour legend\\b",
+          "match": "Label colour legend",
+          "snippet": "aria-label: Reset map view aria-label: Label colour legend aria-label: Facebook aria-label: X"
+        },
+        {
+          "pattern": "\\bReset map view\\b",
+          "match": "Reset map view",
+          "snippet": "oom in aria-label: Zoom out aria-label: Reset map view aria-label: Label colour legend aria-la"
+        },
+        {
+          "pattern": "\\bPrimary mobile\\b",
+          "match": "Primary mobile",
+          "snippet": "-label: Cancella la ricerca aria-label: Primary mobile aria-label: Country maps aria-label: Jo"
+        },
+        {
+          "pattern": "\\bCountry maps\\b",
+          "match": "Country maps",
+          "snippet": "aria-label: Primary mobile aria-label: Country maps aria-label: Journey order aria-label: M"
+        },
+        {
+          "pattern": "\\bSearch airlines, routes, hotels\\b",
+          "match": "Search airlines, routes, hotels",
+          "snippet": "yCheck aria-label: Primary placeholder: Search airlines, routes, hotels… aria-label: Cancella la ricerca aria-l"
+        },
+        {
+          "pattern": "\\bPetPolicyCheck — Home\\b",
+          "match": "PetPolicyCheck — Home",
+          "snippet": "zione scritta. See Termini. aria-label: PetPolicyCheck — Home alt: PetPolicyCheck aria-label: Primary"
+        }
+      ]
+    },
+    {
+      "page": "countries/germany-map.html",
+      "hits": [
+        {
+          "pattern": "\\bChoose a (state|region|country|nation|province|Land)\\b",
+          "match": "Choose a Land",
+          "snippet": "l → 3 Plane → 4 Hotel → 5 Grooming Land Choose a Land… Baden-Württemberg (BW) Bavaria (BY) Be"
+        },
+        {
+          "pattern": "\\bChoose a (state|region|country|nation|province|Land)\\b",
+          "match": "Choose a Land",
+          "snippet": "Schleswig-Holstein (SH) Thuringia (TH) Choose a Land… Hub province Verified hub Capital ✈Air"
+        },
+        {
+          "pattern": "\\bHub province\\b",
+          "match": "Hub province",
+          "snippet": "tein (SH) Thuringia (TH) Choose a Land… Hub province Verified hub Capital ✈Airport hub BAVAR"
+        },
+        {
+          "pattern": "\\bVerified hub\\b",
+          "match": "Verified hub",
+          "snippet": "ringia (TH) Choose a Land… Hub province Verified hub Capital ✈Airport hub BAVARIA BERLIN BRA"
+        },
+        {
+          "pattern": "\\bAirport hub\\b",
+          "match": "Airport hub",
+          "snippet": "and… Hub province Verified hub Capital ✈Airport hub BAVARIA BERLIN BRANDENBURG BREMEN HAMBU"
+        },
+        {
+          "pattern": "\\bLabel colour legend\\b",
+          "match": "Label colour legend",
+          "snippet": "aria-label: Reset map view aria-label: Label colour legend aria-label: Facebook aria-label: X"
+        },
+        {
+          "pattern": "\\bReset map view\\b",
+          "match": "Reset map view",
+          "snippet": "oom in aria-label: Zoom out aria-label: Reset map view aria-label: Label colour legend aria-la"
+        },
+        {
+          "pattern": "\\bPrimary mobile\\b",
+          "match": "Primary mobile",
+          "snippet": "-label: Cancella la ricerca aria-label: Primary mobile aria-label: Country maps aria-label: Jo"
+        },
+        {
+          "pattern": "\\bCountry maps\\b",
+          "match": "Country maps",
+          "snippet": "aria-label: Primary mobile aria-label: Country maps aria-label: Journey order aria-label: M"
+        },
+        {
+          "pattern": "\\bSearch airlines, routes, hotels\\b",
+          "match": "Search airlines, routes, hotels",
+          "snippet": "yCheck aria-label: Primary placeholder: Search airlines, routes, hotels… aria-label: Cancella la ricerca aria-l"
+        },
+        {
+          "pattern": "\\bPetPolicyCheck — Home\\b",
+          "match": "PetPolicyCheck — Home",
+          "snippet": "zione scritta. See Termini. aria-label: PetPolicyCheck — Home alt: PetPolicyCheck aria-label: Primary"
+        }
+      ]
+    },
+    {
+      "page": "countries/uk-map.html",
+      "hits": [
+        {
+          "pattern": "\\bChoose a (state|region|country|nation|province|Land)\\b",
+          "match": "Choose a region",
+          "snippet": "→ 3 Plane → 4 Hotel → 5 Grooming Region Choose a region… East Midlands (EM) East of England (EE"
+        },
+        {
+          "pattern": "\\bChoose a (state|region|country|nation|province|Land)\\b",
+          "match": "Choose a region",
+          "snippet": "ands (WM) Yorkshire and the Humber (YH) Choose a region… Hub province Verified hub Capital ✈Air"
+        },
+        {
+          "pattern": "\\bHub province\\b",
+          "match": "Hub province",
+          "snippet": "re and the Humber (YH) Choose a region… Hub province Verified hub Capital ✈Airport hub GREAT"
+        },
+        {
+          "pattern": "\\bVerified hub\\b",
+          "match": "Verified hub",
+          "snippet": "mber (YH) Choose a region… Hub province Verified hub Capital ✈Airport hub GREATER LONDON SCO"
+        },
+        {
+          "pattern": "\\bAirport hub\\b",
+          "match": "Airport hub",
+          "snippet": "ion… Hub province Verified hub Capital ✈Airport hub GREATER LONDON SCOTLAND Nottingham Norw"
+        },
+        {
+          "pattern": "\\bLabel colour legend\\b",
+          "match": "Label colour legend",
+          "snippet": "aria-label: Reset map view aria-label: Label colour legend aria-label: Facebook aria-label: X"
+        },
+        {
+          "pattern": "\\bReset map view\\b",
+          "match": "Reset map view",
+          "snippet": "oom in aria-label: Zoom out aria-label: Reset map view aria-label: Label colour legend aria-la"
+        },
+        {
+          "pattern": "\\bPrimary mobile\\b",
+          "match": "Primary mobile",
+          "snippet": "-label: Cancella la ricerca aria-label: Primary mobile aria-label: Country maps aria-label: Jo"
+        },
+        {
+          "pattern": "\\bCountry maps\\b",
+          "match": "Country maps",
+          "snippet": "aria-label: Primary mobile aria-label: Country maps aria-label: Journey order aria-label: M"
+        },
+        {
+          "pattern": "\\bSearch airlines, routes, hotels\\b",
+          "match": "Search airlines, routes, hotels",
+          "snippet": "yCheck aria-label: Primary placeholder: Search airlines, routes, hotels… aria-label: Cancella la ricerca aria-l"
+        },
+        {
+          "pattern": "\\bPetPolicyCheck — Home\\b",
+          "match": "PetPolicyCheck — Home",
+          "snippet": "zione scritta. See Termini. aria-label: PetPolicyCheck — Home alt: PetPolicyCheck aria-label: Primary"
+        }
+      ]
+    },
+    {
+      "page": "countries/usa-map.html",
+      "hits": [
+        {
+          "pattern": "\\bChoose a (state|region|country|nation|province|Land)\\b",
+          "match": "Choose a state",
+          "snippet": "→ 3 Plane → 4 Hotel → 5 Grooming State Choose a state… Alabama Alaska Arizona Arkansas Califo"
+        },
+        {
+          "pattern": "\\bChoose a (state|region|country|nation|province|Land)\\b",
+          "match": "Choose a state",
+          "snippet": "hington West Virginia Wisconsin Wyoming Choose a state… Hub & rule density (light → dark) City"
+        },
+        {
+          "pattern": "\\bPick a state or city\\b",
+          "match": "Pick a state or city",
+          "snippet": "Cities Capital ✈ International airports Pick a state or city Click any of the 50 states on the map"
+        },
+        {
+          "pattern": "\\bClick any of the 50 states\\b",
+          "match": "Click any of the 50 states",
+          "snippet": "national airports Pick a state or city Click any of the 50 states on the map (or use the list) to open it"
+        },
+        {
+          "pattern": "\\bLabel colour legend\\b",
+          "match": "Label colour legend",
+          "snippet": "(\"Zoom aria-label: t(\"Reset aria-label: Label colour legend aria-label: Facebook aria-label: X"
+        },
+        {
+          "pattern": "\\bPrimary mobile\\b",
+          "match": "Primary mobile",
+          "snippet": "-label: Cancella la ricerca aria-label: Primary mobile aria-label: Country maps aria-label: Jo"
+        },
+        {
+          "pattern": "\\bCountry maps\\b",
+          "match": "Country maps",
+          "snippet": "aria-label: Primary mobile aria-label: Country maps aria-label: Journey order aria-label: M"
+        },
+        {
+          "pattern": "\\bSearch airlines, routes, hotels\\b",
+          "match": "Search airlines, routes, hotels",
+          "snippet": "yCheck aria-label: Primary placeholder: Search airlines, routes, hotels… aria-label: Cancella la ricerca aria-l"
+        },
+        {
+          "pattern": "\\bPetPolicyCheck — Home\\b",
+          "match": "PetPolicyCheck — Home",
+          "snippet": "zione scritta. See Termini. aria-label: PetPolicyCheck — Home alt: PetPolicyCheck aria-label: Primary"
+        }
+      ]
+    },
+    {
+      "page": "es/countries/usa-map.html",
+      "hits": [
+        {
+          "pattern": "\\bChoose a (state|region|country|nation|province|Land)\\b",
+          "match": "Choose a state",
+          "snippet": "hington West Virginia Wisconsin Wyoming Choose a state… Densidad de centros y normas (claro →"
+        },
+        {
+          "pattern": "\\bPick a state or city\\b",
+          "match": "Pick a state or city",
+          "snippet": "s Capital ✈ Aeropuertos internacionales Pick a state or city Click any of the 50 states on the map"
+        },
+        {
+          "pattern": "\\bClick any of the 50 states\\b",
+          "match": "Click any of the 50 states",
+          "snippet": "s internacionales Pick a state or city Click any of the 50 states on the map (or use the list) to open it"
+        }
+      ]
+    },
+    {
+      "page": "es/countries/canada-map.html",
+      "hits": [
+        {
+          "pattern": "\\bChoose a (state|region|country|nation|province|Land)\\b",
+          "match": "Choose a province",
+          "snippet": "l → 5 Peluquería Provincia / territorio Choose a province… Alberta (AB) British Columbia (BC) Man"
+        },
+        {
+          "pattern": "\\bChoose a (state|region|country|nation|province|Land)\\b",
+          "match": "Choose a province",
+          "snippet": "uebec (QC) Saskatchewan (SK) Yukon (YT) Choose a province… Provincia centro Centro verificado Cap"
+        },
+        {
+          "pattern": "\\bReset map view\\b",
+          "match": "Reset map view",
+          "snippet": "oom in aria-label: Zoom out aria-label: Reset map view aria-label: Leyenda de etiquetas aria-l"
+        }
+      ]
+    }
+  ],
+  "hreflang": [
+    {
+      "page": "it/airlines/aeromexico.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/aeromexico.html",
+        "es": "https://petpolicycheck.com/es/airlines/aeromexico.html",
+        "it": "https://petpolicycheck.com/it/airlines/aeromexico.html",
+        "x-default": "https://petpolicycheck.com/airlines/aeromexico.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/aeromexico.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/aeromexico.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/aeromexico.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/air-canada.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/air-canada.html",
+        "it": "https://petpolicycheck.com/it/airlines/air-canada.html",
+        "x-default": "https://petpolicycheck.com/airlines/air-canada.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/air-canada.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/air-canada.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/air-canada.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/air-france.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/air-france.html",
+        "it": "https://petpolicycheck.com/it/airlines/air-france.html",
+        "x-default": "https://petpolicycheck.com/airlines/air-france.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/air-france.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/air-france.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/air-france.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/air-premia.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/air-premia.html",
+        "it": "https://petpolicycheck.com/it/airlines/air-premia.html",
+        "x-default": "https://petpolicycheck.com/airlines/air-premia.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/air-premia.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/air-premia.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/air-premia.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/alaska.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/alaska.html",
+        "es": "https://petpolicycheck.com/es/airlines/alaska.html",
+        "it": "https://petpolicycheck.com/it/airlines/alaska.html",
+        "x-default": "https://petpolicycheck.com/airlines/alaska.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/alaska.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/alaska.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/alaska.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/american.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/american.html",
+        "es": "https://petpolicycheck.com/es/airlines/american.html",
+        "it": "https://petpolicycheck.com/it/airlines/american.html",
+        "x-default": "https://petpolicycheck.com/airlines/american.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/american.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/american.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/american.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/ana.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/ana.html",
+        "it": "https://petpolicycheck.com/it/airlines/ana.html",
+        "x-default": "https://petpolicycheck.com/airlines/ana.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/ana.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/ana.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/ana.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/asiana.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/asiana.html",
+        "it": "https://petpolicycheck.com/it/airlines/asiana.html",
+        "x-default": "https://petpolicycheck.com/airlines/asiana.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/asiana.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/asiana.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/asiana.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/british-airways.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/british-airways.html",
+        "it": "https://petpolicycheck.com/it/airlines/british-airways.html",
+        "x-default": "https://petpolicycheck.com/airlines/british-airways.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/british-airways.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/british-airways.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/british-airways.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/compare/index.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/compare/",
+        "es": "https://petpolicycheck.com/es/airlines/compare/",
+        "it": "https://petpolicycheck.com/it/airlines/compare/",
+        "x-default": "https://petpolicycheck.com/airlines/compare/"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/compare/",
+      "issues": [
+        "EN page hreflang it='https://petpolicycheck.com/it/airlines/compare/' expected https://petpolicycheck.com/it/airlines/compare/index.html"
+      ],
+      "reciprocity": {
+        "en": "/airlines/compare/",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/compare/",
+        "ok": false
+      }
+    },
+    {
+      "page": "it/airlines/delta.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/delta.html",
+        "es": "https://petpolicycheck.com/es/airlines/delta.html",
+        "it": "https://petpolicycheck.com/it/airlines/delta.html",
+        "x-default": "https://petpolicycheck.com/airlines/delta.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/delta.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/delta.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/delta.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/frontier.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/frontier.html",
+        "it": "https://petpolicycheck.com/it/airlines/frontier.html",
+        "x-default": "https://petpolicycheck.com/airlines/frontier.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/frontier.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/frontier.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/frontier.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/hawaiian.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/hawaiian.html",
+        "it": "https://petpolicycheck.com/it/airlines/hawaiian.html",
+        "x-default": "https://petpolicycheck.com/airlines/hawaiian.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/hawaiian.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/hawaiian.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/hawaiian.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/index.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/",
+        "it": "https://petpolicycheck.com/it/airlines/",
+        "x-default": "https://petpolicycheck.com/airlines/"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/",
+      "issues": [
+        "EN page hreflang it='https://petpolicycheck.com/it/airlines/' expected https://petpolicycheck.com/it/airlines/index.html"
+      ],
+      "reciprocity": {
+        "en": "/airlines/",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/",
+        "ok": false
+      }
+    },
+    {
+      "page": "it/airlines/jal.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/jal.html",
+        "it": "https://petpolicycheck.com/it/airlines/jal.html",
+        "x-default": "https://petpolicycheck.com/airlines/jal.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/jal.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/jal.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/jal.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/jeju-air.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/jeju-air.html",
+        "it": "https://petpolicycheck.com/it/airlines/jeju-air.html",
+        "x-default": "https://petpolicycheck.com/airlines/jeju-air.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/jeju-air.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/jeju-air.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/jeju-air.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/jetblue.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/jetblue.html",
+        "it": "https://petpolicycheck.com/it/airlines/jetblue.html",
+        "x-default": "https://petpolicycheck.com/airlines/jetblue.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/jetblue.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/jetblue.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/jetblue.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/korean-air.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/korean-air.html",
+        "it": "https://petpolicycheck.com/it/airlines/korean-air.html",
+        "x-default": "https://petpolicycheck.com/airlines/korean-air.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/korean-air.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/korean-air.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/korean-air.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/lufthansa.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/lufthansa.html",
+        "it": "https://petpolicycheck.com/it/airlines/lufthansa.html",
+        "x-default": "https://petpolicycheck.com/airlines/lufthansa.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/lufthansa.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/lufthansa.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/lufthansa.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/peach.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/peach.html",
+        "it": "https://petpolicycheck.com/it/airlines/peach.html",
+        "x-default": "https://petpolicycheck.com/airlines/peach.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/peach.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/peach.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/peach.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/porter.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/porter.html",
+        "it": "https://petpolicycheck.com/it/airlines/porter.html",
+        "x-default": "https://petpolicycheck.com/airlines/porter.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/porter.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/porter.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/porter.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/snub-nosed-breeds.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/snub-nosed-breeds.html",
+        "es": "https://petpolicycheck.com/es/airlines/snub-nosed-breeds.html",
+        "it": "https://petpolicycheck.com/it/airlines/snub-nosed-breeds.html",
+        "x-default": "https://petpolicycheck.com/airlines/snub-nosed-breeds.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/snub-nosed-breeds.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/snub-nosed-breeds.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/snub-nosed-breeds.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/southwest.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/southwest.html",
+        "it": "https://petpolicycheck.com/it/airlines/southwest.html",
+        "x-default": "https://petpolicycheck.com/airlines/southwest.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/southwest.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/southwest.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/southwest.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/spirit.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/spirit.html",
+        "it": "https://petpolicycheck.com/it/airlines/spirit.html",
+        "x-default": "https://petpolicycheck.com/airlines/spirit.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/spirit.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/spirit.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/spirit.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/tway.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/tway.html",
+        "it": "https://petpolicycheck.com/it/airlines/tway.html",
+        "x-default": "https://petpolicycheck.com/airlines/tway.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/tway.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/tway.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/tway.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/united.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/united.html",
+        "es": "https://petpolicycheck.com/es/airlines/united.html",
+        "it": "https://petpolicycheck.com/it/airlines/united.html",
+        "x-default": "https://petpolicycheck.com/airlines/united.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/united.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/united.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/united.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/viva-aerobus.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/viva-aerobus.html",
+        "es": "https://petpolicycheck.com/es/airlines/viva-aerobus.html",
+        "it": "https://petpolicycheck.com/it/airlines/viva-aerobus.html",
+        "x-default": "https://petpolicycheck.com/airlines/viva-aerobus.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/viva-aerobus.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/viva-aerobus.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/viva-aerobus.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/volaris.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/volaris.html",
+        "es": "https://petpolicycheck.com/es/airlines/volaris.html",
+        "it": "https://petpolicycheck.com/it/airlines/volaris.html",
+        "x-default": "https://petpolicycheck.com/airlines/volaris.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/volaris.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/volaris.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/volaris.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/westjet.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/westjet.html",
+        "it": "https://petpolicycheck.com/it/airlines/westjet.html",
+        "x-default": "https://petpolicycheck.com/airlines/westjet.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/westjet.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/westjet.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/westjet.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/airlines/zipair.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/airlines/zipair.html",
+        "it": "https://petpolicycheck.com/it/airlines/zipair.html",
+        "x-default": "https://petpolicycheck.com/airlines/zipair.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/airlines/zipair.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/airlines/zipair.html",
+        "it_on_en": "https://petpolicycheck.com/it/airlines/zipair.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/countries/canada-map.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/countries/canada-map.html",
+        "es": "https://petpolicycheck.com/es/countries/canada-map.html",
+        "it": "https://petpolicycheck.com/it/countries/canada-map.html",
+        "x-default": "https://petpolicycheck.com/countries/canada-map.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/countries/canada-map.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/countries/canada-map.html",
+        "it_on_en": "https://petpolicycheck.com/it/countries/canada-map.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/countries/canada.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/countries/canada.html",
+        "es": "https://petpolicycheck.com/es/countries/canada.html",
+        "it": "https://petpolicycheck.com/it/countries/canada.html",
+        "x-default": "https://petpolicycheck.com/countries/canada.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/countries/canada.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/countries/canada.html",
+        "it_on_en": "https://petpolicycheck.com/it/countries/canada.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/countries/france-map.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/countries/france-map.html",
+        "it": "https://petpolicycheck.com/it/countries/france-map.html",
+        "x-default": "https://petpolicycheck.com/countries/france-map.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/countries/france-map.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/countries/france-map.html",
+        "it_on_en": "https://petpolicycheck.com/it/countries/france-map.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/countries/france.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/countries/france.html",
+        "it": "https://petpolicycheck.com/it/countries/france.html",
+        "x-default": "https://petpolicycheck.com/countries/france.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/countries/france.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/countries/france.html",
+        "it_on_en": "https://petpolicycheck.com/it/countries/france.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/countries/germany-map.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/countries/germany-map.html",
+        "it": "https://petpolicycheck.com/it/countries/germany-map.html",
+        "x-default": "https://petpolicycheck.com/countries/germany-map.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/countries/germany-map.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/countries/germany-map.html",
+        "it_on_en": "https://petpolicycheck.com/it/countries/germany-map.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/countries/germany.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/countries/germany.html",
+        "it": "https://petpolicycheck.com/it/countries/germany.html",
+        "x-default": "https://petpolicycheck.com/countries/germany.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/countries/germany.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/countries/germany.html",
+        "it_on_en": "https://petpolicycheck.com/it/countries/germany.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/countries/italy-map.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/countries/italy-map.html",
+        "it": "https://petpolicycheck.com/it/countries/italy-map.html",
+        "x-default": "https://petpolicycheck.com/countries/italy-map.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/countries/italy-map.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/countries/italy-map.html",
+        "it_on_en": "https://petpolicycheck.com/it/countries/italy-map.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/countries/italy.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/countries/italy.html",
+        "it": "https://petpolicycheck.com/it/countries/italy.html",
+        "x-default": "https://petpolicycheck.com/countries/italy.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/countries/italy.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/countries/italy.html",
+        "it_on_en": "https://petpolicycheck.com/it/countries/italy.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/countries/uk-map.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/countries/uk-map.html",
+        "it": "https://petpolicycheck.com/it/countries/uk-map.html",
+        "x-default": "https://petpolicycheck.com/countries/uk-map.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/countries/uk-map.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/countries/uk-map.html",
+        "it_on_en": "https://petpolicycheck.com/it/countries/uk-map.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/countries/uk.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/countries/uk.html",
+        "it": "https://petpolicycheck.com/it/countries/uk.html",
+        "x-default": "https://petpolicycheck.com/countries/uk.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/countries/uk.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/countries/uk.html",
+        "it_on_en": "https://petpolicycheck.com/it/countries/uk.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/countries/usa-map.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/countries/usa-map.html",
+        "es": "https://petpolicycheck.com/es/countries/usa-map.html",
+        "it": "https://petpolicycheck.com/it/countries/usa-map.html",
+        "x-default": "https://petpolicycheck.com/countries/usa-map.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/countries/usa-map.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/countries/usa-map.html",
+        "it_on_en": "https://petpolicycheck.com/it/countries/usa-map.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/countries/usa.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/countries/usa.html",
+        "es": "https://petpolicycheck.com/es/countries/usa.html",
+        "it": "https://petpolicycheck.com/it/countries/usa.html",
+        "x-default": "https://petpolicycheck.com/countries/usa.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/countries/usa.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/countries/usa.html",
+        "it_on_en": "https://petpolicycheck.com/it/countries/usa.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/index.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/",
+        "es": "https://petpolicycheck.com/es/",
+        "it": "https://petpolicycheck.com/it/",
+        "x-default": "https://petpolicycheck.com/"
+      },
+      "canonical": "https://petpolicycheck.com/it/",
+      "issues": [
+        "EN page hreflang it='https://petpolicycheck.com/it/' expected https://petpolicycheck.com/it/index.html"
+      ],
+      "reciprocity": {
+        "en": "/",
+        "it_on_en": "https://petpolicycheck.com/it/",
+        "ok": false
+      }
+    },
+    {
+      "page": "it/routes/canada-to-usa-air-canada.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/canada-to-usa-air-canada.html",
+        "es": "https://petpolicycheck.com/es/routes/canada-to-usa-air-canada.html",
+        "it": "https://petpolicycheck.com/it/routes/canada-to-usa-air-canada.html",
+        "x-default": "https://petpolicycheck.com/routes/canada-to-usa-air-canada.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/canada-to-usa-air-canada.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/canada-to-usa-air-canada.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/canada-to-usa-air-canada.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/canada-to-usa-alaska.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/canada-to-usa-alaska.html",
+        "es": "https://petpolicycheck.com/es/routes/canada-to-usa-alaska.html",
+        "it": "https://petpolicycheck.com/it/routes/canada-to-usa-alaska.html",
+        "x-default": "https://petpolicycheck.com/routes/canada-to-usa-alaska.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/canada-to-usa-alaska.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/canada-to-usa-alaska.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/canada-to-usa-alaska.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/canada-to-usa-american.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/canada-to-usa-american.html",
+        "es": "https://petpolicycheck.com/es/routes/canada-to-usa-american.html",
+        "it": "https://petpolicycheck.com/it/routes/canada-to-usa-american.html",
+        "x-default": "https://petpolicycheck.com/routes/canada-to-usa-american.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/canada-to-usa-american.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/canada-to-usa-american.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/canada-to-usa-american.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/canada-to-usa-delta.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/canada-to-usa-delta.html",
+        "es": "https://petpolicycheck.com/es/routes/canada-to-usa-delta.html",
+        "it": "https://petpolicycheck.com/it/routes/canada-to-usa-delta.html",
+        "x-default": "https://petpolicycheck.com/routes/canada-to-usa-delta.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/canada-to-usa-delta.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/canada-to-usa-delta.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/canada-to-usa-delta.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/canada-to-usa-united.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/canada-to-usa-united.html",
+        "es": "https://petpolicycheck.com/es/routes/canada-to-usa-united.html",
+        "it": "https://petpolicycheck.com/it/routes/canada-to-usa-united.html",
+        "x-default": "https://petpolicycheck.com/routes/canada-to-usa-united.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/canada-to-usa-united.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/canada-to-usa-united.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/canada-to-usa-united.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/france-to-usa-air-france.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/france-to-usa-air-france.html",
+        "es": "https://petpolicycheck.com/es/routes/france-to-usa-air-france.html",
+        "it": "https://petpolicycheck.com/it/routes/france-to-usa-air-france.html",
+        "x-default": "https://petpolicycheck.com/routes/france-to-usa-air-france.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/france-to-usa-air-france.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/france-to-usa-air-france.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/france-to-usa-air-france.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/france-to-usa-delta.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/france-to-usa-delta.html",
+        "es": "https://petpolicycheck.com/es/routes/france-to-usa-delta.html",
+        "it": "https://petpolicycheck.com/it/routes/france-to-usa-delta.html",
+        "x-default": "https://petpolicycheck.com/routes/france-to-usa-delta.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/france-to-usa-delta.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/france-to-usa-delta.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/france-to-usa-delta.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/france-to-usa-united.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/france-to-usa-united.html",
+        "es": "https://petpolicycheck.com/es/routes/france-to-usa-united.html",
+        "it": "https://petpolicycheck.com/it/routes/france-to-usa-united.html",
+        "x-default": "https://petpolicycheck.com/routes/france-to-usa-united.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/france-to-usa-united.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/france-to-usa-united.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/france-to-usa-united.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/index.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/",
+        "es": "https://petpolicycheck.com/es/routes/",
+        "it": "https://petpolicycheck.com/it/routes/",
+        "x-default": "https://petpolicycheck.com/routes/"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/",
+      "issues": [
+        "EN page hreflang it='https://petpolicycheck.com/it/routes/' expected https://petpolicycheck.com/it/routes/index.html"
+      ],
+      "reciprocity": {
+        "en": "/routes/",
+        "it_on_en": "https://petpolicycheck.com/it/routes/",
+        "ok": false
+      }
+    },
+    {
+      "page": "it/routes/japan-to-usa-american.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/japan-to-usa-american.html",
+        "es": "https://petpolicycheck.com/es/routes/japan-to-usa-american.html",
+        "it": "https://petpolicycheck.com/it/routes/japan-to-usa-american.html",
+        "x-default": "https://petpolicycheck.com/routes/japan-to-usa-american.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/japan-to-usa-american.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/japan-to-usa-american.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/japan-to-usa-american.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/japan-to-usa-delta.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/japan-to-usa-delta.html",
+        "es": "https://petpolicycheck.com/es/routes/japan-to-usa-delta.html",
+        "it": "https://petpolicycheck.com/it/routes/japan-to-usa-delta.html",
+        "x-default": "https://petpolicycheck.com/routes/japan-to-usa-delta.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/japan-to-usa-delta.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/japan-to-usa-delta.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/japan-to-usa-delta.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/japan-to-usa-united.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/japan-to-usa-united.html",
+        "es": "https://petpolicycheck.com/es/routes/japan-to-usa-united.html",
+        "it": "https://petpolicycheck.com/it/routes/japan-to-usa-united.html",
+        "x-default": "https://petpolicycheck.com/routes/japan-to-usa-united.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/japan-to-usa-united.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/japan-to-usa-united.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/japan-to-usa-united.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/mexico-to-usa-alaska.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/mexico-to-usa-alaska.html",
+        "es": "https://petpolicycheck.com/es/routes/mexico-to-usa-alaska.html",
+        "it": "https://petpolicycheck.com/it/routes/mexico-to-usa-alaska.html",
+        "x-default": "https://petpolicycheck.com/routes/mexico-to-usa-alaska.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/mexico-to-usa-alaska.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/mexico-to-usa-alaska.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/mexico-to-usa-alaska.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/mexico-to-usa-american.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/mexico-to-usa-american.html",
+        "es": "https://petpolicycheck.com/es/routes/mexico-to-usa-american.html",
+        "it": "https://petpolicycheck.com/it/routes/mexico-to-usa-american.html",
+        "x-default": "https://petpolicycheck.com/routes/mexico-to-usa-american.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/mexico-to-usa-american.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/mexico-to-usa-american.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/mexico-to-usa-american.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/mexico-to-usa-delta.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/mexico-to-usa-delta.html",
+        "es": "https://petpolicycheck.com/es/routes/mexico-to-usa-delta.html",
+        "it": "https://petpolicycheck.com/it/routes/mexico-to-usa-delta.html",
+        "x-default": "https://petpolicycheck.com/routes/mexico-to-usa-delta.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/mexico-to-usa-delta.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/mexico-to-usa-delta.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/mexico-to-usa-delta.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/mexico-to-usa-united.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/mexico-to-usa-united.html",
+        "es": "https://petpolicycheck.com/es/routes/mexico-to-usa-united.html",
+        "it": "https://petpolicycheck.com/it/routes/mexico-to-usa-united.html",
+        "x-default": "https://petpolicycheck.com/routes/mexico-to-usa-united.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/mexico-to-usa-united.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/mexico-to-usa-united.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/mexico-to-usa-united.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/south-korea-to-usa-delta.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/south-korea-to-usa-delta.html",
+        "es": "https://petpolicycheck.com/es/routes/south-korea-to-usa-delta.html",
+        "it": "https://petpolicycheck.com/it/routes/south-korea-to-usa-delta.html",
+        "x-default": "https://petpolicycheck.com/routes/south-korea-to-usa-delta.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/south-korea-to-usa-delta.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/south-korea-to-usa-delta.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/south-korea-to-usa-delta.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/south-korea-to-usa-korean-air.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/south-korea-to-usa-korean-air.html",
+        "es": "https://petpolicycheck.com/es/routes/south-korea-to-usa-korean-air.html",
+        "it": "https://petpolicycheck.com/it/routes/south-korea-to-usa-korean-air.html",
+        "x-default": "https://petpolicycheck.com/routes/south-korea-to-usa-korean-air.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/south-korea-to-usa-korean-air.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/south-korea-to-usa-korean-air.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/south-korea-to-usa-korean-air.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/south-korea-to-usa-united.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/south-korea-to-usa-united.html",
+        "es": "https://petpolicycheck.com/es/routes/south-korea-to-usa-united.html",
+        "it": "https://petpolicycheck.com/it/routes/south-korea-to-usa-united.html",
+        "x-default": "https://petpolicycheck.com/routes/south-korea-to-usa-united.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/south-korea-to-usa-united.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/south-korea-to-usa-united.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/south-korea-to-usa-united.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/uk-to-france-air-france.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/uk-to-france-air-france.html",
+        "es": "https://petpolicycheck.com/es/routes/uk-to-france-air-france.html",
+        "it": "https://petpolicycheck.com/it/routes/uk-to-france-air-france.html",
+        "x-default": "https://petpolicycheck.com/routes/uk-to-france-air-france.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/uk-to-france-air-france.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/uk-to-france-air-france.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/uk-to-france-air-france.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/uk-to-france-british-airways.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/uk-to-france-british-airways.html",
+        "es": "https://petpolicycheck.com/es/routes/uk-to-france-british-airways.html",
+        "it": "https://petpolicycheck.com/it/routes/uk-to-france-british-airways.html",
+        "x-default": "https://petpolicycheck.com/routes/uk-to-france-british-airways.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/uk-to-france-british-airways.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/uk-to-france-british-airways.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/uk-to-france-british-airways.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-canada.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-canada.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-canada.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-canada.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-canada.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-canada.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-canada.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-canada.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-france.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-france.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-france.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-france.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-france.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-france.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-france.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-france.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-mexico.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-mexico.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-mexico.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-mexico.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-mexico.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-mexico.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-mexico.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-mexico.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-canada-air-canada.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-canada-air-canada.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-canada-air-canada.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-canada-air-canada.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-canada-air-canada.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-canada-air-canada.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-canada-air-canada.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-canada-air-canada.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-canada-alaska.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-canada-alaska.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-canada-alaska.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-canada-alaska.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-canada-alaska.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-canada-alaska.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-canada-alaska.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-canada-alaska.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-canada-american.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-canada-american.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-canada-american.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-canada-american.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-canada-american.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-canada-american.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-canada-american.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-canada-american.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-canada-delta.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-canada-delta.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-canada-delta.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-canada-delta.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-canada-delta.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-canada-delta.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-canada-delta.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-canada-delta.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-canada-united.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-canada-united.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-canada-united.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-canada-united.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-canada-united.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-canada-united.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-canada-united.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-canada-united.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-france-air-france.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-france-air-france.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-france-air-france.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-france-air-france.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-france-air-france.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-france-air-france.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-france-air-france.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-france-air-france.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-france-american.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-france-american.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-france-american.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-france-american.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-france-american.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-france-american.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-france-american.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-france-american.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-france-delta.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-france-delta.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-france-delta.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-france-delta.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-france-delta.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-france-delta.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-france-delta.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-france-delta.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-france-united.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-france-united.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-france-united.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-france-united.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-france-united.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-france-united.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-france-united.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-france-united.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-germany-delta.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-germany-delta.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-germany-delta.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-germany-delta.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-germany-delta.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-germany-delta.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-germany-delta.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-germany-delta.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-germany-lufthansa.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-germany-lufthansa.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-germany-lufthansa.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-germany-lufthansa.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-germany-lufthansa.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-germany-lufthansa.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-germany-lufthansa.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-germany-lufthansa.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-germany-united.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-germany-united.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-germany-united.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-germany-united.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-germany-united.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-germany-united.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-germany-united.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-germany-united.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-japan-american.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-japan-american.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-japan-american.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-japan-american.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-japan-american.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-japan-american.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-japan-american.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-japan-american.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-japan-delta.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-japan-delta.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-japan-delta.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-japan-delta.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-japan-delta.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-japan-delta.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-japan-delta.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-japan-delta.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-japan-korean-air.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-japan-korean-air.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-japan-korean-air.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-japan-korean-air.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-japan-korean-air.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-japan-korean-air.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-japan-korean-air.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-japan-korean-air.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-japan-united.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-japan-united.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-japan-united.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-japan-united.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-japan-united.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-japan-united.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-japan-united.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-japan-united.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-japan.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-japan.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-japan.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-japan.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-japan.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-japan.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-japan.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-japan.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-mexico-alaska.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-mexico-alaska.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-mexico-alaska.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-mexico-alaska.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-mexico-alaska.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-mexico-alaska.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-mexico-alaska.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-mexico-alaska.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-mexico-american.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-mexico-american.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-mexico-american.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-mexico-american.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-mexico-american.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-mexico-american.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-mexico-american.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-mexico-american.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-mexico-delta.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-mexico-delta.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-mexico-delta.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-mexico-delta.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-mexico-delta.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-mexico-delta.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-mexico-delta.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-mexico-delta.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-mexico-united.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-mexico-united.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-mexico-united.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-mexico-united.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-mexico-united.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-mexico-united.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-mexico-united.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-mexico-united.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-south-korea-delta.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-south-korea-delta.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-south-korea-delta.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-south-korea-delta.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-south-korea-delta.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-south-korea-delta.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-south-korea-delta.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-south-korea-delta.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-south-korea-korean-air.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-south-korea-korean-air.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-south-korea-korean-air.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-south-korea-korean-air.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-south-korea-korean-air.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-south-korea-korean-air.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-south-korea-korean-air.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-south-korea-korean-air.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-south-korea-united.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-south-korea-united.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-south-korea-united.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-south-korea-united.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-south-korea-united.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-south-korea-united.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-south-korea-united.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-south-korea-united.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-to-south-korea.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-to-south-korea.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-to-south-korea.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-to-south-korea.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-to-south-korea.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-to-south-korea.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-to-south-korea.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-to-south-korea.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/routes/usa-uk.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/routes/usa-uk.html",
+        "es": "https://petpolicycheck.com/es/routes/usa-uk.html",
+        "it": "https://petpolicycheck.com/it/routes/usa-uk.html",
+        "x-default": "https://petpolicycheck.com/routes/usa-uk.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/routes/usa-uk.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/routes/usa-uk.html",
+        "it_on_en": "https://petpolicycheck.com/it/routes/usa-uk.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/vet-info/index.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/vet-info/",
+        "es": "https://petpolicycheck.com/es/vet-info/",
+        "it": "https://petpolicycheck.com/it/vet-info/",
+        "x-default": "https://petpolicycheck.com/vet-info/"
+      },
+      "canonical": "https://petpolicycheck.com/it/vet-info/",
+      "issues": [
+        "EN page hreflang it='https://petpolicycheck.com/it/vet-info/' expected https://petpolicycheck.com/it/vet-info/index.html"
+      ],
+      "reciprocity": {
+        "en": "/vet-info/",
+        "it_on_en": "https://petpolicycheck.com/it/vet-info/",
+        "ok": false
+      }
+    },
+    {
+      "page": "it/vet-prep/checklist.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/vet-prep/checklist.html",
+        "es": "https://petpolicycheck.com/es/vet-prep/checklist.html",
+        "it": "https://petpolicycheck.com/it/vet-prep/checklist.html",
+        "x-default": "https://petpolicycheck.com/vet-prep/checklist.html"
+      },
+      "canonical": "https://petpolicycheck.com/it/vet-prep/checklist.html",
+      "issues": [],
+      "reciprocity": {
+        "en": "/vet-prep/checklist.html",
+        "it_on_en": "https://petpolicycheck.com/it/vet-prep/checklist.html",
+        "ok": true
+      }
+    },
+    {
+      "page": "it/vet-prep/index.html",
+      "alts": {
+        "en": "https://petpolicycheck.com/vet-prep/",
+        "es": "https://petpolicycheck.com/es/vet-prep/",
+        "it": "https://petpolicycheck.com/it/vet-prep/",
+        "x-default": "https://petpolicycheck.com/vet-prep/"
+      },
+      "canonical": "https://petpolicycheck.com/it/vet-prep/",
+      "issues": [
+        "EN page hreflang it='https://petpolicycheck.com/it/vet-prep/' expected https://petpolicycheck.com/it/vet-prep/index.html"
+      ],
+      "reciprocity": {
+        "en": "/vet-prep/",
+        "it_on_en": "https://petpolicycheck.com/it/vet-prep/",
+        "ok": false
+      }
+    }
+  ],
+  "links": {
+    "checked": 2971,
+    "not_200": []
+  },
+  "maps": [
+    {
+      "page": "it/countries/canada-map.html",
+      "currents": [
+        {
+          "href": "/it/countries/canada-map.html",
+          "text": "Mappa del Canada"
+        }
+      ],
+      "aria": "Mappa del Canada",
+      "dataName": "Canada",
+      "unit": "provincia",
+      "hasSvg": true,
+      "ok_tab": true,
+      "ok_aria": true,
+      "ok_data": true
+    },
+    {
+      "page": "it/countries/france-map.html",
+      "currents": [
+        {
+          "href": "/it/countries/france-map.html",
+          "text": "Mappa della Francia"
+        }
+      ],
+      "aria": "Mappa della Francia",
+      "dataName": "Francia",
+      "unit": "regione",
+      "hasSvg": true,
+      "ok_tab": true,
+      "ok_aria": true,
+      "ok_data": true
+    },
+    {
+      "page": "it/countries/germany-map.html",
+      "currents": [
+        {
+          "href": "/it/countries/germany-map.html",
+          "text": "Mappa della Germania"
+        }
+      ],
+      "aria": "Mappa della Germania",
+      "dataName": "Germania",
+      "unit": "Land",
+      "hasSvg": true,
+      "ok_tab": true,
+      "ok_aria": true,
+      "ok_data": true
+    },
+    {
+      "page": "it/countries/italy-map.html",
+      "currents": [
+        {
+          "href": "/it/countries/italy-map.html",
+          "text": "Mappa dell’Italia"
+        }
+      ],
+      "aria": "Regioni italiane",
+      "dataName": "Italia",
+      "unit": "regione",
+      "hasSvg": true,
+      "ok_tab": true,
+      "ok_aria": true,
+      "ok_data": true
+    },
+    {
+      "page": "it/countries/uk-map.html",
+      "currents": [
+        {
+          "href": "/it/countries/uk-map.html",
+          "text": "Mappa del Regno Unito"
+        }
+      ],
+      "aria": "Mappa del Regno Unito",
+      "dataName": "Regno Unito",
+      "unit": "nazione",
+      "hasSvg": true,
+      "ok_tab": true,
+      "ok_aria": true,
+      "ok_data": true
+    },
+    {
+      "page": "it/countries/usa-map.html",
+      "currents": [
+        {
+          "href": "/it/countries/usa-map.html",
+          "text": "Mappa USA"
+        }
+      ],
+      "aria": "Mappa degli Stati Uniti",
+      "dataName": "USA_RULES",
+      "unit": null,
+      "hasSvg": true,
+      "ok_tab": true,
+      "ok_aria": true,
+      "ok_data": true
+    },
+    {
+      "page": "countries/france-map.html",
+      "currents": [
+        {
+          "href": "france-map.html",
+          "text": "France Map"
+        }
+      ],
+      "aria": "Map of France",
+      "dataName": "France",
+      "unit": "region",
+      "hasSvg": true,
+      "ok_tab": true,
+      "ok_aria": true,
+      "ok_data": true
+    },
+    {
+      "page": "countries/germany-map.html",
+      "currents": [
+        {
+          "href": "germany-map.html",
+          "text": "Germany Map"
+        }
+      ],
+      "aria": "Map of Germany",
+      "dataName": "Germany",
+      "unit": "Land",
+      "hasSvg": true,
+      "ok_tab": true,
+      "ok_aria": true,
+      "ok_data": true
+    },
+    {
+      "page": "countries/uk-map.html",
+      "currents": [
+        {
+          "href": "uk-map.html",
+          "text": "UK Map"
+        }
+      ],
+      "aria": "Map of the United Kingdom",
+      "dataName": "United Kingdom",
+      "unit": "region",
+      "hasSvg": true,
+      "ok_tab": true,
+      "ok_aria": true,
+      "ok_data": true
+    },
+    {
+      "page": "es/countries/usa-map.html",
+      "currents": [
+        {
+          "href": "/es/countries/usa-map.html",
+          "text": "Mapa EE. UU."
+        }
+      ],
+      "aria": "Mapa de los Estados Unidos",
+      "dataName": "USA_RULES",
+      "unit": null,
+      "hasSvg": true,
+      "ok_tab": true,
+      "ok_aria": true,
+      "ok_data": true
+    },
+    {
+      "page": "es/countries/canada-map.html",
+      "currents": [
+        {
+          "href": "/es/countries/canada-map.html",
+          "text": "Mapa Canadá"
+        }
+      ],
+      "aria": "Mapa de Canadá",
+      "dataName": "Canada",
+      "unit": "province",
+      "hasSvg": true,
+      "ok_tab": true,
+      "ok_aria": true,
+      "ok_data": true
+    }
+  ],
+  "shots": [
+    "qa/it-p1d/it-snub-nosed-breeds-1280.png",
+    "qa/it-p1d/it-snub-nosed-breeds-390.png",
+    "qa/it-p1d/it-usa-to-japan-1280.png",
+    "qa/it-p1d/it-usa-to-japan-390.png",
+    "qa/it-p1d/it-usa-to-south-korea-1280.png",
+    "qa/it-p1d/it-usa-to-south-korea-390.png",
+    "qa/it-p1d/it-france-map-1280.png",
+    "qa/it-p1d/it-france-map-390.png",
+    "qa/it-p1d/it-germany-map-1280.png",
+    "qa/it-p1d/it-germany-map-390.png",
+    "qa/it-p1d/it-uk-map-1280.png",
+    "qa/it-p1d/it-uk-map-390.png",
+    "qa/it-p1d/it-usa-map-1280.png",
+    "qa/it-p1d/it-usa-map-390.png",
+    "qa/it-p1d/en-france-map-1280.png",
+    "qa/it-p1d/es-usa-map-1280.png"
+  ],
+  "es_france_map": "missing — /es/countries/france-map.html does not exist",
+  "pages": 102
+}

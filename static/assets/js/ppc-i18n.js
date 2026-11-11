@@ -1,9 +1,9 @@
-/* PetPolicyCheck · Tier-1 hybrid i18n (EN|FR|ES|DE|KO|JA). Initials only — zero flags.
+/* PetPolicyCheck · Tier-1 hybrid i18n (EN|FR|ES|IT|DE|KO|JA). Initials only — zero flags.
    Persists ppc_lang + ?lang=. Single global switcher; syncs page-local switchers. */
 (function () {
   'use strict';
-  var LANGS = ['en', 'es', 'fr', 'ko', 'ja', 'de'];
-  var LANG_LABELS = {en:'EN', es:'ES', fr:'FR', ko:'KR', ja:'JP', de:'DE'};
+  var LANGS = ['en', 'es', 'it', 'fr', 'ko', 'ja', 'de'];
+  var LANG_LABELS = {en:'EN', es:'ES', it:'IT', fr:'FR', ko:'KR', ja:'JP', de:'DE'};
   var KEY = 'ppc_lang';
   var D = (window.PPC_I18N && window.PPC_I18N.strings) || {};
   var L = 'en';
@@ -11,9 +11,7 @@
   function ppcPathLocale() {
     try {
       var p = location.pathname || '/';
-      if (p === '/es' || p.indexOf('/es/') === 0) return 'es';
-      /* future: /fr/ /de/ /ko/ /ja/ */
-      var m = p.match(/^\/(fr|de|ko|ja)(?=\/|$)/);
+      var m = p.match(/^\/(es|it|fr|de|ko|ja)(?=\/|$)/);
       if (m) return m[1];
     } catch (e) {}
     return null;
@@ -54,24 +52,52 @@
         var path = location.pathname || '/';
         var search = location.search || '';
         var hash = location.hash || '';
-        /* Dedicated /es/ tree (P0): switching EN↔ES navigates between trees.
+        /* Dedicated locale trees (/es/, /it/): switching navigates between trees.
            Other langs keep hybrid ?lang= on the current tree. */
-        if (lang === 'es' && prevPathLang !== 'es') {
-          /* From EN home → /es/ (preserve ?view=map); from other EN pages → /es/ counterpart if known, else /es/ */
-          var dest = '/es/';
-          if (path === '/' || path === '/index.html') {
-            dest = '/es/' + search + hash;
-            if (search.indexOf('view=') < 0 && (hash === '#map' || hash === '#world-map')) dest = '/es/?view=map';
-          } else {
-            dest = '/es' + path + search + hash;
+        var TREE_LANGS = ['es', 'it'];
+        var IT_OK = {'/':1,'/airlines/':1,'/airlines/aeromexico.html':1,'/airlines/air-canada.html':1,'/airlines/air-france.html':1,'/airlines/air-premia.html':1,'/airlines/alaska.html':1,'/airlines/american.html':1,'/airlines/ana.html':1,'/airlines/asiana.html':1,'/airlines/british-airways.html':1,'/airlines/compare/':1,'/airlines/compare/index.html':1,'/airlines/delta.html':1,'/airlines/frontier.html':1,'/airlines/hawaiian.html':1,'/airlines/index.html':1,'/airlines/jal.html':1,'/airlines/jeju-air.html':1,'/airlines/jetblue.html':1,'/airlines/korean-air.html':1,'/airlines/lufthansa.html':1,'/airlines/peach.html':1,'/airlines/porter.html':1,'/airlines/southwest.html':1,'/airlines/spirit.html':1,'/airlines/tway.html':1,'/airlines/united.html':1,'/airlines/viva-aerobus.html':1,'/airlines/volaris.html':1,'/airlines/westjet.html':1,'/airlines/zipair.html':1,'/countries/canada-map.html':1,'/countries/france-map.html':1,'/countries/germany-map.html':1,'/countries/italy-map.html':1,'/countries/italy.html':1,'/countries/uk-map.html':1,'/countries/usa-map.html':1,'/index.html':1,'/routes/':1,'/routes/canada-to-usa-air-canada.html':1,'/routes/canada-to-usa-alaska.html':1,'/routes/canada-to-usa-american.html':1,'/routes/canada-to-usa-delta.html':1,'/routes/canada-to-usa-united.html':1,'/routes/france-to-usa-air-france.html':1,'/routes/france-to-usa-delta.html':1,'/routes/france-to-usa-united.html':1,'/routes/index.html':1,'/routes/japan-to-usa-american.html':1,'/routes/japan-to-usa-delta.html':1,'/routes/japan-to-usa-united.html':1,'/routes/mexico-to-usa-alaska.html':1,'/routes/mexico-to-usa-american.html':1,'/routes/mexico-to-usa-delta.html':1,'/routes/mexico-to-usa-united.html':1,'/routes/south-korea-to-usa-delta.html':1,'/routes/south-korea-to-usa-korean-air.html':1,'/routes/south-korea-to-usa-united.html':1,'/routes/uk-to-france-air-france.html':1,'/routes/uk-to-france-british-airways.html':1,'/routes/usa-canada.html':1,'/routes/usa-mexico.html':1,'/routes/usa-to-canada-air-canada.html':1,'/routes/usa-to-canada-alaska.html':1,'/routes/usa-to-canada-american.html':1,'/routes/usa-to-canada-delta.html':1,'/routes/usa-to-canada-united.html':1,'/routes/usa-to-france-air-france.html':1,'/routes/usa-to-france-american.html':1,'/routes/usa-to-france-delta.html':1,'/routes/usa-to-france-united.html':1,'/routes/usa-to-germany-delta.html':1,'/routes/usa-to-germany-lufthansa.html':1,'/routes/usa-to-germany-united.html':1,'/routes/usa-to-japan-american.html':1,'/routes/usa-to-japan-delta.html':1,'/routes/usa-to-japan-korean-air.html':1,'/routes/usa-to-japan-united.html':1,'/routes/usa-to-mexico-alaska.html':1,'/routes/usa-to-mexico-american.html':1,'/routes/usa-to-mexico-delta.html':1,'/routes/usa-to-mexico-united.html':1,'/routes/usa-to-south-korea-delta.html':1,'/routes/usa-to-south-korea-korean-air.html':1,'/routes/usa-to-south-korea-united.html':1,'/vet-info/':1,'/vet-info/index.html':1,'/vet-prep/':1,'/vet-prep/checklist.html':1,'/vet-prep/index.html':1};
+        function enOf(p){ return (p || '/').replace(/^\/(es|it)(?=\/|$)/, '') || '/'; }
+        function treeHas(lang, enPath){
+          var p = enPath || '/';
+          if (p === '') p = '/';
+          if (lang === 'it') {
+            if (IT_OK[p]) return true;
+            if (p.slice(-1) !== '/' && IT_OK[p + '/']) return true;
+            if (/index\.html$/.test(p) && IT_OK[p.replace(/index\.html$/, '')]) return true;
+            return false;
           }
-          location.assign(dest);
+          if (lang === 'es') {
+            /* Historic ES behaviour prefixes /es+path, except IT-only guides that would 404. */
+            if (/^\/countries\/(italy|italy-map|spain|spain-map)\.html$/.test(p)) return false;
+            return true;
+          }
+          return false;
+        }
+        function withTree(lang, enPath, search, hash){
+          var p = enPath || '/';
+          if (p === '/' || p === '/index.html') {
+            var dest = '/' + lang + '/' + search + hash;
+            if (search.indexOf('view=') < 0 && (hash === '#map' || hash === '#world-map')) dest = '/' + lang + '/?view=map';
+            return dest;
+          }
+          return '/' + lang + p + search + hash;
+        }
+        if (TREE_LANGS.indexOf(lang) >= 0 && prevPathLang !== lang) {
+          var enPath2 = prevPathLang ? enOf(path) : path;
+          var dest2;
+          if (treeHas(lang, enPath2)) dest2 = withTree(lang, enPath2, search, hash);
+          else {
+            dest2 = '/' + lang + '/';
+            if (search.indexOf('view=') < 0 && (hash === '#map' || hash === '#world-map')) dest2 = '/' + lang + '/?view=map';
+            else dest2 = '/' + lang + '/' + search + hash;
+          }
+          location.assign(dest2);
           return;
         }
-        if (lang === 'en' && prevPathLang === 'es') {
-          var enPath = path.replace(/^\/es(?=\/|$)/, '') || '/';
-          if (enPath === '') enPath = '/';
-          location.assign(enPath + search + hash);
+        if (lang === 'en' && TREE_LANGS.indexOf(prevPathLang) >= 0) {
+          var enPath3 = path.replace(/^\/(es|it)(?=\/|$)/, '') || '/';
+          if (enPath3 === '') enPath3 = '/';
+          location.assign(enPath3 + search + hash);
           return;
         }
         var u = new URL(location.href);
@@ -195,7 +221,7 @@
 
   function paintRefNotice() {
     var existing = document.getElementById('ppc-ref-notice');
-    if (L === 'en' || !isLongForm()) {
+    if (L === 'en' || L === 'it' || !isLongForm()) {
       if (existing) existing.remove();
       return;
     }

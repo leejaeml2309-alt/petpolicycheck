@@ -1,15 +1,21 @@
 /* ES locale strings for /es/ home (BOOK_USA stays page-provided). */
 (function(){var ES={guideAvail:" • guía disponible",guideParen:" (guía disponible)",guidesOG:"Guías por país",allOG:"Todos los países",guideStar:"  ★ guía",close:"Cerrar",bookH:"Hoteles y traslados que admiten mascotas",bookLede:"Normas para mascotas de hoteles por ciudad, y traslados del aeropuerto al hotel.",bookCta:"Información de hoteles que admiten mascotas →",usaSoon:"Guía completa de EE. UU. próximamente.",reqPrefix:"Solicitud de guía de país: ",reqCta:"Solicitar este país",topTitleLink:"Normas de viaje con mascotas · perros y gatos",mapNote:"Haga clic en un estado para las normas de entrada, luego en una ciudad para taxis, trenes, vuelos y hoteles que admiten mascotas.",flyingThere:"¿Vuela hacia allá?",comparePolicies:"Compare las políticas de mascotas de las aerolíneas ✈",underseat:"Medidas de transportadora bajo el asiento",topTitleUncovered:"Normas de importación de mascotas",notVerified:"Todavía no hemos verificado {name}.",uncoveredBody:"Cada guía de país en PetPolicyCheck se verifica con la fuente oficial del gobierno y se fecha, así que solo publicamos un país cuando eso está hecho. Guías hasta ahora: {list}.",forumCta:"Pregunte a la comunidad en el foro",airlineLink:"Políticas de mascotas de las aerolíneas ✈",topTitleLegacy:"Normas de importación de mascotas · perros y gatos",mainHealth:"Principales normas sanitarias y obligaciones",officialProc:"Procedimiento oficial",summaryNote:"Resumen de la página oficial, verificado {date}. Las normas cambian: siga siempre la página oficial y contacte al Animal Quarantine Service en su aeropuerto de llegada.",vetClinicsTokyo:"Clínicas veterinarias (Tokio, en inglés)",websiteSrc:"Sitio web / fuente ↗",clinicNote:"Datos de clínicas copiados del sitio de cada clínica (consultado el 23 oct 2026). Incluirlas no es un respaldo; llame antes para confirmar horarios y servicios."};
+var IT={"guideAvail":" • guida disponibile","guideParen":" (guida disponibile)","guidesOG":"Guide per paese","allOG":"Tutti i paesi","guideStar":"  ★ guida","close":"Chiudi","bookH":"Hotel e trasferimenti pet-friendly","bookLede":"Regole degli hotel per gli animali per città, e informazioni sul trasferimento dall’aeroporto all’hotel.","bookCta":"Informazioni sugli hotel pet-friendly →","usaSoon":"Guida completa sugli Stati Uniti in arrivo.","reqPrefix":"Richiesta di guida paese: ","reqCta":"Richieda questo paese","topTitleLink":"Norme di viaggio con animali · cani e gatti","mapNote":"Faccia clic su uno Stato per le norme di ingresso, poi su una città per taxi, treni, voli e hotel pet-friendly.","flyingThere":"Vola verso quella destinazione?","comparePolicies":"Confronti le policy delle compagnie per gli animali ✈","underseat":"Misure dei trasportini sotto il sedile","topTitleUncovered":"Norme di importazione degli animali","notVerified":"Non abbiamo ancora verificato {name}.","uncoveredBody":"Ogni guida paese su PetPolicyCheck è verificata sulla fonte ufficiale del governo e datata, quindi pubblichiamo un paese solo quando questo è fatto. Guide finora: {list}.","forumCta":"Chieda alla community nel forum","airlineLink":"Policy delle compagnie per gli animali ✈","topTitleLegacy":"Norme di importazione degli animali · cani e gatti","mainHealth":"Principali norme sanitarie e obblighi","officialProc":"Procedura ufficiale","summaryNote":"Sintesi della pagina ufficiale, verificata il {date}. Le norme cambiano: segua sempre la pagina ufficiale e contatti l’Animal Quarantine Service all’aeroporto di arrivo.","vetClinicsTokyo":"Cliniche veterinarie (Tokyo, in inglese)","websiteSrc":"Sito web / fonte ↗","clinicNote":"Dati delle cliniche copiati dal sito di ciascuna clinica (consultato il 23 ott 2026). Includerle non è un endorsement; chiami in anticipo per confermare orari e servizi."};
 function ppcHomeLang(){
   try{
-    if((document.documentElement.getAttribute('data-ppc-locale')||'')==='es') return 'es';
-    if((document.documentElement.lang||'').toLowerCase().indexOf('es')===0) return 'es';
-    if((location.pathname||'').indexOf('/es/')===0 || location.pathname==='/es') return 'es';
+    var loc=(document.documentElement.getAttribute('data-ppc-locale')||'');
+    if(loc==='es'||loc==='it') return loc;
+    var hl=(document.documentElement.lang||'').toLowerCase();
+    if(hl.indexOf('es')===0) return 'es';
+    if(hl.indexOf('it')===0) return 'it';
+    var pn=location.pathname||'';
+    if(pn.indexOf('/es/')===0 || pn==='/es') return 'es';
+    if(pn.indexOf('/it/')===0 || pn==='/it') return 'it';
   }catch(e){}
   return 'en';
 }
-function ppcHS(k, en){return (ppcHomeLang()==='es' && ES[k]) ? ES[k] : en;}
-window.PPC_HOME_I18N={lang:ppcHomeLang,es:ES,t:ppcHS};
+function ppcHS(k, en){var lang=ppcHomeLang();return (lang==='es' && ES[k]) ? ES[k] : (lang==='it' && IT[k]) ? IT[k] : en;}
+window.PPC_HOME_I18N={lang:ppcHomeLang,es:ES,it:IT,t:ppcHS};
 window.ppcHS=ppcHS;
 })();
 var ppcHS=window.ppcHS;

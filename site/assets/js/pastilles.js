@@ -24,15 +24,16 @@ function boot(){
  document.body.insertAdjacentHTML('afterbegin',sp);
  var path=location.pathname || '/';
  /* Exact relative root: /countries/usa-map.html → '../'; /airlines/compare/ → '../../' */
- /* /es/* pages: treat /es as locale root so nav stays under /es/ when a page exists. */
+ /* /es/* and /it/* pages: treat the locale prefix as root so nav stays under it when a page exists. */
  var segs=path.replace(/\/+$/,'').split('/').filter(Boolean);
  /* Drop the file segment when path ends with a filename (*.html) */
  if(segs.length && /\.[a-z0-9]+$/i.test(segs[segs.length-1])) segs=segs.slice(0,-1);
  var ppcLangRoot='';
- if(segs[0]==='es'){ ppcLangRoot='/es'; segs=segs.slice(1); }
+ if(segs[0]==='es'||segs[0]==='it'){ ppcLangRoot='/'+segs[0]; segs=segs.slice(1); }
  var up=segs.length ? '../'.repeat(segs.length) : '';
  /* Absolute helpers: ES-available destinations stay under /es; others use site root. */
  var ES_OK={'':1,'/':1,'index.html':1,'index.html':1,'countries/mexico.html':1,'countries/mexico-map.html':1,'routes/usa-mexico.html':1,'routes/usa-to-mexico-alaska.html':1,'routes/usa-to-mexico-american.html':1,'routes/usa-to-mexico-delta.html':1,'routes/usa-to-mexico-united.html':1,'routes/mexico-to-usa-alaska.html':1,'routes/mexico-to-usa-american.html':1,'routes/mexico-to-usa-delta.html':1,'routes/mexico-to-usa-united.html':1,'airlines/aeromexico.html':1,'airlines/volaris.html':1,'airlines/viva-aerobus.html':1,'airlines/delta.html':1,'airlines/united.html':1,'airlines/american.html':1,'airlines/alaska.html':1,'airlines/compare/index.html':1,'airlines/compare/':1,'passport/index.html':1,'passport/':1,'routes/usa-canada.html':1,'routes/usa-france.html':1,'routes/usa-uk.html':1,'routes/usa-to-japan.html':1,'countries/usa.html':1,'countries/canada.html':1,'countries/usa-map.html':1,'countries/canada-map.html':1,'pet-travel-checklist/index.html':1,'pet-travel-checklist/':1,'fit/index.html':1,'fit/':1,'grooming/index.html':1,'grooming/':1,'airlines/snub-nosed-breeds.html':1};
+ var IT_OK={'':1,'/':1,'airlines/':1,'airlines/aeromexico.html':1,'airlines/air-canada.html':1,'airlines/air-france.html':1,'airlines/air-premia.html':1,'airlines/alaska.html':1,'airlines/american.html':1,'airlines/ana.html':1,'airlines/asiana.html':1,'airlines/british-airways.html':1,'airlines/compare/':1,'airlines/compare/index.html':1,'airlines/delta.html':1,'airlines/frontier.html':1,'airlines/hawaiian.html':1,'airlines/index.html':1,'airlines/jal.html':1,'airlines/jeju-air.html':1,'airlines/jetblue.html':1,'airlines/korean-air.html':1,'airlines/lufthansa.html':1,'airlines/peach.html':1,'airlines/porter.html':1,'airlines/southwest.html':1,'airlines/spirit.html':1,'airlines/tway.html':1,'airlines/united.html':1,'airlines/viva-aerobus.html':1,'airlines/volaris.html':1,'airlines/westjet.html':1,'airlines/zipair.html':1,'countries/canada-map.html':1,'countries/france-map.html':1,'countries/germany-map.html':1,'countries/italy-map.html':1,'countries/italy.html':1,'countries/uk-map.html':1,'countries/usa-map.html':1,'routes/':1,'routes/canada-to-usa-air-canada.html':1,'routes/canada-to-usa-alaska.html':1,'routes/canada-to-usa-american.html':1,'routes/canada-to-usa-delta.html':1,'routes/canada-to-usa-united.html':1,'routes/france-to-usa-air-france.html':1,'routes/france-to-usa-delta.html':1,'routes/france-to-usa-united.html':1,'routes/index.html':1,'routes/japan-to-usa-american.html':1,'routes/japan-to-usa-delta.html':1,'routes/japan-to-usa-united.html':1,'routes/mexico-to-usa-alaska.html':1,'routes/mexico-to-usa-american.html':1,'routes/mexico-to-usa-delta.html':1,'routes/mexico-to-usa-united.html':1,'routes/south-korea-to-usa-delta.html':1,'routes/south-korea-to-usa-korean-air.html':1,'routes/south-korea-to-usa-united.html':1,'routes/uk-to-france-air-france.html':1,'routes/uk-to-france-british-airways.html':1,'routes/usa-canada.html':1,'routes/usa-mexico.html':1,'routes/usa-to-canada-air-canada.html':1,'routes/usa-to-canada-alaska.html':1,'routes/usa-to-canada-american.html':1,'routes/usa-to-canada-delta.html':1,'routes/usa-to-canada-united.html':1,'routes/usa-to-france-air-france.html':1,'routes/usa-to-france-american.html':1,'routes/usa-to-france-delta.html':1,'routes/usa-to-france-united.html':1,'routes/usa-to-germany-delta.html':1,'routes/usa-to-germany-lufthansa.html':1,'routes/usa-to-germany-united.html':1,'routes/usa-to-japan-american.html':1,'routes/usa-to-japan-delta.html':1,'routes/usa-to-japan-korean-air.html':1,'routes/usa-to-japan-united.html':1,'routes/usa-to-mexico-alaska.html':1,'routes/usa-to-mexico-american.html':1,'routes/usa-to-mexico-delta.html':1,'routes/usa-to-mexico-united.html':1,'routes/usa-to-south-korea-delta.html':1,'routes/usa-to-south-korea-korean-air.html':1,'routes/usa-to-south-korea-united.html':1,'vet-info/':1,'vet-info/index.html':1,'vet-prep/':1,'vet-prep/checklist.html':1,'vet-prep/index.html':1};
  function ppcHref(rel){
    rel=rel||'';
    var bare=rel.replace(/^\/+/,'').split('#')[0].split('?')[0];
@@ -43,7 +44,7 @@ function boot(){
    /* map home */
    if(bare==='' || rel.indexOf('?view=map')===0) return ppcLangRoot+'/'+(rel.indexOf('?')===0||rel.indexOf('#')===0?rel:'');
    var key=bare; if(key && key.slice(-1)!=='/' && key.indexOf('.html')<0) key=key+'/';
-   if(ES_OK[bare] || ES_OK[key] || ES_OK[bare.replace(/\/$/,'')+'/index.html']){
+   var OK=(ppcLangRoot==='/it'?IT_OK:ES_OK); if(OK[bare] || OK[key] || OK[bare.replace(/\/$/,'')+'/index.html']){
      return ppcLangRoot+'/'+bare.replace(/^\/+/,'') + (bare.indexOf('.html')>=0||bare.slice(-1)==='/'?'': (bare?'':'')) + q + h;
    }
    return '/'+bare.replace(/^\/+/,'') + q + h;
@@ -58,9 +59,11 @@ function boot(){
   /\/(?:pro|b2b-pet-desk)\/?$|\/(?:terms|refund-policy|privacy)\.html/.test(path)?'b2b':
   onCountryMap?'':(/usa-map|\/map/.test(path)?'map':''));
  /* Homepage unlocked world-map view (?view=map) marks World map current */
- try{ if((path==='/'||path==='/es'||path==='/es/'||/\/(index\.html)?$/.test(path)) && new URLSearchParams(location.search).get('view')==='map') cur='map'; }catch(e){}
+ try{ if((path==='/'||path==='/es'||path==='/es/'||path==='/it'||path==='/it/'||/\/(index\.html)?$/.test(path)) && new URLSearchParams(location.search).get('view')==='map') cur='map'; }catch(e){}
+ var PAST_IT={map:'Mappa del mondo',flight:'Compagnie aeree',hotel:'Hotel',grooming:'Toelettatura',ground:'Trasferimenti',shop:'Prodotti',law:'Norme',forum:'Forum',veterans:'Veterani',b2b:'Per le aziende',Compare:'Confronta',Guides:'Guide',Updates:'Aggiornamenti',About:'Chi siamo'};
  var PAST_ES={map:'Mapa mundial',flight:'Aerolíneas',hotel:'Hoteles',grooming:'Peluquería',ground:'Traslados',shop:'Productos',law:'Normas',forum:'Foro',veterans:'Veteranos',b2b:'Para empresas',Compare:'Comparar',Guides:'Guías',Updates:'Actualizaciones',About:'Acerca de'};
- var plab=function(en,key){return ppcLangRoot&&PAST_ES[key||en]?PAST_ES[key||en]:en;};
+ var locPack=ppcLangRoot==='/it'?PAST_IT:(ppcLangRoot==='/es'?PAST_ES:null);
+ var plab=function(en,key){return locPack&&locPack[key||en]?locPack[key||en]:en;};
  var V=(new URLSearchParams(location.search).get('nav'))||document.documentElement.dataset.nav||'8';
  /* '8' = 8 liens (Rides garde sa place) ; '7g' (reco) = Rides fusionne dans Book (hub de réservation), Grooming prend sa place */
  /* World map uses ?view=map (NO #hash) so browsers never native-scroll to an id */
@@ -83,7 +86,7 @@ function boot(){
  if(onCountryMap&&h1&&!document.querySelector('.sec-eyebrow')){
   h1.insertAdjacentHTML('beforebegin','<a class="sec-eyebrow theme-map" href="'+ppcHref('?view=map')+'" style="text-decoration:none;cursor:pointer;pointer-events:auto;touch-action:manipulation">'+pst('map','pst-lg')+'<span data-i18n="site.nav.world_back">\u2190 World map</span></a>');
  }else if(cur&&h1&&!document.querySelector('.sec-eyebrow')){
-  var L={map:plab('World map','map'),flight:plab('Airlines','flight'),hotel:plab('Hotels','hotel'),ground:plab('Rides','ground'),shop:plab('Products','shop'),law:ppcLangRoot?'Normas y certificado de salud':'Rules & health certificate',forum:plab('Forum','forum'),grooming:ppcLangRoot?'Cuidado y peluquería (viaje + expat)':'Care & Grooming (Travel + Expat)',veterans:plab('Veterans','veterans'),b2b:ppcLangRoot?'B2B Pet Desk':'B2B Pet Desk'};
+  var L={map:plab('World map','map'),flight:plab('Airlines','flight'),hotel:plab('Hotels','hotel'),ground:plab('Rides','ground'),shop:plab('Products','shop'),law:ppcLangRoot==='/es'?'Normas y certificado de salud':(ppcLangRoot==='/it'?'Norme e certificato sanitario':'Rules & health certificate'),forum:plab('Forum','forum'),grooming:ppcLangRoot==='/es'?'Cuidado y peluquería (viaje + expat)':(ppcLangRoot==='/it'?'Cura e toelettatura (viaggio + expat)':'Care & Grooming (Travel + Expat)'),veterans:plab('Veterans','veterans'),b2b:plab('For Business','b2b')||'B2B Pet Desk'};
   h1.insertAdjacentHTML('beforebegin','<div class="sec-eyebrow theme-'+cur+'">'+pst(cur,'pst-lg')+'<span>'+L[cur]+'</span></div>');
  }
 

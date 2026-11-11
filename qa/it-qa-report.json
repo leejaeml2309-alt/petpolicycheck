@@ -1,0 +1,653 @@
+{
+  "console": {
+    "it-home:1280": [],
+    "it-vetinfo:1280": [],
+    "it-italy-guide:1280": [],
+    "it-italy-map:1280": [],
+    "it-compare:1280": [],
+    "en-home:1280": [],
+    "it-airlines:1280": [],
+    "it-delta:1280": [],
+    "it-alaska:1280": [],
+    "it-vetprep:1280": [],
+    "it-checklist:1280": [],
+    "it-usa-map:1280": [],
+    "it-france-map:1280": [],
+    "it-germany-map:1280": [],
+    "it-uk-map:1280": [],
+    "it-canada-map:1280": [],
+    "it-home:390": [],
+    "it-vetinfo:390": [],
+    "it-italy-guide:390": [],
+    "it-italy-map:390": [],
+    "it-compare:390": [],
+    "en-home:390": [],
+    "it-airlines:390": [],
+    "it-delta:390": [],
+    "it-alaska:390": [],
+    "it-vetprep:390": [],
+    "it-checklist:390": [],
+    "it-usa-map:390": [],
+    "it-france-map:390": [],
+    "it-germany-map:390": [],
+    "it-uk-map:390": [],
+    "it-canada-map:390": []
+  },
+  "overflow390": {
+    "it-home": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-vetinfo": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-italy-guide": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-italy-map": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-compare": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "en-home": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-airlines": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-delta": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-alaska": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-vetprep": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-checklist": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-usa-map": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-france-map": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-germany-map": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-uk-map": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "it-canada-map": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    }
+  },
+  "map": {
+    "it-italy-map:1280": {
+      "found": [
+        "#map"
+      ],
+      "visible": [
+        "#map"
+      ],
+      "w": true
+    },
+    "it-usa-map:1280": {
+      "found": [
+        "#map"
+      ],
+      "visible": [
+        "#map"
+      ],
+      "w": true
+    },
+    "it-france-map:1280": {
+      "found": [
+        "#map"
+      ],
+      "visible": [
+        "#map"
+      ],
+      "w": true
+    },
+    "it-italy-map:390": {
+      "found": [
+        "#map"
+      ],
+      "visible": [
+        "#map"
+      ],
+      "w": true
+    },
+    "it-usa-map:390": {
+      "found": [
+        "#map"
+      ],
+      "visible": [
+        "#map"
+      ],
+      "w": true
+    },
+    "it-france-map:390": {
+      "found": [
+        "#map"
+      ],
+      "visible": [
+        "#map"
+      ],
+      "w": true
+    }
+  },
+  "compare_it": {
+    "per_tratta": true,
+    "trasportino": true,
+    "stati_uniti": true,
+    "snippet": "Verifica sotto il sedile: il Suo trasportino"
+  },
+  "switcher": {
+    "start": "/it/",
+    "buttons": [
+      "en",
+      "es",
+      "it",
+      "fr",
+      "ko",
+      "ja",
+      "de"
+    ],
+    "visible": true,
+    "to_en": {
+      "ok": true,
+      "url": "/it/",
+      "locale": "it"
+    },
+    "en_to_es": {
+      "ok": true,
+      "url": "/it/",
+      "locale": "it"
+    },
+    "es_to_it": {
+      "ok": true,
+      "url": "/it/",
+      "locale": "it"
+    },
+    "it_to_es": {
+      "ok": true,
+      "url": "/it/",
+      "locale": "it"
+    },
+    "es_to_en": {
+      "ok": true,
+      "url": "/it/",
+      "locale": "it"
+    },
+    "en_to_it": {
+      "ok": true,
+      "url": "/it/",
+      "locale": "it"
+    },
+    "console": [],
+    "italy_guide": {
+      "visible": false
+    }
+  },
+  "hreflang": [],
+  "links": {
+    "pages": 40,
+    "unique_internal": 210,
+    "broken": [
+      [
+        "/it/",
+        "/assets/css/&lt",
+        "/assets/css/&lt",
+        404
+      ]
+    ],
+    "it_broken": [],
+    "ok": 209,
+    "not_ok": 1
+  },
+  "raw_keys": {
+    "it-home:1280": [],
+    "it-vetinfo:1280": [],
+    "it-italy-guide:1280": [],
+    "it-italy-map:1280": [],
+    "it-compare:1280": [],
+    "en-home:1280": [],
+    "it-airlines:1280": [],
+    "it-delta:1280": [],
+    "it-alaska:1280": [],
+    "it-vetprep:1280": [],
+    "it-checklist:1280": [],
+    "it-usa-map:1280": [],
+    "it-france-map:1280": [],
+    "it-germany-map:1280": [],
+    "it-uk-map:1280": [],
+    "it-canada-map:1280": [],
+    "it-home:390": [],
+    "it-vetinfo:390": [],
+    "it-italy-guide:390": [],
+    "it-italy-map:390": [],
+    "it-compare:390": [],
+    "en-home:390": [],
+    "it-airlines:390": [],
+    "it-delta:390": [],
+    "it-alaska:390": [],
+    "it-vetprep:390": [],
+    "it-checklist:390": [],
+    "it-usa-map:390": [],
+    "it-france-map:390": [],
+    "it-germany-map:390": [],
+    "it-uk-map:390": [],
+    "it-canada-map:390": []
+  },
+  "preview_bar": {
+    "it-home:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-vetinfo:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-italy-guide:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-italy-map:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-compare:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "en-home:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-airlines:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-delta:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-alaska:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-vetprep:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-checklist:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-usa-map:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-france-map:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-germany-map:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-uk-map:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-canada-map:1280": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-home:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-vetinfo:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-italy-guide:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-italy-map:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-compare:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "en-home:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-airlines:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-delta:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-alaska:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-vetprep:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-checklist:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-usa-map:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-france-map:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-germany-map:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-uk-map:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    },
+    "it-canada-map:390": {
+      "bar": true,
+      "bar_text": "LOCAL PREVIEW ONLY — Italian /it/ P0+P1 · Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "noindex": true
+    }
+  },
+  "shots": [
+    "/workspace/it-site-20261111/qa/it/switcher-1280.png",
+    "/workspace/it-site-20261111/qa/it/it-home-1280.png",
+    "/workspace/it-site-20261111/qa/it/it-home-390.png",
+    "/workspace/it-site-20261111/qa/it/it-vetinfo-1280.png",
+    "/workspace/it-site-20261111/qa/it/it-italy-guide-1280.png",
+    "/workspace/it-site-20261111/qa/it/it-italy-map-1280.png",
+    "/workspace/it-site-20261111/qa/it/it-compare-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1/it-airlines-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1/it-airlines-390.png",
+    "/workspace/it-site-20261111/qa/it-p1/it-delta-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1/it-delta-390.png",
+    "/workspace/it-site-20261111/qa/it-p1/it-vetprep-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1/it-checklist-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1/it-usa-map-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1/it-france-map-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1/it-canada-map-390.png"
+  ],
+  "english_leak_notes": [
+    {
+      "page": "/it/airlines/aeromexico.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/air-canada.html",
+      "phrases": [
+        "All airlines",
+        "share yours",
+        "Snub-nosed / brachycephalic breeds"
+      ]
+    },
+    {
+      "page": "/it/airlines/air-france.html",
+      "phrases": [
+        "All airlines",
+        "share yours",
+        "Snub-nosed / brachycephalic breeds"
+      ]
+    },
+    {
+      "page": "/it/airlines/air-premia.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/alaska.html",
+      "phrases": [
+        "All airlines",
+        "share yours",
+        "Snub-nosed / brachycephalic breeds"
+      ]
+    },
+    {
+      "page": "/it/airlines/american.html",
+      "phrases": [
+        "All airlines",
+        "share yours",
+        "Snub-nosed / brachycephalic breeds"
+      ]
+    },
+    {
+      "page": "/it/airlines/ana.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/asiana.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/british-airways.html",
+      "phrases": [
+        "All airlines",
+        "share yours",
+        "Snub-nosed / brachycephalic breeds"
+      ]
+    },
+    {
+      "page": "/it/airlines/delta.html",
+      "phrases": [
+        "All airlines",
+        "share yours",
+        "Depends on aircraft",
+        "Snub-nosed / brachycephalic breeds",
+        "official Delta Air Lines pet policy page"
+      ]
+    },
+    {
+      "page": "/it/airlines/frontier.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/hawaiian.html",
+      "phrases": [
+        "All airlines",
+        "share yours",
+        "Snub-nosed / brachycephalic breeds"
+      ]
+    },
+    {
+      "page": "/it/airlines/jal.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/jeju-air.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/jetblue.html",
+      "phrases": [
+        "All airlines",
+        "share yours",
+        "Snub-nosed / brachycephalic breeds"
+      ]
+    },
+    {
+      "page": "/it/airlines/korean-air.html",
+      "phrases": [
+        "All airlines",
+        "share yours",
+        "Snub-nosed / brachycephalic breeds"
+      ]
+    },
+    {
+      "page": "/it/airlines/lufthansa.html",
+      "phrases": [
+        "All airlines",
+        "share yours",
+        "Snub-nosed / brachycephalic breeds"
+      ]
+    },
+    {
+      "page": "/it/airlines/peach.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/porter.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/southwest.html",
+      "phrases": [
+        "All airlines",
+        "share yours",
+        "Snub-nosed / brachycephalic breeds"
+      ]
+    },
+    {
+      "page": "/it/airlines/spirit.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/tway.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/united.html",
+      "phrases": [
+        "All airlines",
+        "share yours",
+        "Snub-nosed / brachycephalic breeds"
+      ]
+    },
+    {
+      "page": "/it/airlines/viva-aerobus.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/volaris.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/westjet.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/airlines/zipair.html",
+      "phrases": [
+        "All airlines"
+      ]
+    },
+    {
+      "page": "/it/",
+      "phrases": [
+        "Last verified"
+      ]
+    }
+  ]
+}

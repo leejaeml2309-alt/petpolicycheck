@@ -1,0 +1,894 @@
+{
+  "pages": [
+    {
+      "page": "it/hotels/index.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/",
+        "es": "https://petpolicycheck.com/es/hotels/",
+        "it": "https://petpolicycheck.com/it/hotels/",
+        "x-default": "https://petpolicycheck.com/hotels/"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-atlanta.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-atlanta.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-atlanta.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-atlanta.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-atlanta.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-atlanta.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-austin.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-austin.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-austin.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-austin.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-austin.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-austin.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-boston.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-boston.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-boston.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-boston.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-boston.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-boston.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-chicago.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-chicago.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-chicago.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-chicago.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-chicago.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-chicago.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-denver.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-denver.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-denver.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-denver.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-denver.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-denver.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-detroit.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-detroit.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-detroit.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-detroit.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-detroit.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-detroit.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-houston.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-houston.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-houston.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-houston.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-houston.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-houston.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-los-angeles.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-los-angeles.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-los-angeles.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-los-angeles.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-los-angeles.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-los-angeles.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-miami.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-miami.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-miami.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-miami.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-miami.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-miami.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-new-york.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-new-york.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-new-york.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-new-york.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-new-york.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-new-york.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-orlando.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-orlando.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-orlando.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-orlando.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-orlando.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-orlando.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-san-francisco.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-san-francisco.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-san-francisco.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-san-francisco.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-san-francisco.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-san-francisco.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/hotels/pet-friendly-hotels-seattle.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-seattle.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/hotels/pet-friendly-hotels-seattle.html",
+        "es": "https://petpolicycheck.com/es/hotels/pet-friendly-hotels-seattle.html",
+        "it": "https://petpolicycheck.com/it/hotels/pet-friendly-hotels-seattle.html",
+        "x-default": "https://petpolicycheck.com/hotels/pet-friendly-hotels-seattle.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/best-airline-approved-soft-carriers.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/best-airline-approved-soft-carriers.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/best-airline-approved-soft-carriers.html",
+        "it": "https://petpolicycheck.com/it/products/best-airline-approved-soft-carriers.html",
+        "x-default": "https://petpolicycheck.com/products/best-airline-approved-soft-carriers.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/cat-travel-checklist.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/cat-travel-checklist.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/cat-travel-checklist.html",
+        "it": "https://petpolicycheck.com/it/products/cat-travel-checklist.html",
+        "x-default": "https://petpolicycheck.com/products/cat-travel-checklist.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/chuckit-travel-pillow-bed.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/chuckit-travel-pillow-bed.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/chuckit-travel-pillow-bed.html",
+        "it": "https://petpolicycheck.com/it/products/chuckit-travel-pillow-bed.html",
+        "x-default": "https://petpolicycheck.com/products/chuckit-travel-pillow-bed.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/dog-road-trip-packing-list.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/dog-road-trip-packing-list.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/dog-road-trip-packing-list.html",
+        "it": "https://petpolicycheck.com/it/products/dog-road-trip-packing-list.html",
+        "x-default": "https://petpolicycheck.com/products/dog-road-trip-packing-list.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/feliway-classic-spray.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/feliway-classic-spray.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/feliway-classic-spray.html",
+        "it": "https://petpolicycheck.com/it/products/feliway-classic-spray.html",
+        "x-default": "https://petpolicycheck.com/products/feliway-classic-spray.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/iata-hard-crates-for-cargo.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/iata-hard-crates-for-cargo.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/iata-hard-crates-for-cargo.html",
+        "it": "https://petpolicycheck.com/it/products/iata-hard-crates-for-cargo.html",
+        "x-default": "https://petpolicycheck.com/products/iata-hard-crates-for-cargo.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/index.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/",
+        "it": "https://petpolicycheck.com/it/products/",
+        "x-default": "https://petpolicycheck.com/products/"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/kurgo-collaps-a-bowl.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/kurgo-collaps-a-bowl.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/kurgo-collaps-a-bowl.html",
+        "it": "https://petpolicycheck.com/it/products/kurgo-collaps-a-bowl.html",
+        "x-default": "https://petpolicycheck.com/products/kurgo-collaps-a-bowl.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/kurgo-direct-to-seatbelt-tether.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/kurgo-direct-to-seatbelt-tether.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/kurgo-direct-to-seatbelt-tether.html",
+        "it": "https://petpolicycheck.com/it/products/kurgo-direct-to-seatbelt-tether.html",
+        "x-default": "https://petpolicycheck.com/products/kurgo-direct-to-seatbelt-tether.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/kurgo-enhanced-strength-tru-fit-harness.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/kurgo-enhanced-strength-tru-fit-harness.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/kurgo-enhanced-strength-tru-fit-harness.html",
+        "it": "https://petpolicycheck.com/it/products/kurgo-enhanced-strength-tru-fit-harness.html",
+        "x-default": "https://petpolicycheck.com/products/kurgo-enhanced-strength-tru-fit-harness.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/kurgo-gourd-water-bottle.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/kurgo-gourd-water-bottle.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/kurgo-gourd-water-bottle.html",
+        "it": "https://petpolicycheck.com/it/products/kurgo-gourd-water-bottle.html",
+        "x-default": "https://petpolicycheck.com/products/kurgo-gourd-water-bottle.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/kurgo-loft-dog-jacket.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/kurgo-loft-dog-jacket.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/kurgo-loft-dog-jacket.html",
+        "it": "https://petpolicycheck.com/it/products/kurgo-loft-dog-jacket.html",
+        "x-default": "https://petpolicycheck.com/products/kurgo-loft-dog-jacket.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/kurgo-loft-wander-bed.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/kurgo-loft-wander-bed.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/kurgo-loft-wander-bed.html",
+        "it": "https://petpolicycheck.com/it/products/kurgo-loft-wander-bed.html",
+        "x-default": "https://petpolicycheck.com/products/kurgo-loft-wander-bed.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/kurgo-rover-bench-seat-cover.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/kurgo-rover-bench-seat-cover.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/kurgo-rover-bench-seat-cover.html",
+        "it": "https://petpolicycheck.com/it/products/kurgo-rover-bench-seat-cover.html",
+        "x-default": "https://petpolicycheck.com/products/kurgo-rover-bench-seat-cover.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/kurgo-skybox-booster.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/kurgo-skybox-booster.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/kurgo-skybox-booster.html",
+        "it": "https://petpolicycheck.com/it/products/kurgo-skybox-booster.html",
+        "x-default": "https://petpolicycheck.com/products/kurgo-skybox-booster.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/kurgo-surf-n-turf-life-jacket.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/kurgo-surf-n-turf-life-jacket.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/kurgo-surf-n-turf-life-jacket.html",
+        "it": "https://petpolicycheck.com/it/products/kurgo-surf-n-turf-life-jacket.html",
+        "x-default": "https://petpolicycheck.com/products/kurgo-surf-n-turf-life-jacket.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/pet-carrier-backpacks-for-flying.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/pet-carrier-backpacks-for-flying.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/pet-carrier-backpacks-for-flying.html",
+        "it": "https://petpolicycheck.com/it/products/pet-carrier-backpacks-for-flying.html",
+        "x-default": "https://petpolicycheck.com/products/pet-carrier-backpacks-for-flying.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/pet-evac-pak-collapsible-litter-box.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/pet-evac-pak-collapsible-litter-box.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/pet-evac-pak-collapsible-litter-box.html",
+        "it": "https://petpolicycheck.com/it/products/pet-evac-pak-collapsible-litter-box.html",
+        "x-default": "https://petpolicycheck.com/products/pet-evac-pak-collapsible-litter-box.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/petmate-kennel-airline-travel-kit.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/petmate-kennel-airline-travel-kit.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/petmate-kennel-airline-travel-kit.html",
+        "it": "https://petpolicycheck.com/it/products/petmate-kennel-airline-travel-kit.html",
+        "x-default": "https://petpolicycheck.com/products/petmate-kennel-airline-travel-kit.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/petmate-sky-kennel.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/petmate-sky-kennel.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/petmate-sky-kennel.html",
+        "it": "https://petpolicycheck.com/it/products/petmate-sky-kennel.html",
+        "x-default": "https://petpolicycheck.com/products/petmate-sky-kennel.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/petmate-ultra-vari-kennel.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/petmate-ultra-vari-kennel.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/petmate-ultra-vari-kennel.html",
+        "it": "https://petpolicycheck.com/it/products/petmate-ultra-vari-kennel.html",
+        "x-default": "https://petpolicycheck.com/products/petmate-ultra-vari-kennel.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/ruffwear-dirtbag-seat-cover.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/ruffwear-dirtbag-seat-cover.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/ruffwear-dirtbag-seat-cover.html",
+        "it": "https://petpolicycheck.com/it/products/ruffwear-dirtbag-seat-cover.html",
+        "x-default": "https://petpolicycheck.com/products/ruffwear-dirtbag-seat-cover.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/ruffwear-float-coat.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/ruffwear-float-coat.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/ruffwear-float-coat.html",
+        "it": "https://petpolicycheck.com/it/products/ruffwear-float-coat.html",
+        "x-default": "https://petpolicycheck.com/products/ruffwear-float-coat.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/ruffwear-front-range-harness.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/ruffwear-front-range-harness.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/ruffwear-front-range-harness.html",
+        "it": "https://petpolicycheck.com/it/products/ruffwear-front-range-harness.html",
+        "x-default": "https://petpolicycheck.com/products/ruffwear-front-range-harness.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/ruffwear-front-range-leash.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/ruffwear-front-range-leash.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/ruffwear-front-range-leash.html",
+        "it": "https://petpolicycheck.com/it/products/ruffwear-front-range-leash.html",
+        "x-default": "https://petpolicycheck.com/products/ruffwear-front-range-leash.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/ruffwear-grip-trex-boots.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/ruffwear-grip-trex-boots.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/ruffwear-grip-trex-boots.html",
+        "it": "https://petpolicycheck.com/it/products/ruffwear-grip-trex-boots.html",
+        "x-default": "https://petpolicycheck.com/products/ruffwear-grip-trex-boots.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/ruffwear-highlands-pad.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/ruffwear-highlands-pad.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/ruffwear-highlands-pad.html",
+        "it": "https://petpolicycheck.com/it/products/ruffwear-highlands-pad.html",
+        "x-default": "https://petpolicycheck.com/products/ruffwear-highlands-pad.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/ruffwear-load-up-harness.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/ruffwear-load-up-harness.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/ruffwear-load-up-harness.html",
+        "it": "https://petpolicycheck.com/it/products/ruffwear-load-up-harness.html",
+        "x-default": "https://petpolicycheck.com/products/ruffwear-load-up-harness.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/ruffwear-quencher.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/ruffwear-quencher.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/ruffwear-quencher.html",
+        "it": "https://petpolicycheck.com/it/products/ruffwear-quencher.html",
+        "x-default": "https://petpolicycheck.com/products/ruffwear-quencher.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/ruffwear-swamp-cooler-vest.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/ruffwear-swamp-cooler-vest.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/ruffwear-swamp-cooler-vest.html",
+        "it": "https://petpolicycheck.com/it/products/ruffwear-swamp-cooler-vest.html",
+        "x-default": "https://petpolicycheck.com/products/ruffwear-swamp-cooler-vest.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/sherpa-elevation-backpack.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/sherpa-elevation-backpack.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/sherpa-elevation-backpack.html",
+        "it": "https://petpolicycheck.com/it/products/sherpa-elevation-backpack.html",
+        "x-default": "https://petpolicycheck.com/products/sherpa-elevation-backpack.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/sherpa-original-deluxe.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/sherpa-original-deluxe.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/sherpa-original-deluxe.html",
+        "it": "https://petpolicycheck.com/it/products/sherpa-original-deluxe.html",
+        "x-default": "https://petpolicycheck.com/products/sherpa-original-deluxe.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/sleepypod-air.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/sleepypod-air.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/sleepypod-air.html",
+        "it": "https://petpolicycheck.com/it/products/sleepypod-air.html",
+        "x-default": "https://petpolicycheck.com/products/sleepypod-air.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/sleepypod-atom.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/sleepypod-atom.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/sleepypod-atom.html",
+        "it": "https://petpolicycheck.com/it/products/sleepypod-atom.html",
+        "x-default": "https://petpolicycheck.com/products/sleepypod-atom.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/sleepypod-clickit-range.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/sleepypod-clickit-range.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/sleepypod-clickit-range.html",
+        "it": "https://petpolicycheck.com/it/products/sleepypod-clickit-range.html",
+        "x-default": "https://petpolicycheck.com/products/sleepypod-clickit-range.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/sleepypod-go-bag.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/sleepypod-go-bag.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/sleepypod-go-bag.html",
+        "it": "https://petpolicycheck.com/it/products/sleepypod-go-bag.html",
+        "x-default": "https://petpolicycheck.com/products/sleepypod-go-bag.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/sleepypod-mini.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/sleepypod-mini.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/sleepypod-mini.html",
+        "it": "https://petpolicycheck.com/it/products/sleepypod-mini.html",
+        "x-default": "https://petpolicycheck.com/products/sleepypod-mini.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/sleepypod-safety-tether.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/sleepypod-safety-tether.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/sleepypod-safety-tether.html",
+        "it": "https://petpolicycheck.com/it/products/sleepypod-safety-tether.html",
+        "x-default": "https://petpolicycheck.com/products/sleepypod-safety-tether.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/sleepypod-yummy-travel-bowls.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/sleepypod-yummy-travel-bowls.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/sleepypod-yummy-travel-bowls.html",
+        "it": "https://petpolicycheck.com/it/products/sleepypod-yummy-travel-bowls.html",
+        "x-default": "https://petpolicycheck.com/products/sleepypod-yummy-travel-bowls.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/sturdibag-pro.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/sturdibag-pro.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/sturdibag-pro.html",
+        "it": "https://petpolicycheck.com/it/products/sturdibag-pro.html",
+        "x-default": "https://petpolicycheck.com/products/sturdibag-pro.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/thunderease-dog-calming-spray.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/thunderease-dog-calming-spray.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/thunderease-dog-calming-spray.html",
+        "it": "https://petpolicycheck.com/it/products/thunderease-dog-calming-spray.html",
+        "x-default": "https://petpolicycheck.com/products/thunderease-dog-calming-spray.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/thundershirt-for-cats.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/thundershirt-for-cats.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/thundershirt-for-cats.html",
+        "it": "https://petpolicycheck.com/it/products/thundershirt-for-cats.html",
+        "x-default": "https://petpolicycheck.com/products/thundershirt-for-cats.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/thundershirt-for-dogs.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/thundershirt-for-dogs.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/thundershirt-for-dogs.html",
+        "it": "https://petpolicycheck.com/it/products/thundershirt-for-dogs.html",
+        "x-default": "https://petpolicycheck.com/products/thundershirt-for-dogs.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/tractive-gps-cat.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/tractive-gps-cat.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/tractive-gps-cat.html",
+        "it": "https://petpolicycheck.com/it/products/tractive-gps-cat.html",
+        "x-default": "https://petpolicycheck.com/products/tractive-gps-cat.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/tractive-gps-dog-6.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/tractive-gps-dog-6.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/tractive-gps-dog-6.html",
+        "it": "https://petpolicycheck.com/it/products/tractive-gps-dog-6.html",
+        "x-default": "https://petpolicycheck.com/products/tractive-gps-dog-6.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/travel-cat-porta-pawty.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/travel-cat-porta-pawty.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/travel-cat-porta-pawty.html",
+        "it": "https://petpolicycheck.com/it/products/travel-cat-porta-pawty.html",
+        "x-default": "https://petpolicycheck.com/products/travel-cat-porta-pawty.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/travel-water-bowls.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/travel-water-bowls.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/travel-water-bowls.html",
+        "it": "https://petpolicycheck.com/it/products/travel-water-bowls.html",
+        "x-default": "https://petpolicycheck.com/products/travel-water-bowls.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/under-seat-carrier-size-by-airline.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/under-seat-carrier-size-by-airline.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/under-seat-carrier-size-by-airline.html",
+        "it": "https://petpolicycheck.com/it/products/under-seat-carrier-size-by-airline.html",
+        "x-default": "https://petpolicycheck.com/products/under-seat-carrier-size-by-airline.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/wee-wee-cat-pads.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/wee-wee-cat-pads.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/wee-wee-cat-pads.html",
+        "it": "https://petpolicycheck.com/it/products/wee-wee-cat-pads.html",
+        "x-default": "https://petpolicycheck.com/products/wee-wee-cat-pads.html"
+      },
+      "issues": []
+    },
+    {
+      "page": "it/products/wee-wee-superior-performance-pads.html",
+      "status": 200,
+      "lang": "it",
+      "locale": "it",
+      "canonical": "https://petpolicycheck.com/it/products/wee-wee-superior-performance-pads.html",
+      "hreflang": {
+        "en": "https://petpolicycheck.com/products/wee-wee-superior-performance-pads.html",
+        "it": "https://petpolicycheck.com/it/products/wee-wee-superior-performance-pads.html",
+        "x-default": "https://petpolicycheck.com/products/wee-wee-superior-performance-pads.html"
+      },
+      "issues": []
+    }
+  ],
+  "console_errors": [],
+  "lang_en_query": [],
+  "amazon": {
+    "checked": 41,
+    "ok": 41,
+    "missing": []
+  },
+  "hreflang_issues": [],
+  "links": {
+    "checked": 2424,
+    "not_200": []
+  },
+  "footer": {
+    "colCount": 5,
+    "airportsText": "Guide agli aeroporti per viaggiare con animali",
+    "airportsHref": "/airport/",
+    "discText": "Alcuni link possono essere di affiliazione; potremmo ricevere una commissione senza costi aggiuntivi per Lei. Questo non influisce mai sui nostri dati. © 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See Terms.",
+    "discHasI18n": false,
+    "termsInDiscI18n": null,
+    "termsText": "Terms"
+  },
+  "shots": [
+    "/workspace/it-site-20261111/qa/it-p3/it-footer-1440.png",
+    "/workspace/it-site-20261111/qa/it-p3/it-footer-390.png",
+    "/workspace/it-site-20261111/qa/it-p3/it-hotel-orlando-1440.png",
+    "/workspace/it-site-20261111/qa/it-p3/it-hotel-orlando-390.png",
+    "/workspace/it-site-20261111/qa/it-p3/it-product-kurgo-1440.png",
+    "/workspace/it-site-20261111/qa/it-p3/it-product-kurgo-390.png"
+  ],
+  "summary": {
+    "pages": 64,
+    "pages_with_issues": 0,
+    "console": 0,
+    "lang_en_query": 0,
+    "amazon": {
+      "checked": 41,
+      "ok": 41,
+      "missing": []
+    },
+    "links_checked": 2424,
+    "links_not_200": 0,
+    "hreflang_issue_pages": 0,
+    "footer_cols": 5
+  }
+}

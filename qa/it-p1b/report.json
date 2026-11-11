@@ -1,0 +1,701 @@
+{
+  "pages": {
+    "it-home": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/it/",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 10744
+      },
+      "390": {
+        "url": "http://127.0.0.1:8828/it/",
+        "width": 390,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 10630
+      }
+    },
+    "it-france": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/it/countries/france.html",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [
+          "map.html"
+        ],
+        "tu": [
+          "nte Verificato il 10 nov 2026 Prova di titolazione degli anticorp",
+          "rea necessitano quindi di una prova di titolazione degli anticorp"
+        ],
+        "tu_n": 2,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 29735
+      },
+      "390": {
+        "url": "http://127.0.0.1:8828/it/countries/france.html",
+        "width": 390,
+        "console": [],
+        "raw_keys": [
+          "map.html"
+        ],
+        "tu": [
+          "nte Verificato il 10 nov 2026 Prova di titolazione degli anticorp",
+          "rea necessitano quindi di una prova di titolazione degli anticorp"
+        ],
+        "tu_n": 2,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 29613
+      }
+    },
+    "it-germany": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/it/countries/germany.html",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [
+          "map.html"
+        ],
+        "tu": [
+          "nte Verificato il 10 nov 2026 Prova di titolazione degli anticorp",
+          "alla Corea necessitano di una prova di titolazione degli anticorp",
+          " carta d’identità contiene la prova del diritto a portare un acco",
+          "mo 8 kg compreso l’animale; a prova di fuga, di perdite e di mors",
+          "edio raggio. Borsa morbida, a prova di perdite, a prova di morsi,",
+          "orbida, a prova di perdite, a prova di morsi, chiusa ma permeabil"
+        ],
+        "tu_n": 6,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 31979
+      },
+      "390": {
+        "url": "http://127.0.0.1:8828/it/countries/germany.html",
+        "width": 390,
+        "console": [],
+        "raw_keys": [
+          "map.html"
+        ],
+        "tu": [
+          "nte Verificato il 10 nov 2026 Prova di titolazione degli anticorp",
+          "alla Corea necessitano di una prova di titolazione degli anticorp",
+          " carta d’identità contiene la prova del diritto a portare un acco",
+          "mo 8 kg compreso l’animale; a prova di fuga, di perdite e di mors",
+          "edio raggio. Borsa morbida, a prova di perdite, a prova di morsi,",
+          "orbida, a prova di perdite, a prova di morsi, chiusa ma permeabil"
+        ],
+        "tu_n": 6,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 31857
+      }
+    },
+    "it-uk": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/it/countries/uk.html",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [
+          "map.html"
+        ],
+        "tu": [
+          "nte Verificato il 10 nov 2026 Prova di titolazione degli anticorp",
+          "o in Northern Ireland, più la prova che Eurostar ha accettato l’a",
+          " del UK chiedono di solito la prova delle vaccinazioni di base; a"
+        ],
+        "tu_n": 3,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 37120
+      },
+      "390": {
+        "url": "http://127.0.0.1:8828/it/countries/uk.html",
+        "width": 390,
+        "console": [],
+        "raw_keys": [
+          "map.html"
+        ],
+        "tu": [
+          "nte Verificato il 10 nov 2026 Prova di titolazione degli anticorp",
+          "o in Northern Ireland, più la prova che Eurostar ha accettato l’a",
+          " del UK chiedono di solito la prova delle vaccinazioni di base; a"
+        ],
+        "tu_n": 3,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 36998
+      }
+    },
+    "it-usa": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/it/countries/usa.html",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [],
+        "tu": [
+          " ingresso negli USA: Nessuna prova federale antirabbica né requi",
+          "asciato entro 30 giorni) e la prova della vaccinazione antirabbic",
+          "o essere ispezionati; nessuna prova di vaccinazione antirabbica o",
+          "ortino insieme. Trasportino a prova di perdite e ventilato, massi",
+          "nimali destinati alla vendita Prova obbligatoria per cani e gatti",
+          "accompagnati dal proprietario Prova obbligatoria a 3 mesi o più C",
+          "viaggiano con il proprietario Prova di vaccinazione in corso di v",
+          "e soggiorna meno di 30 giorni Prova obbligatoria a 3 mesi o più G",
+          "essun cambio di proprietario) Prova di vaccinazione in corso di v",
+          "ì, rilasciato entro 30 giorni Prova di vaccinazione in corso di v",
+          "nimali destinati alla vendita Prova obbligatoria per cani e gatti",
+          "ì, rilasciato entro 30 giorni Prova di vaccinazione in corso di v",
+          "accompagnati dal proprietario Prova obbligatoria a 3 mesi o più C",
+          "viaggiano con il proprietario Prova di vaccinazione in corso di v",
+          "Carolina Sì, valido 30 giorni Prova di vaccinazione obbligatoria ",
+          "e soggiorna meno di 30 giorni Prova obbligatoria a 3 mesi o più G",
+          "essun cambio di proprietario) Prova di vaccinazione in corso di v"
+        ],
+        "tu_n": 17,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 38603
+      },
+      "390": {
+        "url": "http://127.0.0.1:8828/it/countries/usa.html",
+        "width": 390,
+        "console": [],
+        "raw_keys": [],
+        "tu": [
+          " ingresso negli USA: Nessuna prova federale antirabbica né requi",
+          "asciato entro 30 giorni) e la prova della vaccinazione antirabbic",
+          "o essere ispezionati; nessuna prova di vaccinazione antirabbica o",
+          "ortino insieme. Trasportino a prova di perdite e ventilato, massi",
+          "nimali destinati alla vendita Prova obbligatoria per cani e gatti",
+          "accompagnati dal proprietario Prova obbligatoria a 3 mesi o più C",
+          "viaggiano con il proprietario Prova di vaccinazione in corso di v",
+          "e soggiorna meno di 30 giorni Prova obbligatoria a 3 mesi o più G",
+          "essun cambio di proprietario) Prova di vaccinazione in corso di v",
+          "ì, rilasciato entro 30 giorni Prova di vaccinazione in corso di v",
+          "nimali destinati alla vendita Prova obbligatoria per cani e gatti",
+          "ì, rilasciato entro 30 giorni Prova di vaccinazione in corso di v",
+          "accompagnati dal proprietario Prova obbligatoria a 3 mesi o più C",
+          "viaggiano con il proprietario Prova di vaccinazione in corso di v",
+          "Carolina Sì, valido 30 giorni Prova di vaccinazione obbligatoria ",
+          "e soggiorna meno di 30 giorni Prova obbligatoria a 3 mesi o più G",
+          "essun cambio di proprietario) Prova di vaccinazione in corso di v"
+        ],
+        "tu_n": 17,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 38177
+      }
+    },
+    "it-canada": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/it/countries/canada.html",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [],
+        "tu": [
+          "ne). Meno di 3 mesi: nessuno, prova dell’età. Certificato sanitar",
+          "gorosi sulle vaccinazioni: la prova antirabbica è quasi universal"
+        ],
+        "tu_n": 2,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 10659
+      },
+      "390": {
+        "url": "http://127.0.0.1:8828/it/countries/canada.html",
+        "width": 390,
+        "console": [],
+        "raw_keys": [],
+        "tu": [
+          "ne). Meno di 3 mesi: nessuno, prova dell’età. Certificato sanitar",
+          "gorosi sulle vaccinazioni: la prova antirabbica è quasi universal"
+        ],
+        "tu_n": 2,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 10537
+      }
+    },
+    "it-usa-france": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/it/routes/usa-france.html",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 9678
+      },
+      "390": {
+        "url": "http://127.0.0.1:8828/it/routes/usa-france.html",
+        "width": 390,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 9458
+      }
+    },
+    "it-usa-uk": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/it/routes/usa-uk.html",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 8832
+      },
+      "390": {
+        "url": "http://127.0.0.1:8828/it/routes/usa-uk.html",
+        "width": 390,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 8612
+      }
+    },
+    "it-airfrance": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/it/airlines/air-france.html",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 4448
+      },
+      "390": {
+        "url": "http://127.0.0.1:8828/it/airlines/air-france.html",
+        "width": 390,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 4338
+      }
+    },
+    "it-checklist": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/it/vet-prep/checklist.html",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 3244
+      },
+      "390": {
+        "url": "http://127.0.0.1:8828/it/vet-prep/checklist.html",
+        "width": 390,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 3244
+      }
+    },
+    "it-italy-map": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/it/countries/italy-map.html",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 5631
+      },
+      "390": {
+        "url": "http://127.0.0.1:8828/it/countries/italy-map.html",
+        "width": 390,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 5400
+      }
+    },
+    "it-france-map": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/it/countries/france-map.html",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 5176
+      },
+      "390": {
+        "url": "http://127.0.0.1:8828/it/countries/france-map.html",
+        "width": 390,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 4875
+      }
+    }
+  },
+  "controls": {
+    "en-home": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [
+          "Search airlines, routes, hotels",
+          "Primary mobile",
+          "Choose a country"
+        ],
+        "links_internal": 63,
+        "links_bad": [],
+        "visible_chars": 9550
+      }
+    },
+    "es-home": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/es/",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [],
+        "links_internal": 63,
+        "links_bad": [],
+        "visible_chars": 5193
+      }
+    },
+    "en-france-map": {
+      "1280": {
+        "url": "http://127.0.0.1:8828/countries/france-map.html",
+        "width": 1280,
+        "console": [],
+        "raw_keys": [],
+        "tu": [],
+        "tu_n": 0,
+        "en_visible": [
+          "Search airlines, routes, hotels",
+          "Primary mobile",
+          "Choose a region",
+          "Pick a ",
+          "World Map",
+          "USA Map",
+          "Canada Map",
+          "France Map",
+          "Germany Map",
+          "Italy Map",
+          "UK Map",
+          "Click any ",
+          "Journey order:"
+        ],
+        "links_internal": 0,
+        "links_bad": [],
+        "visible_chars": 4631
+      }
+    }
+  },
+  "console": {
+    "it-home": [],
+    "it-france": [],
+    "it-germany": [],
+    "it-uk": [],
+    "it-usa": [],
+    "it-canada": [],
+    "it-usa-france": [],
+    "it-usa-uk": [],
+    "it-airfrance": [],
+    "it-checklist": [],
+    "it-italy-map": [],
+    "it-france-map": [],
+    "en-home": [],
+    "es-home": [],
+    "en-france-map": []
+  },
+  "links": {
+    "it-home": {
+      "internal": 0,
+      "bad": []
+    },
+    "it-france": {
+      "internal": 0,
+      "bad": []
+    },
+    "it-germany": {
+      "internal": 0,
+      "bad": []
+    },
+    "it-uk": {
+      "internal": 0,
+      "bad": []
+    },
+    "it-usa": {
+      "internal": 0,
+      "bad": []
+    },
+    "it-canada": {
+      "internal": 0,
+      "bad": []
+    },
+    "it-usa-france": {
+      "internal": 0,
+      "bad": []
+    },
+    "it-usa-uk": {
+      "internal": 0,
+      "bad": []
+    },
+    "it-airfrance": {
+      "internal": 0,
+      "bad": []
+    },
+    "it-checklist": {
+      "internal": 0,
+      "bad": []
+    },
+    "it-italy-map": {
+      "internal": 0,
+      "bad": []
+    },
+    "it-france-map": {
+      "internal": 0,
+      "bad": []
+    }
+  },
+  "raw_keys": {
+    "it-home": [],
+    "it-france": [
+      "map.html"
+    ],
+    "it-germany": [
+      "map.html"
+    ],
+    "it-uk": [
+      "map.html"
+    ],
+    "it-usa": [],
+    "it-canada": [],
+    "it-usa-france": [],
+    "it-usa-uk": [],
+    "it-airfrance": [],
+    "it-checklist": [],
+    "it-italy-map": [],
+    "it-france-map": []
+  },
+  "tu": {
+    "it-home": [],
+    "it-france": [
+      "nte Verificato il 10 nov 2026 Prova di titolazione degli anticorp",
+      "rea necessitano quindi di una prova di titolazione degli anticorp"
+    ],
+    "it-germany": [
+      "nte Verificato il 10 nov 2026 Prova di titolazione degli anticorp",
+      "alla Corea necessitano di una prova di titolazione degli anticorp",
+      " carta d’identità contiene la prova del diritto a portare un acco",
+      "mo 8 kg compreso l’animale; a prova di fuga, di perdite e di mors",
+      "edio raggio. Borsa morbida, a prova di perdite, a prova di morsi,",
+      "orbida, a prova di perdite, a prova di morsi, chiusa ma permeabil"
+    ],
+    "it-uk": [
+      "nte Verificato il 10 nov 2026 Prova di titolazione degli anticorp",
+      "o in Northern Ireland, più la prova che Eurostar ha accettato l’a",
+      " del UK chiedono di solito la prova delle vaccinazioni di base; a"
+    ],
+    "it-usa": [
+      " ingresso negli USA: Nessuna prova federale antirabbica né requi",
+      "asciato entro 30 giorni) e la prova della vaccinazione antirabbic",
+      "o essere ispezionati; nessuna prova di vaccinazione antirabbica o",
+      "ortino insieme. Trasportino a prova di perdite e ventilato, massi",
+      "nimali destinati alla vendita Prova obbligatoria per cani e gatti",
+      "accompagnati dal proprietario Prova obbligatoria a 3 mesi o più C",
+      "viaggiano con il proprietario Prova di vaccinazione in corso di v",
+      "e soggiorna meno di 30 giorni Prova obbligatoria a 3 mesi o più G",
+      "essun cambio di proprietario) Prova di vaccinazione in corso di v",
+      "ì, rilasciato entro 30 giorni Prova di vaccinazione in corso di v",
+      "nimali destinati alla vendita Prova obbligatoria per cani e gatti",
+      "ì, rilasciato entro 30 giorni Prova di vaccinazione in corso di v",
+      "accompagnati dal proprietario Prova obbligatoria a 3 mesi o più C",
+      "viaggiano con il proprietario Prova di vaccinazione in corso di v",
+      "Carolina Sì, valido 30 giorni Prova di vaccinazione obbligatoria ",
+      "e soggiorna meno di 30 giorni Prova obbligatoria a 3 mesi o più G",
+      "essun cambio di proprietario) Prova di vaccinazione in corso di v"
+    ],
+    "it-canada": [
+      "ne). Meno di 3 mesi: nessuno, prova dell’età. Certificato sanitar",
+      "gorosi sulle vaccinazioni: la prova antirabbica è quasi universal"
+    ],
+    "it-usa-france": [],
+    "it-usa-uk": [],
+    "it-airfrance": [],
+    "it-checklist": [],
+    "it-italy-map": [],
+    "it-france-map": []
+  },
+  "en_visible": {
+    "it-home": [],
+    "it-france": [],
+    "it-germany": [],
+    "it-uk": [],
+    "it-usa": [],
+    "it-canada": [],
+    "it-usa-france": [],
+    "it-usa-uk": [],
+    "it-airfrance": [],
+    "it-checklist": [],
+    "it-italy-map": [],
+    "it-france-map": []
+  },
+  "shots": [
+    "/workspace/it-site-20261111/qa/it-p1b/it-home-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-home-390.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-france-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-france-390.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-germany-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-germany-390.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-uk-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-uk-390.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-usa-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-usa-390.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-canada-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-canada-390.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-usa-france-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-usa-france-390.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-usa-uk-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-usa-uk-390.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-airfrance-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-airfrance-390.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-checklist-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-checklist-390.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-italy-map-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-italy-map-390.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-france-map-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/it-france-map-390.png",
+    "/workspace/it-site-20261111/qa/it-p1b/en-home-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/es-home-1280.png",
+    "/workspace/it-site-20261111/qa/it-p1b/en-france-map-1280.png"
+  ],
+  "summary": {
+    "pages_checked": 12,
+    "shots": 27,
+    "console_errors_total": 0,
+    "console_by_page": {},
+    "bad_links": {},
+    "raw_keys": {
+      "it-france": [
+        "map.html"
+      ],
+      "it-germany": [
+        "map.html"
+      ],
+      "it-uk": [
+        "map.html"
+      ]
+    },
+    "tu": {
+      "it-france": [
+        "nte Verificato il 10 nov 2026 Prova di titolazione degli anticorp",
+        "rea necessitano quindi di una prova di titolazione degli anticorp"
+      ],
+      "it-germany": [
+        "nte Verificato il 10 nov 2026 Prova di titolazione degli anticorp",
+        "alla Corea necessitano di una prova di titolazione degli anticorp",
+        " carta d’identità contiene la prova del diritto a portare un acco",
+        "mo 8 kg compreso l’animale; a prova di fuga, di perdite e di mors",
+        "edio raggio. Borsa morbida, a prova di perdite, a prova di morsi,",
+        "orbida, a prova di perdite, a prova di morsi, chiusa ma permeabil"
+      ],
+      "it-uk": [
+        "nte Verificato il 10 nov 2026 Prova di titolazione degli anticorp",
+        "o in Northern Ireland, più la prova che Eurostar ha accettato l’a",
+        " del UK chiedono di solito la prova delle vaccinazioni di base; a"
+      ],
+      "it-usa": [
+        " ingresso negli USA: Nessuna prova federale antirabbica né requi",
+        "asciato entro 30 giorni) e la prova della vaccinazione antirabbic",
+        "o essere ispezionati; nessuna prova di vaccinazione antirabbica o",
+        "ortino insieme. Trasportino a prova di perdite e ventilato, massi",
+        "nimali destinati alla vendita Prova obbligatoria per cani e gatti",
+        "accompagnati dal proprietario Prova obbligatoria a 3 mesi o più C",
+        "viaggiano con il proprietario Prova di vaccinazione in corso di v",
+        "e soggiorna meno di 30 giorni Prova obbligatoria a 3 mesi o più G",
+        "essun cambio di proprietario) Prova di vaccinazione in corso di v",
+        "ì, rilasciato entro 30 giorni Prova di vaccinazione in corso di v",
+        "nimali destinati alla vendita Prova obbligatoria per cani e gatti",
+        "ì, rilasciato entro 30 giorni Prova di vaccinazione in corso di v",
+        "accompagnati dal proprietario Prova obbligatoria a 3 mesi o più C",
+        "viaggiano con il proprietario Prova di vaccinazione in corso di v",
+        "Carolina Sì, valido 30 giorni Prova di vaccinazione obbligatoria ",
+        "e soggiorna meno di 30 giorni Prova obbligatoria a 3 mesi o più G",
+        "essun cambio di proprietario) Prova di vaccinazione in corso di v"
+      ],
+      "it-canada": [
+        "ne). Meno di 3 mesi: nessuno, prova dell’età. Certificato sanitar",
+        "gorosi sulle vaccinazioni: la prova antirabbica è quasi universal"
+      ]
+    },
+    "en_visible": {},
+    "internal_links_ok": true
+  }
+}

@@ -31,7 +31,19 @@ function buildSwitcher(){
   const host = document.getElementById('map-switch');
   if(!host) return;
   const es = (location.pathname||'').indexOf('/es/')===0;
-  const tabs = es ? [
+  const it = (location.pathname||'').indexOf('/it/')===0;
+  const tabs = it ? [
+    {id:'usa', href:'/it/countries/usa-map.html', label:"Mappa USA", accent:'usa'},
+    {id:'ca', href:'/it/countries/canada-map.html', label:"Mappa del Canada", accent:'maple'},
+    {id:'mx', href:'/countries/mexico-map.html', label:"Mappa del Messico", accent:'mxgreen'},
+    {id:'uk', href:'/it/countries/uk-map.html', label:"Mappa del Regno Unito", accent:'unionjack'},
+    {id:'fr', href:'/it/countries/france-map.html', label:"Mappa della Francia", accent:'tricolore'},
+    {id:'de', href:'/it/countries/germany-map.html', label:"Mappa della Germania", accent:'schwarzrotgold'},
+    {id:'kr', href:'/countries/south-korea-map.html', label:"Mappa della Corea", accent:'taegeuk'},
+    {id:'jp', href:'/countries/japan-map.html', label:"Mappa del Giappone", accent:'hinomaru'},
+    {id:'it', href:'/it/countries/italy-map.html', label:"Mappa dell’Italia", accent:'italy'},
+    {id:'es', href:'/countries/spain-map.html', label:"Mappa della Spagna", accent:'rojigualda'}
+  ] : es ? [
     {id:'usa', href:'/es/countries/usa-map.html', label:'Mapa de EE. UU.', accent:'usa'},
     {id:'ca', href:'/es/countries/canada-map.html', label:'Mapa de Canadá', accent:'maple'},
     {id:'mx', href:'/es/countries/mexico-map.html', label:'Mapa de México', accent:'mxgreen'},
@@ -55,10 +67,22 @@ function buildSwitcher(){
     {id:'es', href:'spain-map.html', label:'Spain Map', accent:'rojigualda'}
   ];
   const cur = ({CA:'ca',MX:'mx',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp',IT:'it',ES:'es'}[DATA.country]) || 'usa';
-  const back = `<a class="msw-tab world-back" href="../?view=map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${es?'← Mapa mundial':'← World Map'}</span></a>`;
+  const backLabel = it ? "← Mappa del mondo" : es ? '← Mapa mundial' : '← World Map';
+  const back = `<a class="msw-tab world-back" href="../?view=map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${backLabel}</span></a>`;
   host.innerHTML = back + tabs.map(t =>
     `<a class="msw-tab accent-${t.accent}${t.id===cur?' is-current':''}" href="${t.href}"${t.id===cur?' aria-current="page"':''} style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${t.label}</span></a>`
   ).join('');
+  const card = host.closest('section') || document.querySelector('section.card.mapcard, section.mapcard');
+  if(card){
+    const ariaMap = it ? {usa:'Mappa degli Stati Uniti',ca:'Mappa del Canada',mx:'Mappa del Messico',uk:'Mappa del Regno Unito',fr:'Mappa della Francia',de:'Mappa della Germania',kr:'Mappa della Corea',jp:'Mappa del Giappone',it:'Mappa dell’Italia',es:'Mappa della Spagna'}
+      : es ? {usa:'Mapa de los Estados Unidos',ca:'Mapa de Canadá',mx:'Mapa de México',uk:'Mapa del Reino Unido',fr:'Mapa de Francia',de:'Mapa de Alemania',kr:'Mapa de Corea del Sur',jp:'Mapa de Japón',it:'Mapa de Italia',es:'Mapa de España'}
+      : {usa:'Map of the United States',ca:'Map of Canada',mx:'Map of Mexico',uk:'Map of the United Kingdom',fr:'Map of France',de:'Map of Germany',kr:'Map of South Korea',jp:'Map of Japan',it:'Map of Italy',es:'Map of Spain'};
+    const desired = ariaMap[cur];
+    const prev = card.getAttribute('aria-label')||'';
+    const wrongCa = /Canada|Canadá/i.test(prev) && cur!=='ca';
+    if(desired && (wrongCa || !prev)) card.setAttribute('aria-label', desired);
+  }
+
 }
 
 /* ---------- draw ---------- */
@@ -133,8 +157,14 @@ function buildMap(){
   buildAirports();
   mountLabelLegend();
   const pick = $('#pick');
+  const itLocalePick = (location.pathname||'').indexOf('/it/')===0;
+  const chooseUnitPhrase = (unit) => {
+    if(!itLocalePick) return 'Choose a ' + unit + '…';
+    const unitMap = {"region":"Scelga una regione…","regione":"Scelga una regione…","Land":"Scelga un Land…","state":"Scelga uno Stato…","province":"Scelga una provincia…","provincia":"Scelga una provincia…","nation":"Scelga una nazione…"};
+    return unitMap[unit] || ('Scelga una ' + unit + '…');
+  };
   if(pick){
-    pick.innerHTML = `<option value="">Choose a ${DATA.unit}…</option>` +
+    pick.innerHTML = `<option value="">${chooseUnitPhrase(DATA.unit)}</option>` +
       ABBRS.map(a => `<option value="${a}">${esc(GEO[a].name)} (${a})</option>`).join('');
     pick.onchange = () => { if(pick.value) selectRegion(pick.value); };
 
@@ -152,7 +182,7 @@ function buildMap(){
     btn.className = 'state-picker-btn';
     btn.setAttribute('aria-haspopup', 'listbox');
     btn.setAttribute('aria-expanded', 'false');
-    const ph = 'Choose a ' + unit + '…';
+    const ph = chooseUnitPhrase(unit);
     btn.innerHTML = '<span class="sp-label">' + ph + '</span><svg class="sp-chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.4 9.5 12 14.1l4.6-4.6 1.4 1.4-6 6-6-6z"/></svg>';
     const menu = document.createElement('ul');
     menu.className = 'state-picker-menu';
@@ -226,13 +256,16 @@ function mountLabelLegend(){
   const lang = ((document.documentElement.lang||'') + ' ' + (document.documentElement.getAttribute('data-lang')||'')).toLowerCase();
   let es = /\bes\b/.test(lang);
   try{ es = es || (localStorage.getItem('ppc_lang')||'')==='es'; }catch(_){}
-  const L = es
+  const itLeg = (location.pathname||'').indexOf('/it/')===0;
+  const L = itLeg
+    ? {r:'Regioni', c:'Città', k:'Capitale', a:'Aeroporti internazionali'}
+    : es
     ? {r:'Regiones', c:'Ciudades', k:'Capital', a:'Aeropuertos internacionales'}
     : {r:'Regions', c:'Cities', k:'Capital', a:'International airports'};
   const box = document.createElement('div');
   box.className = 'lbl-legend';
   box.setAttribute('role','note');
-  box.setAttribute('aria-label', es ? 'Leyenda de etiquetas' : 'Label colour legend');
+  box.setAttribute('aria-label', itLeg ? 'Legenda dei colori delle etichette' : es ? 'Leyenda de etiquetas' : 'Label colour legend');
   box.innerHTML =
     '<span class="ll-r"><i aria-hidden="true"></i>'+L.r+'</span>'+
     '<span class="ll-c"><i aria-hidden="true"></i>'+L.c+'</span>'+
@@ -253,9 +286,15 @@ function buildPortalGrid(){
 
 /* ---------- panel content ---------- */
 let step = 1, cur = null;
+
+function onIt(){ return (location.pathname||'').indexOf('/it/')===0; }
+function itThisUnit(unit){
+  const m={"regione":"questa regione","region":"questa regione","Land":"questo Land","provincia":"questa provincia","province":"questa provincia","nazione":"questa nazione","nation":"questa nazione","Stato":"questo Stato","state":"questo Stato"};
+  return m[unit] || ('questa/o ' + unit);
+}
 function header(a, title, sub){
   const P = window.PPC_PST ? PPC_PST('map','pst-ph') : '';
-  return `<div class="ph theme-map accent-head"><div class="mark">${esc(a)}</div><div><div class="ph-eye">${P}<span>${esc(DATA.name)} map · ${esc(DATA.unit)} panel</span></div><h2>${esc(title)}</h2><div class="sub">${sub}</div></div></div>`;
+  return `<div class="ph theme-map accent-head"><div class="mark">${esc(a)}</div><div><div class="ph-eye">${P}<span>${(location.pathname||"").indexOf("/it/")===0 ? ("Mappa "+esc(DATA.name)+" · pannello "+esc(DATA.unit)) : (esc(DATA.name)+" map · "+esc(DATA.unit)+" panel")}</span></div><h2>${esc(title)}</h2><div class="sub">${sub}</div></div></div>`;
 }
 function dogsCatsBlock(){
   const d = DATA.dogs||{}, c = DATA.cats||{};
@@ -315,18 +354,18 @@ function lawSection(a){
   }
   if(DATA.officialUrl){
     const checked = DATA.lastChecked ? ('Checked '+DATA.lastChecked) : '';
-    s += `<div class="links">${lk('🏛', DATA.name+' official pet-entry page', checked, DATA.officialUrl, 'off')}</div>`;
+    s += `<div class="links">${lk('🏛', ((location.pathname||'').indexOf('/it/')===0 ? ('Pagina ufficiale di ingresso con animali — '+DATA.name) : (DATA.name+' official pet-entry page')), checked, DATA.officialUrl, 'off')}</div>`;
   }
   s += dogsCatsBlock();
   s += breedBlock(a);
-  s += `<h4>Return to the US</h4><p>${esc(DATA.returnToUs)}</p>`;
+  s += `<h4>${onIt()?'Rientro negli USA':'Return to the US'}</h4><p>${esc(DATA.returnToUs)}</p>`;
   const hubs = hubForRegion(a);
   if(hubs.length){
     s += `<h4>Verified clinic near ${esc(nm)}</h4>` + hubs.map(vetCard).join('');
   } else {
-    s += `<h4>Clinic</h4><div class="stubbox">No verified clinic listed for this ${DATA.unit} yet — confirm with a local licensed vet.</div>`;
+    s += `<h4>${onIt()?'Ambulatorio':'Clinic'}</h4><div class="stubbox">${onIt()?('Nessun ambulatorio verificato elencato per '+itThisUnit(DATA.unit)+' per ora — lo confermi con un veterinario locale abilitato.'):('No verified clinic listed for this '+DATA.unit+' yet — confirm with a local licensed vet.')}</div>`;
   }
-  s += `<p class="disc">Full reference: <a href="${DATA.guideUrl}">${esc(DATA.name)} pet-travel guide</a>. Not legal or veterinary advice.</p></section>`;
+  s += `<p class="disc">${onIt()?('Riferimento completo: <a href="'+DATA.guideUrl+'">guida al viaggio con animali — '+esc(DATA.name)+'</a>. Non costituisce consulenza legale o veterinaria.'):('Full reference: <a href="'+DATA.guideUrl+'">'+esc(DATA.name)+' pet-travel guide</a>. Not legal or veterinary advice.')}</p></section>`;
   return s;
 }
 function roadSection(a){
@@ -352,7 +391,7 @@ function roadSection(a){
   hubs.forEach(h => {
     if(h.transit) s += `<h4>${esc(h.city)} local transit</h4><p>${esc(h.transit)}</p>`;
   });
-  if(!hubs.length) s += `<div class="stubbox">Local transit pet rules for this ${DATA.unit} are not published on this map yet — confirm directly.</div>`;
+  if(!hubs.length) s += `<div class="stubbox">${onIt()?('Le regole sui mezzi pubblici per gli animali in '+itThisUnit(DATA.unit)+' non sono ancora pubblicate su questa mappa — lo confermi direttamente.'):('Local transit pet rules for this '+DATA.unit+' are not published on this map yet — confirm directly.')}</div>`;
   return s + `</section>`;
 }
 function planeSection(a, apCode){
@@ -369,8 +408,8 @@ function planeSection(a, apCode){
     s += `</div>`;
     if(!h.relief_url && h.relief_note) s += `<div class="stubbox">${esc(h.relief_note)}</div>`;
   });
-  if(!hubs.length) s += `<div class="stubbox">No verified airport hub for this ${DATA.unit} on this map yet.</div>`;
-  s += `<div class="links">${lk('🧳','Airline pet policies','Cabin, fees, hold','../#compare','off').replace('Official','Site').replace(' target="_blank"','')}</div></section>`;
+  if(!hubs.length) s += `<div class="stubbox">${onIt()?('Nessun hub aeroportuale verificato per '+itThisUnit(DATA.unit)+' su questa mappa per ora.'):('No verified airport hub for this '+DATA.unit+' on this map yet.')}</div>`;
+  s += `<div class="links">${lk('🧳',onIt()?'Regole delle compagnie sugli animali':'Airline pet policies',onIt()?'Cabina, tariffe, stiva':'Cabin, fees, hold','../#compare','off').replace('Official','Site').replace(' target="_blank"','')}</div></section>`;
   return s;
 }
 function hotelSection(a, qCity){
@@ -401,10 +440,10 @@ function groomSection(a){
       s += `<div class="links">${lk('✂️', g.name, (bits.join(' · ')||g.city||''), g.url, g.url?'off':'stub')}</div>`;
     });
     if(!(h.grooming||[]).length && h.grooming_q){
-      s += `<div class="stubbox">No verified salon listed for ${esc(h.city)} yet. Search: <em>${esc(h.grooming_q)}</em> — and call ahead about vaccine papers.</div>`;
+      s += `<div class="stubbox">${onIt()?('Nessun salone verificato elencato per '+esc(h.city)+' per ora. Ricerca: <em>'+esc(h.grooming_q)+'</em> — e chiami prima riguardo ai documenti vaccinali.'):('No verified salon listed for '+esc(h.city)+' yet. Search: <em>'+esc(h.grooming_q)+'</em> — and call ahead about vaccine papers.')}</div>`;
     }
   });
-  if(!hubs.length && !any) s += `<div class="stubbox">No verified salon for this ${DATA.unit} on this map yet.</div>`;
+  if(!hubs.length && !any) s += `<div class="stubbox">${onIt()?('Nessun salone verificato per '+itThisUnit(DATA.unit)+' su questa mappa per ora.'):('No verified salon for this '+DATA.unit+' on this map yet.')}</div>`;
   s += `<p class="disc">Also see the <a href="../grooming/">Grooming directory</a>.</p></section>`;
   return s;
 }
@@ -845,9 +884,21 @@ function resetAll(){
 /* USA empty(): "Pick a state or city" + city and airport shortcuts. */
 function empty(){
   const cities=[]; for(const a of ABBRS) for(const c of (GEO[a].cities||[])) if(c.sample) cities.push([a,c.n]);
-  $('#panel').innerHTML=`<div class="empty"><div class="big">Pick a ${esc(DATA.unit)} or city</div><p>Click any ${esc(DATA.unit)} on the map (or use the list) to open its panel. Plane marks are the airport hubs:</p>`+
+  const itLocale = (location.pathname||'').indexOf('/it/')===0;
+  let pick, click, journey;
+  if(itLocale){
+    const unitMap = {"state": "Scelga uno Stato o una città", "Land": "Scelga un Land o una città", "region": "Scelga una regione o una città", "regione": "Scelga una regione o una città", "province": "Scelga una provincia o una città", "provincia": "Scelga una provincia o una città"};
+    pick = unitMap[DATA.unit] || ('Scelga un ' + esc(DATA.unit) + ' o una città');
+    click = "Faccia clic su qualsiasi unità sulla mappa (o usi l’elenco) per aprirne il pannello. I simboli dell’aereo sono gli hub aeroportuali:";
+    journey = "Ordine del viaggio: 1 veterinario + norme → 2 strada/treno → 3 aereo → 4 hotel → 5 toelettatura.";
+  } else {
+    pick = 'Pick a ' + esc(DATA.unit) + ' or city';
+    click = 'Click any ' + esc(DATA.unit) + ' on the map (or use the list) to open its panel. Plane marks are the airport hubs:';
+    journey = 'Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel → 5 grooming.';
+  }
+  $('#panel').innerHTML=`<div class="empty"><div class="big">${pick}</div><p>${click}</p>`+
     (cities.length?`<div class="citylist">${cities.map(([a,n])=>`<button type="button" class="sample" data-s="${a}" data-city="${esc(n)}">${esc(n)}</button>`).join('')}</div>`:'')+
-    `<div class="citylist">${AIRPORTS.map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.city)}</button>`).join('')}</div><p class="disc">Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel → 5 grooming.</p></div>`;
+    `<div class="citylist">${AIRPORTS.map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.city)}</button>`).join('')}</div><p class="disc">${journey}</p></div>`;
   $('#panel').querySelectorAll('[data-city]').forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
   $('#panel').querySelectorAll('[data-ap]').forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
 }
@@ -892,15 +943,16 @@ function initFreeZoom(){const m=$('#map');if(!m)return;
  let wrap=m.parentNode;if(!wrap.classList.contains('mapwrap')){wrap=document.createElement('div');wrap.className='mapwrap';m.parentNode.insertBefore(wrap,m);wrap.appendChild(m)}
  /* Country-specific empty-space placement: CA Pacific SW, MX Pacific SW (desktop). Mobile: under map. */
  wrap.classList.add('zoom-pos-'+({MX:'mx',CA:'ca',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp',IT:'it',ES:'es'}[DATA.country]||'ca'));
- if(!$('#zin')){const z=document.createElement('div');z.className='zoom';z.setAttribute('role','group');z.setAttribute('aria-label','Map zoom');
-  z.innerHTML='<button type="button" id="zin" aria-label="Zoom in" title="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out" title="Zoom out">&minus;</button><button type="button" id="zreset" aria-label="Reset map view" title="Reset map view">&#8634;</button>';
+ if(!$('#zin')){const z=document.createElement('div');z.className='zoom';z.setAttribute('role','group');z.setAttribute('aria-label',onIt()?'Zoom della mappa':'Map zoom');
+  const zi=onIt()?'Ingrandisci':'Zoom in', zo=onIt()?'Riduci':'Zoom out', zr=onIt()?'Reimposta la vista della mappa':'Reset map view';
+  z.innerHTML='<button type="button" id="zin" aria-label="'+zi+'" title="'+zi+'">+</button><button type="button" id="zout" aria-label="'+zo+'" title="'+zo+'">&minus;</button><button type="button" id="zreset" aria-label="'+zr+'" title="'+zr+'">&#8634;</button>';
   wrap.appendChild(z)}
  const ctr=()=>[vb[0]+vb[2]/2,vb[1]+vb[3]/2];
  $('#zin').onclick=()=>{const c=ctr();zoomAt(c[0],c[1],1.6,250)};
  $('#zout').onclick=()=>{const c=ctr();zoomAt(c[0],c[1],1/1.6,250)};
  $('#zreset').onclick=()=>animateTo(FULL,300);
  const note=document.querySelector('#country-map .mapnote');
- if(note&&!note.querySelector('.mhint')){note.insertAdjacentHTML('afterbegin','<span class="mhint">Pinch with two fingers to zoom, swipe sideways to move the map. </span><span class="dhint">Scroll over the map to zoom, drag to move. </span>')}
+ if(note&&!note.querySelector('.mhint')){note.insertAdjacentHTML('afterbegin', onIt()?'<span class="mhint">Pizzichi con due dita per lo zoom, scorra di lato per spostare la mappa. </span><span class="dhint">Scorra sulla mappa per lo zoom, trascini per spostarla. </span>':'<span class="mhint">Pinch with two fingers to zoom, swipe sideways to move the map. </span><span class="dhint">Scroll over the map to zoom, drag to move. </span>')}
  syncZoomUI();
  const toSVG=(cx,cy)=>{const r=m.getBoundingClientRect();return [vb[0]+(cx-r.left)*vb[2]/r.width,vb[1]+(cy-r.top)*vb[3]/r.height]};
  const perPx=()=>vb[2]/(m.getBoundingClientRect().width||MAP_W);

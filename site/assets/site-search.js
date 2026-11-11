@@ -21,6 +21,12 @@
       Transport: "Transporte", Airlines: "Aerolíneas", Routes: "Rutas",
       Hotels: "Hoteles", Guides: "Guías", Veterans: "Veteranos",
       Pro: "Pet Desk Pro", Tools: "Herramientas", Legal: "Legal"
+    }    ,
+    it: {
+      Countries: "Paesi", Cities: "Città", Airports: "Aeroporti",
+      Transport: "Trasporto", Airlines: "Compagnie aeree", Routes: "Percorsi",
+      Hotels: "Hotel", Guides: "Guide", Veterans: "Veterani",
+      Pro: "Pet Desk Pro", Tools: "Strumenti", Legal: "Legale"
     }
   };
   var ICONS = {
@@ -333,6 +339,14 @@
       statusOne: "1 sugerencia",
       statusMany: "{n} sugerencias",
       unavailable: "Índice de búsqueda no disponible"
+    },
+    it: {
+      clear: "Cancella la ricerca",
+      placeholder: "Cerca compagnie, percorsi, hotel…",
+      none: "Nessun risultato per “{q}”",
+      statusOne: "1 suggerimento",
+      statusMany: "{n} suggerimenti",
+      unavailable: "Indice di ricerca non disponibile"
     }
   };
 

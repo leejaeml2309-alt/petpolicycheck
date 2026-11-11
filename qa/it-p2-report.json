@@ -1,0 +1,94 @@
+{
+  "links_ok": 191,
+  "links_unique": 191,
+  "broken": [],
+  "it_broken": [],
+  "tu": [],
+  "console": {
+    "hub-index:1280": [],
+    "hub-usa-canada:1280": [],
+    "hub-usa-mexico:1280": [],
+    "usa-to-france-delta:1280": [],
+    "usa-to-canada-air-canada:1280": [],
+    "usa-to-south-korea-korean-air:1280": [],
+    "uk-to-france-british-airways:1280": [],
+    "mexico-to-usa-delta:1280": [],
+    "hub-index:390": [],
+    "hub-usa-canada:390": [],
+    "hub-usa-mexico:390": [],
+    "usa-to-france-delta:390": [],
+    "usa-to-canada-air-canada:390": [],
+    "usa-to-south-korea-korean-air:390": [],
+    "uk-to-france-british-airways:390": [],
+    "mexico-to-usa-delta:390": []
+  },
+  "overflow390": {
+    "hub-index": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "hub-usa-canada": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "hub-usa-mexico": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "usa-to-france-delta": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "usa-to-canada-air-canada": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "usa-to-south-korea-korean-air": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "uk-to-france-british-airways": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    },
+    "mexico-to-usa-delta": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false
+    }
+  },
+  "raw_keys": {
+    "hub-index:1280": [],
+    "hub-usa-canada:1280": [],
+    "hub-usa-mexico:1280": [],
+    "usa-to-france-delta:1280": [],
+    "usa-to-canada-air-canada:1280": [],
+    "usa-to-south-korea-korean-air:1280": [],
+    "uk-to-france-british-airways:1280": [],
+    "mexico-to-usa-delta:1280": [],
+    "hub-index:390": [],
+    "hub-usa-canada:390": [],
+    "hub-usa-mexico:390": [],
+    "usa-to-france-delta:390": [],
+    "usa-to-canada-air-canada:390": [],
+    "usa-to-south-korea-korean-air:390": [],
+    "uk-to-france-british-airways:390": [],
+    "mexico-to-usa-delta:390": []
+  },
+  "shots": [
+    "/workspace/it-site-20261111/qa/it-p2/it-routes-1280.png",
+    "/workspace/it-site-20261111/qa/it-p2/it-routes-390.png",
+    "/workspace/it-site-20261111/qa/it-p2/it-usa-canada-1280.png",
+    "/workspace/it-site-20261111/qa/it-p2/it-usa-mexico-1280.png",
+    "/workspace/it-site-20261111/qa/it-p2/it-usa-to-france-delta-1280.png",
+    "/workspace/it-site-20261111/qa/it-p2/it-usa-to-canada-air-canada-390.png",
+    "/workspace/it-site-20261111/qa/it-p2/it-mexico-to-usa-delta-1280.png"
+  ]
+}
