@@ -22,13 +22,46 @@
   };
   function lang(){
     try{
-      if((document.documentElement.getAttribute('data-ppc-locale')||'')==='es') return 'es';
-      if((location.pathname||'').indexOf('/es/')===0) return 'es';
-      if((document.documentElement.lang||'').toLowerCase().indexOf('es')===0) return 'es';
+      var loc=(document.documentElement.getAttribute('data-ppc-locale')||'').toLowerCase();
+      if(loc==='es'||loc==='it') return loc;
+      var p=location.pathname||'';
+      if(p.indexOf('/es/')===0) return 'es';
+      if(p.indexOf('/it/')===0) return 'it';
+      var hl=(document.documentElement.lang||'').toLowerCase();
+      if(hl.indexOf('es')===0) return 'es';
+      if(hl.indexOf('it')===0) return 'it';
     }catch(e){}
     return 'en';
   }
-  window.PPC_PASS_I18N={lang:lang,es:ES,t:function(k,en){return lang()==='es'&&ES[k]!=null?(typeof ES[k]==='function'?ES[k]:ES[k]):en;}};
+  var IT={
+    "copied":"copiato ✓",
+    "critical":"⛔ Critico",
+    "watch":"⚠️ Attenzione",
+    "source":"fonte",
+    "official":"ufficiale",
+    "noTrap":"Nessuna trappola particolare rilevata per questo percorso. Consulti comunque i link ufficiali.",
+    "cabin":"Cabina",
+    "weight":"Peso",
+    "carrier":"Trasportino",
+    "notPub":"non pubblicato",
+    "airOfficial":"Pagina ufficiale della compagnia",
+    "checked":"verificato",
+    "trapsH":"Trappole su questo percorso",
+    "timelineH":"Calendario del conto alla rovescia",
+    "after":"Dopo l’atterraggio:",
+    "scan":"Scansione: questo stesso percorso, sempre aggiornato",
+    "back":" di ritorno",
+    "passport.h1":"Pet Travel Passport",
+    "passport.generate":"Genera il passaporto",
+    "passport.print":"Stampa / Salva il PDF",
+    generated:function(d){return "Generato il {d} a partire da fonti ufficiali (CDC, USDA APHIS, CFIA, GOV.UK, UE, SENASICA). Le norme cambiano: verifichi di nuovo prima di ogni passaggio. Non costituisce consulenza legale o veterinaria.".replace(/\{d\}/g,d);}
+  };
+  window.PPC_PASS_I18N={lang:lang,es:ES,it:IT,t:function(k,en){
+    var L=lang();
+    var pack=L==='es'?ES:L==='it'?IT:null;
+    if(pack&&pack[k]!=null) return (typeof pack[k]==='function'?pack[k]:pack[k]);
+    return en;
+  }};
 })();
 /* ES overlays for passport frame rules/traps ( /es/ only; EN data untouched ) */
 (function(){
@@ -49,6 +82,26 @@
   (D.frame.traps||[]).forEach(function(t){ if(t&&TRAPS[t.id]!=null) t.text=TRAPS[t.id]; });
   if(JP_NOTE!=null && D.frame.countries && D.frame.countries.JP) D.frame.countries.JP.note=JP_NOTE;
 })();
+/* IT overlays for passport frame rules/traps ( /it/ only; EN data untouched ) */
+(function(){
+  function lang(){
+    try{
+      if((document.documentElement.getAttribute('data-ppc-locale')||'')==='it') return 'it';
+      if((location.pathname||'').indexOf('/it/')===0) return 'it';
+      if((document.documentElement.lang||'').toLowerCase().indexOf('it')===0) return 'it';
+    }catch(e){}
+    return 'en';
+  }
+  if(lang()!=='it') return;
+  var D=window.PPC_PASSPORT_DATA; if(!D||!D.frame) return;
+  var RULES={"chip": "Verifichi che il microchip sia ISO 11784/11785 (15 cifre) e leggibile; in caso contrario, ne faccia impiantare uno PRIMA di qualsiasi vaccino antirabbico che debba valere per il viaggio.", "jp180": "Giappone: cominci subito. Due vaccini antirabbici + titolo FAVN, poi il periodo di attesa prima dell’arrivo e la notifica anticipata all’Animal Quarantine Service. Consulti il nostro percorso Stati Uniti → Giappone.", "kr": "Corea del Sud: microchip, rabbia, titolo FAVN ≥ 0,5 UI/ml per cani e gatti, certificato sanitario. Elenco completo dei passaggi nel nostro percorso Stati Uniti → Corea del Sud.", "airline_book": "Prenoti lo spazio per l’animale presso la compagnia subito dopo il proprio biglietto (i posti per volo sono limitati) e controlli le norme della compagnia riportate sotto.", "ca_rabies": "Canada: si accerti che il certificato antirabbico (veterinario autorizzato, inglese/francese, identifica l’animale) sia in corso di validità all’arrivo. Animali di meno di 3 mesi: porti la prova dell’età.", "eu_rabies": "UE: il vaccino antirabbico deve essere somministrato DOPO il microchip e almeno 21 giorni prima dell’ingresso (dose primaria).", "gb_rabies": "Gran Bretagna: vaccino antirabbico dopo il microchip, poi 21 giorni di attesa prima del viaggio (dose primaria).", "do_rabies": "Repubblica Dominicana: vaccino antirabbico con 30 giorni già trascorsi prima del viaggio (animali di 12 settimane o più).", "eu_cert": "Certificato sanitario UE: visita e certificato di un veterinario accreditato USDA, poi visto USDA su VEHCS. Deve essere vistato entro i 10 giorni precedenti l’arrivo nell’UE.", "gb_cert": "Certificato sanitario per animali verso la GB: veterinario accreditato USDA + visto USDA, entro i 10 giorni precedenti l’arrivo in Gran Bretagna.", "do_cert": "Repubblica Dominicana: certificato sanitario internazionale (modello APHIS) di un veterinario accreditato USDA, vistato dall’USDA (si accetta il visto digitale).", "gb_tape": "Cani verso la Gran Bretagna: trattamento contro la tenia eseguito da un veterinario tra 24 e 120 ore (1-5 giorni) prima dell’arrivo, annotato sul certificato.", "mx_nws": "Cani verso il Messico: New World Screwworm Inspection Certificate firmato da un veterinario accreditato USDA entro i 5 giorni precedenti l’ingresso (non serve il visto USDA).", "mx_arrive": "Arrivo in Messico: SENASICA ispeziona ogni cane e gatto: in salute, senza zecche/pulci, senza ferite fresche o in cicatrizzazione, trasportino pulito (senza cuccia/cibo all’interno).", "us_cdc_form": "Cani in ingresso negli Stati Uniti: invii il CDC Dog Import Form gratuito (si raccomandano 2-10 giorni prima dell’arrivo) e conservi la ricevuta per il check-in E per l’arrivo. Il cane deve avere 6 mesi o più e un microchip.", "us_hr_cert": "Paese ad ALTO RISCHIO: prima che il cane LASCI gli Stati Uniti, ottenga il modulo «Certification of U.S.-Issued Rabies Vaccination» compilato da un veterinario accreditato USDA e vistato dall’USDA. Microchip prima del vaccino antirabbico; prima dose a 12 settimane o più e 28 giorni o più prima del rientro.", "us_nws": "Cani che rientrano negli Stati Uniti dal Messico (interessato dal NWS): certificato sanitario firmato da un veterinario UFFICIALE del governo messicano che confermi l’ispezione NWS entro i 5 giorni del viaggio e l’assenza di infestazione.", "us_state": "Ingresso in uno Stato degli Stati Uniti: verifichi il certificato di ispezione veterinaria statale (CVI) e la norma antirabbica di {state} (sotto). Molte compagnie chiedono anche un CVI.", "day_carrier": "L’animale resta nel trasportino dal controllo di sicurezza fino all’arrivo; alla TSA Lei porta l’animale attraverso l’arco mentre il trasportino passa ai raggi X. Individui l’area di sgambamento dopo il controllo di sicurezza prima di imbarcarsi."};
+  var TRAPS={"gb_no_cabin": "Nessuna compagnia può far volare il Suo animale VERSO la Gran Bretagna in cabina. Opzioni: (1) cargo/stiva su una rotta approvata da GOV.UK, di solito prenotata tramite un trasportatore di animali (serve un preventivo), oppure (2) volare in cabina fino a Parigi CDG / Amsterdam AMS (norme UE), poi LeShuttle in auto o il traghetto IJmuiden–Newcastle.", "mx_return_nws": "Trappola del verme della vite del Nuovo Mondo: per rientrare negli Stati Uniti, il Suo cane ha bisogno di un certificato firmato da un veterinario UFFICIALE del governo messicano (SENASICA), con ispezione NWS entro i 5 giorni del volo. Prenoti quel veterinario a Cancún/Città del Messico prima di partire.", "ca_return_cdc": "Stati Uniti ↔ Canada: il cane ha comunque bisogno della ricevuta del CDC Dog Import Form per rientrare negli Stati Uniti (il Canada è a basso rischio, quindi basta la ricevuta; valida 6 mesi per più ingressi).", "do_high_risk": "La Repubblica Dominicana è sull’elenco CDC dei Paesi ad ALTO RISCHIO di rabbia canina (aprile 2026). Ottenga il «Certification of U.S.-Issued Rabies Vaccination» vistato dall’USDA PRIMA di lasciare gli Stati Uniti, oppure preveda una CDC Animal Care Facility al rientro. United non trasporta animali da/verso la RD; Delta non ammette animali in cabina con origine nella RD.", "hr_transit": "Turchia e Qatar sono sull’elenco CDC ad alto rischio. Verifichi le norme CDC per i transiti via IST/DOH prima di prenotare un cane diretto negli Stati Uniti su questa compagnia.", "us_age": "I cani devono avere almeno 6 mesi per entrare negli Stati Uniti (CDC), qualunque sia l’età minima indicata dalla compagnia.", "hi_quarantine": "Le Hawaii sono indenni dalla rabbia: se mancano i documenti, l’animale può affrontare fino a 120 giorni di quarantena a Sue spese. Certificato sanitario ≤ 14 giorni prima dell’arrivo; a Honolulu non si accettano arrivi di animali dopo le 22:00."};
+  var JP_NOTE="Il Giappone richiede circa 180 giorni di preparazione (titolo + attesa) per gli animali provenienti dagli Stati Uniti: il motore indica il D-180 come scadenza rigida.";
+  (D.frame.rules||[]).forEach(function(r){ if(r&&RULES[r.id]!=null) r.text=RULES[r.id]; });
+  (D.frame.traps||[]).forEach(function(x){ if(x&&TRAPS[x.id]!=null) x.text=TRAPS[x.id]; });
+  if(JP_NOTE!=null && D.frame.countries && D.frame.countries.JP) D.frame.countries.JP.note=JP_NOTE;
+})();
+
 /* ES overlays for passport us_states notes + airlines (complements2) */
 (function(){
   function lang(){
@@ -140,13 +193,13 @@ function render(){
   const qr = qrcode(0, 'M'); qr.addData(R.qrUrl); qr.make();
   const name = c => (F.countries[c] || {}).name || c;
   $('#pass').innerHTML = `<div class="bp"><div class="bp-top"><div><div style="font-size:11px;letter-spacing:2px">PET TRAVEL PASSPORT · PETPOLICYCHECK.COM</div>
-    <div class="bp-route">${R.legs.map(l => l.from).concat(R.legs.at(-1).to).join(' ✈ ')}</div><div>${esc(name(inp.from))} → ${esc(name(inp.to))}${inp.ret ? (window.PPC_PASS_I18N&&PPC_PASS_I18N.lang()==='es'?' →'+PPC_PASS_I18N.es.back:' → back') : ''}${inp.state ? ' · ' + inp.state : ''}</div></div>
+    <div class="bp-route">${R.legs.map(l => l.from).concat(R.legs.at(-1).to).join(' ✈ ')}</div><div>${esc(name(inp.from))} → ${esc(name(inp.to))}${inp.ret ? (window.PPC_PASS_I18N?(' →'+PPC_PASS_I18N.t('back',' back')):' → back') : ''}${inp.state ? ' · ' + inp.state : ''}</div></div>
     <div style="text-align:right"><div>PET: <b>${inp.pet.toUpperCase()}</b></div><div>AIRLINE: <b>${A ? esc(A.iata) : '—'}</b></div><div>DEP: <b>${inp.date || '—'}</b></div></div></div>
     <div class="bp-body"><div>${R.traps.map(t => `<div class="bp-trap"><b>${t.level.toUpperCase()}</b> ${esc(t.text)}</div>`).join('')}
       <ol>${R.timeline.map(t => `<li><b>${t.when}${t.date ? ' (' + t.date + ')' : ''}</b> · L${t.leg}: ${esc(t.text.length > 190 ? t.text.slice(0, 187) + '…' : t.text)}</li>`).join('')}</ol>
       <p><b>${window.PPC_PASS_I18N?PPC_PASS_I18N.t('after','After landing:'):'After landing:'}</b> ${esc(PA.text.slice(0, 200))}</p></div>
       <div class="qr">${qr.createSvgTag({ cellSize: 3, margin: 0, scalable: true })}<div style="font-size:9px">${window.PPC_PASS_I18N?PPC_PASS_I18N.t('scan','Scan: this exact route, always up to date'):'Scan: this exact route, always up to date'}</div></div></div>
-    <div style="padding:0 14px 8px;font-size:9px;color:#555">${(window.PPC_PASS_I18N&&PPC_PASS_I18N.lang()==='es')?PPC_PASS_I18N.es.generated(new Date().toISOString().slice(0,10)):('Generated '+new Date().toISOString().slice(0,10)+' from official sources (CDC, USDA APHIS, CFIA, GOV.UK, EU, SENASICA). Rules change: rescan before each step. Not legal or veterinary advice.')}</div></div>`;
+    <div style="padding:0 14px 8px;font-size:9px;color:#555">${(function(){var d=new Date().toISOString().slice(0,10);var en='Generated '+d+' from official sources (CDC, USDA APHIS, CFIA, GOV.UK, EU, SENASICA). Rules change: rescan before each step. Not legal or veterinary advice.';if(!window.PPC_PASS_I18N)return en;var g=PPC_PASS_I18N.t('generated',null);if(typeof g==='function')return g(d);if(typeof g==='string'&&g)return g.replace('{d}',d);return en;}())}</div></div>`;
 }
 document.querySelectorAll('#f select,#f input').forEach(e => e.addEventListener('input', render));
 $('#print').onclick = () => window.print();
