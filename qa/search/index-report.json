@@ -1,10 +1,10 @@
 {
-  "generated": "2026-11-11T02:56:03Z",
+  "generated": "2026-11-11T03:14:57Z",
   "langs": {
     "en": {
       "pages": 260,
-      "bytes": 376968,
-      "gzip": 67620,
+      "bytes": 376878,
+      "gzip": 67681,
       "types": {
         "Airlines": 28,
         "Airports": 59,
@@ -22,8 +22,8 @@
     },
     "es": {
       "pages": 254,
-      "bytes": 389840,
-      "gzip": 72842,
+      "bytes": 389750,
+      "gzip": 72926,
       "types": {
         "Airlines": 28,
         "Airports": 59,

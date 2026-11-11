@@ -1,0 +1,149 @@
+{
+  "console": {
+    "/countries/france.html@1280": {
+      "errors": [],
+      "all_count": 0
+    },
+    "/countries/germany.html@1280": {
+      "errors": [],
+      "all_count": 0
+    },
+    "/countries/uk.html@1280": {
+      "errors": [],
+      "all_count": 0
+    },
+    "/countries/italy.html@1280": {
+      "errors": [],
+      "all_count": 0
+    },
+    "/countries/france.html@390": {
+      "errors": [],
+      "all_count": 0
+    },
+    "/countries/germany.html@390": {
+      "errors": [],
+      "all_count": 0
+    },
+    "/countries/uk.html@390": {
+      "errors": [],
+      "all_count": 0
+    },
+    "/countries/italy.html@390": {
+      "errors": [],
+      "all_count": 0
+    }
+  },
+  "links": {
+    "/countries/france.html": {
+      "count": 52,
+      "non_200": [
+        {
+          "url": "http://127.0.0.1:8826/es/countries/france.html",
+          "status": 404
+        }
+      ]
+    },
+    "/countries/germany.html": {
+      "count": 53,
+      "non_200": [
+        {
+          "url": "http://127.0.0.1:8826/es/countries/germany.html",
+          "status": 404
+        }
+      ]
+    },
+    "/countries/uk.html": {
+      "count": 52,
+      "non_200": [
+        {
+          "url": "http://127.0.0.1:8826/es/countries/uk.html",
+          "status": 404
+        }
+      ]
+    },
+    "/countries/italy.html": {
+      "count": 60,
+      "non_200": []
+    }
+  },
+  "preview_bar": {
+    "/countries/france.html@1280": {
+      "present": true,
+      "text": "LOCAL PREVIEW ONLY — Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "visible": true,
+      "top": 0,
+      "height": 34
+    },
+    "/countries/germany.html@1280": {
+      "present": true,
+      "text": "LOCAL PREVIEW ONLY — Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "visible": true,
+      "top": 0,
+      "height": 34
+    },
+    "/countries/uk.html@1280": {
+      "present": true,
+      "text": "LOCAL PREVIEW ONLY — Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "visible": true,
+      "top": 0,
+      "height": 34
+    },
+    "/countries/italy.html@1280": {
+      "present": true,
+      "text": "LOCAL PREVIEW ONLY — Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "visible": true,
+      "top": 0,
+      "height": 34
+    },
+    "/countries/france.html@390": {
+      "present": true,
+      "text": "LOCAL PREVIEW ONLY — Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "visible": true,
+      "top": 0,
+      "height": 51
+    },
+    "/countries/germany.html@390": {
+      "present": true,
+      "text": "LOCAL PREVIEW ONLY — Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "visible": true,
+      "top": 0,
+      "height": 51
+    },
+    "/countries/uk.html@390": {
+      "present": true,
+      "text": "LOCAL PREVIEW ONLY — Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "visible": true,
+      "top": 0,
+      "height": 51
+    },
+    "/countries/italy.html@390": {
+      "present": true,
+      "text": "LOCAL PREVIEW ONLY — Italy & Spain guides · await Marc « publie » · remove bar + noindex before publish",
+      "visible": true,
+      "top": 0,
+      "height": 51
+    }
+  },
+  "notes": {
+    "/countries/france.html@1280": [],
+    "/countries/germany.html@1280": [],
+    "/countries/uk.html@1280": [],
+    "/countries/italy.html@1280": [],
+    "/countries/france.html@390": [],
+    "/countries/germany.html@390": [],
+    "/countries/uk.html@390": [],
+    "/countries/italy.html@390": []
+  },
+  "shots": [
+    "/workspace/itesp-guides-20261111/qa/guides/france-1280-top.png",
+    "/workspace/itesp-guides-20261111/qa/guides/germany-1280-top.png",
+    "/workspace/itesp-guides-20261111/qa/guides/uk-1280-top.png",
+    "/workspace/itesp-guides-20261111/qa/guides/france-390-top.png",
+    "/workspace/itesp-guides-20261111/qa/guides/italy-guide-1280-full.png"
+  ],
+  "fail": [
+    "link /countries/france.html -> http://127.0.0.1:8826/es/countries/france.html = 404",
+    "link /countries/germany.html -> http://127.0.0.1:8826/es/countries/germany.html = 404",
+    "link /countries/uk.html -> http://127.0.0.1:8826/es/countries/uk.html = 404"
+  ]
+}
