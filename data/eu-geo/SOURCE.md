@@ -21,3 +21,11 @@ Do not commit the raw Shapefile zip into git if avoidable; regenerate locally fr
 - On-map labels are English names; tiny regions (Seoul, Incheon, Sejong; Tokyo, Kanagawa, Saitama, Osaka, Nara) use USA-style leader lines.
 - International airports from official lists (KAC+IIAC; MLIT 2026 winter 002028812.pdf); coordinates from OurAirports (public domain).
 - City points: NE 10m populated places, plus Wikidata/Wikipedia summary coordinates for Hongseong and Muan (not in NE places). Sejong has no separate marker (region label).
+
+## UK, France & Germany (2026-11-11 batch 2 preview)
+- Same Natural Earth 10m admin-1 source (public domain). Topology-aware mapshaper (Visvalingam, shared edges).
+- Build: `tools/eu-maps/build_eu3_geo.py`. Existing region ids kept (UK 12, FR 13 metro, DE 16).
+- On-map labels are English names; tiny regions (Greater London; Berlin, Hamburg, Bremen; Île-de-France) use USA-style leader lines.
+- Shared label-colour tokens in `country-map.css` (`--lbl-region`, `--lbl-city`, `--lbl-capital`, `--lbl-airport`) plus a label legend under the map.
+- Airports from official lists (cited in the builder header): CAA Table 10.1 August 2026; UAF 2025 metro >100k pax (the legal arrêté “open to international traffic” list is much broader and is not plotted); ADV 22 international Verkehrsflughäfen (15 BMV §27d + 7 ADV). Coordinates: OurAirports (public domain).
+- Cities: region / Land capitals and a few major cities from Natural Earth 10m populated places (public domain).
