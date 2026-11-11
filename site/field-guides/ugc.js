@@ -30,6 +30,7 @@ a_dept:'Hub Communauté, Vérifs terrain & City Scouts · une seule porte, sans 
 a_lead:'Postez un clip de 30 s, signalez un écart avec la règle officielle ou devenez Founding City Scout. Environ 60 secondes, sans compte. Un humain vérifie tout avant publication, avec crédit à votre nom.',
 
 
+c_dept:'Paw Passport — Guides de terrain',c_ttl:'Guides de terrain Pet Policy — Corridors de la vague A',c_lead:'Ces vignettes d\'exemple présentent les règles officielles de voyage avec un animal pour les corridors de la vague A. Soumettez une astuce de 30 s pour vérification.',c_more:'Épisodes d\'exemple',c_rules:'Exemples de vérification des règles officielles',c_rulessub:'Règles officielles uniquement — ces vignettes sont des exemples.',
 c_submit:'Envoyer un conseil 30 s',c_submitn:'Sans compte · relu par un humain',
 c_pdept:'',c_ph:'',
 c_pp:'Une marque par épisode, affichée « Pet Tip présenté par … » sous le vrai conseil terrain — jamais dans les faits de la règle.',
@@ -41,6 +42,7 @@ a_dept:'Hub Comunidad, Verificaciones & City Scouts · una puerta, sin cuenta',a
 a_lead:'Suba un clip de 30 s, avise si el control real difirió de la norma oficial o postúlese como Founding City Scout. Toma unos 60 segundos, sin cuenta. Un humano verifica todo antes de publicar, con crédito a su @usuario.',
 
 
+c_dept:'Guías de campo Paw Passport',c_ttl:'Guías de campo Pet Policy — Corredores de la Ola A',c_lead:'Estas fichas de ejemplo muestran las normas oficiales para viajar con mascotas en los corredores de la Ola A. Envíe un consejo de 30 s para su revisión.',c_more:'Episodios de ejemplo',c_rules:'Ejemplos de verificación de normas oficiales',c_rulessub:'Solo normas oficiales: estas fichas son ejemplos.',
 c_submit:'Enviar consejo de 30 s',c_submitn:'Sin cuenta · revisado por un humano',
 c_pdept:'',c_ph:'',
 c_pp:'Una marca por episodio, mostrada como « Pet Tip presentado por … » debajo del consejo real — nunca dentro de la regla oficial.',
@@ -52,6 +54,7 @@ a_dept:'Community-, Praxischeck- & City-Scouts-Hub · ein Einstieg, kein Konto',
 a_lead:'30-Sek.-Clip senden, Abweichung zur offiziellen Regel melden oder Founding City Scout werden. Dauert ca. 60 Sekunden ohne Registrierung. Jede Einsendung wird vor Veröffentlichung menschlich geprüft — mit Namensnennung.',
 
 
+c_dept:'Paw Passport Praxisleitfäden',c_ttl:'Pet Policy Praxisleitfäden — Korridore der Welle A',c_lead:'Die Beispielkacheln zeigen die offiziellen Regeln für Reisen mit Haustieren in den Korridoren der Welle A. Reichen Sie einen 30-Sekunden-Tipp zur Prüfung ein.',c_more:'Beispielepisoden',c_rules:'Beispiele für Prüfungen offizieller Regeln',c_rulessub:'Nur offizielle Regeln – diese Kacheln sind Beispiele.',
 c_submit:'30-Sek.-Tipp senden',c_submitn:'Ohne Konto · menschlich geprüft',
 c_pdept:'',c_ph:'',
 c_pp:'Eine Marke pro Episode als „Pet Tip präsentiert von …“ unterhalb des echten Praxistipps — niemals innerhalb der offiziellen Regel.',
@@ -67,6 +70,7 @@ a_ctry:'Wave A 국가 / 코리도',a_date:'여행 날짜',a_ent:'정확한 항�
 a_s4:'크레딧 & 권리',a_handle:'@핸들 (클립에 표시)',a_social:'크레딧용 프로필 링크',a_send:'검토용 30초 팁 보내기',a_sendn:'사람 모더레이터에게 전달 · 자동 게시 없음',
 
 
+c_dept:'Paw Passport 현장 가이드',c_ttl:'Pet Policy 현장 가이드 — 웨이브 A 노선',c_lead:'예시 타일에서 웨이브 A 노선의 공식 반려동물 여행 규정을 확인하실 수 있습니다. 30초 팁을 보내 주시면 검토하겠습니다.',c_more:'예시 에피소드',c_rules:'공식 규정 확인 예시',c_rulessub:'공식 규정만 다룹니다. 이 타일들은 예시입니다.',
 c_submit:'30초 팁 보내기',c_submitn:'계정 불필요 · 사람 검토',
 c_pdept:'',c_ph:'',
 c_pp:'에피소드당 브랜드 하나, 실제 현장 팁 아래 “Pet Tip presented by …”로 표시 — 정책 사실 안에는 넣지 않아요.',
@@ -82,21 +86,24 @@ a_ctry:'Wave A 国 / 回廊',a_date:'旅行日',a_ent:'正確な航空会社 / �
 a_s4:'クレジット＆権利',a_handle:'@ハンドル（クリップ表示）',a_social:'クレジット用プロフィールURL',a_send:'審査用30秒ヒントを送る',a_sendn:'人のモデレーターへ · 自動公開なし',
 
 
+c_dept:'Paw Passport フィールドガイド',c_ttl:'Pet Policy フィールドガイド — ウェーブA路線',c_lead:'例のタイルでは、ウェーブA路線におけるペット渡航の公式ルールをご紹介しています。30秒のヒントをお寄せください。内容を確認いたします。',c_more:'エピソード例',c_rules:'公式ルール確認の例',c_rulessub:'公式ルールのみを掲載しています。これらのタイルは例です。',
 c_submit:'30秒ヒントを送る',c_submitn:'アカウント不要 · 人が確認',
 c_pdept:'',c_ph:'',
 c_pp:'エピソードにつき1ブランド。「Pet Tip presented by …」として実ヒントの下に表示 — 政策本文の中には入れません。',
 c_pl1:'ローンチ：ウィンウィン器材提携（正直な現地テスト用製品＋クレジット）',c_pl2:'',c_pl3:'',
 c_pcta:'',
-c_disc:'サンプルエピソードは実在のWave Aルールを示します。'}
+c_disc:'サンプルエピソードは実在のWave Aルールを示します。'},
+it:{c_dept:'Guide pratiche Paw Passport',c_ttl:'Guide pratiche Pet Policy — Corridoi dell\'Ondata A',c_lead:'I riquadri di esempio mostrano le regole ufficiali per viaggiare con animali nei corridoi dell\'Ondata A. Invii un consiglio di 30 secondi da sottoporre a revisione.',c_more:'Episodi di esempio',c_rules:'Esempi di verifica delle regole ufficiali',c_rulessub:'Solo regole ufficiali: questi riquadri sono esempi.'}
 };
 var UI={
 en:{example:'Example',filmed:'Filmed by',presented:'Pet Tip presented by',visit:'Visit Partner ↗',mentionNote:'',fv:'Field-Verified',official:'Official rule ↗',openslot:'',opencta:'',all:'All Wave A',airlines:'Airlines',ferries:'Ferries & Trains',hotels:'Hotels & Cities',groom:'Grooming & Care',country:'Country',type:'Type',episodes:'episodes',featured:'Featured episode',vbadge:'✓ Verified Corridor Traveler',vtip:'Earned by a traveler whose clip or rule check passed human review. Share your episode — your @handle links back to your profile.',nores:'No approved episode for this filter yet — be the first to submit one.',trip:'Trip',brandother:'Your brand on another episode?',reported:'Reported by',seatopen:'Seat open — apply →'},
-fr:{filmed:'Filmé par',presented:'Pet Tip présenté par',visit:'Voir le partenaire ↗',mentionNote:'',fv:'Vérifié terrain',official:'Règle officielle ↗',openslot:'',opencta:'',all:'Toute la Vague A',airlines:'Compagnies',ferries:'Ferries & trains',hotels:'Hôtels & villes',groom:'Toilettage & soins',country:'Pays',type:'Type',episodes:'épisodes',featured:'Épisode à la une',vbadge:'✓ Verified Corridor Traveler',vtip:'Obtenu par un voyageur dont le clip ou la vérif de règle a passé la relecture humaine. Partagez votre épisode : votre @pseudo renvoie vers votre profil.',nores:'Aucun épisode approuvé pour ce filtre — soyez le premier à en envoyer un.',trip:'Voyage',brandother:'Votre marque ici sur un autre épisode ?',reported:'Signalé par',seatopen:'Poste ouvert →'},
-es:{filmed:'Grabado por',presented:'Pet Tip presentado por',visit:'Ver socio ↗',mentionNote:'',fv:'Verificado en campo',official:'Regla oficial ↗',openslot:'',opencta:'',all:'Toda la Ola A',airlines:'Aerolíneas',ferries:'Ferries y trenes',hotels:'Hoteles y ciudades',groom:'Peluquería y cuidados',country:'País',type:'Tipo',episodes:'episodios',featured:'Episodio destacado',vbadge:'✓ Verified Corridor Traveler',vtip:'Otorgado al viajero cuyo clip o verificación superó la revisión humana. Tu @usuario enlaza a tu perfil.',nores:'Aún no hay episodios aprobados para este filtro.',trip:'Viaje',brandother:'¿Tu marca en otro episodio?',reported:'Reportado por',seatopen:'Plaza abierta →'},
-de:{filmed:'Gefilmt von',presented:'Pet Tip präsentiert von',visit:'Partner ansehen ↗',mentionNote:'',fv:'Praxisgeprüft',official:'Offizielle Regel ↗',openslot:'',opencta:'',all:'Alle Wave A',airlines:'Airlines',ferries:'Fähren & Züge',hotels:'Hotels & Städte',groom:'Grooming & Pflege',country:'Land',type:'Typ',episodes:'Episoden',featured:'Empfohlene Episode',vbadge:'✓ Verified Corridor Traveler',vtip:'Für Reisende, deren Clip oder Regel-Check die menschliche Prüfung bestanden hat. Dein @Handle verlinkt auf dein Profil.',nores:'Noch keine freigegebene Episode für diesen Filter.',trip:'Reise',brandother:'Ihre Marke in einer anderen Episode?',reported:'Gemeldet von',seatopen:'Platz frei — bewerben →'},
-ko:{filmed:'촬영',presented:'Pet Tip 제공',visit:'파트너 보기 ↗',mentionNote:'',fv:'현장 검증',official:'공식 규정 ↗',openslot:'',opencta:'',all:'Wave A 전체',airlines:'항공사',ferries:'페리 & 기차',hotels:'호텔 & 도시',groom:'그루밍 & 케어',country:'국가',type:'유형',episodes:'에피소드',featured:'추천 에피소드',vbadge:'✓ Verified Corridor Traveler',vtip:'사람 검토를 통과한 여행자. @핸들이 프로필로 연결돼요.',nores:'이 필터에 승인된 에피소드가 아직 없어요.',trip:'여행',brandother:'다른 에피소드에 브랜드를?',reported:'제보',seatopen:'자리 열림 →'},
-ja:{filmed:'撮影',presented:'Pet Tip 提供',visit:'パートナーを見る ↗',mentionNote:'',fv:'現地検証',official:'公式ルール ↗',openslot:'',opencta:'',all:'Wave Aすべて',airlines:'航空会社',ferries:'フェリー＆列車',hotels:'ホテル＆都市',groom:'グルーミング＆ケア',country:'国',type:'種類',episodes:'エピソード',featured:'注目エピソード',vbadge:'✓ Verified Corridor Traveler',vtip:'人の確認を通過した旅行者。@ハンドルがプロフィールへリンクします。',nores:'このフィルターの承認エピソードはまだありません。',trip:'旅行',brandother:'別エピソードにブランドを？',reported:'報告',seatopen:'席空き →'}};
-var VALID_LANGS=['en','fr','es','de','ko','ja'];
+fr:{example:'Exemple',filmed:'Filmé par',presented:'Pet Tip présenté par',visit:'Voir le partenaire ↗',mentionNote:'',fv:'Vérifié terrain',official:'Règle officielle ↗',openslot:'',opencta:'',all:'Toute la Vague A',airlines:'Compagnies',ferries:'Ferries & trains',hotels:'Hôtels & villes',groom:'Toilettage & soins',country:'Pays',type:'Type',episodes:'épisodes',featured:'Épisode à la une',vbadge:'✓ Verified Corridor Traveler',vtip:'Obtenu par un voyageur dont le clip ou la vérif de règle a passé la relecture humaine. Partagez votre épisode : votre @pseudo renvoie vers votre profil.',nores:'Aucun épisode approuvé pour ce filtre — soyez le premier à en envoyer un.',trip:'Voyage',brandother:'Votre marque ici sur un autre épisode ?',reported:'Signalé par',seatopen:'Poste ouvert →'},
+es:{example:'Ejemplo',filmed:'Grabado por',presented:'Pet Tip presentado por',visit:'Ver socio ↗',mentionNote:'',fv:'Verificado en campo',official:'Regla oficial ↗',openslot:'',opencta:'',all:'Toda la Ola A',airlines:'Aerolíneas',ferries:'Ferries y trenes',hotels:'Hoteles y ciudades',groom:'Peluquería y cuidados',country:'País',type:'Tipo',episodes:'episodios',featured:'Episodio destacado',vbadge:'✓ Verified Corridor Traveler',vtip:'Otorgado al viajero cuyo clip o verificación superó la revisión humana. Tu @usuario enlaza a tu perfil.',nores:'Aún no hay episodios aprobados para este filtro.',trip:'Viaje',brandother:'¿Tu marca en otro episodio?',reported:'Reportado por',seatopen:'Plaza abierta →'},
+de:{example:'Beispiel',filmed:'Gefilmt von',presented:'Pet Tip präsentiert von',visit:'Partner ansehen ↗',mentionNote:'',fv:'Praxisgeprüft',official:'Offizielle Regel ↗',openslot:'',opencta:'',all:'Alle Wave A',airlines:'Airlines',ferries:'Fähren & Züge',hotels:'Hotels & Städte',groom:'Grooming & Pflege',country:'Land',type:'Typ',episodes:'Episoden',featured:'Empfohlene Episode',vbadge:'✓ Verified Corridor Traveler',vtip:'Für Reisende, deren Clip oder Regel-Check die menschliche Prüfung bestanden hat. Dein @Handle verlinkt auf dein Profil.',nores:'Noch keine freigegebene Episode für diesen Filter.',trip:'Reise',brandother:'Ihre Marke in einer anderen Episode?',reported:'Gemeldet von',seatopen:'Platz frei — bewerben →'},
+ko:{example:'예시',filmed:'촬영',presented:'Pet Tip 제공',visit:'파트너 보기 ↗',mentionNote:'',fv:'현장 검증',official:'공식 규정 ↗',openslot:'',opencta:'',all:'Wave A 전체',airlines:'항공사',ferries:'페리 & 기차',hotels:'호텔 & 도시',groom:'그루밍 & 케어',country:'국가',type:'유형',episodes:'에피소드',featured:'추천 에피소드',vbadge:'✓ Verified Corridor Traveler',vtip:'사람 검토를 통과한 여행자. @핸들이 프로필로 연결돼요.',nores:'이 필터에 승인된 에피소드가 아직 없어요.',trip:'여행',brandother:'다른 에피소드에 브랜드를?',reported:'제보',seatopen:'자리 열림 →'},
+ja:{example:'例',filmed:'撮影',presented:'Pet Tip 提供',visit:'パートナーを見る ↗',mentionNote:'',fv:'現地検証',official:'公式ルール ↗',openslot:'',opencta:'',all:'Wave Aすべて',airlines:'航空会社',ferries:'フェリー＆列車',hotels:'ホテル＆都市',groom:'グルーミング＆ケア',country:'国',type:'種類',episodes:'エピソード',featured:'注目エピソード',vbadge:'✓ Verified Corridor Traveler',vtip:'人の確認を通過した旅行者。@ハンドルがプロフィールへリンクします。',nores:'このフィルターの承認エピソードはまだありません。',trip:'旅行',brandother:'別エピソードにブランドを？',reported:'報告',seatopen:'席空き →'},
+it:{example:'Esempio'}};
+var VALID_LANGS=['en','fr','es','de','ko','ja','it'];
 var lang=localStorage.getItem(LKEY)||'en';
 if(VALID_LANGS.indexOf(lang)<0)lang='en';
 var q=new URLSearchParams(location.search); if(q.get('lang')){var ql=q.get('lang').toLowerCase();lang=VALID_LANGS.indexOf(ql)>=0?ql:'en'}
