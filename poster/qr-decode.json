@@ -1,0 +1,28 @@
+{
+  "A4": {
+    "pdf": "/workspace/vet-prep-preview-20261111/poster/clinic-counter-A4.pdf",
+    "pdf_bytes": 88907,
+    "png": "/workspace/vet-prep-preview-20261111/poster/clinic-counter-A4.png",
+    "png_size": [
+      2484,
+      3509
+    ],
+    "qr": [
+      "https://petpolicycheck.com/vet-prep/?utm_source=clinic_qr&utm_medium=print&utm_campaign=vet_prep"
+    ],
+    "qr_ok": true
+  },
+  "Letter": {
+    "pdf": "/workspace/vet-prep-preview-20261111/poster/clinic-counter-Letter.pdf",
+    "pdf_bytes": 88905,
+    "png": "/workspace/vet-prep-preview-20261111/poster/clinic-counter-Letter.png",
+    "png_size": [
+      2550,
+      3300
+    ],
+    "qr": [
+      "https://petpolicycheck.com/vet-prep/?utm_source=clinic_qr&utm_medium=print&utm_campaign=vet_prep"
+    ],
+    "qr_ok": true
+  }
+}
