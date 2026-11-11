@@ -15,7 +15,7 @@
 <link rel="preload" href="assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../assets/css/theme.css?v=20261112footer4">
-<link rel="stylesheet" href="ugc.css?v=20261107f">
+<link rel="stylesheet" href="ugc.css?v=20261112safe">
 <link rel="stylesheet" href="../assets/css/ppc-i18n.css?v=20261107d">
 <script src="../assets/i18n/ui.js?v=20261112footer5" defer></script>
 <script src="../assets/js/ppc-i18n.js?v=20261112footer4" defer></script>
@@ -108,7 +108,7 @@
   <div class="sec">
    <div class="step"><b>3</b><h3 data-i18n="a_s3">Your field tip in one sentence</h3></div>
    <label><div class="fl"><span data-i18n="a_tipl">One real check-in or policy detail the official website doesn't tell you</span> <span class="counter"><span id="cnt">0</span>/180</span></div>
-   <textarea id="tip" maxlength="180" rows="2" placeholder="e.g. The agent weighed pet + carrier together at the counter: 8 kg total, not 8 kg for the cat."></textarea></label>
+   <textarea id="tip" maxlength="180" rows="2" placeholder="e.g. One check-in or policy detail the official website does not mention"></textarea></label>
    <label style="margin-top:12px"><div class="fl" data-i18n="a_bag">Carrier / weight <em>(optional)</em></div><input type="text" id="bag" placeholder="e.g. Soft carrier 43×30×23 cm · cat 4.6 kg"></label>
   </div>
   <div class="sec">
@@ -205,16 +205,16 @@
 <!-- (c) GALLERY -->
 <main class="view wrap" id="v-gallery" hidden>
  <section class="hero">
-  <div><div class="dept" data-i18n="c_dept">Paw Passport Field Guides · filmed by pet travelers</div>
-  <h1 data-i18n-html="c_ttl">30-Second Real Pet Policy Field Guides — <span>Wave A Corridors</span></h1>
-  <p class="lead" data-i18n="c_lead">Short vertical clips from people who just did it: the counter, the border, the ferry lane, the groomer. Every clip is human-checked against the official rule and dated as a field note.</p></div>
+  <div><div class="dept" data-i18n="c_dept">Paw Passport Field Guides</div>
+  <h1 data-i18n-html="c_ttl">Pet Policy Field Guides — <span>Wave A Corridors</span></h1>
+  <p class="lead" data-i18n="c_lead">Example tiles show official pet-travel rules for Wave A corridors. Submit a 30s tip for review.</p></div>
   <div class="acts2"><a class="btn gold" href="?view=submit" data-i18n="c_submit">Submit a 30s Tip</a><small style="color:var(--mut)" data-i18n="c_submitn">No account · reviewed by a human</small></div>
  </section>
  <div class="filters" id="filters"></div>
  <section class="panel feat" id="feat" aria-live="polite"></section>
- <div class="ghead"><h2 data-i18n="c_more">All approved episodes</h2><span id="gcount"></span></div>
+ <div class="ghead"><h2 data-i18n="c_more">Example episodes</h2><span id="gcount"></span></div>
  <div class="cards" id="cards"></div>
- <div class="ghead"><h2>Live Field-Verified Rule Checks <small class="kind">#9</small></h2><span>Official rule and traveler field note are always shown side by side — never merged.</span></div>
+ <div class="ghead"><h2 data-i18n="c_rules">Example official rule checks <small class="kind">#9</small></h2><span data-i18n="c_rulessub">Official rules only — these tiles are examples.</span></div>
  <div class="rules" id="rules"></div>
  <section class="panel scouts">
   <div class="sh"><div><div class="dept">#11 · Founding City Scouts</div><h2>8 Wave A Founding City Scouts</h2><p>Locals and expats who verify 4 things that make or break a pet trip in their city.</p></div>
@@ -234,7 +234,7 @@
 </div>
 <div class="wrap"><p class="disc" data-i18n="site.foot.copyright">© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See <a href="../terms.html">Terms</a>.</p></div>
 </footer>
-<script src="ugc.js?v=20261112fg"></script>
+<script src="ugc.js?v=20261112safe"></script>
 <script src="../assets/site-search.js?v=20261110search3" defer></script>
 <script src="../assets/ppc-header.js?v=20261110footerk9" defer></script>
 </body>

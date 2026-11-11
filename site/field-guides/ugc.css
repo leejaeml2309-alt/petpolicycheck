@@ -23,7 +23,7 @@ h1.ttl{font-size:2.35rem;line-height:1.15;margin:6px 0 8px}
 .chip.ok{background:var(--ok-bg);border-color:#9fd6a055;color:var(--ok)}
 .chip.no{background:var(--no-bg);border-color:#f0a3a355;color:var(--no)}
 .chip.pend{background:#3a311b;border-color:#d9b76566;color:var(--gold2)}
-.sample{font:700 .6rem var(--text);letter-spacing:.12em;text-transform:uppercase;color:#cfc6b0;background:#0b1719cc;border:1px dashed #a7b0a2aa;border-radius:4px;padding:2px 6px;white-space:nowrap}
+.sample{font:700 .72rem var(--text);letter-spacing:.14em;text-transform:uppercase;color:#0b1719;background:#f0d58c;border:1px solid #d9b765;border-radius:4px;padding:3px 8px;white-space:nowrap;box-shadow:0 1px 0 #0004}
 .btn.gold{background:linear-gradient(180deg,#f0d58c,#d9b765 55%,#c49a45);color:#0b1719;font-weight:700}
 .btn.sm{padding:9px 14px;font-size:.72rem}
 .btn[disabled]{opacity:.38;cursor:not-allowed;filter:grayscale(.4)}
