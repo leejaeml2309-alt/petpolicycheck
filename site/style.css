@@ -246,7 +246,7 @@ main [hidden]{display:none!important}
 /* design C additions for build.py pages */
 main.wrap{padding-bottom:8px}
 .foot .adph{text-align:left;margin:22px 0 0}
-.foot .disc{opacity:.75;font-style:normal;margin-top:22px}
+.foot .disc{opacity:1;font-style:normal;margin-top:22px;color:inherit}
 .cmp tbody tr:nth-child(even){background:var(--zebra)}
 .cmp tbody tr{background:var(--paper)}
 .cards li{background:linear-gradient(160deg,#142c31,#0f2226)}

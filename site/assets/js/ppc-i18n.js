@@ -152,15 +152,26 @@
       var v = t(key); if (!v) return;
       var span = a.querySelector('span'); if (span) span.textContent = v; else a.textContent = v;
     });
-    /* Footer copyright disc — translate the copyright sentence while keeping affiliate + Terms */
-    document.querySelectorAll('footer .disc').forEach(function (p) {
+    /* Footer copyright disc — translate the copyright sentence while keeping affiliate + Terms.
+       Also upgrade a bare « © YEAR PetPolicyCheck » paragraph so every footer shows the full mention. */
+    function paintFootCopyright(p, fallbackHref) {
       var copy = t('site.foot.copyright');
       var aff = t('site.foot.aff');
       var terms = t('site.foot.terms') || 'Terms';
       if (!copy) return;
-      var termsHref = (p.querySelector('a[href*="terms"]') || {}).getAttribute?.('href') || 'terms.html';
+      var link = p.querySelector('a[href*="terms"]');
+      var termsHref = (link && link.getAttribute('href')) || fallbackHref || 'terms.html';
       var affHtml = aff ? '<span data-i18n="site.foot.aff">' + aff + '</span> ' : '';
+      p.classList.add('disc');
+      p.removeAttribute('style');
       p.innerHTML = affHtml + copy + ' See <a href="' + termsHref + '" data-i18n="site.foot.terms">' + terms + '</a>.';
+    }
+    var footTerms = (document.querySelector('footer a[href*="terms"]') || {}).getAttribute && (document.querySelector('footer a[href*="terms"]').getAttribute('href'));
+    document.querySelectorAll('footer .disc').forEach(function (p) { paintFootCopyright(p, footTerms); });
+    document.querySelectorAll('footer p').forEach(function (p) {
+      if (p.classList.contains('disc')) return;
+      var text = (p.textContent || '').replace(/\s+/g, ' ').trim();
+      if (/^©\s*\d{4}\s*PetPolicyCheck\.?$/.test(text)) paintFootCopyright(p, footTerms);
     });
     /* Global switcher pressed state */
     document.querySelectorAll('.ppc-lang-sw [data-setlang]').forEach(function (b) {

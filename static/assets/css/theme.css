@@ -29,6 +29,9 @@ h1,h2,h3{font-family:var(--disp);font-weight:var(--hw,400);color:var(--head);mar
 .foot ul{list-style:none;margin:0;padding:0}.foot li{margin:4px 0}.foot .wm{font-family:var(--disp);font-size:1.25rem}
 .foot .soc{margin:12px 0 0;display:flex;gap:10px;align-items:center}.foot .soc a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;box-shadow:inset 0 0 0 1.5px currentColor;color:inherit;text-decoration:none}.foot .soc a:hover,.foot .soc a:focus-visible{color:var(--head);box-shadow:inset 0 0 0 1.5px var(--pri)}
 
+/* Footer copyright: always visible and AA contrast on --foot (2026-11-12). Do not drop opacity; inherit --foot-ink. */
+.foot .disc{opacity:1;font-style:normal;color:inherit;margin-top:18px}
+
 :root{--bg:#0b1719;--paper:#11252a;--ink:#ece4d0;--mut:#a7b0a2;--head:#f5ecd6;--link:#e3c27a;--pri:#d9b765;--on-pri:#0b1719;--acc:#d9b765;
 --line:#23413f;--line2:#3a5a56;--chip:#173236;--zebra:#142c31;--hdr:#0b1719e6;--foot:#071012;--foot-ink:#cfc6b0;--panel-h:#0f2226;--panel-h-ink:#f5ecd6;
 --ocean:#08161a;--land:#1f3d42;--land-h:#2f5a5f;--land-data:#b38a35;--land-data-h:#d9b765;--sel:#f0d58c;--border:#0b1719;--grat:#12292d;--arc:#d9b765;
