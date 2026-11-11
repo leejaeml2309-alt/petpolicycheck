@@ -428,12 +428,37 @@ function planeSection(a, cityName){
  else if(!cityName) s+=`<p class="disc">Only mapped airports are listed. Any other airport in ${esc(nm)} is still a placeholder.</p>`;
  return s+`</section>`;
 }
+function transconUiLang(){
+ const path=location.pathname||'';
+ const pm=path.match(/^\/(es|fr|de|it|ja|ko)(\/|$)/);
+ if(pm) return pm[1];
+ const raw=((document.documentElement.lang||'')+' '+(document.documentElement.getAttribute('data-lang')||'')).toLowerCase();
+ const lm=raw.match(/\b(es|fr|de|it|ja|ko)\b/);
+ if(lm) return lm[1];
+ try{ const stored=localStorage.getItem('ppc_lang')||''; if(/^(es|fr|de|it|ja|ko)$/.test(stored)) return stored; }catch(_){}
+ return 'en';
+}
+/* Partner pet-mover pages for SFO, LAX and JFK only. URLs checked 12 Nov 2026 (KST). No EWR link. */
+const TRANSCON={
+ SFO:{url:"https://transconpet.com/san-francisco-pet-shipping-services/", title:"Pet mover: Transcon Pet Movers", sub:""},
+ LAX:{url:"https://transconpet.com/los-angeles-pet-shipping/", title:"Pet mover: Transcon Pet Movers", sub:"Los Angeles office"},
+ JFK:{url:"https://transconpet.com/new-york-pet-shipping/", title:"Pet mover: Transcon Pet Movers", sub:""}
+};
+function transconLink(ap){
+ const t=TRANSCON[ap.code];
+ if(!t) return "";
+ const en=transconUiLang()==='en';
+ const title=en?t.title:"Transcon Pet Movers";
+ const sub=en?(t.sub||""):"";
+ return `<a class="lk transcon-link" data-partner="transconpet" href="${esc(t.url)}" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">🚚</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:""}</span></a>`;
+}
 function airportPlane(ap){
  const sibs=airportsFor(ap.metroState, ap.metroCity).filter(x=>x.code!==ap.code);
  let s=`<section class="sec" data-sec="3"><h3><span class="n">3</span>Plane</h3><h4>${esc(ap.code)} · ${esc(ap.name)}</h4><p>${esc(ap.code)} serves ${esc(ap.metroCity)}. Relief areas are the airport’s; the airline still sets cabin and cargo rules.</p><div class="links">`;
  s+=lk("🛫", ap.site[1], ap.name, ap.site[0], "off");
  if(ap.pets) s+=lk("🐾", ap.pets[1], ap.pets[2]||"Official pet or relief page", ap.pets[0], "off");
  else s+=`</div><div class="stubbox"><b>Placeholder:</b> a pet-relief or traveling-with-pets page for ${esc(ap.code)} is not verified on this preview. Use the official airport site and confirm before you fly.</div><div class="links">`;
+ s+=transconLink(ap);
  s+=airFedLinks()+`</div>`;
  if(ap.placeState!==ap.metroState) s+=`<p class="disc">${esc(ap.code)} is in ${esc(GEO[ap.placeState].name)}. Taxis and hotels continue on the ${esc(ap.metroCity)} panel.</p>`;
  if(sibs.length) s+=`<h4>Other airports for ${esc(ap.metroCity)}</h4><div class="citylist">${sibs.map(x=>`<button type="button" class="apbtn${x.pets?"":" placeholder"}" data-ap="${esc(x.code)}">${esc(x.code)} — ${esc(x.metroCity)}</button>`).join("")}</div>`;
