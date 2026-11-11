@@ -179,3 +179,9 @@ html.map-view main#main > .biz-banner{
   width:100%;
   box-sizing:border-box;
 }
+
+/* Italy + Spain map coverage (preview 2026-11-11) — flag-light fills; other countries unchanged */
+.legend .sw.cov-it{background:#009246;box-shadow:inset 0 0 0 1.5px #f4f6fa}
+.legend .sw.cov-es{background:#AA151B;box-shadow:inset 0 0 0 1.5px #F1BF00}
+.country.cov-it{fill:#009246;stroke:#CE2B37;stroke-width:.55}.country.cov-it:hover,.country.cov-it:focus{fill:#1aa35a}
+.country.cov-es{fill:#AA151B;stroke:#F1BF00;stroke-width:.6}.country.cov-es:hover,.country.cov-es:focus{fill:#c41e26}

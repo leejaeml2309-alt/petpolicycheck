@@ -29,3 +29,12 @@ Do not commit the raw Shapefile zip into git if avoidable; regenerate locally fr
 - Shared label-colour tokens in `country-map.css` (`--lbl-region`, `--lbl-city`, `--lbl-capital`, `--lbl-airport`) plus a label legend under the map.
 - Airports from official lists (cited in the builder header): CAA Table 10.1 August 2026; UAF 2025 metro >100k pax (the legal arrêté “open to international traffic” list is much broader and is not plotted); ADV 22 international Verkehrsflughäfen (15 BMV §27d + 7 ADV). Coordinates: OurAirports (public domain).
 - Cities: region / Land capitals and a few major cities from Natural Earth 10m populated places (public domain).
+
+
+## Italy & Spain (2026-11-11 preview)
+- Same Natural Earth 10m admin-1 source (public domain). Topology-aware mapshaper (Visvalingam, shared edges).
+- Build: `tools/eu-maps/build_itesp_geo.py` → `italy-map-geo.js` (20 regions) and `spain-map-geo.js` (17 autonomous communities + Ceuta + Melilla).
+- English names. Canary Islands use a USA-Hawaii / Japan-Okinawa inset; Sicily, Sardinia, Balearics, Ceuta and Melilla stay in geographic place.
+- Italy airports: ENAC aeroporti di interesse nazionale (updated 23 June 2026) https://www.enac.gov.it/aeroporti/infrastrutture-aeroportuali/aeroporti-in-italia/
+- Spain airports: Aena official network https://www.aena.es/en/passengers/our-airports.html (excludes GA fields and heliports).
+- Coordinates: OurAirports (public domain). Cities: Natural Earth 10m populated places.

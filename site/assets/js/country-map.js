@@ -39,7 +39,9 @@ function buildSwitcher(){
     {id:'fr', href:'/es/countries/france-map.html', label:'Mapa de Francia', accent:'tricolore'},
     {id:'de', href:'/es/countries/germany-map.html', label:'Mapa de Alemania', accent:'schwarzrotgold'},
     {id:'kr', href:'/es/countries/south-korea-map.html', label:'Mapa de Corea del Sur', accent:'taegeuk'},
-    {id:'jp', href:'/es/countries/japan-map.html', label:'Mapa de Japón', accent:'hinomaru'}
+    {id:'jp', href:'/es/countries/japan-map.html', label:'Mapa de Japón', accent:'hinomaru'},
+    {id:'it', href:'/countries/italy-map.html', label:'Mapa de Italia', accent:'italy'},
+    {id:'es', href:'/countries/spain-map.html', label:'Mapa de España', accent:'rojigualda'}
   ] : [
     {id:'usa', href:'usa-map.html', label:'USA Map', accent:'usa'},
     {id:'ca', href:'canada-map.html', label:'Canada Map', accent:'maple'},
@@ -48,9 +50,11 @@ function buildSwitcher(){
     {id:'fr', href:'france-map.html', label:'France Map', accent:'tricolore'},
     {id:'de', href:'germany-map.html', label:'Germany Map', accent:'schwarzrotgold'},
     {id:'kr', href:'south-korea-map.html', label:'Korea Map', accent:'taegeuk'},
-    {id:'jp', href:'japan-map.html', label:'Japan Map', accent:'hinomaru'}
+    {id:'jp', href:'japan-map.html', label:'Japan Map', accent:'hinomaru'},
+    {id:'it', href:'italy-map.html', label:'Italy Map', accent:'italy'},
+    {id:'es', href:'spain-map.html', label:'Spain Map', accent:'rojigualda'}
   ];
-  const cur = ({CA:'ca',MX:'mx',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp'}[DATA.country]) || 'usa';
+  const cur = ({CA:'ca',MX:'mx',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp',IT:'it',ES:'es'}[DATA.country]) || 'usa';
   const back = `<a class="msw-tab world-back" href="../?view=map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${es?'← Mapa mundial':'← World Map'}</span></a>`;
   host.innerHTML = back + tabs.map(t =>
     `<a class="msw-tab accent-${t.accent}${t.id===cur?' is-current':''}" href="${t.href}"${t.id===cur?' aria-current="page"':''} style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${t.label}</span></a>`
@@ -82,7 +86,7 @@ function buildMap(){
     gs.appendChild(p);
     /* KR/JP: English names (USA uses 2-letter codes). Tiny regions get
        USA-style leader lines when geo[a].callout is set by the geo pack. */
-    const useNames = !!(DATA && /^(KR|JP|UK|FR|DE)$/.test(DATA.country||''));
+    const useNames = !!(DATA && /^(KR|JP|UK|FR|DE|IT|ES)$/.test(DATA.country||''));
     if(g.callout && g.lx!=null && g.ly!=null){
       const ln = el('line', {class:'lbl-lead', x1:g.c[0], y1:g.c[1], x2:g.lx, y2:g.ly, 'data-a':a});
       gl.appendChild(ln);
@@ -135,7 +139,7 @@ function buildMap(){
     const menu = document.createElement('ul');
     menu.className = 'state-picker-menu';
     menu.setAttribute('role', 'listbox');
-    const head = ({CA:'Provinces & territories', MX:'States', UK:'Regions', FR:'Regions', DE:'Länder'}[DATA && DATA.country]) || 'Regions';
+    const head = ({CA:'Provinces & territories', MX:'States', UK:'Regions', FR:'Regions', DE:'Länder', IT:'Regions', ES:'Communities'}[DATA && DATA.country]) || 'Regions';
     menu.innerHTML = '<li class="sp-head" aria-hidden="true">' + head + '</li>' +
       ABBRS.map(a => `<li role="option" data-a="${a}" aria-selected="false"><span class="sp-name">${esc(GEO[a].name)}</span><span class="sp-code">${a}</span></li>`).join('');
     wrap.append(btn, menu);
@@ -251,7 +255,7 @@ function dogsCatsBlock(){
 function breedBlock(a){
   /* EU data uses `breed`; CA/MX use `breeds`. Never claim a US-style "no federal ban". */
   const b = DATA.breed || DATA.breeds || {};
-  const eu = /^(UK|FR|DE)$/.test(DATA.country||'');
+  const eu = /^(UK|FR|DE|IT|ES)$/.test(DATA.country||'');
   const national = eu
     ? (b.national && String(b.national).trim() ? b.national : 'Policy details coming soon')
     : honest(b.national, 'Policy details coming soon');
@@ -473,9 +477,10 @@ function _overlapArea(a,b,pad){
   const y=Math.max(0, Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)+2*pad);
   return (x>0 && y>0) ? x*y : 0;
 }
-function _scoreSlot(box, placed, pad){
+function _scoreSlot(box, placed, pad, it){
   let n=0, area=0;
   for(const p of placed){
+    if(it && p.kind==='ap-icon' && p.code && p.code===it.code) continue;
     const a=_overlapArea(box,p.box,pad);
     if(a){ n++; area+=a; }
   }
@@ -487,14 +492,16 @@ function _airportRank(code){
     CDG:0,ORY:1,NCE:2,MRS:3,LYS:4,BSL:5,TLS:6,NTE:7,BVA:8,BOD:9,
     FRA:0,MUC:1,BER:2,DUS:3,HAM:4,CGN:5,STR:6,
     ICN:0,GMP:1,PUS:2,CJU:3,
-    HND:0,NRT:1,KIX:2,ITM:3,FUK:4,CTS:5,NGO:6,OKA:7};
+    HND:0,NRT:1,KIX:2,ITM:3,FUK:4,CTS:5,NGO:6,OKA:7,
+    FCO:0,MXP:1,BGY:2,VCE:3,NAP:4,CTA:5,BLQ:6,LIN:7,CIA:8,PMO:9,
+    MAD:0,BCN:1,PMI:2,AGP:3,ALC:4,LPA:5,TFS:6,VLC:7,SVQ:8,BIO:9};
   const n=R[(code||'').toUpperCase()];
   return (n==null)?25:n;
 }
 function resolveLabelOverlaps(){
   const m=$('#map'); if(!m) return;
   m.querySelectorAll('#g-lb line.lbl-lead[data-temp="1"]').forEach(n=>n.remove());
-  m.querySelectorAll('.lbl-crowd,.ct-crowd,.ap-crowd,.ap-name-crowd,.ap-code-crowd').forEach(n=>n.classList.remove('lbl-crowd','ct-crowd','ap-crowd','ap-name-crowd','ap-code-crowd'));
+  m.querySelectorAll('.lbl-crowd,.ct-crowd,.ct-label-crowd,.ap-crowd,.ap-name-crowd,.ap-code-crowd').forEach(n=>n.classList.remove('lbl-crowd','ct-crowd','ct-label-crowd','ap-crowd','ap-name-crowd','ap-code-crowd'));
   const vis=el=>{
     const cs=getComputedStyle(el);
     if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity===0) return null;
@@ -509,7 +516,7 @@ function resolveLabelOverlaps(){
   const nAp=[...m.querySelectorAll('#g-ap .ap')].filter(g=>getComputedStyle(g).display!=='none').length;
   const cc=(typeof DATA!=='undefined' && DATA.country)||(document.getElementById('usa-map')&&'US')||'';
   /* Marc 09:03 KST: at 390, crowded maps keep capitals + major airports; region names wait for zoom. */
-  const crowdedMobile=full && mapBox.width<500 && (/^(FR|UK|DE|US)$/.test(cc) || (/^(KR|JP)$/.test(cc) && (nCap+(nMaj||nAp))>=12));
+  const crowdedMobile=full && mapBox.width<500 && (/^(FR|UK|DE|US|IT|ES)$/.test(cc) || (/^(KR|JP)$/.test(cc) && (nCap+(nMaj||nAp))>=12));
   const items=[];
   m.querySelectorAll('#g-lb text.lbl').forEach(t=>{
     _restorePos(t);
@@ -525,11 +532,12 @@ function resolveLabelOverlaps(){
       defer:crowdedMobile,
       orig:{x:+(t.dataset.ox), y:+(t.dataset.oy), anchor:t.dataset.ota||t.getAttribute('text-anchor')||'middle'}});
   });
+  const tight=/^(IT|ES)$/.test(cc);
   m.querySelectorAll('#g-ct .ct').forEach(g=>{
     const t=g.querySelector('text'); if(!t) return;
     _restorePos(t);
     const cap=g.classList.contains('cap');
-    items.push({el:t, pri: cap?20:54, kind: cap?'cap':'city', hide:'ct-crowd', hideEl:g, keep:false,
+    items.push({el:t, pri: cap?(tight?8:20):54, kind: cap?'cap':'city', hide: tight?'ct-label-crowd':'ct-crowd', hideEl: tight?t:g, keep:false, labelOnlyHide:tight,
       orig:{x:+(t.dataset.ox), y:+(t.dataset.oy), anchor:t.dataset.ota||t.getAttribute('text-anchor')||'start'}});
   });
   m.querySelectorAll('#g-ap .ap').forEach(g=>{
@@ -541,12 +549,12 @@ function resolveLabelOverlaps(){
     if(codeEl){
       _restorePos(codeEl);
       /* Codes are hideable if they cannot be placed with zero overlap (lower-rank goes to zoom). */
-      items.push({el:codeEl, pri: 10+_airportRank(code)*0.4, kind: major?'ap-major':'ap-code', hide:'ap-code-crowd', keep:false,
+      items.push({el:codeEl, pri: 10+_airportRank(code)*0.4, kind: major?'ap-major':'ap-code', hide:'ap-code-crowd', keep:false, code,
         orig:{x:+(codeEl.dataset.ox), y:+(codeEl.dataset.oy), anchor:codeEl.dataset.ota||codeEl.getAttribute('text-anchor')||'middle'}});
     }
     if(name){
       _restorePos(name);
-      items.push({el:name, pri:90, kind:'ap-name', hide:'ap-name-crowd', keep:false, nameOnly:true,
+      items.push({el:name, pri:90, kind:'ap-name', hide:'ap-name-crowd', keep:false, nameOnly:true, code,
         orig:{x:+(name.dataset.ox), y:+(name.dataset.oy), anchor:name.dataset.ota||name.getAttribute('text-anchor')||'middle'}});
     }
   });
@@ -557,7 +565,7 @@ function resolveLabelOverlaps(){
       if(it.lead.dataset.ox2!=null){ it.lead.setAttribute('x2', it.lead.dataset.ox2); it.lead.setAttribute('y2', it.lead.dataset.oy2); }
       it.lead.classList.add('lbl-crowd');
     }
-    if(it.kind==='cap'||it.kind==='city'){
+    if((it.kind==='cap'||it.kind==='city') && !it.labelOnlyHide){
       const g=it.hideEl||it.el.closest&&it.el.closest('.ct')||it.el;
       g.classList.add('ct-crowd');
     } else {
@@ -576,7 +584,7 @@ function resolveLabelOverlaps(){
         const isOrig=Math.abs(s.x-it.orig.x)<0.2 && Math.abs(s.y-it.orig.y)<0.2;
         if(!isOrig){
           const c=it.c||[it.orig.x,it.orig.y];
-          const maxU=52*_userPerPx();
+          const maxU=(tight?96:52)*_userPerPx();
           const dx=s.x-c[0], dy=s.y-c[1];
           if(dx*dx+dy*dy>maxU*maxU) continue;
         }
@@ -588,7 +596,7 @@ function resolveLabelOverlaps(){
           if(!it.path.isPointInFill(p) && (s.x!==it.orig.x || s.y!==it.orig.y)) continue;
         }catch(_){ }
       }
-      const sc=_scoreSlot(box, placed, 4);
+      const sc=_scoreSlot(box, placed, 4, it);
       if(sc.n===0){ return {s, box, sc}; }
       if(!best || sc.n<best.sc.n || (sc.n===best.sc.n && sc.area<best.sc.area)){
         best={s, box, sc};
@@ -597,6 +605,14 @@ function resolveLabelOverlaps(){
     return best;
   }
   const placed=[];
+  m.querySelectorAll('#g-ap .ap').forEach(g=>{
+    if(getComputedStyle(g).display==='none') return;
+    const mark=g.querySelector('.ap-mark')||g.querySelector('.pad');
+    if(!mark) return;
+    const box=vis(mark);
+    if(!box) return;
+    placed.push({box, pri:-5, keep:true, kind:'ap-icon', code:(g.getAttribute('data-code')||'').trim()});
+  });
   items.sort((a,b)=>a.pri-b.pri);
   for(const it of items){
     if(it.defer){ hideItem(it); continue; }
@@ -609,13 +625,16 @@ function resolveLabelOverlaps(){
       /* Subtitle only in its natural place under the code, otherwise just the IATA. */
       _applyPos(it.el, it.orig);
       const box=vis(it.el);
-      const sc=box?_scoreSlot(box, placed, 4):{n:1,area:1};
+      const sc=box?_scoreSlot(box, placed, 4, it):{n:1,area:1};
       if(box && inMap(box) && sc.n===0){ it.box=box; placed.push(it); }
       else hideItem(it);
       continue;
     }
-    const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, it.kind==='region'?48:76);
-    const requireInPath=(it.kind==='region' && it.path && !it.lead);
+    const maxPx = tight
+      ? (it.kind==='region'?76 : it.kind==='cap'?36 : (it.kind==='city'||it.kind==='ap-major'||it.kind==='ap-code')?28 : 24)
+      : (it.kind==='region'?48:76);
+    const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, maxPx);
+    const requireInPath=(it.kind==='region' && it.path && (!it.lead || tight));
     const found=tryPlace(it, slots, placed, {requireInPath, requireInMap:true});
     if(found && found.sc.n===0){
       _applyPos(it.el, {x:found.s.x, y:found.s.y, anchor:found.s.anchor||it.orig.anchor});
@@ -629,15 +648,18 @@ function resolveLabelOverlaps(){
   /* Rescue hidden region names on zoom (or on a desktop full view) with a short nearby leader. */
   if(!crowdedMobile){
     items.filter(it=>it.kind==='region' && it._hidden).forEach(it=>{
-      const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, 48);
-      const found=tryPlace(it, slots, placed, {requireInMap:true, requireInPath:false});
+      const stayInside=tight;
+      const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, stayInside?24:48);
+      const found=tryPlace(it, slots, placed, {requireInMap:true, requireInPath:stayInside});
       if(found && found.sc.n===0){
         it.el.classList.remove('lbl-crowd');
         it._hidden=false;
         _applyPos(it.el, {x:found.s.x, y:found.s.y, anchor:found.s.anchor||it.orig.anchor});
         let lead=it.lead;
         const c=it.c||[it.orig.x, it.orig.y];
-        if(!lead){
+        if(stayInside){
+          /* IT/ES: region names stay inside the shape or remain hidden. */
+        } else if(!lead){
           lead=el('line',{class:'lbl-lead', x1:c[0], y1:c[1], x2:found.s.x, y2:found.s.y, 'data-a':it.id, 'data-temp':'1'});
           const gl=$('#g-lb'); if(gl) gl.insertBefore(lead, it.el);
           it.lead=lead;
@@ -661,8 +683,11 @@ function resolveLabelOverlaps(){
       for(let j=i+1;j<live.length;j++){
         const a=live[i], b=live[j];
         if(!inMap(a.box) || !inMap(b.box)) continue;
+        if(a.kind==='ap-icon' && b.kind==='ap-icon') continue;
+        if((a.kind==='ap-icon' && a.code && a.code===b.code) || (b.kind==='ap-icon' && b.code && b.code===a.code)) continue;
         if(!_overlap(a.box,b.box,pad)) continue;
         const drop=(a.keep&&!b.keep)?b:(b.keep&&!a.keep)?a:(a.pri>=b.pri?a:b);
+        if(!drop || drop.keep || drop.kind==='ap-icon' || !drop.el) continue;
         hideItem(drop);
         const ix=placed.indexOf(drop);
         if(ix>=0) placed.splice(ix,1);
@@ -812,6 +837,8 @@ function defaultRegion(){
   if(DATA.country==='UK') return 'ENG';
   if(DATA.country==='FR') return 'IDF';
   if(DATA.country==='DE') return 'BY';
+  if(DATA.country==='IT') return 'LAZ';
+  if(DATA.country==='ES') return 'MD';
   const hubs = DATA.provHub || DATA.stateHub || {};
   return Object.keys(hubs)[0] || ABBRS[0];
 }
@@ -839,7 +866,7 @@ function initSteps(){
 function initFreeZoom(){const m=$('#map');if(!m)return;
  let wrap=m.parentNode;if(!wrap.classList.contains('mapwrap')){wrap=document.createElement('div');wrap.className='mapwrap';m.parentNode.insertBefore(wrap,m);wrap.appendChild(m)}
  /* Country-specific empty-space placement: CA Pacific SW, MX Pacific SW (desktop). Mobile: under map. */
- wrap.classList.add('zoom-pos-'+({MX:'mx',CA:'ca',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp'}[DATA.country]||'ca'));
+ wrap.classList.add('zoom-pos-'+({MX:'mx',CA:'ca',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp',IT:'it',ES:'es'}[DATA.country]||'ca'));
  if(!$('#zin')){const z=document.createElement('div');z.className='zoom';z.setAttribute('role','group');z.setAttribute('aria-label','Map zoom');
   z.innerHTML='<button type="button" id="zin" aria-label="Zoom in" title="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out" title="Zoom out">&minus;</button><button type="button" id="zreset" aria-label="Reset map view" title="Reset map view">&#8634;</button>';
   wrap.appendChild(z)}

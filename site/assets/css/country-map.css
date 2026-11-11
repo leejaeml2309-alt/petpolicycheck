@@ -752,6 +752,8 @@ html.accent-taegeuk #country-map .lbl,
 html.accent-hinomaru #country-map .lbl,
 html.accent-maple #country-map .lbl,
 html.accent-mxgreen #country-map .lbl,
+html.accent-italy #country-map .lbl,
+html.accent-rojigualda #country-map .lbl,
 #country-map.accent-taegeuk .lbl,
 #country-map.accent-hinomaru .lbl{
   fill:var(--lbl-region);
@@ -773,6 +775,8 @@ html.accent-taegeuk #country-map .lbl.sel,
 html.accent-hinomaru #country-map .lbl.sel,
 html.accent-maple #country-map .lbl.sel,
 html.accent-mxgreen #country-map .lbl.sel,
+html.accent-italy #country-map .lbl.sel,
+html.accent-rojigualda #country-map .lbl.sel,
 #country-map.accent-taegeuk .lbl.sel,
 #country-map.accent-hinomaru .lbl.sel{
   fill:var(--lbl-region);
@@ -914,6 +918,8 @@ html.accent-taegeuk #country-map .lbl,
 html.accent-hinomaru #country-map .lbl,
 html.accent-maple #country-map .lbl,
 html.accent-mxgreen #country-map .lbl,
+html.accent-italy #country-map .lbl,
+html.accent-rojigualda #country-map .lbl,
 #country-map.accent-taegeuk .lbl,
 #country-map.accent-hinomaru .lbl{
   font-size:calc(var(--lbl-region-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
@@ -951,7 +957,48 @@ html.accent-mxgreen #country-map .lbl,
   display:none !important;
 }
 
+#country-map .ct text.ct-label-crowd{display:none !important}
 #country-map .ct.ct-crowd,
 #country-map .ct text.lbl-crowd,
 #usa-map .ct.ct-crowd,
 #usa-map .ct text.lbl-crowd{display:none !important}
+
+
+/* --- Italy (verde-bianco-rosso) + Spain (rojigualda) — IT/ES maps 2026-11-11 --- */
+.accent-italy i{background:#009246;box-shadow:inset 0 0 0 1.5px #f4f6fa,0 0 0 2px #0b1719,0 0 0 3px rgba(206,43,55,.4)}
+.accent-italy.is-current{border-color:#009246;background:color-mix(in srgb,#009246 16%,#0f2226)}
+html.accent-italy #country-map{--accent:#009246;--accent-ink:#f4f6fa}
+html.accent-italy #country-map .st.st-t1{fill:#009246 !important}
+html.accent-italy #country-map .st.st-t2{fill:#e8e4dc !important}
+html.accent-italy #country-map .st.st-t3{fill:#CE2B37 !important}
+html.accent-italy #country-map .st.st-t4{fill:#2d8a5a !important}
+html.accent-italy #country-map .st.st-t5{fill:#a83a40 !important}
+html.accent-italy #country-map .st.hub{filter:saturate(1.05) brightness(1.06)}
+html.accent-italy #country-map .st.sel,
+html.accent-italy #country-map .st.sel:hover{fill:#6d5a2c !important;stroke:#f0d58c !important;stroke-width:2 !important;filter:none !important}
+html.accent-italy #country-map .ap.sel .pad{fill:#6d5a2c;stroke:#f0d58c;stroke-width:2}
+html.accent-italy #country-map .lbl.sel{fill:#fff7df;stroke:rgba(6,14,16,.92);stroke-width:3.8px}
+html.accent-italy #country-map .ph .mark{border-color:#009246;color:#f4f6fa;background:#14241c}
+html.accent-italy #country-map .sec.active h3 .n,
+html.accent-italy #country-map .steps button[aria-pressed=true] b{background:#009246;border-color:#009246;color:#f4f6fa}
+
+.accent-rojigualda i{background:#AA151B;box-shadow:inset 0 0 0 1.5px #F1BF00,0 0 0 2px #0b1719,0 0 0 3px rgba(170,21,27,.45)}
+.accent-rojigualda.is-current{border-color:#AA151B;background:color-mix(in srgb,#AA151B 16%,#0f2226)}
+html.accent-rojigualda #country-map{--accent:#AA151B;--accent-ink:#f4efe6}
+html.accent-rojigualda #country-map .st.st-t1{fill:#AA151B !important}
+html.accent-rojigualda #country-map .st.st-t2{fill:#F1BF00 !important}
+html.accent-rojigualda #country-map .st.st-t3{fill:#c41e26 !important}
+html.accent-rojigualda #country-map .st.st-t4{fill:#d4a017 !important}
+html.accent-rojigualda #country-map .st.st-t5{fill:#8b1018 !important}
+html.accent-rojigualda #country-map .st.hub{filter:saturate(1.04) brightness(1.06)}
+html.accent-rojigualda #country-map .st.sel,
+html.accent-rojigualda #country-map .st.sel:hover{fill:#6d5a2c !important;stroke:#f0d58c !important;stroke-width:2 !important;filter:none !important}
+html.accent-rojigualda #country-map .ap.sel .pad{fill:#6d5a2c;stroke:#f0d58c;stroke-width:2}
+html.accent-rojigualda #country-map .lbl.sel{fill:#fff7df;stroke:rgba(6,14,16,.92);stroke-width:3.8px}
+html.accent-rojigualda #country-map .ph .mark{border-color:#AA151B;color:#f4efe6;background:#241416}
+html.accent-rojigualda #country-map .sec.active h3 .n,
+html.accent-rojigualda #country-map .steps button[aria-pressed=true] b{background:#AA151B;border-color:#AA151B;color:#f4efe6}
+
+html.accent-italy #country-map .st.sel,
+html.accent-rojigualda #country-map .st.sel,
+#country-map .st.sel{fill:#6d5a2c !important;stroke:var(--gold-l,#f0d58c) !important}
