@@ -25,12 +25,32 @@ h1,h2,h3{font-family:var(--disp);font-weight:var(--hw,400);color:var(--head);mar
 .btn.ghost{background:transparent;color:var(--head);box-shadow:inset 0 0 0 1.5px var(--line2)}
 .btn svg{width:18px;height:18px;fill:currentColor}
 .foot{margin-top:40px;background:var(--foot);color:var(--foot-ink);padding:36px 0 50px;font-size:.88rem}
-.foot a{color:var(--foot-ink)}.foot .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:24px}.foot h4{margin:0 0 8px;font:700 .75rem var(--text);letter-spacing:.1em;text-transform:uppercase;opacity:.7}.foot h4 a{color:inherit;text-decoration:none}.foot h4 a:hover,.foot h4 a:focus-visible{text-decoration:underline}
-.foot ul{list-style:none;margin:0;padding:0}.foot li{margin:4px 0}.foot .wm{font-family:var(--disp);font-size:1.25rem}
+.foot a{color:var(--foot-ink)}
+.foot .cols{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px 28px;align-items:start;text-align:left}
+.foot .cols > *{min-width:0}
+.foot h4{margin:0 0 8px;font:700 .75rem/1.2 var(--text);letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.foot h4 a{color:inherit;text-decoration:none;font:inherit;letter-spacing:inherit;text-transform:inherit;padding:0;margin:0;display:inline;background:none;box-shadow:none}
+.foot h4 a:hover,.foot h4 a:focus-visible{text-decoration:underline}
+.foot ul{list-style:none;margin:0;padding:0;display:block}
+.foot li{margin:4px 0;display:block}
+.foot .wm{font-family:var(--disp);font-size:1.25rem}
 .foot .soc{margin:12px 0 0;display:flex;gap:10px;align-items:center}.foot .soc a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;box-shadow:inset 0 0 0 1.5px currentColor;color:inherit;text-decoration:none}.foot .soc a:hover,.foot .soc a:focus-visible{color:var(--head);box-shadow:inset 0 0 0 1.5px var(--pri)}
 
 /* Footer copyright: always visible and AA contrast on --foot (2026-11-12). Do not drop opacity; inherit --foot-ink. */
 .foot .disc{opacity:1;font-style:normal;color:inherit;margin-top:18px}
+
+/* Desktop footer grid (1280/1440): equal columns, shared heading baseline, one link per line. Mobile ≤820 unchanged. */
+@media (min-width:821px){
+  .foot .cols,.foot-compact .cols{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px 28px;align-items:start;text-align:left}
+  .foot .cols > *,.foot-compact .cols > *{min-width:0}
+  .foot ul,.foot-compact ul{display:block;flex-wrap:nowrap}
+  .foot li,.foot-compact li{display:block;margin:4px 0}
+  .foot-compact .wrap > div:has(h4 [data-i18n="site.foot.vet_info"]),
+  .foot .cols > div:has(h4 [data-i18n="site.foot.vet_info"]){margin-top:0}
+  .foot-compact .wrap > div:has(h4 [data-i18n="site.foot.vet_info"]) ul,
+  .foot .cols > div:has(h4 [data-i18n="site.foot.vet_info"]) ul{display:block;flex-wrap:nowrap}
+  .foot h4,.foot-compact h4{margin:0 0 8px}
+}
 
 :root{--bg:#0b1719;--paper:#11252a;--ink:#ece4d0;--mut:#a7b0a2;--head:#f5ecd6;--link:#e3c27a;--pri:#d9b765;--on-pri:#0b1719;--acc:#d9b765;
 --line:#23413f;--line2:#3a5a56;--chip:#173236;--zebra:#142c31;--hdr:#0b1719e6;--foot:#071012;--foot-ink:#cfc6b0;--panel-h:#0f2226;--panel-h-ink:#f5ecd6;

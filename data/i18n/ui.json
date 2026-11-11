@@ -92,7 +92,8 @@
       "home.tools.embeds": "Free embeds",
       "home.tools.pcs": "Military PCS",
       "home.tools.volunteer": "Flight volunteer kit",
-      "home.tools.veterans": "Veterans & service dogs"
+      "home.tools.veterans": "Veterans & service dogs",
+      "site.foot.see_terms": "See {terms}."
     },
     "fr": {
       "site.nav.map": "Carte du monde",
@@ -256,7 +257,8 @@
       "home.tools.embeds": "Widgets gratis",
       "home.tools.pcs": "PCS militar",
       "home.tools.volunteer": "Kit voluntarios de vuelo",
-      "home.tools.veterans": "Veteranos y perros de servicio"
+      "home.tools.veterans": "Veteranos y perros de servicio",
+      "site.foot.see_terms": "Ver {terms}."
     },
     "de": {
       "site.nav.map": "Weltkarte",
@@ -367,7 +369,7 @@
       "site.foot.aboutcol": "소개",
       "site.foot.airlines": "항공사 규정",
       "site.foot.aff": "Amazon 제휴 파트너로서 적격 구매에 대해 수수료를 받습니다.",
-      "site.foot.copyright": "© 2026 PetPolicyCheck · Paw Passport. 모든 권리 보유. 콘텐츠·데이터·디자인·이미지는 서면 허가 없이 복사하거나 재현할 수 없어요.",
+      "site.foot.copyright": "© 2026 PetPolicyCheck · Paw Passport. 모든 권리 보유. 콘텐츠·데이터·디자인·이미지는 서면 허가 없이 복사하거나 재현할 수 없습니다.",
       "site.foot.terms": "이용약관",
       "site.foot.about": "소개 & 면책",
       "site.foot.privacy": "개인정보",

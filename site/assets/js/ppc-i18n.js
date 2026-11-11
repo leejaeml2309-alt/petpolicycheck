@@ -162,9 +162,11 @@
       var link = p.querySelector('a[href*="terms"]');
       var termsHref = (link && link.getAttribute('href')) || fallbackHref || 'terms.html';
       var affHtml = aff ? '<span data-i18n="site.foot.aff">' + aff + '</span> ' : '';
+      var seeTpl = t('site.foot.see_terms') || 'See {terms}.';
+      var termsHtml = '<a href="' + termsHref + '" data-i18n="site.foot.terms">' + terms + '</a>';
       p.classList.add('disc');
       p.removeAttribute('style');
-      p.innerHTML = affHtml + copy + ' See <a href="' + termsHref + '" data-i18n="site.foot.terms">' + terms + '</a>.';
+      p.innerHTML = affHtml + copy + ' ' + seeTpl.replace('{terms}', termsHtml);
     }
     var footTerms = (document.querySelector('footer a[href*="terms"]') || {}).getAttribute && (document.querySelector('footer a[href*="terms"]').getAttribute('href'));
     document.querySelectorAll('footer .disc').forEach(function (p) { paintFootCopyright(p, footTerms); });
