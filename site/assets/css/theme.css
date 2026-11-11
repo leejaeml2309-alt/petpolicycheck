@@ -33,8 +33,8 @@ h1,h2,h3{font-family:var(--disp);font-weight:var(--hw,400);color:var(--head);mar
 .foot h4 a:hover,.foot h4 a:focus-visible{text-decoration:underline}
 .foot ul{list-style:none;margin:0;padding:0;display:block}
 .foot li{margin:4px 0;display:block}
-.foot .wm{font-family:var(--disp);font-size:1.25rem;margin:0 0 8px;padding:0;line-height:1.2}
-.foot .fbrand .wm,.foot-compact .fbrand .wm,.foot .wm{margin-top:0;padding-top:0;line-height:1.2}
+.foot .wm,.foot-compact .wm,.foot .fbrand .wm,.foot-compact .fbrand .wm{font-family:var(--disp);font-size:1.25rem;font-weight:400;margin:0 0 8px;padding:0;line-height:1.2;opacity:1}
+.foot .fbrand > p:not(.wm):not(.soc),.foot-compact .fbrand > p:not(.wm):not(.soc){margin:1em 0;font-size:.88rem;line-height:1.6;opacity:1}
 
 .foot .soc{margin:12px 0 0;display:flex;gap:10px;align-items:center}.foot .soc a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;box-shadow:inset 0 0 0 1.5px currentColor;color:inherit;text-decoration:none}.foot .soc a:hover,.foot .soc a:focus-visible{color:var(--head);box-shadow:inset 0 0 0 1.5px var(--pri)}
 

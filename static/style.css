@@ -271,8 +271,7 @@ img{max-width:100%}
 /* compact footer */
 .foot.foot-compact{padding:26px 0 30px}
 .foot-compact .cols{grid-template-columns:repeat(5,minmax(0,1fr));gap:24px 28px;align-items:start}
-.foot-compact .fbrand p{margin:.2em 0;font-size:.82rem;line-height:1.45;opacity:.85}
-.foot-compact .fbrand .wm{margin:0 0 4px;opacity:1}
+/* Brand typography lives in theme.css (.foot .fbrand) so compact pages match the homepage. */
 .foot-compact h4{margin:0 0 6px}
 .foot-compact li{margin:2px 0;font-size:.85rem}
 .foot-compact .disc{margin-top:14px;font-size:.78rem}

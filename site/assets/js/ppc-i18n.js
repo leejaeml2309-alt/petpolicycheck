@@ -155,18 +155,19 @@
     /* Footer copyright disc — translate the copyright sentence while keeping affiliate + Terms.
        Also upgrade a bare « © YEAR PetPolicyCheck » paragraph so every footer shows the full mention. */
     function paintFootCopyright(p, fallbackHref) {
-      var copy = t('site.foot.copyright');
+      /* Copyright and the See Terms link stay in English on every page and language (Marc 2026-11-12).
+         The Amazon Associates sentence still follows the active language. */
+      var en = D.en || {};
+      var copy = en['site.foot.copyright'] || '© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission.';
       var aff = t('site.foot.aff');
-      var terms = t('site.foot.terms') || 'Terms';
       if (!copy) return;
       var link = p.querySelector('a[href*="terms"]');
       var termsHref = (link && link.getAttribute('href')) || fallbackHref || 'terms.html';
       var affHtml = aff ? '<span data-i18n="site.foot.aff">' + aff + '</span> ' : '';
-      var seeTpl = t('site.foot.see_terms') || 'See {terms}.';
-      var termsHtml = '<a href="' + termsHref + '" data-i18n="site.foot.terms">' + terms + '</a>';
+      var termsHtml = '<a href="' + termsHref + '">Terms</a>';
       p.classList.add('disc');
       p.removeAttribute('style');
-      p.innerHTML = affHtml + copy + ' ' + seeTpl.replace('{terms}', termsHtml);
+      p.innerHTML = affHtml + copy + ' See ' + termsHtml + '.';
     }
     var footTerms = (document.querySelector('footer a[href*="terms"]') || {}).getAttribute && (document.querySelector('footer a[href*="terms"]').getAttribute('href'));
     document.querySelectorAll('footer .disc').forEach(function (p) { paintFootCopyright(p, footTerms); });
