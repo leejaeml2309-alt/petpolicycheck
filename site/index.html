@@ -149,7 +149,66 @@ html.intro-lock .vas-grid{flex:1 1 auto !important;min-height:0 !important;overf
 .map-nav{display:none !important}
 html:not(.intro-lock) .map-nav{display:block !important}
 html:not(.intro-lock) section.intro,html:not(.intro-lock) .intro-spacer,html:not(.intro-lock) .intro-id{display:none !important}
+/* Mobile intro scroll 2026-11-11: desktop >=1100 keeps overflow hidden. */
+@media (max-width:1099px){
+html.intro-lock body.intro-home > section.intro,html.ppc-preview.intro-lock body.intro-home > section.intro{top:var(--preview-h, 0px) !important;right:0 !important;bottom:0 !important;left:0 !important;height:auto !important;min-height:0 !important;max-height:none !important;overflow-x:hidden !important;overflow-y:auto !important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:max(16px, env(safe-area-inset-bottom, 0px)) !important}
+html.intro-lock body.intro-home > section.intro > div.wrap{flex:0 0 auto !important;height:auto !important;max-height:none !important}
+html.intro-lock .vas-grid{overflow:visible !important;flex:0 0 auto !important}
+}
 </style>
+<script>
+/* Mobile intro scroll 2026-11-11. Measures sticky offsets. No-op at >=1100px. */
+(function () {
+  function isMobile() {
+    try { return window.matchMedia('(max-width:1099px)').matches; } catch (e) { return false; }
+  }
+  var BOX = ['top','right','bottom','left','height','min-height','max-height','overflow-x','overflow-y','padding-bottom','-webkit-overflow-scrolling'];
+  function clearBox(el) {
+    if (!el) return;
+    BOX.forEach(function (p) { el.style.removeProperty(p); });
+  }
+  function pin() {
+    var root = document.documentElement;
+    var intros = document.querySelectorAll('section.intro');
+    if (!isMobile() || !root.classList.contains('intro-lock')) {
+      root.style.removeProperty('--intro-sticky-lang');
+      root.style.removeProperty('--intro-sticky-enter');
+      intros.forEach(clearBox);
+      return;
+    }
+    intros.forEach(function (el) {
+      el.style.setProperty('top', 'var(--preview-h, 0px)', 'important');
+      el.style.setProperty('right', '0', 'important');
+      el.style.setProperty('bottom', '0', 'important');
+      el.style.setProperty('left', '0', 'important');
+      el.style.setProperty('height', 'auto', 'important');
+      el.style.setProperty('min-height', '0', 'important');
+      el.style.setProperty('max-height', 'none', 'important');
+      el.style.setProperty('overflow-x', 'hidden', 'important');
+      el.style.setProperty('overflow-y', 'auto', 'important');
+      el.style.setProperty('-webkit-overflow-scrolling', 'touch');
+      el.style.setProperty('padding-bottom', 'max(16px, env(safe-area-inset-bottom, 0px))', 'important');
+    });
+    var intro = document.querySelector('body.intro-home > section.intro') || document.querySelector('section.intro');
+    if (!intro) return;
+    var y = 0;
+    var bar = intro.querySelector('.brandbar');
+    var lang = intro.querySelector('.ppc-lang-bar-intro');
+    if (bar) y = Math.ceil(bar.getBoundingClientRect().height);
+    root.style.setProperty('--intro-sticky-lang', y + 'px');
+    if (lang) y += Math.ceil(lang.getBoundingClientRect().height);
+    root.style.setProperty('--intro-sticky-enter', y + 'px');
+  }
+  function boot() { pin(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+  window.addEventListener('resize', pin);
+  window.addEventListener('ppc:lang', function () { setTimeout(pin, 0); });
+  setTimeout(pin, 50);
+  setTimeout(pin, 400);
+})();
+</script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K45B2WNXMC"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -325,7 +384,66 @@ html.intro-lock .vas-grid{flex:1 1 auto !important;min-height:0 !important;overf
 .map-nav{display:none !important}
 html:not(.intro-lock) .map-nav{display:block !important}
 html:not(.intro-lock) section.intro,html:not(.intro-lock) .intro-spacer,html:not(.intro-lock) .intro-id{display:none !important}
+/* Mobile intro scroll 2026-11-11: desktop >=1100 keeps overflow hidden. */
+@media (max-width:1099px){
+html.intro-lock body.intro-home > section.intro,html.ppc-preview.intro-lock body.intro-home > section.intro{top:var(--preview-h, 0px) !important;right:0 !important;bottom:0 !important;left:0 !important;height:auto !important;min-height:0 !important;max-height:none !important;overflow-x:hidden !important;overflow-y:auto !important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:max(16px, env(safe-area-inset-bottom, 0px)) !important}
+html.intro-lock body.intro-home > section.intro > div.wrap{flex:0 0 auto !important;height:auto !important;max-height:none !important}
+html.intro-lock .vas-grid{overflow:visible !important;flex:0 0 auto !important}
+}
 </style>
+<script>
+/* Mobile intro scroll 2026-11-11. Measures sticky offsets. No-op at >=1100px. */
+(function () {
+  function isMobile() {
+    try { return window.matchMedia('(max-width:1099px)').matches; } catch (e) { return false; }
+  }
+  var BOX = ['top','right','bottom','left','height','min-height','max-height','overflow-x','overflow-y','padding-bottom','-webkit-overflow-scrolling'];
+  function clearBox(el) {
+    if (!el) return;
+    BOX.forEach(function (p) { el.style.removeProperty(p); });
+  }
+  function pin() {
+    var root = document.documentElement;
+    var intros = document.querySelectorAll('section.intro');
+    if (!isMobile() || !root.classList.contains('intro-lock')) {
+      root.style.removeProperty('--intro-sticky-lang');
+      root.style.removeProperty('--intro-sticky-enter');
+      intros.forEach(clearBox);
+      return;
+    }
+    intros.forEach(function (el) {
+      el.style.setProperty('top', 'var(--preview-h, 0px)', 'important');
+      el.style.setProperty('right', '0', 'important');
+      el.style.setProperty('bottom', '0', 'important');
+      el.style.setProperty('left', '0', 'important');
+      el.style.setProperty('height', 'auto', 'important');
+      el.style.setProperty('min-height', '0', 'important');
+      el.style.setProperty('max-height', 'none', 'important');
+      el.style.setProperty('overflow-x', 'hidden', 'important');
+      el.style.setProperty('overflow-y', 'auto', 'important');
+      el.style.setProperty('-webkit-overflow-scrolling', 'touch');
+      el.style.setProperty('padding-bottom', 'max(16px, env(safe-area-inset-bottom, 0px))', 'important');
+    });
+    var intro = document.querySelector('body.intro-home > section.intro') || document.querySelector('section.intro');
+    if (!intro) return;
+    var y = 0;
+    var bar = intro.querySelector('.brandbar');
+    var lang = intro.querySelector('.ppc-lang-bar-intro');
+    if (bar) y = Math.ceil(bar.getBoundingClientRect().height);
+    root.style.setProperty('--intro-sticky-lang', y + 'px');
+    if (lang) y += Math.ceil(lang.getBoundingClientRect().height);
+    root.style.setProperty('--intro-sticky-enter', y + 'px');
+  }
+  function boot() { pin(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+  window.addEventListener('resize', pin);
+  window.addEventListener('ppc:lang', function () { setTimeout(pin, 0); });
+  setTimeout(pin, 50);
+  setTimeout(pin, 400);
+})();
+</script>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K45B2WNXMC"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -353,7 +471,7 @@ html:not(.intro-lock) section.intro,html:not(.intro-lock) .intro-spacer,html:not
 <link rel="stylesheet" href="assets/css/home-c.css?v=20261111itesp">
 <link rel="stylesheet" href="assets/css/story.css?v=20261024">
 <link rel="stylesheet" href="assets/css/story-b.css?v=20261024">
-<link rel="stylesheet" href="assets/css/intro-a.css?v=20261030v">
+<link rel="stylesheet" href="assets/css/intro-a.css?v=20261111intro390c">
 <style id="map-view-layout">
 html:not(.intro-lock){--hdr-h:66px}
 /* ppc-topbar stays 66px on mobile (no wrap) */
@@ -591,7 +709,7 @@ html.map-view #world-map{width:100%;height:100%}
 </body></html>v=20261110petdesk">
 <link rel="stylesheet" href="assets/css/story.css?v=20261024">
 <link rel="stylesheet" href="assets/css/story-b.css?v=20261024">
-<link rel="stylesheet" href="assets/css/intro-a.css?v=20261030v">
+<link rel="stylesheet" href="assets/css/intro-a.css?v=20261111intro390c">
 <style id="map-view-layout">
 html:not(.intro-lock){--hdr-h:66px}
 /* ppc-topbar stays 66px on mobile (no wrap) */
