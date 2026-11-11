@@ -33,7 +33,9 @@ h1,h2,h3{font-family:var(--disp);font-weight:var(--hw,400);color:var(--head);mar
 .foot h4 a:hover,.foot h4 a:focus-visible{text-decoration:underline}
 .foot ul{list-style:none;margin:0;padding:0;display:block}
 .foot li{margin:4px 0;display:block}
-.foot .wm{font-family:var(--disp);font-size:1.25rem}
+.foot .wm{font-family:var(--disp);font-size:1.25rem;margin:0 0 8px;padding:0;line-height:1.2}
+.foot .fbrand .wm,.foot-compact .fbrand .wm,.foot .wm{margin-top:0;padding-top:0;line-height:1.2}
+
 .foot .soc{margin:12px 0 0;display:flex;gap:10px;align-items:center}.foot .soc a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;box-shadow:inset 0 0 0 1.5px currentColor;color:inherit;text-decoration:none}.foot .soc a:hover,.foot .soc a:focus-visible{color:var(--head);box-shadow:inset 0 0 0 1.5px var(--pri)}
 
 /* Footer copyright: always visible and AA contrast on --foot (2026-11-12). Do not drop opacity; inherit --foot-ink. */
@@ -50,6 +52,7 @@ h1,h2,h3{font-family:var(--disp);font-weight:var(--hw,400);color:var(--head);mar
   .foot-compact .wrap > div:has(h4 [data-i18n="site.foot.vet_info"]) ul,
   .foot .cols > div:has(h4 [data-i18n="site.foot.vet_info"]) ul{display:block;flex-wrap:nowrap}
   .foot h4,.foot-compact h4{margin:0 0 8px}
+  .foot .fbrand .wm,.foot-compact .fbrand .wm,.foot .wm{margin-top:0;padding-top:0}
 }
 
 :root{--bg:#0b1719;--paper:#11252a;--ink:#ece4d0;--mut:#a7b0a2;--head:#f5ecd6;--link:#e3c27a;--pri:#d9b765;--on-pri:#0b1719;--acc:#d9b765;

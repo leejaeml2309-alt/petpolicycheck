@@ -406,7 +406,7 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
     The homepage has its own footer in static/home-c.html and keeps home_footer_ad (9881497431)."""
     h = home_url(root)
     li = lambda href, key, label: f'<li><a href="{href}"{ti(key, fi)}>{label}</a></li>'
-    forum = (li(f"{root}forum/", "nav.forum", "Forum") + li(f"{root}forum/pet-travel-stories/", "site.foot.stories", "Stories")) if FORUM_ON else ""
+    forum = li(f"{root}forum/", "nav.forum", "Forum") + li(f"{root}forum/pet-travel-stories/", "site.foot.stories", "Stories")
     if not SHOW_ADS:
         sponsor = "off"
     if sponsor == "auto":
