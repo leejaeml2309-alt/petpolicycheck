@@ -7,9 +7,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 VER = "20261110search3"
 HUBS = [
-    ("routes/", "Routes", ("routes/",)),
-    ("airlines/", "Airlines", ("airlines/",)),
+    ("/vet-info/", "Vet info", ("vet-info/",)),
     ("countries/usa-map.html", "Countries/Maps", ("countries/",)),
+    ("airlines/", "Airlines", ("airlines/",)),
+    ("routes/", "Routes", ("routes/",)),
     ("hotels/", "Hotels", ("hotels/",)),
     ("passport/", "Tools", ("passport/", "fit/", "titer-calculator/", "widgets/", "pet-travel-checklist/")),
 ]
@@ -48,7 +49,8 @@ def hub_nav(root: str, key: str, mobile=False) -> str:
     bits = []
     for href, label, pre in HUBS:
         cur = ' aria-current="page"' if any(key.startswith(x) for x in pre) else ""
-        bits.append(f'<a href="{root}{href}"{cur}>{label}</a>')
+        url = href if href.startswith("/") else f"{root}{href}"
+        bits.append(f'<a href="{url}"{cur}>{label}</a>')
     aria = "Primary mobile" if mobile else "Primary"
     return f'<nav class="ppc-nav" aria-label="{aria}">' + "".join(bits) + "</nav>"
 

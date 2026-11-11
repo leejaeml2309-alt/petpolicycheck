@@ -278,9 +278,10 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 SEARCH_CSS_VER = "20261110search1"
 SEARCH_UI_VER = "20261110search3"
 SEARCH_HUBS = [
-    ("routes/", "Routes", ("routes/",)),
-    ("airlines/", "Airlines", ("airlines/",)),
+    ("/vet-info/", "Vet info", ("vet-info/",)),
     ("countries/usa-map.html", "Countries/Maps", ("countries/",)),
+    ("airlines/", "Airlines", ("airlines/",)),
+    ("routes/", "Routes", ("routes/",)),
     ("hotels/", "Hotels", ("hotels/",)),
     ("passport/", "Tools", ("passport/", "fit/", "titer-calculator/", "widgets/", "pet-travel-checklist/")),
 ]
@@ -291,7 +292,8 @@ def search_hub_links(root, path, mobile=False):
     out = []
     for href, label, pre in SEARCH_HUBS:
         cur = ' aria-current="page"' if any(path.startswith(x) for x in pre) else ""
-        out.append(f'<a href="{root}{href}"{cur}>{label}</a>')
+        url = href if href.startswith("/") else f"{root}{href}"
+        out.append(f'<a href="{url}"{cur}>{label}</a>')
     aria = "Primary mobile" if mobile else "Primary"
     return f'<nav class="ppc-nav" aria-label="{aria}">' + "".join(out) + "</nav>"
 
