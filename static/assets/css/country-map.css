@@ -950,3 +950,8 @@ html.accent-mxgreen #country-map .lbl,
 #country-map .ap text.ap-code-crowd{
   display:none !important;
 }
+
+#country-map .ct.ct-crowd,
+#country-map .ct text.lbl-crowd,
+#usa-map .ct.ct-crowd,
+#usa-map .ct text.lbl-crowd{display:none !important}

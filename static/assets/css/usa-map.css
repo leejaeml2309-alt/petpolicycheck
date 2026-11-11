@@ -377,3 +377,8 @@ main.wrap:has(#usa-map){max-width:1320px}
 
 /* Selection gold unchanged; do not use gold on labels. */
 #usa-map .st.sel{fill:#6d5a2c !important;stroke:var(--gold-l,#f0d58c) !important}
+
+#country-map .ct.ct-crowd,
+#country-map .ct text.lbl-crowd,
+#usa-map .ct.ct-crowd,
+#usa-map .ct text.lbl-crowd{display:none !important}
