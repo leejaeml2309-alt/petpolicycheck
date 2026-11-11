@@ -1,0 +1,159 @@
+{
+  "console": [],
+  "http_fail": [],
+  "shots": [
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/hub-en-1280-top.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/hub-en-1280-footer.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/hub-en-390-top.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/hub-en-390-footer.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/hub-es-1280-top.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/hub-es-1280-footer.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/hub-es-390-top.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/hub-es-390-footer.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/prep-en-1280-top.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/prep-en-1280-footer.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/prep-en-390-top.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/prep-en-390-footer.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/prep-es-1280-top.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/prep-es-1280-footer.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/prep-es-390-top.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/prep-es-390-footer.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/home-en-1280-footer.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/home-en-390-footer.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/home-es-1280-footer.png",
+    "/workspace/vet-prep-preview-20261111/qa/vet-info/home-es-390-footer.png"
+  ],
+  "preview": {
+    "hub-en": {
+      "bar": true,
+      "noindex": "noindex,nofollow",
+      "hubHref": "/vet-info/",
+      "hubText": "Info veterinaria",
+      "prepHref": "/vet-prep/",
+      "prepInFootMore": false,
+      "hubInFootMore": false
+    },
+    "hub-es": {
+      "bar": true,
+      "noindex": "noindex,nofollow",
+      "hubHref": "/es/vet-info/",
+      "hubText": "Info veterinaria",
+      "prepHref": "/es/vet-prep/",
+      "prepInFootMore": false,
+      "hubInFootMore": false
+    },
+    "prep-en": {
+      "bar": true,
+      "noindex": "noindex,nofollow",
+      "hubHref": "/vet-info/",
+      "hubText": "Info veterinaria",
+      "prepHref": "/vet-prep/",
+      "prepInFootMore": false,
+      "hubInFootMore": false
+    },
+    "prep-es": {
+      "bar": true,
+      "noindex": "noindex,nofollow",
+      "hubHref": "/es/vet-info/",
+      "hubText": "Info veterinaria",
+      "prepHref": "/es/vet-prep/",
+      "prepInFootMore": false,
+      "hubInFootMore": false
+    }
+  },
+  "footer": {
+    "hub-en-390": {
+      "overflowX": false,
+      "hubFits": true,
+      "prepFits": true,
+      "hub": "Vet info",
+      "prep": "Vet prep"
+    },
+    "hub-es-390": {
+      "overflowX": false,
+      "hubFits": true,
+      "prepFits": true,
+      "hub": "Info veterinaria",
+      "prep": "Preparaci\u00f3n veterinaria"
+    },
+    "prep-en-390": {
+      "overflowX": false,
+      "hubFits": true,
+      "prepFits": true,
+      "hub": "Vet info",
+      "prep": "Vet prep"
+    },
+    "prep-es-390": {
+      "overflowX": false,
+      "hubFits": true,
+      "prepFits": true,
+      "hub": "Info veterinaria",
+      "prep": "Preparaci\u00f3n veterinaria"
+    },
+    "home-en-1280": {
+      "hub": "Vet info",
+      "href": "/vet-info/",
+      "prep": "Vet prep",
+      "overflowX": false
+    },
+    "home-en-390": {
+      "hub": "Vet info",
+      "href": "/vet-info/",
+      "prep": "Vet prep",
+      "overflowX": false
+    },
+    "home-es-1280": {
+      "hub": "Info veterinaria",
+      "href": "/es/vet-info/",
+      "prep": "Preparaci\u00f3n veterinaria",
+      "overflowX": false
+    },
+    "home-es-390": {
+      "hub": "Info veterinaria",
+      "href": "/es/vet-info/",
+      "prep": "Preparaci\u00f3n veterinaria",
+      "overflowX": false
+    }
+  },
+  "link_status": {
+    "/vet-prep/": 200,
+    "/titer-calculator/": 200,
+    "/clinics/usa.html": 200,
+    "/partner-vets/": 200,
+    "/countries/usa.html": 200,
+    "/countries/usa-map.html": 200,
+    "/countries/canada.html": 200,
+    "/countries/canada-map.html": 200,
+    "/countries/mexico.html": 200,
+    "/countries/mexico-map.html": 200,
+    "/countries/uk.html": 200,
+    "/countries/uk-map.html": 200,
+    "/countries/france.html": 200,
+    "/countries/france-map.html": 200,
+    "/countries/germany.html": 200,
+    "/countries/germany-map.html": 200,
+    "/routes/usa-to-japan.html": 200,
+    "/countries/japan-map.html": 200,
+    "/routes/usa-to-south-korea.html": 200,
+    "/countries/south-korea-map.html": 200,
+    "/routes/": 200,
+    "/pet-travel-checklist/": 200,
+    "/passport/": 200,
+    "/vet-prep/checklist.html": 200,
+    "/es/vet-prep/": 200,
+    "/es/vet-prep/checklist.html": 200,
+    "/vet-info/": 200,
+    "/es/vet-info/": 200,
+    "http://127.0.0.1:8822/es/countries/canada.html": 200,
+    "http://127.0.0.1:8822/es/passport/": 200,
+    "http://127.0.0.1:8822/es/routes/": 200,
+    "http://127.0.0.1:8822/es/pet-travel-checklist/": 200,
+    "http://127.0.0.1:8822/es/countries/mexico.html": 200,
+    "http://127.0.0.1:8822/es/countries/mexico-map.html": 200,
+    "http://127.0.0.1:8822/es/routes/usa-to-japan.html": 200,
+    "http://127.0.0.1:8822/es/countries/usa-map.html": 200,
+    "http://127.0.0.1:8822/es/countries/canada-map.html": 200,
+    "http://127.0.0.1:8822/es/countries/usa.html": 200,
+    "http://127.0.0.1:8822/es/routes/usa-to-south-korea.html": 200
+  }
+}

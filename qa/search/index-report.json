@@ -1,16 +1,16 @@
 {
-  "generated": "2026-11-11T00:49:24Z",
+  "generated": "2026-11-11T00:53:02Z",
   "langs": {
     "en": {
-      "pages": 255,
-      "bytes": 367273,
-      "gzip": 65898,
+      "pages": 256,
+      "bytes": 369792,
+      "gzip": 66440,
       "types": {
         "Airlines": 28,
         "Airports": 59,
         "Cities": 52,
         "Countries": 14,
-        "Guides": 13,
+        "Guides": 14,
         "Hotels": 8,
         "Legal": 7,
         "Pro": 2,
@@ -21,15 +21,15 @@
       }
     },
     "es": {
-      "pages": 249,
-      "bytes": 380049,
-      "gzip": 70996,
+      "pages": 250,
+      "bytes": 382664,
+      "gzip": 71606,
       "types": {
         "Airlines": 28,
         "Airports": 59,
         "Cities": 45,
         "Countries": 14,
-        "Guides": 13,
+        "Guides": 14,
         "Hotels": 7,
         "Legal": 7,
         "Pro": 2,
