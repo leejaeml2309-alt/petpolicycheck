@@ -160,7 +160,7 @@ function buildMap(){
   const itLocalePick = (location.pathname||'').indexOf('/it/')===0;
   const chooseUnitPhrase = (unit) => {
     if(!itLocalePick) return 'Choose a ' + unit + '…';
-    const unitMap = {"region":"Scelga una regione…","regione":"Scelga una regione…","Land":"Scelga un Land…","state":"Scelga uno Stato…","province":"Scelga una provincia…","provincia":"Scelga una provincia…","nation":"Scelga una nazione…"};
+    const unitMap = {"region":"Scelga una regione…","regione":"Scelga una regione…","community":"Scelga una comunità…","comunità":"Scelga una comunità…","Land":"Scelga un Land…","state":"Scelga uno Stato…","province":"Scelga una provincia…","provincia":"Scelga una provincia…","nation":"Scelga una nazione…"};
     return unitMap[unit] || ('Scelga una ' + unit + '…');
   };
   if(pick){
@@ -289,7 +289,7 @@ let step = 1, cur = null;
 
 function onIt(){ return (location.pathname||'').indexOf('/it/')===0; }
 function itThisUnit(unit){
-  const m={"regione":"questa regione","region":"questa regione","Land":"questo Land","provincia":"questa provincia","province":"questa provincia","nazione":"questa nazione","nation":"questa nazione","Stato":"questo Stato","state":"questo Stato"};
+  const m={"regione":"questa regione","region":"questa regione","community":"questa comunità","comunità":"questa comunità","Land":"questo Land","provincia":"questa provincia","province":"questa provincia","nazione":"questa nazione","nation":"questa nazione","Stato":"questo Stato","state":"questo Stato"};
   return m[unit] || ('questa/o ' + unit);
 }
 function header(a, title, sub){
@@ -887,7 +887,7 @@ function empty(){
   const itLocale = (location.pathname||'').indexOf('/it/')===0;
   let pick, click, journey;
   if(itLocale){
-    const unitMap = {"state": "Scelga uno Stato o una città", "Land": "Scelga un Land o una città", "region": "Scelga una regione o una città", "regione": "Scelga una regione o una città", "province": "Scelga una provincia o una città", "provincia": "Scelga una provincia o una città"};
+    const unitMap = {"state": "Scelga uno Stato o una città", "Land": "Scelga un Land o una città", "region": "Scelga una regione o una città", "regione": "Scelga una regione o una città", "community": "Scelga una comunità o una città", "comunità": "Scelga una comunità o una città", "province": "Scelga una provincia o una città", "provincia": "Scelga una provincia o una città"};
     pick = unitMap[DATA.unit] || ('Scelga un ' + esc(DATA.unit) + ' o una città');
     click = "Faccia clic su qualsiasi unità sulla mappa (o usi l’elenco) per aprirne il pannello. I simboli dell’aereo sono gli hub aeroportuali:";
     journey = "Ordine del viaggio: 1 veterinario + norme → 2 strada/treno → 3 aereo → 4 hotel → 5 toelettatura.";
