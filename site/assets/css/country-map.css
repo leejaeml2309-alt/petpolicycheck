@@ -412,8 +412,13 @@ html.accent-mxgreen #country-map .stubbox.alert{border-color:color-mix(in srgb,#
 @media (min-width:901px){
   #country-map .mapwrap{position:relative!important}
   #country-map .mapwrap.zoom-pos-ca > .zoom,
-  #country-map .mapwrap.zoom-pos-mx > .zoom{
-    left:8px!important;right:auto!important;top:auto!important;bottom:12%!important;transform:none!important}
+  #country-map .mapwrap.zoom-pos-mx > .zoom,
+  #country-map .mapwrap.zoom-pos-uk > .zoom,
+  #country-map .mapwrap.zoom-pos-fr > .zoom,
+  #country-map .mapwrap.zoom-pos-de > .zoom,
+  #country-map .mapwrap.zoom-pos-kr > .zoom,
+  #country-map .mapwrap.zoom-pos-jp > .zoom{
+    left:8px!important;right:auto!important;top:auto!important;bottom:22%!important;transform:none!important}
 }
 /* Phones: row under the map — never overlaps geometry */
 @media (max-width:900px){
@@ -724,3 +729,224 @@ html.accent-hinomaru #country-map .st.sel,
    Threshold = svg#map.is-zoomed, i.e. not the full viewBox — same isFull() test as usa-map.js. */
 #country-map svg#map:not(.is-zoomed) .ap.ap-zoomonly,
 #country-map svg#map:not(.is-zoomed) .ap-link.ap-zoomonly{display:none}
+
+
+/* Shared label-colour tokens (Marc 2026-11-11). One palette for every country map.
+   Gold / yellow is reserved for #6d5a2c selection and is not used on labels.
+   White halo (paint-order stroke) plus a 0.7px ink rim so the stack stays
+   readable on pale paper and on Germany's #FFCE00 amber, where white-on-amber
+   alone is only 1.51:1. */
+#country-map{
+  --lbl-region:#12233A;
+  --lbl-city:#334049;
+  --lbl-capital:#6E1D2A;
+  --lbl-airport:#0C5F6A;
+  --lbl-halo:#FFFFFF;
+  --lbl-halo-ink:#0B1719;
+}
+#country-map .lbl,
+html.accent-unionjack #country-map .lbl,
+html.accent-tricolore #country-map .lbl,
+html.accent-schwarzrotgold #country-map .lbl,
+html.accent-taegeuk #country-map .lbl,
+html.accent-hinomaru #country-map .lbl,
+html.accent-maple #country-map .lbl,
+html.accent-mxgreen #country-map .lbl,
+#country-map.accent-taegeuk .lbl,
+#country-map.accent-hinomaru .lbl{
+  fill:var(--lbl-region);
+  font:700 calc(10.5px * var(--kt,1)) var(--text);
+  font-variant:small-caps;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  paint-order:stroke;
+  stroke:var(--lbl-halo);
+  stroke-width:3.2px;
+  stroke-linejoin:round;
+  filter:drop-shadow(0 0 0.7px var(--lbl-halo-ink));
+}
+#country-map .lbl.sel,
+html.accent-unionjack #country-map .lbl.sel,
+html.accent-tricolore #country-map .lbl.sel,
+html.accent-schwarzrotgold #country-map .lbl.sel,
+html.accent-taegeuk #country-map .lbl.sel,
+html.accent-hinomaru #country-map .lbl.sel,
+html.accent-maple #country-map .lbl.sel,
+html.accent-mxgreen #country-map .lbl.sel,
+#country-map.accent-taegeuk .lbl.sel,
+#country-map.accent-hinomaru .lbl.sel{
+  fill:var(--lbl-region);
+  stroke:var(--lbl-halo);
+}
+#country-map .lbl-lead{
+  stroke:var(--lbl-region);
+  stroke-opacity:.55;
+  stroke-width:.85;
+  fill:none;
+  pointer-events:none;
+  vector-effect:non-scaling-stroke;
+}
+
+#country-map .ct circle{
+  fill:var(--lbl-city);
+  stroke:var(--lbl-halo);
+  stroke-width:1.2;
+  r:calc(2.6px * var(--k,1));
+  vector-effect:non-scaling-stroke;
+}
+#country-map .ct text{
+  fill:var(--lbl-city);
+  font:400 calc(10.5px * var(--kt,1)) var(--text);
+  font-weight:400;
+  paint-order:stroke;
+  stroke:var(--lbl-halo);
+  stroke-width:calc(3px * var(--kt,1));
+  stroke-linejoin:round;
+  filter:drop-shadow(0 0 0.7px var(--lbl-halo-ink));
+}
+#country-map .ct.cap circle{
+  fill:var(--lbl-capital);
+  stroke:var(--lbl-halo);
+  stroke-width:1.3;
+  r:calc(3.2px * var(--k,1));
+}
+#country-map .ct.cap .ring{
+  fill:none;
+  stroke:var(--lbl-capital);
+  stroke-width:1.3;
+  opacity:1;
+  r:calc(6px * var(--k,1));
+}
+#country-map .ct.cap text{
+  fill:var(--lbl-capital);
+  font-weight:700;
+}
+/* Do not use gold for sample/capital city markers. */
+#country-map .ct.sample circle{
+  fill:var(--lbl-city);
+  stroke:var(--lbl-halo);
+  stroke-width:1.4;
+}
+#country-map .ct.sample .ring{stroke:var(--lbl-city);opacity:.8}
+#country-map .ct:hover circle,#country-map .ct.sel circle{fill:#fff;stroke:var(--lbl-city)}
+#country-map .ct.cap:hover circle,#country-map .ct.cap.sel circle{fill:#fff;stroke:var(--lbl-capital)}
+#country-map .ct:focus-visible circle{stroke:var(--lbl-city);stroke-width:3}
+
+#country-map .ap .pad{fill:var(--lbl-airport);stroke:var(--lbl-halo);stroke-width:1.2}
+#country-map .ap .glyph{fill:var(--lbl-halo)}
+#country-map .ap text,
+#country-map .ap text.map-label,
+#country-map .ap text.map-name{
+  fill:var(--lbl-airport);
+  font:700 8.5px var(--text);
+  paint-order:stroke;
+  stroke:var(--lbl-halo);
+  stroke-width:2.6px;
+  stroke-linejoin:round;
+  filter:drop-shadow(0 0 0.7px var(--lbl-halo-ink));
+}
+#country-map .ap text.map-name{font:600 7.5px var(--text)}
+/* Selection of an airport still uses reserved gold. */
+#country-map .ap.sel .pad{fill:#6d5a2c;stroke:#f0d58c;stroke-width:2}
+
+/* Label-colour legend: under the map, never over the SVG (esp. at 390). */
+#country-map .lbl-legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 16px;
+  align-items:center;
+  margin:8px 2px 0;
+  padding:6px 2px 0;
+  border-top:1px solid color-mix(in srgb, var(--line, #3a4a4e) 55%, transparent);
+  font:500 12px/1.3 var(--text);
+  color:var(--mut, #c5d0d4);
+}
+#country-map .lbl-legend span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+#country-map .lbl-legend i{
+  display:inline-block;width:11px;height:11px;border-radius:50%;
+  box-shadow:0 0 0 1px var(--lbl-halo-ink);
+}
+#country-map .lbl-legend .ll-r i{background:var(--lbl-region);border-radius:2px}
+#country-map .lbl-legend .ll-c i{background:var(--lbl-city)}
+#country-map .lbl-legend .ll-k i{
+  background:var(--lbl-capital);
+  box-shadow:0 0 0 1px var(--lbl-halo), 0 0 0 2.5px var(--lbl-capital);
+}
+#country-map .lbl-legend .ll-a b{color:var(--lbl-airport);font-style:normal;font-weight:700}
+#country-map .lbl-legend .ll-r{font-variant:small-caps;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--lbl-region);
+  background:#fff;padding:1px 6px 1px 4px;border-radius:4px}
+#country-map .lbl-legend .ll-c{color:var(--lbl-city);background:#fff;padding:1px 6px 1px 4px;border-radius:4px}
+#country-map .lbl-legend .ll-k{color:var(--lbl-capital);font-weight:700;background:#fff;padding:1px 6px 1px 4px;border-radius:4px}
+#country-map .lbl-legend .ll-a{color:var(--lbl-airport);font-weight:600;background:#fff;padding:1px 6px 1px 4px;border-radius:4px}
+@media (max-width:720px){
+  #country-map .lbl{font-size:calc(12px * var(--kt,1))}
+  #country-map .ct text{font-size:calc(13px * var(--kt,1))}
+  #country-map .ap text.map-label{font-size:11px}
+  #country-map .ap text.map-name{font-size:10px}
+  #country-map .lbl-legend{font-size:11px;gap:8px 12px;margin-top:10px}
+}
+
+
+/* Label readability (Marc 11/11: « bonne visibilité de lecture »).
+   --lbl-*-px is the target on-screen size. --map-w-px is the SVG's CSS width
+   so user-unit font-size renders at that size (min ~11px at 390 for regions,
+   capitals and major airports). Halo + ink rim unchanged. */
+#country-map, #country-map svg#map{
+  --lbl-region-px:12px;
+  --lbl-city-px:11px;
+  --lbl-capital-px:12px;
+  --lbl-airport-px:11px;
+  --map-w-px:975;
+}
+@media (max-width:720px){
+  #country-map, #country-map svg#map{
+    --lbl-region-px:11px;
+    --lbl-city-px:11px;
+    --lbl-capital-px:11px;
+    --lbl-airport-px:11px;
+  }
+}
+#country-map .lbl,
+html.accent-unionjack #country-map .lbl,
+html.accent-tricolore #country-map .lbl,
+html.accent-schwarzrotgold #country-map .lbl,
+html.accent-taegeuk #country-map .lbl,
+html.accent-hinomaru #country-map .lbl,
+html.accent-maple #country-map .lbl,
+html.accent-mxgreen #country-map .lbl,
+#country-map.accent-taegeuk .lbl,
+#country-map.accent-hinomaru .lbl{
+  font-size:calc(var(--lbl-region-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+  stroke-width:calc(0.28 * var(--lbl-region-px) * 975 / var(--map-w-px) * var(--kt, 1));
+}
+#country-map .ct text{
+  font-size:calc(var(--lbl-city-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+  stroke-width:calc(0.28 * var(--lbl-city-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+}
+#country-map .ct.cap text{
+  font-size:calc(var(--lbl-capital-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+}
+#country-map .ap text,
+#country-map .ap text.map-label,
+#country-map .ap text.map-name{
+  font-size:calc(var(--lbl-airport-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+  stroke-width:calc(0.26 * var(--lbl-airport-px) * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+}
+#country-map .ap text.map-name{
+  font-size:calc(var(--lbl-airport-px) * 0.9 * 975 / var(--map-w-px) * var(--kt, 1)) !important;
+}
+#country-map .lbl.lbl-crowd,
+#country-map .lbl-lead.lbl-crowd,
+#country-map .ct.ct-crowd,
+#country-map .ap.ap-crowd{
+  display:none !important;
+}
+
+#country-map svg#map:not(.is-zoomed) .ap text.map-name{
+  display:none !important;
+}
+#country-map .ap text.map-name.ap-name-crowd,
+#country-map .ap text.map-label.ap-code-crowd,
+#country-map .ap text.ap-code-crowd{
+  display:none !important;
+}
