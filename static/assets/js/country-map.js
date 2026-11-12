@@ -30,32 +30,23 @@ function el(tag, attrs){
 function buildSwitcher(){
   const host = document.getElementById('map-switch');
   if(!host) return;
-  const es = (location.pathname||'').indexOf('/es/')===0;
-  const tabs = es ? [
-    {id:'usa', href:'/es/countries/usa-map.html', label:'Mapa de EE. UU.', accent:'usa'},
-    {id:'ca', href:'/es/countries/canada-map.html', label:'Mapa de Canadá', accent:'maple'},
-    {id:'mx', href:'/es/countries/mexico-map.html', label:'Mapa de México', accent:'mxgreen'},
-    {id:'uk', href:'/es/countries/uk-map.html', label:'Mapa Reino Unido', accent:'unionjack'},
-    {id:'fr', href:'/es/countries/france-map.html', label:'Mapa Francia', accent:'tricolore'},
-    {id:'de', href:'/es/countries/germany-map.html', label:'Mapa Alemania', accent:'schwarzrotgold'},
-    {id:'kr', href:'/es/countries/south-korea-map.html', label:'Mapa Corea del Sur', accent:'taegeuk'},
-    {id:'jp', href:'/es/countries/japan-map.html', label:'Mapa Japón', accent:'hinomaru'},
-    {id:'it', href:'/es/countries/italy-map.html', label:'Mapa Italia', accent:'italy'},
-    {id:'es', href:'/es/countries/spain-map.html', label:'Mapa España', accent:'rojigualda'}
-  ] : [
-    {id:'usa', href:'usa-map.html', label:'USA Map', accent:'usa'},
-    {id:'ca', href:'canada-map.html', label:'Canada Map', accent:'maple'},
-    {id:'mx', href:'mexico-map.html', label:'Mexico Map', accent:'mxgreen'},
-    {id:'uk', href:'uk-map.html', label:'UK Map', accent:'unionjack'},
-    {id:'fr', href:'france-map.html', label:'France Map', accent:'tricolore'},
-    {id:'de', href:'germany-map.html', label:'Germany Map', accent:'schwarzrotgold'},
-    {id:'kr', href:'south-korea-map.html', label:'Korea Map', accent:'taegeuk'},
-    {id:'jp', href:'japan-map.html', label:'Japan Map', accent:'hinomaru'},
-    {id:'it', href:'italy-map.html', label:'Italy Map', accent:'italy'},
-    {id:'es', href:'spain-map.html', label:'Spain Map', accent:'rojigualda'}
-  ];
+  /* US-tourist popularity order (Marc 2026-11-12); only maps that exist in the page language.
+     Dominican Republic (after France), Portugal and Greece (after Germany) join once their pages exist. */
+  const path=(location.pathname||'');
+  const es = path.indexOf('/es/')===0;
+  const it = path.indexOf('/it/')===0;
+  const ORDER = ['usa','ca','mx','uk','it','fr','es','jp','de','kr'];
+  const ACC = {usa:'usa',ca:'maple',mx:'mxgreen',uk:'unionjack',it:'italy',fr:'tricolore',es:'rojigualda',jp:'hinomaru',de:'schwarzrotgold',kr:'taegeuk'};
+  const FILE = {usa:'usa',ca:'canada',mx:'mexico',uk:'uk',it:'italy',fr:'france',es:'spain',jp:'japan',de:'germany',kr:'south-korea'};
+  const LBL = es ? {usa:'Mapa de EE. UU.',ca:'Mapa de Canadá',mx:'Mapa de México',it:'Mapa Italia',es:'Mapa España'}
+    : it ? {usa:'Mappa USA',ca:'Mappa del Canada',mx:'Mappa del Messico',uk:'Mappa del Regno Unito',it:'Mappa dell\u2019Italia',fr:'Mappa della Francia',es:'Mappa della Spagna',jp:'Mappa del Giappone',de:'Mappa della Germania',kr:'Mappa della Corea'}
+    : {usa:'USA Map',ca:'Canada Map',mx:'Mexico Map',uk:'UK Map',it:'Italy Map',fr:'France Map',es:'Spain Map',jp:'Japan Map',de:'Germany Map',kr:'Korea Map'};
+  const pre = es ? '/es/countries/' : it ? '/it/countries/' : '';
+  const tabs = ORDER.filter(id => LBL[id]).map(id => ({id, href: pre + FILE[id] + '-map.html', label: LBL[id], accent: ACC[id]}));
   const cur = ({CA:'ca',MX:'mx',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp',IT:'it',ES:'es'}[DATA.country]) || 'usa';
-  const back = `<a class="msw-tab world-back" href="../?view=map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${es?'← Mapa mundial':'← World Map'}</span></a>`;
+  const backHref = es ? '/es/?view=map' : it ? '/it/?view=map' : '../?view=map';
+  const backLabel = es ? '\u2190 Mapa mundial' : it ? '\u2190 Mappa del mondo' : '\u2190 World Map';
+  const back = `<a class="msw-tab world-back" href="${backHref}" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${backLabel}</span></a>`;
   host.innerHTML = back + tabs.map(t =>
     `<a class="msw-tab accent-${t.accent}${t.id===cur?' is-current':''}" href="${t.href}"${t.id===cur?' aria-current="page"':''} style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${t.label}</span></a>`
   ).join('');

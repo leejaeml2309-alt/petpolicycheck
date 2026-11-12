@@ -4,6 +4,11 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+# Retired 2026-11-12 (Marc): the 6-link compact header was replaced by the full pastille header
+# (header.top + nav#site-menu, order in assets/js/pastilles.js). Re-running this would undo it.
+if __name__ == "__main__":
+    raise SystemExit("apply_*search_header is retired; see scripts/restore_legacy_header_20261112.py")
+
 ROOT = Path(__file__).resolve().parents[1]
 VER = "20261110search3"
 HUBS = [

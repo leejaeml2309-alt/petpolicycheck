@@ -609,3 +609,6 @@ header.top .nav a{
   .plink-row{flex-direction:column;align-items:stretch}
   .plink-row > .plink{width:100%}
 }
+
+/* Restored full menu (2026-11-12): keep the open Menu dropdown inside the screen and scrollable on short viewports */
+@media (max-width:1099px){.top .nav.menu.open{flex-wrap:nowrap;max-height:calc(100vh - 84px);max-height:calc(100dvh - 84px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}.top .nav.menu.open>*{flex-shrink:0}}

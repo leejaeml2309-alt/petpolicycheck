@@ -67,8 +67,9 @@ function boot(){
  var V=(new URLSearchParams(location.search).get('nav'))||document.documentElement.dataset.nav||'8';
  /* '8' = 8 liens (Rides garde sa place) ; '7g' (reco) = Rides fusionne dans Book (hub de réservation), Grooming prend sa place */
  /* World map uses ?view=map (NO #hash) so browsers never native-scroll to an id */
- var S=[['map',plab('World map','map'),ppcHref('?view=map')],['flight',plab('Airlines','flight'),ppcHref('airlines/')],['hotel',plab('Hotels','hotel'),ppcHref('hotels/')],
-        ['grooming',plab('Grooming','grooming'),ppcHref('grooming/')],['ground',plab('Rides','ground'),ppcHref('taxi/')],['shop',plab('Products','shop'),ppcHref('products/')],['law',plab('Rules','law'),ppcHref('countries/usa.html#federal')],['forum',plab('Forum','forum'),ppcHref('forum/')],['veterans',plab('Veterans','veterans'),ppcHref('veterans/')],['b2b',plab('For Business','b2b'),ppcHref('pro/')]];
+ /* Trip-preparation order (Marc 2026-11-12): destination, entry rules + vet certificate, airline, crate/gear, ride to the airport, hotel, care on arrival, then resources. */
+ var S=[['map',plab('World map','map'),ppcHref('?view=map')],['law',plab('Rules','law'),ppcHref('countries/usa.html#federal')],['flight',plab('Airlines','flight'),ppcHref('airlines/')],
+        ['shop',plab('Products','shop'),ppcHref('products/')],['ground',plab('Rides','ground'),ppcHref('taxi/')],['hotel',plab('Hotels','hotel'),ppcHref('hotels/')],['grooming',plab('Grooming','grooming'),ppcHref('grooming/')],['forum',plab('Forum','forum'),ppcHref('forum/')],['veterans',plab('Veterans','veterans'),ppcHref('veterans/')],['b2b',plab('For Business','b2b'),ppcHref('pro/')]];
  if(V==='7g') S=S.filter(function(x){return x[0]!=='ground'});
  document.documentElement.classList.add('nav-v'+V);
  var bookCur=false; if(V==='7g'&&cur==='ground'){cur='';bookCur=true}

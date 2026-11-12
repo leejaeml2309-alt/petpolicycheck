@@ -35,9 +35,9 @@
 <link href="/assets/img/favicon.ico" rel="icon" sizes="any"/><link href="/assets/img/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/><link href="/assets/img/apple-touch-icon-180.png" rel="apple-touch-icon" sizes="180x180"/>
 <link as="font" crossorigin="" href="/assets/fonts/inter-var-latin.woff2" rel="preload" type="font/woff2"/>
 <link as="font" crossorigin="" href="/assets/fonts/marcellus-latin.woff2" rel="preload" type="font/woff2"/>
-<link href="/assets/css/theme.css?v=1765ad44" rel="stylesheet"/>
+<link href="/assets/css/theme.css?v=20261112nav1" rel="stylesheet"/>
 <link href="/style.css?v=1765ad44" rel="stylesheet"/>
-<script defer="" src="/assets/js/pastilles.js?v=dc967dd6"></script>
+<script defer="" src="/assets/js/pastilles.js?v=20261112nav1"></script>
 <meta content="#0b1719" name="theme-color"/>
 <link href="/assets/css/ppc-i18n.css?v=20261107d" rel="stylesheet"/>
 <script defer="" src="/assets/i18n/ui.js?v=20261112itp4f"></script>
@@ -46,14 +46,10 @@
 </head>
 <body class="v-c">
 <a class="skip" data-i18n="site.skip" href="#main">Vai al contenuto</a>
-<header class="ppc-topbar top" data-ppc-topbar=""><div class="wrap"><a aria-label="PetPolicyCheck — Pagina iniziale" class="brand" href="/it/"><span class="lbadge"><img alt="PetPolicyCheck" height="48" src="/assets/img/logo-mark-header.png" width="62"/></span></a><nav aria-label="Navigazione principale" class="ppc-nav"><a href="/it/countries/usa-map.html">Paesi/Mappe</a><a href="/it/airlines/">Compagnie aeree</a><a href="/it/vet-info/">Info veterinarie</a><a href="/it/routes/">Percorsi</a><a href="/it/hotels/">Hotel</a><a href="/passport/">Strumenti</a></nav><div data-index-base="/assets/" data-lang="it" data-placeholder="Cerca compagnie, percorsi, hotel…" data-ppc-search=""></div><button aria-controls="ppc-drawer" aria-expanded="false" class="ppc-burger" data-ppc-burger="" type="button"><svg aria-hidden="true" height="20" viewbox="0 0 24 24" width="20"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg><span>Menu</span></button></div></header>
-<div class="ppc-drawer-backdrop" data-ppc-drawer-backdrop=""></div>
-<aside aria-label="Menu del sito" class="ppc-drawer" data-ppc-drawer="" id="ppc-drawer">
-<div class="ppc-drawer__head"><h2>Menu</h2>
-<button aria-label="Chiudi il menu" class="ppc-drawer__close" data-ppc-drawer-close="" type="button">×</button></div>
-<div data-index-base="/assets/" data-lang="it" data-placeholder="Cerca…" data-ppc-search=""></div>
-<nav aria-label="Principale mobile" class="ppc-nav"><a href="/it/countries/usa-map.html">Paesi/Mappe</a><a href="/it/airlines/">Compagnie aeree</a><a href="/it/vet-info/">Info veterinarie</a><a href="/it/routes/">Percorsi</a><a href="/it/hotels/">Hotel</a><a href="/passport/">Strumenti</a></nav>
-</aside><script>(function(){function init(){var m=document.getElementById('site-menu');if(!m)return;
+<header class="top"><div class="wrap">
+<a aria-label="PetPolicyCheck — Pagina iniziale" class="brand" href="/it/"><span class="lbadge"><img alt="PetPolicyCheck" height="48" src="/assets/img/logo-mark-header.png" width="62"/></span></a>
+<nav class="nav menu" id="site-menu" aria-label="Navigazione principale"><a href="/it/?view=map" data-i18n="site.nav.map">Mappa del mondo</a><a href="/it/countries/usa.html#federal" data-i18n="site.nav.rules">Norme</a><a href="/it/airlines/" data-i18n="site.nav.airlines">Compagnie aeree</a><a href="/it/products/" data-i18n="site.nav.products">Prodotti</a><a href="/it/taxi/" data-i18n="site.nav.rides">Trasferimenti</a><a href="/it/hotels/" data-i18n="site.nav.hotels">Hotel</a><a href="/it/grooming/" data-i18n="site.nav.grooming">Toelettatura</a><a href="/it/forum/" data-i18n="site.nav.forum">Forum</a><a class="nav-vet" href="/it/veterans/" data-i18n="site.nav.veterans">Veterani</a><a class="nav-biz" href="/it/pro/" data-i18n="site.nav.pro">Per le aziende</a><a class="menu-only sub" href="/it/#compare">Confronta</a><a class="menu-only sub" href="/it/#gear">Guide</a><a class="menu-only sub" href="/it/updates.html">Aggiornamenti</a><a class="menu-only sub" href="/it/about.html">Chi siamo</a></nav><button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg><span data-i18n="site.nav.menu">Menu</span></button>
+</div></header><script>(function(){function init(){var m=document.getElementById('site-menu');if(!m)return;
 var T=[].slice.call(document.querySelectorAll('.top .menu-btn,[data-menu-trigger]')),last=null;if(!T.length)return;
 function set(o,f,t){m.classList.toggle('open',o);T.forEach(function(x){x.setAttribute('aria-expanded',o?'true':'false')});if(o){last=t||T[0];if(f){var a=m.querySelector('a');if(a)a.focus({preventScroll:true})}}else if(f&&last)last.focus()}
 T.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var o=!m.classList.contains('open');set(o,e.detail===0||!b.classList.contains('menu-btn'),b)})});

@@ -269,6 +269,10 @@ main.wrap:has(#usa-map){max-width:1320px}
 #map-switch .msw-tab.accent-taegeuk.is-current{border-color:#CD2E3A;background:color-mix(in srgb,#0047A0 14%,#0f2226)}
 #map-switch .msw-tab.accent-hinomaru i{background:#BC002D;box-shadow:0 0 0 2px #0b1719,0 0 0 3px rgba(188,0,45,.5)}
 #map-switch .msw-tab.accent-hinomaru.is-current{border-color:#BC002D;background:color-mix(in srgb,#BC002D 14%,#0f2226)}
+#map-switch .msw-tab.accent-italy i{background:#009246;box-shadow:0 0 0 2px #0b1719,0 0 0 3px rgba(0,140,69,.5)}
+#map-switch .msw-tab.accent-italy.is-current{border-color:#009246;background:color-mix(in srgb,#009246 14%,#0f2226)}
+#map-switch .msw-tab.accent-rojigualda i{background:#AA151B;box-shadow:inset 0 0 0 1.5px #F1BF00,0 0 0 2px #0b1719,0 0 0 3px rgba(170,21,27,.5)}
+#map-switch .msw-tab.accent-rojigualda.is-current{border-color:#AA151B;background:color-mix(in srgb,#AA151B 14%,#0f2226)}
 
 
 /* Shared label-colour tokens (Marc 2026-11-11). One palette for every country map.

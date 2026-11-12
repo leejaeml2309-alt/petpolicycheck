@@ -333,6 +333,30 @@ def compact_header(root, path):
         f'</aside>'
     )
 
+# Full pastille header restored (Marc 2026-11-12). pastilles.js rebuilds #site-menu in the
+# trip-preparation order below; this static copy is the no-JS fallback in the same order.
+LEGACY_NAV = [("?view=map", "World map", "site.nav.map", ""), ("countries/usa.html#federal", "Rules", "site.nav.rules", ""),
+              ("airlines/", "Airlines", "site.nav.airlines", ""), ("products/", "Products", "site.nav.products", ""),
+              ("taxi/", "Rides", "site.nav.rides", ""), ("hotels/", "Hotels", "site.nav.hotels", ""),
+              ("grooming/", "Grooming", "site.nav.grooming", ""), ("forum/", "Forum", "site.nav.forum", ""),
+              ("veterans/", "Veterans", "site.nav.veterans", "nav-vet"), ("pro/", "For Business", "site.nav.pro", "nav-biz")]
+LEGACY_SUBS = [("#compare", "Compare"), ("#gear", "Guides"), ("updates.html", "Updates"), ("about.html", "About")]
+
+
+def legacy_header(root, path):
+    """Logo + full pastille nav (nav#site-menu) + Menu button, as before the 2026-11-10 compact header."""
+    def u(h):
+        return home_url(root) + h if h.startswith(("#", "?")) else root + h
+    links = "".join(
+        f'<a{(" class=" + chr(34) + c + chr(34)) if c else ""} href="{u(h)}"'
+        f'{" aria-current=" + chr(34) + "page" + chr(34) if h.endswith("/") and path.startswith(h) else ""} data-i18n="{k}">{l}</a>'
+        for h, l, k, c in LEGACY_NAV)
+    links += "".join(f'<a class="menu-only sub" href="{u(h)}">{l}</a>' for h, l in LEGACY_SUBS)
+    return (f'<header class="top"><div class="wrap">\n'
+            f'<a class="brand" href="{home_url(root)}" aria-label="PetPolicyCheck — Home">{LOGO_BADGE.replace("{root}", root)}</a>\n'
+            f'<nav class="nav menu" id="site-menu" aria-label="Main">{links}</nav>{MENU_BTN}\n</div></header>')
+
+
 def header_ad(cfg, ads=True):
     """Three 300×250 units under the header (one column under 700px). config.json "adsense_header_slot"
     is repeated on each <ins>, same pattern as mid-home. ads=False pages get no band.
@@ -604,7 +628,7 @@ def page(cfg, title, desc, body, path, root, jsonld=None, canonical=None, noinde
 </head>
 <body class="{body_class}">
 <a class="skip" href="#main"{ti("site.skip", fi)}>Skip to content</a>
-{compact_header(root, path)}{partner_banner(root)}{header_ad(cfg, ads)}{(("" if not SHOW_ADS else '<script src="'+root+'assets/js/partner-banner.js" defer data-partner-root="'+root+'assets/partners/"></script>'))}
+{legacy_header(root, path)}{partner_banner(root)}{header_ad(cfg, ads)}{(("" if not SHOW_ADS else '<script src="'+root+'assets/js/partner-banner.js" defer data-partner-root="'+root+'assets/partners/"></script>'))}
 <main class="wrap" id="main">
 {body.replace('{root}', root)}
 </main>
