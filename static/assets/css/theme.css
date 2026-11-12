@@ -612,3 +612,14 @@ header.top .nav a{
 
 /* Restored full menu (2026-11-12): keep the open Menu dropdown inside the screen and scrollable on short viewports */
 @media (max-width:1099px){.top .nav.menu.open{flex-wrap:nowrap;max-height:calc(100vh - 84px);max-height:calc(100dvh - 84px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}.top .nav.menu.open>*{flex-shrink:0}}
+/* Header groups (Marc 2026-11-12): trip-preparation path, then the other sections on a second row. */
+:root{--theme-vet:#7cc9b5;--theme-k9:#cfa57a;--theme-service:#86aee6}
+.theme-vet{--theme-accent:var(--theme-vet)}.theme-k9{--theme-accent:var(--theme-k9)}.theme-service{--theme-accent:var(--theme-service)}
+.top .nav.pst-nav .nav-group-sep{display:none}
+@media (min-width:1100px){
+ .top .nav.pst-nav{flex-wrap:wrap;justify-content:flex-end;row-gap:2px;padding:7px 0}
+ .top .nav.pst-nav .nav-group-sep{display:block;flex-basis:100%;height:0}
+}
+@media (max-width:1099px){
+ .top .nav.pst-nav .nav-group-sep{display:block;flex-shrink:0;height:1px;background:var(--line2);margin:6px 4px}
+}

@@ -333,12 +333,14 @@ def compact_header(root, path):
         f'</aside>'
     )
 
-# Full pastille header restored (Marc 2026-11-12). pastilles.js rebuilds #site-menu in the
-# trip-preparation order below; this static copy is the no-JS fallback in the same order.
-LEGACY_NAV = [("?view=map", "World map", "site.nav.map", ""), ("countries/usa.html#federal", "Rules", "site.nav.rules", ""),
-              ("airlines/", "Airlines", "site.nav.airlines", ""), ("products/", "Products", "site.nav.products", ""),
-              ("taxi/", "Rides", "site.nav.rides", ""), ("hotels/", "Hotels", "site.nav.hotels", ""),
-              ("grooming/", "Grooming", "site.nav.grooming", ""), ("forum/", "Forum", "site.nav.forum", ""),
+# Full pastille header restored (Marc 2026-11-12). pastilles.js rebuilds #site-menu: trip-preparation
+# path first, then the other sections after a group break; this static copy is the no-JS fallback in the same order.
+LEGACY_NAV = [("?view=map", "World map", "site.nav.map", ""), ("countries/usa.html#federal", "Laws", "", ""),
+              ("vet-info/", "Vet", "", ""), ("airlines/", "Plane", "", ""), ("hotels/", "Hotel", "", ""),
+              ("grooming/", "Grooming", "site.nav.grooming", ""), ("products/", "Products", "site.nav.products", ""),
+              ("taxi/", "Rides", "site.nav.rides", ""), None,
+              ("forum/", "Forum", "site.nav.forum", ""), ("k9/", "K9", "", ""),
+              ("veterans/#service-dog-support", "Service dogs", "", ""),
               ("veterans/", "Veterans", "site.nav.veterans", "nav-vet"), ("pro/", "For Business", "site.nav.pro", "nav-biz")]
 LEGACY_SUBS = [("#compare", "Compare"), ("#gear", "Guides"), ("updates.html", "Updates"), ("about.html", "About")]
 
@@ -347,10 +349,15 @@ def legacy_header(root, path):
     """Logo + full pastille nav (nav#site-menu) + Menu button, as before the 2026-11-10 compact header."""
     def u(h):
         return home_url(root) + h if h.startswith(("#", "?")) else root + h
-    links = "".join(
-        f'<a{(" class=" + chr(34) + c + chr(34)) if c else ""} href="{u(h)}"'
-        f'{" aria-current=" + chr(34) + "page" + chr(34) if h.endswith("/") and path.startswith(h) else ""} data-i18n="{k}">{l}</a>'
-        for h, l, k, c in LEGACY_NAV)
+    def a(item):
+        if item is None:
+            return '<span class="nav-group-sep" aria-hidden="true"></span>'
+        h, l, k, c = item
+        cls = f' class="{c}"' if c else ""
+        cur = ' aria-current="page"' if h.endswith("/") and path.startswith(h) else ""
+        ik = f' data-i18n="{k}"' if k else ""
+        return f'<a{cls} href="{u(h)}"{cur}{ik}>{l}</a>'
+    links = "".join(a(x) for x in LEGACY_NAV)
     links += "".join(f'<a class="menu-only sub" href="{u(h)}">{l}</a>' for h, l in LEGACY_SUBS)
     return (f'<header class="top"><div class="wrap">\n'
             f'<a class="brand" href="{home_url(root)}" aria-label="PetPolicyCheck — Home">{LOGO_BADGE.replace("{root}", root)}</a>\n'

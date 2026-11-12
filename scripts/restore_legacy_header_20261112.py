@@ -5,17 +5,22 @@ site/ and static/. Order lives in pastilles.js (trip-preparation order). No buil
 import re
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
-PST_VER = "20261112nav1"
-# (key, EN, IT, ES, i18n key, href relative to the language root)
+PST_VER = "20261112nav2"
+# (key, EN, IT, ES, i18n key or "", href relative to the language root); None = group break.
+# Part 1 = trip-preparation path, part 2 = the other main sections (Marc 2026-11-12).
 ITEMS = [
     ("map", "World map", "Mappa del mondo", "Mapa mundial", "site.nav.map", "?view=map"),
-    ("law", "Rules", "Norme", "Normas", "site.nav.rules", "countries/usa.html#federal"),
-    ("flight", "Airlines", "Compagnie aeree", "Aerolíneas", "site.nav.airlines", "airlines/"),
+    ("law", "Laws", "Norme", "Leyes", "", "countries/usa.html#federal"),
+    ("vet", "Vet", "Veterinario", "Veterinario", "", "vet-info/"),
+    ("flight", "Plane", "Aereo", "Avión", "", "airlines/"),
+    ("hotel", "Hotel", "Hotel", "Hotel", "", "hotels/"),
+    ("grooming", "Grooming", "Toelettatura", "Peluquería", "site.nav.grooming", "grooming/"),
     ("shop", "Products", "Prodotti", "Productos", "site.nav.products", "products/"),
     ("ground", "Rides", "Trasferimenti", "Traslados", "site.nav.rides", "taxi/"),
-    ("hotel", "Hotels", "Hotel", "Hoteles", "site.nav.hotels", "hotels/"),
-    ("grooming", "Grooming", "Toelettatura", "Peluquería", "site.nav.grooming", "grooming/"),
+    None,
     ("forum", "Forum", "Forum", "Foro", "site.nav.forum", "forum/"),
+    ("k9", "K9", "K9", "K9", "", "k9/"),
+    ("service", "Service dogs", "Cani di servizio", "Perros de servicio", "", "veterans/#service-dog-support"),
     ("veterans", "Veterans", "Veterani", "Veteranos", "site.nav.veterans", "veterans/"),
     ("b2b", "For Business", "Per le aziende", "Para empresas", "site.nav.pro", "pro/"),
 ]
@@ -26,6 +31,7 @@ SVG = ('<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focus
        '<path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>')
 CHROME_RE = re.compile(r'<header class="ppc-topbar top"[^>]*>.*?</header>\s*<div class="ppc-drawer-backdrop"[^>]*></div>\s*'
                        r'<aside\b[^>]*class="ppc-drawer".*?</aside>', re.S)
+NAVM_RE = re.compile(r'<nav class="nav menu" id="site-menu"[^>]*>.*?</nav>', re.S)
 BRAND_RE = re.compile(r'<a\b[^>]*class="brand"[^>]*>.*?</a>', re.S)
 
 def href(tree, lang, rel, target):
@@ -35,6 +41,7 @@ def href(tree, lang, rel, target):
         return (up or "./") + target if target[0] in "?#" else up + target
     base = f"/{lang}/"
     if target[0] in "?#": return base + target
+    if lang == "es" and target == "airlines/": target = "airlines/compare/"
     bare = target.split('#')[0]
     f = ROOT / tree / lang / bare
     ok = f.is_file() or (f / "index.html").is_file()
@@ -47,10 +54,16 @@ def header(tree, rel, brand, home):
            "grooming/": "grooming", "veterans/": "veterans", "pro/": "b2b"}
     bare = rel[3:] if lang != "en" else rel
     links = []
-    for k, en, it, es, key, tgt in ITEMS:
-        c = ' aria-current="page"' if any(bare.startswith(p) and v == k for p, v in cur.items()) or (k == "law" and bare == "countries/usa.html") else ""
+    navcur = next((v for p, v in cur.items() if bare.startswith(p)), "")
+    navcur = navcur or ("law" if bare == "countries/usa.html" else "vet" if bare.startswith("vet-info/") else "k9" if bare.startswith("k9/") else "")
+    for it_ in ITEMS:
+        if it_ is None:
+            links.append('<span class="nav-group-sep" aria-hidden="true"></span>'); continue
+        k, en, it, es, key, tgt = it_
+        c = ' aria-current="page"' if k == navcur else ""
         cls = ' class="nav-biz"' if k == "b2b" else (' class="nav-vet"' if k == "veterans" else "")
-        links.append(f'<a{cls} href="{href(tree, lang, rel, tgt)}"{c} data-i18n="{key}">{(en, it, es)[li-1]}</a>')
+        ik = f' data-i18n="{key}"' if key else ""
+        links.append(f'<a{cls} href="{href(tree, lang, rel, tgt)}"{c}{ik}>{(en, it, es)[li-1]}</a>')
     for en, it, es, tgt in SUBS:
         links.append(f'<a class="menu-only sub" href="{href(tree, lang, rel, tgt)}">{(en, it, es)[li-1]}</a>')
     aria, menu = LANG[lang]
@@ -72,6 +85,13 @@ for tree in ("site", "static"):
             s = s[:m.start()] + header(tree, rel, brand, home) + s[m.end():]
             if home:
                 s = s.replace("body.intro-home>header.ppc-topbar", "body.intro-home>header.top")
+        else:
+            nm = NAVM_RE.search(s)
+            if nm:
+                home = rel in ("index.html", "it/index.html", "es/index.html")
+                hdr = header(tree, rel, "", home)
+                inner = re.search(r'(<nav class="nav menu" id="site-menu"[^>]*>.*?</nav>)', hdr, re.S).group(1)
+                s = s[:nm.start()] + inner + s[nm.end():]
         s = re.sub(r'(pastilles\.js)\?v=[^"]*', r'\1?v=' + PST_VER, s)
         if s != s0:
             f.write_text(s, encoding="utf-8"); touched += 1

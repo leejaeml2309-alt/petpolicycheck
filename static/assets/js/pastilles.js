@@ -12,6 +12,9 @@ var G={
  grooming:'<circle cx="6.6" cy="17.4" r="2.6"/><circle cx="17.4" cy="17.4" r="2.6"/><path d="M8.5 15.6 16.4 4.2M15.5 15.6 7.6 4.2M12 11.3v.01"/><path d="M19.6 4.4v2.4M18.4 5.6h2.4"/>',
  forum:'<path d="M5 4.8h14a1.5 1.5 0 0 1 1.5 1.5v8.2A1.5 1.5 0 0 1 19 16h-7.6l-4.6 3.6V16H5a1.5 1.5 0 0 1-1.5-1.5V6.3A1.5 1.5 0 0 1 5 4.8Z"/><path d="M7.8 9.2h8.4M7.8 12h5.4"/>',
  b2b:'<rect x="3.5" y="7" width="17" height="12" rx="1.5"/><path d="M8 7V5.8A2.2 2.2 0 0 1 10.2 3.6h3.6A2.2 2.2 0 0 1 16 5.8V7M3.5 12h17"/>',
+ vet:'<path d="M10 4.2h4v5.8h5.8v4H14v5.8h-4V14H4.2v-4H10V4.2Z"/>',
+ k9:'<path d="M6.2 5.2 4 10.2l2.6 1.1v3.4a5.4 5.4 0 0 0 10.8 0v-3.4l2.6-1.1-2.2-5-3.3 2.2H9.5L6.2 5.2Z"/><path d="M10 12h.01M14 12h.01M11 15.4h2l-1 1.1-1-1.1Z"/>',
+ service:'<path d="M4.6 12.6h14.8v5.2a1.6 1.6 0 0 1-1.6 1.6H6.2a1.6 1.6 0 0 1-1.6-1.6v-5.2Z"/><path d="M9 12.6V8.4a3 3 0 0 1 6 0v4.2M12 14.6v3M10.5 16.1h3"/>',
  veterans:'<path d="M12 3.2 19 6v5.4c0 4.6-3 7.9-7 9.4-4-1.5-7-4.8-7-9.4V6l7-2.8Z"/><path d="m12 8 1.15 2.35 2.6.38-1.88 1.83.44 2.59L12 13.93l-2.31 1.22.44-2.59-1.88-1.83 2.6-.38L12 8Z"/>'
 };
 window.PPC_GLYPHS=G;
@@ -67,19 +70,36 @@ function boot(){
  var V=(new URLSearchParams(location.search).get('nav'))||document.documentElement.dataset.nav||'8';
  /* '8' = 8 liens (Rides garde sa place) ; '7g' (reco) = Rides fusionne dans Book (hub de réservation), Grooming prend sa place */
  /* World map uses ?view=map (NO #hash) so browsers never native-scroll to an id */
- /* Trip-preparation order (Marc 2026-11-12): destination, entry rules + vet certificate, airline, crate/gear, ride to the airport, hotel, care on arrival, then resources. */
- var S=[['map',plab('World map','map'),ppcHref('?view=map')],['law',plab('Rules','law'),ppcHref('countries/usa.html#federal')],['flight',plab('Airlines','flight'),ppcHref('airlines/')],
-        ['shop',plab('Products','shop'),ppcHref('products/')],['ground',plab('Rides','ground'),ppcHref('taxi/')],['hotel',plab('Hotels','hotel'),ppcHref('hotels/')],['grooming',plab('Grooming','grooming'),ppcHref('grooming/')],['forum',plab('Forum','forum'),ppcHref('forum/')],['veterans',plab('Veterans','veterans'),ppcHref('veterans/')],['b2b',plab('For Business','b2b'),ppcHref('pro/')]];
- if(V==='7g') S=S.filter(function(x){return x[0]!=='ground'});
+ /* Header order (Marc 2026-11-12): first the trip-preparation path (destination, entry laws, vet,
+    plane, hotel, grooming, then crate/gear and rides), then the other main sections after a group break. */
+ var LNG=ppcLangRoot==='/it'?'it':(ppcLangRoot==='/es'?'es':'en');
+ var CAT={map:['World map','Mappa del mondo','Mapa mundial'],law:['Laws','Norme','Leyes'],vet:['Vet','Veterinario','Veterinario'],
+   flight:['Plane','Aereo','Avión'],hotel:['Hotel','Hotel','Hotel'],grooming:['Grooming','Toelettatura','Peluquería'],
+   shop:['Products','Prodotti','Productos'],ground:['Rides','Trasferimenti','Traslados'],forum:['Forum','Forum','Foro'],
+   k9:['K9','K9','K9'],service:['Service dogs','Cani di servizio','Perros de servicio'],veterans:['Veterans','Veterani','Veteranos'],
+   b2b:['For Business','Per le aziende','Para empresas']};
+ var li=LNG==='it'?1:(LNG==='es'?2:0);
+ /* Pages that exist under /it/ and /es/; anything else falls back to the English page. */
+ var HAS={it:'?view=map countries/usa.html vet-info/ airlines/ hotels/ grooming/ products/ taxi/ forum/ k9/ veterans/ pro/ updates.html about.html #compare #gear',
+          es:'?view=map countries/usa.html vet-info/ airlines/compare/ hotels/ grooming/ k9/ veterans/ #compare #gear'};
+ var tgt=function(rel){ if(LNG==='en') return up+rel; var bare=rel.split('#')[0]; if(rel.charAt(0)==='#'||rel.charAt(0)==='?') bare=rel;
+   return ((' '+HAS[LNG]+' ').indexOf(' '+bare+' ')>=0?ppcLangRoot+'/':'/')+rel; };
+ var S=[['map',tgt('?view=map')],['law',tgt('countries/usa.html#federal')],['vet',tgt('vet-info/')],
+        ['flight',tgt(LNG==='es'?'airlines/compare/':'airlines/')],['hotel',tgt('hotels/')],['grooming',tgt('grooming/')],
+        ['shop',tgt('products/')],['ground',tgt('taxi/')],['|'],
+        ['forum',tgt('forum/')],['k9',tgt('k9/')],['service',tgt('veterans/#service-dog-support')],['veterans',tgt('veterans/')],['b2b',tgt('pro/')]];
  document.documentElement.classList.add('nav-v'+V);
  var bookCur=false; if(V==='7g'&&cur==='ground'){cur='';bookCur=true}
  if(cur) document.documentElement.classList.add('theme-'+cur);
  if(onCountryMap) document.documentElement.classList.add('theme-map');
  var m=document.getElementById('site-menu')||document.querySelector('.map-nav nav.nav, header.map-nav nav'); if(!m) return;
- var NAV_I18N={map:'site.nav.map',flight:'site.nav.airlines',hotel:'site.nav.hotels',grooming:'site.nav.grooming',ground:'site.nav.rides',shop:'site.nav.products',law:'site.nav.rules',forum:'site.nav.forum',veterans:'site.nav.veterans',b2b:'site.nav.pro'};
- var h=S.map(function(s){var extra=s[0]==='b2b'?' nav-biz':(s[0]==='veterans'?' nav-vet':'');var ik=NAV_I18N[s[0]]||'';return '<a class="sec theme-'+s[0]+extra+'" href="'+s[2]+'"'+(s[0]===cur?' aria-current="page"':'')+(ik?' data-i18n="'+ik+'"':'')+'>'+pst(s[0])+'<span class="lbl">'+s[1]+'</span></a>'}).join('');
+ var NAV_I18N={map:'site.nav.map',grooming:'site.nav.grooming',ground:'site.nav.rides',shop:'site.nav.products',forum:'site.nav.forum',veterans:'site.nav.veterans',b2b:'site.nav.pro'};
+ var navCur=cur||(/\/vet-info\//.test(path)?'vet':(/\/k9\//.test(path)?'k9':''));
+ var h=S.map(function(s){ if(s[0]==='|') return '<span class="nav-group-sep" aria-hidden="true"></span>';
+   var extra=s[0]==='b2b'?' nav-biz':(s[0]==='veterans'?' nav-vet':'');var ik=NAV_I18N[s[0]]||'';
+   return '<a class="sec theme-'+s[0]+extra+'" href="'+s[1]+'"'+(s[0]===navCur?' aria-current="page"':'')+(ik?' data-i18n="'+ik+'"':'')+'>'+pst(s[0])+'<span class="lbl">'+CAT[s[0]][li]+'</span></a>'}).join('');
  h+='<span class="menu-sep menu-only" aria-hidden="true"></span>'+
-    [(plab('Compare')+'|'+ppcHref('#compare')),(plab('Guides')+'|'+ppcHref('#gear')),(plab('Updates')+'|'+ppcHref('updates.html')),(plab('About')+'|'+ppcHref('about.html'))].map(function(x){x=x.split('|');return '<a class="menu-only sub" href="'+x[1]+'">'+x[0]+'</a>'}).join('');
+    [(plab('Compare')+'|'+tgt('#compare')),(plab('Guides')+'|'+tgt('#gear')),(plab('Updates')+'|'+tgt('updates.html')),(plab('About')+'|'+tgt('about.html'))].map(function(x){x=x.split('|');return '<a class="menu-only sub" href="'+x[1]+'">'+x[0]+'</a>'}).join('');
  m.innerHTML=h; m.classList.add('pst-nav');
  /* badge d'en-tête de section, même tampon que la nav (taille page) */
  var h1=document.querySelector('main h1, #main h1, h1');
