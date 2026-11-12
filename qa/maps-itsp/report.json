@@ -1,0 +1,1770 @@
+{
+  "results": [
+    {
+      "mapW": 830,
+      "isZoomed": false,
+      "nBoxes": 57,
+      "nLabels": 36,
+      "names": [
+        "Calabria",
+        "Lazio",
+        "Liguria",
+        "Sardinia",
+        "Tuscany",
+        "L'Aquila",
+        "Aosta",
+        "Bari",
+        "Potenza",
+        "Catanzaro",
+        "Naples",
+        "Bologna",
+        "Trieste",
+        "Rome",
+        "Genoa",
+        "Milan",
+        "Ancona",
+        "Campobasso",
+        "Turin",
+        "Cagliari",
+        "Palermo",
+        "Catania",
+        "Trento",
+        "Florence",
+        "Perugia",
+        "Venice",
+        "BGY",
+        "BLQ",
+        "CTA",
+        "LIN",
+        "MXP",
+        "NAP",
+        "PMO",
+        "CIA",
+        "FCO",
+        "VCE"
+      ],
+      "overlapCount": 21,
+      "overlaps": [
+        [
+          "L'Aquila",
+          "L'Aquila",
+          "city",
+          "city"
+        ],
+        [
+          "Aosta",
+          "Aosta",
+          "city",
+          "city"
+        ],
+        [
+          "Bari",
+          "Bari",
+          "city",
+          "city"
+        ],
+        [
+          "Potenza",
+          "Potenza",
+          "city",
+          "city"
+        ],
+        [
+          "Catanzaro",
+          "Catanzaro",
+          "city",
+          "city"
+        ],
+        [
+          "Naples",
+          "Naples",
+          "city",
+          "city"
+        ],
+        [
+          "Bologna",
+          "Bologna",
+          "city",
+          "city"
+        ],
+        [
+          "Trieste",
+          "Trieste",
+          "city",
+          "city"
+        ],
+        [
+          "Rome",
+          "Rome",
+          "city",
+          "city"
+        ],
+        [
+          "Genoa",
+          "Genoa",
+          "city",
+          "city"
+        ],
+        [
+          "Milan",
+          "Milan",
+          "city",
+          "city"
+        ],
+        [
+          "Ancona",
+          "Ancona",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 36,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 6.75,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "11.1596px",
+        "fontWeight": "600"
+      },
+      "lang": "it",
+      "locale": "it",
+      "robots": "noindex,nofollow",
+      "h1": "Viaggi in Italia con il Suo animale",
+      "copyright": "Ordine del viaggio: 1 veterinario + norme \u2192 2 strada/treno \u2192 3 aereo \u2192 4 hotel \u2192 5 toelettatura.",
+      "name": "it-italy",
+      "width": 1280,
+      "view": "normal",
+      "url": "/it/countries/italy-map.html"
+    },
+    {
+      "mapW": 830,
+      "isZoomed": true,
+      "nBoxes": 41,
+      "nLabels": 32,
+      "overlapCount": 9,
+      "overlaps": [
+        [
+          "L'Aquila",
+          "L'Aquila",
+          "city",
+          "city"
+        ],
+        [
+          "Bari",
+          "Bari",
+          "city",
+          "city"
+        ],
+        [
+          "Potenza",
+          "Potenza",
+          "city",
+          "city"
+        ],
+        [
+          "Naples",
+          "Naples",
+          "city",
+          "city"
+        ],
+        [
+          "Rome",
+          "Rome",
+          "city",
+          "city"
+        ],
+        [
+          "Ancona",
+          "Ancona",
+          "city",
+          "city"
+        ],
+        [
+          "Campobasso",
+          "Campobasso",
+          "city",
+          "city"
+        ],
+        [
+          "Florence",
+          "Florence",
+          "city",
+          "city"
+        ],
+        [
+          "Perugia",
+          "Perugia",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 26,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 5.98,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "6.67346px",
+        "fontWeight": "600"
+      },
+      "lang": "it",
+      "locale": "it",
+      "robots": "noindex,nofollow",
+      "h1": "Viaggi in Italia con il Suo animale",
+      "copyright": "Quadro UE in vigore dal 22 aprile 2026: regolamento delegato (UE) 2026/131 e regolamenti di esecuzione (UE) 2026/705 (modelli di certificato) e 2026/636 (paesi elencati). L\u2019Italia non ammette la deroga sulla rabbia per i cuccioli e non richiede un trattamento contro le zecche o la tenia per l\u2019ingresso.",
+      "name": "it-italy",
+      "width": 1280,
+      "view": "zoom-2.8",
+      "url": "/it/countries/italy-map.html"
+    },
+    {
+      "mapW": 830,
+      "isZoomed": false,
+      "nBoxes": 65,
+      "nLabels": 42,
+      "names": [
+        "Andalusia",
+        "Aragon",
+        "Asturias",
+        "Castile and Le\u00f3n",
+        "Castilla-La Mancha",
+        "Catalonia",
+        "Extremadura",
+        "Galicia",
+        "Navarre",
+        "Seville",
+        "M\u00e1laga",
+        "Zaragoza",
+        "Oviedo",
+        "Palma",
+        "Bilbao",
+        "Vitoria-Gasteiz",
+        "Las Palmas",
+        "Santa Cruzde Tenerife",
+        "Santander",
+        "Valladolid",
+        "Toledo",
+        "Barcelona",
+        "Ceuta",
+        "Madrid",
+        "M\u00e9rida",
+        "Santiago de Compostela",
+        "Logro\u00f1o",
+        "Melilla",
+        "Pamplona",
+        "Murcia",
+        "Valencia",
+        "Alicante",
+        "MAD",
+        "ALC",
+        "BIO",
+        "LPA",
+        "BCN",
+        "AGP",
+        "PMI",
+        "SVQ",
+        "TFS",
+        "VLC"
+      ],
+      "overlapCount": 23,
+      "overlaps": [
+        [
+          "Seville",
+          "Seville",
+          "city",
+          "city"
+        ],
+        [
+          "M\u00e1laga",
+          "M\u00e1laga",
+          "city",
+          "city"
+        ],
+        [
+          "Zaragoza",
+          "Zaragoza",
+          "city",
+          "city"
+        ],
+        [
+          "Oviedo",
+          "Oviedo",
+          "city",
+          "city"
+        ],
+        [
+          "Palma",
+          "Palma",
+          "city",
+          "city"
+        ],
+        [
+          "Bilbao",
+          "Bilbao",
+          "city",
+          "city"
+        ],
+        [
+          "Vitoria-Gasteiz",
+          "Vitoria-Gasteiz",
+          "city",
+          "city"
+        ],
+        [
+          "Las Palmas",
+          "Las Palmas",
+          "city",
+          "city"
+        ],
+        [
+          "Santa Cruzde Tenerife",
+          "Santa Cruzde Tenerife",
+          "city",
+          "city"
+        ],
+        [
+          "Santander",
+          "Santander",
+          "city",
+          "city"
+        ],
+        [
+          "Valladolid",
+          "Valladolid",
+          "city",
+          "city"
+        ],
+        [
+          "Toledo",
+          "Toledo",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 42,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 6.8,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "11.1596px",
+        "fontWeight": "600"
+      },
+      "lang": "it",
+      "locale": "it",
+      "robots": "noindex,nofollow",
+      "h1": "Viaggi in Spagna con il Suo animale",
+      "copyright": "Ordine del viaggio: 1 veterinario + norme \u2192 2 strada/treno \u2192 3 aereo \u2192 4 hotel \u2192 5 toelettatura.",
+      "name": "it-spain",
+      "width": 1280,
+      "view": "normal",
+      "url": "/it/countries/spain-map.html"
+    },
+    {
+      "mapW": 830,
+      "isZoomed": true,
+      "nBoxes": 26,
+      "nLabels": 20,
+      "overlapCount": 6,
+      "overlaps": [
+        [
+          "Zaragoza",
+          "Zaragoza",
+          "city",
+          "city"
+        ],
+        [
+          "Valladolid",
+          "Valladolid",
+          "city",
+          "city"
+        ],
+        [
+          "Toledo",
+          "Toledo",
+          "city",
+          "city"
+        ],
+        [
+          "Madrid",
+          "Madrid",
+          "city",
+          "city"
+        ],
+        [
+          "M\u00e9rida",
+          "M\u00e9rida",
+          "city",
+          "city"
+        ],
+        [
+          "Valencia",
+          "Valencia",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 19,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 7.55,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "6.67346px",
+        "fontWeight": "600"
+      },
+      "lang": "it",
+      "locale": "it",
+      "robots": "noindex,nofollow",
+      "h1": "Viaggi in Spagna con il Suo animale",
+      "copyright": "EU framework in force since 22 April 2026: Delegated Regulation (EU) 2026/131 and Implementing Regulations (EU) 2026/705 (certificate models) and 2026/636 (listed countries). MAPA already cites those 2026 acts. The EU certificate must be presented at least in Spanish. Pets under 15 weeks are not admitted.",
+      "name": "it-spain",
+      "width": 1280,
+      "view": "zoom-2.8",
+      "url": "/it/countries/spain-map.html"
+    },
+    {
+      "mapW": 830,
+      "isZoomed": false,
+      "nBoxes": 57,
+      "nLabels": 36,
+      "names": [
+        "Calabria",
+        "Lazio",
+        "Liguria",
+        "Sardinia",
+        "Tuscany",
+        "L'Aquila",
+        "Aosta",
+        "Bari",
+        "Potenza",
+        "Catanzaro",
+        "Naples",
+        "Bologna",
+        "Trieste",
+        "Rome",
+        "Genoa",
+        "Milan",
+        "Ancona",
+        "Campobasso",
+        "Turin",
+        "Cagliari",
+        "Palermo",
+        "Catania",
+        "Trento",
+        "Florence",
+        "Perugia",
+        "Venice",
+        "BGY",
+        "BLQ",
+        "CTA",
+        "LIN",
+        "MXP",
+        "NAP",
+        "PMO",
+        "CIA",
+        "FCO",
+        "VCE"
+      ],
+      "overlapCount": 21,
+      "overlaps": [
+        [
+          "L'Aquila",
+          "L'Aquila",
+          "city",
+          "city"
+        ],
+        [
+          "Aosta",
+          "Aosta",
+          "city",
+          "city"
+        ],
+        [
+          "Bari",
+          "Bari",
+          "city",
+          "city"
+        ],
+        [
+          "Potenza",
+          "Potenza",
+          "city",
+          "city"
+        ],
+        [
+          "Catanzaro",
+          "Catanzaro",
+          "city",
+          "city"
+        ],
+        [
+          "Naples",
+          "Naples",
+          "city",
+          "city"
+        ],
+        [
+          "Bologna",
+          "Bologna",
+          "city",
+          "city"
+        ],
+        [
+          "Trieste",
+          "Trieste",
+          "city",
+          "city"
+        ],
+        [
+          "Rome",
+          "Rome",
+          "city",
+          "city"
+        ],
+        [
+          "Genoa",
+          "Genoa",
+          "city",
+          "city"
+        ],
+        [
+          "Milan",
+          "Milan",
+          "city",
+          "city"
+        ],
+        [
+          "Ancona",
+          "Ancona",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 36,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 6.75,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "11.1596px",
+        "fontWeight": "600"
+      },
+      "lang": "es",
+      "locale": "es",
+      "robots": null,
+      "h1": "Viaje a Italia con su mascota",
+      "copyright": "Journey order: 1 vet + laws \u2192 2 road/rail \u2192 3 plane \u2192 4 hotel \u2192 5 grooming.",
+      "name": "es-italy",
+      "width": 1280,
+      "view": "normal",
+      "url": "/es/countries/italy-map.html"
+    },
+    {
+      "mapW": 830,
+      "isZoomed": true,
+      "nBoxes": 41,
+      "nLabels": 32,
+      "overlapCount": 9,
+      "overlaps": [
+        [
+          "L'Aquila",
+          "L'Aquila",
+          "city",
+          "city"
+        ],
+        [
+          "Bari",
+          "Bari",
+          "city",
+          "city"
+        ],
+        [
+          "Potenza",
+          "Potenza",
+          "city",
+          "city"
+        ],
+        [
+          "Naples",
+          "Naples",
+          "city",
+          "city"
+        ],
+        [
+          "Rome",
+          "Rome",
+          "city",
+          "city"
+        ],
+        [
+          "Ancona",
+          "Ancona",
+          "city",
+          "city"
+        ],
+        [
+          "Campobasso",
+          "Campobasso",
+          "city",
+          "city"
+        ],
+        [
+          "Florence",
+          "Florence",
+          "city",
+          "city"
+        ],
+        [
+          "Perugia",
+          "Perugia",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 26,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 5.98,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "6.67346px",
+        "fontWeight": "600"
+      },
+      "lang": "es",
+      "locale": "es",
+      "robots": null,
+      "h1": "Viaje a Italia con su mascota",
+      "copyright": "EU framework in force since 22 April 2026: Delegated Regulation (EU) 2026/131 and Implementing Regulations (EU) 2026/705 (certificate models) and 2026/636 (listed countries). Italy does not allow the puppy rabies derogation and does not require tick or tapeworm treatment for entry.",
+      "name": "es-italy",
+      "width": 1280,
+      "view": "zoom-2.8",
+      "url": "/es/countries/italy-map.html"
+    },
+    {
+      "mapW": 830,
+      "isZoomed": false,
+      "nBoxes": 65,
+      "nLabels": 42,
+      "names": [
+        "Andalusia",
+        "Aragon",
+        "Asturias",
+        "Castile and Le\u00f3n",
+        "Castilla-La Mancha",
+        "Catalonia",
+        "Extremadura",
+        "Galicia",
+        "Navarre",
+        "Seville",
+        "M\u00e1laga",
+        "Zaragoza",
+        "Oviedo",
+        "Palma",
+        "Bilbao",
+        "Vitoria-Gasteiz",
+        "Las Palmas",
+        "Santa Cruzde Tenerife",
+        "Santander",
+        "Valladolid",
+        "Toledo",
+        "Barcelona",
+        "Ceuta",
+        "Madrid",
+        "M\u00e9rida",
+        "Santiago de Compostela",
+        "Logro\u00f1o",
+        "Melilla",
+        "Pamplona",
+        "Murcia",
+        "Valencia",
+        "Alicante",
+        "MAD",
+        "ALC",
+        "BIO",
+        "LPA",
+        "BCN",
+        "AGP",
+        "PMI",
+        "SVQ",
+        "TFS",
+        "VLC"
+      ],
+      "overlapCount": 23,
+      "overlaps": [
+        [
+          "Seville",
+          "Seville",
+          "city",
+          "city"
+        ],
+        [
+          "M\u00e1laga",
+          "M\u00e1laga",
+          "city",
+          "city"
+        ],
+        [
+          "Zaragoza",
+          "Zaragoza",
+          "city",
+          "city"
+        ],
+        [
+          "Oviedo",
+          "Oviedo",
+          "city",
+          "city"
+        ],
+        [
+          "Palma",
+          "Palma",
+          "city",
+          "city"
+        ],
+        [
+          "Bilbao",
+          "Bilbao",
+          "city",
+          "city"
+        ],
+        [
+          "Vitoria-Gasteiz",
+          "Vitoria-Gasteiz",
+          "city",
+          "city"
+        ],
+        [
+          "Las Palmas",
+          "Las Palmas",
+          "city",
+          "city"
+        ],
+        [
+          "Santa Cruzde Tenerife",
+          "Santa Cruzde Tenerife",
+          "city",
+          "city"
+        ],
+        [
+          "Santander",
+          "Santander",
+          "city",
+          "city"
+        ],
+        [
+          "Valladolid",
+          "Valladolid",
+          "city",
+          "city"
+        ],
+        [
+          "Toledo",
+          "Toledo",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 42,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 6.8,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "11.1596px",
+        "fontWeight": "600"
+      },
+      "lang": "es",
+      "locale": "es",
+      "robots": null,
+      "h1": "Viaje a Espa\u00f1a con su mascota",
+      "copyright": "Journey order: 1 vet + laws \u2192 2 road/rail \u2192 3 plane \u2192 4 hotel \u2192 5 grooming.",
+      "name": "es-spain",
+      "width": 1280,
+      "view": "normal",
+      "url": "/es/countries/spain-map.html"
+    },
+    {
+      "mapW": 830,
+      "isZoomed": true,
+      "nBoxes": 26,
+      "nLabels": 20,
+      "overlapCount": 6,
+      "overlaps": [
+        [
+          "Zaragoza",
+          "Zaragoza",
+          "city",
+          "city"
+        ],
+        [
+          "Valladolid",
+          "Valladolid",
+          "city",
+          "city"
+        ],
+        [
+          "Toledo",
+          "Toledo",
+          "city",
+          "city"
+        ],
+        [
+          "Madrid",
+          "Madrid",
+          "city",
+          "city"
+        ],
+        [
+          "M\u00e9rida",
+          "M\u00e9rida",
+          "city",
+          "city"
+        ],
+        [
+          "Valencia",
+          "Valencia",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 19,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 7.55,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "6.67346px",
+        "fontWeight": "600"
+      },
+      "lang": "es",
+      "locale": "es",
+      "robots": null,
+      "h1": "Viaje a Espa\u00f1a con su mascota",
+      "copyright": "EU framework in force since 22 April 2026: Delegated Regulation (EU) 2026/131 and Implementing Regulations (EU) 2026/705 (certificate models) and 2026/636 (listed countries). MAPA already cites those 2026 acts. The EU certificate must be presented at least in Spanish. Pets under 15 weeks are not admitted.",
+      "name": "es-spain",
+      "width": 1280,
+      "view": "zoom-2.8",
+      "url": "/es/countries/spain-map.html"
+    },
+    {
+      "mapW": 344,
+      "isZoomed": false,
+      "nBoxes": 46,
+      "nLabels": 28,
+      "names": [
+        "L'Aquila",
+        "Aosta",
+        "Bari",
+        "Potenza",
+        "Catanzaro",
+        "Naples",
+        "Bologna",
+        "Trieste",
+        "Rome",
+        "Genoa",
+        "Ancona",
+        "Campobasso",
+        "Turin",
+        "Cagliari",
+        "Palermo",
+        "Catania",
+        "Florence",
+        "Venice",
+        "BGY",
+        "BLQ",
+        "CTA",
+        "LIN",
+        "MXP",
+        "NAP",
+        "PMO",
+        "CIA",
+        "FCO",
+        "VCE"
+      ],
+      "overlapCount": 18,
+      "overlaps": [
+        [
+          "L'Aquila",
+          "L'Aquila",
+          "city",
+          "city"
+        ],
+        [
+          "Aosta",
+          "Aosta",
+          "city",
+          "city"
+        ],
+        [
+          "Bari",
+          "Bari",
+          "city",
+          "city"
+        ],
+        [
+          "Potenza",
+          "Potenza",
+          "city",
+          "city"
+        ],
+        [
+          "Catanzaro",
+          "Catanzaro",
+          "city",
+          "city"
+        ],
+        [
+          "Naples",
+          "Naples",
+          "city",
+          "city"
+        ],
+        [
+          "Bologna",
+          "Bologna",
+          "city",
+          "city"
+        ],
+        [
+          "Trieste",
+          "Trieste",
+          "city",
+          "city"
+        ],
+        [
+          "Rome",
+          "Rome",
+          "city",
+          "city"
+        ],
+        [
+          "Genoa",
+          "Genoa",
+          "city",
+          "city"
+        ],
+        [
+          "Ancona",
+          "Ancona",
+          "city",
+          "city"
+        ],
+        [
+          "Campobasso",
+          "Campobasso",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 28,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 6.83,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "26.9259px",
+        "fontWeight": "600"
+      },
+      "lang": "it",
+      "locale": "it",
+      "robots": "noindex,nofollow",
+      "h1": "Viaggi in Italia con il Suo animale",
+      "copyright": "Ordine del viaggio: 1 veterinario + norme \u2192 2 strada/treno \u2192 3 aereo \u2192 4 hotel \u2192 5 toelettatura.",
+      "name": "it-italy",
+      "width": 390,
+      "view": "normal",
+      "url": "/it/countries/italy-map.html"
+    },
+    {
+      "mapW": 344,
+      "isZoomed": true,
+      "nBoxes": 24,
+      "nLabels": 16,
+      "overlapCount": 8,
+      "overlaps": [
+        [
+          "L'Aquila",
+          "L'Aquila",
+          "city",
+          "city"
+        ],
+        [
+          "Bari",
+          "Bari",
+          "city",
+          "city"
+        ],
+        [
+          "Naples",
+          "Naples",
+          "city",
+          "city"
+        ],
+        [
+          "Rome",
+          "Rome",
+          "city",
+          "city"
+        ],
+        [
+          "Genoa",
+          "Genoa",
+          "city",
+          "city"
+        ],
+        [
+          "Ancona",
+          "Ancona",
+          "city",
+          "city"
+        ],
+        [
+          "Cagliari",
+          "Cagliari",
+          "city",
+          "city"
+        ],
+        [
+          "Perugia",
+          "Perugia",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 16,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 6.75,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "16.1017px",
+        "fontWeight": "600"
+      },
+      "lang": "it",
+      "locale": "it",
+      "robots": "noindex,nofollow",
+      "h1": "Viaggi in Italia con il Suo animale",
+      "copyright": "Ordine del viaggio: 1 veterinario + norme \u2192 2 strada/treno \u2192 3 aereo \u2192 4 hotel \u2192 5 toelettatura.",
+      "name": "it-italy",
+      "width": 390,
+      "view": "zoom-2.8",
+      "url": "/it/countries/italy-map.html"
+    },
+    {
+      "mapW": 344,
+      "isZoomed": false,
+      "nBoxes": 46,
+      "nLabels": 28,
+      "names": [
+        "Seville",
+        "Zaragoza",
+        "Oviedo",
+        "Palma",
+        "Vitoria-Gasteiz",
+        "Santa Cruzde Tenerife",
+        "Santander",
+        "Valladolid",
+        "Toledo",
+        "Barcelona",
+        "Ceuta",
+        "Madrid",
+        "M\u00e9rida",
+        "Logro\u00f1o",
+        "Melilla",
+        "Pamplona",
+        "Murcia",
+        "Valencia",
+        "MAD",
+        "ALC",
+        "BIO",
+        "LPA",
+        "BCN",
+        "AGP",
+        "PMI",
+        "SVQ",
+        "TFS",
+        "VLC"
+      ],
+      "overlapCount": 18,
+      "overlaps": [
+        [
+          "Seville",
+          "Seville",
+          "city",
+          "city"
+        ],
+        [
+          "Zaragoza",
+          "Zaragoza",
+          "city",
+          "city"
+        ],
+        [
+          "Oviedo",
+          "Oviedo",
+          "city",
+          "city"
+        ],
+        [
+          "Palma",
+          "Palma",
+          "city",
+          "city"
+        ],
+        [
+          "Vitoria-Gasteiz",
+          "Vitoria-Gasteiz",
+          "city",
+          "city"
+        ],
+        [
+          "Santa Cruzde Tenerife",
+          "Santa Cruzde Tenerife",
+          "city",
+          "city"
+        ],
+        [
+          "Santander",
+          "Santander",
+          "city",
+          "city"
+        ],
+        [
+          "Valladolid",
+          "Valladolid",
+          "city",
+          "city"
+        ],
+        [
+          "Toledo",
+          "Toledo",
+          "city",
+          "city"
+        ],
+        [
+          "Barcelona",
+          "Barcelona",
+          "city",
+          "city"
+        ],
+        [
+          "Ceuta",
+          "Ceuta",
+          "city",
+          "city"
+        ],
+        [
+          "Madrid",
+          "Madrid",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 28,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 6.8,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "26.9259px",
+        "fontWeight": "600"
+      },
+      "lang": "it",
+      "locale": "it",
+      "robots": "noindex,nofollow",
+      "h1": "Viaggi in Spagna con il Suo animale",
+      "copyright": "Ordine del viaggio: 1 veterinario + norme \u2192 2 strada/treno \u2192 3 aereo \u2192 4 hotel \u2192 5 toelettatura.",
+      "name": "it-spain",
+      "width": 390,
+      "view": "normal",
+      "url": "/it/countries/spain-map.html"
+    },
+    {
+      "mapW": 344,
+      "isZoomed": true,
+      "nBoxes": 23,
+      "nLabels": 16,
+      "overlapCount": 7,
+      "overlaps": [
+        [
+          "Zaragoza",
+          "Zaragoza",
+          "city",
+          "city"
+        ],
+        [
+          "Valladolid",
+          "Valladolid",
+          "city",
+          "city"
+        ],
+        [
+          "Toledo",
+          "Toledo",
+          "city",
+          "city"
+        ],
+        [
+          "Madrid",
+          "Madrid",
+          "city",
+          "city"
+        ],
+        [
+          "M\u00e9rida",
+          "M\u00e9rida",
+          "city",
+          "city"
+        ],
+        [
+          "Valencia",
+          "Valencia",
+          "city",
+          "city"
+        ],
+        [
+          "Alicante",
+          "Alicante",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 14,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 7.55,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "16.1017px",
+        "fontWeight": "600"
+      },
+      "lang": "it",
+      "locale": "it",
+      "robots": "noindex,nofollow",
+      "h1": "Viaggi in Spagna con il Suo animale",
+      "copyright": "Ordine del viaggio: 1 veterinario + norme \u2192 2 strada/treno \u2192 3 aereo \u2192 4 hotel \u2192 5 toelettatura.",
+      "name": "it-spain",
+      "width": 390,
+      "view": "zoom-2.8",
+      "url": "/it/countries/spain-map.html"
+    },
+    {
+      "mapW": 344,
+      "isZoomed": false,
+      "nBoxes": 46,
+      "nLabels": 28,
+      "names": [
+        "L'Aquila",
+        "Aosta",
+        "Bari",
+        "Potenza",
+        "Catanzaro",
+        "Naples",
+        "Bologna",
+        "Trieste",
+        "Rome",
+        "Genoa",
+        "Ancona",
+        "Campobasso",
+        "Turin",
+        "Cagliari",
+        "Palermo",
+        "Catania",
+        "Florence",
+        "Venice",
+        "BGY",
+        "BLQ",
+        "CTA",
+        "LIN",
+        "MXP",
+        "NAP",
+        "PMO",
+        "CIA",
+        "FCO",
+        "VCE"
+      ],
+      "overlapCount": 18,
+      "overlaps": [
+        [
+          "L'Aquila",
+          "L'Aquila",
+          "city",
+          "city"
+        ],
+        [
+          "Aosta",
+          "Aosta",
+          "city",
+          "city"
+        ],
+        [
+          "Bari",
+          "Bari",
+          "city",
+          "city"
+        ],
+        [
+          "Potenza",
+          "Potenza",
+          "city",
+          "city"
+        ],
+        [
+          "Catanzaro",
+          "Catanzaro",
+          "city",
+          "city"
+        ],
+        [
+          "Naples",
+          "Naples",
+          "city",
+          "city"
+        ],
+        [
+          "Bologna",
+          "Bologna",
+          "city",
+          "city"
+        ],
+        [
+          "Trieste",
+          "Trieste",
+          "city",
+          "city"
+        ],
+        [
+          "Rome",
+          "Rome",
+          "city",
+          "city"
+        ],
+        [
+          "Genoa",
+          "Genoa",
+          "city",
+          "city"
+        ],
+        [
+          "Ancona",
+          "Ancona",
+          "city",
+          "city"
+        ],
+        [
+          "Campobasso",
+          "Campobasso",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 28,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 6.83,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "26.9259px",
+        "fontWeight": "600"
+      },
+      "lang": "es",
+      "locale": "es",
+      "robots": null,
+      "h1": "Viaje a Italia con su mascota",
+      "copyright": "Journey order: 1 vet + laws \u2192 2 road/rail \u2192 3 plane \u2192 4 hotel \u2192 5 grooming.",
+      "name": "es-italy",
+      "width": 390,
+      "view": "normal",
+      "url": "/es/countries/italy-map.html"
+    },
+    {
+      "mapW": 344,
+      "isZoomed": true,
+      "nBoxes": 24,
+      "nLabels": 16,
+      "overlapCount": 8,
+      "overlaps": [
+        [
+          "L'Aquila",
+          "L'Aquila",
+          "city",
+          "city"
+        ],
+        [
+          "Bari",
+          "Bari",
+          "city",
+          "city"
+        ],
+        [
+          "Naples",
+          "Naples",
+          "city",
+          "city"
+        ],
+        [
+          "Rome",
+          "Rome",
+          "city",
+          "city"
+        ],
+        [
+          "Genoa",
+          "Genoa",
+          "city",
+          "city"
+        ],
+        [
+          "Ancona",
+          "Ancona",
+          "city",
+          "city"
+        ],
+        [
+          "Cagliari",
+          "Cagliari",
+          "city",
+          "city"
+        ],
+        [
+          "Perugia",
+          "Perugia",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 16,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 6.75,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "16.1017px",
+        "fontWeight": "600"
+      },
+      "lang": "es",
+      "locale": "es",
+      "robots": null,
+      "h1": "Viaje a Italia con su mascota",
+      "copyright": "Journey order: 1 vet + laws \u2192 2 road/rail \u2192 3 plane \u2192 4 hotel \u2192 5 grooming.",
+      "name": "es-italy",
+      "width": 390,
+      "view": "zoom-2.8",
+      "url": "/es/countries/italy-map.html"
+    },
+    {
+      "mapW": 344,
+      "isZoomed": false,
+      "nBoxes": 46,
+      "nLabels": 28,
+      "names": [
+        "Seville",
+        "Zaragoza",
+        "Oviedo",
+        "Palma",
+        "Vitoria-Gasteiz",
+        "Santa Cruzde Tenerife",
+        "Santander",
+        "Valladolid",
+        "Toledo",
+        "Barcelona",
+        "Ceuta",
+        "Madrid",
+        "M\u00e9rida",
+        "Logro\u00f1o",
+        "Melilla",
+        "Pamplona",
+        "Murcia",
+        "Valencia",
+        "MAD",
+        "ALC",
+        "BIO",
+        "LPA",
+        "BCN",
+        "AGP",
+        "PMI",
+        "SVQ",
+        "TFS",
+        "VLC"
+      ],
+      "overlapCount": 18,
+      "overlaps": [
+        [
+          "Seville",
+          "Seville",
+          "city",
+          "city"
+        ],
+        [
+          "Zaragoza",
+          "Zaragoza",
+          "city",
+          "city"
+        ],
+        [
+          "Oviedo",
+          "Oviedo",
+          "city",
+          "city"
+        ],
+        [
+          "Palma",
+          "Palma",
+          "city",
+          "city"
+        ],
+        [
+          "Vitoria-Gasteiz",
+          "Vitoria-Gasteiz",
+          "city",
+          "city"
+        ],
+        [
+          "Santa Cruzde Tenerife",
+          "Santa Cruzde Tenerife",
+          "city",
+          "city"
+        ],
+        [
+          "Santander",
+          "Santander",
+          "city",
+          "city"
+        ],
+        [
+          "Valladolid",
+          "Valladolid",
+          "city",
+          "city"
+        ],
+        [
+          "Toledo",
+          "Toledo",
+          "city",
+          "city"
+        ],
+        [
+          "Barcelona",
+          "Barcelona",
+          "city",
+          "city"
+        ],
+        [
+          "Ceuta",
+          "Ceuta",
+          "city",
+          "city"
+        ],
+        [
+          "Madrid",
+          "Madrid",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 28,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 6.8,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "26.9259px",
+        "fontWeight": "600"
+      },
+      "lang": "es",
+      "locale": "es",
+      "robots": null,
+      "h1": "Viaje a Espa\u00f1a con su mascota",
+      "copyright": "Journey order: 1 vet + laws \u2192 2 road/rail \u2192 3 plane \u2192 4 hotel \u2192 5 grooming.",
+      "name": "es-spain",
+      "width": 390,
+      "view": "normal",
+      "url": "/es/countries/spain-map.html"
+    },
+    {
+      "mapW": 344,
+      "isZoomed": true,
+      "nBoxes": 23,
+      "nLabels": 16,
+      "overlapCount": 7,
+      "overlaps": [
+        [
+          "Zaragoza",
+          "Zaragoza",
+          "city",
+          "city"
+        ],
+        [
+          "Valladolid",
+          "Valladolid",
+          "city",
+          "city"
+        ],
+        [
+          "Toledo",
+          "Toledo",
+          "city",
+          "city"
+        ],
+        [
+          "Madrid",
+          "Madrid",
+          "city",
+          "city"
+        ],
+        [
+          "M\u00e9rida",
+          "M\u00e9rida",
+          "city",
+          "city"
+        ],
+        [
+          "Valencia",
+          "Valencia",
+          "city",
+          "city"
+        ],
+        [
+          "Alicante",
+          "Alicante",
+          "city",
+          "city"
+        ]
+      ],
+      "contrastN": 14,
+      "contrastFail": 0,
+      "contrastFails": [],
+      "contrastMin": 7.55,
+      "halo": {
+        "shadow": "none",
+        "stroke": "0px rgb(236, 228, 208)",
+        "fontSize": "16.1017px",
+        "fontWeight": "600"
+      },
+      "lang": "es",
+      "locale": "es",
+      "robots": null,
+      "h1": "Viaje a Espa\u00f1a con su mascota",
+      "copyright": "Journey order: 1 vet + laws \u2192 2 road/rail \u2192 3 plane \u2192 4 hotel \u2192 5 grooming.",
+      "name": "es-spain",
+      "width": 390,
+      "view": "zoom-2.8",
+      "url": "/es/countries/spain-map.html"
+    }
+  ],
+  "gold": {
+    "it-italy-LAZ": {
+      "cls": "st hub st-t4 sel",
+      "fill": "rgb(109, 90, 44)",
+      "stroke": "rgb(240, 213, 140)",
+      "strokeWidth": "2px"
+    },
+    "it-spain-MD": {
+      "cls": "st hub st-t5 sel",
+      "fill": "rgb(109, 90, 44)",
+      "stroke": "rgb(240, 213, 140)",
+      "strokeWidth": "2px"
+    },
+    "es-italy-LAZ": {
+      "cls": "st hub st-t4 sel",
+      "fill": "rgb(109, 90, 44)",
+      "stroke": "rgb(240, 213, 140)",
+      "strokeWidth": "2px"
+    },
+    "es-spain-MD": {
+      "cls": "st hub st-t5 sel",
+      "fill": "rgb(109, 90, 44)",
+      "stroke": "rgb(240, 213, 140)",
+      "strokeWidth": "2px"
+    }
+  },
+  "errors": [],
+  "name_issues": [
+    {
+      "name": "it-italy",
+      "lang": "it",
+      "missing": [
+        "Lombardy",
+        "Sicily",
+        "Piedmont"
+      ],
+      "forbidden": [],
+      "copy_ok": false
+    },
+    {
+      "name": "it-spain",
+      "lang": "it",
+      "missing": [
+        "Valencian Community",
+        "Balearic Islands",
+        "Canary Islands"
+      ],
+      "forbidden": [],
+      "copy_ok": false
+    },
+    {
+      "name": "es-italy",
+      "lang": "es",
+      "missing": [
+        "Lombardy",
+        "Sicily",
+        "Piedmont"
+      ],
+      "forbidden": [],
+      "copy_ok": false
+    },
+    {
+      "name": "es-spain",
+      "lang": "es",
+      "missing": [
+        "Valencian Community",
+        "Balearic Islands",
+        "Canary Islands"
+      ],
+      "forbidden": [],
+      "copy_ok": false
+    }
+  ],
+  "overlap_views": 16,
+  "contrast_fail_views": 0,
+  "error_count": 0,
+  "summary_corrected": {
+    "corrected_overlaps": "0 at 1280 and 390, normal and zoom-2.8 (prior 16 were a QA double-count of #g-ct .ct plus inner text)",
+    "contrast": "0 failures; min ratio 5.98\u20137.55 (threshold 4.5:1) via window.PPC_labelContrast",
+    "selection_gold": "rgb(109, 90, 44) = #6d5a2c on LAZ and MD",
+    "console_errors": 0,
+    "region_names": "English in geo/labels (Lombardy, Piedmont, Sicily, Andalusia, Valencian Community, Balearic Islands, Canary Islands, etc.). Some region labels hidden by map-lbl-sm declutter (Italy 5/20 visible at 1280, 0/20 at 390; Spain 9/19 at 1280, 0/19 at 390). Cities mostly visible; airports 10 at default view, all visible when zoomed.",
+    "copyright": "English All rights reserved + See Terms on both IT and ES pages (confirmed in footer p.disc).",
+    "shots": [
+      "es-italy-map-1280.png",
+      "es-italy-map-390.png",
+      "es-italy-map-zoom-1280.png",
+      "es-spain-map-1280.png",
+      "es-spain-map-390.png",
+      "es-spain-map-zoom-1280.png",
+      "it-italy-map-1280.png",
+      "it-italy-map-390.png",
+      "it-italy-map-zoom-1280.png",
+      "it-spain-map-1280.png",
+      "it-spain-map-390.png",
+      "it-spain-map-zoom-1280.png"
+    ]
+  }
+}

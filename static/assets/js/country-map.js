@@ -31,29 +31,17 @@ function buildSwitcher(){
   const host = document.getElementById('map-switch');
   if(!host) return;
   const es = (location.pathname||'').indexOf('/es/')===0;
-  const it = (location.pathname||'').indexOf('/it/')===0;
-  const tabs = it ? [
-    {id:'usa', href:'/it/countries/usa-map.html', label:"Mappa USA", accent:'usa'},
-    {id:'ca', href:'/it/countries/canada-map.html', label:"Mappa del Canada", accent:'maple'},
-    {id:'mx', href:'/countries/mexico-map.html', label:"Mappa del Messico", accent:'mxgreen'},
-    {id:'uk', href:'/it/countries/uk-map.html', label:"Mappa del Regno Unito", accent:'unionjack'},
-    {id:'fr', href:'/it/countries/france-map.html', label:"Mappa della Francia", accent:'tricolore'},
-    {id:'de', href:'/it/countries/germany-map.html', label:"Mappa della Germania", accent:'schwarzrotgold'},
-    {id:'kr', href:'/countries/south-korea-map.html', label:"Mappa della Corea", accent:'taegeuk'},
-    {id:'jp', href:'/countries/japan-map.html', label:"Mappa del Giappone", accent:'hinomaru'},
-    {id:'it', href:'/it/countries/italy-map.html', label:"Mappa dell’Italia", accent:'italy'},
-    {id:'es', href:'/countries/spain-map.html', label:"Mappa della Spagna", accent:'rojigualda'}
-  ] : es ? [
+  const tabs = es ? [
     {id:'usa', href:'/es/countries/usa-map.html', label:'Mapa de EE. UU.', accent:'usa'},
     {id:'ca', href:'/es/countries/canada-map.html', label:'Mapa de Canadá', accent:'maple'},
     {id:'mx', href:'/es/countries/mexico-map.html', label:'Mapa de México', accent:'mxgreen'},
-    {id:'uk', href:'/es/countries/uk-map.html', label:'Mapa del Reino Unido', accent:'unionjack'},
-    {id:'fr', href:'/es/countries/france-map.html', label:'Mapa de Francia', accent:'tricolore'},
-    {id:'de', href:'/es/countries/germany-map.html', label:'Mapa de Alemania', accent:'schwarzrotgold'},
-    {id:'kr', href:'/es/countries/south-korea-map.html', label:'Mapa de Corea del Sur', accent:'taegeuk'},
-    {id:'jp', href:'/es/countries/japan-map.html', label:'Mapa de Japón', accent:'hinomaru'},
-    {id:'it', href:'/countries/italy-map.html', label:'Mapa de Italia', accent:'italy'},
-    {id:'es', href:'/countries/spain-map.html', label:'Mapa de España', accent:'rojigualda'}
+    {id:'uk', href:'/es/countries/uk-map.html', label:'Mapa Reino Unido', accent:'unionjack'},
+    {id:'fr', href:'/es/countries/france-map.html', label:'Mapa Francia', accent:'tricolore'},
+    {id:'de', href:'/es/countries/germany-map.html', label:'Mapa Alemania', accent:'schwarzrotgold'},
+    {id:'kr', href:'/es/countries/south-korea-map.html', label:'Mapa Corea del Sur', accent:'taegeuk'},
+    {id:'jp', href:'/es/countries/japan-map.html', label:'Mapa Japón', accent:'hinomaru'},
+    {id:'it', href:'/es/countries/italy-map.html', label:'Mapa Italia', accent:'italy'},
+    {id:'es', href:'/es/countries/spain-map.html', label:'Mapa España', accent:'rojigualda'}
   ] : [
     {id:'usa', href:'usa-map.html', label:'USA Map', accent:'usa'},
     {id:'ca', href:'canada-map.html', label:'Canada Map', accent:'maple'},
@@ -67,22 +55,10 @@ function buildSwitcher(){
     {id:'es', href:'spain-map.html', label:'Spain Map', accent:'rojigualda'}
   ];
   const cur = ({CA:'ca',MX:'mx',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp',IT:'it',ES:'es'}[DATA.country]) || 'usa';
-  const backLabel = it ? "← Mappa del mondo" : es ? '← Mapa mundial' : '← World Map';
-  const back = `<a class="msw-tab world-back" href="../?view=map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${backLabel}</span></a>`;
+  const back = `<a class="msw-tab world-back" href="../?view=map" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${es?'← Mapa mundial':'← World Map'}</span></a>`;
   host.innerHTML = back + tabs.map(t =>
     `<a class="msw-tab accent-${t.accent}${t.id===cur?' is-current':''}" href="${t.href}"${t.id===cur?' aria-current="page"':''} style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${t.label}</span></a>`
   ).join('');
-  const card = host.closest('section') || document.querySelector('section.card.mapcard, section.mapcard');
-  if(card){
-    const ariaMap = it ? {usa:'Mappa degli Stati Uniti',ca:'Mappa del Canada',mx:'Mappa del Messico',uk:'Mappa del Regno Unito',fr:'Mappa della Francia',de:'Mappa della Germania',kr:'Mappa della Corea',jp:'Mappa del Giappone',it:'Mappa dell’Italia',es:'Mappa della Spagna'}
-      : es ? {usa:'Mapa de los Estados Unidos',ca:'Mapa de Canadá',mx:'Mapa de México',uk:'Mapa del Reino Unido',fr:'Mapa de Francia',de:'Mapa de Alemania',kr:'Mapa de Corea del Sur',jp:'Mapa de Japón',it:'Mapa de Italia',es:'Mapa de España'}
-      : {usa:'Map of the United States',ca:'Map of Canada',mx:'Map of Mexico',uk:'Map of the United Kingdom',fr:'Map of France',de:'Map of Germany',kr:'Map of South Korea',jp:'Map of Japan',it:'Map of Italy',es:'Map of Spain'};
-    const desired = ariaMap[cur];
-    const prev = card.getAttribute('aria-label')||'';
-    const wrongCa = /Canada|Canadá/i.test(prev) && cur!=='ca';
-    if(desired && (wrongCa || !prev)) card.setAttribute('aria-label', desired);
-  }
-
 }
 
 /* ---------- draw ---------- */
@@ -111,10 +87,13 @@ function buildMap(){
     /* KR/JP: English names (USA uses 2-letter codes). Tiny regions get
        USA-style leader lines when geo[a].callout is set by the geo pack. */
     const useNames = !!(DATA && /^(KR|JP|UK|FR|DE|IT|ES)$/.test(DATA.country||''));
-    if(g.callout && g.lx!=null && g.ly!=null){
-      const ln = el('line', {class:'lbl-lead', x1:g.c[0], y1:g.c[1], x2:g.lx, y2:g.ly, 'data-a':a});
+    const sameNameCity = /^(JP|KR)$/.test((DATA&&DATA.country)||'') && (g.cities||[]).some(c => c.n===g.name || c.n===g.name+' City' || g.name===(c.n||'').replace(/ City$/,''));
+    if(sameNameCity){
+      /* City marker already carries this name (Tokyo, Seoul, Osaka…). */
+    } else if(g.callout && g.lx!=null && g.ly!=null){
+      const ln = el('line', {class:'lbl-lead'+(g.labelZoom?' lbl-zoom':''), x1:g.c[0], y1:g.c[1], x2:g.lx, y2:g.ly, 'data-a':a});
       gl.appendChild(ln);
-      const t = el('text', {id:'l-'+a, class:'lbl lbl-callout', x:g.lx, y:g.ly, 'text-anchor': (g.lx < g.c[0] ? 'end' : 'start')});
+      const t = el('text', {id:'l-'+a, class:'lbl lbl-callout'+(g.labelZoom?' lbl-zoom':''), x:g.lx, y:g.ly, 'text-anchor': (g.lx < g.c[0] ? 'end' : 'start')});
       t.textContent = useNames ? g.name : a; gl.appendChild(t);
     } else if(g.c){
       const t = el('text', {id:'l-'+a, class:'lbl'+(g.labelZoom?' lbl-zoom':''), x:g.lx||g.c[0], y:g.ly||g.c[1]});
@@ -123,7 +102,7 @@ function buildMap(){
   }
   for(const a of ABBRS){
     for(const c of (GEO[a].cities||[])){
-      const g = el('g', {class:'ct'+(c.cap?' cap':'')+(c.sample?' sample':''), role:'button', tabindex:'0', 'data-s':a, 'data-k':a+'|'+c.n, 'aria-label':c.n+', '+GEO[a].name});
+      const g = el('g', {class:'ct'+(c.cap?' cap':'')+(c.major?' major':'')+(c.sample?' sample':''), role:'button', tabindex:'0', 'data-s':a, 'data-k':a+'|'+c.n, 'aria-label':c.n+', '+GEO[a].name});
       const ctt = el('title',{}); ctt.textContent = c.n+', '+GEO[a].name;
       g.appendChild(el('circle', {cx:c.x, cy:c.y, r:c.cap?3.2:c.sample?5:2.6}));
       if(c.cap) g.appendChild(el('circle', {class:'ring', cx:c.x, cy:c.y, r:6}));
@@ -157,14 +136,8 @@ function buildMap(){
   buildAirports();
   mountLabelLegend();
   const pick = $('#pick');
-  const itLocalePick = (location.pathname||'').indexOf('/it/')===0;
-  const chooseUnitPhrase = (unit) => {
-    if(!itLocalePick) return 'Choose a ' + unit + '…';
-    const unitMap = {"region":"Scelga una regione…","regione":"Scelga una regione…","community":"Scelga una comunità autonoma…","comunità":"Scelga una comunità autonoma…","Land":"Scelga un Land…","state":"Scelga uno Stato…","province":"Scelga una provincia…","provincia":"Scelga una provincia…","nation":"Scelga una nazione…"};
-    return unitMap[unit] || ('Scelga una ' + unit + '…');
-  };
   if(pick){
-    pick.innerHTML = `<option value="">${chooseUnitPhrase(DATA.unit)}</option>` +
+    pick.innerHTML = `<option value="">${mapChoosePlaceholder()}</option>` +
       ABBRS.map(a => `<option value="${a}">${esc(GEO[a].name)} (${a})</option>`).join('');
     pick.onchange = () => { if(pick.value) selectRegion(pick.value); };
 
@@ -182,12 +155,12 @@ function buildMap(){
     btn.className = 'state-picker-btn';
     btn.setAttribute('aria-haspopup', 'listbox');
     btn.setAttribute('aria-expanded', 'false');
-    const ph = chooseUnitPhrase(unit);
+    const ph = mapChoosePlaceholder();
     btn.innerHTML = '<span class="sp-label">' + ph + '</span><svg class="sp-chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.4 9.5 12 14.1l4.6-4.6 1.4 1.4-6 6-6-6z"/></svg>';
     const menu = document.createElement('ul');
     menu.className = 'state-picker-menu';
     menu.setAttribute('role', 'listbox');
-    const head = ({CA:'Provinces & territories', MX:'States', UK:'Regions', FR:'Regions', DE:'Länder', IT:'Regions', ES:'Communities'}[DATA && DATA.country]) || 'Regions';
+    const head = ({CA:'Provinces & territories', MX:'States', UK:'Regions', FR:'Regions', DE:'Länder', IT:'Regions', ES:'Communities', JP:'Prefectures', KR:'Provinces & cities'}[DATA && DATA.country]) || 'Regions';
     menu.innerHTML = '<li class="sp-head" aria-hidden="true">' + head + '</li>' +
       ABBRS.map(a => `<li role="option" data-a="${a}" aria-selected="false"><span class="sp-name">${esc(GEO[a].name)}</span><span class="sp-code">${a}</span></li>`).join('');
     wrap.append(btn, menu);
@@ -238,7 +211,9 @@ function buildAirports(){
     g.setAttribute('transform', `translate(${ap.x} ${ap.y})`);
     const ax=ap.ldx||0, ay=ap.ldy==null?16:ap.ldy, ta=ap.anchor||'middle';
     const tx = el('text', {x:ax, y:ay, 'text-anchor':ta, class:ap.mapLabel?'map-label':'map-label'});
-    tx.textContent = ap.mapLabel||ap.code; g.appendChild(tx);
+    tx.textContent = ap.mapLabel||ap.code;
+    if(ap.pinLabel) tx.setAttribute('data-pin','1');
+    g.appendChild(tx);
     if(ap.mapName){ const t2=el('text',{x:ax,y:ay+14,'text-anchor':ta,class:'map-name'}); t2.textContent=ap.mapName; g.appendChild(t2); }
     const tt = el('title',{}); tt.textContent = `${ap.code} — ${ap.name||ap.city}`; g.appendChild(tt);
     g.setAttribute('aria-label', `${ap.code}, ${ap.name||''}, ${ap.city}`);
@@ -249,6 +224,61 @@ function buildAirports(){
 }
 
 
+
+function mapLang(){
+  const blob=((document.documentElement.lang||'')+' '+(document.documentElement.getAttribute('data-lang')||'')).toLowerCase();
+  let stored='';
+  try{ stored=(localStorage.getItem('ppc_lang')||'').toLowerCase(); }catch(_){}
+  if(/\bit\b/.test(blob) || stored==='it') return 'it';
+  if(/\bes\b/.test(blob) || stored==='es') return 'es';
+  return 'en';
+}
+function mapChoosePlaceholder(){
+  const lang=mapLang();
+  const unit=(DATA && DATA.unit) || 'region';
+  if(lang==='es') return unit==='community' ? 'Elija una comunidad autónoma…' : 'Elija una región…';
+  if(lang==='it') return unit==='community' ? 'Scelga una comunità autonoma…' : 'Scelga una regione…';
+  return 'Choose a ' + unit + '…';
+}
+function mapPickTitle(){
+  const lang=mapLang();
+  const unit=(DATA && DATA.unit) || 'region';
+  if(lang==='es') return unit==='community' ? 'Seleccione una comunidad autónoma o ciudad' : 'Seleccione una región o ciudad';
+  if(lang==='it') return unit==='community' ? 'Selezioni una comunità autonoma o una città' : 'Selezioni una regione o una città';
+  return 'Pick a ' + unit + ' or city';
+}
+function mapClickLead(){
+  const lang=mapLang();
+  const unit=(DATA && DATA.unit) || 'region';
+  if(lang==='es') return 'Haga clic en cualquier región del mapa (or use the list) to open its panel. Plane marks are the airport hubs:';
+  if(lang==='it') return 'Faccia clic su una regione qualsiasi della mappa (or use the list) to open its panel. Plane marks are the airport hubs:';
+  return 'Click any ' + unit + ' on the map (or use the list) to open its panel. Plane marks are the airport hubs:';
+}
+function mapJourneyOrder(){
+  const lang=mapLang();
+  if(lang==='es') return 'Orden del viaje: 1 veterinario + normativa → 2 carretera/tren → 3 avión → 4 hotel → 5 peluquería.';
+  if(lang==='it') return 'Ordine del viaggio: 1 veterinario + normative → 2 strada/treno → 3 aereo → 4 hotel → 5 toelettatura.';
+  return 'Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel → 5 grooming.';
+}
+function mapPanelVetLaws(){
+  const lang=mapLang();
+  if(lang==='es') return 'Veterinario + normativa';
+  if(lang==='it') return 'Veterinario + normative';
+  return 'Vet + laws';
+}
+function mapPanelAuthority(){
+  const lang=mapLang();
+  if(lang==='es') return 'AUTORIDAD';
+  if(lang==='it') return 'AUTORITÀ';
+  return 'Authority';
+}
+function mapPanelMainCities(){
+  const lang=mapLang();
+  if(lang==='es') return 'CIUDADES PRINCIPALES';
+  if(lang==='it') return 'CITTÀ PRINCIPALI';
+  return 'Main cities';
+}
+
 function mountLabelLegend(){
   const root = $('#country-map') || document.getElementById('country-map');
   const host = root && root.querySelector('.mapcard');
@@ -256,16 +286,13 @@ function mountLabelLegend(){
   const lang = ((document.documentElement.lang||'') + ' ' + (document.documentElement.getAttribute('data-lang')||'')).toLowerCase();
   let es = /\bes\b/.test(lang);
   try{ es = es || (localStorage.getItem('ppc_lang')||'')==='es'; }catch(_){}
-  const itLeg = (location.pathname||'').indexOf('/it/')===0;
-  const L = itLeg
-    ? {r:'Regioni', c:'Città', k:'Capitale', a:'Aeroporti internazionali'}
-    : es
+  const L = es
     ? {r:'Regiones', c:'Ciudades', k:'Capital', a:'Aeropuertos internacionales'}
     : {r:'Regions', c:'Cities', k:'Capital', a:'International airports'};
   const box = document.createElement('div');
   box.className = 'lbl-legend';
   box.setAttribute('role','note');
-  box.setAttribute('aria-label', itLeg ? 'Legenda dei colori delle etichette' : es ? 'Leyenda de etiquetas' : 'Label colour legend');
+  box.setAttribute('aria-label', es ? 'Leyenda de etiquetas' : 'Label colour legend');
   box.innerHTML =
     '<span class="ll-r"><i aria-hidden="true"></i>'+L.r+'</span>'+
     '<span class="ll-c"><i aria-hidden="true"></i>'+L.c+'</span>'+
@@ -286,15 +313,9 @@ function buildPortalGrid(){
 
 /* ---------- panel content ---------- */
 let step = 1, cur = null;
-
-function onIt(){ return (location.pathname||'').indexOf('/it/')===0; }
-function itThisUnit(unit){
-  const m={"regione":"questa regione","region":"questa regione","community":"questa comunità","comunità":"questa comunità","Land":"questo Land","provincia":"questa provincia","province":"questa provincia","nazione":"questa nazione","nation":"questa nazione","Stato":"questo Stato","state":"questo Stato"};
-  return m[unit] || ('questa/o ' + unit);
-}
 function header(a, title, sub){
   const P = window.PPC_PST ? PPC_PST('map','pst-ph') : '';
-  return `<div class="ph theme-map accent-head"><div class="mark">${esc(a)}</div><div><div class="ph-eye">${P}<span>${(location.pathname||"").indexOf("/it/")===0 ? ("Mappa "+esc(DATA.name)+" · pannello "+esc(DATA.unit)) : (esc(DATA.name)+" map · "+esc(DATA.unit)+" panel")}</span></div><h2>${esc(title)}</h2><div class="sub">${sub}</div></div></div>`;
+  return `<div class="ph theme-map accent-head"><div class="mark">${esc(a)}</div><div><div class="ph-eye">${P}<span>${esc(DATA.name)} map · ${esc(DATA.unit)} panel</span></div><h2>${esc(title)}</h2><div class="sub">${sub}</div></div></div>`;
 }
 function dogsCatsBlock(){
   const d = DATA.dogs||{}, c = DATA.cats||{};
@@ -343,10 +364,10 @@ function vetCard(hub){
 }
 function lawSection(a){
   const nm = GEO[a]?GEO[a].name:a;
-  let s = `<section class="sec" data-sec="1"><h3><span class="n">1</span>Vet + laws</h3>`;
+  let s = `<section class="sec" data-sec="1"><h3><span class="n">1</span>${esc(mapPanelVetLaws())}</h3>`;
   if(DATA.entry_note) s += `<p class="disc">${esc(DATA.entry_note)}</p>`;
   /* Authority is body copy (muted), never a gold uppercase h4 — gold is for map selection + short section labels. */
-  s += `<h4>Authority</h4>`;
+  s += `<h4>${esc(mapPanelAuthority())}</h4>`;
   if(DATA.authority && DATA.authority !== 'Coming soon'){
     s += `<p class="disc">${esc(DATA.authority)}</p>`;
   } else {
@@ -354,18 +375,18 @@ function lawSection(a){
   }
   if(DATA.officialUrl){
     const checked = DATA.lastChecked ? ('Checked '+DATA.lastChecked) : '';
-    s += `<div class="links">${lk('🏛', ((location.pathname||'').indexOf('/it/')===0 ? ('Pagina ufficiale di ingresso con animali — '+DATA.name) : (DATA.name+' official pet-entry page')), checked, DATA.officialUrl, 'off')}</div>`;
+    s += `<div class="links">${lk('🏛', DATA.name+' official pet-entry page', checked, DATA.officialUrl, 'off')}</div>`;
   }
   s += dogsCatsBlock();
   s += breedBlock(a);
-  s += `<h4>${onIt()?'Rientro negli USA':'Return to the US'}</h4><p>${esc(DATA.returnToUs)}</p>`;
+  s += `<h4>Return to the US</h4><p>${esc(DATA.returnToUs)}</p>`;
   const hubs = hubForRegion(a);
   if(hubs.length){
     s += `<h4>Verified clinic near ${esc(nm)}</h4>` + hubs.map(vetCard).join('');
   } else {
-    s += `<h4>${onIt()?'Ambulatorio':'Clinic'}</h4><div class="stubbox">${onIt()?('Nessun ambulatorio verificato elencato per '+itThisUnit(DATA.unit)+' per ora — lo confermi con un veterinario locale abilitato.'):('No verified clinic listed for this '+DATA.unit+' yet — confirm with a local licensed vet.')}</div>`;
+    s += `<h4>Clinic</h4><div class="stubbox">No verified clinic listed for this ${DATA.unit} yet — confirm with a local licensed vet.</div>`;
   }
-  s += `<p class="disc">${onIt()?('Riferimento completo: <a href="'+DATA.guideUrl+'">guida al viaggio con animali — '+esc(DATA.name)+'</a>. Non costituisce consulenza legale o veterinaria.'):('Full reference: <a href="'+DATA.guideUrl+'">'+esc(DATA.name)+' pet-travel guide</a>. Not legal or veterinary advice.')}</p></section>`;
+  s += `<p class="disc">Full reference: <a href="${DATA.guideUrl}">${esc(DATA.name)} pet-travel guide</a>. Not legal or veterinary advice.</p></section>`;
   return s;
 }
 function roadSection(a){
@@ -391,7 +412,7 @@ function roadSection(a){
   hubs.forEach(h => {
     if(h.transit) s += `<h4>${esc(h.city)} local transit</h4><p>${esc(h.transit)}</p>`;
   });
-  if(!hubs.length) s += `<div class="stubbox">${onIt()?('Le regole sui mezzi pubblici per gli animali in '+itThisUnit(DATA.unit)+' non sono ancora pubblicate su questa mappa — lo confermi direttamente.'):('Local transit pet rules for this '+DATA.unit+' are not published on this map yet — confirm directly.')}</div>`;
+  if(!hubs.length) s += `<div class="stubbox">Local transit pet rules for this ${DATA.unit} are not published on this map yet — confirm directly.</div>`;
   return s + `</section>`;
 }
 function planeSection(a, apCode){
@@ -408,8 +429,8 @@ function planeSection(a, apCode){
     s += `</div>`;
     if(!h.relief_url && h.relief_note) s += `<div class="stubbox">${esc(h.relief_note)}</div>`;
   });
-  if(!hubs.length) s += `<div class="stubbox">${onIt()?('Nessun hub aeroportuale verificato per '+itThisUnit(DATA.unit)+' su questa mappa per ora.'):('No verified airport hub for this '+DATA.unit+' on this map yet.')}</div>`;
-  s += `<div class="links">${lk('🧳',onIt()?'Regole delle compagnie sugli animali':'Airline pet policies',onIt()?'Cabina, tariffe, stiva':'Cabin, fees, hold','../#compare','off').replace('Official','Site').replace(' target="_blank"','')}</div></section>`;
+  if(!hubs.length) s += `<div class="stubbox">No verified airport hub for this ${DATA.unit} on this map yet.</div>`;
+  s += `<div class="links">${lk('🧳','Airline pet policies','Cabin, fees, hold','../#compare','off').replace('Official','Site').replace(' target="_blank"','')}</div></section>`;
   return s;
 }
 function hotelSection(a, qCity){
@@ -440,10 +461,10 @@ function groomSection(a){
       s += `<div class="links">${lk('✂️', g.name, (bits.join(' · ')||g.city||''), g.url, g.url?'off':'stub')}</div>`;
     });
     if(!(h.grooming||[]).length && h.grooming_q){
-      s += `<div class="stubbox">${onIt()?('Nessun salone verificato elencato per '+esc(h.city)+' per ora. Ricerca: <em>'+esc(h.grooming_q)+'</em> — e chiami prima riguardo ai documenti vaccinali.'):('No verified salon listed for '+esc(h.city)+' yet. Search: <em>'+esc(h.grooming_q)+'</em> — and call ahead about vaccine papers.')}</div>`;
+      s += `<div class="stubbox">No verified salon listed for ${esc(h.city)} yet. Search: <em>${esc(h.grooming_q)}</em> — and call ahead about vaccine papers.</div>`;
     }
   });
-  if(!hubs.length && !any) s += `<div class="stubbox">${onIt()?('Nessun salone verificato per '+itThisUnit(DATA.unit)+' su questa mappa per ora.'):('No verified salon for this '+DATA.unit+' on this map yet.')}</div>`;
+  if(!hubs.length && !any) s += `<div class="stubbox">No verified salon for this ${DATA.unit} on this map yet.</div>`;
   s += `<p class="disc">Also see the <a href="../grooming/">Grooming directory</a>.</p></section>`;
   return s;
 }
@@ -556,6 +577,14 @@ function _airportRank(code){
 }
 function resolveLabelOverlaps(){
   const m=$('#map'); if(!m) return;
+  const _cc0=(typeof DATA!=='undefined' && DATA.country)||'';
+  if(/^(FR|UK|DE|IT|ES|JP|KR)$/.test(_cc0)){
+    m.querySelectorAll('#g-lb text.lbl').forEach(t=>{
+      const ts=t.querySelectorAll('tspan');
+      if(!ts.length) return;
+      t.textContent=[...ts].map(s=>(s.textContent||'').trim()).filter(Boolean).join(' ');
+    });
+  }
   m.querySelectorAll('#g-lb line.lbl-lead[data-temp="1"]').forEach(n=>n.remove());
   m.querySelectorAll('.lbl-crowd,.ct-crowd,.ct-label-crowd,.ap-crowd,.ap-name-crowd,.ap-code-crowd').forEach(n=>n.classList.remove('lbl-crowd','ct-crowd','ct-label-crowd','ap-crowd','ap-name-crowd','ap-code-crowd'));
   const vis=el=>{
@@ -566,13 +595,38 @@ function resolveLabelOverlaps(){
   };
   const mapBox=m.getBoundingClientRect();
   const inMap=box=>!(box.right<mapBox.left+4 || box.left>mapBox.right-4 || box.bottom<mapBox.top+4 || box.top>mapBox.bottom-4);
+  const inMapFull=box=>box.left>=mapBox.left+1 && box.right<=mapBox.right-1 && box.top>=mapBox.top+1 && box.bottom<=mapBox.bottom-1;
+  const screenToSvg=(x,y)=>{
+    const v=(typeof vb!=='undefined' && vb && vb.length===4)?vb:[0,0,975,610];
+    return [v[0]+(x-mapBox.left)*v[2]/mapBox.width, v[1]+(y-mapBox.top)*v[3]/mapBox.height];
+  };
+  const insetBoxes=()=>{
+    const boxes=[];
+    if(typeof GEO==='undefined'||!GEO) return boxes;
+    const keys=(typeof ABBRS!=='undefined'&&ABBRS)?ABBRS:Object.keys(GEO);
+    for(const a of keys){
+      const g=GEO[a]; if(!g||!g.inset) continue;
+      if(g.insetBox&&g.insetBox.length===4){ boxes.push(g.insetBox); continue; }
+      const p=document.getElementById('s-'+a);
+      if(p&&p.getBBox){ try{ const b=p.getBBox(); boxes.push([b.x,b.y,b.width,b.height]); }catch(_){ } }
+    }
+    return boxes;
+  };
+  const underInset=box=>{
+    const insets=insetBoxes(); if(!insets.length) return false;
+    const p1=screenToSvg(box.left,box.top), p2=screenToSvg(box.right,box.bottom);
+    for(const [x,y,w,h] of insets){
+      if(p1[1]>=y+h-2 && !(p2[0]<x-8 || p1[0]>x+w+8)) return true;
+    }
+    return false;
+  };
   const full=(typeof isFull==='function')?isFull():true;
   const nCap=m.querySelectorAll('#g-ct .ct.cap').length;
   const nMaj=m.querySelectorAll('#g-ap .ap.ap-major').length;
   const nAp=[...m.querySelectorAll('#g-ap .ap')].filter(g=>getComputedStyle(g).display!=='none').length;
   const cc=(typeof DATA!=='undefined' && DATA.country)||(document.getElementById('usa-map')&&'US')||'';
   /* Marc 09:03 KST: at 390, crowded maps keep capitals + major airports; region names wait for zoom. */
-  const crowdedMobile=full && mapBox.width<500 && (/^(FR|UK|DE|US|IT|ES)$/.test(cc) || (/^(KR|JP)$/.test(cc) && (nCap+(nMaj||nAp))>=12));
+  const crowdedMobile=full && mapBox.width<500 && (/^(FR|UK|DE|US|IT|ES|JP|KR)$/.test(cc));
   const items=[];
   m.querySelectorAll('#g-lb text.lbl').forEach(t=>{
     _restorePos(t);
@@ -584,29 +638,34 @@ function resolveLabelOverlaps(){
     if(lead && lead.dataset.ox2==null){ lead.dataset.ox2=lead.getAttribute('x2')||''; lead.dataset.oy2=lead.getAttribute('y2')||''; lead.dataset.ox1=lead.getAttribute('x1')||''; lead.dataset.oy1=lead.getAttribute('y1')||''; }
     if(lead && lead.dataset.ox2!=null){ lead.setAttribute('x2', lead.dataset.ox2); lead.setAttribute('y2', lead.dataset.oy2); }
     const c=(typeof GEO!=='undefined' && GEO[id] && GEO[id].c) ? GEO[id].c : null;
-    items.push({el:t, pri: area>12000?34: area>5000?40:48, kind:'region', hide:'lbl-crowd', id, path, lead, keep:false, c,
-      defer:crowdedMobile,
+    const group=t.classList.contains('lbl-group');
+    items.push({el:t, pri: group?(crowdedMobile?36:26): area>12000?34: area>5000?40:48, kind:'region', hide:'lbl-crowd', id, path, lead, keep:false, c,
+      defer:crowdedMobile && !group,
       orig:{x:+(t.dataset.ox), y:+(t.dataset.oy), anchor:t.dataset.ota||t.getAttribute('text-anchor')||'middle'}});
   });
   const tight=/^(IT|ES)$/.test(cc);
-  m.querySelectorAll('#g-ct .ct').forEach(g=>{
-    const t=g.querySelector('text'); if(!t) return;
+  const compact=/^(FR|UK|DE|IT|ES|JP|KR)$/.test(cc);
+  const jpkr=/^(JP|KR)$/.test(cc);
+  function pushCity(t,g){
+    if(!t) return;
     _restorePos(t);
-    const cap=g.classList.contains('cap');
+    const cap=t.classList.contains('is-cap') || !!(g && g.classList.contains('cap'));
+    const major=t.classList.contains('is-major') || !!(g && g.classList.contains('major'));
     const pin=t.getAttribute('data-pin')==='1';
-    items.push({el:t, pri: pin?5: cap?(tight?8:20):54, kind: cap?'cap':'city', hide: tight?'ct-label-crowd':'ct-crowd', hideEl: tight?t:g, keep:false, pin, labelOnlyHide:tight,
+    items.push({el:t, pri: pin?5: cap?(tight?8:20): major?24:54, kind: cap?'cap':'city', hide: (tight||compact)?'ct-label-crowd':'ct-crowd', hideEl: (tight||compact)?t:g, keep:false, pin, labelOnlyHide:tight||compact, defer:crowdedMobile && !cap && !major && !pin,
       orig:{x:+(t.dataset.ox), y:+(t.dataset.oy), anchor:t.dataset.ota||t.getAttribute('text-anchor')||'start'}});
+  }
+  m.querySelectorAll('#g-ct .ct').forEach(g=>pushCity(g.querySelector('text'), g));
+  m.querySelectorAll('#g-lb text.ct-label').forEach(t=>{
+    const key=t.dataset.owner||'';
+    const g=key?m.querySelector('#g-ct .ct[data-k="'+key.replace(/"/g,'')+'"]'):null;
+    pushCity(t,g);
   });
-  m.querySelectorAll('#g-ap .ap').forEach(g=>{
-    if(getComputedStyle(g).display==='none') return;
-    const major=g.classList.contains('ap-major') || !!document.getElementById('usa-map');
-    const codeEl=g.querySelector('text.map-label, text:not(.map-name)');
-    const name=g.querySelector('text.map-name');
-    const code=(g.getAttribute('data-code')||(codeEl&&codeEl.textContent)||'').trim();
+  function pushAirportText(codeEl, name, g, code, major){
     if(codeEl){
       _restorePos(codeEl);
-      /* Codes are hideable if they cannot be placed with zero overlap (lower-rank goes to zoom). */
-      items.push({el:codeEl, pri: 10+_airportRank(code)*0.4, kind: major?'ap-major':'ap-code', hide:'ap-code-crowd', keep:false, code,
+      const apPin=codeEl.getAttribute('data-pin')==='1';
+      items.push({el:codeEl, pri: apPin?5: 10+_airportRank(code)*0.4, kind: major?'ap-major':'ap-code', hide:'ap-code-crowd', keep:false, pin:apPin, code,
         orig:{x:+(codeEl.dataset.ox), y:+(codeEl.dataset.oy), anchor:codeEl.dataset.ota||codeEl.getAttribute('text-anchor')||'middle'}});
     }
     if(name){
@@ -614,7 +673,25 @@ function resolveLabelOverlaps(){
       items.push({el:name, pri:90, kind:'ap-name', hide:'ap-name-crowd', keep:false, nameOnly:true, code,
         orig:{x:+(name.dataset.ox), y:+(name.dataset.oy), anchor:name.dataset.ota||name.getAttribute('text-anchor')||'middle'}});
     }
+  }
+  m.querySelectorAll('#g-ap .ap').forEach(g=>{
+    if(getComputedStyle(g).display==='none') return;
+    const major=g.classList.contains('ap-major') || !!document.getElementById('usa-map');
+    const codeEl=g.querySelector('text.map-label, text:not(.map-name)');
+    const name=g.querySelector('text.map-name');
+    const code=(g.getAttribute('data-code')||(codeEl&&codeEl.textContent)||'').trim();
+    pushAirportText(codeEl, name, g, code, major);
   });
+  const grouped={};
+  m.querySelectorAll('#g-lb text.ap-label').forEach(t=>{
+    const code=(t.dataset.owner||(t.textContent||'').trim());
+    const g=code?m.querySelector('#g-ap .ap[data-code="'+code.replace(/"/g,'')+'"]'):null;
+    if(g && getComputedStyle(g).display==='none') return;
+    if(!grouped[code]) grouped[code]={g, code, major: !!(g && (g.classList.contains('ap-major') || document.getElementById('usa-map')))};
+    if(t.classList.contains('map-name')) grouped[code].name=t;
+    else grouped[code].codeEl=t;
+  });
+  Object.values(grouped).forEach(o=>pushAirportText(o.codeEl, o.name, o.g, o.code, o.major));
   function hideItem(it){
     it._hidden=true;
     _applyPos(it.el, it.orig);
@@ -637,7 +714,8 @@ function resolveLabelOverlaps(){
       const box=vis(it.el);
       if(!box) continue;
       if(opts.requireInMap && !inMap(box)) continue;
-      if(opts.requireInMapFull && !(box.left>=mapBox.left+1 && box.right<=mapBox.right-1 && box.top>=mapBox.top+1 && box.bottom<=mapBox.bottom-1)) continue;
+      if(opts.requireInMapFull && !inMapFull(box)) continue;
+      if(opts.noUnderInset && underInset(box)) continue;
       if(it.kind==='region'){
         const isOrig=Math.abs(s.x-it.orig.x)<0.2 && Math.abs(s.y-it.orig.y)<0.2;
         if(!isOrig){
@@ -669,8 +747,21 @@ function resolveLabelOverlaps(){
     if(!mark) return;
     const box=vis(mark);
     if(!box) return;
-    placed.push({box, pri:-5, keep:true, kind:'ap-icon', code:(g.getAttribute('data-code')||'').trim()});
+    const pad=jpkr?4:(compact?2:0);
+    const ib=pad?{left:box.left-pad,right:box.right+pad,top:box.top-pad,bottom:box.bottom+pad}:box;
+    placed.push({box:ib, pri:-5, keep:true, kind:'ap-icon', code:(g.getAttribute('data-code')||'').trim()});
   });
+  if(compact){
+    m.querySelectorAll('#g-ct .ct').forEach(g=>{
+      if(getComputedStyle(g).display==='none' || g.classList.contains('ct-crowd')) return;
+      const mark=g.querySelector('circle.ring')||g.querySelector('circle');
+      if(!mark) return;
+      const box=vis(mark);
+      if(!box) return;
+      const pad=jpkr?4:2;
+      placed.push({box:{left:box.left-pad,right:box.right+pad,top:box.top-pad,bottom:box.bottom+pad}, pri:-6, keep:true, kind:'ct-mark'});
+    });
+  }
   items.sort((a,b)=>a.pri-b.pri);
   for(const it of items){
     if(it.defer){ hideItem(it); continue; }
@@ -684,23 +775,23 @@ function resolveLabelOverlaps(){
       _applyPos(it.el, it.orig);
       const box=vis(it.el);
       const sc=box?_scoreSlot(box, placed, 4, it):{n:1,area:1};
-      if(box && inMap(box) && sc.n===0){ it.box=box; placed.push(it); }
+      if(box && ((compact||tight)?(inMapFull(box)&&!underInset(box)):inMap(box)) && sc.n===0){ it.box=box; placed.push(it); }
       else hideItem(it);
       continue;
     }
     if(it.pin){
       _applyPos(it.el, it.orig);
       const box=vis(it.el);
-      const fully=box && box.left>=mapBox.left+1 && box.right<=mapBox.right-1 && box.top>=mapBox.top+1 && box.bottom<=mapBox.bottom-1;
+      const fully=box && inMapFull(box) && !underInset(box);
       const sc=box?_scoreSlot(box, placed, 4, it):{n:1,area:1};
       if(box && fully && sc.n===0){ it.box=box; placed.push(it); continue; }
     }
-    const maxPx = tight
-      ? (it.kind==='region'?76 : it.kind==='cap'?36 : (it.kind==='city'||it.kind==='ap-major'||it.kind==='ap-code')?28 : 24)
+    const maxPx = (tight||compact)
+      ? (it.kind==='region'?76 : it.kind==='cap'?48 : (it.kind==='city'||it.kind==='ap-major'||it.kind==='ap-code')?36 : 24)
       : (it.kind==='region'?48:76);
     const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, maxPx);
     const requireInPath=(it.kind==='region' && it.path && (!it.lead || tight));
-    const found=tryPlace(it, slots, placed, {requireInPath, requireInMap:true, requireInMapFull:!!it.pin});
+    const found=tryPlace(it, slots, placed, {requireInPath, requireInMap:true, requireInMapFull:compact||!!it.pin, noUnderInset:compact||!!it.pin});
     if(found && found.sc.n===0){
       _applyPos(it.el, {x:found.s.x, y:found.s.y, anchor:found.s.anchor||it.orig.anchor});
       if(it.lead){ it.lead.setAttribute('x2', (+found.s.x).toFixed(1)); it.lead.setAttribute('y2', (+found.s.y).toFixed(1)); }
@@ -713,9 +804,9 @@ function resolveLabelOverlaps(){
   /* Rescue hidden region names on zoom (or on a desktop full view) with a short nearby leader. */
   if(!crowdedMobile){
     items.filter(it=>it.kind==='region' && it._hidden).forEach(it=>{
-      const stayInside=tight;
+      const stayInside=tight||compact;
       const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, stayInside?24:48);
-      const found=tryPlace(it, slots, placed, {requireInMap:true, requireInPath:stayInside});
+      const found=tryPlace(it, slots, placed, {requireInMap:true, requireInMapFull:stayInside, noUnderInset:stayInside, requireInPath:stayInside});
       if(found && found.sc.n===0){
         it.el.classList.remove('lbl-crowd');
         it._hidden=false;
@@ -763,6 +854,68 @@ function resolveLabelOverlaps(){
     }
   }
 }
+/* JP/KR: paint every label in one top layer (g-lb moved after land,
+   markers and borders) so type is never hidden by a later region's fill. */
+function hoistMapLabels(){
+  const cc=(typeof DATA!=='undefined' && DATA.country)||'';
+  if(!/^(JP|KR|IT|ES)$/.test(cc)) return;
+  const svg=$('#map'); if(!svg) return;
+  const top=$('#g-lb'); if(!top) return;
+  svg.appendChild(top);
+  const gc=$('#g-ct');
+  if(gc){
+    gc.querySelectorAll('.ct text').forEach(t=>{
+      const g=t.closest('.ct');
+      t.dataset.kind=(g && g.classList.contains('cap'))?'capital':'city';
+      t.classList.add('ct-label');
+      if(g){
+        if(g.classList.contains('cap')) t.classList.add('is-cap');
+        if(g.classList.contains('major')) t.classList.add('is-major');
+        t.dataset.owner=g.getAttribute('data-k')||'';
+        if(!t.dataset.clickBound){
+          t.dataset.clickBound='1';
+          t.addEventListener('click', ev=>{ ev.stopPropagation(); g.dispatchEvent(new MouseEvent('click',{bubbles:true})); });
+        }
+      }
+      top.appendChild(t);
+    });
+  }
+  const ga=$('#g-ap');
+  if(ga){
+    ga.querySelectorAll('.ap text').forEach(t=>{
+      const g=t.closest('.ap');
+      if(!t.dataset.hoisted){
+        let ox=0, oy=0;
+        if(g){
+          const tr=g.getAttribute('transform')||'';
+          const m=/translate\(\s*([-+\d.eE]+)\s*[,\s]\s*([-+\d.eE]+)/.exec(tr);
+          if(m){ ox=+m[1]; oy=+m[2]; }
+        }
+        const nx=+(t.getAttribute('x')||0)+ox;
+        const ny=+(t.getAttribute('y')||0)+oy;
+        t.setAttribute('x', nx);
+        t.setAttribute('y', ny);
+        t.querySelectorAll('tspan').forEach(ts=>ts.setAttribute('x', nx));
+        if(t.dataset.ox!=null){
+          t.dataset.ox=String(+t.dataset.ox+ox);
+          t.dataset.oy=String(+t.dataset.oy+oy);
+        }
+        t.dataset.hoisted='1';
+      }
+      t.dataset.kind='airport';
+      t.classList.add('ap-label');
+      if(g && g.classList.contains('ap-zoomonly')) t.classList.add('ap-zoomonly');
+      if(g){
+        t.dataset.owner=g.getAttribute('data-code')||'';
+        if(!t.dataset.clickBound){
+          t.dataset.clickBound='1';
+          t.addEventListener('click', ev=>{ ev.stopPropagation(); g.dispatchEvent(new MouseEvent('click',{bubbles:true})); });
+        }
+      }
+      top.appendChild(t);
+    });
+  }
+}
 let _lblRaf=0;
 function refreshLabels(){
   syncLabelScale();
@@ -771,7 +924,9 @@ function refreshLabels(){
     _lblRaf=requestAnimationFrame(function(){
       _lblRaf=0;
       syncLabelScale();
+      hoistMapLabels();
       resolveLabelOverlaps();
+      if(typeof CFG.afterLabels==='function') CFG.afterLabels();
     });
   });
 }
@@ -836,7 +991,7 @@ function airportChips(list, heading){
 function cityButtons(a){
   const list = GEO[a].cities||[];
   if(!list.length) return '';
-  return `<h4 class="hd">Main cities</h4><div class="citylist">${list.map(c=>`<button type="button" data-s="${a}" data-city="${esc(c.n)}" class="${c.sample?'sample':''}">${esc(c.n)}${c.cap?' (capital)':''}</button>`).join('')}</div>`;
+  return `<h4 class="hd">${esc(mapPanelMainCities())}</h4><div class="citylist">${list.map(c=>`<button type="button" data-s="${a}" data-city="${esc(c.n)}" class="${c.sample?'sample':''}">${esc(c.n)}${c.cap?' (capital)':''}</button>`).join('')}</div>`;
 }
 function selectRegion(a){
     document.querySelectorAll('#g-st path.st:focus, #g-st path.st:focus-visible').forEach(function(el){ try{el.blur()}catch(_){ } });
@@ -884,21 +1039,9 @@ function resetAll(){
 /* USA empty(): "Pick a state or city" + city and airport shortcuts. */
 function empty(){
   const cities=[]; for(const a of ABBRS) for(const c of (GEO[a].cities||[])) if(c.sample) cities.push([a,c.n]);
-  const itLocale = (location.pathname||'').indexOf('/it/')===0;
-  let pick, click, journey;
-  if(itLocale){
-    const unitMap = {"state": "Scelga uno Stato o una città", "Land": "Scelga un Land o una città", "region": "Selezioni una regione o una città", "regione": "Selezioni una regione o una città", "community": "Selezioni una comunità autonoma o una città", "comunità": "Selezioni una comunità autonoma o una città", "province": "Scelga una provincia o una città", "provincia": "Scelga una provincia o una città"};
-    pick = unitMap[DATA.unit] || ('Scelga un ' + esc(DATA.unit) + ' o una città');
-    click = "Faccia clic su una regione qualsiasi della mappa (o usi l’elenco) per aprirne il pannello. I simboli dell’aereo sono gli hub aeroportuali:";
-    journey = "Ordine del viaggio: 1 veterinario + normative → 2 strada/treno → 3 aereo → 4 hotel → 5 toelettatura.";
-  } else {
-    pick = 'Pick a ' + esc(DATA.unit) + ' or city';
-    click = 'Click any ' + esc(DATA.unit) + ' on the map (or use the list) to open its panel. Plane marks are the airport hubs:';
-    journey = 'Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel → 5 grooming.';
-  }
-  $('#panel').innerHTML=`<div class="empty"><div class="big">${pick}</div><p>${click}</p>`+
+  $('#panel').innerHTML=`<div class="empty"><div class="big">${esc(mapPickTitle())}</div><p>${esc(mapClickLead())}</p>`+
     (cities.length?`<div class="citylist">${cities.map(([a,n])=>`<button type="button" class="sample" data-s="${a}" data-city="${esc(n)}">${esc(n)}</button>`).join('')}</div>`:'')+
-    `<div class="citylist">${AIRPORTS.map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.city)}</button>`).join('')}</div><p class="disc">${journey}</p></div>`;
+    `<div class="citylist">${AIRPORTS.map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.city)}</button>`).join('')}</div><p class="disc">${esc(mapJourneyOrder())}</p></div>`;
   $('#panel').querySelectorAll('[data-city]').forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
   $('#panel').querySelectorAll('[data-ap]').forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
 }
@@ -943,16 +1086,15 @@ function initFreeZoom(){const m=$('#map');if(!m)return;
  let wrap=m.parentNode;if(!wrap.classList.contains('mapwrap')){wrap=document.createElement('div');wrap.className='mapwrap';m.parentNode.insertBefore(wrap,m);wrap.appendChild(m)}
  /* Country-specific empty-space placement: CA Pacific SW, MX Pacific SW (desktop). Mobile: under map. */
  wrap.classList.add('zoom-pos-'+({MX:'mx',CA:'ca',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp',IT:'it',ES:'es'}[DATA.country]||'ca'));
- if(!$('#zin')){const z=document.createElement('div');z.className='zoom';z.setAttribute('role','group');z.setAttribute('aria-label',onIt()?'Zoom della mappa':'Map zoom');
-  const zi=onIt()?'Ingrandisci':'Zoom in', zo=onIt()?'Riduci':'Zoom out', zr=onIt()?'Reimposta la vista della mappa':'Reset map view';
-  z.innerHTML='<button type="button" id="zin" aria-label="'+zi+'" title="'+zi+'">+</button><button type="button" id="zout" aria-label="'+zo+'" title="'+zo+'">&minus;</button><button type="button" id="zreset" aria-label="'+zr+'" title="'+zr+'">&#8634;</button>';
+ if(!$('#zin')){const z=document.createElement('div');z.className='zoom';z.setAttribute('role','group');z.setAttribute('aria-label','Map zoom');
+  z.innerHTML='<button type="button" id="zin" aria-label="Zoom in" title="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out" title="Zoom out">&minus;</button><button type="button" id="zreset" aria-label="Reset map view" title="Reset map view">&#8634;</button>';
   wrap.appendChild(z)}
  const ctr=()=>[vb[0]+vb[2]/2,vb[1]+vb[3]/2];
  $('#zin').onclick=()=>{const c=ctr();zoomAt(c[0],c[1],1.6,250)};
  $('#zout').onclick=()=>{const c=ctr();zoomAt(c[0],c[1],1/1.6,250)};
  $('#zreset').onclick=()=>animateTo(FULL,300);
  const note=document.querySelector('#country-map .mapnote');
- if(note&&!note.querySelector('.mhint')){note.insertAdjacentHTML('afterbegin', onIt()?'<span class="mhint">Pizzichi con due dita per lo zoom, scorra di lato per spostare la mappa. </span><span class="dhint">Scorra sulla mappa per lo zoom, trascini per spostarla. </span>':'<span class="mhint">Pinch with two fingers to zoom, swipe sideways to move the map. </span><span class="dhint">Scroll over the map to zoom, drag to move. </span>')}
+ if(note&&!note.querySelector('.mhint')){note.insertAdjacentHTML('afterbegin','<span class="mhint">Pinch with two fingers to zoom, swipe sideways to move the map. </span><span class="dhint">Scroll over the map to zoom, drag to move. </span>')}
  syncZoomUI();
  const toSVG=(cx,cy)=>{const r=m.getBoundingClientRect();return [vb[0]+(cx-r.left)*vb[2]/r.width,vb[1]+(cy-r.top)*vb[3]/r.height]};
  const perPx=()=>vb[2]/(m.getBoundingClientRect().width||MAP_W);

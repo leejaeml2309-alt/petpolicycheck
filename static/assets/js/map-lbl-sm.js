@@ -1,5 +1,5 @@
 /* Compact plain-label contrast + placement (UK/FR/DE/IT/ES/JP/KR only).
-   Samples real pixels under each label bbox (map rendered without labels).
+   Places labels on a single surface (dense isPointInFill grid + stroke check).
    Land uses the shared dark type colours; light tints are for sea (and gold
    selection) only. Never loads on USA / Canada / Mexico pages. */
 (function(){
@@ -9,6 +9,7 @@
   if(!root || !root.classList.contains('map-lbl-sm')) return;
   const CC = (CFG.data && CFG.data.country) || (typeof DATA!=='undefined' && DATA.country) || '';
   const JPKR = /^(JP|KR)$/.test(CC);
+  const ITES = /^(IT|ES)$/.test(CC);
   /* Preferred anchors (user units), keyed by label type so a region name
      never steals an airport or city of the same word (Kansai, Jeju, Naha). */
   const PREFERRED = JPKR ? {
@@ -21,13 +22,13 @@
       'Kyushu-Okinawa': {x:122, y:542, anchor:'middle'}
     },
     city: {
-      'Hongseong': {x:460, y:218, anchor:'middle'},
+      'Hongseong': {x:474, y:224, anchor:'middle'},
       'Ulsan': {x:695, y:350, anchor:'start'},
       'Jeju': {x:446, y:524, anchor:'middle'},
       'Naha': {x:140, y:518, anchor:'end'},
       'Sendai': {x:518, y:292, anchor:'middle'},
-      'Yokohama': {x:475, y:426, anchor:'end'},
-      'Kobe': {x:338, y:438, anchor:'end'},
+      'Yokohama': {x:470, y:420, anchor:'end'},
+      'Kobe': {x:320, y:432, anchor:'end'},
       'Osaka': {x:350, y:418, anchor:'middle'},
       'Sejong': {x:548, y:250, anchor:'start'}
     },
@@ -43,7 +44,55 @@
       'OKA': {x:128, y:478, anchor:'end'},
       'Naha': {x:128, y:490, anchor:'end'},
       'CJU': {x:420, y:538, anchor:'end'},
-      'CJJ': {x:575, y:225, anchor:'start'}
+      'CJJ': {x:540, y:196, anchor:'start'},
+      'TAE': {x:599, y:312, anchor:'end'},
+      'PUS': {x:604, y:384, anchor:'end'},
+      'MWX': {x:400, y:424, anchor:'end'}
+    }
+  } : CC==='IT' ? {
+    region: {
+      'Abruzzo': {x:538, y:232, anchor:'middle'}
+    },
+    city: {
+      'Campobasso': {x:567, y:296, anchor:'middle'},
+      "L'Aquila": {x:519, y:252, anchor:'end'},
+      'Aosta': {x:287, y:90, anchor:'middle'},
+      'Turin': {x:300, y:130, anchor:'end'},
+      'Rome': {x:484, y:272, anchor:'middle'},
+      'Milan': {x:359, y:125, anchor:'middle'},
+      'Bari': {x:640, y:326, anchor:'end'},
+      'Ancona': {x:510, y:197, anchor:'end'},
+      'Trento': {x:432, y:78, anchor:'middle'}
+    },
+    capital: {},
+    airport: {
+      'FCO': {x:462, y:306, anchor:'end'},
+      'CIA': {x:504, y:318, anchor:'start'},
+      'BGY': {x:392, y:118, anchor:'start'},
+      'MXP': {x:328, y:112, anchor:'end'},
+      'PEG': {x:503.7, y:224, anchor:'start'},
+      'PSR': {x:555, y:270, anchor:'start'},
+      'BRI': {x:638, y:338, anchor:'end'},
+      'BDS': {x:710, y:355, anchor:'start'}
+    }
+  } : CC==='ES' ? {
+    region: {},
+    city: {
+      'Ceuta': {x:350, y:556, anchor:'start'},
+      'Melilla': {x:468, y:588, anchor:'start'},
+      'Madrid': {x:399.8, y:268, anchor:'end'},
+      'Valencia': {x:568, y:298, anchor:'end'},
+      'Seville': {x:286.3, y:450.8, anchor:'end'},
+      'Bilbao': {x:438, y:95, anchor:'end'},
+      'Santander': {x:385, y:100, anchor:'end'},
+      'Oviedo': {x:307, y:82, anchor:'middle'}
+    },
+    capital: {},
+    airport: {
+      'MAD': {x:442, y:238, anchor:'start'},
+      'VLC': {x:558, y:328, anchor:'end'},
+      'SVQ': {x:326, y:448, anchor:'start'},
+      'BIO': {x:472, y:84, anchor:'start'}
     }
   } : {};
   function prefLookup(bucket, n){
@@ -69,6 +118,11 @@
   function pinAllowed(it, mobile, full){
     if(!prefOf(it.name, it.typ)) return false;
     if(full && it.el && it.el.classList.contains('map-name')) return false;
+    if(ITES){
+      if(mobile) return false;
+      if(it.typ==='airport') return true;
+      return true;
+    }
     if(mobile && (it.typ==='city' || it.typ==='capital' || it.typ==='airport')) return false;
     if(mobile && full && it.typ==='region') return false;
     if(mobile && full && it.typ==='city' && !it.el.classList.contains('is-major') && !it.el.classList.contains('is-cap')) return false;
@@ -76,6 +130,7 @@
   }
   const MUST_CITY = new Set(['Tokyo','Osaka','Nagoya']);
   const SECONDARY_CITY = new Set(['Yokohama','Kobe','Kyoto']);
+  const SECONDARY_IT_AP = new Set(['LIN']);
   function labelName(el){
     return (el.textContent||'').replace(/\s+/g,' ').trim();
   }
@@ -178,18 +233,20 @@
      point via isPointInFill. Never sample pixels; mixed land/sea is read correctly. */
   function fillAtUser(ux, uy, sea){
     const svg=document.getElementById('map');
-    if(!svg) return sea;
+    if(!svg) return {c:sea, id:null, stroke:false};
     const pt=svg.createSVGPoint();
     pt.x=ux; pt.y=uy;
+    let fill=null, id=null, stroke=false;
     for(const p of stPaths()){
       try{
-        if(p.isPointInFill(pt)){
+        if(p.isPointInStroke(pt)) stroke=true;
+        if(!fill && p.isPointInFill(pt)){
           const f=parseColor(getComputedStyle(p).fill);
-          if(f) return f;
+          if(f){ fill=f; id=p.id; }
         }
       }catch(e){}
     }
-    return sea;
+    return {c: fill||sea, id, stroke};
   }
   function sampleBox(box, sea){
     if(!box) return null;
@@ -197,27 +254,38 @@
     const ctm=svg && svg.getScreenCTM();
     if(!ctm) return null;
     const inv=ctm.inverse();
-    const pad=0.5;
+    /* Inset 2px so text bbox padding is not read as sea / a border. */
+    const pad=2;
     const x0=box.left+pad, y0=box.top+pad, x1=box.right-pad, y1=box.bottom-pad;
     if(x1<=x0 || y1<=y0) return null;
-    /* Centre + four corners, as required for worst-case contrast. */
+    /* Dense grid over the glyph box: corners alone miss coastal inlets
+       and treat a sea-sitting label as land (PUS, Hongseong). */
     const colors=[];
-    [[0.5,0.5],[0,0],[1,0],[0,1],[1,1]].forEach(([fx,fy])=>{
-      const p=svg.createSVGPoint();
-      p.x=x0+(x1-x0)*fx;
-      p.y=y0+(y1-y0)*fy;
-      const u=p.matrixTransform(inv);
-      const c=fillAtUser(u.x, u.y, sea);
-      colors.push({c, L:lumRgb(c[0],c[1],c[2])});
-    });
+    const cols=8, rows=5;
+    const idSet={};
+    let nStroke=0;
+    for(let i=0;i<cols;i++){
+      for(let j=0;j<rows;j++){
+        const fx=i/(cols-1), fy=j/(rows-1);
+        const p=svg.createSVGPoint();
+        p.x=x0+(x1-x0)*fx;
+        p.y=y0+(y1-y0)*fy;
+        const u=p.matrixTransform(inv);
+        const h=fillAtUser(u.x, u.y, sea);
+        colors.push({c:h.c, L:lumRgb(h.c[0],h.c[1],h.c[2]), id:h.id, stroke:h.stroke});
+        if(h.stroke) nStroke++;
+        if(h.id) idSet[h.id]=1;
+      }
+    }
     const n=colors.length||1;
     let minL=1, maxL=0, nSea=0, nGold=0;
     colors.forEach(o=>{
       if(o.L<minL) minL=o.L;
       if(o.L>maxL) maxL=o.L;
-      if(isClose(o.c, sea, 30)) nSea++;
+      if(isClose(o.c, sea, 30) || !o.id) nSea++;
       if(isClose(o.c, GOLD, 36)) nGold++;
     });
+    const ids=Object.keys(idSet);
     const landN=n-nSea;
     const landFrac=landN/n;
     const goldFrac=nGold/n;
@@ -230,7 +298,12 @@
     }
     const seaLandMix=nSea>0 && landN>0;
     const strong=seaLandMix;
-    return {colors, n, nSea, landFrac, goldFrac, minL, maxL, lumRange:maxL-minL, pairC, seaLandMix, strong};
+    const strokeFrac=nStroke/n;
+    /* A short airport/city label "sits on a border" when it covers two
+       province fills and a run of the dark stroke. Long JP names often
+       merely graze a prefecture line (low strokeFrac) and are allowed. */
+    const borderHit=(ids.length>1 && strokeFrac>=0.10) || strokeFrac>=0.18;
+    return {colors, n, nSea, landFrac, goldFrac, minL, maxL, lumRange:maxL-minL, pairC, seaLandMix, strong, ids, nStroke, strokeFrac, borderHit};
   }
 
   function worst(colors, text){
@@ -266,7 +339,7 @@
     /* Yokohama is a wide city name on a narrow coastal strip; squeeze so it
        stays fully on land next to its dot without covering NGO or Tokyo. */
     if(labelName(el)==='Yokohama'){
-      el.setAttribute('textLength','48');
+      el.setAttribute('textLength','44');
       el.setAttribute('lengthAdjust','spacingAndGlyphs');
     }
   }
@@ -454,6 +527,9 @@
     }
     const sm=sampleBox(box, sea);
     if(!sm) return null;
+    if(sm.seaLandMix) return null;
+    if(typ==='airport' && sm.ids && sm.ids.length>1) return null;
+    if(typ==='airport' && sm.borderHit) return null;
     const cDark=worst(sm.colors, dark);
     const cLight=worst(sm.colors, light);
     const onSea=sm.landFrac<0.12;
@@ -505,6 +581,16 @@
       if(prefOf(it.name, it.typ)) applyPos(it.el, {x:it.ox, y:it.oy, anchor:it.ota});
       if(JPKR && mobile && full && it.typ==='region'){
         hideItem(it.el);
+        return;
+      }
+      if(ITES && mobile && full && it.typ==='airport'){
+        hideItem(it.el);
+        return;
+      }
+      if(ITES && full && it.typ==='airport' && SECONDARY_IT_AP.has(it.name)){
+        hideItem(it.el);
+        const ag=document.querySelector('#g-ap .ap[data-code="'+it.name+'"]');
+        if(ag) ag.classList.add('ap-crowd');
         return;
       }
       if(!isShown(it.el)){
@@ -631,7 +717,8 @@
       const okSea=ev && ev.onSea && ev.ratio>=4.5 && !ev.mixed;
       const landOk=ev && ev.surface==='land' && ev.used==='dark' && ev.ratio>=4.5 && !ev.mixed && !ev.strong;
       /* JP/KR IATA at full view, or secondary cluster cities, hide unless a clean 4px slot exists. */
-      const hideIfCrowded=JPKR && full && (it.typ==='airport' || SECONDARY_CITY.has(it.name));
+      const hideIfCrowded=(JPKR && full && (it.typ==='airport' || SECONDARY_CITY.has(it.name)))
+        || (ITES && full && it.typ==='airport' && SECONDARY_IT_AP.has(it.name));
       if(needLand && !landOk && !pinned){
         if(mustShow){
           if(!landOk){ hideItem(it.el); return; }
@@ -665,14 +752,14 @@
           return;
         }
       }
-      if(JPKR && (it.typ==='airport' || it.typ==='city' || it.typ==='capital')){
+      if((JPKR || ITES) && (it.typ==='airport' || it.typ==='city' || it.typ==='capital')){
         nudgeOffMarks(it.el, marks, mapBox);
         const evAfter=consider(false);
         if(evAfter) ev=evAfter;
       }
       let onLandPinned=false;
       if(pinned){
-        if(!(chosen && chosen.s)){
+        if((ITES && !mobile) || !(chosen && chosen.s)){
           applyPos(it.el, {x:it.ox, y:it.oy, anchor:it.ota});
         }
         if(!ev) ev=consider(false);
