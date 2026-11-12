@@ -427,6 +427,7 @@ function planeSection(a, apCode){
     s += `<h4>${esc(h.iata)} · ${esc(h.name)}</h4><div class="links">${lk('🛫', h.name+' official site','',h.site,'off')}`;
     if(h.relief_url) s += lk('🐾','Pet relief areas', honest(h.relief_note,''), h.relief_url, 'off');
     s += `</div>`;
+    if(h.relief_url && h.relief_unverified) s += `<div class="stubbox"><b>Placeholder:</b> a pet-relief or traveling-with-pets page for ${esc(h.iata)} is not verified on this preview. Use the official airport site and confirm before you fly.</div>`;
     if(!h.relief_url && h.relief_note) s += `<div class="stubbox">${esc(h.relief_note)}</div>`;
   });
   if(!hubs.length) s += `<div class="stubbox">No verified airport hub for this ${DATA.unit} on this map yet.</div>`;
@@ -1009,6 +1010,7 @@ function selectCity(a, n){
   const aps=airportsFor(a,n);
   const hub=aps.map(ap=>DATA.hubs[ap.code]).find(h=>h&&h.hotel_q);
   render(crumbs+header(a, n, `${esc(st.name)} · city`)+airportChips(aps, 'Airports serving '+n)+
+    `<div class="stubbox"><b>Placeholder:</b> no separate city booking panel for ${esc(n)} on this map yet. ${esc(st.name)} links shown below.</div>`+
     lawSection(a)+roadSection(a)+planeSection(a)+hotelSection(a, hub?hub.hotel_q:n+', '+st.name)+groomSection(a));
 }
 function airHead(ap){

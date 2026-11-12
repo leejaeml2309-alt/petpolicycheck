@@ -256,7 +256,14 @@
       "home.tools.embeds": "Widgets gratis",
       "home.tools.pcs": "PCS militar",
       "home.tools.volunteer": "Kit voluntarios de vuelo",
-      "home.tools.veterans": "Veteranos y perros de servicio"
+      "home.tools.veterans": "Veteranos y perros de servicio",
+      "map.switch.italy": "Mapa Italia",
+      "map.switch.spain": "Mapa España",
+      "map.switch.uk": "Mapa Reino Unido",
+      "map.switch.france": "Mapa Francia",
+      "map.switch.germany": "Mapa Alemania",
+      "map.switch.japan": "Mapa Japón",
+      "map.switch.korea": "Mapa Corea del Sur"
     },
     "de": {
       "site.nav.map": "Weltkarte",

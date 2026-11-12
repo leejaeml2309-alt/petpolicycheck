@@ -1,0 +1,28 @@
+{
+  "console": {
+    "italy-1280": [],
+    "italy-390": [],
+    "spain-1280": [],
+    "spain-390": []
+  },
+  "404": {
+    "italy-1280": {
+      "page_status": 200,
+      "link_404s": [],
+      "response_4xx": [],
+      "requestfailed": []
+    },
+    "spain-1280": {
+      "page_status": 200,
+      "link_404s": [],
+      "response_4xx": [],
+      "requestfailed": []
+    }
+  },
+  "shots": [
+    "/workspace/es-maps-20261112/qa/maps-itsp/es-guide-italy-1280.png",
+    "/workspace/es-maps-20261112/qa/maps-itsp/es-guide-italy-390.png",
+    "/workspace/es-maps-20261112/qa/maps-itsp/es-guide-spain-1280.png",
+    "/workspace/es-maps-20261112/qa/maps-itsp/es-guide-spain-390.png"
+  ]
+}
