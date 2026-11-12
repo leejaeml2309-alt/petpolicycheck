@@ -277,3 +277,32 @@ html.accent-rojigualda #country-map.map-lbl-sm .lbl.sel{
 #country-map.map-lbl-sm svg#map:not(.is-zoomed) #g-lb text.ap-label.ap-zoomonly{
   display:none !important;
 }
+
+/* Capital / sample markers: no gold. White fill, type-colour ring only.
+   Gold remains on .st.sel / .ap.sel (selection) alone. */
+#country-map.map-lbl-sm .ct.cap circle:not(.ring),
+#country-map.map-lbl-sm .ct.sample circle:not(.ring){
+  fill:#fff !important;
+  stroke:var(--lbl-city) !important;
+  stroke-width:1.3 !important;
+}
+#country-map.map-lbl-sm .ct.cap circle:not(.ring){
+  stroke:var(--lbl-capital) !important;
+}
+#country-map.map-lbl-sm .ct.cap .ring,
+#country-map.map-lbl-sm .ct.sample .ring{
+  fill:none !important;
+  stroke:var(--lbl-city) !important;
+  opacity:1 !important;
+}
+#country-map.map-lbl-sm .ct.cap .ring{
+  stroke:var(--lbl-capital) !important;
+}
+#country-map.map-lbl-sm .ct:focus-visible circle,
+#country-map.map-lbl-sm .ct:focus-visible .ring{
+  stroke:var(--lbl-city) !important;
+}
+#country-map.map-lbl-sm .ct.cap:focus-visible circle,
+#country-map.map-lbl-sm .ct.cap:focus-visible .ring{
+  stroke:var(--lbl-capital) !important;
+}

@@ -27,9 +27,9 @@
       'Jeju': {x:446, y:524, anchor:'middle'},
       'Naha': {x:140, y:518, anchor:'end'},
       'Sendai': {x:518, y:292, anchor:'middle'},
-      'Yokohama': {x:470, y:420, anchor:'end'},
-      'Kobe': {x:320, y:432, anchor:'end'},
-      'Osaka': {x:350, y:418, anchor:'middle'},
+      'Yokohama': {x:487, y:448, anchor:'end'},
+      'Kobe': {x:320, y:430, anchor:'middle'},
+      'Osaka': {x:300, y:400, anchor:'end'},
       'Sejong': {x:548, y:250, anchor:'start'}
     },
     capital: {
@@ -37,7 +37,7 @@
       'Tokyo': {x:469, y:404, anchor:'end'}
     },
     airport: {
-      'HND': {x:512, y:430, anchor:'start'},
+      'HND': {x:528, y:448, anchor:'start'},
       'KIX': {x:400, y:515, anchor:'start'},
       'Kansai': {x:336, y:448, anchor:'end'},
       'NRT': {x:530, y:388, anchor:'start'},
@@ -51,12 +51,12 @@
     }
   } : CC==='IT' ? {
     region: {
-      'Abruzzo': {x:538, y:232, anchor:'middle'}
+      'Abruzzo': {x:535, y:283, anchor:'middle'}
     },
     city: {
-      'Campobasso': {x:567, y:296, anchor:'middle'},
-      "L'Aquila": {x:519, y:252, anchor:'end'},
-      'Aosta': {x:287, y:90, anchor:'middle'},
+      'Campobasso': {x:567, y:296, anchor:'middle'}, // hidden at full; pin used on zoom
+      "L'Aquila": {x:532, y:255, anchor:'start'},
+      'Aosta': {x:302, y:76, anchor:'start'},
       'Turin': {x:300, y:130, anchor:'end'},
       'Rome': {x:484, y:272, anchor:'middle'},
       'Milan': {x:359, y:125, anchor:'middle'},
@@ -66,8 +66,8 @@
     },
     capital: {},
     airport: {
-      'FCO': {x:462, y:306, anchor:'end'},
-      'CIA': {x:504, y:318, anchor:'start'},
+      'FCO': {x:440, y:312, anchor:'end'},
+      'CIA': {x:488, y:358, anchor:'end'},
       'BGY': {x:392, y:118, anchor:'start'},
       'MXP': {x:328, y:112, anchor:'end'},
       'PEG': {x:503.7, y:224, anchor:'start'},
@@ -131,6 +131,17 @@
   const MUST_CITY = new Set(['Tokyo','Osaka','Nagoya']);
   const SECONDARY_CITY = new Set(['Yokohama','Kobe','Kyoto']);
   const SECONDARY_IT_AP = new Set(['LIN']);
+  /* Visual icon offsets (user units) from the geographic airport point, so
+     plane marks do not sit on each other or on a city dot. */
+  const ICON_NUDGE = CC==='IT' ? {
+    'FCO': {dx:-22, dy:14},
+    'CIA': {dx:16, dy:54}
+  } : CC==='JP' ? {
+    'HND': {dx:14, dy:18}
+  } : {};
+  /* Labels that cannot sit on a single fill without crossing a border at
+     full view. The city dot stays; the word returns on zoom. */
+  const HIDE_AT_FULL = new Set(['Hiroshima']);
   function labelName(el){
     return (el.textContent||'').replace(/\s+/g,' ').trim();
   }
@@ -299,10 +310,8 @@
     const seaLandMix=nSea>0 && landN>0;
     const strong=seaLandMix;
     const strokeFrac=nStroke/n;
-    /* A short airport/city label "sits on a border" when it covers two
-       province fills and a run of the dark stroke. Long JP names often
-       merely graze a prefecture line (low strokeFrac) and are allowed. */
-    const borderHit=(ids.length>1 && strokeFrac>=0.10) || strokeFrac>=0.18;
+    /* Hard rule: no label glyph may cross a border stroke. */
+    const borderHit=nStroke>0;
     return {colors, n, nSea, landFrac, goldFrac, minL, maxL, lumRange:maxL-minL, pairC, seaLandMix, strong, ids, nStroke, strokeFrac, borderHit};
   }
 
@@ -336,12 +345,8 @@
     el.setAttribute('y', (+s.y).toFixed(1));
     if(s.anchor) el.setAttribute('text-anchor', s.anchor);
     el.querySelectorAll('tspan').forEach(ts=>ts.setAttribute('x', (+s.x).toFixed(1)));
-    /* Yokohama is a wide city name on a narrow coastal strip; squeeze so it
-       stays fully on land next to its dot without covering NGO or Tokyo. */
-    if(labelName(el)==='Yokohama'){
-      el.setAttribute('textLength','44');
-      el.setAttribute('lengthAdjust','spacingAndGlyphs');
-    }
+    el.removeAttribute('textLength');
+    el.removeAttribute('lengthAdjust');
   }
   function inflate(b,p){
     return {left:b.left-p, right:b.right+p, top:b.top-p, bottom:b.bottom+p};
@@ -357,22 +362,22 @@
   function collectMarks(m){
     const out=[];
     m.querySelectorAll('#g-ap .ap').forEach(g=>{
-      if(getComputedStyle(g).display==='none') return;
+      if(getComputedStyle(g).display==='none' || g.classList.contains('ap-crowd')) return;
       const mark=g.querySelector('.ap-mark')||g.querySelector('.pad');
       if(!mark) return;
       const b=mark.getBoundingClientRect();
       if(b.width<1) return;
       const code=(g.getAttribute('data-code')||'').trim();
-      out.push({box:inflate(b, JPKR?4:2), kind:'ap-icon', code, owner:code, cx:(b.left+b.right)/2, cy:(b.top+b.bottom)/2});
+      out.push({box:inflate(b, 0), raw:b, kind:'ap-icon', code, owner:code, cx:(b.left+b.right)/2, cy:(b.top+b.bottom)/2});
     });
     m.querySelectorAll('#g-ct .ct').forEach(g=>{
       if(getComputedStyle(g).display==='none' || g.classList.contains('ct-crowd')) return;
-      const mark=g.querySelector('circle.ring')||g.querySelector('circle');
+      const mark=g.querySelector('circle:not(.ring)')||g.querySelector('circle');
       if(!mark) return;
       const b=mark.getBoundingClientRect();
       if(b.width<1) return;
       const key=(g.getAttribute('data-k')||g.getAttribute('data-name')||'').trim();
-      out.push({box:inflate(b, JPKR?4:2), kind:'ct-mark', owner:key, cx:(b.left+b.right)/2, cy:(b.top+b.bottom)/2});
+      out.push({box:inflate(b, 0), raw:b, kind:'ct-mark', owner:key, cx:(b.left+b.right)/2, cy:(b.top+b.bottom)/2});
     });
     return out;
   }
@@ -393,6 +398,62 @@
     }
     return false;
   }
+  const LABEL_NEAR_PX=20;
+  const MAX_ICON_NUDGE_PX=12;
+  function boxGapPx(a,b){
+    const aL=a.left, aR=a.right, aT=a.top, aB=a.bottom;
+    const bL=b.left, bR=b.right, bT=b.top, bB=b.bottom;
+    const dx=aR<bL?bL-aR:bR<aL?aL-bR:0;
+    const dy=aB<bT?bT-aB:bB<aT?aT-bB:0;
+    if(dx===0 && dy===0){
+      if(!(aR<bL||aL>bR) && !(aB<bT||aT>bB)) return 0;
+    }
+    if(dx===0) return dy;
+    if(dy===0) return dx;
+    return Math.hypot(dx,dy);
+  }
+  function ownerPrefId(it){
+    const g=it.el.closest && it.el.closest('.ct, .ap');
+    const k=(it.el.dataset && it.el.dataset.owner) || (g && (g.getAttribute('data-k')||g.getAttribute('data-s')||g.getAttribute('data-code'))) || '';
+    const head=String(k).split('|')[0].trim();
+    if(!head){
+      const id=(it.el.getAttribute('data-s')||it.el.getAttribute('data-group')||it.el.id||'').replace(/^l-/,'');
+      if(id) return id.startsWith('s-')?id:('s-'+id);
+      return null;
+    }
+    return head.startsWith('s-')?head:('s-'+head);
+  }
+  function ownFillOk(sm, it){
+    if(!sm || sm.seaLandMix || sm.borderHit || (sm.nStroke>0)) return false;
+    if(sm.landFrac<0.12) return true;
+    if(it.typ==='city' || it.typ==='capital'){
+      const id=ownerPrefId(it);
+      if(!id) return sm.ids && sm.ids.length===1;
+      return sm.ids && sm.ids.length===1 && sm.ids[0]===id;
+    }
+    if(it.typ==='region' && !it.group){
+      const id=ownerPrefId(it);
+      if(!id) return sm.ids && sm.ids.length===1;
+      return sm.ids && sm.ids.length===1 && sm.ids[0]===id;
+    }
+    return sm.ids && sm.ids.length===1;
+  }
+  function findOwnMark(it, marks){
+    for(const mk of marks){ if(markIsOwn(it.el, mk)) return mk; }
+    /* airports: match by IATA / owner code */
+    const code=(it.name||'').trim();
+    for(const mk of marks){
+      if(mk.kind==='ap-icon' && mk.code && (mk.code===code || (it.el.dataset && it.el.dataset.owner===mk.code))) return mk;
+    }
+    return null;
+  }
+  function isAdjacent(box, mark){
+    if(!mark) return true;
+    const mb=mark.raw||mark.box;
+    if(overlaps(box, mb, 0)) return false;
+    return boxGapPx(box, mb)<=LABEL_NEAR_PX;
+  }
+
   function nudgeOffMarks(el, marks, mapBox){
     if(!el || !marks || !marks.length) return;
     let x=+(el.getAttribute('x')), y=+(el.getAttribute('y'));
@@ -434,13 +495,7 @@
     const typ=typeOf(el);
     if(typ==='region') el.classList.add('lbl-crowd');
     else if(typ==='capital' || typ==='city'){
-      if(JPKR){
-        el.classList.add('ct-label-crowd');
-      } else {
-        const g=el.closest('.ct');
-        if(g) g.classList.add('ct-crowd');
-        else el.classList.add('ct-label-crowd');
-      }
+      el.classList.add('ct-label-crowd');
     } else {
       el.classList.add('ap-code-crowd');
     }
@@ -511,25 +566,25 @@
   function evalSlot(el, typ, dark, light, sea, box, marks, others, mapBox){
     if(!box || !inMapFull(box, mapBox)) return null;
     for(const mk of marks){
-      const own=mk.kind==='ap-icon' && mk.code && (
-        (el.dataset && el.dataset.owner===mk.code) ||
-        (el.closest && el.closest('.ap') && el.closest('.ap').getAttribute('data-code')===mk.code)
-      );
-      /* JP/KR: IATA also keeps a 4px gap from its own plane icon. */
-      if(own && !JPKR) continue;
-      if(overlaps(box, mk.box, JPKR?0:0.5)) return null;
+      const own=markIsOwn(el, mk);
+      /* Own mark may be closer than 4px but must not overlap. Foreign: gap>=4. */
+      if(own){
+        if(overlaps(box, mk.box, 0)) return null;
+      } else {
+        if(overlaps(box, mk.box, 4)) return null;
+      }
     }
     for(const ot of others){
       if(ot===el) continue;
       if(!isShown(ot)) continue;
       const ob=ot.getBoundingClientRect();
-      if(overlaps(box, ob, JPKR?4:3)) return null;
+      if(overlaps(box, ob, 4)) return null;
     }
     const sm=sampleBox(box, sea);
     if(!sm) return null;
     if(sm.seaLandMix) return null;
-    if(typ==='airport' && sm.ids && sm.ids.length>1) return null;
-    if(typ==='airport' && sm.borderHit) return null;
+    if(sm.ids && sm.ids.length>1) return null;
+    if(sm.borderHit) return null;
     const cDark=worst(sm.colors, dark);
     const cLight=worst(sm.colors, light);
     const onSea=sm.landFrac<0.12;
@@ -550,10 +605,79 @@
     return {sm, cDark, cLight, used, ratio, surface, mixed, strong, pass, onSea};
   }
 
+  function applyIconNudges(){
+    const m=document.getElementById('map');
+    if(!m) return;
+    const u=userPerPx();
+    const maxU=MAX_ICON_NUDGE_PX*u;
+    const groups=[...m.querySelectorAll('#g-ap .ap')];
+    groups.forEach(g=>{
+      if(g.dataset.ox==null){
+        const tr=g.getAttribute('transform')||'';
+        const mt=/translate\(\s*([-\d.eE]+)\s*[,\s]\s*([-\d.eE]+)/.exec(tr);
+        if(mt){ g.dataset.ox=mt[1]; g.dataset.oy=mt[2]; }
+      }
+      if(g.dataset.ox!=null) g.setAttribute('transform','translate('+g.dataset.ox+' '+g.dataset.oy+')');
+    });
+    function iconBox(g){
+      if(getComputedStyle(g).display==='none' || g.classList.contains('ap-crowd')) return null;
+      const mark=g.querySelector('.ap-mark')||g.querySelector('.pad');
+      if(!mark) return null;
+      const b=mark.getBoundingClientRect();
+      return b.width<1?null:b;
+    }
+    const cityBoxes=[];
+    m.querySelectorAll('#g-ct .ct').forEach(g=>{
+      if(getComputedStyle(g).display==='none' || g.classList.contains('ct-crowd')) return;
+      const mark=g.querySelector('circle:not(.ring)')||g.querySelector('circle');
+      if(!mark) return;
+      const b=mark.getBoundingClientRect();
+      if(b.width>=1) cityBoxes.push(b);
+    });
+    function isClear(g, box){
+      if(!box) return false;
+      for(const o of groups){
+        if(o===g) continue;
+        const ob=iconBox(o);
+        if(ob && overlaps(box, ob, 0)) return false;
+      }
+      for(const cb of cityBoxes){
+        if(overlaps(box, cb, 0)) return false;
+      }
+      return true;
+    }
+    const dirs=[[-1,0],[1,0],[0,-1],[0,1],[-1,-1],[1,-1],[-1,1],[1,1],[-1,-0.5],[1,-0.5],[-0.5,1],[0.5,1]];
+    for(let pass=0; pass<4; pass++){
+      groups.forEach(g=>{
+        if(g.dataset.ox==null) return;
+        const box=iconBox(g);
+        if(!box) return;
+        if(isClear(g, box) && pass>0) return;
+        if(isClear(g, box) && pass===0) return;
+        const ox=+g.dataset.ox, oy=+g.dataset.oy;
+        let found=false;
+        for(const px of [3,5,7,9,11,12]){
+          const d=px*u;
+          if(d>maxU+0.01) continue;
+          for(const [dx,dy] of dirs){
+            const len=Math.hypot(dx,dy)||1;
+            const ux=ox+dx/len*d, uy=oy+dy/len*d;
+            g.setAttribute('transform','translate('+ux+' '+uy+')');
+            const b=iconBox(g);
+            if(isClear(g, b)){ found=true; break; }
+          }
+          if(found) break;
+        }
+        if(!found) g.setAttribute('transform','translate('+ox+' '+oy+')');
+      });
+    }
+  }
+
   function applyContrast(){
     const m=document.getElementById('map');
     if(!m) return [];
     _stPaths=null;
+    applyIconNudges();
     m.querySelectorAll('#g-lb text.lbl').forEach(unwrap);
     const sea=seaRgb();
     hideLabelsForSample(m);
@@ -570,15 +694,13 @@
       let oy=+(el.dataset.oy!=null?el.dataset.oy:el.getAttribute('y'));
       let ota=el.dataset.ota||el.getAttribute('text-anchor')||'middle';
       const n=labelName(el);
-      const pref=prefOf(n, typ);
-      if(pref){ ox=pref.x; oy=pref.y; ota=pref.anchor||ota; }
       return {el, typ, pri:priOf(el), ox, oy, ota, group:el.classList.contains('lbl-group'), name:n};
     }).sort((a,b)=>a.pri-b.pri);
 
     const placed=[];
     items.forEach(it=>{
       it.el.classList.remove('lbl-on-dark');
-      if(prefOf(it.name, it.typ)) applyPos(it.el, {x:it.ox, y:it.oy, anchor:it.ota});
+      applyPos(it.el, {x:it.ox, y:it.oy, anchor:it.ota});
       if(JPKR && mobile && full && it.typ==='region'){
         hideItem(it.el);
         return;
@@ -591,6 +713,12 @@
         hideItem(it.el);
         const ag=document.querySelector('#g-ap .ap[data-code="'+it.name+'"]');
         if(ag) ag.classList.add('ap-crowd');
+        return;
+      }
+      if(full && HIDE_AT_FULL.has(it.name)){
+        if(it.typ==='region') it.el.classList.add('lbl-crowd');
+        else if(it.typ==='airport') it.el.classList.add('ap-code-crowd');
+        else it.el.classList.add('ct-label-crowd');
         return;
       }
       if(!isShown(it.el)){
@@ -618,9 +746,21 @@
       const others=placed.map(p=>p.el);
       const keepGroup=it.group && full && !mobile;
 
+      const ownMark=findOwnMark(it, marks);
+      const needAdj=it.typ==='city' || it.typ==='capital' || it.typ==='airport';
       function consider(wrapped){
         const box=it.el.getBoundingClientRect();
-        return evalSlot(it.el, it.typ, dark, light, sea, box, marks, others, mapBox);
+        const ev=evalSlot(it.el, it.typ, dark, light, sea, box, marks, others, mapBox);
+        if(!ev) return ev;
+        if(ev.sm && !ownFillOk(ev.sm, it)){
+          ev.pass=false;
+          ev.wrongFill=true;
+        }
+        if(needAdj){
+          ev.near=isAdjacent(box, ownMark);
+          if(!ev.near) ev.pass=false;
+        }
+        return ev;
       }
 
       let ev=consider(false);
@@ -649,18 +789,12 @@
       const pinnedEarly=pinAllowed(it, mobile, full);
       const prefOk=ev && ev.ratio>=4.5 && !ev.mixed && (ev.surface==='land' || ev.onSea || ev.surface==='sea');
       const prefSlotOk=ev && ev.ratio>=4.5 && !ev.mixed && (ev.surface==='land' || ev.onSea || ev.surface==='sea');
-      if(pinnedEarly && !mobile && full){
-        applyPos(it.el, {x:it.ox, y:it.oy, anchor:it.ota});
-        ev=consider(false);
-        chosen={ev, wrapped:!!it.el.querySelector('tspan')};
-      } else if(ev && ev.pass && (ev.surface==='land' || ev.onSea)){
+      if(ev && ev.pass && (ev.surface==='land' || ev.onSea)){
         chosen={ev, wrapped:false};
       } else if(prefHit && prefSlotOk){
         chosen={ev, wrapped:false};
       } else {
-        const maxPx=pinnedEarly ? (full ? (mobile ? 14 : 16) : (mobile ? 20 : 24)) : (prefHit ? (full ? (mobile ? 18 : 28) : (mobile ? 40 : 56)) : (JPKR
-          ? (it.group?72:(MUST_CITY.has(it.name)||it.typ==='capital')?(full?44:56):(it.typ==='city'?40:(it.typ==='region'?64:24)))
-          : (it.group?72:((it.typ==='capital'||it.typ==='city')?56:(it.typ==='region'?48:36)))));
+        const maxPx=needAdj ? LABEL_NEAR_PX : (it.group?72:(it.typ==='region'?(full?48:64):36));
         const slots=slotRing(it.ox, it.oy, it.ota, maxPx);
         let best=null, bestS=-999;
         for(const s of slots){
@@ -683,14 +817,7 @@
         }
         if(best && best.s){
           const drift=Math.hypot(best.s.x-it.ox, best.s.y-it.oy);
-          if(pinnedEarly && drift>24){
-            applyPos(it.el, {x:it.ox, y:it.oy, anchor:it.ota});
-            const evPref=consider(false);
-            if(evPref){ ev=evPref; chosen={ev, wrapped:false}; }
-            else {
-              applyPos(it.el, {x:best.s.x, y:best.s.y, anchor:best.s.anchor||it.ota});
-              ev=best.ev; chosen=best;
-            }
+          if(false){
           } else {
             applyPos(it.el, {x:best.s.x, y:best.s.y, anchor:best.s.anchor||it.ota});
             ev=best.ev;
@@ -708,6 +835,11 @@
       }
 
       ev=chosen?chosen.ev:ev;
+      if(full && ev && (ev.mixed || (ev.sm && ev.sm.borderHit))){
+        if(it.typ==='city' || it.typ==='capital') it.el.classList.add('ct-label-crowd');
+        else hideItem(it.el);
+        return;
+      }
       const mustCity=JPKR && MUST_CITY.has(it.name);
       const mustRegLand=JPKR && !(mobile && full) && (isSouthJeolla(it.name)||isGyeonggi(it.name));
       const mustRegZoom=JPKR && isSouthChungcheong(it.name) && !full;
@@ -729,12 +861,8 @@
       if(hideIfCrowded && !(ok || okSea) && !pinned){
         hideItem(it.el); return;
       }
-      if(!ok && !okSea && !pinned){
-        if(mustCity && ev && ev.ratio>=4.5 && !ev.mixed){
-          /* keep Tokyo / Osaka / Nagoya in-frame at the closest clean slot */
-        } else if(mustShow && ev && ev.ratio>=4.5 && !ev.mixed){
-          /* keep */
-        } else if(!mustShow){
+      if(!ok && !okSea){
+        if(!mustShow){
           hideItem(it.el);
           return;
         } else if(!ev || ev.mixed || ev.ratio<4.5){
@@ -752,14 +880,12 @@
           return;
         }
       }
-      if((JPKR || ITES) && (it.typ==='airport' || it.typ==='city' || it.typ==='capital')){
-        nudgeOffMarks(it.el, marks, mapBox);
-        const evAfter=consider(false);
-        if(evAfter) ev=evAfter;
+      if((JPKR || ITES) && needAdj){
+        /* Do not wander off the 20px collar around the marker. */
       }
       let onLandPinned=false;
-      if(pinned){
-        if((ITES && !mobile) || !(chosen && chosen.s)){
+      if(false && pinned){
+        if(false){
           applyPos(it.el, {x:it.ox, y:it.oy, anchor:it.ota});
         }
         if(!ev) ev=consider(false);
@@ -797,6 +923,8 @@
       if(!isShown(it.el)) return;
       (function nudgeUnity(){
         if(!JPKR) return;
+        if(needAdj) return;
+        if(pinnedEarly && !mobile && full) return;
         let box=it.el.getBoundingClientRect();
         let sm0=sampleBox(box, sea);
         if(!sm0 || !sm0.seaLandMix) return;
@@ -831,7 +959,19 @@
       })();
       const liveBox=it.el.getBoundingClientRect();
       const sm=sampleBox(liveBox, sea) || (ev && ev.sm) || null;
-      if(JPKR && sm && sm.seaLandMix && !(pinnedEarly && !mobile && full)){
+      if(sm && (sm.seaLandMix || sm.borderHit || sm.nStroke>0)){
+        hideItem(it.el);
+        return;
+      }
+      if(sm && !ownFillOk(sm, it)){
+        hideItem(it.el);
+        return;
+      }
+      if(needAdj && !isAdjacent(liveBox, ownMark)){
+        hideItem(it.el);
+        return;
+      }
+      if(ev && ev.wrongFill){
         hideItem(it.el);
         return;
       }
