@@ -278,9 +278,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 SEARCH_CSS_VER = "20261110search1"
 SEARCH_UI_VER = "20261110search3"
 SEARCH_HUBS = [
-    ("/vet-info/", "Vet info", ("vet-info/",)),
     ("countries/usa-map.html", "Countries/Maps", ("countries/",)),
     ("airlines/", "Airlines", ("airlines/",)),
+    ("/vet-info/", "Vet info", ("vet-info/",)),
     ("routes/", "Routes", ("routes/",)),
     ("hotels/", "Hotels", ("hotels/",)),
     ("passport/", "Tools", ("passport/", "fit/", "titer-calculator/", "widgets/", "pet-travel-checklist/")),

@@ -7,9 +7,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 VER = "20261110search3"
 HUBS = [
-    ("/vet-info/", "Vet info", ("vet-info/",)),
     ("countries/usa-map.html", "Countries/Maps", ("countries/",)),
     ("airlines/", "Airlines", ("airlines/",)),
+    ("/vet-info/", "Vet info", ("vet-info/",)),
     ("routes/", "Routes", ("routes/",)),
     ("hotels/", "Hotels", ("hotels/",)),
     ("passport/", "Tools", ("passport/", "fit/", "titer-calculator/", "widgets/", "pet-travel-checklist/")),
