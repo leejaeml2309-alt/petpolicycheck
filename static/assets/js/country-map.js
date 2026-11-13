@@ -196,8 +196,10 @@ function buildAirports(){
     }
     const g = el('g', {class:'ap'+(ap.zoomOnly?' ap-zoomonly':'')+(ap.major?' ap-major':''), role:'button', tabindex:ap.zoomOnly?'-1':'0', 'data-code':ap.code, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'aria-label':ap.code+', '+ap.city});
     const mark=el('g',{class:'ap-mark'});
-    mark.appendChild(el('rect', {class:'pad', x:-8, y:-8, width:16, height:16, rx:2, transform:'rotate(45)'}));
-    mark.appendChild(el('path', {class:'glyph', d:PLANE, transform:'translate(-6.2,-6.2) scale(.52)'}));
+    const ukAp=!!(document.documentElement.classList.contains('accent-unionjack')||(document.getElementById('country-map')&&document.getElementById('country-map').classList.contains('accent-unionjack')));
+    const aps=ukAp?0.62:1;
+    mark.appendChild(el('rect', {class:'pad', x:(-8*aps).toFixed(2), y:(-8*aps).toFixed(2), width:(16*aps).toFixed(2), height:(16*aps).toFixed(2), rx:(2*aps).toFixed(2), transform:'rotate(45)'}));
+    mark.appendChild(el('path', {class:'glyph', d:PLANE, transform:`translate(${(-6.2*aps).toFixed(3)},${(-6.2*aps).toFixed(3)}) scale(${(0.52*aps).toFixed(4)})`}));
     g.appendChild(mark);
     g.setAttribute('transform', `translate(${ap.x} ${ap.y})`);
     const ax=ap.ldx||0, ay=ap.ldy==null?16:ap.ldy, ta=ap.anchor||'middle';
@@ -567,6 +569,7 @@ function _airportRank(code){
   return (n==null)?25:n;
 }
 function resolveLabelOverlaps(){
+  if(window.PPC_LABEL_PLAN) return;
   const m=$('#map'); if(!m) return;
   const _cc0=(typeof DATA!=='undefined' && DATA.country)||'';
   if(/^(FR|UK|DE|IT|ES|JP|KR)$/.test(_cc0)){

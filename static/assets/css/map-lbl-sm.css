@@ -306,3 +306,122 @@ html.accent-rojigualda #country-map.map-lbl-sm .lbl.sel{
 #country-map.map-lbl-sm .ct.cap:focus-visible .ring{
   stroke:var(--lbl-capital) !important;
 }
+
+#country-map.map-lbl-sm .ppc-lbl-hide{display:none !important}
+
+/* ===== UK only (2026-11-13): original Union Jack region fills from country-map.css,
+   smaller type than the compact default, white labels with a thin #12233A stroke.
+   Does not change IT/ES/FR/DE/JP/KR or USA/CA/MX. */
+html.accent-unionjack #country-map.map-lbl-sm,
+#country-map.accent-unionjack.map-lbl-sm,
+html.accent-unionjack #country-map.map-lbl-sm svg#map,
+#country-map.accent-unionjack.map-lbl-sm svg#map{
+  --lbl-region-px:8px;
+  --lbl-city-px:8px;
+  --lbl-capital-px:8.5px;
+  --lbl-airport-px:8px;
+  --lbl-group-px:8.5px;
+  --lbl-region:#ffffff;
+  --lbl-city:#ffffff;
+  --lbl-capital:#ffffff;
+  --lbl-airport:#ffffff;
+  --lbl-region-on-dark:#ffffff;
+  --lbl-city-on-dark:#ffffff;
+  --lbl-capital-on-dark:#ffffff;
+  --lbl-airport-on-dark:#ffffff;
+}
+html.accent-unionjack #country-map.map-lbl-sm .st.st-t1,
+#country-map.accent-unionjack.map-lbl-sm .st.st-t1{fill:#C8102E !important}
+html.accent-unionjack #country-map.map-lbl-sm .st.st-t2,
+#country-map.accent-unionjack.map-lbl-sm .st.st-t2{fill:#e8e4dc !important}
+html.accent-unionjack #country-map.map-lbl-sm .st.st-t3,
+#country-map.accent-unionjack.map-lbl-sm .st.st-t3{fill:#3a5f9a !important}
+html.accent-unionjack #country-map.map-lbl-sm .st.st-t4,
+#country-map.accent-unionjack.map-lbl-sm .st.st-t4{fill:#a82a40 !important}
+html.accent-unionjack #country-map.map-lbl-sm .st.st-t5,
+#country-map.accent-unionjack.map-lbl-sm .st.st-t5{fill:#2450a0 !important}
+
+html.accent-unionjack #country-map.map-lbl-sm .lbl,
+html.accent-unionjack #country-map.map-lbl-sm .lbl.sel,
+html.accent-unionjack #country-map.map-lbl-sm .lbl.lbl-on-dark,
+html.accent-unionjack #country-map.map-lbl-sm .ct text,
+html.accent-unionjack #country-map.map-lbl-sm .ct.cap text,
+html.accent-unionjack #country-map.map-lbl-sm .ap text,
+html.accent-unionjack #country-map.map-lbl-sm .ap text.map-label,
+html.accent-unionjack #country-map.map-lbl-sm .ap text.map-name,
+html.accent-unionjack #country-map.map-lbl-sm #g-lb text.lbl,
+html.accent-unionjack #country-map.map-lbl-sm #g-lb text.ct-label,
+html.accent-unionjack #country-map.map-lbl-sm #g-lb text.ap-label,
+#country-map.accent-unionjack.map-lbl-sm .lbl,
+#country-map.accent-unionjack.map-lbl-sm .lbl.sel,
+#country-map.accent-unionjack.map-lbl-sm .ct text,
+#country-map.accent-unionjack.map-lbl-sm .ap text,
+#country-map.accent-unionjack.map-lbl-sm #g-lb text.lbl,
+#country-map.accent-unionjack.map-lbl-sm #g-lb text.ct-label,
+#country-map.accent-unionjack.map-lbl-sm #g-lb text.ap-label{
+  fill:#ffffff !important;
+  stroke:#12233A !important;
+  stroke-width:calc(2.4px * 975 / var(--map-w-px, 975) * var(--kt, 1)) !important;
+  stroke-linejoin:round !important;
+  stroke-linecap:round !important;
+  paint-order:stroke fill !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:none !important;
+  filter:none !important;
+  font-weight:600 !important;
+}
+@media (max-width:720px){
+  html.accent-unionjack #country-map.map-lbl-sm .lbl,
+  html.accent-unionjack #country-map.map-lbl-sm .ct text,
+  html.accent-unionjack #country-map.map-lbl-sm .ap text,
+  #country-map.accent-unionjack.map-lbl-sm .lbl,
+  #country-map.accent-unionjack.map-lbl-sm .ct text,
+  #country-map.accent-unionjack.map-lbl-sm .ap text{
+    fill:#ffffff !important;
+    stroke:#12233A !important;
+    stroke-width:calc(2.4px * 975 / var(--map-w-px, 975) * var(--kt, 1)) !important;
+    paint-order:stroke fill !important;
+  }
+}
+
+/* UK airport diamonds: keep the dark pad + gold glyph (do not inherit --lbl-airport:#fff).
+   Scale pad/glyph to 0.62 inside .ap-mark so the JS zoom scale(k) on .ap-mark stays intact. */
+html.accent-unionjack #country-map.map-lbl-sm .ap .pad,
+#country-map.accent-unionjack.map-lbl-sm .ap .pad{
+  fill:#0b1719 !important;
+  stroke:#7ec8e3 !important;
+  stroke-width:1.2 !important;
+}
+html.accent-unionjack #country-map.map-lbl-sm .ap .glyph,
+#country-map.accent-unionjack.map-lbl-sm .ap .glyph{
+  fill:#d9b765 !important;
+}
+html.accent-unionjack #country-map.map-lbl-sm .ap.sel .pad,
+#country-map.accent-unionjack.map-lbl-sm .ap.sel .pad{
+  fill:#6d5a2c !important;
+  stroke:#f0d58c !important;
+}
+
+/* UK city / capital dots: never white-on-white on cream regions. */
+html.accent-unionjack #country-map.map-lbl-sm .ct circle:not(.ring),
+#country-map.accent-unionjack.map-lbl-sm .ct circle:not(.ring){
+  fill:#ffffff !important;
+  stroke:#12233A !important;
+  stroke-width:1.3 !important;
+}
+html.accent-unionjack #country-map.map-lbl-sm .ct.cap circle:not(.ring),
+#country-map.accent-unionjack.map-lbl-sm .ct.cap circle:not(.ring){
+  fill:#C8102E !important;
+  stroke:#ffffff !important;
+  stroke-width:1.5 !important;
+}
+html.accent-unionjack #country-map.map-lbl-sm .ct.cap .ring,
+#country-map.accent-unionjack.map-lbl-sm .ct.cap .ring{
+  stroke:#12233A !important;
+}
+@media (max-width:720px){
+  html.accent-unionjack #country-map.map-lbl-sm .ct.cap .ring,
+  #country-map.accent-unionjack.map-lbl-sm .ct.cap .ring{
+    r:calc(4.5px * var(--k, 1));
+  }
+}

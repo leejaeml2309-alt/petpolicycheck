@@ -60,7 +60,8 @@ m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
 m.addEventListener('focusout',function(e){var r=e.relatedTarget;if(m.classList.contains('open')&&r&&!m.contains(r)&&T.indexOf(r)<0)set(false)})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script><main class="wrap" id="main">
 <link href="/assets/css/country-map.css?v=20261111maps8" rel="stylesheet"/>
-<div class="accent-unionjack" id="country-map">
+<link rel="stylesheet" href="/assets/css/map-lbl-sm.css?v=20261113uk3">
+<div class="map-lbl-sm accent-unionjack" id="country-map">
 <section class="intro">
 <div><h1>Viaggi nel Regno Unito con il Suo animale</h1>
 <p>Scelga una regione (9 English regions + Scotland, Wales, Northern Ireland) per vedere le regole di ingresso. <a href="/it/?view=map">Mappa del mondo</a> · <a href="/it/airlines/compare/">Tariffe delle compagnie</a>.</p></div>
@@ -92,10 +93,12 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <div class="grid" id="grid"></div>
 </section>
 </div>
-<script src="/assets/js/uk-map-geo.js?v=20261111maps8"></script>
+<script src="/assets/js/uk-map-geo.js?v=20261113uk1"></script>
 <script src="/assets/js/uk-map-data.it.js?v=20261112itp1d"></script>
 <script>window.PPC_MAP={geo:window.UK_GEO,airports:window.UK_GEO_AIRPORTS,data:window.UK_MAP_DATA,accent:"unionjack",idRoot:"country-map"};</script>
-<script src="/assets/js/country-map.js?v=20261112msw1"></script>
+<script src="/assets/js/uk-map-labels.js?v=20261113uk3"></script>
+<script src="/assets/js/country-map.js?v=20261113uk3"></script>
+<script src="/assets/js/map-lbl-static.js?v=20261113uk1"></script>
 </main>
 <footer class="foot foot-compact">
 <div class="wrap cols">
