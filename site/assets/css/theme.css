@@ -180,18 +180,15 @@ html[class*="theme-"] .bk-jump a,html[class*="theme-"] .ftabs a:not(.on){backgro
  .nav-v8 .top .nav.pst-nav a.nav-book,.nav-v8 .top .nav.pst-nav a.cta{padding:6px 8px;font-size:.82rem}
  .nav-v8 .brand .wm{font-size:1.12rem}
 }
- @media (min-width:1200px) and (max-width:1399px){
- .nav-v8 .top .nav.pst-nav a.sec{gap:6px;padding:6px 6px 6px 4px;font-size:.86rem}
- .nav-v8 .top .nav.pst-nav .pst{--s:22px}
- .nav-v8 .top .nav.pst-nav a.nav-book,.nav-v8 .top .nav.pst-nav a.cta{padding:7px 9px;font-size:.86rem}
- .nav-v8 .brand .wm{font-size:1.2rem}
+@media (min-width:1200px) and (max-width:1399px){
+ /* Keep mid-desktop compact so 13 hubs still fit on one row (IT/ES labels). */
+ .nav-v8 .top .nav.pst-nav a.sec{gap:3px;padding:5px 3px 5px 2px;font-size:.7rem}
+ .nav-v8 .top .nav.pst-nav .pst{--s:16px}
+ .nav-v8 .top .nav.pst-nav a.nav-book,.nav-v8 .top .nav.pst-nav a.cta{padding:5px 7px;font-size:.7rem}
 }
 @media (min-width:1400px){
- .nav-v8 .top .wrap{max-width:1360px;gap:20px}
- .nav-v8 .top .nav.pst-nav a.sec{gap:7px;padding:6px 8px 6px 5px;font-size:.9rem}
- .nav-v8 .top .nav.pst-nav .pst{--s:24px;border-radius:7px}
- .nav-v8 .top .nav.pst-nav a.nav-book,.nav-v8 .top .nav.pst-nav a.cta{padding:7px 10px;font-size:.9rem}
- .nav-v8 .brand .wm{font-size:1.3rem}
+ /* Full size starts at 1440px (see one-line header rules below) so 1400–1439 stays compact. */
+ .nav-v8 .top .wrap{max-width:min(1600px,100%);gap:8px}
 }
 
 /* ---- Carte USA : étapes et sections teintées par département (data-sec 1..5) ---- */
@@ -519,24 +516,7 @@ header.top .nav a{
   background:#0a2e5c;color:#f4f6fa;
   box-shadow:0 0 0 1.5px #001f3f,0 0 0 2.5px rgba(226,194,117,.75),0 0 10px rgba(226,194,117,.28)
 }
-/* With logo-only brand, give the row a little more room; wrap cleanly before clipping */
-@media (min-width:1100px){
-  .nav-v8 .top .wrap, header.top .wrap, header.map-nav .wrap{max-width:min(1480px,100%);gap:8px}
-  .nav-v8 .top .nav.pst-nav a.sec{gap:4px;padding:5px 4px 5px 3px;font-size:.78rem}
-  .nav-v8 .top .nav.pst-nav .pst{--s:18px;border-radius:5px}
-  .nav-v8 .top .nav.pst-nav a.nav-book,.nav-v8 .top .nav.pst-nav a.cta{padding:6px 7px;font-size:.78rem}
-}
-@media (min-width:1280px){
-  .nav-v8 .top .nav.pst-nav a.sec{gap:5px;padding:6px 5px 6px 4px;font-size:.82rem}
-  .nav-v8 .top .nav.pst-nav .pst{--s:20px}
-  .nav-v8 .top .nav.pst-nav a.nav-book,.nav-v8 .top .nav.pst-nav a.cta{padding:6px 8px;font-size:.82rem}
-}
-@media (min-width:1440px){
-  .nav-v8 .top .wrap{max-width:1560px;gap:14px}
-  .nav-v8 .top .nav.pst-nav a.sec{gap:6px;padding:6px 7px 6px 5px;font-size:.88rem}
-  .nav-v8 .top .nav.pst-nav .pst{--s:22px;border-radius:6px}
-  .nav-v8 .top .nav.pst-nav a.nav-book,.nav-v8 .top .nav.pst-nav a.cta{padding:7px 10px;font-size:.88rem}
-}
+/* Logo-only brand: sizing for the 13-hub one-line row is in the Marc 2026-11-13 block at the end of this file. */
 @media (max-width:1099px) and (min-width:821px){
   header.top .wrap, header.map-nav .wrap{flex-wrap:wrap}
 }
@@ -612,14 +592,88 @@ header.top .nav a{
 
 /* Restored full menu (2026-11-12): keep the open Menu dropdown inside the screen and scrollable on short viewports */
 @media (max-width:1099px){.top .nav.menu.open{flex-wrap:nowrap;max-height:calc(100vh - 84px);max-height:calc(100dvh - 84px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}.top .nav.menu.open>*{flex-shrink:0}}
-/* Header groups (Marc 2026-11-12): trip-preparation path, then the other sections on a second row. */
+/* Header groups (Marc 2026-11-13): all 13 hubs stay on ONE desktop row,
+   with a compact vertical rule between Rides and Forum. Mobile drawer keeps a line break. */
 :root{--theme-vet:#7cc9b5;--theme-k9:#cfa57a;--theme-service:#86aee6}
 .theme-vet{--theme-accent:var(--theme-vet)}.theme-k9{--theme-accent:var(--theme-k9)}.theme-service{--theme-accent:var(--theme-service)}
 .top .nav.pst-nav .nav-group-sep{display:none}
 @media (min-width:1100px){
- .top .nav.pst-nav{flex-wrap:wrap;justify-content:flex-end;row-gap:2px;padding:7px 0}
- .top .nav.pst-nav .nav-group-sep{display:block;flex-basis:100%;height:0}
+  header.top .wrap,
+  header.map-nav .wrap,
+  .nav-v8 .top .wrap,
+  .top .wrap{
+    flex-wrap:nowrap;
+    align-items:center;
+    max-width:min(1600px,100%);
+    gap:6px;
+    padding-left:12px;
+    padding-right:12px;
+  }
+  header.top .nav,
+  header.map-nav .nav,
+  .top .nav.menu,
+  .top .nav.pst-nav,
+  .nav-v8 .top .nav.pst-nav{
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:flex-end;
+    align-items:center;
+    gap:0;
+    row-gap:0;
+    padding:0;
+    margin-left:auto;
+    overflow:visible;
+    overflow-x:visible;
+    min-width:0;
+    flex:1 1 auto;
+  }
+  .top .nav.pst-nav .nav-group-sep,
+  header.top .nav .nav-group-sep,
+  header.map-nav .nav .nav-group-sep{
+    display:inline-block;
+    flex:0 0 auto;
+    flex-basis:auto;
+    width:1px;
+    height:14px;
+    margin:0 4px;
+    padding:0;
+    background:var(--line2);
+    align-self:center;
+  }
+  .nav-v8 .top .nav.pst-nav a.sec,
+  .top .nav.pst-nav a.sec,
+  header.top .nav.pst-nav a.sec,
+  header.map-nav .nav.pst-nav a.sec{
+    gap:3px;
+    padding:5px 3px 5px 2px;
+    font-size:.7rem;
+    line-height:1.15;
+  }
+  .nav-v8 .top .nav.pst-nav .pst,
+  .top .nav.pst-nav .pst{--s:16px;border-radius:4px}
+  header.top a.brand .lbadge,
+  header.map-nav a.brand .lbadge{width:58px;height:44px}
+  header.top a.brand .lbadge img,
+  header.map-nav a.brand .lbadge img{width:50px}
+}
+@media (min-width:1440px){
+  header.top .wrap,
+  header.map-nav .wrap,
+  .nav-v8 .top .wrap,
+  .top .wrap{gap:10px;padding-left:20px;padding-right:20px}
+  .nav-v8 .top .nav.pst-nav a.sec,
+  .top .nav.pst-nav a.sec,
+  header.top .nav.pst-nav a.sec,
+  header.map-nav .nav.pst-nav a.sec{gap:4px;padding:6px 5px 6px 3px;font-size:.78rem}
+  .nav-v8 .top .nav.pst-nav .pst,
+  .top .nav.pst-nav .pst{--s:18px;border-radius:5px}
+  header.top a.brand .lbadge,
+  header.map-nav a.brand .lbadge{width:66px;height:50px}
+  header.top a.brand .lbadge img,
+  header.map-nav a.brand .lbadge img{width:56px}
+  .top .nav.pst-nav .nav-group-sep,
+  header.top .nav .nav-group-sep{height:16px;margin:0 6px}
 }
 @media (max-width:1099px){
- .top .nav.pst-nav .nav-group-sep{display:block;flex-shrink:0;height:1px;background:var(--line2);margin:6px 4px}
+ .top .nav.pst-nav .nav-group-sep{display:block;flex-shrink:0;height:1px;background:var(--line2);margin:6px 4px;width:auto;flex-basis:auto}
 }

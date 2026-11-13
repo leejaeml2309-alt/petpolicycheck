@@ -58,3 +58,8 @@ html.intro-lock .ppc-lang-fixed{display:none!important}
 html:not(.intro-lock) .flang[role="group"]{display:none!important}
 
 .flang,.flang[role="group"]{display:none!important}
+
+/* Desktop: no header scrollbar — the 13 hubs must fit on one row (Marc 2026-11-13). */
+@media (min-width:1100px){
+  header.top .nav, header.map-nav .nav{overflow-x:visible;overflow-y:visible}
+}
