@@ -571,11 +571,11 @@ html.accent-tricolore #country-map.map-lbl-sm,
 #country-map.accent-tricolore.map-lbl-sm,
 html.accent-tricolore #country-map.map-lbl-sm svg#map,
 #country-map.accent-tricolore.map-lbl-sm svg#map{
-  --lbl-region-px:7.2px;
-  --lbl-city-px:8px;
-  --lbl-capital-px:8.5px;
-  --lbl-airport-px:8px;
-  --lbl-group-px:7.2px;
+  --lbl-region-px:6.5px;
+  --lbl-city-px:7.4px;
+  --lbl-capital-px:8.2px;
+  --lbl-airport-px:7.4px;
+  --lbl-group-px:6.5px;
   --lbl-region:#ffffff;
   --lbl-city:#ffffff;
   --lbl-capital:#ffffff;
@@ -680,11 +680,11 @@ html.accent-tricolore #country-map.map-lbl-sm .ct.cap .ring,
   #country-map.accent-tricolore.map-lbl-sm,
   html.accent-tricolore #country-map.map-lbl-sm svg#map,
   #country-map.accent-tricolore.map-lbl-sm svg#map{
-    --lbl-region-px:6.5px;
-    --lbl-city-px:7.2px;
-    --lbl-capital-px:8px;
-    --lbl-airport-px:7.2px;
-    --lbl-group-px:7.2px;
+    --lbl-region-px:6.0px;
+    --lbl-city-px:6.8px;
+    --lbl-capital-px:7.6px;
+    --lbl-airport-px:6.8px;
+    --lbl-group-px:6.0px;
   }
   html.accent-tricolore #country-map.map-lbl-sm #g-lb text.ct-label.is-cap,
   html.accent-tricolore #country-map.map-lbl-sm .ct.cap text,
@@ -692,13 +692,18 @@ html.accent-tricolore #country-map.map-lbl-sm .ct.cap .ring,
   #country-map.accent-tricolore.map-lbl-sm #g-lb text.ct-label.is-cap,
   #country-map.accent-tricolore.map-lbl-sm .ct.cap text,
   #country-map.accent-tricolore.map-lbl-sm .lbl-cap{
-    font-size:calc(8px * 975 / var(--map-w-px, 975) * var(--kt, 1)) !important;
+    font-size:calc(7.6px * 975 / var(--map-w-px, 975) * var(--kt, 1)) !important;
   }
 }
 /* Packer is the source of truth for callout / labelZoom visibility. */
 html.accent-tricolore #country-map.map-lbl-sm .lbl-zoom,
 #country-map.accent-tricolore.map-lbl-sm .lbl-zoom{opacity:1}
 
+/* France callout leaders: labels now sit inside their polygon (or wait for zoom). */
+html.accent-tricolore #country-map.map-lbl-sm line.lbl-lead,
+#country-map.accent-tricolore.map-lbl-sm line.lbl-lead{
+  display:none !important;
+}
 /* ===== Spain only (2026-11-13): original Rojigualda region fills from country-map.css,
    smaller type than the compact default, white labels with a thin #12233A stroke.
    Does not change UK/IT/FR/DE/JP/KR or USA/CA/MX. */
