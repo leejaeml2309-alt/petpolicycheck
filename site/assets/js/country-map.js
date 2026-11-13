@@ -196,8 +196,9 @@ function buildAirports(){
     }
     const g = el('g', {class:'ap'+(ap.zoomOnly?' ap-zoomonly':'')+(ap.major?' ap-major':''), role:'button', tabindex:ap.zoomOnly?'-1':'0', 'data-code':ap.code, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'aria-label':ap.code+', '+ap.city});
     const mark=el('g',{class:'ap-mark'});
-    const ukAp=!!(document.documentElement.classList.contains('accent-unionjack')||(document.getElementById('country-map')&&document.getElementById('country-map').classList.contains('accent-unionjack')));
-    const aps=ukAp?0.62:1;
+    const rootAp=document.getElementById('country-map');
+    const compactAp=!!(document.documentElement.classList.contains('accent-unionjack')||document.documentElement.classList.contains('accent-italy')||(rootAp&&(rootAp.classList.contains('accent-unionjack')||rootAp.classList.contains('accent-italy'))));
+    const aps=compactAp?0.62:1;
     mark.appendChild(el('rect', {class:'pad', x:(-8*aps).toFixed(2), y:(-8*aps).toFixed(2), width:(16*aps).toFixed(2), height:(16*aps).toFixed(2), rx:(2*aps).toFixed(2), transform:'rotate(45)'}));
     mark.appendChild(el('path', {class:'glyph', d:PLANE, transform:`translate(${(-6.2*aps).toFixed(3)},${(-6.2*aps).toFixed(3)}) scale(${(0.52*aps).toFixed(4)})`}));
     g.appendChild(mark);

@@ -136,9 +136,20 @@
     if(!icons) return;
     icons.forEach(function(ic){
       const g=document.querySelector('#g-ap .ap[data-code="'+ic.code+'"]');
-      if(!g) return;
-      if(ic.tx!=null && ic.ty!=null){
-        g.setAttribute('transform','translate('+ic.tx+' '+ic.ty+')');
+      const link=document.querySelector('#g-ap line.ap-link[data-code="'+ic.code+'"]');
+      if(g){
+        if(ic.hide){
+          g.classList.add('ppc-lbl-hide');
+        } else {
+          g.classList.remove('ppc-lbl-hide');
+        }
+        if(ic.tx!=null && ic.ty!=null){
+          g.setAttribute('transform','translate('+ic.tx+' '+ic.ty+')');
+        }
+      }
+      if(link){
+        if(ic.hide) link.classList.add('ppc-lbl-hide');
+        else link.classList.remove('ppc-lbl-hide');
       }
     });
   }
