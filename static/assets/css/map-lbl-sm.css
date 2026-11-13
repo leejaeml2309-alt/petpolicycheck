@@ -433,11 +433,11 @@ html.accent-italy #country-map.map-lbl-sm,
 #country-map.accent-italy.map-lbl-sm,
 html.accent-italy #country-map.map-lbl-sm svg#map,
 #country-map.accent-italy.map-lbl-sm svg#map{
-  --lbl-region-px:8px;
+  --lbl-region-px:7.2px;
   --lbl-city-px:8px;
   --lbl-capital-px:8.5px;
   --lbl-airport-px:8px;
-  --lbl-group-px:8.5px;
+  --lbl-group-px:7.2px;
   --lbl-region:#ffffff;
   --lbl-city:#ffffff;
   --lbl-capital:#ffffff;
@@ -541,5 +541,25 @@ html.accent-italy #country-map.map-lbl-sm .ct.cap .ring,
   html.accent-italy #country-map.map-lbl-sm .ct.cap .ring,
   #country-map.accent-italy.map-lbl-sm .ct.cap .ring{
     r:calc(4.5px * var(--k, 1));
+  }
+}
+@media (max-width:640px){
+  html.accent-italy #country-map.map-lbl-sm,
+  #country-map.accent-italy.map-lbl-sm,
+  html.accent-italy #country-map.map-lbl-sm svg#map,
+  #country-map.accent-italy.map-lbl-sm svg#map{
+    --lbl-region-px:6.5px;
+    --lbl-city-px:7.2px;
+    --lbl-capital-px:8px;
+    --lbl-airport-px:7.2px;
+    --lbl-group-px:7.2px;
+  }
+  html.accent-italy #country-map.map-lbl-sm #g-lb text.ct-label.is-cap,
+  html.accent-italy #country-map.map-lbl-sm .ct.cap text,
+  html.accent-italy #country-map.map-lbl-sm .lbl-cap,
+  #country-map.accent-italy.map-lbl-sm #g-lb text.ct-label.is-cap,
+  #country-map.accent-italy.map-lbl-sm .ct.cap text,
+  #country-map.accent-italy.map-lbl-sm .lbl-cap{
+    font-size:calc(8px * 975 / var(--map-w-px, 975) * var(--kt, 1)) !important;
   }
 }

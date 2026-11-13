@@ -205,16 +205,17 @@ PACK_JS = r"""(opts) => {
   function citySlots(mx, my, isRome){
     const slots=[];
     if(isRome){
-      const gaps=[14,18,22,28,36,46,58];
+      /* Capital only: stay visibly next to Rome's red dot. Max 15 CSS px. */
+      const gaps=[6,9,12,15];
       for(const g0 of gaps){
         const g=g0*s;
         slots.push(
-          [mx+g, my-4*s, 'start'],
-          [mx+g, my+10*s, 'start'],
+          [mx+g, my-3*s, 'start'],
+          [mx+g, my+8*s, 'start'],
           [mx+g, my-g, 'start'],
           [mx+g, my+g, 'start'],
-          [mx-g, my-4*s, 'end'],
-          [mx-g, my+10*s, 'end'],
+          [mx-g, my-3*s, 'end'],
+          [mx-g, my+8*s, 'end'],
           [mx-g, my-g, 'end'],
           [mx-g, my+g, 'end'],
           [mx, my-g, 'middle'],
@@ -227,8 +228,9 @@ PACK_JS = r"""(opts) => {
       }
       return slots;
     }
-    for(const g0 of [8,12,16,22,30]){
-      const g=g0*s, dy=3.5*s, up=7*s, dn=12*s;
+    /* Other cities/airports: tight beside the marker only. Max 13 CSS px. Never 22/30. */
+    for(const g0 of [6,9,13]){
+      const g=g0*s, dy=3*s, up=6*s, dn=8*s;
       slots.push(
         [mx+g, my+dy, 'start'],
         [mx-g, my+dy, 'end'],
@@ -236,8 +238,8 @@ PACK_JS = r"""(opts) => {
         [mx-g, my-up, 'end'],
         [mx+g, my+dn, 'start'],
         [mx-g, my+dn, 'end'],
-        [mx, my-(up+3*s), 'middle'],
-        [mx, my+(dn+2*s), 'middle']
+        [mx, my-(up+2*s), 'middle'],
+        [mx, my+(dn+1*s), 'middle']
       );
     }
     return slots;
@@ -245,17 +247,17 @@ PACK_JS = r"""(opts) => {
   function apSlots(mx, my){
     const slots=[];
     mx = mx||0; my = my||0;
-    for(const g0 of [8,12,16,22,30]){
+    for(const g0 of [6,9,13]){
       const g=g0*s;
       slots.push(
         [mx+g, my+3*s, 'start'],
         [mx-g, my+3*s, 'end'],
         [mx, my-g, 'middle'],
-        [mx, my+g+3*s, 'middle'],
-        [mx+g, my-0.85*g, 'start'],
-        [mx-g, my-0.85*g, 'end'],
-        [mx+g, my+g+3*s, 'start'],
-        [mx-g, my+g+3*s, 'end']
+        [mx, my+g, 'middle'],
+        [mx+g, my-0.75*g, 'start'],
+        [mx-g, my-0.75*g, 'end'],
+        [mx+g, my+0.75*g, 'start'],
+        [mx-g, my+0.75*g, 'end']
       );
     }
     return slots;
@@ -340,11 +342,12 @@ PACK_JS = r"""(opts) => {
     return m.querySelector('#s-'+id);
   }
   function boxInRegion(box, path){
-    if(!path || typeof path.isPointInFill!=='function') return true;
+    if(!path || typeof path.isPointInFill!=='function') return false;
     const ctm=path.getScreenCTM();
-    if(!ctm) return true;
+    if(!ctm) return false;
     const inv=ctm.inverse();
-    const inset=Math.min(3, Math.max(0.8, Math.min(box.w,box.h)*0.12));
+    const inset=1.5; /* 1.5 CSS px, all 9 points strictly inside */
+    if(box.w<=2*inset || box.h<=2*inset) return false;
     const pts=[
       [box.x+box.w/2, box.y+box.h/2],
       [box.x+inset, box.y+inset],
@@ -359,9 +362,9 @@ PACK_JS = r"""(opts) => {
     let inside=0;
     for(const [sx,sy] of pts){
       const p=new DOMPoint(sx,sy).matrixTransform(inv);
-      try{ if(path.isPointInFill(p)) inside++; }catch(e){ return true; }
+      try{ if(path.isPointInFill(p)) inside++; }catch(e){ return false; }
     }
-    return inside >= 7;
+    return inside === 9;
   }
 
   function tryPlace(r, slots, allowEvict, requireRegion){
@@ -399,6 +402,24 @@ PACK_JS = r"""(opts) => {
     return 'fail';
   }
 
+  function markerScreen(r){
+    const o=ownerXY(r);
+    if(!o) return null;
+    return mapToScreen(o.x, o.y);
+  }
+  function boxGap(pt, box){
+    if(!pt || !box) return 999;
+    const cx=Math.max(box.x, Math.min(pt.x, box.x+box.w));
+    const cy=Math.max(box.y, Math.min(pt.y, box.y+box.h));
+    return Math.hypot(pt.x-cx, pt.y-cy);
+  }
+  function lockStillTight(r, L){
+    if(L.x==null || L.y==null) return false;
+    if(!(r.typ==='city'||r.typ==='capital'||r.typ==='airport')) return true;
+    applySlot(r.el, L.x, L.y, L.anchor||'start');
+    return boxGap(markerScreen(r), boxOf(r.el)) <= 16;
+  }
+
   recs.sort((a,b)=>a.pri-b.pri || a.name.localeCompare(b.name));
   const lockedOk = [];
 
@@ -408,7 +429,7 @@ PACK_JS = r"""(opts) => {
     if(!L) continue;
     const slots = slotsFor(r) || [];
     const preferred = [];
-    if(L.x!=null && L.y!=null){
+    if(L.x!=null && L.y!=null && lockStillTight(r, L)){
       preferred.push([L.x, L.y, L.anchor||'start']);
     }
     for(const sl of slots){
@@ -432,7 +453,7 @@ PACK_JS = r"""(opts) => {
         const res2 = tryPlace(r, extra, true, false);
         if(res2==='fail'){
           const o=ownerXY(r);
-          const fb=o ? [o.x, o.y-22*s, 'middle'] : slots[0];
+          const fb=o ? [o.x, o.y-15*s, 'middle'] : slots[0];
           applySlot(r.el, fb[0], fb[1], fb[2]);
           const box=boxOf(r.el);
           if(!collides(box, r, ['dot','ring','icon'])){
@@ -465,6 +486,22 @@ PACK_JS = r"""(opts) => {
       const lead=m.querySelector('#g-lb line.lbl-lead[data-a="'+r.id.slice(2)+'"]');
       if(lead) lead.classList.add('lbl-crowd','ppc-lbl-hide');
       r.leadHidden=true;
+    }
+  });
+
+  recs.forEach(r => {
+    if(r.hide || r.typ==='ap-name' || r.typ==='region') return;
+    if(!(r.typ==='city'||r.typ==='capital'||r.typ==='airport')) return;
+    const pt=markerScreen(r);
+    const box=boxOf(r.el);
+    const gap=boxGap(pt, box);
+    r.gap=+gap.toFixed(1);
+    const maxGap = r.isRome ? 16 : 16;
+    if(gap>maxGap){
+      if(r.isRome) return; /* keep Rome; slots already cap at 15 */
+      hide(r.el, r.typ);
+      r.hide=true;
+      r.hideClass = r.typ==='airport'?'ap-code-crowd':'ct-label-crowd';
     }
   });
 
@@ -593,7 +630,9 @@ PACK_JS = r"""(opts) => {
   const vis = labels.filter(l => !l.hide).length;
   const hid = labels.filter(l => l.hide).length;
   const icons = iconState.map(ic => ({code: ic.code, hide: !!ic.hide}));
-  return {labels, vis, hid, overlaps: audit(), slotScale:+s.toFixed(4), icons};
+  const gaps = recs.filter(r => !r.hide && r.gap!=null).map(r => ({name:r.name, typ:r.typ, gap:r.gap}));
+  const maxGap = gaps.reduce((m,g)=>Math.max(m,g.gap), 0);
+  return {labels, vis, hid, overlaps: audit(), slotScale:+s.toFixed(4), icons, maxGap:+maxGap.toFixed(1), gaps};
 }"""
 
 SETUP = """() => {
@@ -663,7 +702,7 @@ def main():
                     ap_on = [l['name'] for l in labels if (not l['hide'] and l['typ']=='airport')]
                     rome = [l for l in labels if l.get('isCap') or (l['name']=='Rome' and l['typ'] in ('city','capital'))]
                     icons_on = [i['code'] for i in (data.get('icons') or []) if not i.get('hide')]
-                    print(f"  {view['name']}-k{k}: vis={data['vis']} hid={data['hid']} s={data.get('slotScale')} cities_on={cities_on} ap_on={ap_on} icons_on={icons_on} overlaps={data.get('overlaps')} rome={[ (l['hide'], l['x'], l['y'], l['anchor']) for l in rome ]}", flush=True)
+                    print(f"  {view['name']}-k{k}: vis={data['vis']} hid={data['hid']} s={data.get('slotScale')} maxGap={data.get('maxGap')} cities_on={cities_on} ap_on={ap_on} icons_on={icons_on} overlaps={data.get('overlaps')} rome={[ (l['hide'], l['x'], l['y'], l['anchor']) for l in rome ]}", flush=True)
                     lock = [{'key':l['key'],'x':l['x'],'y':l['y'],'anchor':l['anchor'],'typ':l['typ'],'name':l['name'],'id':l['id'],'sel':l['sel']}
                             for l in labels if not l['hide'] and l.get('key')]
                     pub = [{kk:v for kk,v in l.items() if kk!='key'} for l in labels]
