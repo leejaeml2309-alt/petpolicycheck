@@ -35,15 +35,22 @@ function buildSwitcher(){
   const path=(location.pathname||'');
   const es = path.indexOf('/es/')===0;
   const it = path.indexOf('/it/')===0;
-  const ORDER = ['usa','ca','mx','uk','it','fr','es','jp','de','kr'];
-  const ACC = {usa:'usa',ca:'maple',mx:'mxgreen',uk:'unionjack',it:'italy',fr:'tricolore',es:'rojigualda',jp:'hinomaru',de:'schwarzrotgold',kr:'taegeuk'};
-  const FILE = {usa:'usa',ca:'canada',mx:'mexico',uk:'uk',it:'italy',fr:'france',es:'spain',jp:'japan',de:'germany',kr:'south-korea'};
-  const LBL = es ? {usa:'Mapa de EE. UU.',ca:'Mapa de Canadá',mx:'Mapa de México',it:'Mapa Italia',es:'Mapa España'}
-    : it ? {usa:'Mappa USA',ca:'Mappa del Canada',mx:'Mappa del Messico',uk:'Mappa del Regno Unito',it:'Mappa dell\u2019Italia',fr:'Mappa della Francia',es:'Mappa della Spagna',jp:'Mappa del Giappone',de:'Mappa della Germania',kr:'Mappa della Corea'}
-    : {usa:'USA Map',ca:'Canada Map',mx:'Mexico Map',uk:'UK Map',it:'Italy Map',fr:'France Map',es:'Spain Map',jp:'Japan Map',de:'Germany Map',kr:'Korea Map'};
+  const ORDER = ['usa','ca','mx','uk','it','fr','es','jp','de','kr','au'];
+  const ACC = {usa:'usa',ca:'maple',mx:'mxgreen',uk:'unionjack',it:'italy',fr:'tricolore',es:'rojigualda',jp:'hinomaru',de:'schwarzrotgold',kr:'taegeuk',au:'ausflag'};
+  const FILE = {usa:'usa',ca:'canada',mx:'mexico',uk:'uk',it:'italy',fr:'france',es:'spain',jp:'japan',de:'germany',kr:'south-korea',au:'australia'};
+  const LBL = es ? {usa:'Mapa de EE. UU.',ca:'Mapa de Canadá',mx:'Mapa de México',uk:'Mapa del Reino Unido',it:'Mapa Italia',fr:'Mapa de Francia',es:'Mapa de España',jp:'Mapa de Japón',de:'Mapa de Alemania',kr:'Mapa de Corea',au:'Mapa de Australia'}
+    : it ? {usa:'Mappa USA',ca:'Mappa del Canada',mx:'Mappa del Messico',uk:'Mappa del Regno Unito',it:'Mappa dell\u2019Italia',fr:'Mappa della Francia',es:'Mappa della Spagna',jp:'Mappa del Giappone',de:'Mappa della Germania',kr:'Mappa della Corea',au:'Mappa dell\u2019Australia'}
+    : {usa:'USA Map',ca:'Canada Map',mx:'Mexico Map',uk:'UK Map',it:'Italy Map',fr:'France Map',es:'Spain Map',jp:'Japan Map',de:'Germany Map',kr:'Korea Map',au:'Australia Map'};
+  const ES_FALLBACK_EN = {uk:1, de:1};
   const pre = es ? '/es/countries/' : it ? '/it/countries/' : '';
-  const tabs = ORDER.filter(id => LBL[id]).map(id => ({id, href: pre + FILE[id] + '-map.html', label: LBL[id], accent: ACC[id]}));
-  const cur = ({CA:'ca',MX:'mx',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp',IT:'it',ES:'es'}[DATA.country]) || 'usa';
+  const tabs = ORDER.filter(id => LBL[id]).map(id => {
+    const file = FILE[id] + '-map.html';
+    const href = es
+      ? (ES_FALLBACK_EN[id] ? '/countries/' + file : '/es/countries/' + file)
+      : (pre + file);
+    return {id, href, label: LBL[id], accent: ACC[id]};
+  });
+  const cur = ({CA:'ca',MX:'mx',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp',IT:'it',ES:'es',AU:'au'}[DATA.country]) || 'usa';
   const backHref = es ? '/es/?view=map' : it ? '/it/?view=map' : '../?view=map';
   const backLabel = es ? '\u2190 Mapa mundial' : it ? '\u2190 Mappa del mondo' : '\u2190 World Map';
   const back = `<a class="msw-tab world-back" href="${backHref}" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${backLabel}</span></a>`;
@@ -77,7 +84,7 @@ function buildMap(){
     gs.appendChild(p);
     /* KR/JP: English names (USA uses 2-letter codes). Tiny regions get
        USA-style leader lines when geo[a].callout is set by the geo pack. */
-    const useNames = !!(DATA && /^(KR|JP|UK|FR|DE|IT|ES)$/.test(DATA.country||''));
+    const useNames = !!(DATA && /^(KR|JP|UK|FR|DE|IT|ES|AU)$/.test(DATA.country||''));
     const sameNameCity = /^(JP|KR)$/.test((DATA&&DATA.country)||'') && (g.cities||[]).some(c => c.n===g.name || c.n===g.name+' City' || g.name===(c.n||'').replace(/ City$/,''));
     if(sameNameCity){
       /* City marker already carries this name (Tokyo, Seoul, Osaka…). */
@@ -222,7 +229,7 @@ function buildAirports(){
     const g = el('g', {class:'ap'+(ap.zoomOnly?' ap-zoomonly':'')+(ap.major?' ap-major':''), role:'button', tabindex:ap.zoomOnly?'-1':'0', 'data-code':ap.code, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'aria-label':ap.code+', '+ap.city});
     const mark=el('g',{class:'ap-mark'});
     const rootAp=document.getElementById('country-map');
-    const compactAp=!!(document.documentElement.classList.contains('accent-unionjack')||document.documentElement.classList.contains('accent-italy')||document.documentElement.classList.contains('accent-tricolore')||document.documentElement.classList.contains('accent-rojigualda')||document.documentElement.classList.contains('accent-hinomaru')||document.documentElement.classList.contains('accent-taegeuk')||(rootAp&&(rootAp.classList.contains('accent-unionjack')||rootAp.classList.contains('accent-italy')||rootAp.classList.contains('accent-tricolore')||rootAp.classList.contains('accent-rojigualda')||rootAp.classList.contains('accent-hinomaru')||rootAp.classList.contains('accent-taegeuk'))));
+    const compactAp=!!(document.documentElement.classList.contains('accent-unionjack')||document.documentElement.classList.contains('accent-italy')||document.documentElement.classList.contains('accent-tricolore')||document.documentElement.classList.contains('accent-rojigualda')||document.documentElement.classList.contains('accent-hinomaru')||document.documentElement.classList.contains('accent-taegeuk')||document.documentElement.classList.contains('accent-ausflag')||(rootAp&&(rootAp.classList.contains('accent-unionjack')||rootAp.classList.contains('accent-italy')||rootAp.classList.contains('accent-tricolore')||rootAp.classList.contains('accent-rojigualda')||rootAp.classList.contains('accent-hinomaru')||rootAp.classList.contains('accent-taegeuk')||rootAp.classList.contains('accent-ausflag'))));
     const aps=compactAp?0.62:1;
     mark.appendChild(el('rect', {class:'pad', x:(-8*aps).toFixed(2), y:(-8*aps).toFixed(2), width:(16*aps).toFixed(2), height:(16*aps).toFixed(2), rx:(2*aps).toFixed(2), transform:'rotate(45)'}));
     mark.appendChild(el('path', {class:'glyph', d:PLANE, transform:`translate(${(-6.2*aps).toFixed(3)},${(-6.2*aps).toFixed(3)}) scale(${(0.52*aps).toFixed(4)})`}));
@@ -1070,6 +1077,7 @@ function empty(){
 function defaultRegion(){
   if(DATA.country==='KR' && GEO['11']) return '11'; /* Seoul */
   if(DATA.country==='JP' && GEO['13']) return '13'; /* Tokyo */
+  if(DATA.country==='AU' && GEO['VIC']) return 'VIC'; /* Melbourne PEQ arrival */
 
   if(DATA.country==='CA') return 'ON';
   if(DATA.country==='MX') return 'CMX';

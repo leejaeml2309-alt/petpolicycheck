@@ -39,7 +39,7 @@
 .grat{fill:none;stroke:var(--grat);stroke-width:.4}
 .sphere{fill:var(--ocean);stroke:var(--line)}
 .arc{fill:none;stroke:var(--arc);stroke-width:1.2;stroke-dasharray:3 4;opacity:.8}
-.bridges .bridge{fill:none;stroke:#7ec8e3;stroke-width:1.15;stroke-dasharray:5 6;opacity:.72;pointer-events:none}
+.bridges .bridge{fill:none;stroke:#7ec8e3;stroke-width:.95;stroke-dasharray:5 6;opacity:.48;pointer-events:none}
 .hub{fill:var(--arc)}
 .pin circle.p{fill:var(--sel)}.pin circle.ring{fill:none;stroke:var(--sel);stroke-width:1.5;animation:pulse 2s infinite}
 .pin text{font:700 11px var(--text);fill:var(--head);paint-order:stroke;stroke:var(--paper);stroke-width:3px}
@@ -186,3 +186,7 @@ html.map-view main#main > .biz-banner{
 .legend .sw.cov-es{background:#AA151B;box-shadow:inset 0 0 0 1.5px #F1BF00}
 .country.cov-it{fill:#009246;stroke:#CE2B37;stroke-width:.55}.country.cov-it:hover,.country.cov-it:focus{fill:#1aa35a}
 .country.cov-es{fill:#AA151B;stroke:#F1BF00;stroke-width:.6}.country.cov-es:hover,.country.cov-es:focus{fill:#c41e26}
+
+/* Australia (2026-11-14): muted flag navy, red stroke — distinct from Korea/France blues and USA/Japan reds. */
+.legend .sw.cov-au{background:#012169;box-shadow:inset 0 0 0 1.5px #E4002B}
+.country.cov-au{fill:#012169;stroke:#E4002B;stroke-width:.6}.country.cov-au:hover,.country.cov-au:focus{fill:#1a3f73}

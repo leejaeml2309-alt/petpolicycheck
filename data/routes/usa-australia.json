@@ -1,0 +1,234 @@
+{
+  "route": "USA to Australia",
+  "slug": "usa-to-australia",
+  "checked": "2026-11-14",
+  "sources": {
+    "daff": "https://www.agriculture.gov.au/biosecurity-trade/cats-dogs",
+    "daff_g3_dogs": "https://www.agriculture.gov.au/biosecurity-trade/cats-dogs/how-to-import/step-by-step-guides/category-3-step-by-step-guide-for-dogs",
+    "daff_g3_cats": "https://www.agriculture.gov.au/biosecurity-trade/cats-dogs/how-to-import/step-by-step-guides/category-3-step-by-step-guide-for-cats",
+    "daff_permit": "https://www.agriculture.gov.au/biosecurity-trade/cats-dogs/how-to-import/permit",
+    "daff_permit_fees": "https://www.agriculture.gov.au/cats-dogs/fees-for-cat-and-dog-import-permit-applications",
+    "bicon": "https://bicon.agriculture.gov.au/BiconWeb4.0",
+    "daff_microchip": "https://www.agriculture.gov.au/biosecurity-trade/cats-dogs/microchips",
+    "daff_parasite": "https://www.agriculture.gov.au/biosecurity-trade/cats-dogs/step-by-step-guides/parasite-treatment",
+    "daff_peq_fees": "https://www.agriculture.gov.au/biosecurity-trade/cats-dogs/quarantine-facilities-and-fees/fees",
+    "daff_facility": "https://www.agriculture.gov.au/biosecurity-trade/cats-dogs/quarantine-facilities-and-fees/our-facility",
+    "daff_quarantine": "https://www.agriculture.gov.au/biosecurity-trade/cats-dogs/quarantine-in-australia",
+    "daff_faq": "https://www.agriculture.gov.au/biosecurity-trade/cats-dogs/frequently-asked-questions",
+    "daff_vessels": "https://www.agriculture.gov.au/biosecurity-trade/import/goods/live-animals/animals-on-vessels",
+    "aphis_australia": "https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-australia",
+    "aphis_fees": "https://www.aphis.usda.gov/pet-travel/us-to-foreign-country/cost-to-endorse",
+    "cdc_low": "https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html",
+    "cdc_high": "https://www.cdc.gov/importation/dogs/high-risk-countries.html",
+    "cdc_dogs": "https://www.cdc.gov/importation/dogs/index.html",
+    "cdc_form": "https://www.cdc.gov/importation/dogs/dog-import-form-instructions.html",
+    "aphis_us": "https://www.aphis.usda.gov/pet-travel",
+    "qantas_intl": "https://freight.qantas.com/en-au/pets/pets-international-travel",
+    "qantas_us": "https://freight.qantas.com/en-us/freight-services/special-movements/pets",
+    "united_pets": "https://www.united.com/en/us/fly/travel/traveling-with-pets.html",
+    "delta_pets": "https://www.delta.com/us/en/pet-travel/overview",
+    "delta_cargo": "https://www.deltacargo.com/Cargo/catalog/products/pets"
+  },
+  "quick": [
+    [
+      "US (except Hawaii and Guam) is a DAFF Group 3 approved country",
+      "daff_g3_dogs"
+    ],
+    [
+      "BICON import permit; Group 3 RNATT report + endorsed RNATT declaration; permit valid until RNATT expires (12 months from blood draw)",
+      "daff_permit"
+    ],
+    [
+      "ISO-compatible microchip before starting; scanned at every official visit and before RNATT draw",
+      "daff_microchip"
+    ],
+    [
+      "RNATT after rabies vaccination; 180-day residency wait after the sample arrives at the laboratory; sample taken between 12 months and 180 days before export",
+      "daff_g3_dogs"
+    ],
+    [
+      "Direct manifest air cargo into Melbourne, then mandatory Mickleham PEQ (minimum 10 or 30 days)",
+      "daff_facility"
+    ],
+    [
+      "Return dogs: CDC treats Australia as rabies-free/low-risk if not on the high-risk list; CDC Dog Import Form, microchip, ≥6 months, healthy",
+      "cdc_low"
+    ]
+  ],
+  "rules": [
+    {
+      "who": "dogs and cats",
+      "way": "USA → Australia",
+      "case": "Group 3 US origin except Hawaii and Guam",
+      "rule": "Approved Group 3 country on DAFF step-by-step guides. Hawaii and Guam are excluded from that US listing; check BICON for those territories.",
+      "src": "daff_g3_dogs"
+    },
+    {
+      "who": "dogs and cats",
+      "way": "USA → Australia",
+      "case": "Import permit",
+      "rule": "Apply in BICON. Group 3 applications need the RNATT laboratory report and official RNATT declaration. Allow at least 6 months. Most permits 20–40 business days (up to 123). Group 3 permit valid until RNATT expiry (12 months from blood sample date).",
+      "src": "daff_permit"
+    },
+    {
+      "who": "dogs and cats",
+      "way": "USA → Australia",
+      "case": "Microchip",
+      "rule": "Working ISO-compatible microchip (generally 10 or 15 digits; numbers starting 999 not accepted) before starting. Government-approved veterinarian must scan at every visit and before RNATT sampling. Number must match all documents.",
+      "src": "daff_microchip"
+    },
+    {
+      "who": "dogs and cats",
+      "way": "USA → Australia",
+      "case": "RNATT waiting period",
+      "rule": "Cannot be exported for at least 180 days after the RNATT sample arrives at the laboratory. No exceptions. This is a residency period, not quarantine. Sample must be taken between 12 months and 180 days before export. USDA APHIS endorses the RNATT declaration via VEHCS.",
+      "src": "daff_g3_dogs"
+    },
+    {
+      "who": "dogs and cats",
+      "way": "USA → Australia",
+      "case": "Parasite treatments",
+      "rule": "Internal treatments (nematodes and cestodes) twice within 45 days before export, at least 14 days apart, last treatment within 5 days of export. External treatments must be topical and kill ticks and fleas on contact; oral products and tick collars are not accepted. Government-approved veterinarian only. Final clinical exam within 5 days of export.",
+      "src": "daff_parasite"
+    },
+    {
+      "who": "dogs and cats",
+      "way": "USA → Australia",
+      "case": "APHIS certificates",
+      "rule": "USDA-accredited veterinarian prepares the pet. Identity declarations, RNATT declaration and export health certificate endorsed through VEHCS. Printed endorsed documents travel with the animal.",
+      "src": "aphis_australia"
+    },
+    {
+      "who": "dogs and cats",
+      "way": "USA → Australia",
+      "case": "Arrival and PEQ",
+      "rule": "Travel directly to Melbourne International Airport as manifest air cargo, then Mickleham PEQ (135 Donnybrook Road). Home quarantine is not offered. Minimum stay 10 or 30 days, up to 180 if needed. Group 3 10-day eligibility needs an official identity declaration (or Australian export health certificate for Australian-origin pets) with the permit application.",
+      "src": "daff_facility"
+    },
+    {
+      "who": "dogs",
+      "way": "Australia → USA",
+      "case": "CDC low-risk / rabies-free",
+      "rule": "Australia is not on CDC’s high-risk dog-rabies list. Dogs only in low-risk or rabies-free countries for 6 months need a CDC Dog Import Form receipt, a detectable microchip, to be at least 6 months old and to appear healthy. May arrive at any airport, seaport or land border.",
+      "src": "cdc_low"
+    },
+    {
+      "who": "cats",
+      "way": "Australia → USA",
+      "case": "Cats",
+      "rule": "The CDC Dog Import Form does not apply to cats. Confirm official APHIS and CBP pet-travel pages.",
+      "src": "aphis_us"
+    }
+  ],
+  "fees": [
+    {
+      "item": "Import permit, first animal in a consignment",
+      "amount": "AUD $626 (lodgement $135 + assessment $491). Each additional animal in the same consignment AUD $299. Paid in full on submission; non-refundable once submitted. Assessment fees are minimum charges.",
+      "src": "daff_permit_fees"
+    },
+    {
+      "item": "PEQ reservation charge, per animal",
+      "amount": "AUD $282 (non-refundable unless exceptional circumstances apply)",
+      "src": "daff_peq_fees"
+    },
+    {
+      "item": "PEQ importation charge, per animal",
+      "amount": "AUD $1,132 (non-refundable unless exceptional circumstances apply)",
+      "src": "daff_peq_fees"
+    },
+    {
+      "item": "10-day quarantine accommodation",
+      "amount": "AUD $560 (10 × $56 daily husbandry fee)",
+      "src": "daff_peq_fees"
+    },
+    {
+      "item": "30-day quarantine accommodation",
+      "amount": "AUD $1,680 (30 × $56)",
+      "src": "daff_peq_fees"
+    },
+    {
+      "item": "Overstay per day",
+      "amount": "AUD $56",
+      "src": "daff_peq_fees"
+    },
+    {
+      "item": "Inspection or document assessment",
+      "amount": "AUD $84 per 30 minutes, per animal",
+      "src": "daff_peq_fees"
+    },
+    {
+      "item": "DAFF FAQ estimated total for one animal",
+      "amount": "AUD $3,114 for a minimum 10-day stay; AUD $4,234 for a minimum 30-day stay, plus possible extras",
+      "src": "daff_faq"
+    },
+    {
+      "item": "CDC Dog Import Form",
+      "amount": "Free",
+      "src": "cdc_low"
+    }
+  ],
+  "quarantine": [
+    {
+      "item": "Facility",
+      "detail": "Australian Government Post Entry Quarantine facility, 135 Donnybrook Road, Mickleham, Victoria 3064. The only government cat-and-dog PEQ facility. Arrival collection is from Melbourne Airport.",
+      "src": "daff_facility"
+    },
+    {
+      "item": "Length",
+      "detail": "Minimum 10 or 30 days, and up to 180 days if biosecurity issues arise. Home quarantine is not offered.",
+      "src": "daff_faq"
+    },
+    {
+      "item": "10-day eligibility (Group 3)",
+      "detail": "Permit application must include an official identity declaration endorsed by the official government veterinarian, or an Australian export health certificate if the pet is of Australian origin.",
+      "src": "daff_permit"
+    }
+  ],
+  "airlines": [
+    "qantas"
+  ],
+  "airlines_dropped": [
+    {
+      "id": "united",
+      "reason": "Official travelling-with-pets page prohibits pets to, from or through Australia; PetSafe ended for the general public.",
+      "src": "united_pets"
+    },
+    {
+      "id": "delta",
+      "reason": "Official in-cabin exceptions include Australia; Delta Cargo has a temporary global embargo on household pet shipments.",
+      "src": "delta_cargo"
+    },
+    {
+      "id": "american",
+      "reason": "Could not verify official PetEmbark acceptance of household pets as manifest cargo into Melbourne.",
+      "src": null
+    },
+    {
+      "id": "air-new-zealand",
+      "reason": "Official cargo pets page does not verify a USA–Australia routing into Melbourne.",
+      "src": null
+    }
+  ],
+  "links": [
+    [
+      "DAFF cats and dogs",
+      "daff"
+    ],
+    [
+      "BICON",
+      "bicon"
+    ],
+    [
+      "USDA APHIS US to Australia",
+      "aphis_australia"
+    ],
+    [
+      "CDC dog import",
+      "cdc_dogs"
+    ],
+    [
+      "Qantas Freight international pets",
+      "qantas_intl"
+    ]
+  ]
+}

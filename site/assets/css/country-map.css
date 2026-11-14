@@ -1007,3 +1007,19 @@ html.accent-rojigualda #country-map .steps button[aria-pressed=true] b{backgroun
 html.accent-italy #country-map .st.sel,
 html.accent-rojigualda #country-map .st.sel,
 #country-map .st.sel{fill:#6d5a2c !important;stroke:var(--gold-l,#f0d58c) !important}
+
+/* Australia flag accent (2026-11-14). Gold selection unchanged. */
+#map-switch .msw-tab.accent-ausflag i,
+.accent-ausflag i{background:#012169;box-shadow:inset 0 0 0 1.5px #E4002B,0 0 0 2px #0b1719,0 0 0 3px rgba(1,33,105,.45)}
+#map-switch .msw-tab.accent-ausflag.is-current,
+.accent-ausflag.is-current{border-color:#E4002B;background:color-mix(in srgb,#012169 16%,#0f2226)}
+html.accent-ausflag #country-map{--accent:#012169;--accent-ink:#f4f6fa}
+html.accent-ausflag #country-map .st.st-t1{fill:#3d5a8c !important}
+html.accent-ausflag #country-map .st.st-t2{fill:#1a3f73 !important}
+html.accent-ausflag #country-map .st.st-t3{fill:#012169 !important}
+html.accent-ausflag #country-map .st.st-t4{fill:#8B1A2B !important}
+html.accent-ausflag #country-map .st.st-t5{fill:#C41E3A !important}
+html.accent-ausflag #country-map .st.sel,
+html.accent-ausflag #country-map .st.sel:hover{fill:#6d5a2c !important;stroke:#f0d58c !important;stroke-width:2 !important;filter:none !important}
+html.accent-ausflag #country-map .ap.sel .pad{fill:#6d5a2c;stroke:#f0d58c;stroke-width:2}
+html.accent-ausflag #country-map .lbl.sel{fill:#fff7df}

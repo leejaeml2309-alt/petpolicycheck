@@ -32,7 +32,7 @@ g.append('path').attr('class','sphere').attr('d',path({type:'Sphere'}));
 g.append('path').attr('class','grat').attr('d',path(d3.geoGraticule10()));
 var cg=g.append('g');
 /* Distinct fills: covered guides get signature country colors; uncovered get muted tonal variety so neighbors stay readable on Option B ocean. */
-var COV_KEY={'840':'us','124':'ca','484':'mx','410':'kr','392':'jp','826':'uk','250':'fr','276':'de','380':'it','724':'es'};
+var COV_KEY={'840':'us','124':'ca','484':'mx','410':'kr','392':'jp','826':'uk','250':'fr','276':'de','380':'it','724':'es','036':'au'};
 function soonTone(id){var n=0,s=String(id||'');for(var i=0;i<s.length;i++)n=((n<<5)-n)+s.charCodeAt(i)|0;return Math.abs(n)%5}
 cg.selectAll('path').data(countries).join('path')
  .attr('class',function(d){
@@ -76,21 +76,81 @@ Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return
  var anchor=Gpin.label_left?'end':(Gpin.label_anchor||null);
  if(Math.hypot(lx,ly)>14){pin.append('line').attr('class','pin-leader').attr('x1',0).attr('y1',0).attr('x2',lx*0.82).attr('y2',ly*0.82)}
  pin.append('text').attr('x',lx).attr('text-anchor',anchor).attr('y',ly).text((Gpin.short||Gpin.name)+' guide')});
-/* Decorative dashed great-circle bridges (behind pins/labels, pointer-events none).
-   Korea–Japan, and USA–each European country that already has a map on the site
-   (UK, France, Germany, Italy, Spain). Country maps themselves are unchanged. */
+/* Decorative dashed bridges (behind pins/labels, pointer-events none).
+   16 routes: Korea–Japan; USA–AU/CA/MX; USA and Australia to each European
+   map country (UK, France, Germany, Italy, Spain); Australia–Korea and
+   Australia–Japan. Australia–Europe follows the Indian Ocean, then an
+   Atlantic or Mediterranean approach, so the Europe label cluster stays
+   clear and the arcs do not wrap the antimeridian. */
 (function(){
-  var BRIDGES=[['410','392'],['840','826'],['840','250'],['840','276'],['840','380'],['840','724']];
+  var BRIDGES=[
+    ['410','392'],
+    ['840','826'],['840','250'],['840','276'],['840','380'],['840','724'],
+    ['840','036'],['840','124'],['840','484'],
+    ['036','410'],['036','392'],
+    ['036','826'],['036','250'],['036','276'],['036','380'],['036','724']
+  ];
+  /* Waypoints (lon,lat). Australia–Europe: Indian Ocean trunk, then a
+     western Atlantic or southern Mediterranean approach so Spain/France
+     labels stay clear. Australia–Korea stays west of Japan via the
+     South China / Yellow Sea. USA–Europe dips through the mid-Atlantic
+     so the Canada label is not clipped; USA–Spain stays south of France.
+     Paths that would cross the projection cut (USA–Australia over the
+     Pacific) are split so they do not draw a line across the map. */
+  var VIA={
+    '036|826':[[102,-22],[70,-18],[40,-5],[0,5],[-52,18],[-52,50],[-20,54]],
+    '036|250':[[102,-20],[70,-16],[42,-4],[2,6],[-48,16],[-48,50]],
+    '036|724':[[102,-18],[70,-14],[44,-2],[8,8],[2,28]],
+    '036|276':[[102,-23],[70,-19],[38,-5],[-2,6],[-50,18],[-50,48],[8,49]],
+    '036|380':[[100,-18],[72,-8],[50,4],[32,16],[20,28]],
+    '036|410':[[115,0],[100,18],[100,40],[126,41]],
+    '840|826':[[-52,25],[-52,50],[-20,54]],
+    '840|250':[[-48,24],[-48,50]],
+    '840|276':[[-50,25],[-50,48],[8,49]],
+    '840|380':[[-50,18],[-20,22],[0,28],[10,32]],
+    '840|724':[[-50,18],[-25,20],[2,30]]
+  };
   var bg=g.append('g').attr('class','bridges').attr('pointer-events','none');
-  function gcLine(a,b){
-    var interp=d3.geoInterpolate(a,b), coords=[], n=48;
-    for(var i=0;i<=n;i++) coords.push(interp(i/n));
-    return {type:'LineString',coordinates:coords};
+  function gcSeg(a,b,n){
+    var interp=d3.geoInterpolate(a,b), coords=[], i;
+    for(i=0;i<=n;i++) coords.push(interp(i/n));
+    return coords;
+  }
+  function lineCoords(a,b,via){
+    var pts=[a].concat(via||[]).concat([b]), coords=[], s, part, i, n;
+    for(s=0;s<pts.length-1;s++){
+      n=(s===0||s===pts.length-2)?20:16;
+      part=gcSeg(pts[s], pts[s+1], n);
+      if(s>0) part=part.slice(1);
+      for(i=0;i<part.length;i++) coords.push(part[i]);
+    }
+    return coords;
+  }
+  /* Split a line when consecutive projected points jump, i.e. the path
+     crossed the Natural Earth cut (around 170W with rotate -10). */
+  function splitNoWrap(coords){
+    var lines=[], cur=[], i, pa, pb;
+    for(i=0;i<coords.length;i++){
+      if(cur.length){
+        pa=proj(cur[cur.length-1]); pb=proj(coords[i]);
+        if(pa&&pb&&Math.hypot(pb[0]-pa[0],pb[1]-pa[1])>80){
+          if(cur.length>1) lines.push(cur);
+          cur=[coords[i]];
+          continue;
+        }
+      }
+      cur.push(coords[i]);
+    }
+    if(cur.length>1) lines.push(cur);
+    return lines;
   }
   BRIDGES.forEach(function(pair){
     var A=GUIDES[pair[0]], B=GUIDES[pair[1]];
     if(!A||!B||!A.pin||!B.pin) return;
-    bg.append('path').attr('class','bridge').attr('d',path(gcLine(A.pin,B.pin)));
+    var key=pair[0]+'|'+pair[1], via=VIA[key]||VIA[pair[1]+'|'+pair[0]];
+    splitNoWrap(lineCoords(A.pin,B.pin,via)).forEach(function(seg){
+      bg.append('path').attr('class','bridge').attr('data-pair',key).attr('d',path({type:'LineString',coordinates:seg}));
+    });
   });
   g.selectAll('.pin').raise();
 })();
@@ -112,7 +172,7 @@ function restyle(k){var f=Math.max(1,0.85*W/bw)/k;
  g.selectAll('.grat').style('stroke-width',0.4/k);g.selectAll('.sphere').style('stroke-width',1/k);
  rg.selectAll('.arc').style('stroke-width',1.2/k).style('stroke-dasharray',(3/k)+' '+(4/k));
  rg.selectAll('.hub').attr('r',2.2/Math.sqrt(k));
- g.selectAll('.bridge').style('stroke-width',0.9/k).style('stroke-dasharray',(4/k)+' '+(5/k));
+ g.selectAll('.bridge').style('stroke-width',0.75/k).style('stroke-dasharray',(4/k)+' '+(5/k));
  svg.attr('data-k',k.toFixed(3))}
 function layout(){bw=box.clientWidth||W;
  kHome=bw<760?760/bw:1;VH=Math.round(H*kHome);svg.attr('viewBox','0 0 '+W+' '+VH);
