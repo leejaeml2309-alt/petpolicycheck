@@ -7,7 +7,7 @@ Base: `origin/main` was `4fa88957` (Italy/Spain already live; no newer WD commit
 Branch: `guides-jp-kr-au-k9-20261114`
 Worktree: `/workspace/it-es-sections-20261114`
 Content commit: `17c919fd`
-Publish commit (sitemap + this status): see git log on `main` after push.
+Publish commit: `b25cdeac` (on `origin/main`). GitHub Pages deploy **success** (run 43557193434, 20 s).
 
 Live URLs: `/countries/japan.html`, `/countries/south-korea.html`, `/countries/australia.html`, plus K9 on `/countries/{uk,france,germany}.html` and `/it/countries/{uk,france,germany}.html`.
 Sitemap: the three new EN country-guide URLs added with `<lastmod>2026-11-14</lastmod>` in `site/sitemap.xml` and `static/sitemap.xml`. World-map links were not changed.
