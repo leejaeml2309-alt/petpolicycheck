@@ -91,6 +91,13 @@ function buildMap(){
       t.textContent = useNames ? g.name : a; gl.appendChild(t);
     }
   }
+  if(DATA && DATA.country==='JP' && Array.isArray(DATA.regionGroups)){
+    for(const rg of DATA.regionGroups){
+      const t=el('text',{id:'lg-'+(rg.id||rg.name),class:'lbl lbl-group','data-group':rg.name,x:rg.x,y:rg.y,'data-x0':rg.x,'data-y0':rg.y,'text-anchor':rg.anchor||'middle'});
+      t.textContent=rg.name;
+      gl.appendChild(t);
+    }
+  }
   for(const a of ABBRS){
     for(const c of (GEO[a].cities||[])){
       const g = el('g', {class:'ct'+(c.cap?' cap':'')+(c.major?' major':'')+(c.sample?' sample':''), role:'button', tabindex:'0', 'data-s':a, 'data-k':a+'|'+c.n, 'aria-label':c.n+', '+GEO[a].name});
@@ -188,16 +195,34 @@ function buildMap(){
 function buildAirports(){
   let ga = $('#g-ap'); if(!ga){ ga = el('g',{id:'g-ap'}); $('#map').appendChild(ga); }
   ga.innerHTML = '';
+  let glink = $('#g-ap-link');
+  if(!glink){
+    glink = el('g',{id:'g-ap-link'});
+    const gc = $('#g-ct');
+    if(gc && gc.parentNode) gc.parentNode.insertBefore(glink, gc);
+    else if(ga.parentNode) ga.parentNode.insertBefore(glink, ga);
+    else $('#map').appendChild(glink);
+  }
+  glink.innerHTML = '';
+  function findCityByName(name){
+    if(!name) return null;
+    for(const key of Object.keys(GEO||{})){
+      const hit = (GEO[key].cities||[]).find(c => c.n === name);
+      if(hit) return hit;
+    }
+    return null;
+  }
   for(const ap of AIRPORTS){
     const region = ap.province || ap.state;
-    const city = (GEO[region]&&GEO[region].cities||[]).find(c => c.n === ap.city) || (GEO[region]&&GEO[region].cities||[])[0];
+    const linkName = ap.linkCity || ap.city;
+    const city = findCityByName(linkName) || (GEO[region]&&GEO[region].cities||[]).find(c => c.n === ap.city) || (GEO[region]&&GEO[region].cities||[])[0];
     if(city){
-      ga.appendChild(el('line', {class:'ap-link'+(ap.zoomOnly?' ap-zoomonly':''), x1:city.x, y1:city.y, x2:ap.x, y2:ap.y, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'data-code':ap.code}));
+      glink.appendChild(el('line', {class:'ap-link'+(ap.zoomOnly?' ap-zoomonly':''), x1:city.x, y1:city.y, x2:ap.x, y2:ap.y, 'data-region':region, 'data-citykey':region+'|'+(linkName||ap.city), 'data-code':ap.code, 'data-city':linkName||ap.city}));
     }
     const g = el('g', {class:'ap'+(ap.zoomOnly?' ap-zoomonly':'')+(ap.major?' ap-major':''), role:'button', tabindex:ap.zoomOnly?'-1':'0', 'data-code':ap.code, 'data-region':region, 'data-citykey':region+'|'+ap.city, 'aria-label':ap.code+', '+ap.city});
     const mark=el('g',{class:'ap-mark'});
     const rootAp=document.getElementById('country-map');
-    const compactAp=!!(document.documentElement.classList.contains('accent-unionjack')||document.documentElement.classList.contains('accent-italy')||document.documentElement.classList.contains('accent-tricolore')||document.documentElement.classList.contains('accent-rojigualda')||(rootAp&&(rootAp.classList.contains('accent-unionjack')||rootAp.classList.contains('accent-italy')||rootAp.classList.contains('accent-tricolore')||rootAp.classList.contains('accent-rojigualda'))));
+    const compactAp=!!(document.documentElement.classList.contains('accent-unionjack')||document.documentElement.classList.contains('accent-italy')||document.documentElement.classList.contains('accent-tricolore')||document.documentElement.classList.contains('accent-rojigualda')||document.documentElement.classList.contains('accent-hinomaru')||document.documentElement.classList.contains('accent-taegeuk')||(rootAp&&(rootAp.classList.contains('accent-unionjack')||rootAp.classList.contains('accent-italy')||rootAp.classList.contains('accent-tricolore')||rootAp.classList.contains('accent-rojigualda')||rootAp.classList.contains('accent-hinomaru')||rootAp.classList.contains('accent-taegeuk'))));
     const aps=compactAp?0.62:1;
     mark.appendChild(el('rect', {class:'pad', x:(-8*aps).toFixed(2), y:(-8*aps).toFixed(2), width:(16*aps).toFixed(2), height:(16*aps).toFixed(2), rx:(2*aps).toFixed(2), transform:'rotate(45)'}));
     mark.appendChild(el('path', {class:'glyph', d:PLANE, transform:`translate(${(-6.2*aps).toFixed(3)},${(-6.2*aps).toFixed(3)}) scale(${(0.52*aps).toFixed(4)})`}));

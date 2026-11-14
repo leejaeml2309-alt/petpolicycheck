@@ -837,3 +837,299 @@ html.accent-rojigualda #country-map.map-lbl-sm .ct.cap .ring,
 }
 html.accent-rojigualda #country-map.map-lbl-sm .lbl-zoom,
 #country-map.accent-rojigualda.map-lbl-sm .lbl-zoom{opacity:1}
+
+/* ===== Japan (hinomaru) + South Korea (taegeuk) only (2026-11-14):
+   re-assert original region fills from country-map.css (undo pastel map-lbl-sm
+   overrides), smaller type, white labels with a screen-scaled #12233A outline,
+   compact 0.62 airport pads. Does not change UK/IT/FR/ES/DE or USA/CA/MX. */
+html.accent-hinomaru #country-map.map-lbl-sm,
+#country-map.accent-hinomaru.map-lbl-sm,
+html.accent-hinomaru #country-map.map-lbl-sm svg#map,
+#country-map.accent-hinomaru.map-lbl-sm svg#map,
+html.accent-taegeuk #country-map.map-lbl-sm,
+#country-map.accent-taegeuk.map-lbl-sm,
+html.accent-taegeuk #country-map.map-lbl-sm svg#map,
+#country-map.accent-taegeuk.map-lbl-sm svg#map{
+  --lbl-region-px:6.5px;
+  --lbl-city-px:7.4px;
+  --lbl-capital-px:8.2px;
+  --lbl-airport-px:7.4px;
+  --lbl-group-px:7.2px;
+  --lbl-region:#ffffff;
+  --lbl-city:#ffffff;
+  --lbl-capital:#ffffff;
+  --lbl-airport:#ffffff;
+  --lbl-region-on-dark:#ffffff;
+  --lbl-city-on-dark:#ffffff;
+  --lbl-capital-on-dark:#ffffff;
+  --lbl-airport-on-dark:#ffffff;
+}
+
+/* Original hinomaru fills (country-map.css). */
+html.accent-hinomaru #country-map.map-lbl-sm .st.st-t1,
+#country-map.accent-hinomaru.map-lbl-sm .st.st-t1{fill:#f2e8e6 !important}
+html.accent-hinomaru #country-map.map-lbl-sm .st.st-t2,
+#country-map.accent-hinomaru.map-lbl-sm .st.st-t2{fill:#e8a8a8 !important}
+html.accent-hinomaru #country-map.map-lbl-sm .st.st-t3,
+#country-map.accent-hinomaru.map-lbl-sm .st.st-t3{fill:#d45a5a !important}
+html.accent-hinomaru #country-map.map-lbl-sm .st.st-t4,
+#country-map.accent-hinomaru.map-lbl-sm .st.st-t4{fill:#BC002D !important}
+html.accent-hinomaru #country-map.map-lbl-sm .st.st-t5,
+#country-map.accent-hinomaru.map-lbl-sm .st.st-t5{fill:#c87878 !important}
+
+/* Original taegeuk fills (country-map.css). */
+html.accent-taegeuk #country-map.map-lbl-sm .st.st-t1,
+#country-map.accent-taegeuk.map-lbl-sm .st.st-t1{fill:#e8e4dc !important}
+html.accent-taegeuk #country-map.map-lbl-sm .st.st-t2,
+#country-map.accent-taegeuk.map-lbl-sm .st.st-t2{fill:#CD2E3A !important}
+html.accent-taegeuk #country-map.map-lbl-sm .st.st-t3,
+#country-map.accent-taegeuk.map-lbl-sm .st.st-t3{fill:#0047A0 !important}
+html.accent-taegeuk #country-map.map-lbl-sm .st.st-t4,
+#country-map.accent-taegeuk.map-lbl-sm .st.st-t4{fill:#5c5c5c !important}
+html.accent-taegeuk #country-map.map-lbl-sm .st.st-t5,
+#country-map.accent-taegeuk.map-lbl-sm .st.st-t5{fill:#a83a48 !important}
+
+html.accent-hinomaru #country-map.map-lbl-sm .lbl,
+html.accent-hinomaru #country-map.map-lbl-sm .lbl.sel,
+html.accent-hinomaru #country-map.map-lbl-sm .lbl.lbl-on-dark,
+html.accent-hinomaru #country-map.map-lbl-sm .lbl.lbl-group,
+html.accent-hinomaru #country-map.map-lbl-sm .ct text,
+html.accent-hinomaru #country-map.map-lbl-sm .ct.cap text,
+html.accent-hinomaru #country-map.map-lbl-sm .ap text,
+html.accent-hinomaru #country-map.map-lbl-sm .ap text.map-label,
+html.accent-hinomaru #country-map.map-lbl-sm .ap text.map-name,
+html.accent-hinomaru #country-map.map-lbl-sm #g-lb text.lbl,
+html.accent-hinomaru #country-map.map-lbl-sm #g-lb text.ct-label,
+html.accent-hinomaru #country-map.map-lbl-sm #g-lb text.ap-label,
+#country-map.accent-hinomaru.map-lbl-sm .lbl,
+#country-map.accent-hinomaru.map-lbl-sm .lbl.sel,
+#country-map.accent-hinomaru.map-lbl-sm .lbl.lbl-group,
+#country-map.accent-hinomaru.map-lbl-sm .ct text,
+#country-map.accent-hinomaru.map-lbl-sm .ap text,
+#country-map.accent-hinomaru.map-lbl-sm #g-lb text.lbl,
+#country-map.accent-hinomaru.map-lbl-sm #g-lb text.ct-label,
+#country-map.accent-hinomaru.map-lbl-sm #g-lb text.ap-label,
+html.accent-taegeuk #country-map.map-lbl-sm .lbl,
+html.accent-taegeuk #country-map.map-lbl-sm .lbl.sel,
+html.accent-taegeuk #country-map.map-lbl-sm .lbl.lbl-on-dark,
+html.accent-taegeuk #country-map.map-lbl-sm .ct text,
+html.accent-taegeuk #country-map.map-lbl-sm .ct.cap text,
+html.accent-taegeuk #country-map.map-lbl-sm .ap text,
+html.accent-taegeuk #country-map.map-lbl-sm .ap text.map-label,
+html.accent-taegeuk #country-map.map-lbl-sm .ap text.map-name,
+html.accent-taegeuk #country-map.map-lbl-sm #g-lb text.lbl,
+html.accent-taegeuk #country-map.map-lbl-sm #g-lb text.ct-label,
+html.accent-taegeuk #country-map.map-lbl-sm #g-lb text.ap-label,
+#country-map.accent-taegeuk.map-lbl-sm .lbl,
+#country-map.accent-taegeuk.map-lbl-sm .lbl.sel,
+#country-map.accent-taegeuk.map-lbl-sm .ct text,
+#country-map.accent-taegeuk.map-lbl-sm .ap text,
+#country-map.accent-taegeuk.map-lbl-sm #g-lb text.lbl,
+#country-map.accent-taegeuk.map-lbl-sm #g-lb text.ct-label,
+#country-map.accent-taegeuk.map-lbl-sm #g-lb text.ap-label{
+  fill:#ffffff !important;
+  stroke:#12233A !important;
+  stroke-width:calc(2.4px * 975 / var(--map-w-px, 975) * var(--kt, 1)) !important;
+  stroke-linejoin:round !important;
+  stroke-linecap:round !important;
+  paint-order:stroke fill !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:none !important;
+  filter:none !important;
+  font-weight:600 !important;
+}
+@media (max-width:720px){
+  html.accent-hinomaru #country-map.map-lbl-sm .lbl,
+  html.accent-hinomaru #country-map.map-lbl-sm .ct text,
+  html.accent-hinomaru #country-map.map-lbl-sm .ap text,
+  #country-map.accent-hinomaru.map-lbl-sm .lbl,
+  #country-map.accent-hinomaru.map-lbl-sm .ct text,
+  #country-map.accent-hinomaru.map-lbl-sm .ap text,
+  html.accent-taegeuk #country-map.map-lbl-sm .lbl,
+  html.accent-taegeuk #country-map.map-lbl-sm .ct text,
+  html.accent-taegeuk #country-map.map-lbl-sm .ap text,
+  #country-map.accent-taegeuk.map-lbl-sm .lbl,
+  #country-map.accent-taegeuk.map-lbl-sm .ct text,
+  #country-map.accent-taegeuk.map-lbl-sm .ap text{
+    fill:#ffffff !important;
+    stroke:#12233A !important;
+    stroke-width:calc(2.4px * 975 / var(--map-w-px, 975) * var(--kt, 1)) !important;
+    paint-order:stroke fill !important;
+  }
+}
+html.accent-hinomaru #country-map.map-lbl-sm .ap .pad,
+#country-map.accent-hinomaru.map-lbl-sm .ap .pad,
+html.accent-taegeuk #country-map.map-lbl-sm .ap .pad,
+#country-map.accent-taegeuk.map-lbl-sm .ap .pad{
+  fill:#0b1719 !important;
+  stroke:#7ec8e3 !important;
+  stroke-width:1.2 !important;
+}
+html.accent-hinomaru #country-map.map-lbl-sm .ap .glyph,
+#country-map.accent-hinomaru.map-lbl-sm .ap .glyph,
+html.accent-taegeuk #country-map.map-lbl-sm .ap .glyph,
+#country-map.accent-taegeuk.map-lbl-sm .ap .glyph{
+  fill:#d9b765 !important;
+}
+html.accent-hinomaru #country-map.map-lbl-sm .ap.sel .pad,
+#country-map.accent-hinomaru.map-lbl-sm .ap.sel .pad,
+html.accent-taegeuk #country-map.map-lbl-sm .ap.sel .pad,
+#country-map.accent-taegeuk.map-lbl-sm .ap.sel .pad{
+  fill:#6d5a2c !important;
+  stroke:#f0d58c !important;
+}
+html.accent-hinomaru #country-map.map-lbl-sm .ct circle:not(.ring),
+#country-map.accent-hinomaru.map-lbl-sm .ct circle:not(.ring),
+html.accent-taegeuk #country-map.map-lbl-sm .ct circle:not(.ring),
+#country-map.accent-taegeuk.map-lbl-sm .ct circle:not(.ring){
+  fill:#ffffff !important;
+  stroke:#12233A !important;
+  stroke-width:1.3 !important;
+}
+html.accent-hinomaru #country-map.map-lbl-sm .ct.cap circle:not(.ring),
+#country-map.accent-hinomaru.map-lbl-sm .ct.cap circle:not(.ring),
+html.accent-taegeuk #country-map.map-lbl-sm .ct.cap circle:not(.ring),
+#country-map.accent-taegeuk.map-lbl-sm .ct.cap circle:not(.ring){
+  fill:#CE2B37 !important;
+  stroke:#ffffff !important;
+  stroke-width:1.5 !important;
+}
+html.accent-hinomaru #country-map.map-lbl-sm .ct.cap .ring,
+#country-map.accent-hinomaru.map-lbl-sm .ct.cap .ring,
+html.accent-taegeuk #country-map.map-lbl-sm .ct.cap .ring,
+#country-map.accent-taegeuk.map-lbl-sm .ct.cap .ring{
+  stroke:#12233A !important;
+}
+@media (max-width:720px){
+  html.accent-hinomaru #country-map.map-lbl-sm .ct.cap .ring,
+  #country-map.accent-hinomaru.map-lbl-sm .ct.cap .ring,
+  html.accent-taegeuk #country-map.map-lbl-sm .ct.cap .ring,
+  #country-map.accent-taegeuk.map-lbl-sm .ct.cap .ring{
+    r:calc(4.5px * var(--k, 1));
+  }
+}
+@media (max-width:640px){
+  html.accent-hinomaru #country-map.map-lbl-sm,
+  #country-map.accent-hinomaru.map-lbl-sm,
+  html.accent-hinomaru #country-map.map-lbl-sm svg#map,
+  #country-map.accent-hinomaru.map-lbl-sm svg#map,
+  html.accent-taegeuk #country-map.map-lbl-sm,
+  #country-map.accent-taegeuk.map-lbl-sm,
+  html.accent-taegeuk #country-map.map-lbl-sm svg#map,
+  #country-map.accent-taegeuk.map-lbl-sm svg#map{
+    --lbl-region-px:6.0px;
+    --lbl-city-px:6.8px;
+    --lbl-capital-px:7.6px;
+    --lbl-airport-px:6.8px;
+    --lbl-group-px:6.5px;
+  }
+  html.accent-hinomaru #country-map.map-lbl-sm #g-lb text.ct-label.is-cap,
+  html.accent-hinomaru #country-map.map-lbl-sm .ct.cap text,
+  html.accent-hinomaru #country-map.map-lbl-sm .lbl-cap,
+  #country-map.accent-hinomaru.map-lbl-sm #g-lb text.ct-label.is-cap,
+  #country-map.accent-hinomaru.map-lbl-sm .ct.cap text,
+  #country-map.accent-hinomaru.map-lbl-sm .lbl-cap,
+  html.accent-taegeuk #country-map.map-lbl-sm #g-lb text.ct-label.is-cap,
+  html.accent-taegeuk #country-map.map-lbl-sm .ct.cap text,
+  html.accent-taegeuk #country-map.map-lbl-sm .lbl-cap,
+  #country-map.accent-taegeuk.map-lbl-sm #g-lb text.ct-label.is-cap,
+  #country-map.accent-taegeuk.map-lbl-sm .ct.cap text,
+  #country-map.accent-taegeuk.map-lbl-sm .lbl-cap{
+    font-size:calc(7.6px * 975 / var(--map-w-px, 975) * var(--kt, 1)) !important;
+  }
+}
+/* Packer is the source of truth for callout / labelZoom visibility. */
+html.accent-hinomaru #country-map.map-lbl-sm .lbl-zoom,
+#country-map.accent-hinomaru.map-lbl-sm .lbl-zoom,
+html.accent-taegeuk #country-map.map-lbl-sm .lbl-zoom,
+#country-map.accent-taegeuk.map-lbl-sm .lbl-zoom{opacity:1}
+
+html.accent-hinomaru #country-map.map-lbl-sm line.lbl-lead,
+#country-map.accent-hinomaru.map-lbl-sm line.lbl-lead,
+html.accent-taegeuk #country-map.map-lbl-sm line.lbl-lead,
+#country-map.accent-taegeuk.map-lbl-sm line.lbl-lead{
+  display:none !important;
+}
+
+/* Scale pad/glyph to 0.62 inside .ap-mark so the JS zoom scale(k) on .ap-mark stays intact.
+   (country-map.js already emits 0.62 geometry for these two accents; this keeps CSS in sync
+   if a cached pad size leaks through.) */
+html.accent-hinomaru #country-map.map-lbl-sm .ap .pad,
+#country-map.accent-hinomaru.map-lbl-sm .ap .pad,
+html.accent-taegeuk #country-map.map-lbl-sm .ap .pad,
+#country-map.accent-taegeuk.map-lbl-sm .ap .pad{
+  /* fill/stroke already set above */
+}
+
+html.accent-hinomaru #country-map.map-lbl-sm .lbl.lbl-group,
+#country-map.accent-hinomaru.map-lbl-sm .lbl.lbl-group{
+  letter-spacing:0.02em !important;
+}
+
+/* 2026-11-14: Tokyo / Seoul capital colour — warm coral, distinct from
+   gold selection (#d9b765 / #f0d58c) and from white city dots.
+   Label fill #F2A07C vs outline #12233A = 7.61:1; dot #E0704A vs #12233A = 4.96:1. */
+html.accent-hinomaru #country-map.map-lbl-sm,
+#country-map.accent-hinomaru.map-lbl-sm,
+html.accent-taegeuk #country-map.map-lbl-sm,
+#country-map.accent-taegeuk.map-lbl-sm{
+  --lbl-capital:#F2A07C;
+  --lbl-capital-dot:#E0704A;
+}
+html.accent-hinomaru #country-map.map-lbl-sm #g-lb text.ct-label.is-cap,
+html.accent-hinomaru #country-map.map-lbl-sm .ct.cap text,
+html.accent-hinomaru #country-map.map-lbl-sm .lbl-cap,
+#country-map.accent-hinomaru.map-lbl-sm #g-lb text.ct-label.is-cap,
+#country-map.accent-hinomaru.map-lbl-sm .ct.cap text,
+#country-map.accent-hinomaru.map-lbl-sm .lbl-cap,
+html.accent-taegeuk #country-map.map-lbl-sm #g-lb text.ct-label.is-cap,
+html.accent-taegeuk #country-map.map-lbl-sm .ct.cap text,
+html.accent-taegeuk #country-map.map-lbl-sm .lbl-cap,
+#country-map.accent-taegeuk.map-lbl-sm #g-lb text.ct-label.is-cap,
+#country-map.accent-taegeuk.map-lbl-sm .ct.cap text,
+#country-map.accent-taegeuk.map-lbl-sm .lbl-cap{
+  fill:#F2A07C !important;
+  stroke:#12233A !important;
+  paint-order:stroke fill !important;
+}
+html.accent-hinomaru #country-map.map-lbl-sm .ct.cap circle:not(.ring),
+#country-map.accent-hinomaru.map-lbl-sm .ct.cap circle:not(.ring),
+html.accent-taegeuk #country-map.map-lbl-sm .ct.cap circle:not(.ring),
+#country-map.accent-taegeuk.map-lbl-sm .ct.cap circle:not(.ring){
+  fill:#E0704A !important;
+  stroke:#12233A !important;
+  stroke-width:1.5 !important;
+}
+html.accent-hinomaru #country-map.map-lbl-sm .ct.cap .ring,
+#country-map.accent-hinomaru.map-lbl-sm .ct.cap .ring,
+html.accent-taegeuk #country-map.map-lbl-sm .ct.cap .ring,
+#country-map.accent-taegeuk.map-lbl-sm .ct.cap .ring{
+  stroke:#12233A !important;
+  fill:none !important;
+}
+html.accent-hinomaru #country-map.map-lbl-sm .lbl-legend .ll-k i,
+#country-map.accent-hinomaru.map-lbl-sm .lbl-legend .ll-k i,
+html.accent-taegeuk #country-map.map-lbl-sm .lbl-legend .ll-k i,
+#country-map.accent-taegeuk.map-lbl-sm .lbl-legend .ll-k i{
+  background:#E0704A !important;
+  box-shadow:0 0 0 1.5px #12233A !important;
+}
+/* Airport–city links: thin muted cyan, behind markers (g-ap-link). */
+html.accent-hinomaru #country-map.map-lbl-sm #g-ap-link line.ap-link,
+#country-map.accent-hinomaru.map-lbl-sm #g-ap-link line.ap-link,
+html.accent-taegeuk #country-map.map-lbl-sm #g-ap-link line.ap-link,
+#country-map.accent-taegeuk.map-lbl-sm #g-ap-link line.ap-link{
+  fill:none !important;
+  stroke:#7ec8e3 !important;
+  stroke-opacity:.55 !important;
+  stroke-width:0.8px !important;
+  vector-effect:non-scaling-stroke !important;
+  pointer-events:none !important;
+  stroke-linecap:round !important;
+}
+html.accent-hinomaru #country-map.map-lbl-sm #g-ap-link line.ap-link.ppc-lbl-hide,
+#country-map.accent-hinomaru.map-lbl-sm #g-ap-link line.ap-link.ppc-lbl-hide,
+html.accent-taegeuk #country-map.map-lbl-sm #g-ap-link line.ap-link.ppc-lbl-hide,
+#country-map.accent-taegeuk.map-lbl-sm #g-ap-link line.ap-link.ppc-lbl-hide{
+  display:none !important;
+}

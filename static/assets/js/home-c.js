@@ -76,6 +76,25 @@ Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return
  var anchor=Gpin.label_left?'end':(Gpin.label_anchor||null);
  if(Math.hypot(lx,ly)>14){pin.append('line').attr('class','pin-leader').attr('x1',0).attr('y1',0).attr('x2',lx*0.82).attr('y2',ly*0.82)}
  pin.append('text').attr('x',lx).attr('text-anchor',anchor).attr('y',ly).text((Gpin.short||Gpin.name)+' guide')});
+/* Decorative dashed great-circle bridges (behind pins/labels, pointer-events none).
+   Korea–Japan, and USA–each European country that already has a map on the site
+   (UK, France, Germany, Italy, Spain). Country maps themselves are unchanged. */
+(function(){
+  var BRIDGES=[['410','392'],['840','826'],['840','250'],['840','276'],['840','380'],['840','724']];
+  var bg=g.append('g').attr('class','bridges').attr('pointer-events','none');
+  function gcLine(a,b){
+    var interp=d3.geoInterpolate(a,b), coords=[], n=48;
+    for(var i=0;i<=n;i++) coords.push(interp(i/n));
+    return {type:'LineString',coordinates:coords};
+  }
+  BRIDGES.forEach(function(pair){
+    var A=GUIDES[pair[0]], B=GUIDES[pair[1]];
+    if(!A||!B||!A.pin||!B.pin) return;
+    bg.append('path').attr('class','bridge').attr('d',path(gcLine(A.pin,B.pin)));
+  });
+  g.selectAll('.pin').raise();
+})();
+
 // zoom & pan (d3-zoom, already loaded): mouse drag, Ctrl/Cmd + wheel (and trackpad pinch), +/-/reset buttons.
 // Touch is handled below so one-finger vertical swipes keep scrolling the page (#world-map has touch-action:pan-y):
 // one finger sideways = move the map, two fingers = pinch-zoom + move, double-tap = zoom in.
@@ -93,6 +112,7 @@ function restyle(k){var f=Math.max(1,0.85*W/bw)/k;
  g.selectAll('.grat').style('stroke-width',0.4/k);g.selectAll('.sphere').style('stroke-width',1/k);
  rg.selectAll('.arc').style('stroke-width',1.2/k).style('stroke-dasharray',(3/k)+' '+(4/k));
  rg.selectAll('.hub').attr('r',2.2/Math.sqrt(k));
+ g.selectAll('.bridge').style('stroke-width',0.9/k).style('stroke-dasharray',(4/k)+' '+(5/k));
  svg.attr('data-k',k.toFixed(3))}
 function layout(){bw=box.clientWidth||W;
  kHome=bw<760?760/bw:1;VH=Math.round(H*kHome);svg.attr('viewBox','0 0 '+W+' '+VH);

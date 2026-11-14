@@ -136,7 +136,7 @@
     if(!icons) return;
     icons.forEach(function(ic){
       const g=document.querySelector('#g-ap .ap[data-code="'+ic.code+'"]');
-      const link=document.querySelector('#g-ap line.ap-link[data-code="'+ic.code+'"]');
+      const link=document.querySelector('#g-ap-link line.ap-link[data-code="'+ic.code+'"], #g-ap line.ap-link[data-code="'+ic.code+'"]');
       if(g){
         if(ic.hide){
           g.classList.add('ppc-lbl-hide');
