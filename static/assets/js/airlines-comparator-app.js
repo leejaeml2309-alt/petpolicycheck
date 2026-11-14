@@ -1,4 +1,4 @@
-/* PetPolicyCheck airline comparator UI — v2 (2026-11-07): search, i18n (6 langs), mobile cards, "Check with airline" for unverified values */
+/* PetPolicyCheck airline comparator UI — v2 (2026-11-14): search, i18n (6 langs), mobile cards, "Check with airline" for unverified values */
 const DATA = window.PPC_COMPARATOR;
 let militaryOn = new URLSearchParams(location.search).get('military') === '1';
 let militaryData = null, militaryFailed = false;
@@ -43,11 +43,15 @@ function militaryRank(a){
   const d = militaryData && militaryData.airlines[a.id];
   return d ? (d.service.status === 'verified' ? 1 : 0) + (d.military.some(f => f.status === 'verified') ? 2 : 0) : 0;
 }
+function militaryEvidence(f){
+  if (!f || !f.url) return '';
+  const date = f.checked ? ` <span>${esc(t('mil.checked',{d:f.checked}))}</span>` : '';
+  return `<p class="mil-evidence"><a href="${esc(f.url)}" rel="noopener" target="_blank">${esc(t('mil.source'))} ↗</a>${date}</p>`;
+}
 function militaryFact(f){
-  if (!f || f.status !== 'verified') return `<p class="mil-unknown">${esc(t('mil.unknown'))}</p>`;
+  if (!f || f.status !== 'verified') return `<p class="mil-unknown">${esc(t('mil.unknown'))}</p>${militaryEvidence(f)}`;
   return `<div class="mil-fact">${f.keys.map(k=>`<p>${esc(t(k))}</p>`).join('')}
-    <p class="mil-evidence"><a href="${esc(f.url)}" rel="noopener" target="_blank">${esc(t('mil.source'))} ↗</a>
-    <span>${esc(t('mil.checked',{d:f.checked}))}</span></p></div>`;
+    ${militaryEvidence(f)}</div>`;
 }
 function renderMilitary(){
   const r = rowsFiltered();
@@ -130,4 +134,4 @@ paintStatic();
 setMilitary(militaryOn, false);
 $('#fMilitary').addEventListener('change', () => setMilitary($('#fMilitary').checked,true));
 window.addEventListener('popstate',()=>setMilitary(new URLSearchParams(location.search).get('military')==='1',false));
-fetch('/assets/data/military-airlines.json?v=20261107mil1').then(r=>{if(!r.ok)throw new Error('Military policy data unavailable');return r.json();}).then(d=>{militaryData=d;if(militaryOn)render();}).catch(()=>{militaryFailed=true;if(militaryOn)render();});
+fetch('/assets/data/military-airlines.json?v=20261114mil1').then(r=>{if(!r.ok)throw new Error('Military policy data unavailable');return r.json();}).then(d=>{militaryData=d;if(militaryOn)render();}).catch(()=>{militaryFailed=true;if(militaryOn)render();});

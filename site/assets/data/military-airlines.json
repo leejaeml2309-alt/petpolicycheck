@@ -1,18 +1,18 @@
 {
   "meta": {
-    "checked_date": "2026-11-07",
+    "checked_date": "2026-11-14",
     "timezone": "Asia/Seoul",
-    "scope": "Airline statements only; unknown is not unavailable."
+    "scope": "Airline statements only; unknown is not unavailable. Claims dated 2026-11-14 were re-checked on official pages that day; older dates were not re-fetched."
   },
   "government": {
     "dot": {
       "url": "https://www.transportation.gov/resources/individuals/aviation-consumer-protection/service-animals",
-      "checked": "2026-11-07",
+      "checked": "2026-11-14",
       "status": "verified"
     },
     "amc": {
       "url": "https://www.amc.af.mil/AMC-Travel-Site/AMC-Pet-Travel-Page/",
-      "checked": "2026-11-07",
+      "checked": "2026-11-14",
       "status": "verified"
     }
   },
@@ -27,18 +27,33 @@
           "mil.dotRequired"
         ],
         "url": "https://www.delta.com/us/en/accessible-travel-services/service-animals",
-        "checked": "2026-11-07",
+        "checked": "2026-11-14",
         "method": "WebFetch"
       },
       "military": [
         {
           "status": "verified",
           "keys": [
+            "mil.deltaCargo"
+          ],
+          "url": "https://www.deltacargo.com/Cargo/catalog/products/pets",
+          "checked": "2026-11-14"
+        },
+        {
+          "status": "verified",
+          "keys": [
+            "mil.deltaMilPets"
+          ],
+          "url": "https://www.delta.com/us/en/baggage/checked-baggage/military-baggage-allowance",
+          "checked": "2026-11-14"
+        },
+        {
+          "status": "verified",
+          "keys": [
             "mil.deltaBags"
           ],
           "url": "https://www.delta.com/us/en/baggage/checked-baggage/military-baggage-allowance",
-          "checked": "2026-11-07",
-          "method": "WebSearch"
+          "checked": "2026-11-14"
         }
       ]
     },
@@ -51,26 +66,26 @@
           "mil.free"
         ],
         "url": "https://www.united.com/en/us/fly/travel/accessibility-and-assistance/service-animals.html",
-        "checked": "2026-11-07",
+        "checked": "2026-11-14",
         "method": "WebFetch"
       },
       "military": [
         {
           "status": "verified",
           "keys": [
-            "mil.unitedBags"
+            "mil.unitedPcs"
           ],
-          "url": "https://www.united.com/en/us/fly/company/company-info/military-benefits-and-discounts.html",
-          "checked": "2026-11-07",
+          "url": "https://www.united.com/en/us/fly/travel/trip-planning/military-pet-program.html",
+          "checked": "2026-11-14",
           "method": "WebSearch"
         },
         {
           "status": "verified",
           "keys": [
-            "mil.unitedPcs"
+            "mil.unitedBags"
           ],
-          "url": "https://www.united.com/en/us/fly/travel/trip-planning/military-pet-program.html",
-          "checked": "2026-11-07",
+          "url": "https://www.united.com/en/us/fly/company/company-info/military-benefits-and-discounts.html",
+          "checked": "2026-11-14",
           "method": "WebSearch"
         }
       ]
@@ -85,27 +100,27 @@
           "mil.dotRequired"
         ],
         "url": "https://www.aa.com/i18n/travel-info/special-assistance/service-animals.jsp",
-        "checked": "2026-11-07",
+        "checked": "2026-11-14",
         "method": "WebFetch"
       },
       "military": [
         {
           "status": "verified",
           "keys": [
-            "mil.aaBags"
+            "mil.aaPcs"
           ],
-          "url": "https://www.aa.com/web/i18n/customer-service/programs-products/military-benefits.html",
-          "checked": "2026-11-07",
-          "method": "WebSearch"
+          "url": "https://www.aa.com/i18n/travel-info/special-assistance/pets.jsp",
+          "checked": "2026-11-14",
+          "method": "WebFetch"
         },
         {
           "status": "verified",
           "keys": [
-            "mil.aaPcs"
+            "mil.aaBags"
           ],
-          "url": "https://www.aa.com/i18n/travel-info/special-assistance/pets.jsp",
-          "checked": "2026-11-07",
-          "method": "WebFetch"
+          "url": "https://www.aa.com/web/i18n/customer-service/programs-products/military-benefits.html",
+          "checked": "2026-11-14",
+          "method": "WebSearch"
         }
       ]
     },
@@ -152,7 +167,7 @@
             "mil.alaskaPcs"
           ],
           "url": "https://www.alaskaair.com/content/about-us/social-responsibility/salute-to-service",
-          "checked": "2026-11-07",
+          "checked": "2026-11-14",
           "method": "WebFetch"
         }
       ]
@@ -185,12 +200,11 @@
       "service": {
         "status": "verified",
         "keys": [
-          "mil.free",
+          "mil.jetblue",
           "mil.dotRequired"
         ],
         "url": "https://www.jetblue.com/at-the-airport/accessibility-assistance/service-dogs-animals",
-        "checked": "2026-11-07",
-        "method": "WebSearch"
+        "checked": "2026-11-14"
       },
       "military": [
         {

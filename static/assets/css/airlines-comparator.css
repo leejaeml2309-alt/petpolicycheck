@@ -59,3 +59,44 @@
 #ppc-compare th{white-space:normal;min-width:72px}
 #ppc-compare td{min-width:0}
 @media (min-width:1100px){#ppc-compare table{min-width:0;table-layout:fixed}#ppc-compare th,#ppc-compare td{padding:9px 8px}#ppc-compare th:nth-child(1){width:12%}#ppc-compare th:nth-child(2){width:8%}#ppc-compare th:nth-child(3){width:17%}#ppc-compare th:nth-child(4){width:11%}#ppc-compare th:nth-child(5){width:12%}#ppc-compare th:nth-child(6){width:15%}#ppc-compare th:nth-child(7){width:14%}#ppc-compare th:nth-child(8){width:11%}#ppc-compare td{overflow-wrap:anywhere}}
+
+/* Military mode: scoped surfaces only. Keep --bg/--paper/--ink, --pri and logo untouched. */
+#ppc-compare [hidden]{display:none !important}
+body.military-mode{background:#001f3f !important}
+#ppc-compare .mil-intro{background:#001f3f;color:#f4f6fa;border:1px solid #d4af37;border-radius:14px;padding:18px;margin:0 0 16px}
+#ppc-compare .mil-intro h2{font:400 1.65rem/1.2 var(--disp,Marcellus,serif);color:#e2c275;margin:0 0 10px}
+#ppc-compare .mil-intro p{margin:8px 0;line-height:1.55}
+#ppc-compare .mil-intro details{padding:9px 0;border-top:1px solid rgba(212,175,55,.35)}
+#ppc-compare .mil-intro summary{color:#e2c275;cursor:pointer}
+#ppc-compare .mil-intro a,#ppc-compare .mil-card a{color:#e2c275;text-underline-offset:3px}
+#ppc-compare .mil-cross{font-weight:600}
+#ppc-compare .mil-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#ppc-compare .mil-card{background:#03284f;border:1px solid rgba(212,175,55,.5);border-radius:14px;overflow:hidden;color:#f4f6fa;min-width:0;overflow-wrap:anywhere}
+#ppc-compare .mil-card header{background:#001f3f;padding:14px 18px;border-bottom:1px solid #d4af37}
+#ppc-compare .mil-card h3{font:400 1.35rem/1.25 var(--disp,Marcellus,serif);margin:0 0 4px;color:#f4f6fa}
+#ppc-compare .mil-card small{color:#b8c4d4}
+#ppc-compare .mil-card section{padding:12px 18px 4px}
+#ppc-compare .mil-card h4{color:#e2c275;font-size:.95rem;margin:0 0 8px}
+#ppc-compare .mil-card p{font-size:.9rem;line-height:1.55;margin:0 0 10px}
+#ppc-compare .mil-card .mil-evidence{font-size:.78rem;display:flex;gap:6px 12px;flex-wrap:wrap;color:#b8c4d4}
+#ppc-compare .mil-policy{padding:12px 18px;border-top:1px solid rgba(212,175,55,.25)}
+#ppc-compare .mil-unknown{color:#f0d58c;font-style:italic}
+body.military-mode #ppc-compare .tablewrap,body.military-mode #ppc-compare>.foot,body.military-mode #ppc-compare>.uk{display:none}
+body.military-mode #ppc-compare .filters{background:#03284f;border-color:#d4af37}
+body.military-mode #ppc-compare .filters>*:not(.mil-toggle):not(#fRegion){display:none}
+body.military-mode #ppc-compare .filters .mil-toggle{background:#001f3f;color:#e2c275;border-color:#d4af37}
+body.military-mode #ppc-compare .sub{display:none}
+#fMilitary{accent-color:#d4af37}
+#ppc-compare .mil-intro summary:focus-visible,#ppc-compare .mil-card a:focus-visible,#fMilitary:focus-visible{outline:2px solid #e2c275;outline-offset:3px}
+@media(max-width:820px){#ppc-compare .mil-grid{grid-template-columns:minmax(0,1fr)}#ppc-compare .mil-intro{padding:14px}#ppc-compare .mil-card section{padding:12px 14px 4px}}
+
+body.military-mode #mil-heading{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Military mode 2026-11-14: keep search usable; gold chip toggle; readable 390px cards */
+#ppc-compare .mil-toggle{display:inline-flex;align-items:center;gap:8px;border:1px solid #d4af37;border-radius:999px;padding:6px 12px;background:#001f3f;color:#e2c275;font-weight:600;cursor:pointer}
+#ppc-compare .mil-toggle input{margin:0}
+body.military-mode #ppc-compare .searchrow{display:block;margin:0 0 12px}
+body.military-mode #ppc-compare .searchrow input{background:#03284f;border:1px solid #d4af37;color:#f4f6fa}
+body.military-mode #ppc-compare .filters #fRegion{display:inline-block;background:#03284f;border-color:#d4af37;color:#f4f6fa}
+body.military-mode #ppc-compare .mil-grid{margin-top:8px}
+@media(max-width:390px){#ppc-compare .mil-card p{font-size:.86rem}#ppc-compare .mil-toggle{width:100%;justify-content:flex-start}}
