@@ -881,11 +881,11 @@ function resolveLabelOverlaps(){
     }
   }
 }
-/* JP/KR: paint every label in one top layer (g-lb moved after land,
+/* FR/ES/IT/JP/KR: paint every label in one top layer (g-lb moved after land,
    markers and borders) so type is never hidden by a later region's fill. */
 function hoistMapLabels(){
   const cc=(typeof DATA!=='undefined' && DATA.country)||'';
-  if(!/^(JP|KR|IT|ES)$/.test(cc)) return;
+  if(!/^(JP|KR|IT|ES|FR)$/.test(cc)) return;
   const svg=$('#map'); if(!svg) return;
   const top=$('#g-lb'); if(!top) return;
   svg.appendChild(top);
