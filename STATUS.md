@@ -1,3 +1,72 @@
+# Status — Tuesday pack (IT/ES JP·KR·AU, world-map CTAs, official retries)
+
+Date: 14 November 2026 (Asia/Seoul).
+
+**Local preview only.** Not pushed. Waiting for Marc’s « publie ».
+
+Base: `git fetch`; `origin/main` was still `a811bb9a` (no newer WD commit).
+Branch: `guides-tuesday-20261114` (from `origin/main`).
+Worktree: `/workspace/it-es-sections-20261114`
+
+## Done today (Tuesday items)
+
+1. **World map CTAs (minimal pin edits only)** in `site/index.html`, `site/it/index.html`, `site/es/index.html` (synced to `static/`). `countries-110m.js` and other map geometry files were not edited.
+   - Japan / South Korea / Australia pins now use the same country-guide pattern as UK/FR/DE/IT: `url` + `cta` point at `countries/{japan,south-korea,australia}.html` (IT: `/it/countries/…`; ES: `/es/countries/…`).
+   - `book_url` (route booking anchors) left unchanged.
+   - IT Japan/Korea `map_url` corrected to `/it/countries/*-map.html` (same pattern as IT Italy/Australia).
+   - ES Japan/Korea gained `map_url` / `map_cta` pointing at the existing ES map pages; ES Australia `map_url` set to `/es/countries/australia-map.html`.
+   - Note: `home-c.js` still navigates to `map_url` first when it is set (pre-existing behaviour, also true for UK). The pin `url`/`cta` are the country-guide links, matching UK/FR/DE.
+
+2. **IT and ES country guides** (complete translations of the EN structure, Lei / usted):
+   - `site/it/countries/{japan,south-korea,australia}.html`
+   - `site/es/countries/{japan,south-korea,australia}.html`
+   - Synced to `static/`. EN pages gained `hreflang` it + es.
+
+3. **Official source retries** — only facts confirmed on an official page, added to EN + IT + ES:
+   - **Newly confirmed:** Korail passenger conditions (PDF, 18 Apr 2025, art. 22) + official FAQ; Seoul Metro terms lines 1–8 (revised 7 Mar 2026, art. 35); Kakao T Pet official product + paid-service fare page; Qantas travelling-with-pets page; Virgin Australia Pets in Cabin terms (as at 13 Oct 2025); NSW Point to Point assistance-animals fact sheet; Safe Transport Victoria assistance-animals page (updated 2 Oct 2025). Australia now has a taxi section.
+   - **Still blocked / not copied:** Korean Air passenger pet-policy page (curl 403, WebFetch 500) — no KE weights or fares; Korail homepage size/weight “세부사항” still not found on an official page (10 kg / 100 cm not used); Virgin introductory dollar fare not copied (terms say the published fee can change); Qantas pets page has no single dollar fare.
+
+4. **Sitemap** (`site/sitemap.xml` + `static/sitemap.xml`): added `/countries/australia-map.html` and the six new IT/ES guide URLs, `lastmod` 2026-11-14. Single `</urlset>` at the end (568 URL blocks).
+
+Self-check: touched `site/` and `static/` files are byte-identical; header still 3 newlines; no Amazon/ebook/affiliate/working notes in the new public copy; local curl 200 on the new pages, maps, sitemap and locale internals. No `build.py`, no Cloud Agent, no push.
+
+## Local preview
+
+```
+cd /workspace/it-es-sections-20261114/site && python3 -m http.server 8766 --bind 127.0.0.1
+```
+
+- http://127.0.0.1:8766/?view=map (EN world map)
+- http://127.0.0.1:8766/countries/south-korea.html (new Korail, Seoul Metro, Kakao facts)
+- http://127.0.0.1:8766/countries/australia.html (new taxi + Qantas/Virgin facts)
+- http://127.0.0.1:8766/it/countries/japan.html
+- http://127.0.0.1:8766/it/countries/south-korea.html
+- http://127.0.0.1:8766/it/countries/australia.html
+- http://127.0.0.1:8766/es/countries/japan.html
+- http://127.0.0.1:8766/es/countries/south-korea.html
+- http://127.0.0.1:8766/es/countries/australia.html
+
+## Screenshots
+
+Playwright (system Chrome), 1280 and 390, in `/workspace/it-es-sections-20261114/shots/tuesday/`:
+
+- `en-world-map-1280.png`, `en-world-map-390.png`
+- `it-japan-1280.png`, `it-japan-390.png`
+- `es-south-korea-1280.png`, `es-south-korea-390.png`
+- `es-australia-1280.png`, `es-australia-390.png`
+- `en-south-korea-1280.png`, `en-south-korea-390.png` (new official facts)
+- `en-australia-1280.png`, `en-australia-390.png` (new official facts)
+
+## Remaining
+
+- Korean Air current official passenger pet-policy page (still 403/500).
+- Korail homepage detailed size/weight table referenced by art. 22 (not found).
+- APQA rabies-free list / address freshness.
+- ES world-map Italy/Spain pins still point at map pages with a stale “entry rules not yet published” summary (out of scope).
+- World-map JS (`home-c.js`) still jumps to `map_url` before the country-guide CTA panel (pre-existing; not changed).
+
+---
+
 # Status — Japan, South Korea, Australia guides + K9 on UK / France / Germany
 
 Date: 14 November 2026 (Asia/Seoul).
