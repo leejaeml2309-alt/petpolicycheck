@@ -335,11 +335,11 @@ html.accent-maple #country-map .st.sel{fill:#6d5a2c;stroke:var(--gold-l,#f0d58c)
 #country-map .st.st-t3{fill:#2f4a3a !important}
 #country-map .st.st-t4{fill:#16352f !important}
 #country-map .st.st-t5{fill:#3a4f3e !important}
-html.accent-maple #country-map .st.st-t1{fill:#5c9084 !important}
-html.accent-maple #country-map .st.st-t2{fill:#3d7a72 !important}
-html.accent-maple #country-map .st.st-t3{fill:#5a8a58 !important}
-html.accent-maple #country-map .st.st-t4{fill:#3d6a60 !important}
-html.accent-maple #country-map .st.st-t5{fill:#4a7a8c !important}
+html.accent-maple #country-map .st.st-t1{fill:#41B99D !important}
+html.accent-maple #country-map .st.st-t2{fill:#329F91 !important}
+html.accent-maple #country-map .st.st-t3{fill:#43B13E !important}
+html.accent-maple #country-map .st.st-t4{fill:#30917C !important}
+html.accent-maple #country-map .st.st-t5{fill:#3891B2 !important}
 html.accent-maple #country-map .st.hub{filter:saturate(1.06) brightness(1.05)}
 html.accent-maple #country-map .lbl{
   fill:#fffdf6;font-weight:700;
@@ -372,12 +372,12 @@ html.accent-mxgreen #country-map{
 html.accent-mxgreen #country-map .st.hub{fill:#1f3329}
 
 /* Mexico mineral flag-inspired tones (2026-11-09): soft green/pink/talavera/brick; gold sel unchanged */
-html.accent-mxgreen #country-map .st.st-t1{fill:#5a8a6a !important}
-html.accent-mxgreen #country-map .st.st-t2{fill:#3474b8 !important}
-html.accent-mxgreen #country-map .st.st-t3{fill:#8a6570 !important}
-html.accent-mxgreen #country-map .st.st-t4{fill:#6a7870 !important}
-html.accent-mxgreen #country-map .st.st-t5{fill:#82585c !important}
-html.accent-mxgreen #country-map .st.st-t6{fill:#5a7060 !important}
+html.accent-mxgreen #country-map .st.st-t1{fill:#40B567 !important}
+html.accent-mxgreen #country-map .st.st-t2{fill:#2975C7 !important}
+html.accent-mxgreen #country-map .st.st-t3{fill:#AB4966 !important}
+html.accent-mxgreen #country-map .st.st-t4{fill:#49AB73 !important}
+html.accent-mxgreen #country-map .st.st-t5{fill:#A5404A !important}
+html.accent-mxgreen #country-map .st.st-t6{fill:#419F5B !important}
 html.accent-mxgreen #country-map .lbl{
   fill:#fffdf6;font-weight:700;
   paint-order:stroke;stroke:rgba(6,14,16,.88);stroke-width:3.6px;stroke-linejoin:round
