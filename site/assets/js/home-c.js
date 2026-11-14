@@ -78,11 +78,14 @@ Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return
  pin.append('text').attr('x',lx).attr('text-anchor',anchor).attr('y',ly).text((Gpin.short||Gpin.name)+' guide')});
 /* Decorative dashed bridges (behind pins/labels, pointer-events none).
    16 routes: Korea–Japan; USA to UK/FR/DE/IT/ES/AU/CA/MX; Australia to
-   KR/JP/UK/FR/DE/IT/ES. Each is a straight segment in projected screen
-   space, pin to pin: no curve, no great-circle, no detour, no wrap split.
-   USA–Australia therefore crosses the visible map as one segment even
-   though the shortest Pacific path would wrap the projection cut.
-   Stroke and dash match the pre-existing gold .arc routes (#d9b765). */
+   KR/JP/UK/FR/DE/IT/ES. Each is a single quadratic Bézier in projected
+   screen space, pin to pin: no waypoints, no detour, no wrap split.
+   The control point sits on the perpendicular bisector, offset by 15%
+   of the chord, bowed upward (poleward; westward if the chord is vertical).
+   The existing .arc airline routes use d3.geoPath LineStrings (a geodesic
+   in the projection), not a quadratic, so this is the closest soft-arc
+   match that stays a single Q segment. USA–Australia is one direct arc
+   across the visible map. Stroke matches .arc gold (#d9b765, dash 3 4). */
 (function(){
   var BRIDGES=[
     ['410','392'],
@@ -91,15 +94,25 @@ Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return
     ['036','410'],['036','392'],
     ['036','826'],['036','250'],['036','276'],['036','380'],['036','724']
   ];
+  var BOW=0.15;
+  function quadPath(a,b){
+    var dx=b[0]-a[0], dy=b[1]-a[1], len=Math.hypot(dx,dy);
+    if(!len) return null;
+    var px=-dy/len, py=dx/len;
+    if(py>0 || (py===0 && px>0)){ px=-px; py=-py; }
+    var cx=(a[0]+b[0])/2 + px*BOW*len;
+    var cy=(a[1]+b[1])/2 + py*BOW*len;
+    return 'M'+a[0]+','+a[1]+' Q'+cx+','+cy+' '+b[0]+','+b[1];
+  }
   var bg=g.append('g').attr('class','bridges').attr('pointer-events','none');
   BRIDGES.forEach(function(pair){
     var A=GUIDES[pair[0]], B=GUIDES[pair[1]];
     if(!A||!B||!A.pin||!B.pin) return;
     var pa=proj(A.pin), pb=proj(B.pin);
     if(!pa||!pb) return;
-    var key=pair[0]+'|'+pair[1];
-    bg.append('line').attr('class','bridge').attr('data-pair',key)
-      .attr('x1',pa[0]).attr('y1',pa[1]).attr('x2',pb[0]).attr('y2',pb[1]);
+    var d=quadPath(pa,pb);
+    if(!d) return;
+    bg.append('path').attr('class','bridge').attr('data-pair',pair[0]+'|'+pair[1]).attr('d',d);
   });
   g.selectAll('.pin').raise();
 })();
