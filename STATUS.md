@@ -1,10 +1,16 @@
 # Status — Japan, South Korea, Australia guides + K9 on UK / France / Germany
 
-Date: 14 November 2026 (Asia/Seoul). Local preview only. Nothing published or pushed.
+Date: 14 November 2026 (Asia/Seoul).
 
-Base: `origin/main` = `4fa88957` (Italy/Spain practical + K9 sections already live).
+**Published** 14 November 2026 after Marc’s « Publie les guides » (13:05 KST).
+Base: `origin/main` was `4fa88957` (Italy/Spain already live; no newer WD commits at fetch).
 Branch: `guides-jp-kr-au-k9-20261114`
 Worktree: `/workspace/it-es-sections-20261114`
+Content commit: `17c919fd`
+Publish commit (sitemap + this status): see git log on `main` after push.
+
+Live URLs: `/countries/japan.html`, `/countries/south-korea.html`, `/countries/australia.html`, plus K9 on `/countries/{uk,france,germany}.html` and `/it/countries/{uk,france,germany}.html`.
+Sitemap: the three new EN country-guide URLs added with `<lastmod>2026-11-14</lastmod>` in `site/sitemap.xml` and `static/sitemap.xml`. World-map links were not changed.
 
 ## Done today
 
