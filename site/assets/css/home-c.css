@@ -39,7 +39,7 @@
 .grat{fill:none;stroke:var(--grat);stroke-width:.4}
 .sphere{fill:var(--ocean);stroke:var(--line)}
 .arc{fill:none;stroke:var(--arc);stroke-width:1.2;stroke-dasharray:3 4;opacity:.8}
-.bridges .bridge{fill:none;stroke:#7ec8e3;stroke-width:.95;stroke-dasharray:5 6;opacity:.48;pointer-events:none}
+.bridges .bridge{fill:none;stroke:var(--arc);stroke-width:1.2;stroke-dasharray:3 4;opacity:.8;pointer-events:none}
 .hub{fill:var(--arc)}
 .pin circle.p{fill:var(--sel)}.pin circle.ring{fill:none;stroke:var(--sel);stroke-width:1.5;animation:pulse 2s infinite}
 .pin text{font:700 11px var(--text);fill:var(--head);paint-order:stroke;stroke:var(--paper);stroke-width:3px}
