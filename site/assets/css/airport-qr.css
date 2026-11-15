@@ -71,3 +71,7 @@
 .jp-tl-step{grid-template-columns:1fr;grid-template-rows:40px 1fr;justify-items:center;align-items:stretch;gap:10px}.jp-tl-dot{align-self:start}.jp-tl-body{width:100%;padding:9px 9px;text-align:left}.jp-tl-body h3{font-size:.86rem}.jp-tl-body p{font-size:.78rem}.jp-tl-badge{font-size:.7rem;padding:3px 7px}}
 .jp-floor{fill:#f3ead3;stroke:#c9bb94;stroke-width:1.2}.v2-ink2{fill:#3b4a4c}.jp-wave{fill:none;stroke:#7fb3c9;stroke-width:1.6;opacity:.6}
 /* JAPAN-AIRPORTS END */
+
+/* Pet mover partner logo (Transcontinental Pet Movers) */
+.partner-logo-link{display:inline-block;margin:0 0 12px}
+.partner-logo-link img{width:160px;height:auto;display:block;max-width:100%}

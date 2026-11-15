@@ -43,12 +43,6 @@
    "url": "https://www.palmglenanimalhospital.com/services/international-health-certificates"
   },
   {
-   "name": "UC Davis Veterinary Medical Teaching Hospital \u2013 Small Animal Hospital",
-   "city": "Davis",
-   "state": "CA",
-   "url": "https://www.vetmed.ucdavis.edu/hospital"
-  },
-  {
    "name": "VCA West Los Angeles Animal Hospital",
    "city": "Los Angeles",
    "state": "CA",
@@ -65,12 +59,6 @@
    "city": "San Diego",
    "state": "CA",
    "url": "https://amicipethospital.com/services/pet-health-certificates"
-  },
-  {
-   "name": "San Francisco SPCA \u2013 Veterinary Hospital",
-   "city": "San Francisco",
-   "state": "CA",
-   "url": "https://www.sfspca.org/veterinary-care/hospital/"
   },
   {
    "name": "CSU Veterinary Teaching Hospital (Colorado State University)",
@@ -205,7 +193,7 @@
    "url": "https://www.mspca.org/veterinarycare/"
   },
   {
-   "name": "Tufts \u2013 Foster Hospital for Small Animals",
+   "name": "Tufts – Foster Hospital for Small Animals",
    "city": "North Grafton",
    "state": "MA",
    "url": "https://vet.tufts.edu/foster-hospital-small-animals"
@@ -379,7 +367,7 @@
    "url": "https://vetmed.oregonstate.edu/hospital/small-animal-services/small-animal-emergency-and-critical-care"
   },
   {
-   "name": "Penn Vet \u2013 Ryan Veterinary Hospital",
+   "name": "Penn Vet – Ryan Veterinary Hospital",
    "city": "Philadelphia",
    "state": "PA",
    "url": "https://www.vet.upenn.edu/ryan-hospital/"
