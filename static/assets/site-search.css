@@ -314,9 +314,18 @@ a.skip:focus-visible{
 /* ── Desktop header search (2026-11-17) ───────────────────────────────────
    Hidden below 1280px so 390px (and the compact 1100–1279 header) stay
    unchanged. At 1280+ the control is a 36px icon; focus/open expands an
-   overlay field so the 13-hub row never wraps (IT/ES labels are tight). */
+   overlay field so the 13-hub row never wraps (IT/ES labels are tight).
+
+   Accent is coral #FF6B5A (Marc, 2026-11-17, option A), with hover #FF8A75,
+   distinct from the nav labels (#5CC8FF) and their gold hover (#F0D58C).
+   Borders use the solid accent (not a 45% mix) so icon and ring keep ≥4.5:1
+   on both #0B1719 and #272D25. The closed control sits on a solid #0B1719
+   well so a gold-tinted --chip cannot wash the contrast out. The open field
+   keeps a dark paper fill and cream text so the suggestion list stays readable. */
 .ppc-header-search{
   display:none !important;
+  --ppc-hs-accent: #FF6B5A;
+  --ppc-hs-accent-hover: #FF8A75;
 }
 @media (min-width:1280px){
   .ppc-header-search,
@@ -340,23 +349,20 @@ a.skip:focus-visible{
     justify-content:center;
     gap:0;
     border-radius:10px;
-    border-color:color-mix(in srgb, #5CC8FF 45%, var(--line2, #3a5a56));
-    background:color-mix(in srgb, var(--chip, #173236) 80%, #0b1719);
+    border-color:var(--ppc-hs-accent);
+    background:#0B1719; /* solid dark well so the accent keeps ≥4.5:1 even when --chip is gold-tinted on the map header */
     cursor:pointer;
   }
   .ppc-header-search .ppc-search__ico{
-    color:#5CC8FF;
+    color:var(--ppc-hs-accent);
     width:18px;height:18px;
   }
-  .ppc-header-search .ppc-search__box:hover,
-  .ppc-header-search:focus-within .ppc-search__box,
-  .ppc-header-search.is-open .ppc-search__box{
-    border-color:#F0D58C;
+  .ppc-header-search .ppc-search__box:hover{
+    border-color:var(--ppc-hs-accent-hover);
+    background:color-mix(in srgb, var(--ppc-hs-accent) 18%, #0b1719);
   }
-  .ppc-header-search .ppc-search__box:hover .ppc-search__ico,
-  .ppc-header-search:focus-within .ppc-search__ico,
-  .ppc-header-search.is-open .ppc-search__ico{
-    color:#F0D58C;
+  .ppc-header-search .ppc-search__box:hover .ppc-search__ico{
+    color:var(--ppc-hs-accent-hover);
   }
   .ppc-header-search:not(:focus-within):not(.is-open) .ppc-search__input{
     position:absolute;
@@ -384,8 +390,13 @@ a.skip:focus-visible{
     justify-content:flex-start;
     gap:8px;
     cursor:text;
+    border-color:var(--ppc-hs-accent);
     background:color-mix(in srgb, var(--paper, #11252a) 92%, #0b1719);
-    box-shadow:0 10px 28px #000a;
+    box-shadow:0 0 0 3px color-mix(in srgb, var(--ppc-hs-accent) 45%, transparent), 0 10px 28px #000a;
+  }
+  .ppc-header-search:focus-within .ppc-search__ico,
+  .ppc-header-search.is-open .ppc-search__ico{
+    color:var(--ppc-hs-accent);
   }
   .ppc-header-search:focus-within .ppc-search__input,
   .ppc-header-search.is-open .ppc-search__input{
@@ -401,5 +412,9 @@ a.skip:focus-visible{
     right:0;
     left:auto;
     z-index:80;
+  }
+  .ppc-header-search .ppc-search__clear:focus-visible,
+  .ppc-header-search .ppc-search__item:focus-visible{
+    outline-color:var(--ppc-hs-accent);
   }
 }
