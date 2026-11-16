@@ -604,28 +604,20 @@ header.top .nav a{
   .top .wrap{
     flex-wrap:nowrap;
     align-items:center;
+    justify-content:space-between;
     max-width:min(1600px,100%);
-    gap:4px;
+    gap:0;
     padding-left:8px;
     padding-right:8px;
   }
+  /* Nav children join the wrap flex row so leftover space is shared
+     evenly between the logo and every hub (no empty pocket after the logo). */
   header.top .nav,
   header.map-nav .nav,
   .top .nav.menu,
   .top .nav.pst-nav,
   .nav-v8 .top .nav.pst-nav{
-    display:flex;
-    flex-wrap:nowrap;
-    justify-content:flex-end;
-    align-items:center;
-    gap:0;
-    row-gap:0;
-    padding:0;
-    margin-left:auto;
-    overflow:visible;
-    overflow-x:visible;
-    min-width:0;
-    flex:1 1 auto;
+    display:contents;
   }
   .top .nav.pst-nav .nav-group-sep,
   header.top .nav .nav-group-sep,
@@ -664,7 +656,7 @@ header.top .nav a{
   header.top .wrap,
   header.map-nav .wrap,
   .nav-v8 .top .wrap,
-  .top .wrap{gap:6px;padding-left:12px;padding-right:12px}
+  .top .wrap{gap:0;padding-left:16px;padding-right:16px}
   .nav-v8 .top .nav.pst-nav a.sec,
   .top .nav.pst-nav a.sec,
   header.top .nav.pst-nav a.sec,
@@ -673,19 +665,30 @@ header.top .nav a{
     padding:12px 5px 12px 3px;
     font-size:.76rem;
     line-height:1.15;
-    min-height:44px;
+    min-height:48px;
   }
   .nav-v8 .top .nav.pst-nav .pst,
   .top .nav.pst-nav .pst{--s:18px;border-radius:5px}
+  /* Undo the homepage .map-nav logo shrink and size the mark to the taller buttons. */
+  header.top a.brand .lbadge,
+  header.map-nav a.brand .lbadge,
+  header.top.map-nav a.brand .lbadge{
+    width:64px;height:48px;
+    transform:none;
+    margin:0;
+  }
+  header.top a.brand .lbadge img,
+  header.map-nav a.brand .lbadge img,
+  header.top.map-nav a.brand .lbadge img{width:54px}
   .top .nav.pst-nav .nav-group-sep,
   header.top .nav .nav-group-sep,
-  header.map-nav .nav .nav-group-sep{height:18px;margin:0 5px}
+  header.map-nav .nav .nav-group-sep{height:20px;margin:0 4px}
 }
 @media (min-width:1440px){
   header.top .wrap,
   header.map-nav .wrap,
   .nav-v8 .top .wrap,
-  .top .wrap{gap:10px;padding-left:20px;padding-right:20px}
+  .top .wrap{gap:0;padding-left:20px;padding-right:20px}
   .nav-v8 .top .nav.pst-nav a.sec,
   .top .nav.pst-nav a.sec,
   header.top .nav.pst-nav a.sec,
@@ -694,16 +697,22 @@ header.top .nav a{
     padding:14px 6px 14px 4px;
     font-size:.84rem;
     line-height:1.15;
-    min-height:48px;
+    min-height:52px;
   }
   .nav-v8 .top .nav.pst-nav .pst,
   .top .nav.pst-nav .pst{--s:20px;border-radius:6px}
   header.top a.brand .lbadge,
-  header.map-nav a.brand .lbadge{width:66px;height:50px}
+  header.map-nav a.brand .lbadge,
+  header.top.map-nav a.brand .lbadge{
+    width:70px;height:52px;
+    transform:none;
+    margin:0;
+  }
   header.top a.brand .lbadge img,
-  header.map-nav a.brand .lbadge img{width:56px}
+  header.map-nav a.brand .lbadge img,
+  header.top.map-nav a.brand .lbadge img{width:60px}
   .top .nav.pst-nav .nav-group-sep,
-  header.top .nav .nav-group-sep{height:20px;margin:0 6px}
+  header.top .nav .nav-group-sep{height:22px;margin:0 4px}
 }
 @media (max-width:1099px){
  .top .nav.pst-nav .nav-group-sep{display:block;flex-shrink:0;height:1px;background:var(--line2);margin:6px 4px;width:auto;flex-basis:auto}
