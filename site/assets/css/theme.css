@@ -735,3 +735,26 @@ header.top .nav a{
 @media (max-width:1099px){
  .top .nav.pst-nav .nav-group-sep{display:block;flex-shrink:0;height:1px;background:var(--line2);margin:6px 4px;width:auto;flex-basis:auto}
 }
+
+/* Desktop keyword search icon (Marc 2026-11-17): 1px tighter horizontal
+   padding on hubs so IT/ES labels plus the 36px icon stay on one row.
+   Heights, type size, colours and the 1-line header are unchanged.
+   The icon itself is hidden below 1280px (see site-search.css). */
+@media (min-width:1280px){
+  .nav-v8 .top .nav.pst-nav a.sec,
+  .top .nav.pst-nav a.sec,
+  header.top .nav.pst-nav a.sec,
+  header.map-nav .nav.pst-nav a.sec{
+    padding-right:4px;
+    padding-left:2px;
+  }
+}
+@media (min-width:1440px){
+  .nav-v8 .top .nav.pst-nav a.sec,
+  .top .nav.pst-nav a.sec,
+  header.top .nav.pst-nav a.sec,
+  header.map-nav .nav.pst-nav a.sec{
+    padding-right:5px;
+    padding-left:3px;
+  }
+}

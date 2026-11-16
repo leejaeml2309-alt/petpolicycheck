@@ -310,3 +310,96 @@ a.skip:focus-visible{
   font:600 .9rem var(--text,system-ui,sans-serif);
   text-decoration:none;
 }
+
+/* ── Desktop header search (2026-11-17) ───────────────────────────────────
+   Hidden below 1280px so 390px (and the compact 1100–1279 header) stay
+   unchanged. At 1280+ the control is a 36px icon; focus/open expands an
+   overlay field so the 13-hub row never wraps (IT/ES labels are tight). */
+.ppc-header-search{
+  display:none !important;
+}
+@media (min-width:1280px){
+  .ppc-header-search,
+  .ppc-header-search.ppc-search{
+    display:block !important;
+    position:relative;
+    flex:0 0 36px;
+    flex-grow:0;
+    flex-shrink:0;
+    width:36px;
+    min-width:36px;
+    max-width:36px;
+    margin:0;
+    align-self:center;
+    z-index:70;
+  }
+  .ppc-header-search .ppc-search__box{
+    width:36px;
+    height:36px;
+    padding:0;
+    justify-content:center;
+    gap:0;
+    border-radius:10px;
+    border-color:color-mix(in srgb, #5CC8FF 45%, var(--line2, #3a5a56));
+    background:color-mix(in srgb, var(--chip, #173236) 80%, #0b1719);
+    cursor:pointer;
+  }
+  .ppc-header-search .ppc-search__ico{
+    color:#5CC8FF;
+    width:18px;height:18px;
+  }
+  .ppc-header-search .ppc-search__box:hover,
+  .ppc-header-search:focus-within .ppc-search__box,
+  .ppc-header-search.is-open .ppc-search__box{
+    border-color:#F0D58C;
+  }
+  .ppc-header-search .ppc-search__box:hover .ppc-search__ico,
+  .ppc-header-search:focus-within .ppc-search__ico,
+  .ppc-header-search.is-open .ppc-search__ico{
+    color:#F0D58C;
+  }
+  .ppc-header-search:not(:focus-within):not(.is-open) .ppc-search__input{
+    position:absolute;
+    inset:0;
+    width:36px;
+    height:36px;
+    padding:0;
+    margin:0;
+    opacity:0;
+    cursor:pointer;
+    color:transparent;
+  }
+  .ppc-header-search:not(:focus-within):not(.is-open) .ppc-search__clear{
+    display:none !important;
+  }
+  .ppc-header-search:focus-within .ppc-search__box,
+  .ppc-header-search.is-open .ppc-search__box{
+    position:absolute;
+    right:0;
+    top:50%;
+    transform:translateY(-50%);
+    width:min(360px, calc(100vw - 24px));
+    height:44px;
+    padding:8px 12px;
+    justify-content:flex-start;
+    gap:8px;
+    cursor:text;
+    background:color-mix(in srgb, var(--paper, #11252a) 92%, #0b1719);
+    box-shadow:0 10px 28px #000a;
+  }
+  .ppc-header-search:focus-within .ppc-search__input,
+  .ppc-header-search.is-open .ppc-search__input{
+    position:static;
+    width:auto;
+    height:auto;
+    opacity:1;
+    color:var(--head, #f5ecd6);
+    cursor:text;
+  }
+  .ppc-header-search .ppc-search__panel{
+    width:min(360px, calc(100vw - 24px));
+    right:0;
+    left:auto;
+    z-index:80;
+  }
+}

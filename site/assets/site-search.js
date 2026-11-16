@@ -358,8 +358,8 @@
     var fromRoot = root && root.getAttribute("data-lang");
     var fromHtml = document.documentElement.getAttribute("data-ppc-locale") || document.documentElement.lang;
     var lang = (fromRoot || fromHtml || "en").split("-")[0].toLowerCase();
-    if (lang === "es" || lang === "en") return lang;
-    return lang || "en";
+    if (lang === "es" || lang === "en" || lang === "it") return lang;
+    return "en";
   }
 
   function loadIndex(base, lang) {
@@ -396,7 +396,8 @@
         '<span class="ppc-search__ico" aria-hidden="true">' + SEARCH_ICO + "</span>" +
         '<input class="ppc-search__input" type="search" autocomplete="off" spellcheck="false" ' +
           'role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="' + root.id + '-list" ' +
-          'aria-haspopup="listbox" placeholder="' + (opts.placeholder || uiStr.placeholder) + '">' +
+          'aria-haspopup="listbox" aria-label="' + (opts.placeholder || uiStr.placeholder) + '" ' +
+          'placeholder="' + (opts.placeholder || uiStr.placeholder) + '">' +
         '<button type="button" class="ppc-search__clear" aria-label="' + uiStr.clear + '">×</button>' +
       "</div>" +
       '<div class="ppc-search__panel" id="' + root.id + '-panel" hidden>' +
@@ -544,6 +545,12 @@
       });
     }
 
+    var box = root.querySelector(".ppc-search__box");
+    if (box) {
+      box.addEventListener("click", function (e) {
+        if (e.target !== ui.input) ui.input.focus();
+      });
+    }
     ui.input.addEventListener("focus", function () { ensureIndex(); if (ui.input.value) run(); });
     ui.input.addEventListener("input", function () {
       clearTimeout(debounce);
@@ -591,6 +598,19 @@
     return api;
   }
 
+  function injectHeaderSearch() {
+    if (document.querySelector("[data-ppc-search], .ppc-header-search")) return;
+    var wrap = document.querySelector("header.top .wrap, header.map-nav .wrap");
+    if (!wrap) return;
+    var el = document.createElement("div");
+    el.className = "ppc-header-search";
+    el.setAttribute("data-ppc-search", "header");
+    var lang = detectLang(el);
+    el.setAttribute("data-lang", lang);
+    wrap.appendChild(el);
+    mount(el, { lang: lang });
+  }
+
   function autoMount() {
     document.querySelectorAll("[data-ppc-search]").forEach(function (el) {
       mount(el, {
@@ -599,6 +619,7 @@
         lang: el.getAttribute("data-lang") || detectLang(el)
       });
     });
+    injectHeaderSearch();
   }
 
   if (document.readyState === "loading") {
