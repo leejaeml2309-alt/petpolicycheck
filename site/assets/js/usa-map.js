@@ -817,11 +817,23 @@ function setHash(a,n){
  const h=n?a+"/"+encodeURIComponent(n):a;
  if(decodeURIComponent(location.hash.replace(/^#/,""))!== (n?a+"/"+n:a)) history.replaceState(null,"","#"+h);
 }
+
+/* California state panel only: Transcontinental Pet Movers partner card. */
+function caPetMoverCard(){
+ const lang=transconUiLang();
+ const h2=lang==="it"?"Partner per il trasporto di animali":lang==="es"?"Socio de transporte de mascotas":"Pet mover partner";
+ const desc=lang==="it"?"trasferimento di animali da San Francisco (SFO) e Los Angeles (Inglewood, LAX)":lang==="es"?"reubicación de mascotas desde San Francisco (SFO) y Los Angeles (Inglewood, LAX)":"pet relocation from San Francisco (SFO) and Los Angeles (Inglewood, LAX)";
+ const logo="https://transconpet.com/?utm_source=petpolicycheck&utm_medium=referral&utm_campaign=partner_listing&utm_content=logo";
+ const text="https://transconpet.com/?utm_source=petpolicycheck&utm_medium=referral&utm_campaign=partner_listing&utm_content=text";
+ const src="/assets/partners/transcontinental-pet-movers";
+ return `<aside class="pet-mover-partner" id="pet-mover-partner"><h3>${esc(h2)}</h3><a class="partner-logo-link" href="${esc(logo)}" target="_blank" rel="sponsored noopener"><picture><source type="image/webp" srcset="${src}.webp"><img src="${src}.png" width="160" height="160" alt="Transcontinental Pet Movers logo"></picture></a><p><a href="${esc(text)}" target="_blank" rel="sponsored noopener">Transcontinental Pet Movers (TC Pet Movers)</a> — ${esc(desc)}</p></aside>`;
+}
 function selectState(a){
  cur={a};hilite(a);setHash(a);
  const s=GEO[a];
  render(header(a,s.name,`${a} · ${ruleKind(a)} · state law portal`)+
   `<h4 style="font:600 .72rem var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:4px 0 0">Main cities</h4>${cityButtons(a)}`+
+  (a==="CA"?caPetMoverCard():"")+
   lawSection(a)+roadSection(a)+planeSection(a)+hotelSection(s.name)+groomSection());
 }
 function selectDC(){cur={a:"DC"};hilite(null);setHash("DC");

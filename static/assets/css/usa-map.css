@@ -386,3 +386,10 @@ main.wrap:has(#usa-map){max-width:1320px}
 #country-map .ct text.lbl-crowd,
 #usa-map .ct.ct-crowd,
 #usa-map .ct text.lbl-crowd{display:none !important}
+
+/* California panel: Transcontinental Pet Movers partner card */
+#usa-map .pet-mover-partner{margin:12px 0 14px;padding:12px 12px 10px;border:1px solid rgba(217,183,101,.28);border-radius:var(--r);background:var(--paper2,#12292e)}
+#usa-map .pet-mover-partner h3{font-size:1.05rem;line-height:1.25;margin:0 0 10px}
+#usa-map .pet-mover-partner .partner-logo-link{display:inline-block;margin:0 0 10px}
+#usa-map .pet-mover-partner .partner-logo-link img{width:160px;height:auto;display:block;max-width:100%}
+#usa-map .pet-mover-partner p{margin:0;font-size:.88rem;line-height:1.4}
