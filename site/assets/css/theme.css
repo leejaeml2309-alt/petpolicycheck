@@ -714,6 +714,24 @@ header.top .nav a{
   .top .nav.pst-nav .nav-group-sep,
   header.top .nav .nav-group-sep{height:22px;margin:0 4px}
 }
+/* Desktop nav labels: bright sky blue, gold hover/current (Marc 2026-11-16, option C).
+   Sizes, padding and tracking unchanged from 0c026ea9. */
+@media (min-width:1100px){
+  header.top .nav.pst-nav a.sec .lbl,
+  header.map-nav .nav.pst-nav a.sec .lbl,
+  .top .nav.pst-nav a.sec .lbl{
+    color:#5CC8FF;
+    font-weight:600;
+  }
+  header.top .nav.pst-nav a.sec:hover .lbl,
+  header.map-nav .nav.pst-nav a.sec:hover .lbl,
+  .top .nav.pst-nav a.sec:hover .lbl,
+  header.top .nav.pst-nav a.sec[aria-current] .lbl,
+  header.map-nav .nav.pst-nav a.sec[aria-current] .lbl,
+  .top .nav.pst-nav a.sec[aria-current] .lbl{
+    color:#F0D58C;
+  }
+}
 @media (max-width:1099px){
  .top .nav.pst-nav .nav-group-sep{display:block;flex-shrink:0;height:1px;background:var(--line2);margin:6px 4px;width:auto;flex-basis:auto}
 }
