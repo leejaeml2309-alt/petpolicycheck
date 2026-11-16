@@ -393,3 +393,11 @@ main.wrap:has(#usa-map){max-width:1320px}
 #usa-map .pet-mover-partner .partner-logo-link{display:inline-block;margin:0 0 10px}
 #usa-map .pet-mover-partner .partner-logo-link img{width:160px;height:auto;display:block;max-width:100%}
 #usa-map .pet-mover-partner p{margin:0;font-size:.88rem;line-height:1.4}
+
+/* Transcon airport-panel link: official logo in place of the generic icon */
+#usa-map .lk.transcon-link{align-items:center;gap:10px}
+#usa-map .lk.transcon-link .transcon-logo-link{flex:none;display:block;width:48px;height:48px;border-radius:50%;overflow:hidden;line-height:0;text-decoration:none}
+#usa-map .lk.transcon-link .transcon-logo-link img{width:48px;height:48px;display:block}
+#usa-map .lk.transcon-link > a.t{flex:1;min-width:0;text-decoration:none;color:var(--ink)}
+#usa-map .lk.transcon-link:hover > a.t{color:var(--head)}
+#usa-map .lk.transcon-link > a.t small{display:block;color:var(--mut);font-size:.76rem}

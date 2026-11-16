@@ -446,7 +446,9 @@ function transconLink(ap){
  const en=transconUiLang()==='en';
  const title=en?t.title:"Transcon Pet Movers";
  const sub=en?(t.sub||""):"";
- return `<a class="lk transcon-link" data-partner="transconpet" href="${esc(t.url)}" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">🚚</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:""}</span></a>`;
+ const logoHref="https://transconpet.com/?utm_source=petpolicycheck&utm_medium=referral&utm_campaign=partner_listing&utm_content=logo";
+ const src="/assets/partners/transcontinental-pet-movers";
+ return `<div class="lk transcon-link" data-partner="transconpet"><a class="transcon-logo-link" href="${esc(logoHref)}" target="_blank" rel="sponsored noopener"><picture><source type="image/webp" srcset="${src}.webp"><img src="${src}.png" width="48" height="48" alt="Transcontinental Pet Movers logo"></picture></a><a class="t" href="${esc(t.url)}" target="_blank" rel="sponsored noopener">${esc(title)}${sub?`<small>${esc(sub)}</small>`:""}</a></div>`;
 }
 function airportPlane(ap){
  const sibs=airportsFor(ap.metroState, ap.metroCity).filter(x=>x.code!==ap.code);
