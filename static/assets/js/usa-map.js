@@ -74,11 +74,17 @@ const SAMPLE={
   taxi:[],transit:[["🚇","MARTA","Rail to ATL airport and buses","https://www.itsmarta.com/","off"]],rail:[]},
 };
 /* Airports for the 8 sample metros, plus two placeholder hubs (SFO, DFW),
-   ANC/HNL, and 17 more FAA large hubs with named map labels (mapLabel/mapName):
-   LAS, MCO, CLT, PHX, BOS, FLL, MSP, DTW, PHL, SLC, BWI, DCA, SAN, IAD, TPA, BNA, AUS.
+   ANC/HNL, 17 FAA large hubs with named map labels (mapLabel/mapName):
+   LAS, MCO, CLT, PHX, BOS, FLL, MSP, DTW, PHL, SLC, BWI, DCA, SAN, IAD, TPA, BNA, AUS,
+   and one airport for each state that previously had none (FAA CY2024 busiest,
+   or the main international field): BHM, LIT, BDL, ILG, DSM, BOI, IND, ICT, CVG,
+   MSY, PWM, STL, JAN, BZN, FAR, OMA, MHT, ABQ, CLE, OKC, PDX, PVD, CHS, FSD,
+   BTV, CRW, MKE, JAC. Pins use real GPS in the map's Albers USA projection,
+   then a short offset so the mark is not on its city dot.
    metroCity/metroState is the booking panel. placeState is where the dot sits
    (EWR is in New Jersey and still belongs to New York City; DCA and IAD sit in
-   Virginia and belong to Washington, DC). pets:null = placeholder. */
+   Virginia and belong to Washington, DC; CVG sits in Kentucky and belongs to
+   Cincinnati, Ohio). pets:null = placeholder. */
 const PLANE="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5z";
 const AIRPORTS=[
  {code:"LGA", name:"LaGuardia", metroCity:"New York City", metroState:"NY", placeState:"NY", x:912, y:184, ldx:8, ldy:3, anchor:"start",
@@ -198,6 +204,90 @@ const AIRPORTS=[
   mapLabel:"DCA · Washington", mapName:"Reagan National",
   site:["https://www.flyreagan.com/","Reagan National official site"],
   pets:["https://www.flyreagan.com/travel-information/services-amenities/pet-relief-areas","DCA pet relief areas","Reagan National official page"]},
+ {code:"BHM", name:"Birmingham-Shuttlesworth International", metroCity:"Birmingham", metroState:"AL", placeState:"AL", x:683, y:399, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"BHM · Birmingham", mapName:"Shuttlesworth",
+  site:["https://www.flybirmingham.com/","Birmingham-Shuttlesworth official site"], pets:null},
+ {code:"LIT", name:"Bill and Hillary Clinton National", metroCity:"Little Rock", metroState:"AR", placeState:"AR", x:587, y:400, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"LIT · Little Rock", mapName:"Clinton National",
+  site:["https://clintonairport.com/","Clinton National official site"], pets:null},
+ {code:"BDL", name:"Bradley International", metroCity:"Hartford", metroState:"CT", placeState:"CT", x:880, y:168, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"BDL", mapName:"Bradley",
+  site:["https://bradleyairport.com/","Bradley International official site"], pets:null},
+ {code:"ILG", name:"Wilmington Airport (New Castle)", metroCity:"Wilmington", metroState:"DE", placeState:"DE", x:882, y:246, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"ILG", mapName:"New Castle",
+  site:["https://www.flyilg.com/","Wilmington Airport official site"], pets:null},
+ {code:"DSM", name:"Des Moines International", metroCity:"Des Moines", metroState:"IA", placeState:"IA", x:527, y:256, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"DSM · Des Moines", mapName:"Des Moines",
+  site:["https://www.flydsm.com/","Des Moines International official site"], pets:null},
+ {code:"BOI", name:"Boise Airport", metroCity:"Boise", metroState:"ID", placeState:"ID", x:160, y:176, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"BOI · Boise", mapName:"Boise",
+  site:["https://www.iflyboise.com/","Boise Airport official site"], pets:null},
+ {code:"IND", name:"Indianapolis International", metroCity:"Indianapolis", metroState:"IN", placeState:"IN", x:650, y:284, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"IND · Indianapolis", mapName:"Indianapolis",
+  site:["https://www.ind.com/","Indianapolis International official site"], pets:null},
+ {code:"ICT", name:"Wichita Dwight D. Eisenhower National", metroCity:"Wichita", metroState:"KS", placeState:"KS", x:456, y:338, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"ICT · Wichita", mapName:"Eisenhower",
+  site:["https://www.flywichita.com/","Wichita Eisenhower official site"], pets:null},
+ {code:"CVG", name:"Cincinnati/Northern Kentucky International", metroCity:"Cincinnati", metroState:"OH", placeState:"KY", localCity:"Hebron", x:677, y:287, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"CVG · Cincinnati", mapName:"Northern Kentucky",
+  site:["https://www.cvgairport.com/","Cincinnati/Northern Kentucky official site"], pets:null},
+ {code:"MSY", name:"Louis Armstrong New Orleans International", metroCity:"New Orleans", metroState:"LA", placeState:"LA", x:624, y:522, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"MSY · New Orleans", mapName:"Armstrong",
+  site:["https://www.flymsy.com/","Louis Armstrong New Orleans official site"], pets:null},
+ {code:"PWM", name:"Portland International Jetport", metroCity:"Portland", metroState:"ME", placeState:"ME", x:934, y:104, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"PWM", mapName:"Jetport",
+  site:["https://portlandjetport.org/","Portland International Jetport official site"], pets:null},
+ {code:"STL", name:"St. Louis Lambert International", metroCity:"St. Louis", metroState:"MO", placeState:"MO", x:582, y:290, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"STL · St. Louis", mapName:"Lambert",
+  site:["https://www.flystl.com/","St. Louis Lambert official site"], pets:null},
+ {code:"JAN", name:"Jackson–Medgar Wiley Evers International", metroCity:"Jackson", metroState:"MS", placeState:"MS", x:630, y:444, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"JAN · Jackson", mapName:"Evers",
+  site:["https://iflyjackson.com/","Jackson–Evers official site"], pets:null},
+ {code:"BZN", name:"Bozeman Yellowstone International", metroCity:"Bozeman", metroState:"MT", placeState:"MT", x:288, y:134, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"BZN · Bozeman", mapName:"Yellowstone",
+  site:["https://bozemanairport.com/","Bozeman Yellowstone official site"], pets:null},
+ {code:"FAR", name:"Hector International", metroCity:"Fargo", metroState:"ND", placeState:"ND", x:478, y:99, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"FAR · Fargo", mapName:"Hector",
+  site:["https://www.fargoairport.com/","Hector International official site"], pets:null},
+ {code:"OMA", name:"Eppley Airfield", metroCity:"Omaha", metroState:"NE", placeState:"NE", x:511, y:229, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"OMA · Omaha", mapName:"Eppley",
+  site:["https://www.flyoma.com/","Eppley Airfield official site"], pets:null},
+ {code:"MHT", name:"Manchester-Boston Regional", metroCity:"Manchester", metroState:"NH", placeState:"NH", x:892, y:125, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"MHT", mapName:"Manchester",
+  site:["https://www.flymanchester.com/","Manchester-Boston Regional official site"], pets:null},
+ {code:"ABQ", name:"Albuquerque International Sunport", metroCity:"Albuquerque", metroState:"NM", placeState:"NM", x:314, y:394, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"ABQ · Albuquerque", mapName:"Sunport",
+  site:["https://www.abqsunport.com/","Albuquerque Sunport official site"], pets:null},
+ {code:"CLE", name:"Cleveland Hopkins International", metroCity:"Cleveland", metroState:"OH", placeState:"OH", x:728, y:240, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"CLE · Cleveland", mapName:"Hopkins",
+  site:["https://www.clevelandairport.com/","Cleveland Hopkins official site"], pets:null},
+ {code:"OKC", name:"Will Rogers World", metroCity:"Oklahoma City", metroState:"OK", placeState:"OK", x:457, y:395, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"OKC · Oklahoma City", mapName:"Will Rogers",
+  site:["https://flyokc.com/","Will Rogers World official site"], pets:null},
+ {code:"PDX", name:"Portland International", metroCity:"Portland", metroState:"OR", placeState:"OR", x:96, y:78, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"PDX · Portland", mapName:"Portland Intl",
+  site:["https://www.flypdx.com/","Portland International official site"], pets:null},
+ {code:"PVD", name:"Rhode Island T. F. Green International", metroCity:"Providence", metroState:"RI", placeState:"RI", x:910, y:210, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"PVD", mapName:"T. F. Green",
+  site:["https://flyri.com/","Rhode Island T. F. Green official site"], pets:null},
+ {code:"CHS", name:"Charleston International", metroCity:"Charleston", metroState:"SC", placeState:"SC", x:781, y:410, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"CHS · Charleston", mapName:"Charleston",
+  site:["https://www.iflychs.com/","Charleston International official site"], pets:null},
+ {code:"FSD", name:"Sioux Falls Regional (Joe Foss Field)", metroCity:"Sioux Falls", metroState:"SD", placeState:"SD", x:481, y:174, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"FSD · Sioux Falls", mapName:"Joe Foss Field",
+  site:["https://www.sfairport.com/","Sioux Falls Regional official site"], pets:null},
+ {code:"BTV", name:"Patrick Leahy Burlington International", metroCity:"Burlington", metroState:"VT", placeState:"VT", x:842, y:122, ldx:-10, ldy:3, anchor:"end",
+  mapLabel:"BTV", mapName:"Burlington",
+  site:["https://btv.aero/","Burlington International official site"], pets:null},
+ {code:"CRW", name:"West Virginia International Yeager", metroCity:"Charleston", metroState:"WV", placeState:"WV", x:770, y:288, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"CRW · Charleston", mapName:"Yeager",
+  site:["https://flycrw.com/","West Virginia International Yeager official site"], pets:null},
+ {code:"MKE", name:"General Mitchell International", metroCity:"Milwaukee", metroState:"WI", placeState:"WI", x:653, y:200, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"MKE · Milwaukee", mapName:"Mitchell",
+  site:["https://www.mitchellairport.com/","Milwaukee Mitchell official site"], pets:null},
+ {code:"JAC", name:"Jackson Hole", metroCity:"Jackson", metroState:"WY", placeState:"WY", x:263, y:157, ldx:10, ldy:3, anchor:"start",
+  mapLabel:"JAC · Jackson", mapName:"Jackson Hole",
+  site:["https://www.jacksonholeairport.com/","Jackson Hole Airport official site"], pets:null}
 ];
 function cityXY(state, name){
  const list=(GEO[state]&&GEO[state].cities)||[];
@@ -265,16 +355,15 @@ function stateDensityScore(a){
   s+=cities*0.5;
   return s;
 }
+
+/* Frozen choropleth, 17 Nov 2026: adding the missing-state airports must not
+   reshape the quantile buckets or change existing state colours. */
+const FROZEN_DENSITY_TIERS={AK:3,AL:2,AR:1,AZ:4,CA:5,CO:4,CT:1,DC:4,DE:4,FL:5,GA:5,HI:4,IA:2,ID:1,IL:5,IN:1,KS:1,KY:1,LA:2,MA:4,MD:3,ME:2,MI:4,MN:4,MO:2,MS:1,MT:2,NC:5,ND:2,NE:2,NH:3,NJ:3,NM:2,NV:3,NY:5,OH:4,OK:3,OR:3,PA:4,RI:1,SC:2,SD:3,TN:5,TX:5,UT:4,VA:5,VT:3,WA:5,WI:3,WV:1,WY:1};
 function assignDensityTiers(){
   const states=ABBRS.slice();
   const scored=states.map(a=>({a,score:stateDensityScore(a)})).sort((x,y)=>x.score-y.score||x.a.localeCompare(y.a));
-  const n=scored.length, tiers={};
-  // Quantile buckets (~equal count) into 5 tiers: 1=lightest … 5=darkest
-  scored.forEach((row,i)=>{
-    const q=Math.min(4, Math.floor((i/n)*5)); // 0..4
-    tiers[row.a]=q+1;
-  });
-  if(GEO.DC){ const d=Math.round(((tiers.VA||3)+(tiers.MD||3))/2); tiers.DC=Math.max(1,Math.min(5,d)); }
+  const tiers=Object.assign({}, FROZEN_DENSITY_TIERS);
+  if(GEO.DC && tiers.DC==null){ const d=Math.round(((tiers.VA||3)+(tiers.MD||3))/2); tiers.DC=Math.max(1,Math.min(5,d)); }
   window.PPC_USA_DENSITY_TIERS=tiers;
   window.PPC_USA_DENSITY_SCORES=Object.fromEntries(scored.map(r=>[r.a,r.score]));
   return tiers;
@@ -570,7 +659,7 @@ function _scoreSlot(box, placed, pad){
   return {n, area};
 }
 function _airportRank(code){
-  const R={ATL:0,LAX:1,ORD:2,DFW:3,DEN:4,JFK:5,SFO:6,LAS:7,SEA:8,MIA:9,CLT:10,PHX:11,EWR:12,MCO:13,IAH:14,BOS:15,MSP:16,DTW:17,FLL:18,PHL:19,LGA:20,BWI:21,DCA:22,IAD:23,SLC:24,SAN:25,TPA:26,PDX:27,HNL:28,
+  const R={ATL:0,LAX:1,ORD:2,DFW:3,DEN:4,JFK:5,SFO:6,LAS:7,SEA:8,MIA:9,CLT:10,PHX:11,EWR:12,MCO:13,IAH:14,BOS:15,MSP:16,DTW:17,FLL:18,PHL:19,LGA:20,BWI:21,DCA:22,IAD:23,SLC:24,SAN:25,TPA:26,PDX:27,HNL:28,STL:30,MSY:31,IND:32,CLE:33,CVG:34,BDL:35,CHS:36,MKE:37,ABQ:38,OMA:39,BOI:40,OKC:41,PVD:42,BHM:43,DSM:44,BZN:45,PWM:46,LIT:47,ICT:48,FSD:49,BTV:50,MHT:51,JAN:52,FAR:53,JAC:54,CRW:55,ILG:56,
     LHR:0,LGW:1,MAN:2,STN:3,LTN:4,BHX:5,EDI:6,BRS:7,
     CDG:0,ORY:1,NCE:2,MRS:3,LYS:4,BSL:5,TLS:6,NTE:7,BVA:8,BOD:9,
     FRA:0,MUC:1,BER:2,DUS:3,HAM:4,CGN:5,STR:6,
