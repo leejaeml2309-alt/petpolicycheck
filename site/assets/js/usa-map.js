@@ -204,89 +204,89 @@ const AIRPORTS=[
   mapLabel:"DCA · Washington", mapName:"Reagan National",
   site:["https://www.flyreagan.com/","Reagan National official site"],
   pets:["https://www.flyreagan.com/travel-information/services-amenities/pet-relief-areas","DCA pet relief areas","Reagan National official page"]},
- {code:"BHM", name:"Birmingham-Shuttlesworth International", metroCity:"Birmingham", metroState:"AL", placeState:"AL", x:683, y:399, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"BHM · Birmingham", mapName:"Shuttlesworth",
+ {code:"BHM", name:"Birmingham-Shuttlesworth International", metroCity:"Birmingham", metroState:"AL", placeState:"AL", x:683, y:399, ldx:8, ldy:-16, anchor:"start",
+  mapLabel:"BHM", mapName:"Shuttlesworth",
   site:["https://www.flybirmingham.com/","Birmingham-Shuttlesworth official site"], pets:null},
- {code:"LIT", name:"Bill and Hillary Clinton National", metroCity:"Little Rock", metroState:"AR", placeState:"AR", x:587, y:400, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"LIT · Little Rock", mapName:"Clinton National",
+ {code:"LIT", name:"Bill and Hillary Clinton National", metroCity:"Little Rock", metroState:"AR", placeState:"AR", x:587, y:400, ldx:12, ldy:3, anchor:"start",
+  mapLabel:"LIT", mapName:"Clinton National",
   site:["https://clintonairport.com/","Clinton National official site"], pets:null},
  {code:"BDL", name:"Bradley International", metroCity:"Hartford", metroState:"CT", placeState:"CT", x:880, y:168, ldx:-10, ldy:3, anchor:"end",
   mapLabel:"BDL", mapName:"Bradley",
   site:["https://bradleyairport.com/","Bradley International official site"], pets:null},
- {code:"ILG", name:"Wilmington Airport (New Castle)", metroCity:"Wilmington", metroState:"DE", placeState:"DE", x:882, y:246, ldx:10, ldy:3, anchor:"start",
+ {code:"ILG", name:"Wilmington Airport (New Castle)", metroCity:"Wilmington", metroState:"DE", placeState:"DE", x:882, y:246, ldx:-10, ldy:3, anchor:"end",
   mapLabel:"ILG", mapName:"New Castle",
   site:["https://www.flyilg.com/","Wilmington Airport official site"], pets:null},
- {code:"DSM", name:"Des Moines International", metroCity:"Des Moines", metroState:"IA", placeState:"IA", x:527, y:256, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"DSM · Des Moines", mapName:"Des Moines",
+ {code:"DSM", name:"Des Moines International", metroCity:"Des Moines", metroState:"IA", placeState:"IA", x:527, y:256, ldx:12, ldy:3, anchor:"start",
+  mapLabel:"DSM", mapName:"Des Moines",
   site:["https://www.flydsm.com/","Des Moines International official site"], pets:null},
- {code:"BOI", name:"Boise Airport", metroCity:"Boise", metroState:"ID", placeState:"ID", x:160, y:176, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"BOI · Boise", mapName:"Boise",
+ {code:"BOI", name:"Boise Airport", metroCity:"Boise", metroState:"ID", placeState:"ID", x:160, y:176, ldx:-8, ldy:-16, anchor:"end",
+  mapLabel:"BOI", mapName:"Boise",
   site:["https://www.iflyboise.com/","Boise Airport official site"], pets:null},
- {code:"IND", name:"Indianapolis International", metroCity:"Indianapolis", metroState:"IN", placeState:"IN", x:650, y:284, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"IND · Indianapolis", mapName:"Indianapolis",
+ {code:"IND", name:"Indianapolis International", metroCity:"Indianapolis", metroState:"IN", placeState:"IN", x:641.2, y:285.9, ldx:0, ldy:32, anchor:"middle",
+  mapLabel:"IND", mapName:"Indianapolis",
   site:["https://www.ind.com/","Indianapolis International official site"], pets:null},
- {code:"ICT", name:"Wichita Dwight D. Eisenhower National", metroCity:"Wichita", metroState:"KS", placeState:"KS", x:456, y:338, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"ICT · Wichita", mapName:"Eisenhower",
+ {code:"ICT", name:"Wichita Dwight D. Eisenhower National", metroCity:"Wichita", metroState:"KS", placeState:"KS", x:456, y:338, ldx:-12, ldy:3, anchor:"end",
+  mapLabel:"ICT", mapName:"Eisenhower",
   site:["https://www.flywichita.com/","Wichita Eisenhower official site"], pets:null},
- {code:"CVG", name:"Cincinnati/Northern Kentucky International", metroCity:"Cincinnati", metroState:"OH", placeState:"KY", localCity:"Hebron", x:677, y:287, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"CVG · Cincinnati", mapName:"Northern Kentucky",
+ {code:"CVG", name:"Cincinnati/Northern Kentucky International", metroCity:"Cincinnati", metroState:"OH", placeState:"KY", localCity:"Hebron", x:664.6, y:290, ldx:10, ldy:-16, anchor:"start",
+  mapLabel:"CVG", mapName:"Northern Kentucky",
   site:["https://www.cvgairport.com/","Cincinnati/Northern Kentucky official site"], pets:null},
- {code:"MSY", name:"Louis Armstrong New Orleans International", metroCity:"New Orleans", metroState:"LA", placeState:"LA", x:624, y:522, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"MSY · New Orleans", mapName:"Armstrong",
+ {code:"MSY", name:"Louis Armstrong New Orleans International", metroCity:"New Orleans", metroState:"LA", placeState:"LA", x:624, y:522, ldx:8, ldy:-16, anchor:"start",
+  mapLabel:"MSY", mapName:"Armstrong",
   site:["https://www.flymsy.com/","Louis Armstrong New Orleans official site"], pets:null},
- {code:"PWM", name:"Portland International Jetport", metroCity:"Portland", metroState:"ME", placeState:"ME", x:934, y:104, ldx:-10, ldy:3, anchor:"end",
+ {code:"PWM", name:"Portland International Jetport", metroCity:"Portland", metroState:"ME", placeState:"ME", x:943, y:104, ldx:0, ldy:-24, anchor:"middle",
   mapLabel:"PWM", mapName:"Jetport",
   site:["https://portlandjetport.org/","Portland International Jetport official site"], pets:null},
- {code:"STL", name:"St. Louis Lambert International", metroCity:"St. Louis", metroState:"MO", placeState:"MO", x:582, y:290, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"STL · St. Louis", mapName:"Lambert",
+ {code:"STL", name:"St. Louis Lambert International", metroCity:"St. Louis", metroState:"MO", placeState:"MO", x:582, y:290, ldx:12, ldy:3, anchor:"start",
+  mapLabel:"STL", mapName:"Lambert",
   site:["https://www.flystl.com/","St. Louis Lambert official site"], pets:null},
- {code:"JAN", name:"Jackson–Medgar Wiley Evers International", metroCity:"Jackson", metroState:"MS", placeState:"MS", x:630, y:444, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"JAN · Jackson", mapName:"Evers",
+ {code:"JAN", name:"Jackson–Medgar Wiley Evers International", metroCity:"Jackson", metroState:"MS", placeState:"MS", x:642.8, y:444, ldx:12, ldy:14, anchor:"start",
+  mapLabel:"JAN", mapName:"Evers",
   site:["https://iflyjackson.com/","Jackson–Evers official site"], pets:null},
- {code:"BZN", name:"Bozeman Yellowstone International", metroCity:"Bozeman", metroState:"MT", placeState:"MT", x:288, y:134, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"BZN · Bozeman", mapName:"Yellowstone",
+ {code:"BZN", name:"Bozeman Yellowstone International", metroCity:"Bozeman", metroState:"MT", placeState:"MT", x:285.6, y:135.8, ldx:12, ldy:14, anchor:"start",
+  mapLabel:"BZN", mapName:"Yellowstone",
   site:["https://bozemanairport.com/","Bozeman Yellowstone official site"], pets:null},
- {code:"FAR", name:"Hector International", metroCity:"Fargo", metroState:"ND", placeState:"ND", x:478, y:99, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"FAR · Fargo", mapName:"Hector",
+ {code:"FAR", name:"Hector International", metroCity:"Fargo", metroState:"ND", placeState:"ND", x:478, y:99, ldx:8, ldy:-16, anchor:"start",
+  mapLabel:"FAR", mapName:"Hector",
   site:["https://www.fargoairport.com/","Hector International official site"], pets:null},
- {code:"OMA", name:"Eppley Airfield", metroCity:"Omaha", metroState:"NE", placeState:"NE", x:511, y:229, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"OMA · Omaha", mapName:"Eppley",
+ {code:"OMA", name:"Eppley Airfield", metroCity:"Omaha", metroState:"NE", placeState:"NE", x:511, y:229, ldx:8, ldy:-16, anchor:"start",
+  mapLabel:"OMA", mapName:"Eppley",
   site:["https://www.flyoma.com/","Eppley Airfield official site"], pets:null},
- {code:"MHT", name:"Manchester-Boston Regional", metroCity:"Manchester", metroState:"NH", placeState:"NH", x:892, y:125, ldx:-10, ldy:3, anchor:"end",
+ {code:"MHT", name:"Manchester-Boston Regional", metroCity:"Manchester", metroState:"NH", placeState:"NH", x:890, y:121, ldx:-8, ldy:-16, anchor:"end",
   mapLabel:"MHT", mapName:"Manchester",
   site:["https://www.flymanchester.com/","Manchester-Boston Regional official site"], pets:null},
- {code:"ABQ", name:"Albuquerque International Sunport", metroCity:"Albuquerque", metroState:"NM", placeState:"NM", x:314, y:394, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"ABQ · Albuquerque", mapName:"Sunport",
+ {code:"ABQ", name:"Albuquerque International Sunport", metroCity:"Albuquerque", metroState:"NM", placeState:"NM", x:335.8, y:394, ldx:8, ldy:-16, anchor:"start",
+  mapLabel:"ABQ", mapName:"Sunport",
   site:["https://www.abqsunport.com/","Albuquerque Sunport official site"], pets:null},
- {code:"CLE", name:"Cleveland Hopkins International", metroCity:"Cleveland", metroState:"OH", placeState:"OH", x:728, y:240, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"CLE · Cleveland", mapName:"Hopkins",
+ {code:"CLE", name:"Cleveland Hopkins International", metroCity:"Cleveland", metroState:"OH", placeState:"OH", x:754, y:210, ldx:12, ldy:3, anchor:"start",
+  mapLabel:"CLE", mapName:"Hopkins",
   site:["https://www.clevelandairport.com/","Cleveland Hopkins official site"], pets:null},
- {code:"OKC", name:"Will Rogers World", metroCity:"Oklahoma City", metroState:"OK", placeState:"OK", x:457, y:395, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"OKC · Oklahoma City", mapName:"Will Rogers",
+ {code:"OKC", name:"Will Rogers World", metroCity:"Oklahoma City", metroState:"OK", placeState:"OK", x:458.1, y:396.9, ldx:-8, ldy:-16, anchor:"end",
+  mapLabel:"OKC", mapName:"Will Rogers",
   site:["https://flyokc.com/","Will Rogers World official site"], pets:null},
- {code:"PDX", name:"Portland International", metroCity:"Portland", metroState:"OR", placeState:"OR", x:96, y:78, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"PDX · Portland", mapName:"Portland Intl",
+ {code:"PDX", name:"Portland International", metroCity:"Portland", metroState:"OR", placeState:"OR", x:96, y:78, ldx:-12, ldy:3, anchor:"end",
+  mapLabel:"PDX", mapName:"Portland Intl",
   site:["https://www.flypdx.com/","Portland International official site"], pets:null},
- {code:"PVD", name:"Rhode Island T. F. Green International", metroCity:"Providence", metroState:"RI", placeState:"RI", x:910, y:210, ldx:10, ldy:3, anchor:"start",
+ {code:"PVD", name:"Rhode Island T. F. Green International", metroCity:"Providence", metroState:"RI", placeState:"RI", x:916.8, y:210, ldx:-10, ldy:3, anchor:"end",
   mapLabel:"PVD", mapName:"T. F. Green",
   site:["https://flyri.com/","Rhode Island T. F. Green official site"], pets:null},
- {code:"CHS", name:"Charleston International", metroCity:"Charleston", metroState:"SC", placeState:"SC", x:781, y:410, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"CHS · Charleston", mapName:"Charleston",
+ {code:"CHS", name:"Charleston International", metroCity:"Charleston", metroState:"SC", placeState:"SC", x:784, y:413.4, ldx:12, ldy:-8, anchor:"start",
+  mapLabel:"CHS", mapName:"Charleston",
   site:["https://www.iflychs.com/","Charleston International official site"], pets:null},
- {code:"FSD", name:"Sioux Falls Regional (Joe Foss Field)", metroCity:"Sioux Falls", metroState:"SD", placeState:"SD", x:481, y:174, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"FSD · Sioux Falls", mapName:"Joe Foss Field",
+ {code:"FSD", name:"Sioux Falls Regional (Joe Foss Field)", metroCity:"Sioux Falls", metroState:"SD", placeState:"SD", x:481, y:174, ldx:8, ldy:-16, anchor:"start",
+  mapLabel:"FSD", mapName:"Joe Foss Field",
   site:["https://www.sfairport.com/","Sioux Falls Regional official site"], pets:null},
- {code:"BTV", name:"Patrick Leahy Burlington International", metroCity:"Burlington", metroState:"VT", placeState:"VT", x:842, y:122, ldx:-10, ldy:3, anchor:"end",
+ {code:"BTV", name:"Patrick Leahy Burlington International", metroCity:"Burlington", metroState:"VT", placeState:"VT", x:841.2, y:120.7, ldx:-8, ldy:-16, anchor:"end",
   mapLabel:"BTV", mapName:"Burlington",
   site:["https://btv.aero/","Burlington International official site"], pets:null},
- {code:"CRW", name:"West Virginia International Yeager", metroCity:"Charleston", metroState:"WV", placeState:"WV", x:770, y:288, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"CRW · Charleston", mapName:"Yeager",
+ {code:"CRW", name:"West Virginia International Yeager", metroCity:"Charleston", metroState:"WV", placeState:"WV", x:774.9, y:314.6, ldx:-12, ldy:3, anchor:"end",
+  mapLabel:"CRW", mapName:"Yeager",
   site:["https://flycrw.com/","West Virginia International Yeager official site"], pets:null},
- {code:"MKE", name:"General Mitchell International", metroCity:"Milwaukee", metroState:"WI", placeState:"WI", x:653, y:200, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"MKE · Milwaukee", mapName:"Mitchell",
+ {code:"MKE", name:"General Mitchell International", metroCity:"Milwaukee", metroState:"WI", placeState:"WI", x:653, y:200, ldx:0, ldy:-16, anchor:"middle",
+  mapLabel:"MKE", mapName:"Mitchell",
   site:["https://www.mitchellairport.com/","Milwaukee Mitchell official site"], pets:null},
- {code:"JAC", name:"Jackson Hole", metroCity:"Jackson", metroState:"WY", placeState:"WY", x:263, y:157, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"JAC · Jackson", mapName:"Jackson Hole",
+ {code:"JAC", name:"Jackson Hole", metroCity:"Jackson", metroState:"WY", placeState:"WY", x:262.2, y:157, ldx:-8, ldy:-16, anchor:"end",
+  mapLabel:"JAC", mapName:"Jackson Hole",
   site:["https://www.jacksonholeairport.com/","Jackson Hole Airport official site"], pets:null}
 ];
 function cityXY(state, name){
@@ -668,198 +668,205 @@ function _airportRank(code){
   const n=R[(code||'').toUpperCase()];
   return (n==null)?25:n;
 }
+const EXISTING_AP={LGA:1,EWR:1,JFK:1,LAX:1,SFO:1,ORD:1,MDW:1,MIA:1,IAH:1,HOU:1,DFW:1,SEA:1,DEN:1,ATL:1,ANC:1,HNL:1,LAS:1,PHX:1,SAN:1,SLC:1,AUS:1,MSP:1,DTW:1,BNA:1,CLT:1,MCO:1,TPA:1,FLL:1,BOS:1,PHL:1,BWI:1,IAD:1,DCA:1};
+const _NEW_AP_SLOTS=[
+  [8,3,'start'],[-8,3,'end'],[10,3,'start'],[-10,3,'end'],[12,3,'start'],[-12,3,'end'],
+  [8,-8,'start'],[-8,-8,'end'],[12,-8,'start'],[-12,-8,'end'],
+  [0,-14,'middle'],[0,16,'middle'],[0,-20,'middle'],[0,22,'middle'],
+  [14,12,'start'],[-14,12,'end'],[16,-16,'start'],[-16,-16,'end'],
+  [18,3,'start'],[-18,3,'end'],[8,16,'start'],[-8,16,'end'],
+  [20,8,'start'],[-20,8,'end'],[24,3,'start'],[-24,3,'end']
+];
+let _packSuspended=false;
+let _packAppliedKey='';
+function _usaInk(userBox, ax, ay){
+  return {dl:userBox.l-ax, dr:userBox.r-ax, dt:userBox.t-ay, db:userBox.btm-ay, w:userBox.w, h:userBox.h};
+}
+function _usaBoxAt(ax, ay, anchor, ink, sameAnchor){
+  if(sameAnchor) return {l:ax+ink.dl, r:ax+ink.dr, t:ay+ink.dt, btm:ay+ink.db, w:ink.w, h:ink.h};
+  const w=ink.w, h=ink.h, dt=ink.dt;
+  let l;
+  if(anchor==='end') l=ax-w;
+  else if(anchor==='middle') l=ax-w/2;
+  else l=ax;
+  return {l:l, r:l+w, t:ay+dt, btm:ay+dt+h, w:w, h:h};
+}
+function _hitU(a,b,pad){
+  pad=pad||0;
+  return (Math.min(a.r,b.r)-Math.max(a.l,b.l)>pad && Math.min(a.btm,b.btm)-Math.max(a.t,b.t)>pad);
+}
 function resolveLabelOverlaps(){
   const m=$('#map'); if(!m) return;
+  const mapBox=m.getBoundingClientRect();
+  const full=(typeof isFull==='function')?isFull():true;
+  const key=(Math.round(mapBox.width)|0)+'|'+(full?1:0)+'|'+((m.getAttribute('viewBox'))||'');
   m.querySelectorAll('#g-lb line.lbl-lead[data-temp="1"]').forEach(n=>n.remove());
   m.querySelectorAll('.lbl-crowd,.ct-crowd,.ap-crowd,.ap-name-crowd,.ap-code-crowd').forEach(n=>n.classList.remove('lbl-crowd','ct-crowd','ap-crowd','ap-name-crowd','ap-code-crowd'));
-  const vis=el=>{
+  m.querySelectorAll('#g-lb text.lbl, #g-ct .ct text, #g-ap .ap text').forEach(_restorePos);
+  m.querySelectorAll('#g-lb line.lbl-lead').forEach(lead=>{
+    if(lead.dataset.ox2!=null){ lead.setAttribute('x2', lead.dataset.ox2); lead.setAttribute('y2', lead.dataset.oy2); }
+    lead.classList.remove('lbl-crowd');
+  });
+  const crowdedMobile=full && mapBox.width<500;
+  const hideExistingCodes=mapBox.width<500;
+  const ctm=m.getScreenCTM();
+  if(!ctm) return;
+  const sx=ctm.a, sy=ctm.d, ox=ctm.e, oy=ctm.f;
+  const toU=b=>({l:(b.left-ox)/sx, r:(b.right-ox)/sx, t:(b.top-oy)/sy, btm:(b.bottom-oy)/sy, w:(b.right-b.left)/sx, h:(b.bottom-b.top)/sy});
+  const visU=el=>{
     const cs=getComputedStyle(el);
     if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity===0) return null;
     const b=el.getBoundingClientRect();
-    return (b.width>2 && b.height>2) ? b : null;
+    if(b.width<1||b.height<1) return null;
+    return toU(b);
   };
-  const mapBox=m.getBoundingClientRect();
-  const inMap=box=>!(box.right<mapBox.left+4 || box.left>mapBox.right-4 || box.bottom<mapBox.top+4 || box.top>mapBox.bottom-4);
-  const full=(typeof isFull==='function')?isFull():true;
-  const nCap=m.querySelectorAll('#g-ct .ct.cap').length;
-  const nMaj=m.querySelectorAll('#g-ap .ap.ap-major').length;
-  const nAp=[...m.querySelectorAll('#g-ap .ap')].filter(g=>getComputedStyle(g).display!=='none').length;
-  const cc=(typeof DATA!=='undefined' && DATA.country)||(document.getElementById('usa-map')&&'US')||'';
-  /* Marc 09:03 KST: at 390, crowded maps keep capitals + major airports; region names wait for zoom. */
-  const crowdedMobile=full && mapBox.width<500 && (/^(FR|UK|DE|US)$/.test(cc) || (/^(KR|JP)$/.test(cc) && (nCap+(nMaj||nAp))>=12));
-  const items=[];
-  m.querySelectorAll('#g-lb text.lbl').forEach(t=>{
-    _restorePos(t);
-    const id=(t.id||'').replace(/^l-/,'');
-    const path=document.getElementById('s-'+id);
-    let area=0;
-    if(path && path.getBBox){ try{ const bb=path.getBBox(); area=bb.width*bb.height; }catch(_){ } }
-    const lead=m.querySelector('#g-lb line.lbl-lead[data-a="'+id+'"]');
-    if(lead && lead.dataset.ox2==null){ lead.dataset.ox2=lead.getAttribute('x2')||''; lead.dataset.oy2=lead.getAttribute('y2')||''; lead.dataset.ox1=lead.getAttribute('x1')||''; lead.dataset.oy1=lead.getAttribute('y1')||''; }
-    if(lead && lead.dataset.ox2!=null){ lead.setAttribute('x2', lead.dataset.ox2); lead.setAttribute('y2', lead.dataset.oy2); }
-    const c=(typeof GEO!=='undefined' && GEO[id] && GEO[id].c) ? GEO[id].c : null;
-    items.push({el:t, pri: area>12000?34: area>5000?40:48, kind:'region', hide:'lbl-crowd', id, path, lead, keep:false, c,
-      defer:crowdedMobile,
-      orig:{x:+(t.dataset.ox), y:+(t.dataset.oy), anchor:t.dataset.ota||t.getAttribute('text-anchor')||'middle'}});
-  });
-  m.querySelectorAll('#g-ct .ct').forEach(g=>{
-    const t=g.querySelector('text'); if(!t) return;
-    _restorePos(t);
-    const cap=g.classList.contains('cap');
-    items.push({el:t, pri: cap?20:54, kind: cap?'cap':'city', hide:'ct-crowd', hideEl:g, keep:false,
-      orig:{x:+(t.dataset.ox), y:+(t.dataset.oy), anchor:t.dataset.ota||t.getAttribute('text-anchor')||'start'}});
-  });
+  const icons=[];
   m.querySelectorAll('#g-ap .ap').forEach(g=>{
     if(getComputedStyle(g).display==='none') return;
-    const major=g.classList.contains('ap-major') || !!document.getElementById('usa-map');
+    const mark=g.querySelector('.ap-mark .pad')||g.querySelector('.ap-mark');
+    const box=visU(mark); if(!box) return;
+    const tr=g.getAttribute('transform')||'';
+    const xy=/translate\(\s*([-\d.]+)[,\s]+([-\d.]+)\s*\)/.exec(tr);
+    icons.push({code:g.dataset.code, box, x:xy?+xy[1]:0, y:xy?+xy[2]:0, existing:!!EXISTING_AP[(g.dataset.code||'').toUpperCase()]});
+  });
+  const dots=[];
+  m.querySelectorAll('#g-ct .ct circle:not(.ring)').forEach(c=>{
+    const g=c.closest('.ct');
+    const box=visU(c); if(!box) return;
+    dots.push({box, g});
+  });
+  const regionItems=[];
+  m.querySelectorAll('#g-lb text.lbl').forEach(t=>{
+    _rememberPos(t);
+    const box=visU(t);
+    regionItems.push({el:t, box, kind:'region', existing:true});
+  });
+  const cityItems=[];
+  m.querySelectorAll('#g-ct .ct').forEach(g=>{
+    const t=g.querySelector('text'); if(!t) return;
+    _rememberPos(t);
+    const box=visU(t);
+    cityItems.push({el:t, g, box, kind:'city', existing:true});
+  });
+  const apItems=[];
+  m.querySelectorAll('#g-ap .ap').forEach(g=>{
+    if(getComputedStyle(g).display==='none') return;
+    const code=(g.dataset.code||'').toUpperCase();
+    const existing=!!EXISTING_AP[code];
+    const pin=icons.find(i=>i.code===code);
     const codeEl=g.querySelector('text.map-label, text:not(.map-name)');
-    const name=g.querySelector('text.map-name');
-    const code=(g.getAttribute('data-code')||(codeEl&&codeEl.textContent)||'').trim();
+    const nameEl=g.querySelector('text.map-name');
     if(codeEl){
-      _restorePos(codeEl);
-      /* Codes are hideable if they cannot be placed with zero overlap (lower-rank goes to zoom). */
-      items.push({el:codeEl, pri: 10+_airportRank(code)*0.4, kind: major?'ap-major':'ap-code', hide:'ap-code-crowd', keep:false,
-        orig:{x:+(codeEl.dataset.ox), y:+(codeEl.dataset.oy), anchor:codeEl.dataset.ota||codeEl.getAttribute('text-anchor')||'middle'}});
+      _rememberPos(codeEl);
+      const box=visU(codeEl);
+      const ox=+(codeEl.dataset.ox), oy=+(codeEl.dataset.oy);
+      const oanchor=codeEl.dataset.ota||codeEl.getAttribute('text-anchor')||'middle';
+      const ax=(pin?pin.x:0)+ox, ay=(pin?pin.y:0)+oy;
+      const ink=box?_usaInk(box, ax, ay):null;
+      apItems.push({el:codeEl, g, code, existing, pin, box, ox, oy, oanchor, ink, kind:'ap-code', hide:'ap-code-crowd', pri:10+_airportRank(code)*0.4});
     }
-    if(name){
-      _restorePos(name);
-      items.push({el:name, pri:90, kind:'ap-name', hide:'ap-name-crowd', keep:false, nameOnly:true,
-        orig:{x:+(name.dataset.ox), y:+(name.dataset.oy), anchor:name.dataset.ota||name.getAttribute('text-anchor')||'middle'}});
+    if(nameEl){
+      _rememberPos(nameEl);
+      const box=visU(nameEl);
+      const ox=+(nameEl.dataset.ox), oy=+(nameEl.dataset.oy);
+      const oanchor=nameEl.dataset.ota||nameEl.getAttribute('text-anchor')||'middle';
+      const ax=(pin?pin.x:0)+ox, ay=(pin?pin.y:0)+oy;
+      const ink=box?_usaInk(box, ax, ay):null;
+      apItems.push({el:nameEl, g, code, existing, pin, box, ox, oy, oanchor, ink, kind:'ap-name', hide:'ap-name-crowd', pri:90});
     }
   });
-  function hideItem(it){
-    it._hidden=true;
-    _applyPos(it.el, it.orig);
-    if(it.lead){
-      if(it.lead.dataset.ox2!=null){ it.lead.setAttribute('x2', it.lead.dataset.ox2); it.lead.setAttribute('y2', it.lead.dataset.oy2); }
-      it.lead.classList.add('lbl-crowd');
-    }
-    if(it.kind==='cap'||it.kind==='city'){
-      const g=it.hideEl||it.el.closest&&it.el.closest('.ct')||it.el;
-      g.classList.add('ct-crowd');
-    } else {
-      (it.hideEl||it.el).classList.add(it.hide||'lbl-crowd');
-    }
-  }
-  function tryPlace(it, slots, placed, opts){
-    opts=opts||{};
-    let best=null;
-    for(const s of slots){
-      _applyPos(it.el, {x:s.x, y:s.y, anchor:s.anchor||it.orig.anchor});
-      const box=vis(it.el);
-      if(!box) continue;
-      if(opts.requireInMap && !inMap(box)) continue;
-      if(it.kind==='region'){
-        const isOrig=Math.abs(s.x-it.orig.x)<0.2 && Math.abs(s.y-it.orig.y)<0.2;
-        if(!isOrig){
-          const c=it.c||[it.orig.x,it.orig.y];
-          const maxU=52*_userPerPx();
-          const dx=s.x-c[0], dy=s.y-c[1];
-          if(dx*dx+dy*dy>maxU*maxU) continue;
-        }
-      }
-      if(opts.requireInPath && it.path && it.path.isPointInFill){
-        try{
-          const svg=it.path.ownerSVGElement;
-          const p=svg.createSVGPoint(); p.x=s.x; p.y=s.y;
-          if(!it.path.isPointInFill(p) && (s.x!==it.orig.x || s.y!==it.orig.y)) continue;
-        }catch(_){ }
-      }
-      const sc=_scoreSlot(box, placed, 4);
-      if(sc.n===0){ return {s, box, sc}; }
-      if(!best || sc.n<best.sc.n || (sc.n===best.sc.n && sc.area<best.sc.area)){
-        best={s, box, sc};
-      }
-    }
-    return best;
-  }
+  const pad=0.35;
   const placed=[];
-  items.sort((a,b)=>a.pri-b.pri);
-  for(const it of items){
-    if(it.defer){ hideItem(it); continue; }
-    if(it.kind==='ap-name'){
-      const code=it.el.parentNode && it.el.parentNode.querySelector('text.map-label, text:not(.map-name)');
-      if(code){
-        const u=_userPerPx();
-        it.orig={x:+(code.getAttribute('x')||it.orig.x), y:+(code.getAttribute('y')||it.orig.y)+14*u, anchor:code.getAttribute('text-anchor')||it.orig.anchor};
-      }
-      /* Subtitle only in its natural place under the code, otherwise just the IATA. */
-      _applyPos(it.el, it.orig);
-      const box=vis(it.el);
-      const sc=box?_scoreSlot(box, placed, 4):{n:1,area:1};
-      if(box && inMap(box) && sc.n===0){ it.box=box; placed.push(it); }
-      else hideItem(it);
-      continue;
+  function overlapsPlaced(box, skipCode, skipEl){
+    if(!box) return true;
+    for(const ic of icons){
+      if(skipCode && ic.code===skipCode) continue;
+      if(_hitU(box, ic.box, pad)) return true;
     }
-    const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, it.kind==='region'?48:76);
-    const requireInPath=(it.kind==='region' && it.path && !it.lead);
-    const found=tryPlace(it, slots, placed, {requireInPath, requireInMap:true});
-    if(found && found.sc.n===0){
-      _applyPos(it.el, {x:found.s.x, y:found.s.y, anchor:found.s.anchor||it.orig.anchor});
-      if(it.lead){ it.lead.setAttribute('x2', (+found.s.x).toFixed(1)); it.lead.setAttribute('y2', (+found.s.y).toFixed(1)); }
-      it.box=found.box;
-      placed.push(it);
-    } else {
-      hideItem(it);
+    for(const d of dots){
+      if(d._hidden) continue;
+      if(_hitU(box, d.box, pad)) return true;
     }
+    for(const p of placed){
+      if(p._hidden || !p.box) continue;
+      if(skipEl && p.el===skipEl) continue;
+      if(_hitU(box, p.box, pad)) return true;
+    }
+    return false;
   }
-  /* Rescue hidden region names on zoom (or on a desktop full view) with a short nearby leader. */
-  if(!crowdedMobile){
-    items.filter(it=>it.kind==='region' && it._hidden).forEach(it=>{
-      const slots=_slotRing(it.orig.x, it.orig.y, it.orig.anchor, 48);
-      const found=tryPlace(it, slots, placed, {requireInMap:true, requireInPath:false});
-      if(found && found.sc.n===0){
-        it.el.classList.remove('lbl-crowd');
-        it._hidden=false;
-        _applyPos(it.el, {x:found.s.x, y:found.s.y, anchor:found.s.anchor||it.orig.anchor});
-        let lead=it.lead;
-        const c=it.c||[it.orig.x, it.orig.y];
-        if(!lead){
-          lead=el('line',{class:'lbl-lead', x1:c[0], y1:c[1], x2:found.s.x, y2:found.s.y, 'data-a':it.id, 'data-temp':'1'});
-          const gl=$('#g-lb'); if(gl) gl.insertBefore(lead, it.el);
-          it.lead=lead;
-        } else {
-          lead.classList.remove('lbl-crowd');
-          lead.setAttribute('x2', (+found.s.x).toFixed(1));
-          lead.setAttribute('y2', (+found.s.y).toFixed(1));
-        }
+  function hideEl(it){
+    it._hidden=true;
+    if(it.ox!=null) _applyPos(it.el, {x:it.ox, y:it.oy, anchor:it.oanchor});
+    else _restorePos(it.el);
+    if(it.kind==='city') it.g.classList.add('ct-crowd');
+    else if(it.kind==='region') it.el.classList.add('lbl-crowd');
+    else it.el.classList.add(it.hide||'ap-code-crowd');
+  }
+  regionItems.forEach(it=>{
+    if(crowdedMobile){ hideEl(it); return; }
+    if(!it.box){ hideEl(it); return; }
+    if(mapBox.width<500 && overlapsPlaced(it.box, null, it.el)){ hideEl(it); return; }
+    placed.push(it);
+  });
+  cityItems.forEach(it=>{
+    if(!it.box){ hideEl(it); return; }
+    const noRoom=overlapsPlaced(it.box, null, it.el);
+    if(noRoom && !(full && mapBox.width>=500)){ hideEl(it); return; }
+    placed.push(it);
+  });
+  const codes=apItems.filter(it=>it.kind==='ap-code').sort((a,b)=>a.pri-b.pri);
+  const names=apItems.filter(it=>it.kind==='ap-name').sort((a,b)=>a.pri-b.pri);
+  codes.forEach(it=>{
+    if(!it.box && it.existing){ hideEl(it); return; }
+    if(it.existing){
+      const noRoom=overlapsPlaced(it.box, it.code, it.el);
+      if(noRoom && hideExistingCodes){ hideEl(it); return; }
+      if(it.box) placed.push(it);
+      return;
+    }
+    if(it.box && it.ink && !overlapsPlaced(it.box, it.code, it.el)){
+      placed.push(it); return;
+    }
+    if(it.ink && it.pin){
+      let found=null;
+      for(let i=0;i<_NEW_AP_SLOTS.length;i++){
+        const s=_NEW_AP_SLOTS[i];
+        const same=s[2]===it.oanchor;
+        const ax=it.pin.x+s[0], ay=it.pin.y+s[1];
+        const box=_usaBoxAt(ax, ay, s[2], it.ink, same);
+        if(box.l<1||box.t<1||box.r>974||box.btm>609) continue;
+        if(!overlapsPlaced(box, it.code, it.el)){ found={s, box}; break; }
+      }
+      if(found){
+        _applyPos(it.el, {x:found.s[0], y:found.s[1], anchor:found.s[2]});
         it.box=found.box;
         placed.push(it);
+        return;
       }
-    });
-  }
-  /* Final sweep: no on-map overlaps. Drop the more disposable of each colliding pair. */
-  const pad=4;
-  let changed=true;
-  while(changed){
-    changed=false;
-    const live=placed.filter(p=>p.box && !p._hidden);
-    for(let i=0;i<live.length;i++){
-      for(let j=i+1;j<live.length;j++){
-        const a=live[i], b=live[j];
-        if(!inMap(a.box) || !inMap(b.box)) continue;
-        if(!_overlap(a.box,b.box,pad)) continue;
-        const drop=(a.keep&&!b.keep)?b:(b.keep&&!a.keep)?a:(a.pri>=b.pri?a:b);
-        hideItem(drop);
-        const ix=placed.indexOf(drop);
-        if(ix>=0) placed.splice(ix,1);
-        changed=true;
-        break;
-      }
-      if(changed) break;
     }
-  }
+    hideEl(it);
+  });
+  names.forEach(it=>{
+    if(!it.box){ hideEl(it); return; }
+    if(it.existing){
+      if(overlapsPlaced(it.box, it.code, it.el)) hideEl(it);
+      else placed.push(it);
+      return;
+    }
+    if(!overlapsPlaced(it.box, it.code, it.el)){ placed.push(it); return; }
+    hideEl(it);
+  });
+  _packAppliedKey=key;
 }
 let _lblRaf=0;
 function refreshLabels(){
   syncLabelScale();
+  if(_packSuspended) return;
   if(_lblRaf) cancelAnimationFrame(_lblRaf);
   _lblRaf=requestAnimationFrame(function(){
-    _lblRaf=requestAnimationFrame(function(){
-      _lblRaf=0;
-      syncLabelScale();
-      resolveLabelOverlaps();
-    });
+    _lblRaf=0;
+    syncLabelScale();
+    resolveLabelOverlaps();
   });
 }
 
@@ -875,7 +882,8 @@ function syncZoomUI(){const m=$("#map");if(!m)return;const full=isFull();m.class
  refreshLabels()}
 function stopAnim(){if(animId){cancelAnimationFrame(animId);animId=0}}
 function animateTo(t,ms){stopAnim();t=clampVB(t);const f=vb.slice(),t0=performance.now();ms=ms||350;
- (function an(n){const k=Math.min(1,(n-t0)/ms),e=k*(2-k);applyViewBox(f.map((v,i)=>v+(t[i]-v)*e));animId=k<1?requestAnimationFrame(an):0})(t0)}
+ _packSuspended=true;
+ (function an(n){const k=Math.min(1,(n-t0)/ms),e=k*(2-k);applyViewBox(f.map((v,i)=>v+(t[i]-v)*e));if(k<1){animId=requestAnimationFrame(an)}else{animId=0;_packSuspended=false;refreshLabels()}})(t0)}
 /* zoomTo(a): phones (<=900) zoom to the selected state as before. With no state and no selection
    (Show all states) the view goes back to FULL. On desktop a selection keeps the user's free-zoom view. */
 function zoomTo(a){let t=null;
