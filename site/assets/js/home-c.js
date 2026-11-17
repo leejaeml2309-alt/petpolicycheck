@@ -125,7 +125,7 @@ Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return
 var node=svg.node(),bw=W,kHome=1,MAXZ=8;
 function ext(){return [[0,0],[W,VH]]}
 var zoom=d3.zoom().extent(ext).translateExtent([[0,0],[W,H]])
- .filter(function(e){if(e.type==='wheel')return e.ctrlKey||e.metaKey;return !e.button&&e.type.indexOf('touch')!==0})
+ .filter(function(e){if(e.type==='wheel')return false;return !e.button&&e.type.indexOf('touch')!==0})
  .on('zoom',function(e){g.attr('transform',e.transform);restyle(e.transform.k);tip.style.opacity=0});
 // keep pins, labels, the plane button and strokes the same size on screen at any zoom
 function restyle(k){var f=Math.max(1,0.85*W/bw)/k;
@@ -143,13 +143,14 @@ function home(){return kHome>1?d3.zoomIdentity.translate(-(W*kHome-W)*0.97,0).sc
 function fit(t){return zoom.constrain()(t,ext(),zoom.translateExtent())}
 layout();svg.call(zoom).call(zoom.transform,home());
 var lastW=bw;window.addEventListener('resize',function(){layout();if(bw===lastW)return;lastW=bw;svg.call(zoom.transform,home())});
-document.getElementById('zin').onclick=function(){svg.transition().duration(250).call(zoom.scaleBy,1.6)};
-document.getElementById('zout').onclick=function(){svg.transition().duration(250).call(zoom.scaleBy,1/1.6)};
-document.getElementById('zreset').onclick=function(){svg.transition().duration(300).call(zoom.transform,home())};
+var cancelWheelAnim=function(){};
+document.getElementById('zin').onclick=function(){cancelWheelAnim();svg.transition().duration(250).call(zoom.scaleBy,1.6)};
+document.getElementById('zout').onclick=function(){cancelWheelAnim();svg.transition().duration(250).call(zoom.scaleBy,1/1.6)};
+document.getElementById('zreset').onclick=function(){cancelWheelAnim();svg.transition().duration(300).call(zoom.transform,home())};
 (function(){var mode=null,T0,P0,s0,c0;
  function pt(t){return d3.pointer(t,node)}
  function dist(a,b){return Math.hypot(a[0]-b[0],a[1]-b[1])||1}
- function setT(t){svg.interrupt().call(zoom.transform,fit(t))}
+ function setT(t){cancelWheelAnim();svg.interrupt().call(zoom.transform,fit(t))}
  function pinch(e){var a=pt(e.touches[0]),b=pt(e.touches[1]);T0=d3.zoomTransform(node);P0={d:dist(a,b),w:T0.invert([(a[0]+b[0])/2,(a[1]+b[1])/2])};mode='pinch'}
  function pan(t){T0=d3.zoomTransform(node);s0=pt(t);mode='pan'}
  node.addEventListener('touchstart',function(e){var n=e.touches.length;
@@ -165,6 +166,84 @@ document.getElementById('zreset').onclick=function(){svg.transition().duration(3
    setT(T0.translate((p[0]-s0[0])/T0.k,(p[1]-s0[1])/T0.k))}},{passive:false});
  function end(e){var n=e.touches.length;if(n===0)mode=null;else if(n===1&&mode==='pinch')pan(e.touches[0])}
  node.addEventListener('touchend',end);node.addEventListener('touchcancel',end);
+})();
+// Ctrl/Cmd + wheel and trackpad pinch. d3-zoom's default wheelDelta multiplies
+// by 10 when ctrlKey is set, so a 100px mouse notch jumped 4×. We replace it
+// with a ~9% multiplicative step per 100px notch (scale *= 1.09), eased over
+// 220ms and centred on the cursor. Trackpad pinch (ctrlKey + small deltaY)
+// uses 0.75 of the v1 sensitivity (k) and rAF interpolation toward a target
+// scale so successive small events stay damped and never jump.
+// Existing min/max (1 … MAXZ*kHome), touch pinch and +/- buttons are unchanged.
+(function(){
+  var K_WHEEL=Math.log(1.09)/100, K_PINCH=0.75*Math.log(1.125)/100, NOTCH=50, DUR=220, TAU=90;
+  var targetK=null, raf=0, t0=0, from=null, toK=0, pt=null, dur=0, kind=null, lastTs=0;
+  function dyOf(e){
+    var dy=e.deltaY;
+    if(e.deltaMode===1) dy*=16;
+    else if(e.deltaMode===2) dy*=(node.clientHeight||400);
+    return dy;
+  }
+  function nowT(){return d3.zoomTransform(node)}
+  function clampK(k){return Math.max(1,Math.min(MAXZ*kHome,k))}
+  function applyAt(p,k){
+    var t=nowT(), w=t.invert(p);
+    svg.interrupt().call(zoom.transform, fit(d3.zoomIdentity.translate(p[0]-w[0]*k,p[1]-w[1]*k).scale(k)));
+  }
+  function easeOut(u){return 1-Math.pow(1-u,3)}
+  function place(p,k){
+    var t=nowT(), w=t.invert(p);
+    svg.call(zoom.transform, fit(d3.zoomIdentity.translate(p[0]-w[0]*k,p[1]-w[1]*k).scale(k)));
+  }
+  function tick(ts){
+    if(kind==='pinch'){
+      if(!lastTs) lastTs=ts;
+      var dt=Math.min(50,ts-lastTs); lastTs=ts;
+      var a=1-Math.exp(-dt/TAU);
+      var cur=nowT().k, k=cur+(toK-cur)*a;
+      place(pt,k);
+      if(Math.abs(toK-k)>1e-4){raf=requestAnimationFrame(tick);return}
+      place(pt,toK);raf=0;targetK=null;from=null;kind=null;lastTs=0;t0=0;return;
+    }
+    if(!t0) t0=ts;
+    var u=dur<=0?1:Math.min(1,(ts-t0)/dur);
+    var k=from.k+(toK-from.k)*easeOut(u);
+    var w=from.w;
+    svg.call(zoom.transform, fit(d3.zoomIdentity.translate(pt[0]-w[0]*k,pt[1]-w[1]*k).scale(k)));
+    if(u<1) raf=requestAnimationFrame(tick);
+    else{raf=0;targetK=null;from=null;kind=null;t0=0}
+  }
+  cancelWheelAnim=function(){
+    if(raf){cancelAnimationFrame(raf);raf=0}
+    targetK=null;from=null;t0=0;kind=null;lastTs=0;
+  };
+  function go(p,k,ms,how){
+    k=clampK(k);
+    targetK=k; toK=k; pt=p; kind=how;
+    if(how==='pinch'){
+      dur=0; t0=0;
+      if(!raf){lastTs=0;raf=requestAnimationFrame(tick)}
+      return;
+    }
+    lastTs=0;
+    if(ms<=0){
+      cancelWheelAnim();
+      applyAt(p,k);
+      return;
+    }
+    var cur=nowT();
+    from={k:cur.k, w:cur.invert(p)};
+    dur=ms; t0=0;
+    if(!raf) raf=requestAnimationFrame(tick);
+  }
+  node.addEventListener('wheel',function(e){
+    if(!(e.ctrlKey||e.metaKey)) return;
+    e.preventDefault();
+    var dy=dyOf(e);
+    var cur=targetK!=null?targetK:nowT().k;
+    var p=d3.pointer(e,node);
+    if(Math.abs(dy)>=NOTCH) go(p, cur*Math.exp(-dy*K_WHEEL), DUR, 'wheel');
+    else go(p, cur*Math.exp(-dy*K_PINCH), 0, 'pinch');
+  },{passive:false});
 })();
 // select list (accessible alternative)
 var pick=document.getElementById('pick');
