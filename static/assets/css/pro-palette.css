@@ -1,81 +1,51 @@
-/* /pro/ palette preview (2026-11-17). Scoped to html[data-pal] which only the /pro/ pages set.
-   Section identity: periwinkle #8b9ce2 (b2b = law). ?pal=A|B|C ; default A. */
-html[data-pal] main.wrap .plan{background:var(--pc-bg);border:1px solid var(--pc-bd);color:var(--pc-tx)}
-html[data-pal] main.wrap .plan h2,html[data-pal] main.wrap .price .amt{color:var(--pc-h)!important}
-html[data-pal] main.wrap .plan .who,html[data-pal] main.wrap .price .per,html[data-pal] main.wrap .plan .fine{color:var(--pc-mut)}
-html[data-pal] main.wrap .plan ul{color:var(--pc-tx)}
-html[data-pal] main.wrap .plan li.plan-includes{color:var(--pc-h)}
-html[data-pal] main.wrap .price .save{color:var(--pc-save)}
-html[data-pal] main.wrap .plan ul li::marker{color:var(--pc-mark)}
-html[data-pal] main.wrap .btn-pro.pri{background:var(--pri-bg);color:var(--pri-tx);border:0;box-shadow:var(--pri-sh,none)}
-html[data-pal] main.wrap .btn-pro.ghost{background:var(--gh-bg,transparent);color:var(--gh-tx);border:1.5px solid var(--gh-bd)}
-html[data-pal] main.wrap .btn-pro.ghost[data-i=cta_pay]{background:var(--ea-bg);color:var(--ea-tx);border-color:var(--ea-bd)}
-html[data-pal] main.wrap .btn-pro:hover{filter:brightness(1.08)}
-html[data-pal] main.wrap .btn-pro:focus-visible{outline:3px solid var(--pp-focus);outline-offset:2px}
-html[data-pal] main.wrap .plan .badge{background:var(--bdg-bg);color:var(--bdg-tx);box-shadow:var(--bdg-sh,none)}
-html[data-pal] main.wrap .plan.pop{box-shadow:var(--pop-sh)}
-html[data-pal] main.wrap .bill-sw{background:var(--tg-bg);border:1px solid var(--tg-bd)}
-html[data-pal] main.wrap .bill-sw button{color:var(--tg-tx)}
-html[data-pal] main.wrap .bill-sw button[aria-pressed=true]{background:var(--tg-on-bg);color:var(--tg-on-tx)}
-html[data-pal] main.wrap .pro-sign{background:var(--hero-bg);border-color:var(--hero-bd);box-shadow:var(--hero-sh)}
-html[data-pal] main.wrap .pro-sign::before{border-color:var(--hero-bd)}
-html[data-pal] main.wrap .pro-sign h1{color:var(--hero-h)!important}
-html[data-pal] main.wrap .pro-sign .lead{color:var(--hero-tx)}
-html[data-pal] main.wrap .pro-sign .pro-eye{color:var(--kicker)}
-html[data-pal] main.wrap .notice{background:var(--nt-bg);border:1px solid var(--nt-bd);border-left:4px solid var(--nt-acc);color:var(--nt-tx)}
-html[data-pal] main.wrap .notice a,html[data-pal] main.wrap .pro-contact a,html[data-pal] main.wrap .pro-faq a{color:var(--pp-link)}
-html[data-pal] main.wrap .pro-faq{background:var(--fq-bg);border:1px solid var(--fq-bd);border-radius:14px;padding:1.1rem 1.2rem .4rem}
-html[data-pal] main.wrap .pro-faq h3,html[data-pal] main.wrap .pro-faq summary{color:var(--fq-h)!important}
-html[data-pal] main.wrap .pro-faq summary::marker{color:var(--kicker)}
-html[data-pal] main.wrap .pro-faq p,html[data-pal] main.wrap .pro-faq + p,html[data-pal] main.wrap .pro-faq ~ .fine{color:var(--fq-tx)}
-html[data-pal] main.wrap .pro-faq details{border-top-color:var(--fq-bd)}
-html[data-pal] main.wrap .pro-contact{background:var(--ct-bg);border:1px solid var(--ct-bd);border-top:4px solid var(--nt-acc)}
-html[data-pal] main.wrap .pro-contact h3{color:var(--ct-h)!important}
-html[data-pal] main.wrap .pro-contact p{color:var(--ct-tx)}
+/* /pro/ live palette (2026-11-18): Aurora Indigo, the only style.
+   Scoped to html.pro-pal on /pro/, /it/pro/ and /es/pro/.
+   Charter: navy #001f3f, gold #e2c275 / #F0D58C, Pro/B2B periwinkle #8b9ce2.
+   Backgrounds are a navy-to-indigo gradient with #001f3f involved.
+   All body text pairs are >=4.5:1. */
+html.pro-pal main.wrap .plan{background:var(--pc-bg);border:1px solid var(--pc-bd);color:var(--pc-tx)}
+html.pro-pal main.wrap .plan h2,html.pro-pal main.wrap .price .amt{color:var(--pc-h)!important}
+html.pro-pal main.wrap .plan .who,html.pro-pal main.wrap .price .per,html.pro-pal main.wrap .plan .fine{color:var(--pc-mut)}
+html.pro-pal main.wrap .plan ul{color:var(--pc-tx)}
+html.pro-pal main.wrap .plan li.plan-includes{color:var(--pc-h)}
+html.pro-pal main.wrap .price .save{color:var(--pc-save)}
+html.pro-pal main.wrap .plan ul li::marker{color:var(--pc-mark)}
+html.pro-pal main.wrap .btn-pro.pri{background:var(--pri-bg);color:var(--pri-tx);border:0;box-shadow:var(--pri-sh,none)}
+html.pro-pal main.wrap .btn-pro.ghost{background:var(--gh-bg,transparent);color:var(--gh-tx);border:1.5px solid var(--gh-bd)}
+html.pro-pal main.wrap .btn-pro.ghost[data-i=cta_pay]{background:var(--ea-bg);color:var(--ea-tx);border-color:var(--ea-bd)}
+html.pro-pal main.wrap .btn-pro:hover{filter:brightness(1.08)}
+html.pro-pal main.wrap .btn-pro:focus-visible{outline:3px solid var(--pp-focus);outline-offset:2px}
+html.pro-pal main.wrap .plan .badge{background:var(--bdg-bg);color:var(--bdg-tx);box-shadow:var(--bdg-sh,none)}
+html.pro-pal main.wrap .plan.pop{box-shadow:var(--pop-sh)}
+html.pro-pal main.wrap .bill-sw{background:var(--tg-bg);border:1px solid var(--tg-bd)}
+html.pro-pal main.wrap .bill-sw button{color:var(--tg-tx)}
+html.pro-pal main.wrap .bill-sw button[aria-pressed=true]{background:var(--tg-on-bg);color:var(--tg-on-tx)}
+html.pro-pal main.wrap .pro-sign{background:var(--hero-bg);border-color:var(--hero-bd);box-shadow:var(--hero-sh)}
+html.pro-pal main.wrap .pro-sign::before{border-color:var(--hero-bd)}
+html.pro-pal main.wrap .pro-sign h1{color:var(--hero-h)!important}
+html.pro-pal main.wrap .pro-sign .lead{color:var(--hero-tx)}
+html.pro-pal main.wrap .pro-sign .pro-eye{color:var(--kicker)}
+html.pro-pal main.wrap .notice{background:var(--nt-bg);border:1px solid var(--nt-bd);border-left:4px solid var(--nt-acc);color:var(--nt-tx)}
+html.pro-pal main.wrap .notice a,html.pro-pal main.wrap .pro-contact a,html.pro-pal main.wrap .pro-faq a{color:var(--pp-link)}
+html.pro-pal main.wrap .pro-faq{background:var(--fq-bg);border:1px solid var(--fq-bd);border-radius:14px;padding:1.1rem 1.2rem .4rem}
+html.pro-pal main.wrap .pro-faq h3,html.pro-pal main.wrap .pro-faq summary{color:var(--fq-h)!important}
+html.pro-pal main.wrap .pro-faq summary::marker{color:var(--kicker)}
+html.pro-pal main.wrap .pro-faq p,html.pro-pal main.wrap .pro-faq + p,html.pro-pal main.wrap .pro-faq ~ .fine{color:var(--fq-tx)}
+html.pro-pal main.wrap .pro-faq details{border-top-color:var(--fq-bd)}
+html.pro-pal main.wrap .pro-contact{background:var(--ct-bg);border:1px solid var(--ct-bd);border-top:4px solid var(--nt-acc)}
+html.pro-pal main.wrap .pro-contact h3{color:var(--ct-h)!important}
+html.pro-pal main.wrap .pro-contact p{color:var(--ct-tx)}
 
-/* A — Aurora Indigo (recommended): deep indigo night, periwinkle glow, gold ribbon */
-html[data-pal=A]{--pp-focus:#e2c275;--pp-link:#c3ccff;--kicker:#d4dbff;
- --hero-bg:radial-gradient(ellipse 70% 130% at 100% 0%,rgba(139,156,226,.38),transparent 60%),linear-gradient(135deg,#1c2160 0%,#151a45 55%,#0e1230 100%);--hero-bd:rgba(139,156,226,.55);--hero-sh:0 20px 50px rgba(20,24,80,.55);--hero-h:#ffffff;--hero-tx:#d6dbf7;
- --pc-bg:linear-gradient(180deg,#191e4a,#12163a);--pc-bd:rgba(139,156,226,.38);--pc-h:#ffffff;--pc-tx:#dfe3fa;--pc-mut:#b3bbe4;--pc-save:#e2c275;--pc-mark:#8b9ce2;
- --pri-bg:#8b9ce2;--pri-tx:#0e1230;--pri-sh:0 6px 18px rgba(139,156,226,.35);
- --ea-bg:rgba(226,194,117,.12);--ea-tx:#f1d48c;--ea-bd:#e2c275;--gh-tx:#e6e9ff;--gh-bd:rgba(139,156,226,.6);
- --bdg-bg:linear-gradient(90deg,#f1d48c,#e2c275);--bdg-tx:#1d1640;--bdg-sh:0 4px 14px rgba(226,194,117,.45);
+/* A — Aurora Indigo: charter navy #001f3f into indigo, periwinkle frame, gold ribbon */
+html.pro-pal{--pp-focus:#e2c275;--pp-link:#c3ccff;--kicker:#d4dbff;
+ --hero-bg:radial-gradient(ellipse 70% 130% at 100% 0%,rgba(139,156,226,.32),transparent 60%),linear-gradient(135deg,#001f3f 0%,#0a1d4a 50%,#12163a 100%);--hero-bd:rgba(139,156,226,.55);--hero-sh:0 20px 50px rgba(0,31,63,.55);--hero-h:#ffffff;--hero-tx:#d6dbf7;
+ --pc-bg:linear-gradient(180deg,#0a2a52,#001f3f);--pc-bd:rgba(139,156,226,.38);--pc-h:#ffffff;--pc-tx:#dfe3fa;--pc-mut:#c4cbee;--pc-save:#e2c275;--pc-mark:#8b9ce2;
+ --pri-bg:#8b9ce2;--pri-tx:#001f3f;--pri-sh:0 6px 18px rgba(139,156,226,.35);
+ --ea-bg:rgba(226,194,117,.12);--ea-tx:#F0D58C;--ea-bd:#e2c275;--gh-tx:#e6e9ff;--gh-bd:rgba(139,156,226,.6);
+ --bdg-bg:linear-gradient(90deg,#F0D58C,#e2c275);--bdg-tx:#001f3f;--bdg-sh:0 4px 14px rgba(226,194,117,.45);
  --pop-sh:0 0 0 2px #8b9ce2,0 0 28px rgba(139,156,226,.55),0 22px 48px rgba(0,0,0,.4);
- --tg-bg:#0e1230;--tg-bd:rgba(139,156,226,.55);--tg-tx:#c9d0f5;--tg-on-bg:#8b9ce2;--tg-on-tx:#0e1230;
- --nt-bg:#1a1f4d;--nt-bd:rgba(139,156,226,.4);--nt-acc:#8b9ce2;--nt-tx:#dfe3fa;
- --fq-bg:#12163a;--fq-bd:rgba(139,156,226,.28);--fq-h:#ffffff;--fq-tx:#c4cbee;
- --ct-bg:linear-gradient(135deg,#1e2463,#141838);--ct-bd:rgba(139,156,226,.45);--ct-h:#ffffff;--ct-tx:#d6dbf7}
-html[data-pal=A] main.wrap .plan.pop{background:linear-gradient(180deg,#252c6e,#171c4a)}
-
-/* B — Paper & Ink: warm paper sheets, periwinkle ink, electric-violet CTA */
-html[data-pal=B]{--pp-focus:#5b2bff;--pp-link:#3c2fc7;--kicker:#3d4bb0;
- --hero-bg:linear-gradient(135deg,#f7f5ef 0%,#eceffd 100%);--hero-bd:#8b9ce2;--hero-sh:0 18px 40px rgba(0,0,0,.3);--hero-h:#151a45;--hero-tx:#3a3f5c;
- --pc-bg:#f7f5ef;--pc-bd:#c5cdf2;--pc-h:#151a45;--pc-tx:#2c3150;--pc-mut:#4f5574;--pc-save:#1f6f3c;--pc-mark:#5b6bd0;
- --pri-bg:#5b2bff;--pri-tx:#ffffff;--pri-sh:0 6px 18px rgba(91,43,255,.35);
- --ea-bg:#eceffd;--ea-tx:#2a3590;--ea-bd:#8b9ce2;--gh-tx:#2a3590;--gh-bd:#8b9ce2;
- --bdg-bg:#5b2bff;--bdg-tx:#ffffff;
- --pop-sh:0 0 0 3px #8b9ce2,0 22px 48px rgba(0,0,0,.35);
- --tg-bg:#f7f5ef;--tg-bd:#8b9ce2;--tg-tx:#2a3590;--tg-on-bg:#5b2bff;--tg-on-tx:#ffffff;
- --nt-bg:#eceffd;--nt-bd:#c5cdf2;--nt-acc:#5b2bff;--nt-tx:#2c3150;
- --fq-bg:#f7f5ef;--fq-bd:#d9def5;--fq-h:#151a45;--fq-tx:#3a3f5c;
- --ct-bg:#eceffd;--ct-bd:#c5cdf2;--ct-h:#151a45;--ct-tx:#2c3150}
-html[data-pal=B] main.wrap .plan.pop{background:#ffffff}
-html[data-pal=B] main.wrap .pro-faq ~ p,html[data-pal=B] main.wrap p.fine:not(.trial-micro){color:#c9c2b4}
-
-/* C — Tier Ladder: soft periwinkle → saturated indigo → midnight & silver */
-html[data-pal=C]{--pp-focus:#e2c275;--pp-link:#c3ccff;--kicker:#dfe4ff;
- --hero-bg:linear-gradient(110deg,#0d1024 0%,#232680 50%,#4a50c0 100%);--hero-bd:rgba(199,204,216,.6);--hero-sh:0 18px 44px rgba(0,0,0,.35);--hero-h:#ffffff;--hero-tx:#f0f2ff;
- --pri-sh:none;--bdg-bg:#e2c275;--bdg-tx:#1d1640;--bdg-sh:0 4px 14px rgba(0,0,0,.35);
- --pop-sh:0 0 0 2px #c3ccff,0 22px 48px rgba(59,63,184,.5);
- --tg-bg:#0d1024;--tg-bd:#c7ccd8;--tg-tx:#e3e6ef;--tg-on-bg:#c7ccd8;--tg-on-tx:#0d1024;
- --nt-bg:#141838;--nt-bd:rgba(199,204,216,.35);--nt-acc:#8b9ce2;--nt-tx:#e3e6ef;
- --fq-bg:#0f1229;--fq-bd:rgba(199,204,216,.25);--fq-h:#ffffff;--fq-tx:#c7ccd8;
- --ct-bg:linear-gradient(120deg,#2d3196,#0d1024);--ct-bd:rgba(199,204,216,.45);--ct-h:#ffffff;--ct-tx:#e3e6ef}
-html[data-pal=C] main.wrap .pro-sign{--hero-tx:#eef0ff;padding-bottom:1.9rem}
-html[data-pal=C] main.wrap .pro-sign::after{content:"";position:absolute;left:0;right:0;bottom:0;height:8px;background:linear-gradient(90deg,#c9d1f5 0 33.3%,#3b3fb8 33.3% 66.6%,#c7ccd8 66.6%)}
-html[data-pal=C] main.wrap .plan[data-tier=starter]{--pc-bg:#c9d1f5;--pc-bd:#8b9ce2;--pc-h:#111539;--pc-tx:#1e2347;--pc-mut:#353b66;--pc-save:#1f5f35;--pc-mark:#3b3fb8;
- --pri-bg:#1f2570;--pri-tx:#ffffff;--ea-bg:#ffffff;--ea-tx:#1f2570;--ea-bd:#1f2570;--gh-tx:#1f2570;--gh-bd:#3b3fb8}
-html[data-pal=C] main.wrap .plan[data-tier=pro]{--pc-bg:linear-gradient(180deg,#3b3fb8,#2a2d8f);--pc-bd:#c3ccff;--pc-h:#ffffff;--pc-tx:#eef0ff;--pc-mut:#d4d9ff;--pc-save:#f1d48c;--pc-mark:#c3ccff;
- --pri-bg:#ffffff;--pri-tx:#2a2d8f;--ea-bg:rgba(226,194,117,.16);--ea-tx:#f6dd9c;--ea-bd:#e2c275;--gh-tx:#ffffff;--gh-bd:#c3ccff}
-html[data-pal=C] main.wrap .plan[data-tier=ent]{--pc-bg:linear-gradient(180deg,#14182f,#0d1024);--pc-bd:#c7ccd8;--pc-h:#f4f5f8;--pc-tx:#e3e6ef;--pc-mut:#b8bdcc;--pc-save:#e2c275;--pc-mark:#c7ccd8;
- --pri-bg:linear-gradient(180deg,#e9ecf2,#c7ccd8);--pri-tx:#0d1024;--ea-bg:transparent;--ea-tx:#e3e6ef;--ea-bd:#c7ccd8;--gh-tx:#e3e6ef;--gh-bd:rgba(199,204,216,.6)}
+ --tg-bg:#001f3f;--tg-bd:rgba(139,156,226,.55);--tg-tx:#c9d0f5;--tg-on-bg:#8b9ce2;--tg-on-tx:#001f3f;
+ --nt-bg:#0a2748;--nt-bd:rgba(139,156,226,.4);--nt-acc:#8b9ce2;--nt-tx:#dfe3fa;
+ --fq-bg:#001f3f;--fq-bd:rgba(139,156,226,.28);--fq-h:#ffffff;--fq-tx:#c4cbee;
+ --ct-bg:linear-gradient(135deg,#0d2a55,#001f3f);--ct-bd:rgba(139,156,226,.45);--ct-h:#ffffff;--ct-tx:#d6dbf7}
+html.pro-pal main.wrap .plan.pop{background:linear-gradient(180deg,#1a2f66,#001f3f)}
