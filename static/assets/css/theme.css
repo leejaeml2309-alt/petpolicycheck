@@ -215,8 +215,8 @@ html body #usa-map .sec.focus{background:linear-gradient(90deg,color-mix(in srgb
 .gfilter button[aria-pressed=true]{background:var(--theme-grooming);border-color:var(--theme-grooming);color:var(--on-pri)}
 .gfilter .gf-tog{border-style:dashed}
 .ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;margin:4px 0 8px}
-.gcard{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--theme-grooming);border-radius:10px;padding:10px 11px;transition:border-color .15s}
-.gcard:hover{border-color:color-mix(in srgb,var(--theme-grooming) 55%,var(--line));border-left-color:var(--theme-grooming)}
+.gcard{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--sec, var(--theme-accent, var(--theme-grooming)));border-radius:10px;padding:10px 11px;transition:border-color .15s}
+.gcard:hover{border-color:color-mix(in srgb,var(--sec, var(--theme-accent, var(--theme-grooming))) 55%,var(--line));border-left-color:var(--sec, var(--theme-accent, var(--theme-grooming)))}
 .gcard[hidden]{display:none}
 .gc-h{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
 .gc-h a{font-weight:600;color:var(--head);text-decoration:none;font-size:.9rem}
@@ -841,35 +841,52 @@ html.theme-veterans .btn.ghost, body.theme-veterans .btn.ghost{
 .card .k{color:var(--sec, var(--acc))}
 .card:hover{border-color:var(--sec, var(--acc))}
 
-/* Footer: subtle section tint on destination links (href match; relative paths vary).
-   Mix with --foot-ink so the column stays quiet. */
-.foot a[href*="vet-info"],
-.foot a[href*="vet-prep"],
-.foot a[href*="titer-calculator"],
-.foot a[href*="partner-vets"],
-.foot a[href*="clinics/"]{color:color-mix(in srgb, #7cc9b5 62%, var(--foot-ink, #cfc6b0))}
-.foot a[href*="airlines"],
-.foot a[href*="routes/"],
-.foot a[href*="airport"],
-.foot a[href*="passport"],
-.foot a[href*="field-guides"]{color:color-mix(in srgb, #6dc0d6 62%, var(--foot-ink, #cfc6b0))}
-.foot a[href*="products"],
-.foot a[href*="fit/"],
-.foot a[href*="#gear"]{color:color-mix(in srgb, #e5a35c 62%, var(--foot-ink, #cfc6b0))}
-.foot a[href*="hotels"],
-.foot a[href*="hotel-pets"]{color:color-mix(in srgb, #de8ca8 62%, var(--foot-ink, #cfc6b0))}
-.foot a[href*="taxi"]{color:color-mix(in srgb, #e48b70 62%, var(--foot-ink, #cfc6b0))}
-.foot a[href*="grooming"]{color:color-mix(in srgb, #b98ce0 62%, var(--foot-ink, #cfc6b0))}
-.foot a[href*="forum"]{color:color-mix(in srgb, #7ec78c 62%, var(--foot-ink, #cfc6b0))}
-.foot a[href*="k9"]{color:color-mix(in srgb, #cfa57a 62%, var(--foot-ink, #cfc6b0))}
-.foot a[href*="veterans"],
-.foot a[href*="military-pcs"]{color:color-mix(in srgb, #e2c275 62%, var(--foot-ink, #cfc6b0))}
-.foot a[href*="/pro"],
-.foot a[href*="pro/"],
-.foot a[href*="widgets"]{color:color-mix(in srgb, #8b9ce2 62%, var(--foot-ink, #cfc6b0))}
-.foot a[href*="updates"],
-.foot a[href*="countries/"]{color:color-mix(in srgb, #8b9ce2 62%, var(--foot-ink, #cfc6b0))}
-.foot a[href*="view=map"]{color:color-mix(in srgb, #dfc06b 55%, var(--foot-ink, #cfc6b0))}
-.foot a:hover{filter:brightness(1.08)}
-.foot .soc a{color:inherit;filter:none}
+/* Footer: calm system — tint column headings only; links stay --foot-ink.
+   Vet info → vet mint; Shop & community → products amber.
+   Explore and About are mixed or legal, so their headings stay the default muted ink. */
+.foot a{color:var(--foot-ink, #cfc6b0)}
+.foot h4:has(> a[href*="vet-info"]),
+.foot h4 > a[href*="vet-info"]{
+  color:color-mix(in srgb, #7cc9b5 72%, var(--foot-ink, #cfc6b0));
+  opacity:1;
+}
+.foot h4[data-i18n="site.foot.shop"]{
+  color:color-mix(in srgb, #e5a35c 72%, var(--foot-ink, #cfc6b0));
+  opacity:1;
+}
+.foot a:hover{color:var(--head)}
+.foot .soc a{color:inherit}
 .foot .disc a{color:inherit}
+
+
+/* Book blocks tagged with data-sec (home #plan-trip and country law pages) */
+.book-g[data-sec]{
+  border-top:3px solid var(--sec);
+  background:linear-gradient(180deg,color-mix(in srgb,var(--sec) 14%,var(--paper,#11252a)),var(--paper,#11252a));
+}
+.book-g[data-sec] h3,
+.book-g[data-sec] h4{color:var(--sec)}
+.book-g[data-sec] h3 svg{fill:var(--sec)}
+.book-g[data-sec] .book-cities a:hover,
+.book-g[data-sec] .book-cities a:focus-visible{
+  border-color:var(--sec);color:var(--sec);
+}
+
+/* Section pages: corner ornaments and in-main focus rings use --sec, not leftover gold/lilac */
+html[class*="theme-"]:not(.theme-map) .cards li::before,
+html[class*="theme-"]:not(.theme-map) .cards li::after{
+  background-image:none;
+  background-color:var(--sec, var(--theme-accent));
+  -webkit-mask:var(--corner) 0 0 / contain no-repeat;
+  mask:var(--corner) 0 0 / contain no-repeat;
+}
+html[class*="theme-"]:not(.theme-map) main :focus-visible{
+  outline-color:var(--sec, var(--theme-accent));
+}
+html.theme-veterans main :focus-visible{
+  outline-color:#e2c275;
+}
+html.theme-veterans main h2::before{
+  background-color:#e2c275;
+}
+
