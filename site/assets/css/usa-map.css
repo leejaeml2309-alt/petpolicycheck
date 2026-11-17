@@ -406,9 +406,11 @@ main.wrap:has(#usa-map){max-width:1320px}
 
 /* ---- Label style options A/B/C (Marc 17/11/2026). Default A. ?lbl=A|B|C
    Light glyphs use a dark ink halo so real-pixel contrast stays ≥4.5:1 on every
-   density-red fill, including the lightest pink #d9828b. Gold is used only in B. */
+   density-red fill, including the lightest pink #d9828b. Option A: ivory states,
+   warm amber cities (#FFB547), bright-gold capitals (#FFD56A), cyan IATA codes.
+   Gold for regular city names is used only in B. */
 html[data-lbl="A"] #usa-map, html[data-lbl="A"] #usa-map svg#map, html:not([data-lbl]) #usa-map, html:not([data-lbl]) #usa-map svg#map{
-  --lbl-region:#F4EFE6; --lbl-city:#F0DDB0; --lbl-capital:#F6E4B8; --lbl-airport:#7ED0E6;
+  --lbl-region:#F4EFE6; --lbl-city:#FFB547; --lbl-capital:#FFD56A; --lbl-airport:#7ED0E6;
   --lbl-halo:#0B1719; --lbl-halo-ink:#0B1719;
   --lbl-region-px:10.5px; --lbl-city-px:8px; --lbl-capital-px:8.5px; --lbl-airport-px:7.5px; --lbl-name-px:7px;
   --lbl-region-zoom-px:12px; --lbl-city-zoom-px:9px; --lbl-capital-zoom-px:9.5px; --lbl-airport-zoom-px:8.5px; --lbl-name-zoom-px:7.5px;

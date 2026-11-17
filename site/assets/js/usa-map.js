@@ -169,11 +169,28 @@ function _nearNE(){
   const v=vb||[0,0,975,610];
   return Math.abs(v[0]-760)<8 && Math.abs(v[1]-70)<8 && Math.abs(v[2]-230)<8;
 }
+const LBL_REGIONS={
+  ne:[760,70,230,176],
+  chicago:[560,160,200,200*610/975],
+  texas:[440,440,200,200*610/975],
+  florida:[740,500,200,200*610/975],
+  dc:[760,200,200,200*610/975]
+};
+function _nearRegion(){
+  if(typeof isFull==='function' && isFull()) return null;
+  const v=vb||[0,0,975,610];
+  for(const name of Object.keys(LBL_REGIONS)){
+    const b=LBL_REGIONS[name];
+    if(Math.abs(v[0]-b[0])<10 && Math.abs(v[1]-b[1])<10 && Math.abs(v[2]-b[2])<10) return name;
+  }
+  return null;
+}
 function _planKey(){
   const opt=currentLbl();
   const b=_lblBucket();
-  const mode=(typeof isFull==='function' && isFull())?'full':(_nearNE()?'ne':'zoom');
-  return [opt,b,mode];
+  if(typeof isFull==='function' && isFull()) return [opt,b,'full'];
+  const r=_nearRegion();
+  return [opt,b,r||'zoom'];
 }
 function _setTxt(el, x, y, ta){
   if(x!=null) el.setAttribute('x', (+x).toFixed(1));
@@ -184,7 +201,7 @@ function applyUsaLabelPlan(){
   const m=$('#map'); if(!m) return;
   const pack=window.USA_LBL_PLANS; if(!pack) return false;
   const [opt,bucket,mode]=_planKey();
-  const plan=(pack[opt]&&(pack[opt][bucket+'|'+mode]||(mode==='zoom'&&pack[opt][bucket+'|ne'])))||null;
+  const plan=(pack[opt]&&(pack[opt][bucket+'|'+mode]||(mode==='zoom'&&pack[opt][bucket+'|full'])))||null;
   if(!plan) return false;
   m.querySelectorAll('#g-lb line.lbl-lead[data-temp="1"]').forEach(n=>n.remove());
   m.querySelectorAll('.lbl-crowd,.ct-crowd,.ap-crowd,.ap-name-crowd,.ap-code-crowd').forEach(n=>n.classList.remove('lbl-crowd','ct-crowd','ap-crowd','ap-name-crowd','ap-code-crowd'));
