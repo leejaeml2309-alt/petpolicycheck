@@ -195,7 +195,7 @@ function buildStates(){
  for(const t of tiny){
   const ly=t.ly+shift, lx=948;
   gl.appendChild(el("line",{class:"lbl-lead",x1:t.x,y1:t.y,x2:lx-14,y2:ly,stroke:"#3a5a56","stroke-width":.8,"data-a":t.a}));
-  const g=el("g",{class:"ct",role:"button",tabindex:0,"aria-label":GEO[t.a].name});
+  const g=el("g",{class:"st-callout",role:"button",tabindex:0,"aria-label":GEO[t.a].name});
   const r=el("rect",{x:lx-13,y:ly-8,width:26,height:16,rx:8,fill:tierFill(t.a),stroke:"#1a0b0e","data-tier":String(tiers[t.a]||1),id:"cb-"+t.a});
   const tx=el("text",{x:lx,y:ly,class:"lbl",id:"l-"+t.a});tx.textContent=t.a;tx.dataset.abbr=t.a;tx.dataset.full=(GEO[t.a]&&GEO[t.a].name)||t.a;
   g.append(r,tx);g.addEventListener("click",()=>selectState(t.a));

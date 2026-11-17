@@ -492,6 +492,40 @@ html[data-lbl="B"] #usa-map .lbl{
 }
 html[data-lbl="C"] #usa-map .lbl{font-weight:700;letter-spacing:var(--lbl-track)}
 
+/* NE callout pills are STATES, not cities — never inherit italic city style. */
+html[data-lbl] #usa-map #g-lb text.lbl, html[data-lbl] #usa-map svg#map #g-lb text.lbl,
+html:not([data-lbl]) #usa-map #g-lb text.lbl, html:not([data-lbl]) #usa-map svg#map #g-lb text.lbl,
+html[data-lbl] #usa-map #g-lb .st-callout text, html[data-lbl] #usa-map svg#map #g-lb .st-callout text,
+html:not([data-lbl]) #usa-map #g-lb .st-callout text, html:not([data-lbl]) #usa-map svg#map #g-lb .st-callout text{
+  font-family:Inter,system-ui,sans-serif;
+  font-weight:600;
+  font-style:normal !important;
+  font-variant:normal;
+  text-transform:uppercase;
+  letter-spacing:var(--lbl-track,.14em);
+  fill:var(--lbl-region);
+  stroke:var(--lbl-halo);
+  stroke-linejoin:round;
+  paint-order:stroke;
+  filter:drop-shadow(0 0 0.6px var(--lbl-halo-ink));
+  font-size:var(--lbl-region-px) !important;
+  stroke-width:calc(var(--lbl-region-px) * .22) !important;
+}
+html[data-lbl="B"] #usa-map #g-lb text.lbl, html[data-lbl="B"] #usa-map svg#map #g-lb text.lbl,
+html[data-lbl="B"] #usa-map #g-lb .st-callout text, html[data-lbl="B"] #usa-map svg#map #g-lb .st-callout text{
+  fill:none;
+  stroke:var(--lbl-region);
+  stroke-width:calc(var(--lbl-region-px) * .16) !important;
+  filter:drop-shadow(0 0 1px #0B1719) drop-shadow(0 0 .6px #0B1719);
+  font-weight:700;
+}
+html[data-lbl="C"] #usa-map #g-lb text.lbl, html[data-lbl="C"] #usa-map svg#map #g-lb text.lbl,
+html[data-lbl="C"] #usa-map #g-lb .st-callout text, html[data-lbl="C"] #usa-map svg#map #g-lb .st-callout text{
+  font-weight:700;
+  letter-spacing:var(--lbl-track);
+}
+
+
 html[data-lbl] #usa-map .ct text, html[data-lbl] #usa-map svg#map .ct text,
 html:not([data-lbl]) #usa-map .ct text, html:not([data-lbl]) #usa-map svg#map .ct text{
   font-family:Inter,system-ui,sans-serif;

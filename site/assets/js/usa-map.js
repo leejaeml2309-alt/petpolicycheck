@@ -29,7 +29,7 @@ function mountLabelLegend(){
     : loc==='it'
     ? {r:'Stati', c:'Città', k:'Capitale', a:'Aeroporti', s:'Stile', aria:'Legenda etichette'}
     : {r:'States', c:'Cities', k:'Capital', a:'Airports', s:'Style', aria:'Label colour legend'};
-  const samples = {A:{r:'TX',c:'Denver',k:'Capital',a:'LAX'},B:{r:'TX',c:'Denver',k:'Capital',a:'LAX'},C:{r:'TX',c:'Denver',k:'Capital',a:'LAX'}};
+  const samples = {A:{r:'TX',c:'Chicago',k:'Denver',a:'LAX'},B:{r:'TX',c:'Chicago',k:'Denver',a:'LAX'},C:{r:'TX',c:'Chicago',k:'Denver',a:'LAX'}};
   const sm=samples[opt]||samples.A;
   let box=host.querySelector('.lbl-legend');
   if(!box){
@@ -192,8 +192,13 @@ function applyUsaLabelPlan(){
   m.querySelectorAll('#g-lb text.lbl').forEach(t=>{
     const id=(t.id||'').replace(/^l-/,'');
     const p=st[id];
-    if(!p){ t.classList.add('lbl-crowd'); return; }
-    if(p[3]) t.classList.add('lbl-crowd');
+    const call=t.closest('.st-callout');
+    if(!p || p[3]){
+      t.classList.add('lbl-crowd');
+      if(call) call.setAttribute('display','none');
+      return;
+    }
+    if(call) call.removeAttribute('display');
     _setTxt(t, p[0], p[1], p[2]);
     if(p[4] && t.dataset.full) t.textContent=t.dataset.full;
     else if(t.dataset.abbr) t.textContent=t.dataset.abbr;
