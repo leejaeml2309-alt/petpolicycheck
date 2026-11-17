@@ -403,3 +403,203 @@ main.wrap:has(#usa-map){max-width:1320px}
 #usa-map .lk.transcon-link > a.t{flex:1;min-width:0;text-decoration:none;color:var(--ink)}
 #usa-map .lk.transcon-link:hover > a.t{color:var(--head)}
 #usa-map .lk.transcon-link > a.t small{display:block;color:var(--mut);font-size:.76rem}
+
+/* ---- Label style options A/B/C (Marc 17/11/2026). Default A. ?lbl=A|B|C
+   Light glyphs use a dark ink halo so real-pixel contrast stays ≥4.5:1 on every
+   density-red fill, including the lightest pink #d9828b. Gold is used only in B. */
+html[data-lbl="A"] #usa-map, html[data-lbl="A"] #usa-map svg#map, html:not([data-lbl]) #usa-map, html:not([data-lbl]) #usa-map svg#map{
+  --lbl-region:#F4EFE6; --lbl-city:#F0DDB0; --lbl-capital:#F6E4B8; --lbl-airport:#7ED0E6;
+  --lbl-halo:#0B1719; --lbl-halo-ink:#0B1719;
+  --lbl-region-px:10.5px; --lbl-city-px:8px; --lbl-capital-px:8.5px; --lbl-airport-px:7.5px; --lbl-name-px:7px;
+  --lbl-region-zoom-px:12px; --lbl-city-zoom-px:9px; --lbl-capital-zoom-px:9.5px; --lbl-airport-zoom-px:8.5px; --lbl-name-zoom-px:7.5px;
+  --lbl-track:.18em;
+}
+html[data-lbl="B"] #usa-map, html[data-lbl="B"] #usa-map svg#map{
+  --lbl-region:#F4EFE6; --lbl-city:#D9B765; --lbl-capital:#E8C56A; --lbl-airport:#FFF6EE;
+  --lbl-halo:#0B1719; --lbl-halo-ink:#0B1719; --lbl-chip:#8E241C; --lbl-chip-ring:#FFF6EE;
+  --lbl-region-px:11px; --lbl-city-px:8px; --lbl-capital-px:8.5px; --lbl-airport-px:7.5px; --lbl-name-px:7px;
+  --lbl-region-zoom-px:12.5px; --lbl-city-zoom-px:9px; --lbl-capital-zoom-px:9.5px; --lbl-airport-zoom-px:8.5px; --lbl-name-zoom-px:7.5px;
+  --lbl-track:.12em;
+}
+html[data-lbl="C"] #usa-map, html[data-lbl="C"] #usa-map svg#map{
+  --lbl-region:#EDE6D6; --lbl-city:#E8D9A8; --lbl-capital:#F3E6C4; --lbl-airport:#F4EFE6;
+  --lbl-halo:#0B1719; --lbl-halo-ink:#0B1719; --lbl-chip:#0C5F6A; --lbl-chip-ring:#F4EFE6;
+  --lbl-region-px:7px; --lbl-city-px:7.5px; --lbl-capital-px:8px; --lbl-airport-px:9px; --lbl-name-px:7.5px;
+  --lbl-region-zoom-px:11px; --lbl-city-zoom-px:9px; --lbl-capital-zoom-px:9.5px; --lbl-airport-zoom-px:10px; --lbl-name-zoom-px:8px;
+  --lbl-track:.14em;
+}
+@media (min-width:1440px){
+  html[data-lbl="A"] #usa-map, html[data-lbl="A"] #usa-map svg#map, html:not([data-lbl]) #usa-map, html:not([data-lbl]) #usa-map svg#map{
+    --lbl-region-px:10px; --lbl-city-px:7.5px; --lbl-capital-px:8px; --lbl-airport-px:7px; --lbl-name-px:6.5px;
+    --lbl-region-zoom-px:12px; --lbl-city-zoom-px:9px; --lbl-capital-zoom-px:9.5px; --lbl-airport-zoom-px:8.5px; --lbl-name-zoom-px:7.5px;
+  }
+  html[data-lbl="B"] #usa-map, html[data-lbl="B"] #usa-map svg#map{
+    --lbl-region-px:10.5px; --lbl-city-px:7.5px; --lbl-capital-px:8px; --lbl-airport-px:7px; --lbl-name-px:6.5px;
+    --lbl-region-zoom-px:12.5px; --lbl-city-zoom-px:9px; --lbl-capital-zoom-px:9.5px; --lbl-airport-zoom-px:8.5px; --lbl-name-zoom-px:7.5px;
+  }
+  html[data-lbl="C"] #usa-map, html[data-lbl="C"] #usa-map svg#map{
+    --lbl-region-px:6.5px; --lbl-city-px:7px; --lbl-capital-px:7.5px; --lbl-airport-px:8.5px; --lbl-name-px:7px;
+    --lbl-region-zoom-px:11px; --lbl-city-zoom-px:9px; --lbl-capital-zoom-px:9.5px; --lbl-airport-zoom-px:10px; --lbl-name-zoom-px:8px;
+  }
+}
+@media (max-width:500px){
+  html[data-lbl="A"] #usa-map, html[data-lbl="A"] #usa-map svg#map, html:not([data-lbl]) #usa-map, html:not([data-lbl]) #usa-map svg#map{
+    --lbl-region-px:11px; --lbl-city-px:9px; --lbl-capital-px:9.5px; --lbl-airport-px:8px; --lbl-name-px:7.5px;
+    --lbl-region-zoom-px:13px; --lbl-city-zoom-px:10px; --lbl-capital-zoom-px:10.5px; --lbl-airport-zoom-px:10px; --lbl-name-zoom-px:8.5px;
+  }
+  html[data-lbl="B"] #usa-map, html[data-lbl="B"] #usa-map svg#map{
+    --lbl-region-px:11.5px; --lbl-city-px:9px; --lbl-capital-px:9.5px; --lbl-airport-px:8px; --lbl-name-px:7.5px;
+    --lbl-region-zoom-px:13px; --lbl-city-zoom-px:10px; --lbl-capital-zoom-px:10.5px; --lbl-airport-zoom-px:10px; --lbl-name-zoom-px:8.5px;
+  }
+  html[data-lbl="C"] #usa-map, html[data-lbl="C"] #usa-map svg#map{
+    --lbl-region-px:8px; --lbl-city-px:8px; --lbl-capital-px:8.5px; --lbl-airport-px:9px; --lbl-name-px:8px;
+    --lbl-region-zoom-px:11px; --lbl-city-zoom-px:10px; --lbl-capital-zoom-px:10.5px; --lbl-airport-zoom-px:11px; --lbl-name-zoom-px:8.5px;
+  }
+}
+html[data-lbl] #usa-map svg#map.is-zoomed,
+html:not([data-lbl]) #usa-map svg#map.is-zoomed{
+  --lbl-region-px:var(--lbl-region-zoom-px);
+  --lbl-city-px:var(--lbl-city-zoom-px);
+  --lbl-capital-px:var(--lbl-capital-zoom-px);
+  --lbl-airport-px:var(--lbl-airport-zoom-px);
+  --lbl-name-px:var(--lbl-name-zoom-px);
+}
+
+/* Screen-px type scale (deterministic from the viewport, not the SVG width). */
+html[data-lbl] #usa-map .lbl, html[data-lbl] #usa-map svg#map .lbl,
+html:not([data-lbl]) #usa-map .lbl, html:not([data-lbl]) #usa-map svg#map .lbl{
+  font-family:Inter,system-ui,sans-serif;
+  font-weight:600;
+  font-style:normal;
+  font-variant:normal;
+  font-variant-caps:normal;
+  text-transform:uppercase;
+  letter-spacing:var(--lbl-track,.14em);
+  fill:var(--lbl-region);
+  stroke:var(--lbl-halo);
+  stroke-linejoin:round;
+  paint-order:stroke;
+  filter:drop-shadow(0 0 0.6px var(--lbl-halo-ink));
+  font-size:var(--lbl-region-px) !important;
+  stroke-width:calc(var(--lbl-region-px) * .22) !important;
+}
+html[data-lbl="B"] #usa-map .lbl{
+  fill:none;
+  stroke:var(--lbl-region);
+  stroke-width:calc(var(--lbl-region-px) * .16) !important;
+  filter:drop-shadow(0 0 1px #0B1719) drop-shadow(0 0 .6px #0B1719);
+  font-weight:700;
+}
+html[data-lbl="C"] #usa-map .lbl{font-weight:700;letter-spacing:var(--lbl-track)}
+
+html[data-lbl] #usa-map .ct text, html[data-lbl] #usa-map svg#map .ct text,
+html:not([data-lbl]) #usa-map .ct text, html:not([data-lbl]) #usa-map svg#map .ct text{
+  font-family:Inter,system-ui,sans-serif;
+  font-weight:500;
+  font-style:italic;
+  fill:var(--lbl-city);
+  stroke:var(--lbl-halo);
+  stroke-linejoin:round;
+  paint-order:stroke;
+  filter:drop-shadow(0 0 0.6px var(--lbl-halo-ink));
+  font-size:var(--lbl-city-px) !important;
+  stroke-width:calc(var(--lbl-city-px) * .24) !important;
+}
+html[data-lbl] #usa-map .ct.cap text, html[data-lbl] #usa-map svg#map .ct.cap text,
+html:not([data-lbl]) #usa-map .ct.cap text, html:not([data-lbl]) #usa-map svg#map .ct.cap text{
+  font-style:normal;
+  font-weight:700;
+  fill:var(--lbl-capital);
+  font-size:var(--lbl-capital-px) !important;
+}
+html[data-lbl="B"] #usa-map .ct text{font-style:italic;font-weight:600}
+
+html[data-lbl] #usa-map .ap text.map-label, html[data-lbl] #usa-map svg#map .ap text.map-label,
+html[data-lbl] #usa-map .ap text, html[data-lbl] #usa-map svg#map .ap text,
+html:not([data-lbl]) #usa-map .ap text.map-label, html:not([data-lbl]) #usa-map svg#map .ap text.map-label,
+html:not([data-lbl]) #usa-map .ap text, html:not([data-lbl]) #usa-map svg#map .ap text{
+  font-family:ui-monospace,"Cascadia Mono","Segoe UI Mono",Menlo,Consolas,monospace;
+  font-weight:700;
+  font-style:normal;
+  letter-spacing:.04em;
+  fill:var(--lbl-airport);
+  stroke:var(--lbl-halo);
+  stroke-linejoin:round;
+  paint-order:stroke;
+  filter:drop-shadow(0 0 0.6px var(--lbl-halo-ink));
+  font-size:var(--lbl-airport-px) !important;
+  stroke-width:calc(var(--lbl-airport-px) * .22) !important;
+}
+html[data-lbl] #usa-map .ap text.map-name, html[data-lbl] #usa-map svg#map .ap text.map-name,
+html:not([data-lbl]) #usa-map .ap text.map-name, html:not([data-lbl]) #usa-map svg#map .ap text.map-name{
+  font-family:Inter,system-ui,sans-serif;
+  font-weight:600;
+  letter-spacing:0;
+  font-size:var(--lbl-name-px) !important;
+  stroke-width:calc(var(--lbl-name-px) * .22) !important;
+  opacity:.95;
+}
+html[data-lbl="B"] #usa-map .ap text.map-label,
+html[data-lbl="C"] #usa-map .ap text.map-label{
+  stroke:none;
+  filter:none;
+  paint-order:normal;
+}
+html[data-lbl="C"] #usa-map .ap text.map-label{
+  font-family:Inter,system-ui,sans-serif;
+  font-weight:800;
+  letter-spacing:.06em;
+}
+#usa-map .ap-chip{display:none;pointer-events:none}
+html[data-lbl="B"] #usa-map .ap-chip,
+html[data-lbl="C"] #usa-map .ap-chip{
+  display:block;
+  fill:var(--lbl-chip);
+  stroke:var(--lbl-chip-ring);
+  stroke-width:.9;
+  filter:drop-shadow(0 0 0.7px #0B1719);
+}
+
+/* Label colour legend + option switch, matching the active palette. */
+#usa-map .lbl-legend{
+  display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;
+  margin:10px 4px 0;padding:8px 4px 0;border-top:1px solid rgba(255,255,255,.08);
+  font:600 12px/1.3 Inter,system-ui,sans-serif;color:#d7ddd8;
+}
+#usa-map .lbl-legend span{display:inline-flex;align-items:center;gap:6px}
+#usa-map .lbl-legend i,#usa-map .lbl-legend b{font-style:normal}
+#usa-map .lbl-legend .ll-r i{
+  color:var(--lbl-region);background:#0B1719;border-radius:2px;padding:1px 5px;
+  font-size:10px;letter-spacing:var(--lbl-track,.14em);text-transform:uppercase;font-weight:700;
+}
+#usa-map .lbl-legend .ll-c i{
+  color:var(--lbl-city);background:#0B1719;border-radius:2px;padding:1px 5px;
+  font-size:10px;font-style:italic;font-weight:500;
+}
+#usa-map .lbl-legend .ll-k i{
+  color:var(--lbl-capital);background:#0B1719;border-radius:2px;padding:1px 5px;
+  font-size:10px;font-style:normal;font-weight:700;
+}
+#usa-map .lbl-legend .ll-a b{
+  color:var(--lbl-airport);background:var(--lbl-chip,#0B1719);border-radius:3px;padding:1px 6px;
+  font-size:10px;font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;
+  box-shadow:0 0 0 .8px var(--lbl-chip-ring,transparent);
+}
+html[data-lbl="A"] #usa-map .lbl-legend .ll-a b,
+html:not([data-lbl]) #usa-map .lbl-legend .ll-a b{background:#0B1719;box-shadow:none}
+html[data-lbl="C"] #usa-map .lbl-legend .ll-a b{font-family:Inter,system-ui,sans-serif;font-weight:800}
+#usa-map .lbl-legend .ll-opt{margin-right:6px;gap:4px}
+#usa-map .lbl-legend .ll-opt a{
+  display:inline-block;min-width:1.4em;text-align:center;padding:2px 7px;border-radius:999px;
+  border:1px solid rgba(244,239,230,.28);color:#d7ddd8;text-decoration:none;font-weight:700;font-size:11px;
+}
+#usa-map .lbl-legend .ll-opt a.is-current,
+#usa-map .lbl-legend .ll-opt a[aria-current="true"]{
+  color:#0B1719;background:var(--lbl-airport,#7ED0E6);border-color:transparent;
+}
+html[data-lbl="B"] #usa-map .lbl-legend .ll-opt a.is-current{background:var(--lbl-city);color:#0B1719}
+html[data-lbl="A"] #usa-map .legend .lg-ap,
+html:not([data-lbl]) #usa-map .legend .lg-ap{color:#7ED0E6}
+html[data-lbl="B"] #usa-map .legend .lg-ap{color:#FFB0A4}
+html[data-lbl="C"] #usa-map .legend .lg-ap{color:#8ED4C8}
+@media (max-width:900px){ #usa-map .lbl-legend{margin-top:8px;font-size:11px} }

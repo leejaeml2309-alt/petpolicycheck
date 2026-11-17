@@ -1,596 +1,59 @@
-/* USA pet-travel map behavior. GEO and USA_RULES are loaded first.
-   Eight sample cities have local transport and hotel-guide links; every other city is an explicit placeholder. */
-const GEO = window.GEO;
-const RULES = window.USA_RULES;
-const ON_ES=(location.pathname||'').indexOf('/es/')===0;
-const SITE=ON_ES?"":"..";
-function siteUrl(path){
-  /* path like /clinics/usa.html or /hotels/pet-friendly-….html */
-  var p=path.charAt(0)==='/'?path:'/'+path;
-  if(!ON_ES) return '..'+p;
-  /* Prefer /es/ when an ES page exists; else site-root EN. */
-  var ES={
-    'countries/usa.html':1,'countries/canada.html':1,'countries/mexico.html':1,
-    'countries/usa-map.html':1,'countries/canada-map.html':1,'countries/mexico-map.html':1,
-    'grooming/':1,'grooming/index.html':1,'fit/':1,'pet-travel-checklist/':1,
-    'routes/usa-canada.html':1,'routes/usa-mexico.html':1,'routes/usa-france.html':1,
-    'routes/usa-uk.html':1,'routes/usa-to-japan.html':1,
-    'airlines/snub-nosed-breeds.html':1,'airlines/compare/':1,'passport/':1
-  };
-  var rel=p.replace(/^\/+/, '');
-  var key=rel; if(key && key.slice(-1)!=='/' && key.indexOf('.html')<0) key=key+'/';
-  if(ES[rel]||ES[key]||ES[rel.replace(/\/$/,'')+'/index.html']) return '/es/'+rel;
-  return p;
-}
-
-const $=s=>document.querySelector(s);
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const enc=encodeURIComponent;
-const ABBRS=Object.keys(GEO).filter(a=>a!=="DC").sort((a,b)=>GEO[a].name.localeCompare(GEO[b].name));
-const TINY=["VT","NH","MA","RI","CT","NJ","DE","MD"];
-/* ---------- links ---------- */
-const TAG={aff:"Affiliate",off:"Official",srch:"Search",stub:"Stub"};
-function lk(ic,title,sub,href,tag){return `<a class="lk" href="${esc(href)}" target="_blank" rel="${tag==='aff'?'sponsored nofollow noopener':'noopener'}"><span class="ic" aria-hidden="true">${ic}</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:""}</span><span class="tag ${tag}">${TAG[tag]}</span></a>`}
-const FED={
- cdc:["https://www.cdc.gov/importation/dogs/index.html","CDC: Bringing a dog into the US","Dog Import Form + rules for dogs arriving from abroad"],
- aphisIn:["https://www.aphis.usda.gov/pet-travel/another-country-to-us-import","USDA APHIS: Bring a pet into the US","Cats, dogs and other pets entering from another country"],
- aphisSS:["https://www.aphis.usda.gov/pet-travel/state-to-state","USDA APHIS: State-to-state travel","No federal rule between states: the destination state decides"],
- aphisAir:["https://www.aphis.usda.gov/pet-travel/pets-on-planes/preparing-pets-air-travel","USDA APHIS: Preparing pets for air travel","Airlines may want a health certificate within 10 days"],
- aphisOut:["https://www.aphis.usda.gov/pet-travel/us-to-another-country-export","USDA APHIS: Take a pet from the US abroad","Export health certificates (endorsed by APHIS)"],
- dot:["https://www.transportation.gov/individuals/aviation-consumer-protection/service-animals","US DOT: Service animals on flights","Federal rule for service dogs in the cabin"],
-};
-const fed=(k,ic="🏛")=>lk(ic,FED[k][1],FED[k][2],FED[k][0],"off");
-const RIDES=lk("🚗","Uber Pet","One pet per trip, surcharge in the upfront fare","https://help.uber.com/en/riders/article/uber-pet-pet-friendly-rides?nodeId=e4468070-c193-41cf-b792-fa66ecfb1163","off")+
- lk("🚙","Lyft Pet","One well-behaved animal; US only; extra fee","https://help.lyft.com/hc/en-us/all/articles/8559088908-Pet-rides-for-riders","off");
-const AMTRAK_NOTE="Amtrak: dogs and cats, 20 lb max incl. carrier, trips up to 7 hours, Coach (+Acela Business); reserve the pet spot.";
-/* ---------- 8 sample cities ---------- */
-const SAMPLE={
- "NY|New York City":{q:"New York, NY",amtrak:["nyp","New York Penn Station (NYP)"],guide:"/hotels/pet-friendly-hotels-new-york.html",
-  taxi:[["🚕","NYC Taxi & Limousine Commission","Yellow/green cabs and for-hire rules","https://www.nyc.gov/site/tlc/index.page","off"]],
-  transit:[["🚇","MTA: subway, buses, LIRR, Metro-North","Check MTA pet rule before riding","https://new.mta.info/","off"]],
-  rail:[["🚆","NJ Transit","Trains to New Jersey / Newark Airport","https://www.njtransit.com/","off"]]},
- "CA|Los Angeles":{q:"Los Angeles, CA",amtrak:["lax","Los Angeles Union Station (LAX)"],
-  taxi:[["🚕","LADOT Taxi program","City-licensed taxicabs","https://ladot.lacity.gov/","off"]],
-  transit:[["🚌","LA Metro","Buses and Metro Rail","https://www.metro.net/","off"]],
-  rail:[["🚆","Metrolink","Southern California commuter rail","https://metrolinktrains.com/","off"]]},
- "IL|Chicago":{q:"Chicago, IL",amtrak:["chi","Chicago Union Station (CHI)"],
-  taxi:[["🚕","City of Chicago: Taxis (BACP)","Licensed taxis & rideshare rules","https://www.chicago.gov/city/en/depts/bacp.html","off"]],
-  transit:[["🚇","CTA","'L' trains and buses","https://www.transitchicago.com/","off"]],
-  rail:[["🚆","Metra","Commuter rail to the suburbs","https://metra.com/","off"]]},
- "FL|Miami":{q:"Miami, FL",amtrak:["mia","Miami station (MIA)"],guide:"/hotels/pet-friendly-hotels-miami.html",
-  taxi:[["🚕","Miami-Dade: for-hire vehicles","County-regulated taxis","https://www.miamidade.gov/global/transportation/home.page","off"]],
-  transit:[["🚌","Miami-Dade Transit","Metrobus, Metrorail, Metromover","https://www.miamidade.gov/global/transportation/home.page","off"]],
-  rail:[["🚄","Brightline","Miami ↔ Orlando (check its pet policy)","https://www.gobrightline.com/","off"],["🚆","Tri-Rail","South Florida commuter rail","https://www.tri-rail.com/","off"]]},
- "TX|Houston":{q:"Houston, TX",amtrak:["hos","Houston station (HOS)"],
-  taxi:[["🚕","City of Houston: Regulatory Affairs","Licensed taxis","https://www.houstontx.gov/ara/","off"]],
-  transit:[["🚌","METRO Houston","Buses and METRORail","https://www.ridemetro.org/","off"]],rail:[]},
- "WA|Seattle":{q:"Seattle, WA",amtrak:["sea","Seattle King Street (SEA)"],
-  taxi:[["🚕","King County: taxi & for-hire licensing","","https://kingcounty.gov/","off"]],
-  transit:[["🚌","King County Metro","Buses and water taxi","https://kingcounty.gov/en/dept/metro","off"]],
-  rail:[["🚆","Sound Transit","Link light rail (SEA airport) and Sounder","https://www.soundtransit.org/","off"]]},
- "CO|Denver":{q:"Denver, CO",amtrak:["den","Denver Union Station (DEN)"],
-  taxi:[],transit:[["🚌","RTD Denver","Buses and rail, incl. A Line to DEN airport","https://www.rtd-denver.com/","off"]],rail:[]},
- "GA|Atlanta":{q:"Atlanta, GA",amtrak:["atl","Atlanta Peachtree (ATL)"],
-  taxi:[],transit:[["🚇","MARTA","Rail to ATL airport and buses","https://www.itsmarta.com/","off"]],rail:[]},
-};
-/* Airports for the 8 sample metros, plus two placeholder hubs (SFO, DFW),
-   ANC/HNL, 17 FAA large hubs with named map labels (mapLabel/mapName):
-   LAS, MCO, CLT, PHX, BOS, FLL, MSP, DTW, PHL, SLC, BWI, DCA, SAN, IAD, TPA, BNA, AUS,
-   and one airport for each state that previously had none (FAA CY2024 busiest,
-   or the main international field): BHM, LIT, BDL, ILG, DSM, BOI, IND, ICT, CVG,
-   MSY, PWM, STL, JAN, BZN, FAR, OMA, MHT, ABQ, CLE, OKC, PDX, PVD, CHS, FSD,
-   BTV, CRW, MKE, JAC. Pins use real GPS in the map's Albers USA projection,
-   then a short offset so the mark is not on its city dot.
-   metroCity/metroState is the booking panel. placeState is where the dot sits
-   (EWR is in New Jersey and still belongs to New York City; DCA and IAD sit in
-   Virginia and belong to Washington, DC; CVG sits in Kentucky and belongs to
-   Cincinnati, Ohio). pets:null = placeholder. */
-const PLANE="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5z";
-const AIRPORTS=[
- {code:"LGA", name:"LaGuardia", metroCity:"New York City", metroState:"NY", placeState:"NY", x:912, y:184, ldx:8, ldy:3, anchor:"start",
-  site:["https://www.laguardiaairport.com/","LaGuardia Airport official site"],
-  pets:["https://www.laguardiaairport.com/explore-lga/services","LGA pet and service-animal relief","Listed with airport services"]},
- {code:"EWR", name:"Newark Liberty International", metroCity:"New York City", metroState:"NY", placeState:"NJ", localCity:"Newark", x:818, y:188, ldx:-8, ldy:3, anchor:"end",
-  site:["https://www.newarkairport.com/","Newark Liberty official site"],
-  pets:["https://www.newarkairport.com/explore-ewr/services","EWR pet and service-animal relief","Listed with airport services"]},
- {code:"JFK", name:"John F. Kennedy International", metroCity:"New York City", metroState:"NY", placeState:"NY", x:918, y:252, ldx:8, ldy:3, anchor:"start",
-  site:["https://www.jfkairport.com/","JFK Airport official site"],
-  pets:["https://www.jfkairport.com/explore-jfk/accessibility-services","JFK pet and service-animal relief","Same page cited on the New York hotel guide"]},
- {code:"LAX", name:"Los Angeles International", metroCity:"Los Angeles", metroState:"CA", placeState:"CA", x:68, y:378, ldx:-8, ldy:3, anchor:"end",
-  site:["https://www.flylax.com/","LAX official site"],
-  pets:["https://www.flylax.com/sites/lax/files/documents/LAX%20Pet%20Relief%20Locations.pdf","LAX animal relief stations map","Official LAX pet-relief map (PDF)"]},
- {code:"SFO", name:"San Francisco International", metroCity:"San Francisco", metroState:"CA", placeState:"CA", x:22, y:286, ldx:8, ldy:3, anchor:"start",
-  site:["https://www.flysfo.com/","SFO official site"], pets:null},
- {code:"ORD", name:"O'Hare International", metroCity:"Chicago", metroState:"IL", placeState:"IL", x:616, y:206, ldx:0, ldy:-12, anchor:"middle",
-  site:["https://www.flychicago.com/ohare/home/pages/default.aspx","O'Hare official site"],
-  pets:["https://www.flychicago.com/ohare/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx","O'Hare service-animal relief areas","On the O'Hare accessibility page"]},
- {code:"MDW", name:"Midway International", metroCity:"Chicago", metroState:"IL", placeState:"IL", x:622, y:246, ldx:-8, ldy:3, anchor:"end",
-  site:["https://www.flychicago.com/midway/home/pages/default.aspx","Midway official site"],
-  pets:["https://www.flychicago.com/midway/ServicesAmenities/accessibility/Pages/Terminal-Accessibility.aspx","Midway service-animal relief area","On the Midway accessibility page"]},
- {code:"MIA", name:"Miami International", metroCity:"Miami", metroState:"FL", placeState:"FL", x:798, y:558, ldx:-8, ldy:3, anchor:"end",
-  site:["https://www.miami-airport.com/","Miami International official site"],
-  pets:["https://www.miami-airport.com/map-animal-relief-areas.asp","MIA animal relief areas","Same page cited on the Miami hotel guide"]},
- {code:"IAH", name:"George Bush Intercontinental", metroCity:"Houston", metroState:"TX", placeState:"TX", x:496, y:486, ldx:0, ldy:-12, anchor:"middle",
-  site:["https://www.fly2houston.com/iah/","IAH official site"],
-  pets:["https://www.fly2houston.com/iah/accessibility/travelingwithpets/","IAH traveling with pets","Houston Airport System pet-relief page"]},
- {code:"HOU", name:"William P. Hobby", metroCity:"Houston", metroState:"TX", placeState:"TX", x:528, y:526, ldx:8, ldy:3, anchor:"start",
-  site:["https://www.fly2houston.com/hou/","Hobby Airport official site"],
-  pets:["https://www.fly2houston.com/hou/visitor-information/hou-travel-with-pets/","Hobby traveling with pets","Houston Airport System pet-relief page"]},
- {code:"DFW", name:"Dallas/Fort Worth International", metroCity:"Dallas", metroState:"TX", placeState:"TX", x:464, y:422, ldx:-8, ldy:3, anchor:"end",
-  site:["https://www.dfwairport.com/","DFW official site"], pets:null},
- {code:"SEA", name:"Seattle-Tacoma International", metroCity:"Seattle", metroState:"WA", placeState:"WA", x:140, y:92, ldx:8, ldy:3, anchor:"start",
-  site:["https://www.flysea.org/","SEA official site"],
-  pets:["https://www.portseattle.org/services-amenities/traveling-pets","SEA traveling with pets","Port of Seattle pet-relief page"]},
- {code:"DEN", name:"Denver International", metroCity:"Denver", metroState:"CO", placeState:"CO", x:372, y:262, ldx:8, ldy:3, anchor:"start",
-  site:["https://www.flydenver.com/","DEN official site"],
-  pets:["https://www.flydenver.com/at-the-airport/services-and-amenities/traveling-with-pets/","DEN traveling with pets","Denver International pet-relief page"]},
- {code:"ATL", name:"Hartsfield-Jackson Atlanta International", metroCity:"Atlanta", metroState:"GA", placeState:"GA", x:706, y:430, ldx:0, ldy:16, anchor:"middle",
-  site:["https://www.atl.com/","ATL official site"],
-  pets:["https://www.atl.com/atls-relief-areas-provide-haven-for-service-animals-passenger-pets/","ATL pet relief areas","Hartsfield-Jackson official page"]},
- {code:"ANC", name:"Ted Stevens Anchorage International", metroCity:"Anchorage", metroState:"AK", placeState:"AK", x:128, y:528, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"ANC · Anchorage", mapName:"Ted Stevens",
-  site:["https://www.ancairport.com/","Ted Stevens Anchorage International official site"],
-  pets:["https://www.ancairport.com/traveler-info/accessibility","ANC accessibility & pet relief","Airport traveler accessibility page"]},
- {code:"HNL", name:"Daniel K. Inouye International", metroCity:"Honolulu", metroState:"HI", placeState:"HI", x:248, y:562, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"HNL · Honolulu", mapName:"Daniel K. Inouye",
-  site:["https://airports.hawaii.gov/hnl/","Daniel K. Inouye International official site"],
-  pets:["https://airports.hawaii.gov/hnl/at-the-airport/animal-relief-areas/","HNL animal relief areas","Hawaii airports official page"]},
- /* FAA large hubs added Nov 2026 (named map labels, like ANC/HNL) */
- {code:"LAS", name:"Harry Reid International", metroCity:"Las Vegas", metroState:"NV", placeState:"NV", x:170, y:340, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"LAS · Las Vegas", mapName:"Harry Reid",
-  site:["https://www.harryreidairport.com/","Harry Reid International official site"],
-  pets:["https://www.harryreidairport.com/amenities","LAS pet relief areas","Listed with airport amenities (indoor and outdoor)"]},
- {code:"PHX", name:"Phoenix Sky Harbor International", metroCity:"Phoenix", metroState:"AZ", placeState:"AZ", x:214, y:414, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"PHX · Phoenix", mapName:"Sky Harbor",
-  site:["https://www.skyharbor.com/","Phoenix Sky Harbor official site"],
-  pets:["https://www.skyharbor.com/at-the-airport/services/animal-relief-areas/","PHX animal relief areas","Phoenix Sky Harbor official page"]},
- {code:"SAN", name:"San Diego International", metroCity:"San Diego", metroState:"CA", placeState:"CA", x:88, y:414, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"SAN · San Diego", mapName:"San Diego Int’l",
-  site:["https://www.san.org/","San Diego International official site"],
-  pets:["https://www.san.org/services-and-facilities/","SAN pet relief areas","Listed with airport services and facilities"]},
- {code:"SLC", name:"Salt Lake City International", metroCity:"Salt Lake City", metroState:"UT", placeState:"UT", x:244, y:248, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"SLC · Salt Lake City", mapName:"Salt Lake City Int’l",
-  site:["https://www.slcairport.com/","Salt Lake City International official site"],
-  pets:["https://slcairport.com/airport-services/animal-relief-stations/","SLC animal relief stations","Salt Lake City International official page"]},
- {code:"AUS", name:"Austin-Bergstrom International", metroCity:"Austin", metroState:"TX", placeState:"TX", x:448, y:512, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"AUS · Austin", mapName:"Austin-Bergstrom",
-  site:["https://www.flyaustin.com/","Austin-Bergstrom International official site"],
-  pets:["https://www.flyaustin.com/travel-security-austin-bergstrom-international-airport","AUS pet relief areas","On the AUS travel and security page"]},
- {code:"MSP", name:"Minneapolis–Saint Paul International", metroCity:"Minneapolis", metroState:"MN", placeState:"MN", x:558, y:148, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"MSP · Minneapolis", mapName:"Minneapolis–St Paul",
-  site:["https://www.mspairport.com/","MSP official site"],
-  pets:["https://www.mspairport.com/airport/service-amenities/pet-services","MSP pet services and relief areas","MSP Airport official page"]},
- {code:"DTW", name:"Detroit Metropolitan Wayne County", metroCity:"Detroit", metroState:"MI", placeState:"MI", x:712, y:190, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"DTW · Detroit", mapName:"Metro Wayne",
-  site:["https://www.metroairport.com/","Detroit Metro Airport official site"],
-  pets:["https://www.metroairport.com/at-dtw/getting-around/accessibility-additional-assistance/traveling-pets","DTW traveling with pets","Wayne County Airport Authority page"]},
- {code:"BNA", name:"Nashville International", metroCity:"Nashville", metroState:"TN", placeState:"TN", x:650, y:370, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"BNA · Nashville", mapName:"Nashville Int’l",
-  site:["https://www.flynashville.com/","Nashville International official site"],
-  pets:["https://flynashville.com/airport-accessibility/pets-welcome-at-bna","BNA pet and service-animal relief","Nashville International official page"]},
- {code:"CLT", name:"Charlotte Douglas International", metroCity:"Charlotte", metroState:"NC", placeState:"NC", x:790, y:376, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"CLT · Charlotte", mapName:"Charlotte Douglas",
-  site:["https://www.cltairport.com/","Charlotte Douglas official site"],
-  pets:["https://www.cltairport.com/airport-info/accessibility/terminal-amenities/service-animal-relief-areas/","CLT animal relief areas","Charlotte Douglas official page"]},
- {code:"MCO", name:"Orlando International", metroCity:"Orlando", metroState:"FL", placeState:"FL", x:806, y:500, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"MCO · Orlando", mapName:"Orlando International",
-  site:["https://www.flymco.com/","Orlando International official site"],
-  pets:["https://www.flymco.com/frequently-asked-questions/pets-service-animals/","MCO pet and service-animal relief areas","Orlando International FAQ page"]},
- {code:"TPA", name:"Tampa International", metroCity:"Tampa", metroState:"FL", placeState:"FL", x:752, y:522, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"TPA · Tampa", mapName:"Tampa Int’l",
-  site:["https://www.tampaairport.com/","Tampa International official site"],
-  pets:["https://www.tampaairport.com/guest-experience/animals-airport","TPA animals in the airport","Tampa International official page"]},
- {code:"FLL", name:"Fort Lauderdale–Hollywood International", metroCity:"Fort Lauderdale", metroState:"FL", placeState:"FL", x:840, y:548, ldx:10, ldy:3, anchor:"start",
-  mapLabel:"FLL · Fort Lauderdale", mapName:"Hollywood Int’l",
-  site:["https://www.broward.org/airport/","Fort Lauderdale–Hollywood official site"],
-  pets:["https://www.broward.org/airport/Passengers/Services/Assistance","FLL pet relief areas","Listed with airport assistance services"]},
- {code:"BOS", name:"Logan International", metroCity:"Boston", metroState:"MA", placeState:"MA", x:918, y:154, ldx:-10, ldy:-8, anchor:"end",
-  mapLabel:"BOS · Boston", mapName:"Logan",
-  site:["https://www.massport.com/logan-airport","Boston Logan official site"],
-  pets:["https://www.massport.com/logan-airport/at-the-airport/passenger-services","BOS animal relief areas","Massport passenger services page"]},
- {code:"PHL", name:"Philadelphia International", metroCity:"Philadelphia", metroState:"PA", placeState:"PA", x:838, y:232, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"PHL · Philadelphia", mapName:"Philadelphia Int’l",
-  site:["https://www.phl.org/","Philadelphia International official site"],
-  pets:["https://phl.helpscoutdocs.com/article/119-animal-relief-areas","PHL animal relief areas","PHL official knowledge base"]},
- {code:"BWI", name:"Baltimore/Washington International", metroCity:"Baltimore", metroState:"MD", placeState:"MD", x:856, y:270, ldx:0, ldy:18, anchor:"middle",
-  mapLabel:"BWI · Baltimore", mapName:"Thurgood Marshall",
-  site:["https://www.bwiairport.com/","BWI Marshall official site"],
-  pets:["https://bwiairport.com/animal-relief-areas/","BWI animal relief areas","BWI Marshall official page"]},
- {code:"IAD", name:"Washington Dulles International", metroCity:"Washington, DC", metroState:"DC", placeState:"VA", x:794, y:268, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"IAD · Dulles", mapName:"Washington Dulles",
-  site:["https://www.flydulles.com/","Washington Dulles official site"],
-  pets:["https://www.flydulles.com/travel-information/traveling-pets","IAD traveling with pets","Washington Dulles official page"]},
- {code:"DCA", name:"Ronald Reagan Washington National", metroCity:"Washington, DC", metroState:"DC", placeState:"VA", x:806, y:296, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"DCA · Washington", mapName:"Reagan National",
-  site:["https://www.flyreagan.com/","Reagan National official site"],
-  pets:["https://www.flyreagan.com/travel-information/services-amenities/pet-relief-areas","DCA pet relief areas","Reagan National official page"]},
- {code:"BHM", name:"Birmingham-Shuttlesworth International", metroCity:"Birmingham", metroState:"AL", placeState:"AL", x:683, y:399, ldx:8, ldy:-16, anchor:"start",
-  mapLabel:"BHM", mapName:"Shuttlesworth",
-  site:["https://www.flybirmingham.com/","Birmingham-Shuttlesworth official site"], pets:null},
- {code:"LIT", name:"Bill and Hillary Clinton National", metroCity:"Little Rock", metroState:"AR", placeState:"AR", x:587, y:400, ldx:12, ldy:3, anchor:"start",
-  mapLabel:"LIT", mapName:"Clinton National",
-  site:["https://clintonairport.com/","Clinton National official site"], pets:null},
- {code:"BDL", name:"Bradley International", metroCity:"Hartford", metroState:"CT", placeState:"CT", x:880, y:168, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"BDL", mapName:"Bradley",
-  site:["https://bradleyairport.com/","Bradley International official site"], pets:null},
- {code:"ILG", name:"Wilmington Airport (New Castle)", metroCity:"Wilmington", metroState:"DE", placeState:"DE", x:882, y:246, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"ILG", mapName:"New Castle",
-  site:["https://www.flyilg.com/","Wilmington Airport official site"], pets:null},
- {code:"DSM", name:"Des Moines International", metroCity:"Des Moines", metroState:"IA", placeState:"IA", x:527, y:256, ldx:12, ldy:3, anchor:"start",
-  mapLabel:"DSM", mapName:"Des Moines",
-  site:["https://www.flydsm.com/","Des Moines International official site"], pets:null},
- {code:"BOI", name:"Boise Airport", metroCity:"Boise", metroState:"ID", placeState:"ID", x:160, y:176, ldx:-8, ldy:-16, anchor:"end",
-  mapLabel:"BOI", mapName:"Boise",
-  site:["https://www.iflyboise.com/","Boise Airport official site"], pets:null},
- {code:"IND", name:"Indianapolis International", metroCity:"Indianapolis", metroState:"IN", placeState:"IN", x:641.2, y:285.9, ldx:0, ldy:32, anchor:"middle",
-  mapLabel:"IND", mapName:"Indianapolis",
-  site:["https://www.ind.com/","Indianapolis International official site"], pets:null},
- {code:"ICT", name:"Wichita Dwight D. Eisenhower National", metroCity:"Wichita", metroState:"KS", placeState:"KS", x:456, y:338, ldx:-12, ldy:3, anchor:"end",
-  mapLabel:"ICT", mapName:"Eisenhower",
-  site:["https://www.flywichita.com/","Wichita Eisenhower official site"], pets:null},
- {code:"CVG", name:"Cincinnati/Northern Kentucky International", metroCity:"Cincinnati", metroState:"OH", placeState:"KY", localCity:"Hebron", x:664.6, y:290, ldx:10, ldy:-16, anchor:"start",
-  mapLabel:"CVG", mapName:"Northern Kentucky",
-  site:["https://www.cvgairport.com/","Cincinnati/Northern Kentucky official site"], pets:null},
- {code:"MSY", name:"Louis Armstrong New Orleans International", metroCity:"New Orleans", metroState:"LA", placeState:"LA", x:624, y:522, ldx:8, ldy:-16, anchor:"start",
-  mapLabel:"MSY", mapName:"Armstrong",
-  site:["https://www.flymsy.com/","Louis Armstrong New Orleans official site"], pets:null},
- {code:"PWM", name:"Portland International Jetport", metroCity:"Portland", metroState:"ME", placeState:"ME", x:943, y:104, ldx:0, ldy:-24, anchor:"middle",
-  mapLabel:"PWM", mapName:"Jetport",
-  site:["https://portlandjetport.org/","Portland International Jetport official site"], pets:null},
- {code:"STL", name:"St. Louis Lambert International", metroCity:"St. Louis", metroState:"MO", placeState:"MO", x:582, y:290, ldx:12, ldy:3, anchor:"start",
-  mapLabel:"STL", mapName:"Lambert",
-  site:["https://www.flystl.com/","St. Louis Lambert official site"], pets:null},
- {code:"JAN", name:"Jackson–Medgar Wiley Evers International", metroCity:"Jackson", metroState:"MS", placeState:"MS", x:642.8, y:444, ldx:12, ldy:14, anchor:"start",
-  mapLabel:"JAN", mapName:"Evers",
-  site:["https://iflyjackson.com/","Jackson–Evers official site"], pets:null},
- {code:"BZN", name:"Bozeman Yellowstone International", metroCity:"Bozeman", metroState:"MT", placeState:"MT", x:285.6, y:135.8, ldx:12, ldy:14, anchor:"start",
-  mapLabel:"BZN", mapName:"Yellowstone",
-  site:["https://bozemanairport.com/","Bozeman Yellowstone official site"], pets:null},
- {code:"FAR", name:"Hector International", metroCity:"Fargo", metroState:"ND", placeState:"ND", x:478, y:99, ldx:8, ldy:-16, anchor:"start",
-  mapLabel:"FAR", mapName:"Hector",
-  site:["https://www.fargoairport.com/","Hector International official site"], pets:null},
- {code:"OMA", name:"Eppley Airfield", metroCity:"Omaha", metroState:"NE", placeState:"NE", x:511, y:229, ldx:8, ldy:-16, anchor:"start",
-  mapLabel:"OMA", mapName:"Eppley",
-  site:["https://www.flyoma.com/","Eppley Airfield official site"], pets:null},
- {code:"MHT", name:"Manchester-Boston Regional", metroCity:"Manchester", metroState:"NH", placeState:"NH", x:890, y:121, ldx:-8, ldy:-16, anchor:"end",
-  mapLabel:"MHT", mapName:"Manchester",
-  site:["https://www.flymanchester.com/","Manchester-Boston Regional official site"], pets:null},
- {code:"ABQ", name:"Albuquerque International Sunport", metroCity:"Albuquerque", metroState:"NM", placeState:"NM", x:335.8, y:394, ldx:8, ldy:-16, anchor:"start",
-  mapLabel:"ABQ", mapName:"Sunport",
-  site:["https://www.abqsunport.com/","Albuquerque Sunport official site"], pets:null},
- {code:"CLE", name:"Cleveland Hopkins International", metroCity:"Cleveland", metroState:"OH", placeState:"OH", x:754, y:210, ldx:12, ldy:3, anchor:"start",
-  mapLabel:"CLE", mapName:"Hopkins",
-  site:["https://www.clevelandairport.com/","Cleveland Hopkins official site"], pets:null},
- {code:"OKC", name:"Will Rogers World", metroCity:"Oklahoma City", metroState:"OK", placeState:"OK", x:458.1, y:396.9, ldx:-8, ldy:-16, anchor:"end",
-  mapLabel:"OKC", mapName:"Will Rogers",
-  site:["https://flyokc.com/","Will Rogers World official site"], pets:null},
- {code:"PDX", name:"Portland International", metroCity:"Portland", metroState:"OR", placeState:"OR", x:96, y:78, ldx:-12, ldy:3, anchor:"end",
-  mapLabel:"PDX", mapName:"Portland Intl",
-  site:["https://www.flypdx.com/","Portland International official site"], pets:null},
- {code:"PVD", name:"Rhode Island T. F. Green International", metroCity:"Providence", metroState:"RI", placeState:"RI", x:916.8, y:210, ldx:-10, ldy:3, anchor:"end",
-  mapLabel:"PVD", mapName:"T. F. Green",
-  site:["https://flyri.com/","Rhode Island T. F. Green official site"], pets:null},
- {code:"CHS", name:"Charleston International", metroCity:"Charleston", metroState:"SC", placeState:"SC", x:784, y:413.4, ldx:12, ldy:-8, anchor:"start",
-  mapLabel:"CHS", mapName:"Charleston",
-  site:["https://www.iflychs.com/","Charleston International official site"], pets:null},
- {code:"FSD", name:"Sioux Falls Regional (Joe Foss Field)", metroCity:"Sioux Falls", metroState:"SD", placeState:"SD", x:481, y:174, ldx:8, ldy:-16, anchor:"start",
-  mapLabel:"FSD", mapName:"Joe Foss Field",
-  site:["https://www.sfairport.com/","Sioux Falls Regional official site"], pets:null},
- {code:"BTV", name:"Patrick Leahy Burlington International", metroCity:"Burlington", metroState:"VT", placeState:"VT", x:841.2, y:120.7, ldx:-8, ldy:-16, anchor:"end",
-  mapLabel:"BTV", mapName:"Burlington",
-  site:["https://btv.aero/","Burlington International official site"], pets:null},
- {code:"CRW", name:"West Virginia International Yeager", metroCity:"Charleston", metroState:"WV", placeState:"WV", x:774.9, y:314.6, ldx:-12, ldy:3, anchor:"end",
-  mapLabel:"CRW", mapName:"Yeager",
-  site:["https://flycrw.com/","West Virginia International Yeager official site"], pets:null},
- {code:"MKE", name:"General Mitchell International", metroCity:"Milwaukee", metroState:"WI", placeState:"WI", x:653, y:200, ldx:0, ldy:-16, anchor:"middle",
-  mapLabel:"MKE", mapName:"Mitchell",
-  site:["https://www.mitchellairport.com/","Milwaukee Mitchell official site"], pets:null},
- {code:"JAC", name:"Jackson Hole", metroCity:"Jackson", metroState:"WY", placeState:"WY", x:262.2, y:157, ldx:-8, ldy:-16, anchor:"end",
-  mapLabel:"JAC", mapName:"Jackson Hole",
-  site:["https://www.jacksonholeairport.com/","Jackson Hole Airport official site"], pets:null}
-];
-function cityXY(state, name){
- const list=(GEO[state]&&GEO[state].cities)||[];
- const c=list.find(x=>x.n===name);
- if(c) return [c.x,c.y];
- if(GEO[state]) return GEO[state].c;
- return null;
-}
-function airportsFor(state, city){
- const seen=new Set();
- return AIRPORTS.filter(ap=>{
-  const hit=city
-    ? (ap.metroCity===city && ap.metroState===state) || (ap.localCity===city && ap.placeState===state)
-    : ap.placeState===state || ap.metroState===state;
-  if(!hit || seen.has(ap.code)) return false;
-  seen.add(ap.code); return true;
- });
-}
-function airportByCode(code){return AIRPORTS.find(ap=>ap.code===code)}
-const HD=`style="font:600 .72rem var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:8px 0 0"`;
-function airportChips(list, heading){
- if(!list.length) return "";
- return `<h4 ${HD}>${esc(heading)}</h4><div class="citylist">${list.map(ap=>`<button type="button" class="apbtn${ap.pets?"":" placeholder"}" data-ap="${esc(ap.code)}" aria-label="${esc(ap.code)}, ${esc(ap.metroCity)}">${esc(ap.code)} — ${esc(ap.metroCity)}</button>`).join("")}</div>`;
-}
-/* ---------- distinct state marks ---------- */
-const GLYPH=[
- "M32 14l4.7 9.6 10.6 1.5-7.7 7.5 1.8 10.5L32 38.1l-9.4 5 1.8-10.5-7.7-7.5 10.6-1.5z",
- "M14 42l11-17 6 8 5-6 14 15z",
- "M13 30c4-5 8-5 12 0s8 5 12 0 8-5 12 0M13 39c4-5 8-5 12 0s8 5 12 0 8-5 12 0",
- "M32 23a8 8 0 1 1 0 16a8 8 0 1 1 0-16M32 14v5M32 43v5M18 31h5M41 31h5M22 21l3 3M39 38l3 3M42 21l-3 3M25 38l-3 3",
- "M32 13l9 12h-5l7 9h-5l7 9H19l7-9h-5l7-9h-5zM30 43h4v5h-4z",
- "M32 30c-6 0-10 6-10 10 0 3 3 4 6 3 2-1 6-1 8 0 3 1 6 0 6-3 0-4-4-10-10-10zM22 27a3.5 4.5 0 1 0 .1 0M42 27a3.5 4.5 0 1 0 .1 0M27 18a3.5 4.5 0 1 0 .1 0M37 18a3.5 4.5 0 1 0 .1 0",
- "M16 46C19 30 30 19 48 16c-2 16-14 27-32 30zM16 46C26 36 33 28 42 22",
- "M32 13l5 18-5 18-5-18zM14 31l18-5 18 5-18 5z",
- "M32 15v32M22 47h20M24 22h16M32 15a3 3 0 1 0 .1 0M20 36c2 7 22 7 24 0",
- "M18 20h28v24H18zM18 28h28M26 20v24M38 20v24",
-];
-const FILLED=new Set([0,1,4,5,6,7]);
-function mark(a,size){
- const i=ABBRS.indexOf(a)<0?50:ABBRS.indexOf(a);
- const h=Math.round((i*137.508)%360), g=i%GLYPH.length, ring=Math.floor(i/GLYPH.length)%3;
- const bg=`hsl(${h} 38% 24%)`, acc=`hsl(${h} 60% 72%)`;
- const dash=ring===1?'stroke-dasharray="2 3"':ring===2?'stroke-dasharray="7 2 1 2"':"";
- const gl=FILLED.has(g)?`<path d="${GLYPH[g]}" fill="${acc}" opacity=".95"/>`:`<path d="${GLYPH[g]}" fill="none" stroke="${acc}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>`;
- return `<svg viewBox="0 0 64 64" ${size?`width="${size}" height="${size}"`:""} aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#0b1719" stroke="#d9b765" stroke-width="2"/><circle cx="32" cy="32" r="25.5" fill="${bg}" stroke="#d9b765" stroke-width="1" ${dash}/><g transform="translate(32 25) scale(.62) translate(-32 -31)">${gl}</g><text x="32" y="50" text-anchor="middle" font-family="Marcellus,serif" font-size="11" fill="#f5ecd6" letter-spacing="1">${a}</text></svg>`;
-}
-/* ---------- map ---------- */
-const NS="http://www.w3.org/2000/svg";
-const el=(t,at)=>{const e=document.createElementNS(NS,t);for(const k in at)e.setAttribute(k,at[k]);return e};
-
-/* Pet-travel hub & rule density score → 5-tier red choropleth (Marc 2026-11-07).
-   Deterministic from SAMPLE / AIRPORTS / CLINICS / RULES / GEO already on the page. */
-const HOTEL_GUIDE_STATES=new Set(["CA","NY","FL","IL","TX","MI","WA","CO","GA"]);
-function stateDensityScore(a){
-  let s=0;
-  const apN=AIRPORTS.filter(ap=>ap.placeState===a||ap.metroState===a).length;
-  s+=apN*2;
-  const clinicN=Object.keys(CLINICS).filter(k=>k.startsWith(a+"|")).length;
-  s+=clinicN*1.5;
-  const hasSample=Object.keys(SAMPLE).some(k=>k.startsWith(a+"|"));
-  if(hasSample||HOTEL_GUIDE_STATES.has(a)) s+=3;
-  if(RULES[a]&&RULES[a].differs) s+=1.5;
-  if(RULES[a]&&RULES[a].verified) s+=1;
-  const cities=((GEO[a]&&GEO[a].cities)||[]).length;
-  s+=cities*0.5;
-  return s;
-}
-
-/* Frozen choropleth, 17 Nov 2026: adding the missing-state airports must not
-   reshape the quantile buckets or change existing state colours. */
-const FROZEN_DENSITY_TIERS={AK:3,AL:2,AR:1,AZ:4,CA:5,CO:4,CT:1,DC:4,DE:4,FL:5,GA:5,HI:4,IA:2,ID:1,IL:5,IN:1,KS:1,KY:1,LA:2,MA:4,MD:3,ME:2,MI:4,MN:4,MO:2,MS:1,MT:2,NC:5,ND:2,NE:2,NH:3,NJ:3,NM:2,NV:3,NY:5,OH:4,OK:3,OR:3,PA:4,RI:1,SC:2,SD:3,TN:5,TX:5,UT:4,VA:5,VT:3,WA:5,WI:3,WV:1,WY:1};
-function assignDensityTiers(){
-  const states=ABBRS.slice();
-  const scored=states.map(a=>({a,score:stateDensityScore(a)})).sort((x,y)=>x.score-y.score||x.a.localeCompare(y.a));
-  const tiers=Object.assign({}, FROZEN_DENSITY_TIERS);
-  if(GEO.DC && tiers.DC==null){ const d=Math.round(((tiers.VA||3)+(tiers.MD||3))/2); tiers.DC=Math.max(1,Math.min(5,d)); }
-  window.PPC_USA_DENSITY_TIERS=tiers;
-  window.PPC_USA_DENSITY_SCORES=Object.fromEntries(scored.map(r=>[r.a,r.score]));
-  return tiers;
-}
-const TIER_FILL={1:"#d9828b",2:"#be4f5c",3:"#a82c3a",4:"#841c29",5:"#5c111b"};
-function tierFill(a){const t=(window.PPC_USA_DENSITY_TIERS||{})[a]||1;return TIER_FILL[t]||TIER_FILL[1]}
-
-function buildMap(){
- const gs=$("#g-st"),gl=$("#g-lb"),gc=$("#g-ct");
- const tiers=assignDensityTiers();
- for(const a of Object.keys(GEO)){
-  const s=GEO[a];
-  const special=!!(RULES[a]&&RULES[a].differs), unver=!!(RULES[a]&&!RULES[a].verified);
-  const tier=tiers[a]||1;
-  const p=el("path",{d:s.d,class:"st st-t"+tier+(special?" rule":""),id:"s-"+a,"data-tier":String(tier),"data-density":String((window.PPC_USA_DENSITY_SCORES||{})[a]||0),tabindex:a==="DC"?-1:0,role:"button","aria-label":s.name+(special?" (special entry rules)":"")+", density tier "+tier});
-  const t=el("title",{});t.textContent=s.name;p.appendChild(t);
-  p.addEventListener("click",()=>a==="DC"?selectDC():selectState(a));
-  p.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();selectState(a)}});
-  gs.appendChild(p);
- }
- // labels; tiny NE states get callouts in the Atlantic
- const tiny=TINY.map(a=>({a,y:GEO[a].c[1],x:GEO[a].c[0]})).sort((p,q)=>p.y-q.y);
- let last=-1e9;for(const t of tiny){t.ly=Math.max(t.y,last+17);last=t.ly}
- const shift=(tiny[0].y+tiny.at(-1).y)/2-(tiny[0].ly+tiny.at(-1).ly)/2;
- for(const a of ABBRS){
-  if(TINY.includes(a))continue;
-  let [x,y]=GEO[a].c; if(a==="FL")x+=12; if(a==="MI"){x+=12;y+=22} if(a==="LA")x-=10; if(a==="CO")y+=16; if(a==="HI"){x=GEO.HI.c[0]+12;y=GEO.HI.c[1]+14}
-  const t=el("text",{x,y,class:"lbl",id:"l-"+a});t.textContent=a;gl.appendChild(t);
- }
- for(const t of tiny){
-  const ly=t.ly+shift, lx=948;
-  gl.appendChild(el("line",{class:"lbl-lead",x1:t.x,y1:t.y,x2:lx-14,y2:ly,stroke:"#3a5a56","stroke-width":.8,"data-a":t.a}));
-  const g=el("g",{class:"ct",role:"button",tabindex:0,"aria-label":GEO[t.a].name});
-  const r=el("rect",{x:lx-13,y:ly-8,width:26,height:16,rx:8,fill:tierFill(t.a),stroke:"#1a0b0e","data-tier":String(tiers[t.a]||1),id:"cb-"+t.a});
-  const tx=el("text",{x:lx,y:ly,class:"lbl",id:"l-"+t.a});tx.textContent=t.a;
-  g.append(r,tx);g.addEventListener("click",()=>selectState(t.a));
-  g.addEventListener("keydown",e=>{if(e.key==="Enter"){selectState(t.a)}});gl.appendChild(g);
- }
- // cities
- for(const a of ABBRS){for(const c of GEO[a].cities){
-  const key=a+"|"+c.n, smp=!!SAMPLE[key];
-  const g=el("g",{class:"ct"+(c.cap?" cap":"")+(smp?" sample":" hide-lbl"),role:"button",tabindex:smp?0:-1,"aria-label":c.n+", "+a,"data-k":key,"data-s":a});
-  if(smp)g.appendChild(el("circle",{class:"ring",cx:c.x,cy:c.y,r:8.5}));
-  g.appendChild(el("circle",{cx:c.x,cy:c.y,r:smp?5:3}));
-  const right=c.x<880;const tx=el("text",{x:c.x+(right?8:-8),y:c.y+3.5,"text-anchor":right?"start":"end"});tx.textContent=c.n==="New York City"?"NYC":c.n;g.appendChild(tx);
-  const tt=el("title",{});tt.textContent=c.n+", "+GEO[a].name;g.appendChild(tt);
-  g.addEventListener("click",e=>{e.stopPropagation();selectCity(a,c.n)});
-  g.addEventListener("keydown",e=>{if(e.key==="Enter"){selectCity(a,c.n)}});
-  gc.appendChild(g);
- }}
- const dc=GEO.DC.city;const g=el("g",{class:"ct cap",role:"button",tabindex:-1,"aria-label":"Washington, DC"});
- g.appendChild(el("circle",{cx:dc.x,cy:dc.y,r:3}));const tt=el("title",{});tt.textContent="Washington, DC (District of Columbia)";g.appendChild(tt);
- g.addEventListener("click",e=>{e.stopPropagation();selectDC()});gc.appendChild(g);
- buildAirports();
-}
-function buildAirports(){
- let ga=$("#g-ap");
- if(!ga){ga=el("g",{id:"g-ap"}); $("#map").appendChild(ga);}
- for(const ap of AIRPORTS){
-  const xy=cityXY(ap.metroState, ap.metroCity); if(!xy) continue;
-  const states=[ap.metroState, ap.placeState].filter((v,i,a)=>a.indexOf(v)===i).join(" ");
-  const citykey=ap.metroState+"|"+ap.metroCity;
-  ga.appendChild(el("line",{class:"ap-link"+(ap.pets?"":" placeholder"),x1:xy[0],y1:xy[1],x2:ap.x,y2:ap.y,"data-states":states,"data-citykey":citykey,"data-code":ap.code}));
- }
- for(const ap of AIRPORTS){
-  const states=[ap.metroState, ap.placeState].filter((v,i,a)=>a.indexOf(v)===i).join(" ");
-  const citykey=ap.metroState+"|"+ap.metroCity;
-  const g=el("g",{class:"ap"+(ap.pets?"":" placeholder"),role:"button",tabindex:0,"data-code":ap.code,"data-states":states,"data-citykey":citykey,"aria-label":ap.code+", "+ap.metroCity});
-  const mark=el("g",{class:"ap-mark"});
-  mark.appendChild(el("rect",{class:"pad",x:-8,y:-8,width:16,height:16,rx:2,transform:"rotate(45)"}));
-  mark.appendChild(el("path",{class:"glyph",d:PLANE,transform:"translate(-6.2,-6.2) scale(.52)"}));
-  g.appendChild(mark);
-  g.setAttribute("transform","translate("+ap.x+" "+ap.y+")");
-  const ax=ap.ldx||0, ay=ap.ldy==null?16:ap.ldy, ta=ap.anchor||"middle";
-  const tx=el("text",{x:ax,y:ay,"text-anchor":ta,class:ap.mapLabel?"map-label":"map-label"});
-  tx.textContent=ap.mapLabel||ap.code; g.appendChild(tx);
-  if(ap.mapName){const t2=el("text",{x:ax,y:ay+14,"text-anchor":ta,class:"map-name"});t2.textContent=ap.mapName;g.appendChild(t2)}
-  const tt=el("title",{}); tt.textContent=ap.code+" — "+ap.metroCity+" ("+ap.name+")"; g.appendChild(tt);
-  g.setAttribute("aria-label",ap.code+", "+ap.name+", "+ap.metroCity);
-  g.addEventListener("click",e=>{e.stopPropagation(); selectAirport(ap.code)});
-  g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault(); selectAirport(ap.code)}});
-  ga.appendChild(g);
- }
-}
-/* One clinic per labeled map city. directory = data/usa_clinics_directory.json. */
-const CLINICS={"AL|Birmingham":{"name":"New Kelley Animal Hospital","place":"Birmingham, AL","url":"https://newkelleyah.com/pet-health-certificates-birmingham-tarrant/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"AL|Montgomery":{"name":"Taylor Crossing Animal Hospital","place":"Montgomery, AL","url":"https://www.taylorcrossingvet.com/","tag":"off","source":"Official clinic site"},"AK|Anchorage":{"name":"Anchorage Pet Travel Certificates","place":"Anchorage, AK","url":"https://www.anchoragepettravelcertificates.com/our-services","tag":"off","source":"PetPolicyCheck USA clinics directory"},"AK|Juneau":{"name":"Juneau Veterinary Hospital","place":"Juneau, AK","url":"https://www.juneauvet.com/","tag":"off","source":"Official clinic site"},"AZ|Phoenix":{"name":"Alta Vista Veterinary Hospital","place":"Phoenix, AZ","url":"https://www.altavistavet.com/internationalhealthcertificate","tag":"off","source":"PetPolicyCheck USA clinics directory"},"AZ|Tucson":{"name":"VCA Animal Health Hospital","place":"Tucson, AZ","url":"https://vcahospitals.com/animal-health-hospital","tag":"off","source":"VCA hospital page"},"CO|Denver":{"name":"Denver Animal Hospital","place":"Denver, CO","url":"https://denveranimalhospital.org/","tag":"off","source":"Official clinic site"},"FL|Miami":{"name":"Doral Centre Animal Hospital","place":"Doral, FL (near Miami)","url":"https://doralvet.com/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"FL|Orlando":{"name":"East Orlando Animal Hospital","place":"Orlando, FL","url":"https://www.eastorlandovet.com/","tag":"off","source":"Official clinic site"},"FL|Tampa":{"name":"VCA Carrollwood Cat Hospital","place":"Tampa, FL","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Carrollwood%20Cat%20Hospital%2013305%20Orange%20Grove%20Drive%20Tampa%20FL","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"FL|Tallahassee":{"name":"Novey Animal Hospital","place":"Tallahassee, FL","url":"https://novey.com/","tag":"off","source":"Official clinic site"},"GA|Atlanta":{"name":"Beyond Pets Animal Hospital","place":"Atlanta, GA","url":"https://beyondpets.com/pet-services/usda-travel-certificates/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"GA|Savannah":{"name":"VCA Greater Savannah Animal Hospital","place":"Savannah, GA","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Greater%20Savannah%20Animal%20Hospital%201350%20E%20DeRenne%20Ave%20Savannah%20GA","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"IN|Indianapolis":{"name":"VCA Beech Grove Animal Hospital","place":"Indianapolis, IN","url":"https://vcahospitals.com/beech-grove","tag":"off","source":"VCA hospital page"},"KS|Wichita":{"name":"Veterinary Emergency & Specialty Hospital of Wichita","place":"Wichita, KS","url":"https://www.vetwichita.com/","tag":"off","source":"Official clinic site"},"ME|Portland":{"name":"Brackett Street Veterinary Clinic","place":"Portland, ME","url":"https://brackettstveterinaryclinic.com/services/pet-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"ME|Augusta":{"name":"Pine Tree Veterinary Hospital","place":"Augusta, ME","url":"https://www.pinetreevet.com/","tag":"off","source":"Official clinic site"},"MA|Boston":{"name":"Angell Animal Medical Center (MSPCA-Angell)","place":"Boston, MA","url":"https://www.mspca.org/veterinarycare/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"MN|Minneapolis":{"name":"VCA Cedar Animal Hospital","place":"Minneapolis, MN","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Cedar%20Animal%20Hospital%203604%20Cedar%20Avenue%20South%20Minneapolis%20MN","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"MN|Saint Paul":{"name":"University of Minnesota Veterinary Medical Center","place":"St. Paul, MN","url":"https://vmc.umn.edu/about/about-us","tag":"off","source":"PetPolicyCheck USA clinics directory"},"NC|Charlotte":{"name":"VCA Stoney Creek Animal Hospital","place":"Charlotte, NC","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Stoney%20Creek%20Animal%20Hospital%20Charlotte%20NC","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"NC|Raleigh":{"name":"NC State Veterinary Hospital","place":"Raleigh, NC","url":"https://hospital.cvm.ncsu.edu/clients/emergency/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"ND|Fargo":{"name":"CareVet of West Fargo","place":"West Fargo, ND (near Fargo)","url":"https://www.carevet.com/west-fargo/health-certificates/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"OK|Oklahoma City":{"name":"Quail Creek Veterinary Clinic","place":"Oklahoma City, OK","url":"https://quailcreekvet.com/international-pet-travel-oklahoma-city-ok/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"OK|Tulsa":{"name":"VCA Woodland Central Animal Hospital","place":"Tulsa, OK","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Woodland%20Central%20Animal%20Hospital%205326%20E%20Skelly%20Drive%20Tulsa%20OK","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"PA|Philadelphia":{"name":"Penn Vet – Ryan Veterinary Hospital","place":"Philadelphia, PA","url":"https://www.vet.upenn.edu/ryan-hospital/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"PA|Pittsburgh":{"name":"Cheyenne Veterinary Wellness & Surgical Center","place":"Pittsburgh, PA","url":"https://www.cheyennevets.com/","tag":"off","source":"Official clinic site"},"PA|Harrisburg":{"name":"Colonial Park Animal Clinic","place":"Harrisburg, PA","url":"https://www.google.com/maps/search/?api=1&query=Colonial%20Park%20Animal%20Clinic%204905%20Jonestown%20Road%20Harrisburg%20PA","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"SD|Sioux Falls":{"name":"Heather Ridge Pet Hospital","place":"Sioux Falls, SD","url":"https://www.heatherridgepet.com/services/domestic-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"TX|Houston":{"name":"Gulf Coast Veterinary Specialists (GCVS)","place":"Houston, TX","url":"https://www.gcvs.com/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"TX|Dallas":{"name":"VCA Preston Park Animal Hospital","place":"Dallas, TX","url":"https://vcahospitals.com/preston-park/services/primary-care/health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"TX|San Antonio":{"name":"VCA Becker Animal Hospital","place":"San Antonio, TX","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Becker%20Animal%20Hospital%206515%20I-10%20San%20Antonio%20TX","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"TX|Austin":{"name":"South Park Animal Hospital","place":"Austin, TX","url":"https://www.southparkaustin.com/services/international-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"CT|Hartford":{"name":"VCA Veterinary Specialists of CT","place":"West Hartford, CT (Hartford metro)","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Veterinary%20Specialists%20of%20CT%20993%20North%20Main%20Street%20West%20Hartford%20CT","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"MO|Kansas City":{"name":"VCA Welborn Animal Hospital","place":"Kansas City, KS (Kansas City metro)","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Welborn%20Animal%20Hospital%207860%20Washington%20Avenue%20Kansas%20City%20KS","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"MO|St. Louis":{"name":"Heritage Veterinary Hospital","place":"Creve Coeur (St. Louis), MO (near St. Louis)","url":"https://heritageveterinary.com/services/pet-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"IL|Chicago":{"name":"MedVet Chicago","place":"Chicago, IL","url":"https://www.medvet.com/location/chicago/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"NM|Albuquerque":{"name":"Manzano Animal Clinic","place":"Albuquerque, NM","url":"https://www.manzanoanimalclinic.com/services/international-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"NM|Santa Fe":{"name":"VCA Arrighetti Animal Hospital","place":"Santa Fe, NM","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Arrighetti%20Animal%20Hospital%20Santa%20Fe%20NM","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"AR|Little Rock":{"name":"Hillcrest Animal Hospital","place":"Little Rock, AR","url":"https://www.hillcrestanimalhospital.org/services/international-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"CA|Los Angeles":{"name":"Beverly Robertson Veterinary Clinic","place":"Los Angeles, CA","url":"https://beverlyrobertsonvet.com/travel-and-health-certificate-for-dogs-and-cats/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"CA|San Diego":{"name":"Amici Pet Hospital","place":"San Diego, CA","url":"https://amicipethospital.com/services/pet-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"CA|Sacramento":{"name":"VCA Sacramento Veterinary Referral Center","place":"Sacramento, CA","url":"https://vcahospitals.com/sacramento-veterinary-referral-center/hospital","tag":"off","source":"VCA hospital page"},"DE|Wilmington":{"name":"BluePearl Pet Hospital Christiana","place":"Newark, DE (serves Wilmington)","url":"https://bluepearlvet.com/hospital/christiana-de/","tag":"off","source":"Official hospital page; serves Wilmington"},"DE|Dover":{"name":"VCA Dover Animal Hospital","place":"Dover, DE","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Dover%20Animal%20Hospital%20201%20Towne%20Centre%20Drive%20Dover%20DE","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"DC|Washington, DC":{"name":"Friendship Hospital for Animals","place":"Washington, DC","url":"https://friendshiphospital.com/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"HI|Honolulu":{"name":"Ali'i Animal Hospital","place":"Honolulu, HI","url":"https://aliianimal.com/services/pet-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"IA|Des Moines":{"name":"VCA Avondale Veterinary Hospital","place":"Des Moines, IA","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Avondale%20Veterinary%20Hospital%204318%20E%20Army%20Post%20Road%20Des%20Moines%20IA","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"KY|Louisville":{"name":"Plantation Animal Clinic","place":"Louisville, KY","url":"https://plantationanimalclinic.com/services/pet-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"MD|Annapolis":{"name":"Greater Annapolis Veterinary Hospital","place":"Annapolis, MD","url":"https://www.greaterannapolisveterinaryhospital.com/","tag":"off","source":"Official clinic site"},"MI|Lansing":{"name":"MSU Veterinary Medical Center","place":"East Lansing, MI (near Lansing)","url":"https://cvm.msu.edu/hospital","tag":"off","source":"PetPolicyCheck USA clinics directory"},"MT|Billings":{"name":"Caring Hands Veterinary","place":"Billings, MT","url":"https://www.caringhandsbillings.com/pet-travel/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"NH|Concord":{"name":"VCA Russell Animal Hospital","place":"Concord, NH","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Russell%20Animal%20Hospital%20286B%20Pleasant%20Street%20Concord%20NH","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"NY|New York City":{"name":"The Animal Medical Center (AMC)","place":"New York, NY","url":"https://www.amcny.org/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"NY|Buffalo":{"name":"VCA Sheridan Animal Hospital","place":"Buffalo, NY","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Sheridan%20Animal%20Hospital%202288%20Sheridan%20Drive%20Buffalo%20NY","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"OH|Columbus":{"name":"Ohio State Veterinary Medical Center","place":"Columbus, OH","url":"https://vmc.vet.osu.edu/about","tag":"off","source":"PetPolicyCheck USA clinics directory"},"OH|Cleveland":{"name":"MedVet Cleveland","place":"Cleveland, OH","url":"https://www.medvet.com/location/cleveland/","tag":"off","source":"Official clinic site"},"OH|Cincinnati":{"name":"VCA College Hill Animal Hospital","place":"Cincinnati, OH","url":"https://www.google.com/maps/search/?api=1&query=VCA%20College%20Hill%20Animal%20Hospital%20Cincinnati%20OH","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"OR|Portland":{"name":"DoveLewis Emergency Animal Hospital","place":"Portland, OR","url":"https://www.dovelewis.org/","tag":"off","source":"Official clinic site"},"OR|Salem":{"name":"VCA Salem Animal Hospital","place":"Salem, OR","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Salem%20Animal%20Hospital%204053%20Commercial%20Street%20SE%20Salem%20OR","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"TN|Nashville":{"name":"VCA Murphy Road Animal Hospital","place":"Nashville, TN","url":"https://vcahospitals.com/murphy-road","tag":"off","source":"VCA hospital page"},"TN|Memphis":{"name":"Shelby Center Veterinary","place":"Memphis, TN","url":"https://shelbycentervet.com/services/pet-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"UT|Salt Lake City":{"name":"MedVet Northern Utah","place":"Sunset (Salt Lake metro), UT (near Salt Lake City)","url":"https://www.medvet.com/location/northern-utah/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"VA|Virginia Beach":{"name":"BluePearl Pet Hospital Town Center","place":"Virginia Beach, VA","url":"https://bluepearlvet.com/hospital/virginia-beach-va/","tag":"off","source":"Official hospital page"},"VA|Richmond":{"name":"VCA Pets First Animal Hospital","place":"Richmond, VA","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Pets%20First%20Animal%20Hospital%209201%20Staples%20Mill%20Road%20Richmond%20VA","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"WA|Seattle":{"name":"The Family Pet","place":"Seattle, WA","url":"https://www.thefamilypet.org/services/health-certificates/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"WA|Spokane":{"name":"VCA Manito Animal Hospital","place":"Spokane, WA","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Manito%20Animal%20Hospital%202304%20E%2057th%20Avenue%20Spokane%20WA","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"WI|Milwaukee":{"name":"VCA Milwaukee Emergency Center for Animals","place":"Greenfield, WI (Milwaukee metro)","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Milwaukee%20Emergency%20Center%20for%20Animals%203670%20South%20108th%20Street%20Greenfield%20WI","tag":"srch","source":"Named on an official clinic directory; Google Maps search"},"WI|Madison":{"name":"UW Veterinary Care","place":"Madison, WI","url":"https://uwveterinarycare.wisc.edu/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"NE|Omaha":{"name":"Omaha Vets Group","place":"Omaha, NE","url":"https://omahavetsgroup.com/services/healthcertificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"NE|Lincoln":{"name":"Nebraska Animal Medical Center","place":"Lincoln, NE","url":"https://www.namcvet.com/services/international-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"SC|Columbia":{"name":"Two Notch Road Animal Clinic","place":"Columbia, SC","url":"https://petfriendsvet.com/services/pet-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"ID|Boise":{"name":"Foothills Veterinary Hospital","place":"Meridian, ID (near Boise)","url":"https://foothillsveterinary.com/services/health-certificates-usda-certified/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"NV|Las Vegas":{"name":"Cheyenne Tonopah Animal Hospital","place":"Las Vegas, NV","url":"https://www.ctanimalhospital.com/services/domestic-health-certificates","tag":"off","source":"PetPolicyCheck USA clinics directory"},"VT|Burlington":{"name":"Dorset Street Animal Hospital","place":"South Burlington, VT (near Burlington)","url":"https://dorsetstreetanimalhospital.com/south-burlington-vt/international-health-certificates-for-pet-travel/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"LA|New Orleans":{"name":"Prytania Veterinary Hospital","place":"New Orleans, LA","url":"https://prytaniavet.com/service/international-health-certificates-new-orleans-la/","tag":"off","source":"PetPolicyCheck USA clinics directory"},"LA|Baton Rouge":{"name":"LSU Veterinary Teaching Hospital","place":"Baton Rouge, LA","url":"https://www.lsu.edu/vetmed/veterinary_hospital/index.php","tag":"off","source":"PetPolicyCheck USA clinics directory"},"RI|Providence":{"name":"VCA Povar Animal Hospital","place":"East Providence, RI (Providence metro)","url":"https://www.google.com/maps/search/?api=1&query=VCA%20Povar%20Animal%20Hospital%2015%201st%20Street%20East%20Providence%20RI","tag":"srch","source":"Named on an official clinic directory; Google Maps search"}};
-
-/* ---------- panel ---------- */
-let step=1,cur=null;
-function header(a,title,sub){const P=window.PPC_PST?PPC_PST("map","pst-ph"):"";return `<div class="ph theme-map">${mark(a)}<div><div class="ph-eye">${P}<span>USA map · state panel</span></div><h2>${esc(title)}</h2><div class="sub">${sub}</div></div></div>`}
-function ruleKind(a){
- const r=RULES[a];
- if(r&&r.differs) return "<b style='color:#f0d58c'>Special entry rules</b>";
- if(r&&!r.verified) return "";
- return "State entry rules";
-}
-function clinicCard(state, city){
- const c=CLINICS[state+"|"+city];
- const dir=lk("📋","USA clinics directory","Informational list, not a partnership",siteUrl("/clinics/usa.html"),"off").replace("Official","Site");
- if(!c) return `<h4>Clinic for ${esc(city)}</h4><div class="links">${dir}${lk("🏛","USDA Vet Finder","Search USDA-accredited veterinarians","https://usdavetfinder.com/","off")}</div>`;
- return `<h4>Clinic for ${esc(city)}</h4><div class="links">${lk("🩺",c.name,c.place+" · "+c.source,c.url,c.tag)}${dir}</div><p class="disc">One clinic for this city. Informational only, not a partner. Confirm services, USDA accreditation and fees with the clinic.</p>`;
-}
-function clinicsForState(a){
- const p=a+"|";
- return Object.keys(CLINICS).filter(k=>k.startsWith(p)).sort((x,y)=>x.localeCompare(y)).map(k=>({city:k.slice(p.length),c:CLINICS[k]}));
-}
-function stateClinics(a){
- const list=clinicsForState(a);
- const dir=lk("📋","USA clinics directory","Informational list, not a partnership",siteUrl("/clinics/usa.html"),"off").replace("Official","Site");
- const usda=lk("🏛","USDA Vet Finder","Search USDA-accredited veterinarians","https://usdavetfinder.com/","off");
- const hi=a==="HI"?`<p class="disc">Hawaii trips also need the FAVN rabies test and the quarantine steps above.</p>`:"";
- if(!list.length) return `<h4>Clinics in this state</h4><div class="stubbox"><b>No clinic listed for this state yet.</b> Use the directory or the USDA accredited-vet search, then confirm with the clinic.</div>${hi}<div class="links">${dir}${usda}</div>`;
- return `<h4>Clinics in this state (${list.length})</h4>${hi}<div class="links">${list.map(({c})=>lk("🩺",c.name,c.place+" · "+c.source,c.url,c.tag)).join("")}${dir}${usda}</div><p class="disc">One clinic per listed city. Informational only, not a partner. Confirm services, USDA accreditation and fees with the clinic.</p>`;
-}
-function lawSection(a,compact,cityName,clinicState){
- const r=RULES[a], nm=a==="DC"?"District of Columbia":GEO[a].name;
- let s=`<section class="sec" data-sec="1"><h3><span class="n">1</span>Vet + laws</h3><h4>${esc(nm)} entry rules</h4>`;
- if(r){
-  s+=`<dl class="kv"><dt>Health certificate</dt><dd>${esc(r.cvi)}</dd><dt>Rabies</dt><dd>${esc(r.rabies)}</dd></dl><p>${esc(r.notes)}</p>`+lk("📜",nm+": official entry requirements","Checked Oct 23, 2026 (live usa.html table)",r.src,"off");
- }
- s+=`<details class="fd"${compact?"":" open"}><summary>Federal rules (apply in every state)</summary><div class="links">${fed("aphisSS")}${fed("cdc","🐕")}${fed("aphisIn")}${fed("aphisOut")}</div><p class="disc">Same CDC and USDA pages as <a href="usa.html#federal">the USA federal table</a>. State rules still decide travel between states.</p></details>`;
- s+=`<h4>Sanitary / vet visit</h4><p>Airlines may ask for a health and acclimation certificate signed by a licensed vet within 10 days. Book a USDA-accredited vet for the CVI and rabies certificate; keep paper and photo copies.</p>`;
- if(cityName) s+=clinicCard(clinicState||a, cityName);
- else s+=stateClinics(a);
- return s+`</section>`;
-}
-function roadSection(a,city){
- let s=`<section class="sec" data-sec="2"><h3><span class="n">2</span>Road / rail</h3>`;
- if(!city){s+=`<h4>Rides</h4><div class="links">${RIDES}</div><h4>Rail and bus</h4><p>${AMTRAK_NOTE}</p><div class="links">${lk("🚆","Amtrak: Pets on trains","Rules + pet reservation","https://www.amtrak.com/pets","off")}${lk("🚌","Greyhound / FlixBus","Service animals only, no pets (carrier policy; verify)","https://www.greyhound.com/","off")}</div><p class="disc">Pick a gold city for local taxis, transit and stations.</p>`}
- else s+=city;
- return s+`</section>`;
-}
-function airFedLinks(){
- return lk("🧳","Airline pet policies","Cabin, fees, hold","../#compare","off").replace("Official","Site").replace(' target="_blank"','')
-  +lk("🇺🇸","PetPolicyCheck: USA pet travel guide","Full federal and state table (source for this map)",siteUrl("/countries/usa.html"),"off").replace("Official","Site")
-  +fed("aphisAir")+fed("cdc","🐕")+fed("dot","🦮");
-}
-function planeSection(a, cityName){
- const list=airportsFor(a, cityName||null);
- const nm=cityName||(a==="DC"?"Washington, DC":(GEO[a]?GEO[a].name:a));
- let s=`<section class="sec" data-sec="3"><h3><span class="n">3</span>Plane</h3><p>Book your pet's in-cabin or cargo spot directly with the airline (pet space per flight is limited). Many airlines ask for a health certificate issued within 10 days.</p>`;
- if(list.length){
-  s+=`<h4>${cityName?`Airports serving ${esc(cityName)}`:"Airports on this map"}</h4><div class="citylist">${list.map(ap=>`<button type="button" class="apbtn${ap.pets?"":" placeholder"}" data-ap="${esc(ap.code)}" aria-label="${esc(ap.code)}, ${esc(ap.metroCity)}">${esc(ap.code)} — ${esc(ap.metroCity)}</button>`).join("")}</div>`;
-  s+=`<p class="disc">Open an airport for its relief page. The dashed line on the map ties it to ${cityName?esc(cityName):"its city"}.</p>`;
- }
- s+=`<div class="links">${airFedLinks()}</div>`;
- if(list.length && !cityName) s+=`<p class="disc">Only mapped airports are listed.</p>`;
- return s+`</section>`;
-}
-function transconUiLang(){
- const path=location.pathname||'';
- const pm=path.match(/^\/(es|fr|de|it|ja|ko)(\/|$)/);
- if(pm) return pm[1];
- const raw=((document.documentElement.lang||'')+' '+(document.documentElement.getAttribute('data-lang')||'')).toLowerCase();
- const lm=raw.match(/\b(es|fr|de|it|ja|ko)\b/);
- if(lm) return lm[1];
- try{ const stored=localStorage.getItem('ppc_lang')||''; if(/^(es|fr|de|it|ja|ko)$/.test(stored)) return stored; }catch(_){}
- return 'en';
-}
-/* Partner pet-mover pages for SFO, LAX and JFK only. URLs checked 12 Nov 2026 (KST). No EWR link. */
-const TRANSCON={
- SFO:{url:"https://transconpet.com/san-francisco-pet-shipping-services/", title:"Pet mover: Transcon Pet Movers", sub:"San Francisco office"},
- LAX:{url:"https://transconpet.com/los-angeles-pet-shipping/", title:"Pet mover: Transcon Pet Movers", sub:"Los Angeles office"},
- JFK:{url:"https://transconpet.com/new-york-pet-shipping/", title:"Pet mover: Transcon Pet Movers", sub:"New York service"}
-};
-function transconLink(ap){
- const t=TRANSCON[ap.code];
- if(!t) return "";
- const en=transconUiLang()==='en';
- const title=en?t.title:"Transcon Pet Movers";
- const sub=en?(t.sub||""):"";
- const logoHref="https://transconpet.com/?utm_source=petpolicycheck&utm_medium=referral&utm_campaign=partner_listing&utm_content=logo";
- const src="/assets/partners/transcontinental-pet-movers";
- return `<div class="lk transcon-link" data-partner="transconpet"><a class="transcon-logo-link" href="${esc(logoHref)}" target="_blank" rel="sponsored noopener"><picture><source type="image/webp" srcset="${src}.webp"><img src="${src}.png" width="48" height="48" alt="Transcontinental Pet Movers logo"></picture></a><a class="t" href="${esc(t.url)}" target="_blank" rel="sponsored noopener">${esc(title)}${sub?`<small>${esc(sub)}</small>`:""}</a></div>`;
-}
-function airportPlane(ap){
- const sibs=airportsFor(ap.metroState, ap.metroCity).filter(x=>x.code!==ap.code);
- let s=`<section class="sec" data-sec="3"><h3><span class="n">3</span>Plane</h3><h4>${esc(ap.code)} · ${esc(ap.name)}</h4><p>${esc(ap.code)} serves ${esc(ap.metroCity)}. Relief areas are the airport’s; the airline still sets cabin and cargo rules.</p><div class="links">`;
- s+=lk("🛫", ap.site[1], ap.name, ap.site[0], "off");
- if(ap.pets) s+=lk("🐾", ap.pets[1], ap.pets[2]||"Official pet or relief page", ap.pets[0], "off");
- s+=transconLink(ap);
- s+=airFedLinks()+`</div>`;
- if(ap.placeState!==ap.metroState) s+=`<p class="disc">${esc(ap.code)} is in ${esc(GEO[ap.placeState].name)}. Taxis and hotels continue on the ${esc(ap.metroCity)} panel.</p>`;
- if(sibs.length) s+=`<h4>Other airports for ${esc(ap.metroCity)}</h4><div class="citylist">${sibs.map(x=>`<button type="button" class="apbtn${x.pets?"":" placeholder"}" data-ap="${esc(x.code)}">${esc(x.code)} — ${esc(x.metroCity)}</button>`).join("")}</div>`;
- return s+`</section>`;
-}
-function airportRoad(ap){
- return `<section class="sec" data-sec="2"><h3><span class="n">2</span>Road / rail</h3><p>After landing, taxis, trains and hotels continue on the ${esc(ap.metroCity)} city panel.</p><div class="btnrow"><button type="button" class="btn ghost" data-s="${ap.metroState}" data-city="${esc(ap.metroCity)}">Open ${esc(ap.metroCity)}: taxis, rail, hotels</button></div><h4>Rides from the airport</h4><div class="links">${RIDES}</div></section>`;
-}
-function groomSection(){return window.PPC_GROOM?PPC_GROOM.section(cur):""}
-function hotelSection(q,extra){
- return `<section class="sec" data-sec="4"><h3><span class="n">4</span>Hotel</h3><div class="links">${extra||""}${lk("📋","Hotel chains: pet fees & weight limits","PetPolicyCheck",siteUrl("/hotels/"),"off").replace('Official','Site')}</div></section>`;
-}
-function render(html){const p=$("#panel");p.innerHTML=html;p.scrollTop=0;applyStep(false);
- p.querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
- p.querySelectorAll("[data-state]").forEach(b=>b.onclick=()=>selectState(b.dataset.state));
- p.querySelectorAll("[data-ap]").forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
- if(innerWidth<=900&&cur)p.scrollIntoView({behavior:"smooth",block:"start"});
-}
-/* ---------- view box: zoomTo (state select on phones) + free zoom/pan (no d3) ---------- */
-const FULL=[0,0,975,610],MAXZ=8,MINW=975/MAXZ;let vb=FULL.slice(),animId=0;
-/* clamp: never wider than FULL, never closer than 8x, keep the 975:610 ratio, no panning into empty space */
 function clampVB(v){const w=Math.min(975,Math.max(MINW,v[2])),h=w*610/975;
  const cx=v[0]+v[2]/2,cy=v[1]+v[3]/2;let x=cx-w/2,y=cy-h/2;
  x=Math.max(0,Math.min(975-w,x));y=Math.max(0,Math.min(610-h,y));return [x,y,w,h]}
 const MAP_W=975;
+function currentLbl(){
+  const q=(/[#?&]lbl=([ABC])/i.exec(location.search||'')||[])[1];
+  return (q||window.__usaLbl||'A').toUpperCase();
+}
+function applyLblAttr(){
+  const opt=currentLbl();
+  window.__usaLbl=opt;
+  document.documentElement.setAttribute('data-lbl',opt);
+  const root=$('#usa-map')||document.getElementById('usa-map');
+  if(root) root.setAttribute('data-lbl',opt);
+  return opt;
+}
 function mountLabelLegend(){
   const root = $('#usa-map') || document.getElementById('usa-map');
   const host = root && root.querySelector('.mapcard');
-  if(!host || host.querySelector('.lbl-legend')) return;
+  if(!host) return;
+  const opt=applyLblAttr();
   const lang = ((document.documentElement.lang||'') + ' ' + (document.documentElement.getAttribute('data-lang')||'')).toLowerCase();
-  let es = /\bes\b/.test(lang);
-  try{ es = es || (localStorage.getItem('ppc_lang')||'')==='es'; }catch(_){}
-  const L = es
-    ? {r:'Regiones', c:'Ciudades', k:'Capital', a:'Aeropuertos internacionales'}
-    : {r:'Regions', c:'Cities', k:'Capital', a:'International airports'};
-  const box = document.createElement('div');
-  box.className = 'lbl-legend';
-  box.setAttribute('role','note');
-  box.setAttribute('aria-label', es ? 'Leyenda de etiquetas' : 'Label colour legend');
+  let loc='en';
+  try{ loc = (localStorage.getItem('ppc_lang')||loc); }catch(_){}
+  if(/\bit\b/.test(lang) || loc==='it') loc='it';
+  else if(/\bes\b/.test(lang) || loc==='es') loc='es';
+  const L = loc==='es'
+    ? {r:'Estados', c:'Ciudades', k:'Capital', a:'Aeropuertos', s:'Estilo', aria:'Leyenda de etiquetas'}
+    : loc==='it'
+    ? {r:'Stati', c:'Città', k:'Capitale', a:'Aeroporti', s:'Stile', aria:'Legenda etichette'}
+    : {r:'States', c:'Cities', k:'Capital', a:'Airports', s:'Style', aria:'Label colour legend'};
+  const samples = {A:{r:'TX',c:'Denver',k:'Capital',a:'LAX'},B:{r:'TX',c:'Denver',k:'Capital',a:'LAX'},C:{r:'TX',c:'Denver',k:'Capital',a:'LAX'}};
+  const sm=samples[opt]||samples.A;
+  let box=host.querySelector('.lbl-legend');
+  if(!box){
+    box=document.createElement('div');
+    box.className='lbl-legend';
+    box.setAttribute('role','note');
+    host.appendChild(box);
+  }
+  box.setAttribute('aria-label', L.aria);
+  const href=function(x){
+    const u=new URL(location.href);
+    u.searchParams.set('lbl',x);
+    return u.pathname+u.search+u.hash;
+  };
   box.innerHTML =
-    '<span class="ll-r"><i aria-hidden="true"></i>'+L.r+'</span>'+
-    '<span class="ll-c"><i aria-hidden="true"></i>'+L.c+'</span>'+
-    '<span class="ll-k"><i aria-hidden="true"></i>'+L.k+'</span>'+
-    '<span class="ll-a"><b aria-hidden="true">✈</b>'+L.a+'</span>';
-  host.appendChild(box);
+    '<span class="ll-opt" role="group" aria-label="'+L.s+'">'+
+      ['A','B','C'].map(x=>'<a href="'+href(x)+'"'+(x===opt?' class="is-current" aria-current="true"':'')+'>'+x+'</a>').join('')+
+    '</span>'+
+    '<span class="ll-r"><i aria-hidden="true">'+sm.r+'</i>'+L.r+'</span>'+
+    '<span class="ll-c"><i aria-hidden="true">'+sm.c+'</i>'+L.c+'</span>'+
+    '<span class="ll-k"><i aria-hidden="true">'+sm.k+'</i>'+L.k+'</span>'+
+    '<span class="ll-a"><b aria-hidden="true">'+sm.a+'</b>'+L.a+'</span>';
 }
+
 
 function syncLabelScale(){
   const m=$('#map'); if(!m) return;
@@ -695,179 +158,249 @@ function _hitU(a,b,pad){
   pad=pad||0;
   return (Math.min(a.r,b.r)-Math.max(a.l,b.l)>pad && Math.min(a.btm,b.btm)-Math.max(a.t,b.t)>pad);
 }
-function resolveLabelOverlaps(){
+
+const _TA={s:'start',m:'middle',e:'end',start:'start',middle:'middle',end:'end'};
+function _lblBucket(){
+  const w=window.innerWidth||1280;
+  return w<500?'390':(w<1360?'1280':'1440');
+}
+function _nearNE(){
+  if(typeof isFull==='function' && isFull()) return false;
+  const v=vb||[0,0,975,610];
+  return Math.abs(v[0]-760)<8 && Math.abs(v[1]-70)<8 && Math.abs(v[2]-230)<8;
+}
+function _planKey(){
+  const opt=currentLbl();
+  const b=_lblBucket();
+  const mode=(typeof isFull==='function' && isFull())?'full':(_nearNE()?'ne':'zoom');
+  return [opt,b,mode];
+}
+function _setTxt(el, x, y, ta){
+  if(x!=null) el.setAttribute('x', (+x).toFixed(1));
+  if(y!=null) el.setAttribute('y', (+y).toFixed(1));
+  if(ta){ const a=_TA[ta]||ta; if(a) el.setAttribute('text-anchor', a); }
+}
+function applyUsaLabelPlan(){
   const m=$('#map'); if(!m) return;
-  const mapBox=m.getBoundingClientRect();
-  const full=(typeof isFull==='function')?isFull():true;
-  const key=(Math.round(mapBox.width)|0)+'|'+(full?1:0)+'|'+((m.getAttribute('viewBox'))||'');
+  const pack=window.USA_LBL_PLANS; if(!pack) return false;
+  const [opt,bucket,mode]=_planKey();
+  const plan=(pack[opt]&&(pack[opt][bucket+'|'+mode]||(mode==='zoom'&&pack[opt][bucket+'|ne'])))||null;
+  if(!plan) return false;
   m.querySelectorAll('#g-lb line.lbl-lead[data-temp="1"]').forEach(n=>n.remove());
   m.querySelectorAll('.lbl-crowd,.ct-crowd,.ap-crowd,.ap-name-crowd,.ap-code-crowd').forEach(n=>n.classList.remove('lbl-crowd','ct-crowd','ap-crowd','ap-name-crowd','ap-code-crowd'));
-  m.querySelectorAll('#g-lb text.lbl, #g-ct .ct text, #g-ap .ap text').forEach(_restorePos);
-  m.querySelectorAll('#g-lb line.lbl-lead').forEach(lead=>{
-    if(lead.dataset.ox2!=null){ lead.setAttribute('x2', lead.dataset.ox2); lead.setAttribute('y2', lead.dataset.oy2); }
-    lead.classList.remove('lbl-crowd');
+  const st=plan.st||{};
+  m.querySelectorAll('#g-lb text.lbl').forEach(t=>{
+    const id=(t.id||'').replace(/^l-/,'');
+    const p=st[id];
+    if(!p){ t.classList.add('lbl-crowd'); return; }
+    if(p[3]) t.classList.add('lbl-crowd');
+    _setTxt(t, p[0], p[1], p[2]);
+    if(p[4] && t.dataset.full) t.textContent=t.dataset.full;
+    else if(t.dataset.abbr) t.textContent=t.dataset.abbr;
   });
-  const crowdedMobile=full && mapBox.width<500;
-  const hideExistingCodes=mapBox.width<500;
-  const ctm=m.getScreenCTM();
-  if(!ctm) return;
-  const sx=ctm.a, sy=ctm.d, ox=ctm.e, oy=ctm.f;
-  const toU=b=>({l:(b.left-ox)/sx, r:(b.right-ox)/sx, t:(b.top-oy)/sy, btm:(b.bottom-oy)/sy, w:(b.right-b.left)/sx, h:(b.bottom-b.top)/sy});
-  const visU=el=>{
-    const cs=getComputedStyle(el);
-    if(cs.display==='none'||cs.visibility==='hidden'||+cs.opacity===0) return null;
-    const b=el.getBoundingClientRect();
-    if(b.width<1||b.height<1) return null;
-    return toU(b);
-  };
+  const leads=plan.lead||{};
+  m.querySelectorAll('#g-lb line.lbl-lead').forEach(lead=>{
+    const id=lead.getAttribute('data-a')||'';
+    const p=leads[id];
+    if(!p || p[4]){ lead.classList.add('lbl-crowd'); return; }
+    lead.setAttribute('x1', p[0]); lead.setAttribute('y1', p[1]);
+    lead.setAttribute('x2', p[2]); lead.setAttribute('y2', p[3]);
+  });
+  const cts=plan.ct||{};
+  m.querySelectorAll('#g-ct .ct').forEach(g=>{
+    if(g.classList.contains('hide-lbl') && !g.classList.contains('sample')) return;
+    const t=g.querySelector('text'); if(!t) return;
+    const key=g.dataset.k||t.textContent;
+    const p=cts[key]||cts[t.textContent];
+    if(!p || p[3]){ g.classList.add('ct-crowd'); return; }
+    _setTxt(t, p[0], p[1], p[2]);
+  });
+  const aps=plan.ap||{}, apn=plan.apn||{}, chips=plan.chip||{};
+  m.querySelectorAll('#g-ap .ap').forEach(g=>{
+    const code=g.dataset.code;
+    const codeEl=g.querySelector('text.map-label, text:not(.map-name)');
+    const nameEl=g.querySelector('text.map-name');
+    const chip=g.querySelector('rect.ap-chip');
+    const p=aps[code];
+    if(codeEl){
+      if(!p || p[3]) codeEl.classList.add('ap-code-crowd');
+      else _setTxt(codeEl, p[0], p[1], p[2]);
+    }
+    const n=apn[code];
+    if(nameEl){
+      if(!n || n[3]) nameEl.classList.add('ap-name-crowd');
+      else _setTxt(nameEl, n[0], n[1], n[2]);
+    }
+    if(chip){
+      const c=chips[code];
+      if(c && !c[4]){
+        chip.setAttribute('x', c[0]); chip.setAttribute('y', c[1]);
+        chip.setAttribute('width', c[2]); chip.setAttribute('height', c[3]);
+        chip.style.display='';
+      } else {
+        chip.setAttribute('width','0'); chip.setAttribute('height','0');
+      }
+    }
+  });
+  return true;
+}
+function packUsaLabelsFallback(){
+  /* Deterministic user-space packer: precomputed glyph metrics, no layout reads. */
+  const m=$('#map'); if(!m) return;
+  const metAll=window.USA_LBL_METRICS; if(!metAll) return;
+  const opt=currentLbl();
+  const met=metAll[opt]; if(!met) return;
+  const bucket=_lblBucket();
+  const zoomed=!(typeof isFull==='function' && isFull());
+  const sizes=met.size[bucket][zoomed?'zoom':'rest'];
+  const mapW=m.clientWidth||met.mapW[bucket]||830;
+  const v=vb||[0,0,975,610];
+  const sx=mapW/v[2]; /* screen px per user unit */
+  const k=v[2]/975;
+  const iconR=11.3137*k;
+  function boxAt(ax,ay,wPx,ascPx,descPx,anchor){
+    const w=wPx/sx, asc=ascPx/sx, desc=descPx/sx;
+    let l=ax;
+    if(anchor==='end') l=ax-w;
+    else if(anchor==='middle') l=ax-w/2;
+    return {l:l, r:l+w, t:ay-asc, btm:ay+desc};
+  }
+  function hit(a,b,pad){
+    return (Math.min(a.r,b.r)-Math.max(a.l,b.l)>pad && Math.min(a.btm,b.btm)-Math.max(a.t,b.t)>pad);
+  }
+  const pad=0.4;
+  const placed=[];
   const icons=[];
   m.querySelectorAll('#g-ap .ap').forEach(g=>{
-    if(getComputedStyle(g).display==='none') return;
-    const mark=g.querySelector('.ap-mark .pad')||g.querySelector('.ap-mark');
-    const box=visU(mark); if(!box) return;
     const tr=g.getAttribute('transform')||'';
     const xy=/translate\(\s*([-\d.]+)[,\s]+([-\d.]+)\s*\)/.exec(tr);
-    icons.push({code:g.dataset.code, box, x:xy?+xy[1]:0, y:xy?+xy[2]:0, existing:!!EXISTING_AP[(g.dataset.code||'').toUpperCase()]});
+    if(!xy) return;
+    const x=+xy[1], y=+xy[2];
+    const box={l:x-iconR,r:x+iconR,t:y-iconR,btm:y+iconR};
+    icons.push({code:g.dataset.code,x,y,box});
+    placed.push({box, kind:'icon', code:g.dataset.code});
   });
-  const dots=[];
   m.querySelectorAll('#g-ct .ct circle:not(.ring)').forEach(c=>{
-    const g=c.closest('.ct');
-    const box=visU(c); if(!box) return;
-    dots.push({box, g});
+    const x=+c.getAttribute('cx'), y=+c.getAttribute('cy'), r=+(c.getAttribute('r')||3);
+    placed.push({box:{l:x-r,r:x+r,t:y-r,btm:y+r}, kind:'dot'});
   });
-  const regionItems=[];
-  m.querySelectorAll('#g-lb text.lbl').forEach(t=>{
-    _rememberPos(t);
-    const box=visU(t);
-    regionItems.push({el:t, box, kind:'region', existing:true});
+  m.querySelectorAll('#g-lb rect[id^="cb-"]').forEach(r=>{
+    const x=+r.getAttribute('x'), y=+r.getAttribute('y'), w=+r.getAttribute('width'), h=+r.getAttribute('height');
+    placed.push({box:{l:x,r:x+w,t:y,btm:y+h}, kind:'pill'});
   });
-  const cityItems=[];
+  function overlaps(box, skipCode){
+    for(const p of placed){
+      if(skipCode && p.code===skipCode) continue;
+      if(hit(box,p.box,pad)) return true;
+    }
+    return false;
+  }
+  const SLOTS=[[8,3,'start'],[-8,3,'end'],[10,-8,'start'],[-10,-8,'end'],[0,-12,'middle'],[0,14,'middle'],[14,10,'start'],[-14,10,'end'],[16,3,'start'],[-16,3,'end'],[0,-18,'middle'],[20,6,'start'],[-20,6,'end']];
+  m.querySelectorAll('#g-lb line.lbl-lead[data-temp="1"]').forEach(n=>n.remove());
+  m.querySelectorAll('.lbl-crowd,.ct-crowd,.ap-crowd,.ap-name-crowd,.ap-code-crowd').forEach(n=>n.classList.remove('lbl-crowd','ct-crowd','ap-crowd','ap-name-crowd','ap-code-crowd'));
+
+  /* Restore authored, then try place. */
+  function tryText(el, origX, origY, origTa, wPx, asc, desc, skipCode, isNew){
+    const slots=[[0,0,origTa]].concat(SLOTS);
+    for(const s of slots){
+      const ta=s[2]||origTa||'start';
+      const x=origX+s[0], y=origY+s[1];
+      const box=boxAt(x,y,wPx,asc,desc,ta);
+      if(box.l<1||box.t<1||box.r>974||box.btm>609) continue;
+      if(overlaps(box, skipCode)) continue;
+      _setTxt(el,x,y,ta);
+      placed.push({box, code:skipCode});
+      return true;
+    }
+    return false;
+  }
+  /* Cities first (few), then airports by rank, then states. */
+  const scale= (px)=>px; /* already screen px at this bucket/zoom */
+  const stW=met.w.st||{}, ctW=met.w.ct||{}, apW=met.w.ap||{}, apnW=met.w.apn||{};
+  const stA=met.asc, stD=met.desc;
   m.querySelectorAll('#g-ct .ct').forEach(g=>{
+    if(g.classList.contains('hide-lbl') && !g.classList.contains('sample')) return;
     const t=g.querySelector('text'); if(!t) return;
-    _rememberPos(t);
-    const box=visU(t);
-    cityItems.push({el:t, g, box, kind:'city', existing:true});
+    _restorePos(t);
+    const ox=+(t.dataset.ox!=null?t.dataset.ox:t.getAttribute('x'));
+    const oy=+(t.dataset.oy!=null?t.dataset.oy:t.getAttribute('y'));
+    const ta=t.dataset.ota||t.getAttribute('text-anchor')||'start';
+    const key=g.dataset.k||t.textContent;
+    const w=ctW[key]||ctW[t.textContent]||(t.textContent.length*sizes.ct*0.56);
+    const kfont=sizes.ct/(met.ref.ct||8);
+    if(!tryText(t,ox,oy,ta,w*kfont,(stA.ct||7)*kfont,(stD.ct||3)*kfont,null)) g.classList.add('ct-crowd');
   });
-  const apItems=[];
-  m.querySelectorAll('#g-ap .ap').forEach(g=>{
-    if(getComputedStyle(g).display==='none') return;
-    const code=(g.dataset.code||'').toUpperCase();
-    const existing=!!EXISTING_AP[code];
+  const apList=[...m.querySelectorAll('#g-ap .ap')].sort((a,b)=>_airportRank(a.dataset.code)-_airportRank(b.dataset.code));
+  apList.forEach(g=>{
+    const code=g.dataset.code;
     const pin=icons.find(i=>i.code===code);
     const codeEl=g.querySelector('text.map-label, text:not(.map-name)');
     const nameEl=g.querySelector('text.map-name');
     if(codeEl){
-      _rememberPos(codeEl);
-      const box=visU(codeEl);
-      const ox=+(codeEl.dataset.ox), oy=+(codeEl.dataset.oy);
-      const oanchor=codeEl.dataset.ota||codeEl.getAttribute('text-anchor')||'middle';
+      _restorePos(codeEl);
+      const ox=+(codeEl.dataset.ox!=null?codeEl.dataset.ox:codeEl.getAttribute('x'));
+      const oy=+(codeEl.dataset.oy!=null?codeEl.dataset.oy:codeEl.getAttribute('y'));
+      const ta=codeEl.dataset.ota||codeEl.getAttribute('text-anchor')||'start';
+      const kf=sizes.ap/(met.ref.ap||7.5);
+      const w=(apW[code]||22)*kf;
       const ax=(pin?pin.x:0)+ox, ay=(pin?pin.y:0)+oy;
-      const ink=box?_usaInk(box, ax, ay):null;
-      apItems.push({el:codeEl, g, code, existing, pin, box, ox, oy, oanchor, ink, kind:'ap-code', hide:'ap-code-crowd', pri:10+_airportRank(code)*0.4});
+      /* tryText uses absolute? airport text is in the pin group — x/y are relative */
+      const slots=[[ox,oy,ta]].concat(SLOTS.map(s=>[s[0],s[1],s[2]]));
+      let found=false;
+      for(const s of slots){
+        const box=boxAt(pin.x+s[0], pin.y+s[1], w, (stA.ap||7)*kf, (stD.ap||3)*kf, s[2]||ta);
+        if(box.l<1||box.r>974||box.t<1||box.btm>609) continue;
+        if(overlaps(box, code)) continue;
+        _setTxt(codeEl,s[0],s[1],s[2]||ta);
+        placed.push({box, code});
+        found=true; break;
+      }
+      if(!found) codeEl.classList.add('ap-code-crowd');
     }
     if(nameEl){
-      _rememberPos(nameEl);
-      const box=visU(nameEl);
-      const ox=+(nameEl.dataset.ox), oy=+(nameEl.dataset.oy);
-      const oanchor=nameEl.dataset.ota||nameEl.getAttribute('text-anchor')||'middle';
-      const ax=(pin?pin.x:0)+ox, ay=(pin?pin.y:0)+oy;
-      const ink=box?_usaInk(box, ax, ay):null;
-      apItems.push({el:nameEl, g, code, existing, pin, box, ox, oy, oanchor, ink, kind:'ap-name', hide:'ap-name-crowd', pri:90});
-    }
-  });
-  const pad=0.35;
-  const placed=[];
-  function overlapsPlaced(box, skipCode, skipEl){
-    if(!box) return true;
-    for(const ic of icons){
-      if(skipCode && ic.code===skipCode) continue;
-      if(_hitU(box, ic.box, pad)) return true;
-    }
-    for(const d of dots){
-      if(d._hidden) continue;
-      if(_hitU(box, d.box, pad)) return true;
-    }
-    for(const p of placed){
-      if(p._hidden || !p.box) continue;
-      if(skipEl && p.el===skipEl) continue;
-      if(_hitU(box, p.box, pad)) return true;
-    }
-    return false;
-  }
-  function hideEl(it){
-    it._hidden=true;
-    if(it.ox!=null) _applyPos(it.el, {x:it.ox, y:it.oy, anchor:it.oanchor});
-    else _restorePos(it.el);
-    if(it.kind==='city') it.g.classList.add('ct-crowd');
-    else if(it.kind==='region') it.el.classList.add('lbl-crowd');
-    else it.el.classList.add(it.hide||'ap-code-crowd');
-  }
-  regionItems.forEach(it=>{
-    if(crowdedMobile){ hideEl(it); return; }
-    if(!it.box){ hideEl(it); return; }
-    if(mapBox.width<500 && overlapsPlaced(it.box, null, it.el)){ hideEl(it); return; }
-    placed.push(it);
-  });
-  cityItems.forEach(it=>{
-    if(!it.box){ hideEl(it); return; }
-    const noRoom=overlapsPlaced(it.box, null, it.el);
-    if(noRoom && !(full && mapBox.width>=500)){ hideEl(it); return; }
-    placed.push(it);
-  });
-  const codes=apItems.filter(it=>it.kind==='ap-code').sort((a,b)=>a.pri-b.pri);
-  const names=apItems.filter(it=>it.kind==='ap-name').sort((a,b)=>a.pri-b.pri);
-  codes.forEach(it=>{
-    if(!it.box && it.existing){ hideEl(it); return; }
-    if(it.existing){
-      const noRoom=overlapsPlaced(it.box, it.code, it.el);
-      if(noRoom && hideExistingCodes){ hideEl(it); return; }
-      if(it.box) placed.push(it);
-      return;
-    }
-    if(it.box && it.ink && !overlapsPlaced(it.box, it.code, it.el)){
-      placed.push(it); return;
-    }
-    if(it.ink && it.pin){
-      let found=null;
-      for(let i=0;i<_NEW_AP_SLOTS.length;i++){
-        const s=_NEW_AP_SLOTS[i];
-        const same=s[2]===it.oanchor;
-        const ax=it.pin.x+s[0], ay=it.pin.y+s[1];
-        const box=_usaBoxAt(ax, ay, s[2], it.ink, same);
-        if(box.l<1||box.t<1||box.r>974||box.btm>609) continue;
-        if(!overlapsPlaced(box, it.code, it.el)){ found={s, box}; break; }
+      if(!zoomed){ nameEl.classList.add('ap-name-crowd'); return; }
+      _restorePos(nameEl);
+      const ox=+(nameEl.dataset.ox!=null?nameEl.dataset.ox:nameEl.getAttribute('x'));
+      const oy=+(nameEl.dataset.oy!=null?nameEl.dataset.oy:nameEl.getAttribute('y'));
+      const ta=nameEl.dataset.ota||nameEl.getAttribute('text-anchor')||'start';
+      const kf=sizes.name/(met.ref.name||7);
+      const w=(apnW[code]||40)*kf;
+      const slots=[[ox,oy,ta],[ox,oy+10,ta],[-8,14,'end'],[8,14,'start']];
+      let found=false;
+      for(const s of slots){
+        const box=boxAt(pin.x+s[0], pin.y+s[1], w, (stA.apn||6)*kf, (stD.apn||2)*kf, s[2]||ta);
+        if(overlaps(box, code)) continue;
+        _setTxt(nameEl,s[0],s[1],s[2]||ta);
+        placed.push({box, code}); found=true; break;
       }
-      if(found){
-        _applyPos(it.el, {x:found.s[0], y:found.s[1], anchor:found.s[2]});
-        it.box=found.box;
-        placed.push(it);
-        return;
-      }
+      if(!found) nameEl.classList.add('ap-name-crowd');
     }
-    hideEl(it);
   });
-  names.forEach(it=>{
-    if(!it.box){ hideEl(it); return; }
-    if(it.existing){
-      if(overlapsPlaced(it.box, it.code, it.el)) hideEl(it);
-      else placed.push(it);
-      return;
-    }
-    if(!overlapsPlaced(it.box, it.code, it.el)){ placed.push(it); return; }
-    hideEl(it);
+  m.querySelectorAll('#g-lb text.lbl').forEach(t=>{
+    _restorePos(t);
+    const id=(t.id||'').replace(/^l-/,'');
+    if(t.dataset.abbr) t.textContent=(zoomed && opt==='C' && t.dataset.full && !['VT','NH','MA','RI','CT','NJ','DE','MD'].includes(id))?t.dataset.full:t.dataset.abbr;
+    const ox=+(t.dataset.ox!=null?t.dataset.ox:t.getAttribute('x'));
+    const oy=+(t.dataset.oy!=null?t.dataset.oy:t.getAttribute('y'));
+    const ta=t.dataset.ota||t.getAttribute('text-anchor')||'middle';
+    const key=t.textContent;
+    const kf=sizes.st/(met.ref.st||10.5);
+    const table=(zoomed && opt==='C' && t.textContent.length>3)?(met.w.stFull||{}):stW;
+    const w=(table[id]||table[key]||(key.length*sizes.st*0.7))*kf;
+    if(!tryText(t,ox,oy,ta,w,(stA.st||8)*kf,(stD.st||3)*kf,null)) t.classList.add('lbl-crowd');
   });
-  _packAppliedKey=key;
+}
+function resolveLabelOverlaps(){
+  if(applyUsaLabelPlan()) return;
+  packUsaLabelsFallback();
 }
 let _lblRaf=0;
 function refreshLabels(){
-  syncLabelScale();
   if(_packSuspended) return;
-  if(_lblRaf) cancelAnimationFrame(_lblRaf);
-  _lblRaf=requestAnimationFrame(function(){
-    _lblRaf=0;
-    syncLabelScale();
-    resolveLabelOverlaps();
-  });
+  if(!applyUsaLabelPlan()){
+    /* fallback packer is math-only; run sync so zoom stays under 50ms */
+    packUsaLabelsFallback();
+  }
 }
 
 function applyViewBox(v){vb=v.slice();const m=$("#map");if(!m)return;
@@ -1061,11 +594,19 @@ $("#map").addEventListener("click",e=>{if(cur&&e.target===e.currentTarget)showAl
  const tend=e=>{const n=e.touches.length;if(mode==="pan"||mode==="pinch")armEat();if(n===0)mode=null;else if(n===1&&mode==="pinch")pan(e.touches[0])};
  m.addEventListener("touchend",tend);m.addEventListener("touchcancel",tend);
 })();
-buildMap();
- mountLabelLegend();
+window.USA_MAP_READY=new Promise(function(r){ window.__usaMapReady=r; });
+applyLblAttr();
+setTimeout(function(){
+  buildStates();
+  setTimeout(function(){
+    buildCitiesAndAirports();
+    mountLabelLegend();
+    refreshLabels();
  (function(){const m=$("#map"); if(!m||typeof ResizeObserver==="undefined"){window.addEventListener("resize",refreshLabels);return;}
   const ro=new ResizeObserver(()=>refreshLabels()); ro.observe(m);})();
  window.PPC_mapView={applyViewBox, refreshLabels, isFull};
+    if(window.__usaMapReady) window.__usaMapReady();
+    setTimeout(function(){
 const pick=$("#pick");ABBRS.forEach(a=>pick.add(new Option(GEO[a].name,a)));pick.onchange=()=>pick.value&&selectState(pick.value);
 
 /* Custom mineral-night state picker — keeps #pick synced for programmatic use */
@@ -1141,3 +682,6 @@ if(slash>0){const a=raw.slice(0,slash), n=raw.slice(slash+1);
 else if(raw==="DC") selectDC();
 else if(GEO[raw]) selectState(raw);
 else empty();
+    },0);
+  },0);
+},0);
