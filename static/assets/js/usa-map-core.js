@@ -40,7 +40,7 @@ const FED={
  dot:["https://www.transportation.gov/individuals/aviation-consumer-protection/service-animals","US DOT: Service animals on flights","Federal rule for service dogs in the cabin"],
 };
 const fed=(k,ic="🏛")=>lk(ic,FED[k][1],FED[k][2],FED[k][0],"off");
-const RIDES=lk("🚗","Uber Pet","One pet per trip, surcharge in the upfront fare","https://help.uber.com/en/riders/article/uber-pet-pet-friendly-rides?nodeId=e4468070-c193-41cf-b792-fa66ecfb1163","off")+
+const RIDES=lk("🚗","Uber Pet","One pet per trip, surcharge in the upfront fare","https://www.uber.com/us/en/ride/uber-pet/","off")+
  lk("🚙","Lyft Pet","One well-behaved animal; US only; extra fee","https://help.lyft.com/hc/en-us/all/articles/8559088908-Pet-rides-for-riders","off");
 const AMTRAK_NOTE="Amtrak: dogs and cats, 20 lb max incl. carrier, trips up to 7 hours, Coach (+Acela Business); reserve the pet spot.";
 /* ---------- 8 sample cities ---------- */
