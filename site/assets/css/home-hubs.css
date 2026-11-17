@@ -1,12 +1,11 @@
-/* PetPolicyCheck · Plan faster + From the community (preview 2026-11-17 pf2)
-   Three layouts behind html[data-hub=A|B|C] (default A).
-   Section colours use an explicit --sec per block (data-sec), so html.theme-map
-   and the V3 --theme-accent remap cannot turn them gold.
+/* PetPolicyCheck · Plan faster + From the community
+   Numbered journey rail (option B), section colours via explicit --sec.
+   html.theme-map must not turn these gold: paint only with var(--sec).
    Does not touch the header, the world map, or the search icon.
    Buttons: .ppc-btn--pri (solid --sec + ink) and .ppc-btn--sec (outline --sec).
    Veterans: navy + gold. */
 
-/* ---- explicit section tokens (effective V3 finale hexes) ---- */
+/* ---- explicit section tokens (V3 finale hexes) ---- */
 .ppc-blk[data-sec="flight"],
 .ppc-chip[data-sec="flight"],
 .ppc-guides{--sec:#6dc0d6}
@@ -49,15 +48,13 @@
   box-sizing:border-box;text-decoration:none;color:inherit;
 }
 .ppc-blk .ppc-tile__k,
-.ppc-blk .ppc-step__k,
-.ppc-blk .ppc-strip__k{
+.ppc-blk .ppc-step__k{
   display:block;font:700 .68rem/1 var(--text,Inter,system-ui,sans-serif);
   letter-spacing:.14em;text-transform:uppercase;
   color:var(--sec);
 }
 .ppc-blk[data-sec="veterans"] .ppc-tile__k,
-.ppc-blk[data-sec="veterans"] .ppc-step__k,
-.ppc-blk[data-sec="veterans"] .ppc-strip__k{color:#e2c275}
+.ppc-blk[data-sec="veterans"] .ppc-step__k{color:#e2c275}
 .ppc-blk h3{
   font-family:var(--disp,Marcellus,Georgia,serif);
   font-weight:400;color:var(--head,#f5ecd6);margin:0;
@@ -91,75 +88,19 @@
 .ppc-chip:hover{background:color-mix(in srgb,var(--sec) 24%,var(--paper,#11252a))}
 .ppc-chip:focus-visible{outline:3px solid #f0d58c;outline-offset:2px}
 
-/* ================================================================
-   OPTION A — Colour-coded bento (default, recommended)
-   Hero (8) + two mid (4) stacked, then a full row of four small tiles.
-   ================================================================ */
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-plan{
-  display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px;
-}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile{
-  display:flex;flex-direction:column;gap:10px;
-  padding:22px 22px 20px;
-  border-radius:14px;
-  background:linear-gradient(180deg,color-mix(in srgb,var(--sec) 28%,var(--paper,#11252a)),color-mix(in srgb,var(--sec) 10%,#0c181c));
-  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--sec) 50%,transparent),0 16px 32px #0004;
-  border-left:7px solid var(--sec);
-  min-height:0;
-}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile:hover{
-  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--sec) 75%,transparent),0 18px 36px #0005;
-  transform:translateY(-1px);
-}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile[data-sec="veterans"]{
-  border-left-color:#e2c275;
-  background:linear-gradient(180deg,#0a2e5c,#071e3c);
-}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--hero{grid-column:span 8;grid-row:span 2;min-height:280px;padding:28px}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--hero h3{font-size:clamp(1.7rem,2.6vw,2.35rem);line-height:1.15}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--hero p{font-size:1.02rem;max-width:28rem}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--mid{grid-column:span 4;min-height:132px}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--mid h3{font-size:1.25rem}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--sm{grid-column:span 3;min-height:150px}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--sm h3{font-size:1.08rem}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-guides{grid-column:1/-1;padding:16px 18px;border-radius:14px;
-  background:color-mix(in srgb,var(--sec) 10%,var(--paper,#11252a));
-  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--sec) 40%,transparent)}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-com{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;
-}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-com .ppc-tile{min-height:220px;padding:24px}
-html:not([data-hub="B"]):not([data-hub="C"]) .ppc-com .ppc-tile h3{font-size:1.45rem}
-@media (max-width:900px){
-  html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--hero,
-  html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--mid,
-  html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--sm{grid-column:span 6}
-  html:not([data-hub="B"]):not([data-hub="C"]) .ppc-com{grid-template-columns:1fr}
-}
-@media (max-width:620px){
-  html:not([data-hub="B"]):not([data-hub="C"]) .ppc-plan{grid-template-columns:1fr;gap:12px}
-  html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--hero,
-  html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--mid,
-  html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--sm{grid-column:auto;min-height:0}
-  html:not([data-hub="B"]):not([data-hub="C"]) .ppc-tile--hero{min-height:220px;padding:22px}
-  html:not([data-hub="B"]):not([data-hub="C"]) .ppc-com{grid-template-columns:1fr;gap:12px}
-}
-
-/* ================================================================
-   OPTION B — Horizontal journey rail with numbered colour stations
-   ================================================================ */
-html[data-hub="B"] .ppc-plan{display:block}
-html[data-hub="B"] .ppc-journey{
+/* Numbered journey rail */
+.ppc-plan{display:block}
+.ppc-journey{
   display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 0;
   position:relative;
 }
-html[data-hub="B"] .ppc-journey::before{
+.ppc-journey::before{
   content:"";position:absolute;left:8%;right:8%;top:28px;height:6px;border-radius:99px;
   background:linear-gradient(90deg,#6dc0d6,#e5a35c,#7cc9b5,#0a2e5c);
   z-index:0;
 }
-html[data-hub="B"] .ppc-journey .ppc-step,
-html[data-hub="B"] .ppc-support .ppc-step{
+.ppc-journey .ppc-step,
+.ppc-support .ppc-step{
   position:relative;z-index:1;
   display:flex;flex-direction:column;gap:10px;
   padding:20px 16px 22px;margin:0 8px;
@@ -169,140 +110,70 @@ html[data-hub="B"] .ppc-support .ppc-step{
   border-top:10px solid var(--sec);
   min-height:280px;
 }
-html[data-hub="B"] .ppc-journey .ppc-step[data-sec="veterans"],
-html[data-hub="B"] .ppc-support .ppc-step[data-sec="veterans"]{
+.ppc-journey .ppc-step[data-sec="veterans"],
+.ppc-support .ppc-step[data-sec="veterans"]{
   border-top-color:#e2c275;background:#071e3c;
 }
-html[data-hub="B"] .ppc-journey .ppc-step__num,
-html[data-hub="B"] .ppc-support .ppc-step__num{
+.ppc-journey .ppc-step__num,
+.ppc-support .ppc-step__num{
   width:36px;height:36px;border-radius:50%;
   display:grid;place-items:center;margin:-38px auto 8px;
   background:var(--sec);color:#0b1719;
   font:800 .85rem/1 var(--text,Inter,system-ui,sans-serif);
   box-shadow:0 0 0 4px var(--bg,#0b1719);
 }
-html[data-hub="B"] .ppc-journey .ppc-step[data-sec="veterans"] .ppc-step__num,
-html[data-hub="B"] .ppc-support .ppc-step[data-sec="veterans"] .ppc-step__num{
+.ppc-journey .ppc-step[data-sec="veterans"] .ppc-step__num,
+.ppc-support .ppc-step[data-sec="veterans"] .ppc-step__num{
   background:#e2c275;color:#0a2e5c;
 }
-html[data-hub="B"] .ppc-journey .ppc-step h3,
-html[data-hub="B"] .ppc-support .ppc-step h3{font-size:1.22rem;text-align:center}
-html[data-hub="B"] .ppc-journey .ppc-step p,
-html[data-hub="B"] .ppc-support .ppc-step p,
-html[data-hub="B"] .ppc-journey .ppc-step__k,
-html[data-hub="B"] .ppc-support .ppc-step__k{text-align:center}
-html[data-hub="B"] .ppc-journey .ppc-step .pst,
-html[data-hub="B"] .ppc-support .ppc-step .pst{margin:0 auto}
-html[data-hub="B"] .ppc-journey .ppc-step .ppc-btn,
-html[data-hub="B"] .ppc-support .ppc-step .ppc-btn{width:100%}
-html[data-hub="B"] .ppc-guides{
+.ppc-journey .ppc-step h3,
+.ppc-support .ppc-step h3{font-size:1.22rem;text-align:center}
+.ppc-journey .ppc-step p,
+.ppc-support .ppc-step p,
+.ppc-journey .ppc-step__k,
+.ppc-support .ppc-step__k{text-align:center}
+.ppc-journey .ppc-step .pst,
+.ppc-support .ppc-step .pst{margin:0 auto}
+.ppc-journey .ppc-step .ppc-btn,
+.ppc-support .ppc-step .ppc-btn{width:100%}
+.ppc-guides{
   margin-top:16px;padding:16px 18px;border-radius:14px;
   background:color-mix(in srgb,var(--sec) 10%,var(--paper,#11252a));
 }
-html[data-hub="B"] .ppc-support{
+.ppc-support{
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px;
 }
-html[data-hub="B"] .ppc-support .ppc-step{min-height:220px;margin:0}
-html[data-hub="B"] .ppc-com{
+.ppc-support .ppc-step{min-height:220px;margin:0}
+.ppc-com{
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;
   margin-top:8px;border-radius:16px;overflow:hidden;
   box-shadow:inset 0 0 0 1px var(--line,#23413f);
+  width:100%;
 }
-html[data-hub="B"] .ppc-com .ppc-tile{
+.ppc-com .ppc-tile{
   display:flex;flex-direction:column;gap:10px;
   padding:28px 24px;min-height:240px;
   background:color-mix(in srgb,var(--sec) 16%,#0c181c);
   border-right:1px solid color-mix(in srgb,var(--sec) 25%,transparent);
 }
-html[data-hub="B"] .ppc-com .ppc-tile:last-child{border-right:0}
-html[data-hub="B"] .ppc-com .ppc-tile h3{font-size:1.5rem}
-html[data-hub="B"] .ppc-com .ppc-tile:hover{background:color-mix(in srgb,var(--sec) 24%,#0c181c)}
+.ppc-com .ppc-tile:last-child{border-right:0}
+.ppc-com .ppc-tile h3{font-size:1.5rem}
+.ppc-com .ppc-tile:hover{background:color-mix(in srgb,var(--sec) 24%,#0c181c)}
 @media (max-width:900px){
-  html[data-hub="B"] .ppc-journey{grid-template-columns:1fr 1fr}
-  html[data-hub="B"] .ppc-journey::before{display:none}
-  html[data-hub="B"] .ppc-support{grid-template-columns:1fr}
-  html[data-hub="B"] .ppc-com{grid-template-columns:1fr}
-  html[data-hub="B"] .ppc-com .ppc-tile{border-right:0;border-bottom:1px solid color-mix(in srgb,var(--sec) 25%,transparent)}
+  .ppc-journey{grid-template-columns:1fr 1fr}
+  .ppc-journey::before{display:none}
+  .ppc-support{grid-template-columns:1fr}
+  .ppc-com{grid-template-columns:1fr}
+  .ppc-com .ppc-tile{border-right:0;border-bottom:1px solid color-mix(in srgb,var(--sec) 25%,transparent)}
 }
 @media (max-width:620px){
-  html[data-hub="B"] .ppc-journey{grid-template-columns:1fr;gap:18px 0;padding-left:22px}
-  html[data-hub="B"] .ppc-journey::before{
+  .ppc-journey{grid-template-columns:1fr;gap:18px 0;padding-left:22px}
+  .ppc-journey::before{
     display:block;left:10px;right:auto;top:8px;bottom:8px;width:6px;height:auto;
     background:linear-gradient(180deg,#6dc0d6,#e5a35c,#7cc9b5,#0a2e5c);
   }
-  html[data-hub="B"] .ppc-journey .ppc-step,
-  html[data-hub="B"] .ppc-support .ppc-step{margin:0 0 0 8px;min-height:0}
-  html[data-hub="B"] .ppc-journey .ppc-step__num,
-  html[data-hub="B"] .ppc-support .ppc-step__num{margin:-8px 0 8px -28px}
+  .ppc-journey .ppc-step,
+  .ppc-support .ppc-step{margin:0 0 0 8px;min-height:0}
+  .ppc-journey .ppc-step__num,
+  .ppc-support .ppc-step__num{margin:-8px 0 8px -28px}
 }
-
-/* ================================================================
-   OPTION C — Full-width colour strips, one CTA style, editorial type
-   On light fills: all text + secondary buttons are ink #0b1719.
-   ================================================================ */
-html[data-hub="C"] .ppc-plan,
-html[data-hub="C"] .ppc-com{display:flex;flex-direction:column;gap:10px;width:100%}
-html[data-hub="C"] .ppc-strip{
-  display:grid;
-  grid-template-columns:auto minmax(0,1fr) auto;
-  grid-template-areas:
-    "ico kicker btn"
-    "ico title  btn"
-    "ico desc   btn";
-  column-gap:28px;row-gap:4px;align-items:center;
-  padding:26px 28px;border-radius:4px;
-  background:var(--sec);color:#0b1719;
-  min-height:120px;width:100%;
-}
-html[data-hub="C"] .ppc-strip .pst{
-  grid-area:ico;align-self:center;
-  background:#0b1719;color:var(--sec);box-shadow:none;--s:52px;border-radius:12px;
-}
-html[data-hub="C"] .ppc-strip .ppc-strip__k{grid-area:kicker;color:#0b1719;opacity:.85}
-html[data-hub="C"] .ppc-strip h3{grid-area:title;color:#0b1719;font-size:clamp(1.5rem,2.4vw,2.1rem);line-height:1.15}
-html[data-hub="C"] .ppc-strip p{grid-area:desc;font-size:1rem;max-width:36rem;color:#0b1719}
-html[data-hub="C"] .ppc-strip .ppc-btn{grid-area:btn;min-width:180px;margin-top:0;align-self:center;justify-self:end}
-html[data-hub="C"] .ppc-strip .ppc-btn--pri{background:#0b1719;color:#f5ecd6}
-html[data-hub="C"] .ppc-strip .ppc-btn--sec{background:transparent;color:#0b1719;box-shadow:inset 0 0 0 1.5px #0b1719}
-html[data-hub="C"] .ppc-strip[data-sec="veterans"]{
-  background:#0a2e5c;color:#f5ecd6;
-}
-html[data-hub="C"] .ppc-strip[data-sec="veterans"] .ppc-strip__k,
-html[data-hub="C"] .ppc-strip[data-sec="veterans"] h3{color:#f5ecd6}
-html[data-hub="C"] .ppc-strip[data-sec="veterans"] p{color:#d9d0bb}
-html[data-hub="C"] .ppc-strip[data-sec="veterans"] .pst{background:#e2c275;color:#0a2e5c}
-html[data-hub="C"] .ppc-strip[data-sec="veterans"] .ppc-btn--pri{background:#F0D58C;color:#0a2e5c}
-html[data-hub="C"] .ppc-strip[data-sec="veterans"] .ppc-btn--sec{color:#F0D58C;box-shadow:inset 0 0 0 1.5px #e2c275}
-html[data-hub="C"] .ppc-guides{
-  padding:18px 22px;border-radius:4px;margin:0;width:100%;
-  background:color-mix(in srgb,var(--sec) 22%,#0b1719);
-}
-html[data-hub="C"] .ppc-guides .ppc-chip{background:#0b1719;color:#f5ecd6;box-shadow:inset 0 0 0 1.5px var(--sec)}
-html[data-hub="C"] .ppc-com .ppc-strip{min-height:150px;width:100%}
-html[data-hub="C"] .ppc-strip:hover{filter:brightness(1.05)}
-@media (max-width:800px){
-  html[data-hub="C"] .ppc-strip{
-    grid-template-columns:auto minmax(0,1fr);
-    grid-template-areas:
-      "ico kicker"
-      "ico title"
-      "ico desc"
-      "btn btn";
-    padding:20px 18px;column-gap:16px;row-gap:4px;
-  }
-  html[data-hub="C"] .ppc-strip .ppc-btn{justify-self:stretch;min-width:0;width:100%;margin-top:10px}
-}
-@media (max-width:520px){
-  html[data-hub="C"] .ppc-strip{
-    grid-template-columns:1fr;
-    grid-template-areas:"ico" "kicker" "title" "desc" "btn";
-    padding:18px 16px;
-  }
-  html[data-hub="C"] .ppc-strip .pst{--s:44px}
-  html[data-hub="C"] .ppc-strip .ppc-btn{width:100%;justify-self:stretch}
-}
-
-/* Shared structure: unwrap journey/support when not B */
-html:not([data-hub="B"]) .ppc-journey{display:contents}
-html:not([data-hub="B"]) .ppc-support{display:contents}
-html:not([data-hub="B"]) .ppc-step__num{display:none}
