@@ -758,3 +758,118 @@ header.top .nav a{
     padding-left:3px;
   }
 }
+
+/* ==== Section colour system (2026-11-17)
+   Same contract as the live home journey (option B):
+   explicit --sec per [data-sec] / .theme-*, .btn solid fill + ink,
+   .btn.ghost outline in the section colour.
+   html.theme-map does not remap --pri/--acc (homepage map gold stays on the map).
+   Does not change header chrome, USA/CA/MX map fills, or the search icon. */
+
+.theme-flight, [data-sec="flight"]{--sec:#6dc0d6}
+.theme-hotel,  [data-sec="hotel"]{--sec:#de8ca8}
+.theme-ground, [data-sec="ground"]{--sec:#e48b70}
+.theme-shop,   [data-sec="shop"]{--sec:#e5a35c}
+.theme-law,    [data-sec="law"]{--sec:#8b9ce2}
+.theme-forum,  [data-sec="forum"]{--sec:#7ec78c}
+.theme-grooming,[data-sec="grooming"]{--sec:#b98ce0}
+.theme-vet,    [data-sec="vet"]{--sec:#7cc9b5}
+.theme-k9,     [data-sec="k9"]{--sec:#cfa57a}
+.theme-service,[data-sec="service"]{--sec:#86aee6}
+.theme-veterans,[data-sec="veterans"]{--sec:#0a2e5c;--sec-spot:#e2c275}
+.theme-b2b,    [data-sec="b2b"]{--sec:#8b9ce2}
+.theme-map,    [data-sec="map"]{--sec:#dfc06b}
+
+/* On section pages, kickers, links and default buttons follow the section token.
+   Exclude theme-map so the world-map homepage does not go all-gold. */
+html[class*="theme-"]:not(.theme-map):not(.theme-veterans){
+  --sec:var(--theme-accent);
+  --pri:var(--theme-accent);
+  --acc:var(--theme-accent);
+  --on-pri:#0b1719;
+}
+
+.btn{
+  background:var(--sec, var(--pri));
+  color:var(--on-pri, #0b1719);
+}
+.btn.ghost{
+  background:transparent;
+  color:var(--head);
+  box-shadow:inset 0 0 0 1.5px var(--sec, var(--theme-accent, var(--line2)));
+}
+.btn.book-cta{
+  background:var(--sec, var(--pri));
+  color:#0b1719;
+  box-shadow:0 10px 28px color-mix(in srgb, var(--sec, var(--pri)) 25%, transparent);
+}
+.btn.book-cta:hover{
+  background:var(--sec, var(--pri));
+  filter:brightness(1.06);
+}
+a.btn.btn-navy, a.btn-navy, .btn-navy{
+  background:#0a2e5c;
+  color:#F0D58C;
+  box-shadow:inset 0 0 0 1.5px #e2c275;
+}
+a.btn.btn-navy:hover, a.btn-navy:hover, .btn-navy:hover{
+  background:#071e3c;
+  color:#F0D58C;
+}
+
+html.theme-veterans, body.theme-veterans{
+  --sec:#0a2e5c;
+  --sec-spot:#e2c275;
+  --pri:#e2c275;
+  --on-pri:#0a2e5c;
+  --acc:#e2c275;
+  --link:#e2c275;
+  --gold:#e2c275;
+  --gold-l:#F0D58C;
+}
+html.theme-veterans .btn, body.theme-veterans .btn{
+  background:#F0D58C;
+  color:#0a2e5c;
+}
+html.theme-veterans .btn.ghost, body.theme-veterans .btn.ghost{
+  background:transparent;
+  color:#F0D58C;
+  box-shadow:inset 0 0 0 1.5px #e2c275;
+}
+
+/* Cards / kickers: section colour when --sec is in scope */
+.card .k{color:var(--sec, var(--acc))}
+.card:hover{border-color:var(--sec, var(--acc))}
+
+/* Footer: subtle section tint on destination links (href match; relative paths vary).
+   Mix with --foot-ink so the column stays quiet. */
+.foot a[href*="vet-info"],
+.foot a[href*="vet-prep"],
+.foot a[href*="titer-calculator"],
+.foot a[href*="partner-vets"],
+.foot a[href*="clinics/"]{color:color-mix(in srgb, #7cc9b5 62%, var(--foot-ink, #cfc6b0))}
+.foot a[href*="airlines"],
+.foot a[href*="routes/"],
+.foot a[href*="airport"],
+.foot a[href*="passport"],
+.foot a[href*="field-guides"]{color:color-mix(in srgb, #6dc0d6 62%, var(--foot-ink, #cfc6b0))}
+.foot a[href*="products"],
+.foot a[href*="fit/"],
+.foot a[href*="#gear"]{color:color-mix(in srgb, #e5a35c 62%, var(--foot-ink, #cfc6b0))}
+.foot a[href*="hotels"],
+.foot a[href*="hotel-pets"]{color:color-mix(in srgb, #de8ca8 62%, var(--foot-ink, #cfc6b0))}
+.foot a[href*="taxi"]{color:color-mix(in srgb, #e48b70 62%, var(--foot-ink, #cfc6b0))}
+.foot a[href*="grooming"]{color:color-mix(in srgb, #b98ce0 62%, var(--foot-ink, #cfc6b0))}
+.foot a[href*="forum"]{color:color-mix(in srgb, #7ec78c 62%, var(--foot-ink, #cfc6b0))}
+.foot a[href*="k9"]{color:color-mix(in srgb, #cfa57a 62%, var(--foot-ink, #cfc6b0))}
+.foot a[href*="veterans"],
+.foot a[href*="military-pcs"]{color:color-mix(in srgb, #e2c275 62%, var(--foot-ink, #cfc6b0))}
+.foot a[href*="/pro"],
+.foot a[href*="pro/"],
+.foot a[href*="widgets"]{color:color-mix(in srgb, #8b9ce2 62%, var(--foot-ink, #cfc6b0))}
+.foot a[href*="updates"],
+.foot a[href*="countries/"]{color:color-mix(in srgb, #8b9ce2 62%, var(--foot-ink, #cfc6b0))}
+.foot a[href*="view=map"]{color:color-mix(in srgb, #dfc06b 55%, var(--foot-ink, #cfc6b0))}
+.foot a:hover{filter:brightness(1.08)}
+.foot .soc a{color:inherit;filter:none}
+.foot .disc a{color:inherit}

@@ -1,70 +1,93 @@
-/* Page-scoped institutional navy for veterans / military / passport section.
-   Opt in with <body class="v-c theme-navy">. Does not alter other pages. */
-body.theme-navy{
-  --bg:#001f3f;--paper:#03284f;--ink:#f4f6fa;--mut:#b8c4d4;--head:#f4f6fa;--link:#e2c275;
-  --pri:#d9b765;--on-pri:#001f3f;--acc:#d9b765;--gold:#d9b765;--gold-l:#e2c275;
-  --line:rgba(217,183,101,.28);--line2:rgba(217,183,101,.42);--chip:#06315e;--zebra:#042a52;
-  --hdr:rgba(0,31,63,.94);--foot:#001526;--foot-ink:#c9d3e0;--panel-h:#03284f;--panel-h-ink:#f4f6fa;
-  --field:#001f3f;--field-b:rgba(217,183,101,.35);--th:#03284f;--border:#001f3f;
+/* Institutional navy + gold for Veterans / Military PCS (and the Passport tool,
+   which still opts in with body.theme-navy). Official veterans token is
+   --theme-veterans #0a2e5c with gold #e2c275 / #F0D58C — not the older #001f3f.
+   Does not restyle the site header (blue header stays). */
+
+body.theme-navy,
+body.theme-veterans,
+html.theme-veterans body{
+  --theme-veterans:#0a2e5c;
+  --sec:#0a2e5c;
+  --sec-spot:#e2c275;
+  --bg:#0a2e5c;--paper:#0e3a6a;--ink:#f4f6fa;--mut:#b8c4d4;--head:#f4f6fa;--link:#e2c275;
+  --pri:#e2c275;--on-pri:#0a2e5c;--acc:#e2c275;--gold:#e2c275;--gold-l:#F0D58C;
+  --line:rgba(226,194,117,.28);--line2:rgba(226,194,117,.42);--chip:#134a7a;--zebra:#0c3470;
+  --hdr:var(--hdr, #0b1719e6);--foot:#061525;--foot-ink:#c9d3e0;--panel-h:#0e3a6a;--panel-h-ink:#f4f6fa;
+  --field:#0a2e5c;--field-b:rgba(226,194,117,.35);--th:#0e3a6a;--border:#0a2e5c;
   --wall:none;
-  background:#001f3f !important;color:#f4f6fa;
+  background:#0a2e5c !important;color:#f4f6fa;
 }
-/* Kill mineral wallpaper tile so navy is the visible surface */
-body.theme-navy::before{
+body.theme-navy::before,
+body.theme-veterans::before,
+html.theme-veterans body::before{
   background:
-    radial-gradient(ellipse 90% 55% at 12% -10%, #06315e 0%, transparent 58%),
-    radial-gradient(ellipse 70% 50% at 92% 110%, #03284f 0%, transparent 55%),
-    linear-gradient(180deg, #001f3f 0%, #001a35 48%, #001526 100%) !important;
+    radial-gradient(ellipse 90% 55% at 12% -10%, #134a7a 0%, transparent 58%),
+    radial-gradient(ellipse 70% 50% at 92% 110%, #0e3a6a 0%, transparent 55%),
+    linear-gradient(180deg, #0a2e5c 0%, #08254c 48%, #061525 100%) !important;
   background-size:auto !important;opacity:1;
 }
-/* Keep site header banner chrome intact (pastilles / Inter) — only tint the bar surface */
-body.theme-navy .top{background:rgba(0,31,63,.94);border-bottom:1px solid rgba(217,183,101,.28)}
-body.theme-navy .foot{background:#001526;color:#c9d3e0}
+/* Footer may follow the navy page; do not restyle header.top (blue header stays). */
+body.theme-navy .foot,
+body.theme-veterans .foot,
+html.theme-veterans .foot{background:#061525;color:#c9d3e0}
 
-/* Shared growth-card / button surfaces used on veterans + military-pcs */
-body.theme-navy .growth-hero h1{color:#f4f6fa}
-body.theme-navy .growth-hero .sub{color:#b8c4d4}
-body.theme-navy .gcard{
-  border:1px solid rgba(217,183,101,.35);
-  background:linear-gradient(165deg,rgba(6,49,94,.92),rgba(3,40,79,.88));
+body.theme-navy .growth-hero h1,
+body.theme-veterans .growth-hero h1{color:#f4f6fa}
+body.theme-navy .growth-hero .sub,
+body.theme-veterans .growth-hero .sub{color:#b8c4d4}
+body.theme-navy .gcard,
+body.theme-veterans .gcard{
+  border:1px solid rgba(226,194,117,.35);
+  background:linear-gradient(165deg,rgba(14,58,106,.92),rgba(10,46,92,.88));
   box-shadow:0 8px 28px rgba(0,0,0,.28);
   color:#f4f6fa;
 }
-body.theme-navy .gcard h2,body.theme-navy .gcard h3{color:#e2c275}
-body.theme-navy .btn{background:#d9b765;color:#001f3f}
-body.theme-navy .btn.ghost{background:transparent;color:#e2c275;border:1px solid rgba(217,183,101,.45)}
-body.theme-navy input,body.theme-navy select{
-  border:1px solid rgba(217,183,101,.35);background:#001f3f;color:#f4f6fa;
+body.theme-navy .gcard h2,body.theme-navy .gcard h3,
+body.theme-veterans .gcard h2,body.theme-veterans .gcard h3{color:#e2c275}
+body.theme-navy .btn,
+body.theme-veterans .btn{background:#F0D58C;color:#0a2e5c}
+body.theme-navy .btn.ghost,
+body.theme-veterans .btn.ghost{background:transparent;color:#F0D58C;border:1px solid rgba(226,194,117,.45);box-shadow:inset 0 0 0 1.5px #e2c275}
+body.theme-navy input,body.theme-navy select,
+body.theme-veterans input,body.theme-veterans select{
+  border:1px solid rgba(226,194,117,.35);background:#0a2e5c;color:#f4f6fa;
 }
-body.theme-navy .privacy{color:#b8c4d4;border-left-color:#d9b765}
-body.theme-navy a:not(.btn):not(.brand):not(.sec){color:#e2c275}
+body.theme-navy .privacy,
+body.theme-veterans .privacy{color:#b8c4d4;border-left-color:#e2c275}
+body.theme-navy a:not(.btn):not(.brand):not(.sec),
+body.theme-veterans a:not(.btn):not(.brand):not(.sec){color:#e2c275}
 
-/* Passport tool surfaces pick up navy tokens */
 body.theme-navy #ppc-passport form,
-body.theme-navy #ppc-passport .card{
-  background:var(--paper,#03284f);
-  border-color:var(--line,rgba(217,183,101,.28));
+body.theme-navy #ppc-passport .card,
+body.theme-veterans #ppc-passport form,
+body.theme-veterans #ppc-passport .card{
+  background:var(--paper,#0e3a6a);
+  border-color:var(--line,rgba(226,194,117,.28));
   color:var(--ink,#f4f6fa);
 }
 body.theme-navy #ppc-passport form select,
-body.theme-navy #ppc-passport form input{
-  background:var(--field,#001f3f);
-  border-color:var(--field-b,rgba(217,183,101,.35));
+body.theme-navy #ppc-passport form input,
+body.theme-veterans #ppc-passport form select,
+body.theme-veterans #ppc-passport form input{
+  background:var(--field,#0a2e5c);
+  border-color:var(--field-b,rgba(226,194,117,.35));
   color:var(--ink,#f4f6fa);
 }
-body.theme-navy #ppc-passport form button{
-  background:var(--gold,#d9b765);color:#001f3f;
+body.theme-navy #ppc-passport form button,
+body.theme-veterans #ppc-passport form button{
+  background:#F0D58C;color:#0a2e5c;
 }
-body.theme-navy #ppc-passport .tl li{border-bottom-color:rgba(217,183,101,.18)}
-body.theme-navy #ppc-passport .trap{background:#2a2418}
-body.theme-navy #ppc-passport .trap.critical{background:#2a1818}
+body.theme-navy #ppc-passport .tl li,
+body.theme-veterans #ppc-passport .tl li{border-bottom-color:rgba(226,194,117,.18)}
+body.theme-navy #ppc-passport .trap,
+body.theme-veterans #ppc-passport .trap{background:#2a2418}
+body.theme-navy #ppc-passport .trap.critical,
+body.theme-veterans #ppc-passport .trap.critical{background:#2a1818}
 
-/* Home / tools-hub entry chips that deep-link into the navy section */
 a.btn.btn-navy,a.btn-navy{
-  background:#03284f !important;color:#e2c275 !important;
-  border:1px solid rgba(217,183,101,.45) !important;
-  box-shadow:inset 0 0 0 1px rgba(0,31,63,.55);
+  background:#0a2e5c;color:#F0D58C;
+  box-shadow:inset 0 0 0 1.5px #e2c275;
 }
 a.btn.btn-navy:hover,a.btn-navy:hover{
-  background:#001f3f !important;color:#f4f6fa !important;
+  background:#071e3c;color:#F0D58C;
 }

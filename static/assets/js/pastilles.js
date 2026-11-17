@@ -57,14 +57,19 @@ function boot(){
  var onCountryMap=/\/countries\/(?:usa|canada|mexico)-map\.html$/.test(path);
  var cur=document.documentElement.dataset.section||(
   /\/airlines\//.test(path)?'flight':/\/hotels\//.test(path)?'hotel':/\/taxi\//.test(path)?'ground':
-  /\/products\//.test(path)?'shop':/\/countries\/usa\.html/.test(path)?'law':/\/forum\//.test(path)?'forum':/\/grooming\//.test(path)?'grooming':
-  /\/veterans\//.test(path)?'veterans':
-  /\/(?:pro|b2b-pet-desk)\/?$|\/(?:terms|refund-policy|privacy)\.html/.test(path)?'b2b':
+  /\/products\//.test(path)||/\/fit\//.test(path)?'shop':
+  /\/countries\/[^/]+-map\.html/.test(path)?'':/\/countries\//.test(path)||/\/updates\.html$/.test(path)?'law':
+  /\/forum\//.test(path)?'forum':/\/grooming\//.test(path)?'grooming':
+  /\/k9\//.test(path)?'k9':/\/veterans\//.test(path)||/\/military-pcs\//.test(path)?'veterans':
+  /\/vet-info\//.test(path)||/\/vet-prep\//.test(path)||/\/titer-calculator\//.test(path)||/\/partner-vets\//.test(path)||/\/clinics\//.test(path)?'vet':
+  /\/routes\//.test(path)||/\/airport\//.test(path)||/\/field-guides\//.test(path)?'flight':
+  /\/(?:pro|b2b-pet-desk|widgets)\/?/.test(path)?'b2b':
+  /\/(?:terms|refund-policy|privacy)\.html/.test(path)?'':
   onCountryMap?'':(/usa-map|\/map/.test(path)?'map':''));
  /* Homepage unlocked world-map view (?view=map) marks World map current */
  try{ if((path==='/'||path==='/es'||path==='/es/'||path==='/it'||path==='/it/'||/\/(index\.html)?$/.test(path)) && new URLSearchParams(location.search).get('view')==='map') cur='map'; }catch(e){}
- var PAST_IT={map:'Mappa del mondo',flight:'Compagnie aeree',hotel:'Hotel',grooming:'Toelettatura',ground:'Trasferimenti',shop:'Prodotti',law:'Norme',forum:'Forum',veterans:'Veterani',b2b:'Per le aziende',Compare:'Confronta',Guides:'Guide',Updates:'Aggiornamenti',About:'Chi siamo'};
- var PAST_ES={map:'Mapa mundial',flight:'Aerolíneas',hotel:'Hoteles',grooming:'Peluquería',ground:'Traslados',shop:'Productos',law:'Normas',forum:'Foro',veterans:'Veteranos',b2b:'Para empresas',Compare:'Comparar',Guides:'Guías',Updates:'Actualizaciones',About:'Acerca de'};
+ var PAST_IT={map:'Mappa del mondo',flight:'Compagnie aeree',hotel:'Hotel',grooming:'Toelettatura',ground:'Trasferimenti',shop:'Prodotti',law:'Norme',forum:'Forum',vet:'Veterinario',k9:'K9',service:'Cani di servizio',veterans:'Veterani',b2b:'Per le aziende',Compare:'Confronta',Guides:'Guide',Updates:'Aggiornamenti',About:'Chi siamo'};
+ var PAST_ES={map:'Mapa mundial',flight:'Aerolíneas',hotel:'Hoteles',grooming:'Peluquería',ground:'Traslados',shop:'Productos',law:'Normas',forum:'Foro',vet:'Veterinario',k9:'K9',service:'Perros de servicio',veterans:'Veteranos',b2b:'Para empresas',Compare:'Comparar',Guides:'Guías',Updates:'Actualizaciones',About:'Acerca de'};
  var locPack=ppcLangRoot==='/it'?PAST_IT:(ppcLangRoot==='/es'?PAST_ES:null);
  var plab=function(en,key){return locPack&&locPack[key||en]?locPack[key||en]:en;};
  var V=(new URLSearchParams(location.search).get('nav'))||document.documentElement.dataset.nav||'8';
@@ -107,7 +112,7 @@ function boot(){
  if(onCountryMap&&h1&&!document.querySelector('.sec-eyebrow')){
   h1.insertAdjacentHTML('beforebegin','<a class="sec-eyebrow theme-map" href="'+ppcHref('?view=map')+'" style="text-decoration:none;cursor:pointer;pointer-events:auto;touch-action:manipulation">'+pst('map','pst-lg')+'<span data-i18n="site.nav.world_back">\u2190 World map</span></a>');
  }else if(cur&&h1&&!document.querySelector('.sec-eyebrow')){
-  var L={map:plab('World map','map'),flight:plab('Airlines','flight'),hotel:plab('Hotels','hotel'),ground:plab('Rides','ground'),shop:plab('Products','shop'),law:ppcLangRoot==='/es'?'Normas y certificado de salud':(ppcLangRoot==='/it'?'Norme e certificato sanitario':'Rules & health certificate'),forum:plab('Forum','forum'),grooming:ppcLangRoot==='/es'?'Cuidado y peluquería (viaje + expat)':(ppcLangRoot==='/it'?'Cura e toelettatura (viaggio + expat)':'Care & Grooming (Travel + Expat)'),veterans:plab('Veterans','veterans'),b2b:plab('For Business','b2b')||'B2B Pet Desk'};
+  var L={map:plab('World map','map'),flight:plab('Airlines','flight'),hotel:plab('Hotels','hotel'),ground:plab('Rides','ground'),shop:plab('Products','shop'),law:ppcLangRoot==='/es'?'Normas y certificado de salud':(ppcLangRoot==='/it'?'Norme e certificato sanitario':'Rules & health certificate'),forum:plab('Forum','forum'),grooming:ppcLangRoot==='/es'?'Cuidado y peluquería (viaje + expat)':(ppcLangRoot==='/it'?'Cura e toelettatura (viaggio + expat)':'Care & Grooming (Travel + Expat)'),veterans:plab('Veterans','veterans'),k9:ppcLangRoot==='/es'?'K9 · Perros de trabajo':(ppcLangRoot==='/it'?'K9 · Cani da lavoro':'K9 · Working dogs'),vet:ppcLangRoot==='/es'?'Clínica · Info veterinaria':(ppcLangRoot==='/it'?'Ambulatorio · Info veterinarie':'Clinic · Vet info'),service:plab('Service dogs','service'),b2b:plab('For Business','b2b')||'B2B Pet Desk'};
   h1.insertAdjacentHTML('beforebegin','<div class="sec-eyebrow theme-'+cur+'">'+pst(cur,'pst-lg')+'<span>'+L[cur]+'</span></div>');
  }
 
