@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 
 <html data-ppc-locale="es" class="intro-lock" lang="es"><head>
+<script>
+/* Plan faster + Community preview: ?opt=A|B|C (default A). */
+(function(){try{var o=new URLSearchParams(location.search).get("opt");if(o&&/^[abc]$/i.test(o))document.documentElement.setAttribute("data-hub",o.toUpperCase());}catch(e){}})();
+</script>
+
 <meta charset="utf-8"/>
 
 <script>
@@ -236,6 +241,7 @@ html.intro-lock .vas-grid{overflow:visible !important;flex:0 0 auto !important}
 <link as="font" crossorigin="" href="../assets/fonts/inter-var-latin.woff2" rel="preload" type="font/woff2"/><link as="font" crossorigin="" href="../assets/fonts/marcellus-latin.woff2" rel="preload" type="font/woff2"/>
 <link href="../assets/css/theme.css?v=20261117sb1" rel="stylesheet"/>
 <link href="../assets/css/home-c.css?v=20261114br4" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/css/home-hubs.css?v=20261117pf2">
 <link href="../assets/css/story.css?v=20261024" rel="stylesheet"/>
 <link href="../assets/css/story-b.css?v=20261024" rel="stylesheet"/>
 <link href="../assets/css/intro-a.css?v=20261111intro390c" rel="stylesheet"/>
@@ -347,17 +353,36 @@ html.map-view #world-map{width:100%;height:100%}
 <div class="mapfoot"><span class="mhint">Pince con dos dedos para hacer zoom; deslice de lado para mover el mapa. </span><span class="dhint">Arrastre para mover, Ctrl/⌘ + rueda para zoom. </span>Haga clic en un país para ver sus normas de importación de perros y gatos. <a href="/countries/usa-map.html">Estados Unidos: abrir el mapa de los 50 estados</a>. Mapa: Natural Earth vía world-atlas (dominio público).</div>
 </div></div>
 
-<section class="blk wrap" id="tools-hub" style="padding-top:8px">
+<section class="blk wrap ppc-hubs" id="tools-hub">
+<header class="ppc-hubs__head">
 <h2 data-i18n="home.tools.h2">Planifique más rápido</h2>
 <p class="sub" data-i18n="home.tools.sub">Nuevas herramientas gratuitas para corredores, transportadoras, mudanzas PCS y veteranos — mismas fuentes verificadas.</p>
-<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px">
-<a class="btn" data-i18n="home.tools.routes" href="/es/routes/">Guías ruta × aerolínea</a>
-<a class="btn ghost" data-i18n="home.tools.fit" href="/fit/">Verificación de ajuste bajo el asiento</a>
-<a class="btn ghost" data-i18n="home.tools.titer" href="/titer-calculator/">Cuenta atrás del test de anticuerpos</a>
-<a class="btn ghost" data-i18n="home.tools.embeds" href="/widgets/">Insertables gratuitos</a>
-<a class="btn ghost btn-navy" data-i18n="home.tools.pcs" href="/military-pcs/">PCS militar</a>
-<a class="btn ghost" data-i18n="home.tools.volunteer" href="/flight-volunteer/">Kit de voluntario de vuelo</a>
-<a class="btn ghost btn-navy" data-i18n="home.tools.veterans" href="/veterans/">Veteranos y perros de servicio</a>
+</header>
+<div class="ppc-plan">
+<div class="ppc-journey">
+<a class="ppc-blk ppc-tile ppc-step ppc-strip ppc-tile--hero theme-flight" data-sec="flight" href="/es/routes/"><span class="ppc-step__num">1</span><span class="pst theme-flight pst-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#pst-flight"/></svg></span><span class="ppc-tile__k ppc-step__k ppc-strip__k">Avión</span><h3 data-i18n="home.tools.routes">Guías ruta × aerolínea</h3><p>Normas por corredor y aerolínea, con fuentes oficiales detrás de cada cifra.</p><span class="ppc-btn ppc-btn--pri">Abrir las guías</span></a>
+<a class="ppc-blk ppc-tile ppc-step ppc-strip ppc-tile--mid theme-shop" data-sec="shop" href="/fit/"><span class="ppc-step__num">2</span><span class="pst theme-shop pst-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#pst-shop"/></svg></span><span class="ppc-tile__k ppc-step__k ppc-strip__k">Productos</span><h3 data-i18n="home.tools.fit">Verificación de ajuste bajo el asiento</h3><p>Compruebe si su transportadora cabe bajo el asiento antes de reservar.</p><span class="ppc-btn ppc-btn--sec">Abrir</span></a>
+<a class="ppc-blk ppc-tile ppc-step ppc-strip ppc-tile--mid theme-vet" data-sec="vet" href="/titer-calculator/"><span class="ppc-step__num">3</span><span class="pst theme-vet pst-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#pst-vet"/></svg></span><span class="ppc-tile__k ppc-step__k ppc-strip__k">Veterinario</span><h3 data-i18n="home.tools.titer">Cuenta atrás del test de anticuerpos</h3><p>La cuenta atrás de la ventana del test de anticuerpos antirrábicos.</p><span class="ppc-btn ppc-btn--sec">Abrir</span></a>
+<a class="ppc-blk ppc-tile ppc-step ppc-strip ppc-tile--sm theme-veterans" data-sec="veterans" href="/veterans/"><span class="ppc-step__num">4</span><span class="pst theme-veterans pst-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#pst-veterans"/></svg></span><span class="ppc-tile__k ppc-step__k ppc-strip__k">Veteranos</span><h3 data-i18n="home.tools.veterans">Veterans & service dogs</h3><p>Normas y apoyo para veteranos y perros de servicio.</p><span class="ppc-btn ppc-btn--pri">Abrir</span></a>
+</div>
+<div class="ppc-support">
+<a class="ppc-blk ppc-tile ppc-step ppc-strip ppc-tile--sm theme-veterans" data-sec="veterans" href="/military-pcs/"><span class="pst theme-veterans pst-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#pst-veterans"/></svg></span><span class="ppc-tile__k ppc-step__k ppc-strip__k">Veteranos</span><h3 data-i18n="home.tools.pcs">PCS militar</h3><p>Mudarse con una mascota en un traslado militar PCS.</p><span class="ppc-btn ppc-btn--sec">Abrir</span></a>
+<a class="ppc-blk ppc-tile ppc-step ppc-strip ppc-tile--sm theme-flight" data-sec="flight" href="/flight-volunteer/"><span class="pst theme-flight pst-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#pst-flight"/></svg></span><span class="ppc-tile__k ppc-step__k ppc-strip__k">Avión</span><h3 data-i18n="home.tools.volunteer">Kit de voluntario de vuelo</h3><p>Un kit para voluntarios que vuelan con mascotas.</p><span class="ppc-btn ppc-btn--sec">Abrir</span></a>
+<a class="ppc-blk ppc-tile ppc-step ppc-strip ppc-tile--sm theme-b2b" data-sec="b2b" href="/widgets/"><span class="pst theme-b2b pst-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#pst-b2b"/></svg></span><span class="ppc-tile__k ppc-step__k ppc-strip__k">Para empresas</span><h3 data-i18n="home.tools.embeds">Insertables gratuitos</h3><p>Widgets para su propio sitio, sin coste.</p><span class="ppc-btn ppc-btn--sec">Abrir</span></a>
+</div>
+<div class="ppc-guides" id="usa-route-guides"><p class="ppc-guides__lbl">Guías completas de corredores</p><a class="ppc-chip theme-flight" data-sec="flight" href="/es/routes/usa-canada.html">EE. UU. ↔ Canadá</a><a class="ppc-chip theme-flight" data-sec="flight" href="/es/routes/usa-to-australia.html">EE. UU. ↔ Australia</a><a class="ppc-chip theme-flight" data-sec="flight" href="/es/routes/usa-mexico.html">EE. UU. ↔ México</a><a class="ppc-chip theme-flight" data-sec="flight" href="/es/routes/usa-uk.html">EE. UU. ↔ Reino Unido</a><a class="ppc-chip theme-flight" data-sec="flight" href="/es/routes/usa-to-japan.html">EE. UU. ↔ Japón</a><a class="ppc-chip theme-flight" data-sec="flight" href="/es/routes/usa-france.html">EE. UU. ↔ Francia</a></div>
+</div>
+</section>
+
+<section class="blk wrap ppc-hubs" id="community">
+<header class="ppc-hubs__head">
+<h2>De la comunidad</h2>
+<p class="sub">Viajes reales de dueños reales.</p>
+</header>
+<div class="ppc-com">
+<a class="ppc-blk ppc-tile ppc-step ppc-strip theme-forum" data-sec="forum" href="/forum/"><span class="pst theme-forum pst-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#pst-forum"/></svg></span><span class="ppc-tile__k ppc-step__k ppc-strip__k">Foro</span><h3>Foro de viaje con mascotas</h3><p>Haga preguntas y comparta su experiencia de vuelo (EN/KO).</p><span class="ppc-btn ppc-btn--pri">Abrir</span></a>
+<a class="ppc-blk ppc-tile ppc-step ppc-strip theme-forum" data-sec="forum" href="/forum/pet-travel-stories/"><span class="pst theme-forum pst-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#pst-forum"/></svg></span><span class="ppc-tile__k ppc-step__k ppc-strip__k">Historias</span><h3>Historias de viaje con mascotas</h3><p>Lo que dicen los dueños sobre volar con perros y gatos.</p><span class="ppc-btn ppc-btn--sec">Abrir</span></a>
+<a class="ppc-blk ppc-tile ppc-step ppc-strip theme-law" data-sec="law" href="/updates.html"><span class="pst theme-law pst-lg" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#pst-law"/></svg></span><span class="ppc-tile__k ppc-step__k ppc-strip__k">Actualizaciones</span><h3>Registro de cambios de política</h3><p>Cada cambio de norma de aerolínea que detectamos, con fecha.</p><span class="ppc-btn ppc-btn--sec">Abrir</span></a>
 </div>
 </section>
 <section aria-labelledby="plan-trip-h" class="blk wrap book-home" id="plan-trip"><h2 id="plan-trip-h">Planifique y reserve todo su viaje con mascota en un solo lugar</h2><p class="sub">Vuelos, hoteles que admiten mascotas y traslados al aeropuerto con su perro o gato: todo listo antes de irse.</p><div class="bh-grid"><div class="book-g"><h3><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 2h6v3h1.6c.9 0 1.6.6 1.9 1.4L20 11c1.1.2 2 1.2 2 2.4V19h-2v2h-3v-2H7v2H4v-2H2v-5.6c0-1.2.9-2.2 2-2.4l1.5-4.6C5.8 5.6 6.5 5 7.4 5H9zM7.6 7 6.4 11h11.2l-1.2-4zM6 14a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm12 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"></path></svg>Traslados al aeropuerto con su mascota</h3><ul class="book-ride"><li><b>Uber Pet:</b> 1 mascota (un animal pequeño como perro o gato); mascotas adicionales a discreción del conductor; sin límites de raza o tamaño. Cuesta más que otras opciones (se muestra en la tarifa anticipada); puede aplicar cargo de limpieza por desechos, pelo o daños. <a href="https://help.uber.com/en/riders/article/uber-pet-pet-friendly-rides?nodeId=e4468070-c193-41cf-b792-fa66ecfb1163" rel="noopener" target="_blank">Ayuda de Uber ↗</a></li><li><b>Lyft Pet:</b> 1 animal bien comportado, hasta 4 personas, solo EE. UU. Cargo adicional que va al conductor (página de conductores de Lyft: bono de $4 por viaje Pet). Mascota en transportadora, sobre una manta o a sus pies. <a href="https://help.lyft.com/hc/en-us/all/articles/8559088908-Pet-rides-for-riders" rel="noopener" target="_blank">Ayuda de Lyft ↗</a></li><li><b>Robotaxis:</b> Waymo, Zoox y Tesla Robotaxi no admiten mascotas; solo animales de servicio. <a href="https://support.google.com/waymo/answer/9059341?hl=en" rel="noopener" target="_blank">Waymo ↗</a> · <a href="https://zoox.com/support" rel="noopener" target="_blank">Zoox ↗</a> · <a href="https://www.tesla.com/support/robotaxi" rel="noopener" target="_blank">Tesla Robotaxi ↗</a></li></ul><p class="book-disc">Los animales de servicio viajan en Uber y Lyft sin cargo extra incluso sin un viaje Pet (páginas de ayuda de Uber y Lyft). Páginas oficiales verificadas <time datetime="2026-10-24">24 oct 2026</time>; sin enlaces de afiliados. <a href="https://petpolicycheck.com/countries/usa.html#book">Detalles</a>.</p></div><div class="book-g"><h3><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 2h12v6h4v14H4zm2 2v16h3v-3h2v3h3V4zm10 6v10h2V10zM8 6h2v2H8zm4 0h2v2h-2zM8 10h2v2H8zm4 0h2v2h-2zM8 14h2v2H8zm4 0h2v2h-2z"></path></svg>Hoteles que admiten mascotas</h3><p class="bh-p">Tarifas de cadenas, límites de peso y número de mascotas, más áreas de alivio en aeropuertos y parques para perros, según fuentes oficiales. Elija una ciudad:</p><ul class="book-cities"><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-orlando.html">Orlando, FL</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-new-york.html">Nueva York</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-miami.html">Miami, FL</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-los-angeles.html">Los Angeles, CA</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-chicago.html">Chicago, IL</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-austin.html">Austin, TX</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-detroit.html">Detroit, MI</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-houston.html">Houston, TX</a></li><li><a class="all" href="https://petpolicycheck.com/es/hotels/">Todas las cadenas: tarifas y límites de peso</a></li></ul><p class="bh-p bh-lux"><b>Hoteles de lujo</b> defina las normas para mascotas hotel por hotel:</p><ul class="book-cities"><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-orlando.html#luxury">Orlando, FL</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-new-york.html#luxury">Nueva York</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-miami.html#luxury">Miami, FL</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-los-angeles.html#luxury">Los Angeles, CA</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-chicago.html#luxury">Chicago, IL</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-austin.html#luxury">Austin, TX</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-detroit.html#luxury">Detroit, MI</a></li><li><a href="https://petpolicycheck.com/es/hotels/pet-friendly-hotels-houston.html#luxury">Houston, TX</a></li><li><a class="all" href="https://petpolicycheck.com/hotels/#luxury">Marcas de lujo</a></li></ul></div></div></section>
@@ -393,10 +418,6 @@ html.map-view #world-map{width:100%;height:100%}
 <p><a class="btn" href="https://petpolicycheck.com/products/">Ver todos los productos y accesorios</a></p>
 <p class="disc">Algunos enlaces de productos son afiliados de Amazon (tag petpolicychec-20); podemos ganar una comisión sin costo extra para usted. Eso nunca afecta nuestros datos.</p></section>
 </div></div>
-<section class="blk wrap" id="community"><h2>De la comunidad</h2><p class="sub">Viajes reales de dueños reales.</p>
-<div class="grid"><a class="card" href="https://petpolicycheck.com/forum/"><span class="k">Foro</span><h3>Foro de viaje con mascotas</h3><p>Haga preguntas y comparta su experiencia de vuelo (EN/KO).</p></a>
-<a class="card" href="https://petpolicycheck.com/forum/pet-travel-stories/"><span class="k">Historias</span><h3>Historias de viaje con mascotas</h3><p>Lo que dicen los dueños sobre volar con perros y gatos.</p></a>
-<a class="card" href="https://petpolicycheck.com/updates.html"><span class="k">Actualizaciones</span><h3>Registro de cambios de política</h3><p>Cada cambio de norma de aerolínea que detectamos, con fecha.</p></a></div></section>
 <section aria-labelledby="family-h" class="blk wrap story vb album-only" id="family">
 <svg aria-hidden="true" focusable="false" height="0" style="position:absolute" width="0">
 <defs>
