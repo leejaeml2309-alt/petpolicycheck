@@ -3,8 +3,7 @@ function clampVB(v){const w=Math.min(975,Math.max(MINW,v[2])),h=w*610/975;
  x=Math.max(0,Math.min(975-w,x));y=Math.max(0,Math.min(610-h,y));return [x,y,w,h]}
 const MAP_W=975;
 function currentLbl(){
-  const q=(/[#?&]lbl=([ABC])/i.exec(location.search||'')||[])[1];
-  return (q||window.__usaLbl||'A').toUpperCase();
+  return 'A';
 }
 function applyLblAttr(){
   const opt=currentLbl();
@@ -25,12 +24,11 @@ function mountLabelLegend(){
   if(/\bit\b/.test(lang) || loc==='it') loc='it';
   else if(/\bes\b/.test(lang) || loc==='es') loc='es';
   const L = loc==='es'
-    ? {r:'Estados', c:'Ciudades', k:'Capital', a:'Aeropuertos', s:'Estilo', aria:'Leyenda de etiquetas'}
+    ? {r:'Estados', c:'Ciudades', k:'Capital', a:'Aeropuertos', aria:'Leyenda de etiquetas'}
     : loc==='it'
-    ? {r:'Stati', c:'Città', k:'Capitale', a:'Aeroporti', s:'Stile', aria:'Legenda etichette'}
-    : {r:'States', c:'Cities', k:'Capital', a:'Airports', s:'Style', aria:'Label colour legend'};
-  const samples = {A:{r:'TX',c:'Chicago',k:'Denver',a:'LAX'},B:{r:'TX',c:'Chicago',k:'Denver',a:'LAX'},C:{r:'TX',c:'Chicago',k:'Denver',a:'LAX'}};
-  const sm=samples[opt]||samples.A;
+    ? {r:'Stati', c:'Città', k:'Capitale', a:'Aeroporti', aria:'Legenda etichette'}
+    : {r:'States', c:'Cities', k:'Capital', a:'Airports', aria:'Label colour legend'};
+  const sm={r:'TX',c:'Chicago',k:'Denver',a:'LAX'};
   let box=host.querySelector('.lbl-legend');
   if(!box){
     box=document.createElement('div');
@@ -39,15 +37,7 @@ function mountLabelLegend(){
     host.appendChild(box);
   }
   box.setAttribute('aria-label', L.aria);
-  const href=function(x){
-    const u=new URL(location.href);
-    u.searchParams.set('lbl',x);
-    return u.pathname+u.search+u.hash;
-  };
   box.innerHTML =
-    '<span class="ll-opt" role="group" aria-label="'+L.s+'">'+
-      ['A','B','C'].map(x=>'<a href="'+href(x)+'"'+(x===opt?' class="is-current" aria-current="true"':'')+'>'+x+'</a>').join('')+
-    '</span>'+
     '<span class="ll-r"><i aria-hidden="true">'+sm.r+'</i>'+L.r+'</span>'+
     '<span class="ll-c"><i aria-hidden="true">'+sm.c+'</i>'+L.c+'</span>'+
     '<span class="ll-k"><i aria-hidden="true">'+sm.k+'</i>'+L.k+'</span>'+

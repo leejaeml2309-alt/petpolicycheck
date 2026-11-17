@@ -404,11 +404,10 @@ main.wrap:has(#usa-map){max-width:1320px}
 #usa-map .lk.transcon-link:hover > a.t{color:var(--head)}
 #usa-map .lk.transcon-link > a.t small{display:block;color:var(--mut);font-size:.76rem}
 
-/* ---- Label style options A/B/C (Marc 17/11/2026). Default A. ?lbl=A|B|C
+/* ---- USA map label style (option A, live). Unused B/C rules are left inert.
    Light glyphs use a dark ink halo so real-pixel contrast stays ≥4.5:1 on every
-   density-red fill, including the lightest pink #d9828b. Option A: ivory states,
-   warm amber cities (#FFB547), bright-gold capitals (#FFD56A), cyan IATA codes.
-   Gold for regular city names is used only in B. */
+   density-red fill, including the lightest pink #d9828b. Ivory states, warm
+   amber cities (#FFB547), bright-gold capitals (#FFD56A), cyan IATA codes. */
 html[data-lbl="A"] #usa-map, html[data-lbl="A"] #usa-map svg#map, html:not([data-lbl]) #usa-map, html:not([data-lbl]) #usa-map svg#map{
   --lbl-region:#F4EFE6; --lbl-city:#FFB547; --lbl-capital:#FFD56A; --lbl-airport:#7ED0E6;
   --lbl-halo:#0B1719; --lbl-halo-ink:#0B1719;
@@ -596,7 +595,7 @@ html[data-lbl="C"] #usa-map .ap-chip{
   filter:drop-shadow(0 0 0.7px #0B1719);
 }
 
-/* Label colour legend + option switch, matching the active palette. */
+/* Label colour legend, matching the live (option A) palette. */
 #usa-map .lbl-legend{
   display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;
   margin:10px 4px 0;padding:8px 4px 0;border-top:1px solid rgba(255,255,255,.08);
@@ -624,16 +623,6 @@ html[data-lbl="C"] #usa-map .ap-chip{
 html[data-lbl="A"] #usa-map .lbl-legend .ll-a b,
 html:not([data-lbl]) #usa-map .lbl-legend .ll-a b{background:#0B1719;box-shadow:none}
 html[data-lbl="C"] #usa-map .lbl-legend .ll-a b{font-family:Inter,system-ui,sans-serif;font-weight:800}
-#usa-map .lbl-legend .ll-opt{margin-right:6px;gap:4px}
-#usa-map .lbl-legend .ll-opt a{
-  display:inline-block;min-width:1.4em;text-align:center;padding:2px 7px;border-radius:999px;
-  border:1px solid rgba(244,239,230,.28);color:#d7ddd8;text-decoration:none;font-weight:700;font-size:11px;
-}
-#usa-map .lbl-legend .ll-opt a.is-current,
-#usa-map .lbl-legend .ll-opt a[aria-current="true"]{
-  color:#0B1719;background:var(--lbl-airport,#7ED0E6);border-color:transparent;
-}
-html[data-lbl="B"] #usa-map .lbl-legend .ll-opt a.is-current{background:var(--lbl-city);color:#0B1719}
 html[data-lbl="A"] #usa-map .legend .lg-ap,
 html:not([data-lbl]) #usa-map .legend .lg-ap{color:#7ED0E6}
 html[data-lbl="B"] #usa-map .legend .lg-ap{color:#FFB0A4}
