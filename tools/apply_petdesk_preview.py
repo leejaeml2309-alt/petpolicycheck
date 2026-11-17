@@ -53,7 +53,7 @@ def banner_html(pro_href: str) -> str:
 TERMS_INSERT = r'''
 <h2 id="trial">14-day free trial</h2>
 <p>The Pet Desk trial is free for 14 days. No card is required and there is no commitment to subscribe. Starting a trial does not create a paid subscription or authorize any payment.</p>
-<p>The trial does not automatically convert to a paid subscription. There is no charge when the trial ends, and you do not need to cancel the trial to avoid a charge. If you want to subscribe, you must explicitly choose a paid plan and confirm your purchase through Paddle, our Merchant of Record. No payment will be taken without that choice and confirmation.</p>
+<p>The trial does not automatically convert to a paid subscription. There is no charge when the trial ends, and you do not need to cancel the trial to avoid a charge. If you want to subscribe, you must explicitly choose a paid plan and confirm your purchase through Creem, our Merchant of Record. No payment will be taken without that choice and confirmation.</p>
 
 <h2 id="paid-sub">Optional paid subscription</h2>
 <p>Published prices:</p>
@@ -65,7 +65,7 @@ TERMS_INSERT = r'''
 <tr><td>Enterprise · Corporate HR &amp; Global Mobility</td><td>$399 per month</td><td>$3,828 per year, paid annually</td></tr>
 </tbody>
 </table></div>
-<p>Annual subscriptions are billed as the full annual total, not as monthly installments. Applicable taxes and the total payable are shown at Paddle checkout before you confirm a paid purchase.</p>
+<p>Annual subscriptions are billed as the full annual total, not as monthly installments. Applicable taxes and the total payable are shown at Creem checkout before you confirm a paid purchase.</p>
 <p>Only a paid subscription that you choose and confirm renews automatically each selected monthly or annual billing period until cancelled. You may cancel before the next renewal; access continues through the end of the paid period.</p>
 <p>The free trial and the 14-day refund guarantee are separate. The guarantee applies to an initial paid subscription purchase, monthly or annual. Its 14-calendar-day period starts on the paid purchase date, not the trial start date. See the <a href="refund-policy.html">Refund &amp; Cancellation Policy</a>. Nothing in these Terms limits rights that cannot be waived under applicable mandatory law.</p>
 
@@ -82,7 +82,7 @@ def patch_terms():
         'Effective date: November 6, 2026 &middot; Last updated: November 6, 2026',
         'Effective date: November 6, 2026 &middot; Last updated: November 10, 2026',
     )
-    # insert after Paddle section (before seats)
+    # insert after billing section (before seats)
     anchor = '<h2 id="seats">4. Account Seats &amp; Acceptable Use</h2>'
     if anchor not in t:
         raise SystemExit('terms: seats anchor missing')
@@ -108,7 +108,7 @@ def patch_terms():
 REFUND_TRIAL = r'''
 <h2 id="trial">Free trial: no payment to refund</h2>
 <p>The Pet Desk trial is free for 14 days. No card is required and there is no commitment to subscribe. Starting a trial does not create a paid subscription or authorize any payment.</p>
-<p>The trial does not automatically convert to a paid subscription. There is no charge when the trial ends, and you do not need to cancel the trial to avoid a charge. If you want to subscribe, you must explicitly choose a paid plan and confirm your purchase through Paddle, our Merchant of Record. No payment will be taken without that choice and confirmation.</p>
+<p>The trial does not automatically convert to a paid subscription. There is no charge when the trial ends, and you do not need to cancel the trial to avoid a charge. If you want to subscribe, you must explicitly choose a paid plan and confirm your purchase through Creem, our Merchant of Record. No payment will be taken without that choice and confirmation.</p>
 <p>Because the trial involves no payment, there is no trial payment to refund.</p>
 
 '''
@@ -127,7 +127,7 @@ REFUND_PRICES = r'''
 <tr><td>Enterprise · Corporate HR &amp; Global Mobility</td><td>$399 per month</td><td>$3,828 per year, paid annually</td></tr>
 </tbody>
 </table></div>
-<p>Annual subscriptions are billed as the full annual total, not as monthly installments. Applicable taxes and the total payable are shown at Paddle checkout before you confirm a paid purchase.</p>
+<p>Annual subscriptions are billed as the full annual total, not as monthly installments. Applicable taxes and the total payable are shown at Creem checkout before you confirm a paid purchase.</p>
 '''
 
 
@@ -168,7 +168,7 @@ def patch_refund():
     mark(p)
     gaps.append(
         'Refund: pack section "Separate 14-day refund guarantee" overlaps the live '
-        '"14-Day Refund Guarantee" (live keeps how-to bullets + Paddle portal). '
+        '"14-Day Refund Guarantee" (live keeps how-to bullets + Creem portal). '
         'Inserted free-trial section WORD FOR WORD; added pack separation sentence + '
         'published prices; did not delete live how-to list.'
     )
@@ -180,7 +180,7 @@ def patch_privacy_gap():
         'Privacy: NO draft Pet Desk trial/account clause in '
         '/workspace/petdesk-trial-copy-20261107/ (README + trial-check.md mark it as an '
         'open decision). Live privacy.html still says "PetPolicyCheck is a simple static '
-        'website" and only covers Paddle billing, not trial/account processing or J10/J14 '
+        'website" and only covers Creem billing, not trial/account processing or J10/J14 '
         'emails. Did NOT invent legal text. Page untouched except listed here.'
     )
     print('privacy: gap only (no text)')
@@ -216,7 +216,7 @@ def patch_pro():
     micro = (
         '<p class="fine trial-micro" data-i="cta_micro">'
         '14 days free. No card. No commitment. No automatic subscription or charge when your trial ends. '
-        'Subscribe only if you choose a paid plan and confirm your purchase through Paddle.'
+        'Subscribe only if you choose a paid plan and confirm your purchase through Creem.'
         '</p>'
     )
     # Insert microcopy after each primary CTA (btn-pro pri), before ghost
@@ -232,13 +232,13 @@ def patch_pro():
     # Replace notice
     old_notice = (
         '<div class="notice" data-i="notice">\n'
-        '  <strong>Self-serve checkout powered by Paddle.com</strong> (Merchant of Record — Card, PayPal, Wire/PO; VAT/Sales Tax handled automatically; 14-day refund guarantee). '
+        '  <strong>Self-serve checkout powered by Creem</strong> (Merchant of Record — Card, PayPal, Wire/PO; VAT/Sales Tax handled automatically; 14-day refund guarantee). '
         'Request instant onboarding or trial access at <a href="mailto:contact@petpolicycheck.com">contact@petpolicycheck.com</a> while online checkout activates.\n'
         '</div>'
     )
     new_notice = (
         '<div class="notice" data-i="notice">\n'
-        '  Your free trial does not create a paid subscription. If you later choose to subscribe, paid checkout is handled by Paddle, our Merchant of Record. '
+        '  Your free trial does not create a paid subscription. If you later choose to subscribe, paid checkout is handled by Creem, our Merchant of Record. '
         'Paid subscriptions renew monthly or annually until cancelled. Initial paid purchases have a separate 14-day refund guarantee starting on the purchase date. '
         'See our <a href="../terms.html">Terms</a> and <a href="../refund-policy.html">Refund &amp; Cancellation Policy</a>.\n'
         '</div>'
@@ -257,7 +257,7 @@ def patch_pro():
 
     # FAQ additions before closing </section> of pro-faq
     faq_add = '''
-  <details><summary data-i="f4t">Will I be charged when my trial ends?</summary><p data-i="f4b">No. The trial ends without a charge or an automatic paid subscription. To subscribe, you must choose a paid plan and confirm your purchase through Paddle. You do not need to cancel the trial to avoid a charge.</p></details>
+  <details><summary data-i="f4t">Will I be charged when my trial ends?</summary><p data-i="f4b">No. The trial ends without a charge or an automatic paid subscription. To subscribe, you must choose a paid plan and confirm your purchase through Creem. You do not need to cancel the trial to avoid a charge.</p></details>
   <details><summary data-i="f5t">Is the trial the same as the refund guarantee?</summary><p data-i="f5b">No. The trial is free for 14 days. The separate 14-day refund guarantee begins on the date of your initial paid purchase, if you choose to make one.</p></details>
 '''
     if 'Will I be charged when my trial ends?' not in t:
@@ -279,11 +279,11 @@ def patch_pro():
     )
     # notice EN — escape carefully inside JS string
     old_en_notice = (
-        'notice:"<strong>Self-serve checkout powered by Paddle.com</strong> (Merchant of Record — Card, PayPal, Wire/PO; VAT/Sales Tax handled automatically; 14-day refund guarantee). '
+        'notice:"<strong>Self-serve checkout powered by Creem</strong> (Merchant of Record — Card, PayPal, Wire/PO; VAT/Sales Tax handled automatically; 14-day refund guarantee). '
         'Request instant onboarding or trial access at <a href=\\"mailto:contact@petpolicycheck.com\\">contact@petpolicycheck.com</a> while online checkout activates."'
     )
     new_en_notice = (
-        'notice:"Your free trial does not create a paid subscription. If you later choose to subscribe, paid checkout is handled by Paddle, our Merchant of Record. '
+        'notice:"Your free trial does not create a paid subscription. If you later choose to subscribe, paid checkout is handled by Creem, our Merchant of Record. '
         'Paid subscriptions renew monthly or annually until cancelled. Initial paid purchases have a separate 14-day refund guarantee starting on the purchase date. '
         'See our <a href=\\"../terms.html\\">Terms</a> and <a href=\\"../refund-policy.html\\">Refund & Cancellation Policy</a>."'
     )
@@ -295,13 +295,13 @@ def patch_pro():
     # Add FAQ + micro keys to EN object — inject before faq_h or after f3b
     if 'f4t:' not in t:
         t = t.replace(
-            'f3t:"Can I cancel anytime?",f3b:"Yes. Cancel before renewal from your Paddle customer portal. New paid subscriptions include a clear 14-day refund window.",op:',
-            'f3t:"Can I cancel anytime?",f3b:"Yes. Cancel before renewal from your Paddle customer portal. New paid subscriptions include a clear 14-day refund window.",'
+            'f3t:"Can I cancel anytime?",f3b:"Yes. Cancel before renewal from your Creem customer portal. New paid subscriptions include a clear 14-day refund window.",op:',
+            'f3t:"Can I cancel anytime?",f3b:"Yes. Cancel before renewal from your Creem customer portal. New paid subscriptions include a clear 14-day refund window.",'
             'f4t:"Will I be charged when my trial ends?",'
-            'f4b:"No. The trial ends without a charge or an automatic paid subscription. To subscribe, you must choose a paid plan and confirm your purchase through Paddle. You do not need to cancel the trial to avoid a charge.",'
+            'f4b:"No. The trial ends without a charge or an automatic paid subscription. To subscribe, you must choose a paid plan and confirm your purchase through Creem. You do not need to cancel the trial to avoid a charge.",'
             'f5t:"Is the trial the same as the refund guarantee?",'
             'f5b:"No. The trial is free for 14 days. The separate 14-day refund guarantee begins on the date of your initial paid purchase, if you choose to make one.",'
-            'cta_micro:"14 days free. No card. No commitment. No automatic subscription or charge when your trial ends. Subscribe only if you choose a paid plan and confirm your purchase through Paddle.",'
+            'cta_micro:"14 days free. No card. No commitment. No automatic subscription or charge when your trial ends. Subscribe only if you choose a paid plan and confirm your purchase through Creem.",'
             'op:',
         )
 

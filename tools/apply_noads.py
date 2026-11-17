@@ -44,7 +44,7 @@ def patch_build_py():
             'ADSENSE_CLIENT = "ca-pub-7693501377730690"',
             'ADSENSE_CLIENT = "ca-pub-7693501377730690"\n'
             '# Reversible preview switch (2026-11-10). True restores AdSense units,\n'
-            '# partner placeholders, and the /advertise/ offer. See docs/paddle-noads-reversible.md.\n'
+            '# partner placeholders, and the /advertise/ offer. See docs/noads-reversible.md.\n'
             'SHOW_ADS = False',
             1,
         )
@@ -656,8 +656,8 @@ def patch_ugc(path: Path):
 
 
 def write_docs():
-    (ROOT / "docs" / "paddle-noads-reversible.md").write_text(
-        """# Paddle no-ads preview — how to restore ad panels
+    (ROOT / "docs" / "Creem-noads-reversible.md").write_text(
+        """# Creem no-ads preview — how to restore ad panels
 
 This branch is a **local preview**. Nothing is published until Marc types « publie ».
 

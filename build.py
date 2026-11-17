@@ -187,7 +187,7 @@ def ensure_ga4_tree(out, cfg):
     return n
 
 
-TP_DRIVE = ''  # disabled 2026-11-10: no Travelpayouts/Emerald (Paddle AUP)
+TP_DRIVE = ''  # disabled 2026-11-10: no Travelpayouts/Emerald (previous billing provider acceptable-use policy)
 
 LOGO = ('<svg class="logo" viewBox="0 0 40 40" width="38" height="38" aria-hidden="true" focusable="false">'
         '<circle cx="20" cy="20" r="19" fill="#1d4f55"/><circle cx="20" cy="20" r="16.4" fill="none" stroke="#d9b765" stroke-width=".9"/>'
@@ -257,7 +257,7 @@ def nav_links(root, path, i18n=False):
 # (which also shows Advertise). A leaderboard ad band sits below the header line, site-wide.
 ADSENSE_CLIENT = "ca-pub-7693501377730690"
 # Reversible preview switch (2026-11-10). True restores AdSense units,
-# partner placeholders, and the /advertise/ offer. See docs/paddle-noads-reversible.md.
+# partner placeholders, and the /advertise/ offer. See docs/noads-reversible.md.
 SHOW_ADS = False
 MENU_BTN = ('<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">'
             '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>'
@@ -972,11 +972,11 @@ def build_privacy(cfg):
 <p>Some product pages include Amazon Associates links to Amazon.com. If you buy through one, we may earn a commission at no extra cost to you. When you click an Amazon Associates link, you leave our site and Amazon may set cookies or use similar technology to record that the visit came from us, under Amazon's own privacy notice. We don't receive personal information about you from Amazon, only aggregated sales or commission reports. This never changes the policy information we publish. We do not use other affiliate programs.</p>
 <p>{AMAZON_DISCLOSURE} {e(cfg['site_name'])} participates in the Amazon Services LLC Associates Program; Amazon may use cookies to record that a visit or purchase came from our links, under Amazon's own privacy notice.</p>
 {analytics_privacy(cfg)}
-<h2 id="paddle-billing">B2B Subscriptions &amp; Billing (Paddle.com — Merchant of Record)</h2>
+<h2 id="billing">B2B Subscriptions &amp; Billing (Creem — Merchant of Record)</h2>
 <p>PetPolicyCheck / Paw Passport is operated by <strong>LEVRAT Marc Jea Won</strong>, 266-17 Pyeonghwa-ro, Paju-si, Gyeonggi-do 10849, Republic of Korea. Contact: {mail}.</p>
-<p>For paid <strong>B2B Pet Desk</strong> subscriptions (<a href="pro/">current pricing</a>), <strong>Paddle.com Market Limited / Paddle.com Inc.</strong> (&ldquo;Paddle&rdquo;) acts as <strong>Merchant of Record</strong> and as an independent controller of payment and billing data. Card, PayPal, and other payment details are collected and processed by Paddle — they <strong>never touch PetPolicyCheck servers</strong>.</p>
-<p>Our order process is conducted by our online reseller Paddle.com. Paddle.com is the Merchant of Record for all our orders. Paddle provides all customer service inquiries and handles returns.</p>
-<p>Paddle&rsquo;s processing of billing data is governed by the <a href="https://www.paddle.com/legal/privacy" rel="noopener" target="_blank">Paddle Privacy Policy</a>. Buyer support for paid orders: <a href="https://paddle.net" rel="noopener" target="_blank">paddle.net</a>. See also our <a href="terms.html">Terms of Service</a> and <a href="refund-policy.html">Refund policy</a>.</p>
+<p>For paid <strong>B2B Pet Desk</strong> subscriptions (<a href="pro/">current pricing</a>), <strong>Creem (Armitage Labs OÜ, Estonia)</strong> (&ldquo;Creem&rdquo;) acts as <strong>Merchant of Record</strong> and as an independent controller of payment and billing data. Card, PayPal, and other payment details are collected and processed by Creem — they <strong>never touch PetPolicyCheck servers</strong>.</p>
+<p>Our order process is conducted by our online reseller Creem. Creem is the Merchant of Record for all our orders. Creem handles payments, taxes, invoicing and refunds.</p>
+<p>Creem&rsquo;s processing of billing data is governed by the <a href="https://www.creem.io/privacy" rel="noopener" target="_blank">Creem Privacy Policy</a>. Buyer support for paid orders: <a href="https://www.creem.io" rel="noopener" target="_blank">creem.io</a>. See also our <a href="terms.html">Terms of Service</a> and <a href="refund-policy.html">Refund policy</a>.</p>
 <h2>External links</h2>
 <p>We link to airline and government websites. Their privacy practices are their own.</p>
 <h2>Children</h2>
@@ -1735,7 +1735,7 @@ def airline_gear_box(cfg, a, pd, lims):
 
 
 def flight_box(cfg, a):
-    """Disabled 2026-11-10: no travel-booking affiliate boxes (Paddle AUP)."""
+    """Disabled 2026-11-10: no travel-booking affiliate boxes (previous billing provider acceptable-use policy)."""
     return ""
 
 def build_advertise(cfg):
@@ -1866,7 +1866,7 @@ BOOK_HOME_CSS = """<style>
 
 
 def flight_aff_buttons(cfg, dest=None):
-    """Disabled 2026-11-10: no travel-booking affiliate buttons (Paddle AUP)."""
+    """Disabled 2026-11-10: no travel-booking affiliate buttons (previous billing provider acceptable-use policy)."""
     return []
 
 
@@ -2457,7 +2457,7 @@ def hotel_aff_url(cfg, c):
 
 
 def hotel_aff_box(cfg, c):
-    """Disabled 2026-11-10: no hotel-booking affiliate boxes (Paddle AUP)."""
+    """Disabled 2026-11-10: no hotel-booking affiliate boxes (previous billing provider acceptable-use policy)."""
     return ""
 
 def hotel_city_links(ci, root, skip=None):
@@ -2466,7 +2466,7 @@ def hotel_city_links(ci, root, skip=None):
 
 
 def hotel_lux_link(cfg, h, city=None):
-    """Disabled 2026-11-10: no Expedia rate buttons (Paddle AUP). Official pet-policy links stay on the card."""
+    """Disabled 2026-11-10: no Expedia rate buttons (previous billing provider acceptable-use policy). Official pet-policy links stay on the card."""
     return "", False
 
 def hotel_lux_section(cfg, c):
@@ -3383,7 +3383,7 @@ def main():
     (OUT / "updates.html").write_text(build_updates(cfg, airlines, updates))
     (OUT / "about.html").write_text(build_about(cfg))
     (OUT / "privacy.html").write_text(build_privacy(cfg))
-    # Hand-authored Paddle / B2B pages (also mirrored under static/).
+    # Hand-authored billing / B2B pages (also mirrored under static/).
     # Copied after generated pages so a future refresh.py / build.py run keeps them live.
     def _copy_static_page(rel: str):
         src = ROOT / "static" / rel
@@ -3442,7 +3442,7 @@ def main():
 </html>
 """
     )
-    # privacy.html is generated above (includes Paddle MoR section). Keep static/privacy.html
+    # privacy.html is generated above (includes Creem MoR section). Keep static/privacy.html
     # as a reference mirror only — do not overwrite the generated page.
     (OUT / "contact.html").write_text(build_contact(cfg))
     (OUT / "advertise" / "index.html").write_text(build_advertise(cfg))

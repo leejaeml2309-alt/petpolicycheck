@@ -1,4 +1,4 @@
-# Paddle no-ads preview — how to restore ad panels
+# No-ads preview — how to restore ad panels
 
 This branch is a **local preview**. Nothing is published until Marc types « publie ».
 

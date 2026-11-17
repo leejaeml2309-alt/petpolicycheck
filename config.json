@@ -100,7 +100,7 @@
     "CabinPetWatch (.com unregistered per RDAP 2026-10-22)"
   ],
   "affiliates": {
-    "_note": "Non-Amazon affiliate programs disabled 2026-11-10 (Paddle AUP). Only Amazon Associates remains.",
+    "_note": "Non-Amazon affiliate programs disabled 2026-11-10 (previous billing provider acceptable-use policy). Only Amazon Associates remains.",
     "chewy": {
       "label": "Airline-friendly soft-sided carriers at Chewy",
       "url": ""
@@ -122,7 +122,7 @@
       "links": {},
       "hotel_links": {},
       "_note_hotels": "One tracked link per luxury hotel id (data/hotels/us-cities.json cities[].luxury[].expedia_target). Empty = plain untracked link to expedia_target.",
-      "_disabled": "Removed 2026-11-10 for Paddle AUP (no travel reservation services)."
+      "_disabled": "Removed 2026-11-10 for the previous billing provider acceptable-use policy (no travel reservation services)."
     }
   },
   "insurance_affiliates": {
