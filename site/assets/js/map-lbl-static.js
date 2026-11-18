@@ -1,12 +1,13 @@
-/* Compact-map label applier (UK/FR/DE/IT/ES/JP/KR).
+/* Compact-map label applier (UK/FR/DE/IT/ES/JP/KR + CA/MX plans).
    Reads precomputed PPC_LABEL_PLAN and applies positions, visibility and
-   type colours only. No fill sampling, no slot search, no layout thrash.
-   Never loads a plan on USA / Canada / Mexico pages. */
+   type colours only. No fill sampling, no slot search, no layout thrash. */
 (function(){
   const CFG = window.PPC_MAP;
   if(!CFG) return;
   const root = document.getElementById(CFG.idRoot || 'country-map');
-  if(!root || !root.classList.contains('map-lbl-sm')) return;
+  if(!root) return;
+  const isCamx = root.classList.contains('accent-maple') || root.classList.contains('accent-mxgreen');
+  if(!root.classList.contains('map-lbl-sm') && !isCamx) return;
   const plan = window.PPC_LABEL_PLAN;
   if(!plan || !plan.tiers || !plan.tiers.length) return;
 
@@ -18,18 +19,25 @@
     const m=mapEl();
     if(!m) return plan.tiers[0];
     const w=m.getBoundingClientRect().width||0;
-    const mobile=w<500;
+    const vp=window.innerWidth||w;
+    const mobile=vp<=500 || w<500;
     const vb=(m.viewBox && m.viewBox.baseVal && m.viewBox.baseVal.width) || plan.mapW || 975;
     const k=vb/(plan.mapW||975);
+    function score(t){
+      const dk=Math.abs((t.k||1)-k);
+      const dv=t.vp!=null ? Math.abs(t.vp-vp)/2000 : 0;
+      return dk+dv;
+    }
     let best=null, bestD=1e9;
     for(const t of plan.tiers){
       if(!!t.mobile !== mobile) continue;
-      const d=Math.abs((t.k||1)-k);
+      const d=score(t);
       if(d<bestD){ bestD=d; best=t; }
     }
     if(best) return best;
+    bestD=1e9;
     for(const t of plan.tiers){
-      const d=Math.abs((t.k||1)-k);
+      const d=score(t);
       if(d<bestD){ bestD=d; best=t; }
     }
     return best || plan.tiers[0];
@@ -150,6 +158,10 @@
       if(link){
         if(ic.hide) link.classList.add('ppc-lbl-hide');
         else link.classList.remove('ppc-lbl-hide');
+        if(ic.tx!=null && ic.ty!=null && !ic.hide){
+          link.setAttribute('x2', ic.tx);
+          link.setAttribute('y2', ic.ty);
+        }
       }
     });
   }

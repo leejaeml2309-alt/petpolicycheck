@@ -60,6 +60,40 @@ function buildSwitcher(){
 }
 
 /* ---------- draw ---------- */
+
+function mountCamxLabelLegend(){
+  const root=document.getElementById('country-map');
+  if(!root) return;
+  const accent=(root.className||'')+' '+(document.documentElement.className||'');
+  if(!/accent-maple|accent-mxgreen/.test(accent)) return;
+  const host=root.querySelector('.mapcard')||root;
+  let box=host.querySelector('.lbl-legend');
+  if(!box){
+    box=document.createElement('div');
+    box.className='lbl-legend';
+    box.setAttribute('role','note');
+    const map=host.querySelector('svg#map');
+    if(map&&map.parentNode) map.parentNode.insertBefore(box, map.nextSibling);
+    else host.appendChild(box);
+  }
+  const lang=((document.documentElement.lang||'')+' '+(location.pathname||'')).toLowerCase();
+  const loc=/\/es(?:\/|$)/.test(location.pathname)||/\bes\b/.test(lang)?'es':
+            /\/it(?:\/|$)/.test(location.pathname)||/\bit\b/.test(lang)?'it':'en';
+  const isMx=/accent-mxgreen/.test(accent);
+  const L=loc==='es'
+    ? {r:isMx?'Estados':'Provincias', c:'Ciudades', k:'Capital', a:'Aeropuertos', aria:'Leyenda de etiquetas'}
+    : loc==='it'
+    ? {r:isMx?'Stati':'Province', c:'Città', k:'Capitale', a:'Aeroporti', aria:'Legenda etichette'}
+    : {r:isMx?'States':'Provinces', c:'Cities', k:'Capital', a:'Airports', aria:'Label colour legend'};
+  const sm=isMx?{r:'JAL',c:'Cancún',k:'CDMX',a:'MEX'}:{r:'ON',c:'Calgary',k:'Toronto',a:'YYZ'};
+  box.setAttribute('aria-label', L.aria);
+  box.innerHTML =
+    '<span class="ll-r"><i aria-hidden="true">'+sm.r+'</i>'+L.r+'</span>'+
+    '<span class="ll-c"><i aria-hidden="true">'+sm.c+'</i>'+L.c+'</span>'+
+    '<span class="ll-k"><i aria-hidden="true">'+sm.k+'</i>'+L.k+'</span>'+
+    '<span class="ll-a"><b aria-hidden="true">'+sm.a+'</b>'+L.a+'</span>';
+}
+
 function buildMap(){
   const gs = $('#g-st'), gl = $('#g-lb'), gc = $('#g-ct');
   if(!gs) return;
@@ -885,7 +919,7 @@ function resolveLabelOverlaps(){
    markers and borders) so type is never hidden by a later region's fill. */
 function hoistMapLabels(){
   const cc=(typeof DATA!=='undefined' && DATA.country)||'';
-  if(!/^(JP|KR|IT|ES|FR)$/.test(cc)) return;
+  if(!/^(JP|KR|IT|ES|FR|CA|MX)$/.test(cc)) return;
   const svg=$('#map'); if(!svg) return;
   const top=$('#g-lb'); if(!top) return;
   svg.appendChild(top);
@@ -1161,7 +1195,7 @@ function initFreeZoom(){const m=$('#map');if(!m)return;
 }
 
 document.documentElement.classList.add('accent-'+ACCENT);
-buildSwitcher(); buildMap(); initSteps(); initFreeZoom(); applyViewBox(FULL); empty();
+buildSwitcher(); buildMap(); mountCamxLabelLegend(); initSteps(); initFreeZoom(); applyViewBox(FULL); empty();
  window.PPC_mapView={zoomAt:typeof zoomAt==='function'?zoomAt:null, applyViewBox, refreshLabels, isFull};
  (function(){const m=$('#map'); if(!m||typeof ResizeObserver==='undefined'){window.addEventListener('resize',refreshLabels);return;}
   const ro=new ResizeObserver(()=>refreshLabels()); ro.observe(m);})();

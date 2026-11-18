@@ -1023,3 +1023,201 @@ html.accent-ausflag #country-map .st.sel,
 html.accent-ausflag #country-map .st.sel:hover{fill:#6d5a2c !important;stroke:#f0d58c !important;stroke-width:2 !important;filter:none !important}
 html.accent-ausflag #country-map .ap.sel .pad{fill:#6d5a2c;stroke:#f0d58c;stroke-width:2}
 html.accent-ausflag #country-map .lbl.sel{fill:#fff7df}
+
+/* ---- CA/MX USA option A typography (2026-11-18) ----
+   Ivory provinces/states, amber italic cities, bold gold capitals,
+   cyan mono IATA codes, dark ink halo only. Geometry and fills unchanged. */
+html.accent-maple #country-map,
+html.accent-maple #country-map svg#map,
+#country-map.accent-maple,
+#country-map.accent-maple svg#map,
+html.accent-mxgreen #country-map,
+html.accent-mxgreen #country-map svg#map,
+#country-map.accent-mxgreen,
+#country-map.accent-mxgreen svg#map{
+  --lbl-region:#F4EFE6; --lbl-city:#FFB547; --lbl-capital:#FFD56A; --lbl-airport:#7ED0E6;
+  --lbl-halo:#0B1719; --lbl-halo-ink:#0B1719;
+  --lbl-region-px:10.5px; --lbl-city-px:8px; --lbl-capital-px:8.5px; --lbl-airport-px:7.5px;
+  --lbl-region-zoom-px:12px; --lbl-city-zoom-px:9px; --lbl-capital-zoom-px:9.5px; --lbl-airport-zoom-px:8.5px;
+  --lbl-track:.18em;
+}
+@media (min-width:1440px){
+  html.accent-maple #country-map, html.accent-maple #country-map svg#map,
+  #country-map.accent-maple, #country-map.accent-maple svg#map,
+  html.accent-mxgreen #country-map, html.accent-mxgreen #country-map svg#map,
+  #country-map.accent-mxgreen, #country-map.accent-mxgreen svg#map{
+    --lbl-region-px:10px; --lbl-city-px:7.5px; --lbl-capital-px:8px; --lbl-airport-px:7px;
+    --lbl-region-zoom-px:12px; --lbl-city-zoom-px:9px; --lbl-capital-zoom-px:9.5px; --lbl-airport-zoom-px:8.5px;
+  }
+}
+@media (max-width:500px){
+  html.accent-maple #country-map, html.accent-maple #country-map svg#map,
+  #country-map.accent-maple, #country-map.accent-maple svg#map,
+  html.accent-mxgreen #country-map, html.accent-mxgreen #country-map svg#map,
+  #country-map.accent-mxgreen, #country-map.accent-mxgreen svg#map{
+    --lbl-region-px:11px; --lbl-city-px:9px; --lbl-capital-px:9.5px; --lbl-airport-px:8px;
+    --lbl-region-zoom-px:13px; --lbl-city-zoom-px:10px; --lbl-capital-zoom-px:10.5px; --lbl-airport-zoom-px:10px;
+  }
+}
+html.accent-maple #country-map svg#map.is-zoomed,
+#country-map.accent-maple svg#map.is-zoomed,
+html.accent-mxgreen #country-map svg#map.is-zoomed,
+#country-map.accent-mxgreen svg#map.is-zoomed{
+  --lbl-region-px:var(--lbl-region-zoom-px);
+  --lbl-city-px:var(--lbl-city-zoom-px);
+  --lbl-capital-px:var(--lbl-capital-zoom-px);
+  --lbl-airport-px:var(--lbl-airport-zoom-px);
+}
+
+html.accent-maple #country-map .lbl,
+html.accent-maple #country-map #l-PE,
+html.accent-maple #country-map #l-NB,
+html.accent-maple #country-map #l-NS,
+html.accent-maple #country-map #l-NL,
+#country-map.accent-maple .lbl,
+html.accent-mxgreen #country-map .lbl,
+#country-map.accent-mxgreen .lbl{
+  font-family:Inter,system-ui,sans-serif;
+  font-weight:600;
+  font-style:normal;
+  font-variant:normal;
+  text-transform:uppercase;
+  letter-spacing:var(--lbl-track,.18em);
+  fill:var(--lbl-region);
+  stroke:var(--lbl-halo);
+  stroke-linejoin:round;
+  paint-order:stroke;
+  filter:drop-shadow(0 0 0.6px var(--lbl-halo-ink));
+  font-size:var(--lbl-region-px) !important;
+  stroke-width:calc(var(--lbl-region-px) * .22) !important;
+}
+html.accent-maple #country-map .lbl.sel,
+#country-map.accent-maple .lbl.sel,
+html.accent-mxgreen #country-map .lbl.sel,
+#country-map.accent-mxgreen .lbl.sel{
+  fill:#fff7df;
+  stroke:var(--lbl-halo);
+  stroke-width:calc(var(--lbl-region-px) * .22) !important;
+}
+
+html.accent-maple #country-map .ct text,
+#country-map.accent-maple .ct text,
+html.accent-mxgreen #country-map .ct text,
+#country-map.accent-mxgreen .ct text,
+html.accent-maple #country-map .ct-label,
+#country-map.accent-maple .ct-label,
+html.accent-mxgreen #country-map .ct-label,
+#country-map.accent-mxgreen .ct-label{
+  font-family:Inter,system-ui,sans-serif;
+  font-weight:500;
+  font-style:italic;
+  fill:var(--lbl-city);
+  stroke:var(--lbl-halo);
+  stroke-linejoin:round;
+  paint-order:stroke;
+  filter:drop-shadow(0 0 0.6px var(--lbl-halo-ink));
+  font-size:var(--lbl-city-px) !important;
+  stroke-width:calc(var(--lbl-city-px) * .24) !important;
+}
+html.accent-maple #country-map .ct.cap text,
+#country-map.accent-maple .ct.cap text,
+html.accent-mxgreen #country-map .ct.cap text,
+#country-map.accent-mxgreen .ct.cap text,
+html.accent-maple #country-map .ct-label.is-cap,
+#country-map.accent-maple .ct-label.is-cap,
+html.accent-mxgreen #country-map .ct-label.is-cap,
+#country-map.accent-mxgreen .ct-label.is-cap{
+  font-style:normal;
+  font-weight:700;
+  fill:var(--lbl-capital);
+  font-size:var(--lbl-capital-px) !important;
+  stroke-width:calc(var(--lbl-capital-px) * .24) !important;
+}
+
+html.accent-maple #country-map .ap text,
+#country-map.accent-maple .ap text,
+html.accent-mxgreen #country-map .ap text,
+#country-map.accent-mxgreen .ap text,
+html.accent-maple #country-map .ap-label,
+#country-map.accent-maple .ap-label,
+html.accent-mxgreen #country-map .ap-label,
+#country-map.accent-mxgreen .ap-label{
+  font-family:ui-monospace,"Cascadia Mono","Segoe UI Mono",Menlo,Consolas,monospace;
+  font-weight:700;
+  font-style:normal;
+  letter-spacing:.04em;
+  fill:var(--lbl-airport);
+  stroke:var(--lbl-halo);
+  stroke-linejoin:round;
+  paint-order:stroke;
+  filter:drop-shadow(0 0 0.6px var(--lbl-halo-ink));
+  font-size:var(--lbl-airport-px) !important;
+  stroke-width:calc(var(--lbl-airport-px) * .22) !important;
+}
+
+html.accent-maple #country-map .ap .pad,
+#country-map.accent-maple .ap .pad,
+html.accent-mxgreen #country-map .ap .pad,
+#country-map.accent-mxgreen .ap .pad{
+  fill:#0B1719;
+  stroke:#7ED0E6;
+  stroke-width:1.3;
+}
+html.accent-maple #country-map .ap .glyph,
+#country-map.accent-maple .ap .glyph,
+html.accent-mxgreen #country-map .ap .glyph,
+#country-map.accent-mxgreen .ap .glyph{
+  fill:#7ED0E6;
+}
+html.accent-maple #country-map .ap-link,
+#country-map.accent-maple .ap-link,
+html.accent-mxgreen #country-map .ap-link,
+#country-map.accent-mxgreen .ap-link{
+  stroke:#7ED0E6;
+  stroke-width:1;
+  stroke-dasharray:2.4 2.2;
+  opacity:.7;
+  fill:none;
+  pointer-events:none;
+  vector-effect:non-scaling-stroke;
+}
+html.accent-maple #country-map .legend .lg-ap,
+#country-map.accent-maple .legend .lg-ap,
+html.accent-mxgreen #country-map .legend .lg-ap,
+#country-map.accent-mxgreen .legend .lg-ap{color:#7ED0E6}
+
+/* Typography colour key, same chips as the USA option A legend. */
+html.accent-maple #country-map .lbl-legend,
+html.accent-mxgreen #country-map .lbl-legend,
+#country-map.accent-maple .lbl-legend,
+#country-map.accent-mxgreen .lbl-legend{
+  display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;
+  margin:10px 4px 0;padding:8px 4px 0;border-top:1px solid rgba(255,255,255,.08);
+  font:600 12px/1.3 Inter,system-ui,sans-serif;color:#d7ddd8;
+}
+html.accent-maple #country-map .lbl-legend span,
+html.accent-mxgreen #country-map .lbl-legend span{display:inline-flex;align-items:center;gap:6px}
+html.accent-maple #country-map .lbl-legend .ll-r i,
+html.accent-mxgreen #country-map .lbl-legend .ll-r i{
+  color:var(--lbl-region);background:#0B1719;border-radius:2px;padding:1px 5px;
+  font-size:10px;letter-spacing:var(--lbl-track,.18em);text-transform:uppercase;font-weight:700;font-style:normal;
+}
+html.accent-maple #country-map .lbl-legend .ll-c i,
+html.accent-mxgreen #country-map .lbl-legend .ll-c i{
+  color:var(--lbl-city);background:#0B1719;border-radius:2px;padding:1px 5px;
+  font-size:10px;font-style:italic;font-weight:500;
+}
+html.accent-maple #country-map .lbl-legend .ll-k i,
+html.accent-mxgreen #country-map .lbl-legend .ll-k i{
+  color:var(--lbl-capital);background:#0B1719;border-radius:2px;padding:1px 5px;
+  font-size:10px;font-style:normal;font-weight:700;
+}
+html.accent-maple #country-map .lbl-legend .ll-a b,
+html.accent-mxgreen #country-map .lbl-legend .ll-a b{
+  color:var(--lbl-airport);background:#0B1719;border-radius:3px;padding:1px 6px;
+  font-size:10px;font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;font-style:normal;
+}
+@media (max-width:900px){
+  html.accent-maple #country-map .lbl-legend,
+  html.accent-mxgreen #country-map .lbl-legend{margin-top:8px;font-size:11px}
+}

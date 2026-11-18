@@ -491,7 +491,7 @@ function cityHotelExtra(a,n){
 function selectCity(a,n){
  const key=a+"|"+n, S=SAMPLE[key], st=GEO[a];cur={a,n};hilite(a,key);setHash(a,n);
  const crumbs=`<p class="crumbs"><button data-state="${a}">← ${esc(st.name)}</button> · ${esc(n)}</p>`;
- const chips=airportChips(airportsFor(a,n), "Airports serving "+n);
+ const chips=airportChips(airportsFor(a,n), usaUi().serving(n));
  if(!S){
   render(crumbs+header(a,n,`${esc(st.name)} · city`)+chips+lawSection(a,true,n)+roadSection(a)+planeSection(a,n)+hotelSection(n+", "+a)+groomSection());
   return;
@@ -518,12 +518,59 @@ function selectAirport(code){
  const crumbs=`<p class="crumbs"><button type="button" data-state="${ap.metroState}">← ${esc(st.name)}</button> · <button type="button" data-s="${ap.metroState}" data-city="${esc(ap.metroCity)}">${esc(ap.metroCity)}</button> · ${esc(ap.code)}</p>`;
  const q=SAMPLE[key]?SAMPLE[key].q:ap.metroCity+", "+ap.placeState;
  render(crumbs+airHead(ap)+
-  `<div class="btnrow" style="margin:0 0 4px"><button type="button" class="btn" data-s="${ap.metroState}" data-city="${esc(ap.metroCity)}">City panel: taxis and hotels in ${esc(ap.metroCity)}</button></div>`+
+  `<div class="btnrow" style="margin:0 0 4px"><button type="button" class="btn" data-s="${ap.metroState}" data-city="${esc(ap.metroCity)}">${esc(usaUi().cityPanel(ap.metroCity))}</button></div>`+
   lawSection(ap.placeState,true,ap.metroCity,ap.metroState)+airportRoad(ap)+airportPlane(ap)+hotelSection(q,cityHotelExtra(ap.metroState, ap.metroCity))+groomSection());
  applyStep(true);
 }
+
+function usaUiLang(){
+  const lang=((document.documentElement.lang||'')+' '+(document.documentElement.getAttribute('data-lang')||'')+' '+(document.documentElement.getAttribute('data-ppc-locale')||'')).toLowerCase();
+  let loc='en';
+  try{ loc=localStorage.getItem('ppc_lang')||loc; }catch(_){}
+  if(/\/it(?:\/|$)/.test(location.pathname) || /\bit\b/.test(lang) || loc==='it') return 'it';
+  if(/\/es(?:\/|$)/.test(location.pathname) || /\bes\b/.test(lang) || loc==='es') return 'es';
+  return 'en';
+}
+function usaUi(){
+  const loc=usaUiLang();
+  const pack={
+    en:{
+      pickTitle:'Pick a state or city',
+      pickLead:'Click any of the 50 states on the map (or use the list) to open its law portal. Gold cities have the full booking guide. Plane marks are that city’s airports:',
+      journey:'Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel → 5 grooming.',
+      choose:'Choose a state…',
+      fifty:'50 States',
+      serving:n=>'Airports serving '+n,
+      cityPanel:n=>'City panel: taxis and hotels in '+n,
+      zoomIn:'Zoom in', zoomOut:'Zoom out', resetView:'Reset map view'
+    },
+    es:{
+      pickTitle:'Elija un estado o una ciudad',
+      pickLead:'Haga clic en cualquiera de los 50 estados del mapa (o use la lista) para abrir su portal normativo. Las ciudades en dorado tienen la guía de reserva completa. Las marcas de avión son los aeropuertos de esa ciudad:',
+      journey:'Orden del viaje: 1 veterinario y leyes → 2 carretera/tren → 3 avión → 4 hotel → 5 peluquería.',
+      choose:'Elija un estado…',
+      fifty:'50 estados',
+      serving:n=>'Aeropuertos que sirven a '+n,
+      cityPanel:n=>'Panel de la ciudad: taxis y hoteles en '+n,
+      zoomIn:'Acercar', zoomOut:'Alejar', resetView:'Restablecer el mapa'
+    },
+    it:{
+      pickTitle:'Scegli uno Stato o una città',
+      pickLead:'Clicca uno dei 50 Stati sulla mappa (o usa l’elenco) per aprire il suo portale normativo. Le città in oro hanno la guida di prenotazione completa. I segni dell’aereo sono gli aeroporti di quella città:',
+      journey:'Ordine del viaggio: 1 veterinario e leggi → 2 strada/treno → 3 aereo → 4 hotel → 5 toelettatura.',
+      choose:'Scegli uno Stato…',
+      fifty:'50 Stati',
+      serving:n=>'Aeroporti al servizio di '+n,
+      cityPanel:n=>'Pannello città: taxi e hotel a '+n,
+      zoomIn:'Ingrandisci', zoomOut:'Riduci', resetView:'Reimposta la mappa'
+    }
+  };
+  return pack[loc]||pack.en;
+}
+
 function empty(){
- $("#panel").innerHTML=`<div class="empty"><div class="big">Pick a state or city</div><p>Click any of the 50 states on the map (or use the list) to open its law portal. Gold cities have the full booking guide. Plane marks are that city’s airports:</p><div class="citylist">${Object.keys(SAMPLE).map(k=>{const[a,n]=k.split("|");return `<button class="sample" data-s="${a}" data-city="${esc(n)}">${esc(n)}</button>`}).join("")}</div><div class="citylist">${AIRPORTS.filter(ap=>ap.pets&&SAMPLE[ap.metroState+"|"+ap.metroCity]).map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.metroCity)}</button>`).join("")}</div><p class="disc">Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel → 5 grooming.</p></div>`;
+ const U=usaUi();
+ $("#panel").innerHTML=`<div class="empty"><div class="big">${U.pickTitle}</div><p>${U.pickLead}</p><div class="citylist">${Object.keys(SAMPLE).map(k=>{const[a,n]=k.split("|");return `<button class="sample" data-s="${a}" data-city="${esc(n)}">${esc(n)}</button>`}).join("")}</div><div class="citylist">${AIRPORTS.filter(ap=>ap.pets&&SAMPLE[ap.metroState+"|"+ap.metroCity]).map(ap=>`<button type="button" class="apbtn" data-ap="${esc(ap.code)}">${esc(ap.code)} — ${esc(ap.metroCity)}</button>`).join("")}</div><p class="disc">${U.journey}</p></div>`;
  $("#panel").querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>selectCity(b.dataset.s,b.dataset.city));
  $("#panel").querySelectorAll("[data-ap]").forEach(b=>b.onclick=()=>selectAirport(b.dataset.ap));
 }
@@ -558,7 +605,7 @@ $("#map").addEventListener("click",e=>{if(cur&&e.target===e.currentTarget)showAl
  /* wrapper so the zoom buttons can sit over the map (injected: no HTML change needed) */
  let wrap=m.parentNode;if(!wrap.classList.contains("mapwrap")){wrap=document.createElement("div");wrap.className="mapwrap";m.parentNode.insertBefore(wrap,m);wrap.appendChild(m)}
  if(!$("#zin")){const z=document.createElement("div");z.className="zoom";z.setAttribute("role","group");z.setAttribute("aria-label","Map zoom");
-  z.innerHTML='<button type="button" id="zin" aria-label="Zoom in" title="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out" title="Zoom out">&minus;</button><button type="button" id="zreset" aria-label="Reset map view" title="Reset map view">&#8634;</button>';
+  {const U=usaUi(); z.innerHTML='<button type="button" id="zin" aria-label="'+U.zoomIn+'" title="'+U.zoomIn+'">+</button><button type="button" id="zout" aria-label="'+U.zoomOut+'" title="'+U.zoomOut+'">&minus;</button><button type="button" id="zreset" aria-label="'+U.resetView+'" title="'+U.resetView+'">&#8634;</button>';}
   wrap.appendChild(z)}
  const ctr=()=>[vb[0]+vb[2]/2,vb[1]+vb[3]/2];
  $("#zin").onclick=()=>{const c=ctr();zoomAt(c[0],c[1],1.6,250)};
@@ -635,12 +682,12 @@ const pick=$("#pick");ABBRS.forEach(a=>pick.add(new Option(GEO[a].name,a)));pick
   btn.className = "state-picker-btn";
   btn.setAttribute("aria-haspopup", "listbox");
   btn.setAttribute("aria-expanded", "false");
-  btn.innerHTML = '<span class="sp-label">Choose a state…</span><svg class="sp-chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.4 9.5 12 14.1l4.6-4.6 1.4 1.4-6 6-6-6z"/></svg>';
+  btn.innerHTML = '<span class="sp-label">'+usaUi().choose+'</span><svg class="sp-chev" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.4 9.5 12 14.1l4.6-4.6 1.4 1.4-6 6-6-6z"/></svg>';
   const menu = document.createElement("ul");
   menu.className = "state-picker-menu";
   menu.setAttribute("role", "listbox");
   menu.setAttribute("tabindex", "-1");
-  menu.innerHTML = '<li class="sp-head" aria-hidden="true">50 States</li>' +
+  menu.innerHTML = '<li class="sp-head" aria-hidden="true">'+usaUi().fifty+'</li>' +
     ABBRS.map(a => `<li role="option" data-a="${a}" aria-selected="false"><span class="sp-name">${esc(GEO[a].name)}</span><span class="sp-code">${a}</span></li>`).join("") +
     `<li role="option" data-a="DC" aria-selected="false"><span class="sp-name">Washington, DC</span><span class="sp-code">DC</span></li>`;
   wrap.append(btn, menu);
@@ -652,7 +699,7 @@ const pick=$("#pick");ABBRS.forEach(a=>pick.add(new Option(GEO[a].name,a)));pick
   function syncFromPick(){
     const v = pick.value;
     [...menu.querySelectorAll('[role="option"]')].forEach(li => li.setAttribute("aria-selected", String(li.dataset.a === v)));
-    if(!v){ label.textContent = "Choose a state…"; return; }
+    if(!v){ label.textContent = usaUi().choose; return; }
     if(v === "DC"){ label.textContent = "Washington, DC"; return; }
     label.textContent = (GEO[v] && GEO[v].name) || v;
   }

@@ -86,7 +86,7 @@ function boot(){
  var li=LNG==='it'?1:(LNG==='es'?2:0);
  /* Pages that exist under /it/ and /es/; anything else falls back to the English page. */
  var HAS={it:'?view=map countries/usa.html vet-info/ airlines/ hotels/ grooming/ products/ taxi/ forum/ k9/ veterans/ pro/ updates.html about.html #compare #gear',
-          es:'?view=map countries/usa.html vet-info/ airlines/compare/ hotels/ grooming/ k9/ veterans/ #compare #gear'};
+          es:'?view=map countries/usa.html vet-info/ airlines/compare/ hotels/ grooming/ products/ taxi/ forum/ k9/ veterans/ pro/ updates.html about.html #compare #gear'};
  var tgt=function(rel){ if(LNG==='en') return up+rel; var bare=rel.split('#')[0]; if(rel.charAt(0)==='#'||rel.charAt(0)==='?') bare=rel;
    return ((' '+HAS[LNG]+' ').indexOf(' '+bare+' ')>=0?ppcLangRoot+'/':'/')+rel; };
  var S=[['map',tgt('?view=map')],['law',tgt('countries/usa.html#federal')],['vet',tgt('vet-info/')],
