@@ -6,14 +6,14 @@ Fans listed airports off their city dots with dashed leaders (already styled
 in CSS). Keeps geometry and fills unchanged.
 """
 from __future__ import annotations
-import json, time
+import json, time, os
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-ROOT = Path('/workspace/es-site-20261118')
+ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
 CHROME = '/usr/bin/google-chrome'
-BASE = 'http://127.0.0.1:8877'
+BASE = os.environ.get('PPC_PACK_BASE', 'http://127.0.0.1:8877')
 
 FAN_PREF = {
     # away from the city dot; chosen to open space vs neighbours
@@ -79,6 +79,18 @@ PACK_JS = r"""(opts) => {
     if (g) g.classList.remove('ct-crowd','ap-crowd','ap-code-crowd');
   }
   document.querySelectorAll('#g-lb text, #g-ct .ct text, #g-ap .ap text, #g-ap .ap, #g-ct .ct, #g-ap-link line').forEach(show);
+  /* Reset is-cap from the city group, not from a previously applied plan. */
+  document.querySelectorAll('#g-lb text.ct-label, #g-ct .ct text').forEach(el => {
+    el.classList.remove('is-cap');
+    if (el.dataset) el.dataset.kind = 'city';
+    const owner = el.dataset && el.dataset.owner;
+    const g = owner ? document.querySelector('#g-ct .ct[data-k="'+owner+'"]') : (el.closest && el.closest('.ct'));
+    if (g && g.classList.contains('cap')) {
+      el.classList.add('is-cap');
+      if (el.dataset) el.dataset.kind = 'capital';
+    }
+  });
+
 
   function vis(el){
     if (!el) return null;

@@ -1221,3 +1221,142 @@ html.accent-mxgreen #country-map .lbl-legend .ll-a b{
   html.accent-maple #country-map .lbl-legend,
   html.accent-mxgreen #country-map .lbl-legend{margin-top:8px;font-size:11px}
 }
+
+/* ---- CA/MX typography legend: match live USA option A exactly (2026-11-18) ----
+   Dark chips with sample type, then a plain light label. Reset the earlier
+   11px-swatch + white-box rules that leaked under these selectors. */
+html.accent-maple #country-map .lbl-legend,
+html.accent-mxgreen #country-map .lbl-legend,
+#country-map.accent-maple .lbl-legend,
+#country-map.accent-mxgreen .lbl-legend{
+  display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;
+  margin:10px 4px 0;padding:8px 4px 0;border-top:1px solid rgba(255,255,255,.08);
+  font:600 12px/1.3 Inter,system-ui,sans-serif;color:#d7ddd8;
+}
+html.accent-maple #country-map .lbl-legend span,
+html.accent-mxgreen #country-map .lbl-legend span,
+#country-map.accent-maple .lbl-legend span,
+#country-map.accent-mxgreen .lbl-legend span{
+  display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  background:transparent;padding:0;border-radius:0;color:#d7ddd8;
+  font-variant:normal;letter-spacing:normal;text-transform:none;font-weight:600;
+}
+html.accent-maple #country-map .lbl-legend i,
+html.accent-mxgreen #country-map .lbl-legend i,
+#country-map.accent-maple .lbl-legend i,
+#country-map.accent-mxgreen .lbl-legend i,
+html.accent-maple #country-map .lbl-legend b,
+html.accent-mxgreen #country-map .lbl-legend b,
+#country-map.accent-maple .lbl-legend b,
+#country-map.accent-mxgreen .lbl-legend b{
+  display:inline-block;width:auto;height:auto;margin:0;vertical-align:baseline;
+  box-shadow:none;border:0;font-style:normal;
+}
+html.accent-maple #country-map .lbl-legend .ll-r i,
+html.accent-mxgreen #country-map .lbl-legend .ll-r i,
+#country-map.accent-maple .lbl-legend .ll-r i,
+#country-map.accent-mxgreen .lbl-legend .ll-r i{
+  color:#F4EFE6;background:#0B1719;border-radius:2px;padding:1px 5px;
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-style:normal;
+}
+html.accent-maple #country-map .lbl-legend .ll-c i,
+html.accent-mxgreen #country-map .lbl-legend .ll-c i,
+#country-map.accent-maple .lbl-legend .ll-c i,
+#country-map.accent-mxgreen .lbl-legend .ll-c i{
+  color:#FFB547;background:#0B1719;border-radius:2px;padding:1px 5px;
+  font-size:10px;font-style:italic;font-weight:500;text-transform:none;letter-spacing:0;
+}
+html.accent-maple #country-map .lbl-legend .ll-k i,
+html.accent-mxgreen #country-map .lbl-legend .ll-k i,
+#country-map.accent-maple .lbl-legend .ll-k i,
+#country-map.accent-mxgreen .lbl-legend .ll-k i{
+  color:#FFD56A;background:#0B1719;border-radius:2px;padding:1px 5px;
+  font-size:10px;font-style:normal;font-weight:700;text-transform:none;letter-spacing:0;
+}
+html.accent-maple #country-map .lbl-legend .ll-a b,
+html.accent-mxgreen #country-map .lbl-legend .ll-a b,
+#country-map.accent-maple .lbl-legend .ll-a b,
+#country-map.accent-mxgreen .lbl-legend .ll-a b{
+  color:#7ED0E6;background:#0B1719;border-radius:3px;padding:1px 6px;
+  font-size:10px;font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;font-style:normal;
+  box-shadow:none;width:auto;height:auto;
+}
+@media (max-width:900px){
+  html.accent-maple #country-map .lbl-legend,
+  html.accent-mxgreen #country-map .lbl-legend,
+  #country-map.accent-maple .lbl-legend,
+  #country-map.accent-mxgreen .lbl-legend{margin-top:8px;font-size:11px}
+}
+
+/* City / capital dots: gold capitals, cream cities. Beat the old maple red rings. */
+html.accent-maple #country-map .ct circle,
+html.accent-mxgreen #country-map .ct circle,
+#country-map.accent-maple .ct circle,
+#country-map.accent-mxgreen .ct circle{
+  fill:#e9dfc6;stroke:#0B1719;stroke-width:1;
+}
+html.accent-maple #country-map .ct.sample circle,
+html.accent-mxgreen #country-map .ct.sample circle,
+#country-map.accent-maple .ct.sample circle,
+#country-map.accent-mxgreen .ct.sample circle{
+  fill:#e9dfc6;stroke:#0B1719;stroke-width:1.4;
+}
+html.accent-maple #country-map .ct.sample .ring,
+html.accent-mxgreen #country-map .ct.sample .ring,
+#country-map.accent-maple .ct.sample .ring,
+#country-map.accent-mxgreen .ct.sample .ring{
+  fill:none;stroke:#e9dfc6;opacity:.7;
+}
+html.accent-maple #country-map .ct.cap circle,
+html.accent-mxgreen #country-map .ct.cap circle,
+#country-map.accent-maple .ct.cap circle,
+#country-map.accent-mxgreen .ct.cap circle{
+  fill:#FFD56A;stroke:#0B1719;stroke-width:1.3;
+}
+html.accent-maple #country-map .ct.cap .ring,
+html.accent-mxgreen #country-map .ct.cap .ring,
+#country-map.accent-maple .ct.cap .ring,
+#country-map.accent-mxgreen .ct.cap .ring{
+  fill:none;stroke:#FFD56A;opacity:1;
+}
+html.accent-maple #country-map .ct.cap:hover circle,
+html.accent-maple #country-map .ct.cap.sel circle,
+html.accent-mxgreen #country-map .ct.cap:hover circle,
+html.accent-mxgreen #country-map .ct.cap.sel circle{
+  fill:#fff;stroke:#FFD56A;
+}
+
+/* Capital names stay gold even after hoist. */
+html.accent-maple #country-map .ct-label.is-cap,
+html.accent-mxgreen #country-map .ct-label.is-cap,
+#country-map.accent-maple .ct-label.is-cap,
+#country-map.accent-mxgreen .ct-label.is-cap,
+html.accent-maple #country-map .ct.cap text,
+html.accent-mxgreen #country-map .ct.cap text{
+  font-style:normal !important;
+  font-weight:700 !important;
+  fill:#FFD56A !important;
+}
+
+/* Top symbol legend: gold selection, gold capital, cream city, cyan airport. */
+html.accent-maple #country-map .legend .lg-sel,
+html.accent-mxgreen #country-map .legend .lg-sel,
+#country-map.accent-maple .legend .lg-sel,
+#country-map.accent-mxgreen .legend .lg-sel{
+  background:#6d5a2c !important;border:0 !important;box-shadow:0 0 0 1px #f0d58c !important;
+  width:10px;height:10px;border-radius:50%;display:inline-block;vertical-align:-1px;margin-right:5px;
+}
+html.accent-maple #country-map .legend .lg-cap,
+html.accent-mxgreen #country-map .legend .lg-cap,
+#country-map.accent-maple .legend .lg-cap,
+#country-map.accent-mxgreen .legend .lg-cap{
+  background:#FFD56A !important;border:0 !important;box-shadow:0 0 0 1.4px #0B1719 !important;
+  width:10px;height:10px;border-radius:50%;display:inline-block;vertical-align:-1px;margin-right:5px;
+}
+html.accent-maple #country-map .legend .lg-city,
+html.accent-mxgreen #country-map .legend .lg-city,
+#country-map.accent-maple .legend .lg-city,
+#country-map.accent-mxgreen .legend .lg-city{
+  background:#e9dfc6 !important;border:0 !important;box-shadow:0 0 0 1px #0B1719 !important;
+  width:10px;height:10px;border-radius:50%;display:inline-block;vertical-align:-1px;margin-right:5px;
+}

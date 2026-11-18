@@ -85,7 +85,7 @@ function mountCamxLabelLegend(){
     : loc==='it'
     ? {r:isMx?'Stati':'Province', c:'Città', k:'Capitale', a:'Aeroporti', aria:'Legenda etichette'}
     : {r:isMx?'States':'Provinces', c:'Cities', k:'Capital', a:'Airports', aria:'Label colour legend'};
-  const sm=isMx?{r:'JAL',c:'Cancún',k:'CDMX',a:'MEX'}:{r:'ON',c:'Calgary',k:'Toronto',a:'YYZ'};
+  const sm=isMx?{r:'JAL',c:'Guadalajara',k:'CDMX',a:'MEX'}:{r:'ON',c:'Vancouver',k:'Ottawa',a:'YYZ'};
   box.setAttribute('aria-label', L.aria);
   box.innerHTML =
     '<span class="ll-r"><i aria-hidden="true">'+sm.r+'</i>'+L.r+'</span>'+
