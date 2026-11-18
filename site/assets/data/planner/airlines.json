@@ -80,6 +80,7 @@
           "CAD",
           "USD"
         ],
+        "currency_symbol": "$",
         "scope": "Cabin: within Canada and Canada/U.S.",
         "as_stated": "Cabin: within Canada and Canada/U.S.: CA/US $50-$60 one way"
       },
@@ -93,6 +94,7 @@
           "CAD",
           "USD"
         ],
+        "currency_symbol": "$",
         "scope": "Cabin: international",
         "as_stated": "Cabin: international: CA/US $100-$120 one way"
       },
@@ -106,6 +108,7 @@
           "CAD",
           "USD"
         ],
+        "currency_symbol": "$",
         "scope": "Baggage compartment: within Canada and Canada/U.S.",
         "as_stated": "Baggage compartment: within Canada and Canada/U.S.: CA/US $105-$126 one way"
       },
@@ -119,14 +122,15 @@
           "CAD",
           "USD"
         ],
+        "currency_symbol": "$",
         "scope": "Baggage compartment: international",
         "as_stated": "Baggage compartment: international: CA/US $270-$324 one way"
       }
     ],
     "fees_as_stated": "Cabin: within Canada and Canada/U.S.: CA/US $50-$60 one way; Cabin: international: CA/US $100-$120 one way; Baggage compartment: within Canada and Canada/U.S.: CA/US $105-$126 one way; Baggage compartment: international: CA/US $270-$324 one way",
     "restrictions": {
-      "brachycephalic_as_stated": "Short/snub-nosed (brachycephalic) dog breeds cannot travel in the baggage compartment; 'strong' breeds need reinforced crates.",
-      "breeds_as_stated": "Short/snub-nosed (brachycephalic) dog breeds cannot travel in the baggage compartment; 'strong' breeds need reinforced crates.",
+      "brachycephalic_as_stated": "Short/snub-nosed (brachycephalic) dog breeds cannot travel in the baggage compartment",
+      "breeds_as_stated": "'strong' breeds need reinforced crates.",
       "routes_as_stated": "No pet carriers on Air Canada Jetz or codeshare flights operated by partners; no cabin pets in Premium Economy. Many seasonal baggage-compartment embargoes (e.g. Dec 18 - Jan 4 no checked pets or cargo).",
       "cargo_only_as_stated": null
     },
@@ -254,40 +258,78 @@
     "weight_as_stated": "Cabin: must not exceed 8 kg. Hold: maximum 45 kg (99 lb) including the carrier.",
     "fees": [
       {
-        "amount": null,
-        "amount_min": null,
-        "amount_max": null,
-        "currency": null,
-        "currency_as_stated": null,
-        "currencies": null,
-        "scope": "Cabin, per pet, per flight segment (paid up to 24 hours before departure, as published on Air Transat's Canada site)",
-        "as_stated": "Cabin, per pet, per flight segment (paid up to 24 hours before departure, as published on Air Transat's Canada site): $50 to the USA or within Canada; $100 to Europe and Africa, or South."
-      },
-      {
-        "amount": null,
-        "amount_min": null,
-        "amount_max": null,
-        "currency": null,
-        "currency_as_stated": null,
-        "currencies": null,
-        "scope": "Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page)",
-        "as_stated": "Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page): $100 within Canada; $150 to the USA; $275 to Europe and Africa, or South."
-      },
-      {
-        "amount": 30,
+        "amount": 50,
         "amount_min": null,
         "amount_max": null,
         "currency": null,
         "currency_as_stated": "$",
         "currencies": null,
+        "currency_symbol": "$",
+        "scope": "Cabin, per pet, per flight segment (paid up to 24 hours before departure, as published on Air Transat's Canada site)",
+        "as_stated": "Cabin, per pet, per flight segment (paid up to 24 hours before departure, as published on Air Transat's Canada site): $50 to the USA or within Canada"
+      },
+      {
+        "amount": 100,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "currencies": null,
+        "currency_symbol": "$",
+        "scope": "Cabin, per pet, per flight segment (paid up to 24 hours before departure, as published on Air Transat's Canada site)",
+        "as_stated": "Cabin, per pet, per flight segment (paid up to 24 hours before departure, as published on Air Transat's Canada site): $100 to Europe and Africa, or South."
+      },
+      {
+        "amount": 100,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "currencies": null,
+        "currency_symbol": "$",
+        "scope": "Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page)",
+        "as_stated": "Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page): $100 within Canada"
+      },
+      {
+        "amount": 150,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "currencies": null,
+        "currency_symbol": "$",
+        "scope": "Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page)",
+        "as_stated": "Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page): $150 to the USA"
+      },
+      {
+        "amount": 275,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "currencies": null,
+        "currency_symbol": "$",
+        "scope": "Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page)",
+        "as_stated": "Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page): $275 to Europe and Africa, or South."
+      },
+      {
+        "amount": 30,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": "CAD",
+        "currency_as_stated": "CAD",
+        "currencies": [
+          "CAD"
+        ],
+        "currency_symbol": "$",
         "scope": null,
         "as_stated": "Upon entry into Canada, a CAD $30 fee (plus tax, per animal) is required for inspection by the Canadian Food Inspection Agency; arrivals from the USA are exempt."
       }
     ],
     "fees_as_stated": "Cabin, per pet, per flight segment (paid up to 24 hours before departure, as published on Air Transat's Canada site): $50 to the USA or within Canada; $100 to Europe and Africa, or South.; Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page): $100 within Canada; $150 to the USA; $275 to Europe and Africa, or South.; Upon entry into Canada, a CAD $30 fee (plus tax, per animal) is required for inspection by the Canadian Food Inspection Agency; arrivals from the USA are exempt.",
     "restrictions": {
-      "brachycephalic_as_stated": "Air Transat will not transport the following breeds or mixed breeds, including one or more of these: mastiffs (all breeds, including Dogo Argentino, Bandog, Boerboel, Fila Brasileiro, Cane Corso, Neapolitan, Presa Canario and Tosa Inu); pit bulls (all breeds, including American Bully, American Pit Bull Terrier, American Staffordshire Terrier and Staffordshire Bull Terrier); Akita; Caucasian Ovcharka; Kangal/Anatolian Shepherd (Karabash); Rottweiler; wolf-dog hybrids; and Doberman Pinscher. Bull Mastiffs and French Mastiffs (Dogue de Bordeaux) are exempt from that list and are accepted. For the hold, the official page also lists French Bulldogs and American Bulldogs among breeds it is unable to transport, and states that French Bulldogs are allowed in the cabin only. Other brachycephalic (snub-nosed) dogs and cats not on the refusal list are accepted in the hold only with extra conditions, including a kennel one size larger than the normal standard and ventilation openings on all four sides.",
-      "breeds_as_stated": "Air Transat will not transport the following breeds or mixed breeds, including one or more of these: mastiffs (all breeds, including Dogo Argentino, Bandog, Boerboel, Fila Brasileiro, Cane Corso, Neapolitan, Presa Canario and Tosa Inu); pit bulls (all breeds, including American Bully, American Pit Bull Terrier, American Staffordshire Terrier and Staffordshire Bull Terrier); Akita; Caucasian Ovcharka; Kangal/Anatolian Shepherd (Karabash); Rottweiler; wolf-dog hybrids; and Doberman Pinscher. Bull Mastiffs and French Mastiffs (Dogue de Bordeaux) are exempt from that list and are accepted. For the hold, the official page also lists French Bulldogs and American Bulldogs among breeds it is unable to transport, and states that French Bulldogs are allowed in the cabin only. Other brachycephalic (snub-nosed) dogs and cats not on the refusal list are accepted in the hold only with extra conditions, including a kennel one size larger than the normal standard and ventilation openings on all four sides.",
+      "brachycephalic_as_stated": "Other brachycephalic (snub-nosed) dogs and cats not on the refusal list are accepted in the hold only with extra conditions, including a kennel one size larger than the normal standard and ventilation openings on all four sides.",
+      "breeds_as_stated": "Air Transat will not transport the following breeds or mixed breeds, including one or more of these: mastiffs (all breeds, including Dogo Argentino, Bandog, Boerboel, Fila Brasileiro, Cane Corso, Neapolitan, Presa Canario and Tosa Inu); pit bulls (all breeds, including American Bully, American Pit Bull Terrier, American Staffordshire Terrier and Staffordshire Bull Terrier); Akita; Caucasian Ovcharka; Kangal/Anatolian Shepherd (Karabash); Rottweiler; wolf-dog hybrids; and Doberman Pinscher. Bull Mastiffs and French Mastiffs (Dogue de Bordeaux) are exempt from that list and are accepted. For the hold, the official page also lists French Bulldogs and American Bulldogs among breeds it is unable to transport, and states that French Bulldogs are allowed in the cabin only.",
       "routes_as_stated": "Cabin pets are not available on codeshare flights or vacation packages. To and from the United Kingdom, cats and dogs are accepted as cargo only (certified service dogs are excepted). To the Republic of Ireland, cats and dogs are accepted as cargo only (certified service dogs excepted); from Ireland, cats and dogs may be accepted in the cabin, in the hold, or as cargo, subject to Air Transat's acceptance conditions.",
       "cargo_only_as_stated": "Yes: cats and dogs in the checked baggage hold, in a plain rigid leak-proof plastic cage (wire doors are acceptable; cages with a top petting door are not). Maximum carrier size at check-in: 122 cm × 81.3 cm × 89 cm (48 × 32 × 35 in). Larger cages must go via Air Transat cargo, with advance arrangements. Hold space is not available on connecting or codeshare flights, flights operated by another carrier, vacation packages, or Train + Air. | Cabin pets are not available on codeshare flights or vacation packages. To and from the United Kingdom, cats and dogs are accepted as cargo only (certified service dogs are excepted). To the Republic of Ireland, cats and dogs are accepted as cargo only (certified service dogs excepted); from Ireland, cats and dogs may be accepted in the cabin, in the hold, or as cargo, subject to Air Transat's acceptance conditions."
     },
@@ -325,14 +367,26 @@
     "weight_as_stated": "Baggage compartment: up to 150 lb pet + kennel combined (official newsroom, Aug 26, 2026)",
     "fees": [
       {
-        "amount": null,
+        "amount": 100,
         "amount_min": null,
         "amount_max": null,
         "currency": null,
-        "currency_as_stated": null,
+        "currency_as_stated": "$",
         "currencies": null,
+        "currency_symbol": "$",
         "scope": "In cabin",
-        "as_stated": "In cabin: $100 per carrier each way ($35 wholly within Hawaii)"
+        "as_stated": "In cabin: $100 per carrier each way"
+      },
+      {
+        "amount": 35,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "currencies": null,
+        "currency_symbol": "$",
+        "scope": "In cabin",
+        "as_stated": "In cabin: $35 wholly within Hawaii"
       },
       {
         "amount": 200,
@@ -341,6 +395,7 @@
         "currency": null,
         "currency_as_stated": "$",
         "currencies": null,
+        "currency_symbol": "$",
         "scope": "Baggage compartment",
         "as_stated": "Baggage compartment: $200 per kennel each way (discounts within Alaska/Hawaii and for active-duty military)"
       }
@@ -348,7 +403,7 @@
     "fees_as_stated": "In cabin: $100 per carrier each way ($35 wholly within Hawaii); Baggage compartment: $200 per kennel each way (discounts within Alaska/Hawaii and for active-duty military)",
     "restrictions": {
       "brachycephalic_as_stated": "Brachycephalic (short-nosed) dogs are not permitted in the baggage compartment (official newsroom).",
-      "breeds_as_stated": "Brachycephalic (short-nosed) dogs are not permitted in the baggage compartment (official newsroom).",
+      "breeds_as_stated": null,
       "routes_as_stated": "Check with airline",
       "cargo_only_as_stated": null
     },
@@ -395,18 +450,31 @@
         "currency": null,
         "currency_as_stated": "$",
         "currencies": null,
+        "currency_symbol": "$",
         "scope": "Carry-on: U.S., Canada, Mexico, Central America, Caribbean",
         "as_stated": "Carry-on: U.S., Canada, Mexico, Central America, Caribbean: $150 per kennel each way"
       },
       {
-        "amount": null,
+        "amount": 200,
         "amount_min": null,
         "amount_max": null,
         "currency": null,
-        "currency_as_stated": null,
+        "currency_as_stated": "$",
         "currencies": null,
+        "currency_symbol": "$",
         "scope": "Checked (active-duty military / State Dept only)",
-        "as_stated": "Checked (active-duty military / State Dept only): $200 per kennel; $150 to/from Brazil"
+        "as_stated": "Checked (active-duty military / State Dept only): $200 per kennel"
+      },
+      {
+        "amount": 150,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "currencies": null,
+        "currency_symbol": "$",
+        "scope": "Checked (active-duty military / State Dept only)",
+        "as_stated": "Checked (active-duty military / State Dept only): $150 to/from Brazil"
       },
       {
         "amount": null,
@@ -415,6 +483,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Cargo (PetEmbark)",
         "as_stated": "Cargo (PetEmbark): Varies"
       }
@@ -422,7 +491,7 @@
     "fees_as_stated": "Carry-on: U.S., Canada, Mexico, Central America, Caribbean: $150 per kennel each way; Checked (active-duty military / State Dept only): $200 per kennel; $150 to/from Brazil; Cargo (PetEmbark): Varies",
     "restrictions": {
       "brachycephalic_as_stated": "Checked: brachycephalic cats (e.g. Burmese, Persian, Himalayan, Exotic Shorthair) and brachycephalic dogs (e.g. Boxer, Bulldog, Pug, Shih Tzu, Pit Bull, Mastiff, and more).",
-      "breeds_as_stated": "Checked: brachycephalic cats (e.g. Burmese, Persian, Himalayan, Exotic Shorthair) and brachycephalic dogs (e.g. Boxer, Bulldog, Pug, Shih Tzu, Pit Bull, Mastiff, and more).",
+      "breeds_as_stated": null,
       "routes_as_stated": "No carry-on pets to/from Hawaii, Jamaica, Argentina, Brazil, Chile, Colombia, Uruguay, or on trans-Atlantic and trans-Pacific trips.",
       "cargo_only_as_stated": null
     },
@@ -466,6 +535,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Per cage, international",
         "as_stated": "Per cage, international: across two areas (e.g. Haneda-Los Angeles) JPY 40,000 / USD 400 / CAD 400 / EUR 300; within one area (e.g. Asia incl. Japan-Korea) JPY 25,000 / USD 250 / CAD 250 / EUR 200. Japan domestic JPY 6,600 (JPY 4,400 certain routes) from 2026-05-19"
       }
@@ -568,6 +638,7 @@
         "currencies": [
           "USD"
         ],
+        "currency_symbol": null,
         "scope": null,
         "as_stated": "USD 125 each way, per pet carrier"
       }
@@ -623,6 +694,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": null,
         "as_stated": "An additional charge applies, as posted on the Breeze website. The official Contract of Carriage does not publish a dollar amount."
       }
@@ -712,12 +784,16 @@
     "weight_as_stated": "Check with airline",
     "fees": [
       {
-        "amount": null,
+        "amount": 150,
         "amount_min": null,
         "amount_max": null,
         "currency": null,
-        "currency_as_stated": null,
-        "currencies": null,
+        "currency_as_stated": "USD/CAD",
+        "currencies": [
+          "USD",
+          "CAD"
+        ],
+        "currency_symbol": "$",
         "scope": "U.S./Canada/Puerto Rico/U.S. Virgin Islands",
         "as_stated": "U.S./Canada/Puerto Rico/U.S. Virgin Islands: $150 USD/CAD each way (tickets issued on/after Apr 8, 2025; $95 before)"
       },
@@ -732,16 +808,20 @@
           "CAD",
           "EUR"
         ],
+        "currency_symbol": "$",
         "scope": "International",
         "as_stated": "International: $200 USD/CAD/EUR each way"
       },
       {
-        "amount": null,
+        "amount": 200,
         "amount_min": null,
         "amount_max": null,
-        "currency": null,
-        "currency_as_stated": null,
-        "currencies": null,
+        "currency": "USD",
+        "currency_as_stated": "USD",
+        "currencies": [
+          "USD"
+        ],
+        "currency_symbol": "$",
         "scope": "Brazil",
         "as_stated": "Brazil: $200 USD each way (tickets issued on/after Apr 8, 2025; $75 before)"
       }
@@ -749,7 +829,7 @@
     "fees_as_stated": "U.S./Canada/Puerto Rico/U.S. Virgin Islands: $150 USD/CAD each way (tickets issued on/after Apr 8, 2025; $95 before); International: $200 USD/CAD/EUR each way; Brazil: $200 USD each way (tickets issued on/after Apr 8, 2025; $75 before)",
     "restrictions": {
       "brachycephalic_as_stated": "Brachycephalic (snub-nosed) dogs, cats and their mixes are not permitted in cargo (per Delta's Shipping Your Pet page).",
-      "breeds_as_stated": "Brachycephalic (snub-nosed) dogs, cats and their mixes are not permitted in cargo (per Delta's Shipping Your Pet page).",
+      "breeds_as_stated": null,
       "routes_as_stated": "No in-cabin pets to/from Australia, Barbados, Brazil/Colombia/Dominican Republic (originating), Hawaii (flights to), Hong Kong, Iceland, Jamaica, New Zealand, South Africa, United Kingdom, United Arab Emirates. No pets in Delta One, Delta Premium or international Business.",
       "cargo_only_as_stated": null
     },
@@ -800,6 +880,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": null,
         "as_stated": "Fees are per pet carrier or container, per direction, for flights operated by Finnair (AY code on the ticket). When departing from India, local taxes are added."
       },
@@ -810,6 +891,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Cabin, Finland/Scandinavia/Baltics",
         "as_stated": "Cabin, Finland/Scandinavia/Baltics: EUR 60 or 7,800 Avios (7 days or more before departure); EUR 65 or 8,500 Avios (6 days or less)."
       },
@@ -820,6 +902,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Cabin, within Europe",
         "as_stated": "Cabin, within Europe: EUR 70 or 9,100 Avios (7 days or more); EUR 80 or 10,500 Avios (6 days or less)."
       },
@@ -830,6 +913,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Cabin, intercontinental (including the Middle East, excluding Australia)",
         "as_stated": "Cabin, intercontinental (including the Middle East, excluding Australia): EUR 140 / USD 160 or 18,500 Avios (7 days or more); EUR 170 / USD 190 or 22,500 Avios (6 days or less)."
       },
@@ -842,6 +926,7 @@
         "currencies": [
           "EUR"
         ],
+        "currency_symbol": null,
         "scope": "Hold, Finland/Scandinavia/Baltics",
         "as_stated": "Hold, Finland/Scandinavia/Baltics: EUR 140 or 18,500 Avios."
       },
@@ -854,6 +939,7 @@
         "currencies": [
           "EUR"
         ],
+        "currency_symbol": null,
         "scope": "Hold, within Europe",
         "as_stated": "Hold, within Europe: EUR 160 or 21,100 Avios."
       },
@@ -866,6 +952,7 @@
         "currencies": [
           "EUR"
         ],
+        "currency_symbol": null,
         "scope": "Hold, intercontinental",
         "as_stated": "EUR 650"
       },
@@ -878,6 +965,7 @@
         "currencies": [
           "USD"
         ],
+        "currency_symbol": null,
         "scope": "Hold, intercontinental",
         "as_stated": "USD 750"
       },
@@ -888,6 +976,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": null,
         "as_stated": "Cargo pricing is on the Finnair Cargo website."
       }
@@ -986,30 +1075,65 @@
     "weight_as_stated": "Baggage compartment: up to 150 lb (68 kg) pet + kennel combined; heavier pets via Pet Connect (Alaska and Hawaiian Air Cargo). No in-cabin weight limit stated: the pet must fit comfortably in the carrier under the seat.",
     "fees": [
       {
-        "amount": null,
+        "amount": 100,
         "amount_min": null,
         "amount_max": null,
         "currency": null,
-        "currency_as_stated": null,
+        "currency_as_stated": "$",
         "currencies": null,
+        "currency_symbol": "$",
         "scope": "In cabin",
-        "as_stated": "In cabin: $100 per carrier each way ($35 wholly within Hawaii)"
+        "as_stated": "In cabin: $100 per carrier each way"
       },
       {
-        "amount": null,
+        "amount": 35,
         "amount_min": null,
         "amount_max": null,
         "currency": null,
-        "currency_as_stated": null,
+        "currency_as_stated": "$",
         "currencies": null,
+        "currency_symbol": "$",
+        "scope": "In cabin",
+        "as_stated": "In cabin: $35 wholly within Hawaii"
+      },
+      {
+        "amount": 200,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "currencies": null,
+        "currency_symbol": "$",
         "scope": "Baggage compartment",
-        "as_stated": "Baggage compartment: $200 per kennel each way ($60 wholly within Hawaii; $100 wholly within Alaska or for active-duty U.S. Military and dependents on travel orders)"
+        "as_stated": "Baggage compartment: $200 per kennel each way"
+      },
+      {
+        "amount": 60,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "currencies": null,
+        "currency_symbol": "$",
+        "scope": "Baggage compartment",
+        "as_stated": "Baggage compartment: $60 wholly within Hawaii"
+      },
+      {
+        "amount": 100,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "currencies": null,
+        "currency_symbol": "$",
+        "scope": "Baggage compartment",
+        "as_stated": "Baggage compartment: $100 wholly within Alaska or for active-duty U.S. Military and dependents on travel orders"
       }
     ],
     "fees_as_stated": "In cabin: $100 per carrier each way ($35 wholly within Hawaii); Baggage compartment: $200 per kennel each way ($60 wholly within Hawaii; $100 wholly within Alaska or for active-duty U.S. Military and dependents on travel orders)",
     "restrictions": {
       "brachycephalic_as_stated": "Brachycephalic (short-nosed) dogs and cats and their mixes are not accepted in the baggage compartment (e.g. Boston Terrier, Boxer, Bulldog, French Bulldog, Pug, Shih Tzu; Burmese, Exotic Shorthair, Himalayan and Persian cats). They may still fly in the cabin if the carrier fits under the seat.",
-      "breeds_as_stated": "Brachycephalic (short-nosed) dogs and cats and their mixes are not accepted in the baggage compartment (e.g. Boston Terrier, Boxer, Bulldog, French Bulldog, Pug, Shih Tzu; Burmese, Exotic Shorthair, Himalayan and Persian cats). They may still fly in the cabin if the carrier fits under the seat.",
+      "breeds_as_stated": null,
       "routes_as_stated": "No pets in the cabin or baggage compartment to/from Europe, London (LHR), Japan, Seoul (ICN), Belize City, Guatemala City, Pago Pago, Papeete, Rarotonga and Sydney (limited military exceptions for the baggage compartment to Japan). Pets are accepted within Hawaii and between Hawaii and the U.S. mainland, subject to Hawaii's entry rules: no animals arriving in Honolulu after 10 pm, and non-stop flights to Kona, Lihue or Kahului need a Neighbor Island Inspection Permit (dogs and cats only). No pet carriers in Business Class on A330 or 787 aircraft.",
       "cargo_only_as_stated": null
     },
@@ -1065,6 +1189,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Cabin, per segment, per carrier (if the itinerary connects different zones, the highest-priced zone applies)",
         "as_stated": "Cabin, per segment, per carrier (if the itinerary connects different zones, the highest-priced zone applies): Spain (except Canary Islands) online EUR 40 / USD 50 / GBP 35, airport EUR 44 / USD 55 / GBP 40; Canary Islands, Europe, North Africa and Israel online EUR 60 / USD 75 / GBP 55, airport EUR 66 / USD 80 / GBP 60; America, Asia and Qatar online EUR 180 / USD 215 / GBP 160, airport EUR 198 / USD 235 / GBP 175."
       },
@@ -1075,14 +1200,15 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Hold, payable at the airport only, per segment (connecting-flight prices are higher, as published on the official page)",
         "as_stated": "Hold, payable at the airport only, per segment (connecting-flight prices are higher, as published on the official page): Spain (except Canary Islands) EUR 90 / USD 110 / GBP 80 up to 10 kg, EUR 100 / USD 120 / GBP 90 for 11–25 kg, EUR 110 / USD 130 / GBP 100 for 26–45 kg; Canary Islands, Europe, North Africa and Israel EUR 135 / USD 160 / GBP 120 up to 10 kg, EUR 145 / USD 170 / GBP 130 for 11–25 kg, EUR 155 / USD 185 / GBP 135 for 26–45 kg; America, Asia and Qatar EUR 290 / USD 340 / GBP 255 up to 10 kg, EUR 310 / USD 365 / GBP 270 for 11–25 kg, EUR 330 / USD 390 / GBP 290 for 26–45 kg."
       }
     ],
     "fees_as_stated": "Cabin, per segment, per carrier (if the itinerary connects different zones, the highest-priced zone applies): Spain (except Canary Islands) online EUR 40 / USD 50 / GBP 35, airport EUR 44 / USD 55 / GBP 40; Canary Islands, Europe, North Africa and Israel online EUR 60 / USD 75 / GBP 55, airport EUR 66 / USD 80 / GBP 60; America, Asia and Qatar online EUR 180 / USD 215 / GBP 160, airport EUR 198 / USD 235 / GBP 175.; Hold, payable at the airport only, per segment (connecting-flight prices are higher, as published on the official page): Spain (except Canary Islands) EUR 90 / USD 110 / GBP 80 up to 10 kg, EUR 100 / USD 120 / GBP 90 for 11–25 kg, EUR 110 / USD 130 / GBP 100 for 26–45 kg; Canary Islands, Europe, North Africa and Israel EUR 135 / USD 160 / GBP 120 up to 10 kg, EUR 145 / USD 170 / GBP 130 for 11–25 kg, EUR 155 / USD 185 / GBP 135 for 26–45 kg; America, Asia and Qatar EUR 290 / USD 340 / GBP 255 up to 10 kg, EUR 310 / USD 365 / GBP 270 for 11–25 kg, EUR 330 / USD 390 / GBP 290 for 26–45 kg.",
     "restrictions": {
-      "brachycephalic_as_stated": "Iberia does not accept in the hold or the cabin the following dog breeds classified as dangerous: Pit Bull Terrier, Staffordshire Bull Terrier, American Staffordshire Terrier, Rottweiler, Doberman, Argentine Dogo, Brazilian Mastiff, Tosa and Akita; acceptance of other breeds depends on build, muscle, height and weight. Brachycephalic dogs and cats cannot travel in the hold; they may travel in the cabin if they meet cabin conditions. The official brachycephalic dog list includes Affenpinscher, Boston Terrier, Boxer (all breeds), Brussels Griffon, Bulldog (all breeds), Bull Mastiff, Canary Prey dog, Cane Corso, Cavalier Spaniel, Chihuahua, Chow Chow, Dogue de Bordeaux, English Toy Spaniel, Japanese Chin, Japanese Spaniel, King Charles Spaniel, Lhasa Apso, Maltese, Mastiff, Miniature Pinscher, Pekingese, Pit Bull, Pug, Saint Bernard, Shar Pei, Shih Tzu, Tibetan Spaniel and Yorkshire Terrier. Brachycephalic cats listed: Burmese, Exotic Shorthair, Himalayan and Persian.",
-      "breeds_as_stated": "Iberia does not accept in the hold or the cabin the following dog breeds classified as dangerous: Pit Bull Terrier, Staffordshire Bull Terrier, American Staffordshire Terrier, Rottweiler, Doberman, Argentine Dogo, Brazilian Mastiff, Tosa and Akita; acceptance of other breeds depends on build, muscle, height and weight. Brachycephalic dogs and cats cannot travel in the hold; they may travel in the cabin if they meet cabin conditions. The official brachycephalic dog list includes Affenpinscher, Boston Terrier, Boxer (all breeds), Brussels Griffon, Bulldog (all breeds), Bull Mastiff, Canary Prey dog, Cane Corso, Cavalier Spaniel, Chihuahua, Chow Chow, Dogue de Bordeaux, English Toy Spaniel, Japanese Chin, Japanese Spaniel, King Charles Spaniel, Lhasa Apso, Maltese, Mastiff, Miniature Pinscher, Pekingese, Pit Bull, Pug, Saint Bernard, Shar Pei, Shih Tzu, Tibetan Spaniel and Yorkshire Terrier. Brachycephalic cats listed: Burmese, Exotic Shorthair, Himalayan and Persian.",
+      "brachycephalic_as_stated": "Brachycephalic dogs and cats cannot travel in the hold; they may travel in the cabin if they meet cabin conditions. The official brachycephalic dog list includes Affenpinscher, Boston Terrier, Boxer (all breeds), Brussels Griffon, Bulldog (all breeds), Bull Mastiff, Canary Prey dog, Cane Corso, Cavalier Spaniel, Chihuahua, Chow Chow, Dogue de Bordeaux, English Toy Spaniel, Japanese Chin, Japanese Spaniel, King Charles Spaniel, Lhasa Apso, Maltese, Mastiff, Miniature Pinscher, Pekingese, Pit Bull, Pug, Saint Bernard, Shar Pei, Shih Tzu, Tibetan Spaniel and Yorkshire Terrier. Brachycephalic cats listed: Burmese, Exotic Shorthair, Himalayan and Persian.",
+      "breeds_as_stated": "Iberia does not accept in the hold or the cabin the following dog breeds classified as dangerous: Pit Bull Terrier, Staffordshire Bull Terrier, American Staffordshire Terrier, Rottweiler, Doberman, Argentine Dogo, Brazilian Mastiff, Tosa and Akita; acceptance of other breeds depends on build, muscle, height and weight.",
       "routes_as_stated": null,
       "cargo_only_as_stated": null
     },
@@ -1115,7 +1241,7 @@
       "lb": null,
       "as_stated": "Cabin, including carrier and food: 12 kg on domestic flights and 8 kg on all other flights",
       "scope": null,
-      "notes": "domestic flights: Cabin, including carrier and food: 12 kg on domestic flights; all other flights: 8 kg on all other flights",
+      "notes": null,
       "conditions": [
         {
           "kg": 12,
@@ -1142,6 +1268,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": null,
         "as_stated": "Fees are quoted in euros for departures from Europe and Japan, and in US dollars for departures from the United States and the rest of the world, and refer to a single flight route. The official charges page lists a cabin fee and a hold fee for each zone:"
       },
@@ -1152,6 +1279,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Domestic flights",
         "as_stated": "Domestic flights: cabin EUR 73 / USD 85; hold EUR 83 / USD 105."
       },
@@ -1162,6 +1290,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "To/from Europe, Algeria, Tunisia",
         "as_stated": "To/from Europe, Algeria, Tunisia: cabin EUR 95 / USD 120; hold EUR 105 / USD 135."
       },
@@ -1172,6 +1301,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Cairo, Tel Aviv, Amman, Beirut, Tripoli",
         "as_stated": "Cairo, Tel Aviv, Amman, Beirut, Tripoli: cabin EUR 100 / USD 125; hold EUR 120 / USD 150."
       },
@@ -1182,6 +1312,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Jeddah, Riad, Dakar, Accra, Dubai",
         "as_stated": "Jeddah, Riad, Dakar, Accra, Dubai: cabin EUR 100 / USD 125; hold EUR 120 / USD 150."
       },
@@ -1192,6 +1323,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Miami, Boston, Delhi, Malè, New York, Washington, Chicago, Toronto",
         "as_stated": "Miami, Boston, Delhi, Malè, New York, Washington, Chicago, Toronto: cabin EUR 210 / USD 265; hold EUR 280 / USD 350."
       },
@@ -1202,6 +1334,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Los Angeles, Houston, Buenos Aires, Rio de Janeiro, San Paolo, Tokyo, Bangkok, San Francisco, Mauritius",
         "as_stated": "Los Angeles, Houston, Buenos Aires, Rio de Janeiro, San Paolo, Tokyo, Bangkok, San Francisco, Mauritius: cabin EUR 230 / USD 290; hold EUR 300 / USD 375."
       }
@@ -1209,7 +1342,7 @@
     "fees_as_stated": "Fees are quoted in euros for departures from Europe and Japan, and in US dollars for departures from the United States and the rest of the world, and refer to a single flight route. The official charges page lists a cabin fee and a hold fee for each zone:; Domestic flights: cabin EUR 73 / USD 85; hold EUR 83 / USD 105.; To/from Europe, Algeria, Tunisia: cabin EUR 95 / USD 120; hold EUR 105 / USD 135.; Cairo, Tel Aviv, Amman, Beirut, Tripoli: cabin EUR 100 / USD 125; hold EUR 120 / USD 150.; Jeddah, Riad, Dakar, Accra, Dubai: cabin EUR 100 / USD 125; hold EUR 120 / USD 150.; Miami, Boston, Delhi, Malè, New York, Washington, Chicago, Toronto: cabin EUR 210 / USD 265; hold EUR 280 / USD 350.; Los Angeles, Houston, Buenos Aires, Rio de Janeiro, San Paolo, Tokyo, Bangkok, San Francisco, Mauritius: cabin EUR 230 / USD 290; hold EUR 300 / USD 375.",
     "restrictions": {
       "brachycephalic_as_stated": "From 26 October 2025, ITA no longer sells the hold (AVIH) service for brachycephalic dog and cat breeds. Reservations made and confirmed by 25 October 2025 remain valid. Cabin transport remains available for all breeds if the animal and carrier meet the weight and size limits. ITA lists these breeds as brachycephalic under IATA rules: dogs — Affenpinscher, American Pit Bull Terrier, American Staffordshire Terrier, Bichon Frise, Boston Terrier, Boxer, Brussels Griffon, Bulldog, Bullmastiff, Cane Corso, Cavalier King Charles Spaniel, Chihuahua (apple-headed), Chow Chow, Dogo Argentino, Dogue de Bordeaux, English Mastiff, French Bulldog, Japanese Chin, King Charles Spaniel, Lhasa Apso, Maltese, Neapolitan Mastiff, Newfoundland, Pekingese, Presa Canario, Pug, Shar-Pei, Shih Tzu, Silky Terrier, Tibetan Spaniel, Valley Bulldog, Yorkshire Terrier; cats — Burmese, Exotic Shorthair, Persian, Himalayan.",
-      "breeds_as_stated": "From 26 October 2025, ITA no longer sells the hold (AVIH) service for brachycephalic dog and cat breeds. Reservations made and confirmed by 25 October 2025 remain valid. Cabin transport remains available for all breeds if the animal and carrier meet the weight and size limits. ITA lists these breeds as brachycephalic under IATA rules: dogs — Affenpinscher, American Pit Bull Terrier, American Staffordshire Terrier, Bichon Frise, Boston Terrier, Boxer, Brussels Griffon, Bulldog, Bullmastiff, Cane Corso, Cavalier King Charles Spaniel, Chihuahua (apple-headed), Chow Chow, Dogo Argentino, Dogue de Bordeaux, English Mastiff, French Bulldog, Japanese Chin, King Charles Spaniel, Lhasa Apso, Maltese, Neapolitan Mastiff, Newfoundland, Pekingese, Presa Canario, Pug, Shar-Pei, Shih Tzu, Silky Terrier, Tibetan Spaniel, Valley Bulldog, Yorkshire Terrier; cats — Burmese, Exotic Shorthair, Persian, Himalayan.",
+      "breeds_as_stated": null,
       "routes_as_stated": null,
       "cargo_only_as_stated": null
     },
@@ -1434,6 +1567,7 @@
         "currencies": [
           "EUR"
         ],
+        "currency_symbol": null,
         "scope": "Cabin: domestic",
         "as_stated": "EUR 65-85"
       },
@@ -1446,6 +1580,7 @@
         "currencies": [
           "USD"
         ],
+        "currency_symbol": null,
         "scope": "Cabin: domestic",
         "as_stated": "USD 80-100"
       },
@@ -1458,6 +1593,7 @@
         "currencies": [
           "EUR"
         ],
+        "currency_symbol": null,
         "scope": "Cabin: Europe",
         "as_stated": "EUR 80-100"
       },
@@ -1470,6 +1606,7 @@
         "currencies": [
           "USD"
         ],
+        "currency_symbol": null,
         "scope": "Cabin: Europe",
         "as_stated": "USD 95-115"
       },
@@ -1482,6 +1619,7 @@
         "currencies": [
           "EUR"
         ],
+        "currency_symbol": null,
         "scope": "Cabin: Levant and Egypt",
         "as_stated": "EUR 100-120"
       },
@@ -1494,6 +1632,7 @@
         "currencies": [
           "USD"
         ],
+        "currency_symbol": null,
         "scope": "Cabin: Levant and Egypt",
         "as_stated": "USD 110-130"
       },
@@ -1506,6 +1645,7 @@
         "currencies": [
           "EUR"
         ],
+        "currency_symbol": null,
         "scope": "Cabin: intercontinental short haul",
         "as_stated": "EUR 105-125"
       },
@@ -1518,6 +1658,7 @@
         "currencies": [
           "USD"
         ],
+        "currency_symbol": null,
         "scope": "Cabin: intercontinental short haul",
         "as_stated": "USD 120-140"
       },
@@ -1530,6 +1671,7 @@
         "currencies": [
           "EUR"
         ],
+        "currency_symbol": null,
         "scope": "Cabin: intercontinental medium haul",
         "as_stated": "EUR 115-135"
       },
@@ -1542,6 +1684,7 @@
         "currencies": [
           "USD"
         ],
+        "currency_symbol": null,
         "scope": "Cabin: intercontinental medium haul",
         "as_stated": "USD 135-155"
       },
@@ -1554,6 +1697,7 @@
         "currencies": [
           "EUR"
         ],
+        "currency_symbol": null,
         "scope": "Cabin: intercontinental long haul",
         "as_stated": "EUR 125-145"
       },
@@ -1566,14 +1710,15 @@
         "currencies": [
           "USD"
         ],
+        "currency_symbol": null,
         "scope": "Cabin: intercontinental long haul",
         "as_stated": "USD 145-165"
       }
     ],
     "fees_as_stated": "Cabin: domestic: EUR 65-85 / USD 80-100; Cabin: Europe: EUR 80-100 / USD 95-115; Cabin: Levant and Egypt: EUR 100-120 / USD 110-130; Cabin: intercontinental short haul: EUR 105-125 / USD 120-140; Cabin: intercontinental medium haul: EUR 115-135 / USD 135-155; Cabin: intercontinental long haul: EUR 125-145 / USD 145-165",
     "restrictions": {
-      "brachycephalic_as_stated": "Special rules for 'fighting dog' breeds and snub-nosed breeds (see Lufthansa's dedicated pages). Pregnant animals not accepted.",
-      "breeds_as_stated": "Special rules for 'fighting dog' breeds and snub-nosed breeds (see Lufthansa's dedicated pages). Pregnant animals not accepted.",
+      "brachycephalic_as_stated": "Special rules for snub-nosed breeds (see Lufthansa's dedicated pages).",
+      "breeds_as_stated": "Special rules for 'fighting dog' breeds (see Lufthansa's dedicated pages). Pregnant animals not accepted.",
       "routes_as_stated": "New bookings for dogs to the USA only to Atlanta, Los Angeles, Miami, New York-JFK, Philadelphia, Washington DC, and Newark (if no high-risk rabies country in prior 6 months). Bookings may be refused on routes such as the UK, Ireland or Bangalore.",
       "cargo_only_as_stated": null
     },
@@ -1663,6 +1808,7 @@
           "CAD",
           "USD"
         ],
+        "currency_symbol": null,
         "scope": null,
         "as_stated": "CAD/USD 50 + tax (50-57.50) per direction, non-refundable"
       }
@@ -1717,6 +1863,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": null,
         "as_stated": "Charged per pet container, per one-way flight. Service dogs travel free in the cabin."
       },
@@ -1727,6 +1874,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": null,
         "as_stated": "Cabin: domestic 420 DKK, 550 NOK, 550 SEK, 55 EUR, 60 USD; Scandinavia, Europe and Middle East 550 DKK, 750 NOK, 750 SEK, 75 EUR, 80 USD; Asia, Canada and US 740 DKK, 990 NOK, 990 SEK, 99 EUR, 105 USD; China 1,100 DKK, 1,540 NOK, 1,540 SEK, 149 EUR, 159 USD."
       },
@@ -1737,6 +1885,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": null,
         "as_stated": "Hold: domestic 680 DKK, 950 NOK, 950 SEK, 90 EUR, 100 USD; Scandinavia, Europe and Middle East 1,250 DKK, 1,740 NOK, 1,740 SEK, 169 EUR, 195 USD; Asia, Canada and US 2,500 DKK, 3,500 NOK, 3,500 SEK, 340 EUR, 370 USD; China 5,400 DKK, 7,600 NOK, 7,600 SEK, 725 EUR, 775 USD."
       }
@@ -1744,7 +1893,7 @@
     "fees_as_stated": "Charged per pet container, per one-way flight. Service dogs travel free in the cabin.; Cabin: domestic 420 DKK, 550 NOK, 550 SEK, 55 EUR, 60 USD; Scandinavia, Europe and Middle East 550 DKK, 750 NOK, 750 SEK, 75 EUR, 80 USD; Asia, Canada and US 740 DKK, 990 NOK, 990 SEK, 99 EUR, 105 USD; China 1,100 DKK, 1,540 NOK, 1,540 SEK, 149 EUR, 159 USD.; Hold: domestic 680 DKK, 950 NOK, 950 SEK, 90 EUR, 100 USD; Scandinavia, Europe and Middle East 1,250 DKK, 1,740 NOK, 1,740 SEK, 169 EUR, 195 USD; Asia, Canada and US 2,500 DKK, 3,500 NOK, 3,500 SEK, 340 EUR, 370 USD; China 5,400 DKK, 7,600 NOK, 7,600 SEK, 725 EUR, 775 USD.",
     "restrictions": {
       "brachycephalic_as_stated": "Certain snub-nosed (brachycephalic) dogs such as bulldogs, pugs, Pekingese and crossbreeds of these may not travel in the hold for health reasons. Other snub-nosed dogs and cats may travel in the hold if the container is large enough and the door has open bars from top to bottom for ventilation.",
-      "breeds_as_stated": "Certain snub-nosed (brachycephalic) dogs such as bulldogs, pugs, Pekingese and crossbreeds of these may not travel in the hold for health reasons. Other snub-nosed dogs and cats may travel in the hold if the container is large enough and the door has open bars from top to bottom for ventilation.",
+      "breeds_as_stated": null,
       "routes_as_stated": "No pets are allowed in the cabin in Business on flights to or from North America and Asia, or on SAS charter flights. SAS does not accept pets in the cabin or as checked baggage on flights to and from the United Kingdom (cargo only, except certified service animals in the cabin). For flights to the US departing from 22 April 2025, a dog must be at least 6 months old, have a microchip and travel with a completed CDC dog import form; a dog that has been in a high-risk rabies country in the last 6 months is not permitted to fly with SAS to the US. Special entry permission is required for Greenland, for dogs to Svalbard (cats are not allowed there), and for Iceland.",
       "cargo_only_as_stated": "Yes: dogs and cats in the cargo hold if they do not meet cabin criteria, arranged through SAS Customer Service. Up to 2 adult pets of similar size (maximum 14 kg each) may share a container, except on flights to the US. Up to 3 pets of up to 6 months from the same litter may travel in the same container. To and from the United Kingdom, pets are not accepted in the cabin or as checked baggage and must travel as cargo, except certified service animals in the cabin. | No pets are allowed in the cabin in Business on flights to or from North America and Asia, or on SAS charter flights. SAS does not accept pets in the cabin or as checked baggage on flights to and from the United Kingdom (cargo only, except certified service animals in the cabin). For flights to the US departing from 22 April 2025, a dog must be at least 6 months old, have a microchip and travel with a completed CDC dog import form; a dog that has been in a high-risk rabies country in the last 6 months is not permitted to fly with SAS to the US. Special entry permission is required for Greenland, for dogs to Svalbard (cats are not allowed there), and for Iceland."
     },
@@ -1792,6 +1941,7 @@
         "currency": null,
         "currency_as_stated": "$",
         "currencies": null,
+        "currency_symbol": "$",
         "scope": "U.S. mainland",
         "as_stated": "U.S. mainland: $125 per pet carrier each way"
       },
@@ -1802,6 +1952,7 @@
         "currency": null,
         "currency_as_stated": "$",
         "currencies": null,
+        "currency_symbol": "$",
         "scope": "Between Hawaiian Islands",
         "as_stated": "Between Hawaiian Islands: $35 per pet carrier each way"
       }
@@ -1896,6 +2047,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": null,
         "as_stated": "A non-refundable fee is charged for each flight segment when a reservation is made in advance; pets without an advance reservation are subject to a higher per-segment fee. The official Contract of Carriage (updated 1 January 2026) does not publish the dollar amounts."
       }
@@ -1951,6 +2103,7 @@
         "currency": null,
         "currency_as_stated": null,
         "currencies": null,
+        "currency_symbol": null,
         "scope": "Domestic KRW 30,000 (airport). International one-way",
         "as_stated": "Domestic KRW 30,000 (airport). International one-way: Japan/China short-haul KRW 100,000 / JPY 10,000 / USD 100 / CAD 100; long China/Taiwan KRW 150,000; SE Asia/Guam/Saipan KRW 200,000"
       }
@@ -2005,6 +2158,7 @@
         "currency": null,
         "currency_as_stated": "$",
         "currencies": null,
+        "currency_symbol": "$",
         "scope": "All routes",
         "as_stated": "All routes: $150 each way"
       }
@@ -2045,12 +2199,12 @@
       "lb": null,
       "as_stated": "12 kg including carrier; 10 kg to/from Colombia",
       "scope": null,
-      "notes": "12 kg including carrier; to/from Colombia: 10 kg to/from Colombia",
+      "notes": null,
       "conditions": [
         {
           "kg": 12,
           "lb": null,
-          "condition": null,
+          "condition": "including carrier",
           "as_stated": "12 kg including carrier"
         },
         {
@@ -2068,7 +2222,7 @@
     "fees_as_stated": "To be confirmed with the airline",
     "restrictions": {
       "brachycephalic_as_stated": "Brachycephalic breeds not allowed in hold",
-      "breeds_as_stated": "Brachycephalic breeds not allowed in hold",
+      "breeds_as_stated": null,
       "routes_as_stated": "Mexico->US dogs: 6 months, microchip, CDC form, screwworm-free certificate by official vet within 5 days; currently only dogs not in high-risk rabies countries in prior 6 months. US->Mexico dogs: GBG screwworm inspection certificate within 5 days + SENASICA inspection (updated Aug 2026)",
       "cargo_only_as_stated": null
     },
@@ -2159,8 +2313,8 @@
     "fees": [],
     "fees_as_stated": "To be confirmed with the airline",
     "restrictions": {
-      "brachycephalic_as_stated": "Since 2023-07-04 bookings: brachycephalic cats/dogs (pug, bulldogs, Shih Tzu, Boston, boxer, Persian...) not in hold; strong breeds (pit bull, Rottweiler, Doberman...) cargo only; pit bull types restricted into/through Ontario",
-      "breeds_as_stated": "Since 2023-07-04 bookings: brachycephalic cats/dogs (pug, bulldogs, Shih Tzu, Boston, boxer, Persian...) not in hold; strong breeds (pit bull, Rottweiler, Doberman...) cargo only; pit bull types restricted into/through Ontario",
+      "brachycephalic_as_stated": "Since 2023-07-04 bookings: brachycephalic cats/dogs (pug, bulldogs, Shih Tzu, Boston, boxer, Persian...) not in hold",
+      "breeds_as_stated": "strong breeds (pit bull, Rottweiler, Doberman...) cargo only; pit bull types restricted into/through Ontario",
       "routes_as_stated": "No pets to/from Barbados, Hawaii, Dublin or Jamaica; no pets on codeshare/interline itineraries. No cabin pets in 787 Business. UK / LHR acceptance: To be confirmed with the airline (conflicting research notes).",
       "cargo_only_as_stated": "Since 2023-07-04 bookings: brachycephalic cats/dogs (pug, bulldogs, Shih Tzu, Boston, boxer, Persian...) not in hold; strong breeds (pit bull, Rottweiler, Doberman...) cargo only; pit bull types restricted into/through Ontario"
     },

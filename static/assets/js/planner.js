@@ -170,13 +170,16 @@
   /* Structured fee only when its figures and currency code(s) are all in the official wording; never converted. */
   function feeAmount(f) {
     var t = f.as_stated || '', cs = f.currency ? [f.currency] : (Array.isArray(f.currencies) ? f.currencies : []);
+    var sym = typeof f.currency_symbol === 'string' && f.currency_symbol ? f.currency_symbol : '';
     var vals = typeof f.amount === 'number' ? [f.amount] : [f.amount_min, f.amount_max].filter(function (v) { return typeof v === 'number'; });
-    if (!t || !cs.length || !vals.length) return null;
+    if (!t || !vals.length || (!cs.length && !sym)) return null;
+    if (sym && t.indexOf(sym) < 0) return null;
     var nums = (t.match(/\d[\d,]*(?:\.\d+)?/g) || []).map(function (x) { return parseFloat(x.replace(/,/g, '')); });
     if (!vals.every(function (v) { return nums.indexOf(v) >= 0; })) return null;
     var cas = f.currency_as_stated || '';
-    if (!cs.every(function (c) { return t.indexOf(c) >= 0 || cas.indexOf(c) >= 0 || (cas.indexOf('/') >= 0 && cas.split('/').indexOf(c.slice(0, 2)) >= 0); })) return null;
+    if (cs.length && !cs.every(function (c) { return t.indexOf(c) >= 0 || cas.indexOf(c) >= 0 || (cas.indexOf('/') >= 0 && cas.split('/').indexOf(c.slice(0, 2)) >= 0); })) return null;
     var amt = typeof f.amount === 'number' ? String(f.amount) : (vals.length === 2 ? f.amount_min + '–' + f.amount_max : String(vals[0]));
+    if (!cs.length) return sym + (vals.length === 2 ? f.amount_min + '–' + sym + f.amount_max : amt); /* bare symbol as published, no currency guessed */
     return cs.join('/') + ' ' + amt;
   }
   function sameFeeText(t, fa, scope) {
@@ -275,10 +278,27 @@
     e = Math.min(src.length, e + 1);
     return src.slice(s, e).replace(/^\s*\|\s*/, '').replace(/\s*\|$/, '').trim();
   }
+  /* Species-specific requirement view: keep entries for the plan's species (plus dogs_and_cats and unlabelled ones). */
+  var ENTRY_SPECIES = { dog: ['dogs', 'dogs_and_cats'], cat: ['cats', 'dogs_and_cats'], ferret: ['ferrets'] };
+  function viewReq(r) {
+    if (!r || !Array.isArray(r.entries) || !r.entries.length) return r || {};
+    var want = ENTRY_SPECIES[st.sp];
+    var keep = r.entries.filter(function (e) { return !want || e.species == null || want.indexOf(e.species) >= 0; });
+    var v = {}; for (var k in r) v[k] = r[k];
+    var ap = [];
+    keep.forEach(function (e) { if (e.applies_to && ap.indexOf(e.applies_to) < 0) ap.push(e.applies_to); });
+    v.as_stated = keep.map(function (e) { return e.as_stated; }).filter(Boolean).join(' | ') || null;
+    v.applies_to = ap.join('; ') || null;
+    v.timings = [].concat.apply([], keep.map(function (e) { return e.timings || []; }));
+    v._hidden = r.entries.length - keep.length;
+    v._otherOnly = !keep.length;
+    return v;
+  }
   function healthBlock(k, travel) {
     var seen = {}, events = [];
     REQ_ORDER.forEach(function (key) {
       var r = k.requirements[key]; if (!r) return;
+      r = viewReq(r);
       (r.timings || []).forEach(function (t) {
         var sig = t.value + t.unit + '|' + (t.context || '');
         if (seen[sig] || !countable(t)) return; seen[sig] = 1;
@@ -304,7 +324,7 @@
     h += '<h4 class="pl-sub-h">' + esc(S.reqDetails) + '</h4><dl class="pl-reqs">';
     var shown = {};
     REQ_ORDER.forEach(function (key) {
-      var r = k.requirements[key] || {};
+      var r = viewReq(k.requirements[key] || {});
       var chip = r.required === true ? statusChip('ok', S.rTrue) : (r.required === false ? statusChip('na', S.rFalse) : (r.as_stated ? statusChip('warn', S.rNull) : ''));
       h += '<div class="pl-req"><dt><span class="pl-req-name">' + esc(S.req[key]) + '</span>' + chip +
         (r.applies_to ? '<span class="pl-req-meta"><span class="pl-as-k">' + esc(S.appliesTo) + '</span> ' + fullAndExcerpt(r.applies_to, 90) + '</span>' : '') +
@@ -322,8 +342,9 @@
             if (nNew > 1) { more++; return '<p class="pl-more">' + fullAndExcerpt(t, 300) + '</p>'; }
             return '<p>' + fullAndExcerpt(t, 300) + '</p>';
           }).join('');
-          return out + (more ? '<p class="pl-morenote print-only" lang="' + LANG + '">' + esc(fmtS(S.morePara, { n: more })) + '</p>' : '');
-        })() : nullC()) + '</dd></div>';
+          return out + (more ? '<p class="pl-morenote print-only" lang="' + LANG + '">' + esc(fmtS(S.morePara, { n: more })) + '</p>' : '') +
+            (r._hidden ? '<p class="pl-same" lang="' + LANG + '">' + esc(fmtS(S.otherSpecies, { n: r._hidden, s: S[st.sp] || st.sp })) + '</p>' : '');
+        })() : (r._otherOnly ? '<p class="pl-same" lang="' + LANG + '">' + esc(fmtS(S.otherSpeciesOnly, { s: S[st.sp] || st.sp })) + '</p>' : nullC())) + '</dd></div>';
     });
     h += '</dl>';
     if (k.cases && k.cases.length) {
@@ -385,21 +406,26 @@
     if (a.fees && a.fees.length) {
       var groups = [];
       a.fees.forEach(function (f) {
-        var g = groups[groups.length - 1];
-        if (!g || !f.scope || g.scope !== f.scope) { g = { scope: f.scope || '', fees: [] }; groups.push(g); }
+        /* group same-scope records only when each one's wording is just its figure (e.g. "EUR 65-85"), so no amount loses its context */
+        var g = groups[groups.length - 1], fa = feeAmount(f), bare = !!fa && sameFeeText((f.as_stated || '').trim(), fa, f.scope);
+        if (!g || !f.scope || g.scope !== f.scope) { g = { scope: f.scope || '', fees: [], bare: true }; groups.push(g); }
+        if (!bare) g.bare = false;
         g.fees.push(f);
       });
       h += '<ul class="pl-fees">' + groups.map(function (g) {
-        var amts = [], texts = [];
-        g.fees.forEach(function (f) {
-          var fa = feeAmount(f), t = (f.as_stated || '').trim();
-          if (fa) amts.push(fa);
-          if (t && texts.indexOf(t) < 0 && !(fa && sameFeeText(t, fa, g.scope))) texts.push(t);
-        });
-        return '<li>' + (g.scope ? '<span class="pl-as-k">' + esc(g.scope) + '</span> ' : '') +
-          (amts.length ? '<span class="pl-fee-amt">' + amts.map(esc).join(' <span class="pl-fee-sep">·</span> ') + '</span>' : '') +
-          (texts.length ? (amts.length ? '<span class="pl-fee-txt"><span class="pl-as-k">' + esc(S.feeSrcText) + '</span> ' : '<span class="pl-fee-txt pl-fee-txt--only">') + texts.map(function (t) { return '<span lang="en">' + fullAndExcerpt(t, 280) + '</span>'; }).join(' ') + '</span>' : '') +
-          '</li>';
+        var shownT = g.fees.filter(function (f) { var fa = feeAmount(f); return !(fa && sameFeeText((f.as_stated || '').trim(), fa, g.scope)); });
+        var dupScope = !g.bare && shownT.length === g.fees.length && shownT.every(function (f) { return (f.as_stated || '').trim().indexOf(g.scope) === 0; });
+        var head = '<li>' + (g.scope ? '<span class="pl-as-k' + (dupScope ? ' pl-scope-dup' : '') + '">' + esc(g.scope) + '</span> ' : '');
+        if (g.bare) /* every record is just its figure: one line of amounts */
+          return head + '<span class="pl-fee-amt">' + g.fees.map(function (f) { return esc(feeAmount(f)); }).join(' <span class="pl-fee-sep">·</span> ') + '</span></li>';
+        var seenT = [];
+        return head + g.fees.map(function (f) {
+          var fa = feeAmount(f), t = (f.as_stated || '').trim(), dup = seenT.indexOf(t) >= 0;
+          seenT.push(t);
+          var txt = t && !dup && !(fa && sameFeeText(t, fa, g.scope));
+          return '<span class="pl-fee-row">' + (fa ? '<span class="pl-fee-amt">' + esc(fa) + '</span>' : '') +
+            (txt ? '<span class="pl-fee-txt' + (fa ? '' : ' pl-fee-txt--only') + '">' + (fa ? '<span class="pl-as-k">' + esc(S.feeSrcText) + '</span> ' : '') + '<span lang="en">' + fullAndExcerpt(t, 280) + '</span></span>' : '') + '</span>';
+        }).join('') + '</li>';
       }).join('') + '</ul>';
     } else h += '<p class="pl-as">' + (a.fees_as_stated ? '<span class="pl-as-k">' + esc(S.statedAs) + '</span> ' + esc(a.fees_as_stated) : nullA()) + '</p>';
     h += '</div><div><h3 class="pl-sec-h"><span>' + esc(S.restrH) + '</span></h3><dl class="pl-dl pl-dl--restr">' +
@@ -475,7 +501,7 @@
   window.addEventListener('hashchange', function () { var n = decode(location.hash.slice(1)); if (encode() !== location.hash.slice(1)) { st = n; render(false); } });
 
   root.innerHTML = '<p class="pl-loading" role="status">' + esc(S.loading) + '</p>';
-  Promise.all([fetch(BASE + 'airlines.json?v=20261118pl2').then(function (r) { if (!r.ok) throw r.status; return r.json(); }), fetch(BASE + 'countries.json?v=20261118pl2').then(function (r) { if (!r.ok) throw r.status; return r.json(); })])
+  Promise.all([fetch(BASE + 'airlines.json?v=20261118pl3').then(function (r) { if (!r.ok) throw r.status; return r.json(); }), fetch(BASE + 'countries.json?v=20261118pl3').then(function (r) { if (!r.ok) throw r.status; return r.json(); })])
     .then(function (res) {
       A = res[0]; K = res[1];
       A.forEach(function (a) { byA[a.id] = a; }); K.forEach(function (k) { byK[k.id] = k; });

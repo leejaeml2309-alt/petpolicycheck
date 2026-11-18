@@ -7,35 +7,38 @@
     "requirements": {
       "microchip": {
         "required": null,
-        "as_stated": "The microchip must be ISO-compatible (10 or 15 digits).",
+        "as_stated": "The microchip must be ISO-compatible (10 or 15 digits). | Numbers starting with 999, and 9-digit AVID chips, are not accepted. | Pet passports are not accepted as the import document.",
         "standard": "ISO-compatible (10 or 15 digits)",
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "rabies_vaccine": {
         "required": null,
-        "as_stated": "Group 2 (recognised by DAFF as rabies-free) includes Japan, Hawaii, Guam, Iceland and Singapore. | Group 3 rabies pathway: vaccination from 84 days of age",
+        "as_stated": "Approved countries are in three groups. | Group 2 (recognised by DAFF as rabies-free) includes Japan, Hawaii, Guam, Iceland and Singapore. | Group 3 (rabies present but well controlled) includes the United States except Hawaii and Guam, Canada, the United Kingdom, listed EU member states, and South Korea. | Animals from a non-approved origin must first reside 180 days in an approved country.",
         "standard": null,
         "applies_to": null,
         "timings": [
           {
-            "value": 84,
+            "value": 180,
             "unit": "days",
-            "as_stated": "84 days",
-            "context": "Group 3 rabies pathway: vaccination from 84 days of age"
+            "as_stated": "180 days",
+            "context": "Animals from a non-approved origin must first reside 180 days in an approved country."
           }
-        ]
+        ],
+        "entries": []
       },
       "waiting_period": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "titer_test": {
         "required": null,
-        "as_stated": "an RNATT (FAVN or RFFIT) of at least 0.5 IU/ml | If vaccination or the RNATT lapses, the 180-day wait restarts.",
+        "as_stated": "Group 3 rabies pathway: vaccination from 84 days of age; an RNATT (FAVN or RFFIT) of at least 0.5 IU/ml; the sample taken between 12 months and 180 days before export; and a 180-day wait from the date the sample arrives at the laboratory (this is a residency period, not quarantine). | If vaccination or the RNATT lapses, the 180-day wait restarts.",
         "standard": null,
         "applies_to": null,
         "timings": [
@@ -45,42 +48,73 @@
             "as_stated": "180-day",
             "context": "If vaccination or the RNATT lapses, the 180-day wait restarts."
           }
-        ]
+        ],
+        "entries": []
       },
       "health_certificate": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "endorsement": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "import_permit": {
         "required": null,
         "as_stated": "A valid biosecurity import permit is required in most cases, applied for through BICON.",
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "quarantine": {
         "required": null,
-        "as_stated": "Arrival for post-entry quarantine (PEQ) imports is at Melbourne International Airport only, as manifested cargo in an IATA crate (assistance dogs may be exempt from the cabin rule — see the K9 section). | A biosecurity officer takes the animal to Mickleham PEQ, 135 Donnybrook Road, Mickleham VIC 3064.",
+        "as_stated": "Arrival for post-entry quarantine (PEQ) imports is at Melbourne International Airport only, as manifested cargo in an IATA crate (assistance dogs may be exempt from the cabin rule — see the K9 section). | There is no domestic transfer into Melbourne for that arrival. | A biosecurity officer takes the animal to Mickleham PEQ, 135 Donnybrook Road, Mickleham VIC 3064. | Home quarantine is not allowed. | Group 3 quarantine is 30 days, or 10 days with the official identity check (or Australian-origin export certification). | Group 2 dogs stay at least 10 days. | A stay can be extended up to 180 days if there is a biosecurity issue.",
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [
+          {
+            "value": 30,
+            "unit": "days",
+            "as_stated": "30 days",
+            "context": "Group 3 quarantine is 30 days, or 10 days with the official identity check (or Australian-origin export certi"
+          },
+          {
+            "value": 10,
+            "unit": "days",
+            "as_stated": "10 days",
+            "context": "Group 3 quarantine is 30 days, or 10 days with the official identity check (or Australian-origin export certification)."
+          },
+          {
+            "value": 10,
+            "unit": "days",
+            "as_stated": "10 days",
+            "context": "Group 2 dogs stay at least 10 days."
+          },
+          {
+            "value": 180,
+            "unit": "days",
+            "as_stated": "180 days",
+            "context": "A stay can be extended up to 180 days if there is a biosecurity issue."
+          }
+        ],
+        "entries": []
       },
       "tapeworm_treatment": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       }
     },
     "cases": [],
@@ -124,10 +158,24 @@
     "requirements": {
       "microchip": {
         "required": null,
-        "as_stated": "Not required by CFIA for personal dogs (airline may require). | Required for US return (CDC). | Not required by CFIA.",
+        "as_stated": "Dogs: Not required by CFIA for personal dogs (airline may require). | Dogs: Required for US return (CDC). | Cats: Not required by CFIA.",
         "standard": null,
         "applies_to": "Dogs; Cats",
-        "timings": []
+        "timings": [],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "Not required by CFIA for personal dogs (airline may require). | Required for US return (CDC).",
+            "applies_to": "Dogs",
+            "timings": []
+          },
+          {
+            "species": "cats",
+            "as_stated": "Not required by CFIA.",
+            "applies_to": "Cats",
+            "timings": []
+          }
+        ]
       },
       "rabies_vaccine": {
         "required": null,
@@ -147,25 +195,28 @@
             "as_stated": "3 months",
             "context": "ogs ≥3 months: valid rabies certificate (EN/FR, licensed vet, identifies dog). <3 months: none, proof of age."
           }
-        ]
+        ],
+        "entries": []
       },
       "waiting_period": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "titer_test": {
         "required": null,
         "as_stated": "Cats ≥3 months: vet certificate (EN/FR) showing current rabies vaccination, OR 6-month residence in a rabies-free country, OR RNATT. <3 months: no restrictions.",
         "standard": null,
         "applies_to": "Cats",
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "health_certificate": {
         "required": null,
-        "as_stated": "Not required for personal dogs ≥8 months. | Unaccompanied dogs <8 months: vet health certificate within 72h. | Not required.",
+        "as_stated": "Dogs: Not required for personal dogs ≥8 months. | Dogs: Unaccompanied dogs <8 months: vet health certificate within 72h. | Cats: Not required.",
         "standard": null,
         "applies_to": "Dogs; Cats",
         "timings": [
@@ -181,6 +232,33 @@
             "as_stated": "72h",
             "context": "Unaccompanied dogs <8 months: vet health certificate within 72h."
           }
+        ],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "Not required for personal dogs ≥8 months. | Unaccompanied dogs <8 months: vet health certificate within 72h.",
+            "applies_to": "Dogs",
+            "timings": [
+              {
+                "value": 8,
+                "unit": "months",
+                "as_stated": "8 months",
+                "context": "Unaccompanied dogs <8 months: vet health certificate within 72h."
+              },
+              {
+                "value": 72,
+                "unit": "hours",
+                "as_stated": "72h",
+                "context": "Unaccompanied dogs <8 months: vet health certificate within 72h."
+              }
+            ]
+          },
+          {
+            "species": "cats",
+            "as_stated": "Not required.",
+            "applies_to": "Cats",
+            "timings": []
+          }
         ]
       },
       "endorsement": {
@@ -188,28 +266,32 @@
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "import_permit": {
         "required": null,
-        "as_stated": "Personal: none. | Commercial (resale, adoption, fostering/rescue, breeding, show, research): import permit | commercial dogs from CFIA high-risk dog-rabies countries PROHIBITED since 28 Sep 2022.",
+        "as_stated": "Personal: none. | Commercial (resale, adoption, fostering/rescue, breeding, show, research): import permit; commercial dogs from CFIA high-risk dog-rabies countries PROHIBITED since 28 Sep 2022.",
         "standard": null,
         "applies_to": "Dogs",
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "quarantine": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "tapeworm_treatment": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       }
     },
     "cases": [],
@@ -267,10 +349,24 @@
     "requirements": {
       "microchip": {
         "required": null,
-        "as_stated": "A tattoo is accepted only if applied before 3 July 2011 and still clearly readable. | Service-Public F35788 states that any cat (pedigree or mixed) may be brought into France.",
+        "as_stated": "Dogs: A tattoo is accepted only if applied before 3 July 2011 and still clearly readable. | Cats: Service-Public F35788 states that any cat (pedigree or mixed) may be brought into France.",
         "standard": null,
         "applies_to": "Dogs; Cats",
-        "timings": []
+        "timings": [],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "A tattoo is accepted only if applied before 3 July 2011 and still clearly readable.",
+            "applies_to": "Dogs",
+            "timings": []
+          },
+          {
+            "species": "cats",
+            "as_stated": "Service-Public F35788 states that any cat (pedigree or mixed) may be brought into France.",
+            "applies_to": "Cats",
+            "timings": []
+          }
+        ]
       },
       "rabies_vaccine": {
         "required": null,
@@ -290,7 +386,8 @@
             "as_stated": "6 months",
             "context": "For later travel to other EU countries the Commission states validity of 6 months from those checks or until the rabies vaccination expires, whichever is earlier"
           }
-        ]
+        ],
+        "entries": []
       },
       "waiting_period": {
         "required": null,
@@ -304,11 +401,12 @@
             "as_stated": "21 days",
             "context": "Wait at least 21 days after the primary vaccination before entry from a listed country."
           }
-        ]
+        ],
+        "entries": []
       },
       "titer_test": {
         "required": null,
-        "as_stated": "Required only from third countries that are not listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636: sample at least 30 days after vaccination, result at least 0.5 IU/ml from an EU-designated lab, then wait 3 months from the sample date. | The United States, Canada, Mexico and Great Britain are listed (no titer). | South Korea does not appear on that Commission list. | From a titer country the ministry FAQ example is about 198 days (12 weeks + 30 days + 3 months). | Same identification, rabies, listed/unlisted titer and certificate/passport rules as for dogs. | The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer.",
+        "as_stated": "Dogs: Required only from third countries that are not listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636: sample at least 30 days after vaccination, result at least 0.5 IU/ml from an EU-designated lab, then wait 3 months from the sample date. | Dogs: The United States, Canada, Mexico and Great Britain are listed (no titer). | Dogs: South Korea does not appear on that Commission list. | Dogs: Commission list | Dogs: A dog imported from a third country may enter only if it has at least one adult tooth (Code rural L236-1). | Dogs: Minimum practical age from a listed country is about 15 weeks (12 weeks + 21 days). | Dogs: From a titer country the ministry FAQ example is about 198 days (12 weeks + 30 days + 3 months). | Dogs: Ministry FAQ · F35788 | Dogs and cats: Same identification, rabies, listed/unlisted titer and certificate/passport rules as for dogs. | The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer.",
         "standard": null,
         "applies_to": "Dogs; Cats",
         "timings": [
@@ -323,6 +421,24 @@
             "unit": "months",
             "as_stated": "3 months",
             "context": "ter vaccination, result at least 0.5 IU/ml from an EU-designated lab, then wait 3 months from the sample date."
+          },
+          {
+            "value": 21,
+            "unit": "days",
+            "as_stated": "21 days",
+            "context": "Minimum practical age from a listed country is about 15 weeks (12 weeks + 21 days)."
+          },
+          {
+            "value": 15,
+            "unit": "weeks",
+            "as_stated": "15 weeks",
+            "context": "Minimum practical age from a listed country is about 15 weeks (12 weeks + 21 days)."
+          },
+          {
+            "value": 12,
+            "unit": "weeks",
+            "as_stated": "12 weeks",
+            "context": "Minimum practical age from a listed country is about 15 weeks (12 weeks + 21 days)."
           },
           {
             "value": 198,
@@ -348,11 +464,86 @@
             "as_stated": "3 months",
             "context": "titer country the ministry FAQ example is about 198 days (12 weeks + 30 days + 3 months)."
           }
+        ],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "Required only from third countries that are not listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636: sample at least 30 days after vaccination, result at least 0.5 IU/ml from an EU-designated lab, then wait 3 months from the sample date. | The United States, Canada, Mexico and Great Britain are listed (no titer). | South Korea does not appear on that Commission list. | Commission list | A dog imported from a third country may enter only if it has at least one adult tooth (Code rural L236-1). | Minimum practical age from a listed country is about 15 weeks (12 weeks + 21 days). | From a titer country the ministry FAQ example is about 198 days (12 weeks + 30 days + 3 months). | Ministry FAQ · F35788",
+            "applies_to": "Dogs",
+            "timings": [
+              {
+                "value": 30,
+                "unit": "days",
+                "as_stated": "30 days",
+                "context": "n Annex I or Annex II of Implementing Regulation (EU) 2026/636: sample at least 30 days after vaccination, result at least 0.5 IU/ml from an EU-designated lab, then wa"
+              },
+              {
+                "value": 3,
+                "unit": "months",
+                "as_stated": "3 months",
+                "context": "ter vaccination, result at least 0.5 IU/ml from an EU-designated lab, then wait 3 months from the sample date."
+              },
+              {
+                "value": 21,
+                "unit": "days",
+                "as_stated": "21 days",
+                "context": "Minimum practical age from a listed country is about 15 weeks (12 weeks + 21 days)."
+              },
+              {
+                "value": 15,
+                "unit": "weeks",
+                "as_stated": "15 weeks",
+                "context": "Minimum practical age from a listed country is about 15 weeks (12 weeks + 21 days)."
+              },
+              {
+                "value": 12,
+                "unit": "weeks",
+                "as_stated": "12 weeks",
+                "context": "Minimum practical age from a listed country is about 15 weeks (12 weeks + 21 days)."
+              },
+              {
+                "value": 198,
+                "unit": "days",
+                "as_stated": "198 days",
+                "context": "From a titer country the ministry FAQ example is about 198 days (12 weeks + 30 days + 3 months)."
+              },
+              {
+                "value": 30,
+                "unit": "days",
+                "as_stated": "30 days",
+                "context": "From a titer country the ministry FAQ example is about 198 days (12 weeks + 30 days + 3 months)."
+              },
+              {
+                "value": 12,
+                "unit": "weeks",
+                "as_stated": "12 weeks",
+                "context": "From a titer country the ministry FAQ example is about 198 days (12 weeks + 30 days + 3 months)."
+              },
+              {
+                "value": 3,
+                "unit": "months",
+                "as_stated": "3 months",
+                "context": "titer country the ministry FAQ example is about 198 days (12 weeks + 30 days + 3 months)."
+              }
+            ]
+          },
+          {
+            "species": "dogs_and_cats",
+            "as_stated": "Same identification, rabies, listed/unlisted titer and certificate/passport rules as for dogs.",
+            "applies_to": "Cats",
+            "timings": []
+          },
+          {
+            "species": null,
+            "as_stated": "The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer.",
+            "applies_to": null,
+            "timings": []
+          }
         ]
       },
       "health_certificate": {
         "required": null,
-        "as_stated": "Valid 10 days from issue until the checks at the travellers’ point of entry (extended by the length of a sea journey). | EU residents use an EU pet passport. | Pet passports issued under the previous model remain valid | old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. | Implementing Regulation (EU) 2026/705 , Art. | 6). | Commission · (EU) 2026/131",
+        "as_stated": "Valid 10 days from issue until the checks at the travellers’ point of entry (extended by the length of a sea journey). | EU residents use an EU pet passport. | Pet passports issued under the previous model remain valid; old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. 31; Implementing Regulation (EU) 2026/705 , Art. 6). | Commission · (EU) 2026/131",
         "standard": null,
         "applies_to": "Dogs",
         "timings": [
@@ -362,11 +553,12 @@
             "as_stated": "10 days",
             "context": "Valid 10 days from issue until the checks at the travellers’ point of entry (extended by the"
           }
-        ]
+        ],
+        "entries": []
       },
       "endorsement": {
         "required": null,
-        "as_stated": "From a non-EU country: an EU animal health certificate — current model in Annex III to Implementing Regulation (EU) 2026/705 — issued by an official veterinarian or issued by an authorised veterinarian and endorsed by the competent authority, plus a written non-commercial declaration. | endorsement must fall within 10 days of arrival in the EU.",
+        "as_stated": "From a non-EU country: an EU animal health certificate — current model in Annex III to Implementing Regulation (EU) 2026/705 — issued by an official veterinarian or issued by an authorised veterinarian and endorsed by the competent authority, plus a written non-commercial declaration. | USDA APHIS France page: USDA-accredited veterinarian issues the EU non-commercial certificate; APHIS original ink endorsement is required; endorsement must fall within 10 days of arrival in the EU. | New non-commercial certificates took effect 1 October 2026 (EU 2026/131 and related implementing acts). | USDA APHIS dateModified 1 Sep 2026; checked 10 Nov 2026",
         "standard": null,
         "applies_to": "Dogs",
         "timings": [
@@ -374,30 +566,34 @@
             "value": 10,
             "unit": "days",
             "as_stated": "10 days",
-            "context": "endorsement must fall within 10 days of arrival in the EU."
+            "context": "icate; APHIS original ink endorsement is required; endorsement must fall within 10 days of arrival in the EU."
           }
-        ]
+        ],
+        "entries": []
       },
       "import_permit": {
-        "required": false,
-        "as_stated": "No import permit and no customs appointment — present yourself spontaneously to customs.",
+        "required": null,
+        "as_stated": "Documents must be in French (or bilingual) or translated by a sworn translator. | No import permit and no customs appointment — present yourself spontaneously to customs. | Non-commercial movement: maximum 5 pets (the Commission/BMLEH wording is a maximum of 5 pet animals in a single vehicle). | Ministry FAQ",
         "standard": null,
         "applies_to": "Dogs",
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "quarantine": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "tapeworm_treatment": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       }
     },
     "cases": [],
@@ -450,7 +646,7 @@
       {
         "section": "Cats",
         "topic": null,
-        "as_stated": "Bengal or Savannah cats of generations F1–F4 are treated as non-domestic (CITES / special permit). F5 and above with a recognised pedigree are treated as domestic cats. Ministry FAQ"
+        "as_stated": "Bengal or Savannah cats of generations F1–F4 are treated as non-domestic (CITES / special permit). F5 and above with a recognised pedigree are treated as domestic cats."
       },
       {
         "section": "From the United States",
@@ -470,7 +666,7 @@
       {
         "section": "Where you enter",
         "topic": null,
-        "as_stated": "From a third country the pet must pass through a travellers’ point of entry. Present yourself spontaneously to customs with the original documents. Do not send papers in advance and do not book a customs appointment. Ministry FAQ"
+        "as_stated": "From a third country the pet must pass through a travellers’ point of entry. Present yourself spontaneously to customs with the original documents. Do not send papers in advance and do not book a customs appointment."
       },
       {
         "section": "Where you enter",
@@ -501,14 +697,28 @@
     "requirements": {
       "microchip": {
         "required": null,
-        "as_stated": "Identification by a transponder meeting Annex IV of Delegated Regulation (EU) 2019/2035, or a clearly readable tattoo applied before 3 July 2011. | BMLEH | At the point of entry, Zoll or the official veterinary service checks identity (including reading the microchip), documents, and whether the travel conditions are met. | There is no German federal breed-style import ban for cats on the pages reviewed.",
+        "as_stated": "Dogs: Identification by a transponder meeting Annex IV of Delegated Regulation (EU) 2019/2035, or a clearly readable tattoo applied before 3 July 2011. | Dogs: BMLEH | Dogs: At the point of entry, Zoll or the official veterinary service checks identity (including reading the microchip), documents, and whether the travel conditions are met. | Dogs: Problems can lead to extra checks or measures. | Cats: There is no German federal breed-style import ban for cats on the pages reviewed.",
         "standard": null,
         "applies_to": "Dogs; Cats",
-        "timings": []
+        "timings": [],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "Identification by a transponder meeting Annex IV of Delegated Regulation (EU) 2019/2035, or a clearly readable tattoo applied before 3 July 2011. | BMLEH | At the point of entry, Zoll or the official veterinary service checks identity (including reading the microchip), documents, and whether the travel conditions are met. | Problems can lead to extra checks or measures.",
+            "applies_to": "Dogs",
+            "timings": []
+          },
+          {
+            "species": "cats",
+            "as_stated": "There is no German federal breed-style import ban for cats on the pages reviewed.",
+            "applies_to": "Cats",
+            "timings": []
+          }
+        ]
       },
       "rabies_vaccine": {
         "required": null,
-        "as_stated": "The chip must be in place before (or on the same day as) rabies vaccination. | A valid rabies vaccination is required. | 6 months from those checks or until the rabies vaccination expires, whichever is earlier.",
+        "as_stated": "The chip must be in place before (or on the same day as) rabies vaccination. | A valid rabies vaccination is required. | For later travel to other EU countries: 6 months from those checks or until the rabies vaccination expires, whichever is earlier.",
         "standard": null,
         "applies_to": "Dogs",
         "timings": [
@@ -516,9 +726,10 @@
             "value": 6,
             "unit": "months",
             "as_stated": "6 months",
-            "context": "6 months from those checks or until the rabies vaccination expires, whichever is earlier"
+            "context": "For later travel to other EU countries: 6 months from those checks or until the rabies vaccination expires, whichever is earlier"
           }
-        ]
+        ],
+        "entries": []
       },
       "waiting_period": {
         "required": null,
@@ -538,11 +749,12 @@
             "as_stated": "12 weeks",
             "context": "third country, wait at least 21 days after the primary vaccination (vaccine at 12 weeks or older)."
           }
-        ]
+        ],
+        "entries": []
       },
       "titer_test": {
         "required": null,
-        "as_stated": "Depends on the third country you are coming from. | Not required from territories listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636 (the United States, Canada, Mexico and Great Britain are listed). | Required from unlisted countries, including South Korea: sample at least 30 days after vaccination, result at least 0.5 IU/ml at an EU-designated lab, then a 3-month wait from the sample date. | The same EU identification, rabies, listed/unlisted titer, certificate or passport, and declaration rules as for dogs. | The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer.",
+        "as_stated": "Dogs: Depends on the third country you are coming from. | Dogs: Not required from territories listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636 (the United States, Canada, Mexico and Great Britain are listed). | Dogs: Required from unlisted countries, including South Korea: sample at least 30 days after vaccination, result at least 0.5 IU/ml at an EU-designated lab, then a 3-month wait from the sample date. | Dogs: Commission list | Dogs and cats: The same EU identification, rabies, listed/unlisted titer, certificate or passport, and declaration rules as for dogs. | The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer.",
         "standard": null,
         "applies_to": "Dogs; Cats",
         "timings": [
@@ -552,11 +764,38 @@
             "as_stated": "30 days",
             "context": "Required from unlisted countries, including South Korea: sample at least 30 days after vaccination, result at least 0.5 IU/ml at an EU-designated lab, then a 3-"
           }
+        ],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "Depends on the third country you are coming from. | Not required from territories listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636 (the United States, Canada, Mexico and Great Britain are listed). | Required from unlisted countries, including South Korea: sample at least 30 days after vaccination, result at least 0.5 IU/ml at an EU-designated lab, then a 3-month wait from the sample date. | Commission list",
+            "applies_to": "Dogs",
+            "timings": [
+              {
+                "value": 30,
+                "unit": "days",
+                "as_stated": "30 days",
+                "context": "Required from unlisted countries, including South Korea: sample at least 30 days after vaccination, result at least 0.5 IU/ml at an EU-designated lab, then a 3-"
+              }
+            ]
+          },
+          {
+            "species": "dogs_and_cats",
+            "as_stated": "The same EU identification, rabies, listed/unlisted titer, certificate or passport, and declaration rules as for dogs.",
+            "applies_to": "Cats",
+            "timings": []
+          },
+          {
+            "species": null,
+            "as_stated": "The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer.",
+            "applies_to": null,
+            "timings": []
+          }
         ]
       },
       "health_certificate": {
         "required": null,
-        "as_stated": "From a non-EU country: an EU animal health certificate (model in Annex III to Implementing Regulation (EU) 2026/705) and a written declaration (model in Annex V to 2026/705). | The certificate is valid 10 days from issue until the documentary and identity checks (extended by a sea journey). | For later travel to other EU countries: | An authorised person travelling instead of the owner must carry the written authorisation in the Annex V Part 1 model. | EU residents use an EU pet passport. | Pet passports issued under the previous model remain valid | old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. | Implementing Regulation (EU) 2026/705 , Art. | 6). | BMLEH · Commission",
+        "as_stated": "From a non-EU country: an EU animal health certificate (model in Annex III to Implementing Regulation (EU) 2026/705) and a written declaration (model in Annex V to 2026/705). | The certificate is valid 10 days from issue until the documentary and identity checks (extended by a sea journey). | An authorised person travelling instead of the owner must carry the written authorisation in the Annex V Part 1 model. | EU residents use an EU pet passport. | Pet passports issued under the previous model remain valid; old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. 31; Implementing Regulation (EU) 2026/705 , Art. 6). | BMLEH · Commission",
         "standard": null,
         "applies_to": "Dogs",
         "timings": [
@@ -566,35 +805,40 @@
             "as_stated": "10 days",
             "context": "The certificate is valid 10 days from issue until the documentary and identity checks (extended by a sea journey"
           }
-        ]
+        ],
+        "entries": []
       },
       "endorsement": {
         "required": null,
-        "as_stated": "Use the current EU non-commercial certificate and APHIS endorsement rules on that page.",
+        "as_stated": "USDA APHIS maintains a Germany export page for US travellers (JSON-LD dateModified 2 September 2026). | Use the current EU non-commercial certificate and APHIS endorsement rules on that page.",
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "import_permit": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "quarantine": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "tapeworm_treatment": {
         "required": null,
         "as_stated": "From an EU country (or Northern Ireland, for the EU pet-passport regime): microchip or qualifying tattoo, a valid EU pet passport, a valid rabies vaccination, and — for dogs only, if you are going to a tapeworm-free destination such as Finland, Ireland, Malta, Norway or Northern Ireland — treatment against Echinococcus multilocularis . | Germany itself is not on that tapeworm-free destination list in the BMLEH wording.",
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       }
     },
     "cases": [],
@@ -642,12 +886,12 @@
       {
         "section": "From the United States",
         "topic": null,
-        "as_stated": "USDA APHIS maintains a Germany export page for US travellers (JSON-LD dateModified 2 September 2026). Use the current EU non-commercial certificate and APHIS endorsement rules on that page. USDA APHIS — US to Germany"
+        "as_stated": "USDA APHIS maintains a Germany export page for US travellers (JSON-LD dateModified 2 September 2026). Use the current EU non-commercial certificate and APHIS endorsement rules on that page."
       },
       {
         "section": "From another EU country",
         "topic": null,
-        "as_stated": "From an EU country (or Northern Ireland, for the EU pet-passport regime): microchip or qualifying tattoo, a valid EU pet passport, a valid rabies vaccination, and — for dogs only, if you are going to a tapeworm-free destination such as Finland, Ireland, Malta, Norway or Northern Ireland — treatment against Echinococcus multilocularis . Germany itself is not on that tapeworm-free destination list in the BMLEH wording. BMLEH"
+        "as_stated": "From an EU country (or Northern Ireland, for the EU pet-passport regime): microchip or qualifying tattoo, a valid EU pet passport, a valid rabies vaccination, and — for dogs only, if you are going to a tapeworm-free destination such as Finland, Ireland, Malta, Norway or Northern Ireland — treatment against Echinococcus multilocularis . Germany itself is not on that tapeworm-free destination list in the BMLEH wording."
       }
     ],
     "official_source_urls": [
@@ -673,14 +917,15 @@
     "requirements": {
       "microchip": {
         "required": null,
-        "as_stated": "A tattoo is accepted only if applied before 3 July 2011 and still clearly readable. | Ministry of Health · APHIS Italy · Commission | The same certificate, microchip and rabies-vaccination rules apply.",
+        "as_stated": "A tattoo is accepted only if applied before 3 July 2011 and still clearly readable. | The same certificate, microchip and rabies-vaccination rules apply.",
         "standard": null,
         "applies_to": "Dogs",
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "rabies_vaccine": {
         "required": null,
-        "as_stated": "An ISO transponder (microchip) meeting ISO 11784 and ISO 11785, implanted before or at the same time as the rabies vaccination. | An inactivated or recombinant vaccine given at 12 weeks of age or older, after identification, by an authorised veterinarian. | APHIS treats a primary rabies vaccination given in the United States as valid for 1 year for EU purposes, even if a 3-year product was used | After those checks, it can be used for later travel to other EU countries for 6 months or until the rabies vaccination expires, whichever is earlier. | From an EU member state, the pet needs identification, a valid rabies vaccination and an EU pet passport.",
+        "as_stated": "An ISO transponder (microchip) meeting ISO 11784 and ISO 11785, implanted before or at the same time as the rabies vaccination. | An inactivated or recombinant vaccine given at 12 weeks of age or older, after identification, by an authorised veterinarian. | APHIS treats a primary rabies vaccination given in the United States as valid for 1 year for EU purposes, even if a 3-year product was used; keep boosters without a gap. | The Ministry of Health page still cites Annex III to Regulation (EU) 576/2013 for this waiting period; APHIS does the same. | Ministry of Health · APHIS Italy · | After those checks, it can be used for later travel to other EU countries for 6 months or until the rabies vaccination expires, whichever is earlier. | From an EU member state, the pet needs identification, a valid rabies vaccination and an EU pet passport. | The ministry also applies the same intra-EU conditions, where the Commission has found the rules equivalent, to movements from the Annex I territories listed with Implementing Regulation (EU) 2026/636 (Andorra, Switzerland, the Faroe Islands, Gibraltar, Greenland, Iceland, Liechtenstein, Monaco, San Marino and Vatican City State; Norway and Northern Ireland are treated as equivalent for these health purposes).",
         "standard": null,
         "applies_to": "Dogs",
         "timings": [
@@ -696,7 +941,8 @@
             "as_stated": "6 months",
             "context": "After those checks, it can be used for later travel to other EU countries for 6 months or until the rabies vaccination expires, whichever is earlier."
           }
-        ]
+        ],
+        "entries": []
       },
       "waiting_period": {
         "required": null,
@@ -716,11 +962,12 @@
             "as_stated": "21-day",
             "context": "mmission guide in force since 22 April 2026 states the same 12-week minimum and 21-day wait."
           }
-        ]
+        ],
+        "entries": []
       },
       "titer_test": {
         "required": null,
-        "as_stated": "Required only when the pet comes from a territory or non-EU country that is not listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636. | The blood sample is taken at least 30 days after the primary vaccination, the result must be at least 0.5 IU/ml from an EU-designated laboratory, and the animal may enter only after 3 months from the sample date. | The United States, Canada, Mexico, Great Britain and Japan are listed (no titer). | South Korea does not appear on that Commission list. | Commission listing (confirmed 10 November 2026) | From an unlisted country the wait after the titer sample adds 3 months. | The same identification, rabies, listed/unlisted titer, certificate or passport, accompaniment and age rules apply to cats (and ferrets) as to dogs. | The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer. | Canada is listed — no rabies titer. | Japan is listed — no rabies titer for entry to the EU. | Pets coming from Korea need a rabies antibody titration (sample at least 30 days after vaccination, result at least 0.5 IU/ml at an EU-designated laboratory) and a 3-month wait from the sample date, plus the EU animal health certificate and declaration.",
+        "as_stated": "Dogs: Required only when the pet comes from a territory or non-EU country that is not listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636. | Dogs: The blood sample is taken at least 30 days after the primary vaccination, the result must be at least 0.5 IU/ml from an EU-designated laboratory, and the animal may enter only after 3 months from the sample date. | Dogs: The United States, Canada, Mexico, Great Britain and Japan are listed (no titer). | Dogs: South Korea does not appear on that Commission list. | Dogs: Commission listing (confirmed 10 November 2026) | Dogs: Italy does not use the optional derogation that would let unvaccinated or not-yet-protected puppies enter. | Dogs and cats: The ministry prohibits entry of dogs, cats and ferrets younger than 12 weeks that have not been vaccinated against rabies, and of animals aged between 12 and 16 weeks that have been vaccinated but have not yet completed the 21-day validity wait. | Dogs: The practical minimum age from a listed country is therefore about 15 weeks (12 weeks plus 21 days). | Dogs: From an unlisted country the wait after the titer sample adds 3 months. | Dogs and cats: The same identification, rabies, listed/unlisted titer, certificate or passport, accompaniment and age rules apply to cats (and ferrets) as to dogs. | Cats: Ministry of Health · | The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer. | Canada is listed — no rabies titer. | Japan is listed — no rabies titer for entry to the EU. | The Republic of Korea (South Korea) does not appear in Annex I or Annex II on the Commission listing page last confirmed on 10 November 2026. | Pets coming from Korea need a rabies antibody titration (sample at least 30 days after vaccination, result at least 0.5 IU/ml at an EU-designated laboratory) and a 3-month wait from the sample date, plus the EU animal health certificate and declaration.",
         "standard": null,
         "applies_to": "Dogs; Cats",
         "timings": [
@@ -737,6 +984,24 @@
             "context": "0.5 IU/ml from an EU-designated laboratory, and the animal may enter only after 3 months from the sample date."
           },
           {
+            "value": 21,
+            "unit": "days",
+            "as_stated": "21 days",
+            "context": "al minimum age from a listed country is therefore about 15 weeks (12 weeks plus 21 days)."
+          },
+          {
+            "value": 15,
+            "unit": "weeks",
+            "as_stated": "15 weeks",
+            "context": "The practical minimum age from a listed country is therefore about 15 weeks (12 weeks plus 21 days)."
+          },
+          {
+            "value": 12,
+            "unit": "weeks",
+            "as_stated": "12 weeks",
+            "context": "The practical minimum age from a listed country is therefore about 15 weeks (12 weeks plus 21 days)."
+          },
+          {
             "value": 3,
             "unit": "months",
             "as_stated": "3 months",
@@ -748,11 +1013,81 @@
             "as_stated": "30 days",
             "context": "Pets coming from Korea need a rabies antibody titration (sample at least 30 days after vaccination, result at least 0.5 IU/ml at an EU-designated laboratory) an"
           }
+        ],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "Required only when the pet comes from a territory or non-EU country that is not listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636. | The blood sample is taken at least 30 days after the primary vaccination, the result must be at least 0.5 IU/ml from an EU-designated laboratory, and the animal may enter only after 3 months from the sample date. | The United States, Canada, Mexico, Great Britain and Japan are listed (no titer). | South Korea does not appear on that Commission list. | Commission listing (confirmed 10 November 2026) | Italy does not use the optional derogation that would let unvaccinated or not-yet-protected puppies enter. | The practical minimum age from a listed country is therefore about 15 weeks (12 weeks plus 21 days). | From an unlisted country the wait after the titer sample adds 3 months.",
+            "applies_to": "Dogs",
+            "timings": [
+              {
+                "value": 30,
+                "unit": "days",
+                "as_stated": "30 days",
+                "context": "The blood sample is taken at least 30 days after the primary vaccination, the result must be at least 0.5 IU/ml from an EU"
+              },
+              {
+                "value": 3,
+                "unit": "months",
+                "as_stated": "3 months",
+                "context": "0.5 IU/ml from an EU-designated laboratory, and the animal may enter only after 3 months from the sample date."
+              },
+              {
+                "value": 21,
+                "unit": "days",
+                "as_stated": "21 days",
+                "context": "al minimum age from a listed country is therefore about 15 weeks (12 weeks plus 21 days)."
+              },
+              {
+                "value": 15,
+                "unit": "weeks",
+                "as_stated": "15 weeks",
+                "context": "The practical minimum age from a listed country is therefore about 15 weeks (12 weeks plus 21 days)."
+              },
+              {
+                "value": 12,
+                "unit": "weeks",
+                "as_stated": "12 weeks",
+                "context": "The practical minimum age from a listed country is therefore about 15 weeks (12 weeks plus 21 days)."
+              },
+              {
+                "value": 3,
+                "unit": "months",
+                "as_stated": "3 months",
+                "context": "From an unlisted country the wait after the titer sample adds 3 months."
+              }
+            ]
+          },
+          {
+            "species": "dogs_and_cats",
+            "as_stated": "The ministry prohibits entry of dogs, cats and ferrets younger than 12 weeks that have not been vaccinated against rabies, and of animals aged between 12 and 16 weeks that have been vaccinated but have not yet completed the 21-day validity wait. | The same identification, rabies, listed/unlisted titer, certificate or passport, accompaniment and age rules apply to cats (and ferrets) as to dogs.",
+            "applies_to": "Dogs; Cats",
+            "timings": []
+          },
+          {
+            "species": "cats",
+            "as_stated": "Ministry of Health ·",
+            "applies_to": "Cats",
+            "timings": []
+          },
+          {
+            "species": null,
+            "as_stated": "The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer. | Canada is listed — no rabies titer. | Japan is listed — no rabies titer for entry to the EU. | The Republic of Korea (South Korea) does not appear in Annex I or Annex II on the Commission listing page last confirmed on 10 November 2026. | Pets coming from Korea need a rabies antibody titration (sample at least 30 days after vaccination, result at least 0.5 IU/ml at an EU-designated laboratory) and a 3-month wait from the sample date, plus the EU animal health certificate and declaration.",
+            "applies_to": null,
+            "timings": [
+              {
+                "value": 30,
+                "unit": "days",
+                "as_stated": "30 days",
+                "context": "Pets coming from Korea need a rabies antibody titration (sample at least 30 days after vaccination, result at least 0.5 IU/ml at an EU-designated laboratory) an"
+              }
+            ]
+          }
         ]
       },
       "health_certificate": {
         "required": null,
-        "as_stated": "The Commission states that the certificate is valid for 10 days from issue until the checks at the travellers’ point of entry (extended by the length of a sea journey). | EU residents use an EU pet passport. | Pet passports issued under the previous model remain valid | old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. | Implementing Regulation (EU) 2026/705 , Art. | 6). | It also states that the non-commercial certificate is valid for 30 days after the accredited veterinarian issues it, and that it may then be used for travel within the EU for up to 6 months from the day of entry, while the rabies vaccination remains valid. | If the pet already holds a valid EU pet passport, an export health certificate may not be needed — confirm on the APHIS page. | The pet still needs the ISO microchip, a valid rabies vaccination with the 21-day wait after a primary course, the EU animal health certificate and declaration, and entry through a travellers’ point of entry.",
+        "as_stated": "The Commission states that the certificate is valid for 10 days from issue until the checks at the travellers’ point of entry (extended by the length of a sea journey). | EU residents use an EU pet passport. | Pet passports issued under the previous model remain valid; old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. 31; Implementing Regulation (EU) 2026/705 , Art. 6). | It also states that the non-commercial certificate is valid for 30 days after the accredited veterinarian issues it, and that it may then be used for travel within the EU for up to 6 months from the day of entry, while the rabies vaccination remains valid. | If the pet already holds a valid EU pet passport, an export health certificate may not be needed — confirm on the APHIS page. | The pet still needs the ISO microchip, a valid rabies vaccination with the 21-day wait after a primary course, the EU animal health certificate and declaration, and entry through a travellers’ point of entry.",
         "standard": null,
         "applies_to": "Dogs",
         "timings": [
@@ -780,11 +1115,12 @@
             "as_stated": "21-day",
             "context": "The pet still needs the ISO microchip, a valid rabies vaccination with the 21-day wait after a primary course, the EU animal health certificate and declaration,"
           }
-        ]
+        ],
+        "entries": []
       },
       "endorsement": {
         "required": null,
-        "as_stated": "From a non-EU country, other than the Annex I territories treated as equivalent to intra-EU movement, the pet travels with an EU animal health certificate — current model in Annex III to Implementing Regulation (EU) 2026/705 — issued by an official veterinarian or issued by an authorised veterinarian and endorsed by the competent authority, plus a written non-commercial declaration. | A USDA-accredited veterinarian issues the EU non-commercial certificate and submits it through VEHCS. | APHIS must ink-sign and emboss the certificate (electronic signature is accepted from the accredited veterinarian | original ink endorsement is required from APHIS). | The endorsed original must travel with the pet. | APHIS requires the endorsement to fall within 10 days of the pet’s arrival in the EU.",
+        "as_stated": "From a non-EU country, other than the Annex I territories treated as equivalent to intra-EU movement, the pet travels with an EU animal health certificate — current model in Annex III to Implementing Regulation (EU) 2026/705 — issued by an official veterinarian or issued by an authorised veterinarian and endorsed by the competent authority, plus a written non-commercial declaration. | A USDA-accredited veterinarian issues the EU non-commercial certificate and submits it through VEHCS. | APHIS must ink-sign and emboss the certificate (electronic signature is accepted from the accredited veterinarian; original ink endorsement is required from APHIS). | The endorsed original must travel with the pet. | APHIS requires the endorsement to fall within 10 days of the pet’s arrival in the EU. | The owner or designated person must complete and sign the declaration, which travels with the certificate. | New non-commercial certificates took effect on 1 October 2026 (APHIS cites EU 2026/131). | APHIS Italy (dateModified 2 September 2026; checked 11 November 2026)",
         "standard": null,
         "applies_to": "Dogs",
         "timings": [
@@ -794,25 +1130,28 @@
             "as_stated": "10 days",
             "context": "APHIS requires the endorsement to fall within 10 days of the pet’s arrival in the EU."
           }
-        ]
+        ],
+        "entries": []
       },
       "import_permit": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "quarantine": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "tapeworm_treatment": {
         "required": null,
-        "as_stated": "Preventive treatment against ticks or Echinococcus is not required to enter Italy. | A later dog tapeworm treatment is required only if you then travel on to Finland, Ireland, Malta, Northern Ireland or Norway (24–120 hours before entry to those destinations). | Ministry of Health · Commission",
+        "as_stated": "Preventive treatment against ticks or Echinococcus is not required to enter Italy. | A later dog tapeworm treatment is required only if you then travel on to Finland, Ireland, Malta, Northern Ireland or Norway (24–120 hours before entry to those destinations).",
         "standard": null,
         "applies_to": "Dogs",
         "timings": [
@@ -822,7 +1161,8 @@
             "as_stated": "120 hours",
             "context": "f you then travel on to Finland, Ireland, Malta, Northern Ireland or Norway (24–120 hours before entry to those destinations)."
           }
-        ]
+        ],
+        "entries": []
       }
     },
     "cases": [],
@@ -830,12 +1170,12 @@
       {
         "section": "Dogs",
         "topic": "Identification",
-        "as_stated": "An ISO transponder (microchip) meeting ISO 11784 and ISO 11785, implanted before or at the same time as the rabies vaccination. A tattoo is accepted only if applied before 3 July 2011 and still clearly readable. Ministry of Health · APHIS Italy · Commission"
+        "as_stated": "An ISO transponder (microchip) meeting ISO 11784 and ISO 11785, implanted before or at the same time as the rabies vaccination. A tattoo is accepted only if applied before 3 July 2011 and still clearly readable. Ministry of Health · APHIS Italy ·"
       },
       {
         "section": "Dogs",
         "topic": "Rabies vaccination",
-        "as_stated": "An inactivated or recombinant vaccine given at 12 weeks of age or older, after identification, by an authorised veterinarian. After a primary vaccination, wait at least 21 days — or the manufacturer’s recommended immunity period if it is longer — before entry. APHIS treats a primary rabies vaccination given in the United States as valid for 1 year for EU purposes, even if a 3-year product was used; keep boosters without a gap. The Ministry of Health page still cites Annex III to Regulation (EU) 576/2013 for this waiting period; APHIS does the same. The Commission guide in force since 22 April 2026 states the same 12-week minimum and 21-day wait. Ministry of Health · APHIS Italy · Commission"
+        "as_stated": "An inactivated or recombinant vaccine given at 12 weeks of age or older, after identification, by an authorised veterinarian. After a primary vaccination, wait at least 21 days — or the manufacturer’s recommended immunity period if it is longer — before entry. APHIS treats a primary rabies vaccination given in the United States as valid for 1 year for EU purposes, even if a 3-year product was used; keep boosters without a gap. The Ministry of Health page still cites Annex III to Regulation (EU) 576/2013 for this waiting period; APHIS does the same. The Commission guide in force since 22 April 2026 states the same 12-week minimum and 21-day wait. Ministry of Health · APHIS Italy ·"
       },
       {
         "section": "Dogs",
@@ -845,32 +1185,32 @@
       {
         "section": "Dogs",
         "topic": "EU animal health certificate",
-        "as_stated": "From a non-EU country, other than the Annex I territories treated as equivalent to intra-EU movement, the pet travels with an EU animal health certificate — current model in Annex III to Implementing Regulation (EU) 2026/705 — issued by an official veterinarian or issued by an authorised veterinarian and endorsed by the competent authority, plus a written non-commercial declaration. The Commission states that the certificate is valid for 10 days from issue until the checks at the travellers’ point of entry (extended by the length of a sea journey). After those checks, it can be used for later travel to other EU countries for 6 months or until the rabies vaccination expires, whichever is earlier. EU residents use an EU pet passport. Pet passports issued under the previous model remain valid; old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. 31; Implementing Regulation (EU) 2026/705 , Art. 6). Commission"
+        "as_stated": "From a non-EU country, other than the Annex I territories treated as equivalent to intra-EU movement, the pet travels with an EU animal health certificate — current model in Annex III to Implementing Regulation (EU) 2026/705 — issued by an official veterinarian or issued by an authorised veterinarian and endorsed by the competent authority, plus a written non-commercial declaration. The Commission states that the certificate is valid for 10 days from issue until the checks at the travellers’ point of entry (extended by the length of a sea journey). After those checks, it can be used for later travel to other EU countries for 6 months or until the rabies vaccination expires, whichever is earlier. EU residents use an EU pet passport. Pet passports issued under the previous model remain valid; old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. 31; Implementing Regulation (EU) 2026/705 , Art. 6)."
       },
       {
         "section": "Dogs",
         "topic": "Number of pets and accompaniment",
-        "as_stated": "Non-commercial movement: a maximum of 5 dogs, cats or ferrets with the owner or an authorised person, unless the animals are over 6 months old and travelling for a documented competition, exhibition or sporting event. The owner or authorised person should normally travel with the pet; for justified reasons the pet may travel up to 5 days before or after, or arrive at a different place. Ministry of Health"
+        "as_stated": "Non-commercial movement: a maximum of 5 dogs, cats or ferrets with the owner or an authorised person, unless the animals are over 6 months old and travelling for a documented competition, exhibition or sporting event. The owner or authorised person should normally travel with the pet; for justified reasons the pet may travel up to 5 days before or after, or arrive at a different place."
       },
       {
         "section": "Dogs",
         "topic": "Minimum age",
-        "as_stated": "Italy does not use the optional derogation that would let unvaccinated or not-yet-protected puppies enter. The ministry prohibits entry of dogs, cats and ferrets younger than 12 weeks that have not been vaccinated against rabies, and of animals aged between 12 and 16 weeks that have been vaccinated but have not yet completed the 21-day validity wait. The practical minimum age from a listed country is therefore about 15 weeks (12 weeks plus 21 days). From an unlisted country the wait after the titer sample adds 3 months. Ministry of Health"
+        "as_stated": "Italy does not use the optional derogation that would let unvaccinated or not-yet-protected puppies enter. The ministry prohibits entry of dogs, cats and ferrets younger than 12 weeks that have not been vaccinated against rabies, and of animals aged between 12 and 16 weeks that have been vaccinated but have not yet completed the 21-day validity wait. The practical minimum age from a listed country is therefore about 15 weeks (12 weeks plus 21 days). From an unlisted country the wait after the titer sample adds 3 months."
       },
       {
         "section": "Dogs",
         "topic": "Tapeworm and ticks",
-        "as_stated": "Preventive treatment against ticks or Echinococcus is not required to enter Italy. A later dog tapeworm treatment is required only if you then travel on to Finland, Ireland, Malta, Northern Ireland or Norway (24–120 hours before entry to those destinations). Ministry of Health · Commission"
+        "as_stated": "Preventive treatment against ticks or Echinococcus is not required to enter Italy. A later dog tapeworm treatment is required only if you then travel on to Finland, Ireland, Malta, Northern Ireland or Norway (24–120 hours before entry to those destinations). Ministry of Health ·"
       },
       {
         "section": "Cats",
         "topic": null,
-        "as_stated": "The same identification, rabies, listed/unlisted titer, certificate or passport, accompaniment and age rules apply to cats (and ferrets) as to dogs. Ministry of Health · Commission"
+        "as_stated": "The same identification, rabies, listed/unlisted titer, certificate or passport, accompaniment and age rules apply to cats (and ferrets) as to dogs. Ministry of Health ·"
       },
       {
         "section": "From the United States",
         "topic": null,
-        "as_stated": "The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer. Commission listing"
+        "as_stated": "The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer."
       },
       {
         "section": "From the United States",
@@ -880,37 +1220,37 @@
       {
         "section": "From Canada",
         "topic": null,
-        "as_stated": "Canada is listed — no rabies titer. The pet still needs the ISO microchip, a valid rabies vaccination with the 21-day wait after a primary course, the EU animal health certificate and declaration, and entry through a travellers’ point of entry. Commission listing"
+        "as_stated": "Canada is listed — no rabies titer. The pet still needs the ISO microchip, a valid rabies vaccination with the 21-day wait after a primary course, the EU animal health certificate and declaration, and entry through a travellers’ point of entry."
       },
       {
         "section": "From Japan",
         "topic": null,
-        "as_stated": "Japan is listed — no rabies titer for entry to the EU. The same certificate, microchip and rabies-vaccination rules apply. Commission listing"
+        "as_stated": "Japan is listed — no rabies titer for entry to the EU. The same certificate, microchip and rabies-vaccination rules apply."
       },
       {
         "section": "From South Korea",
         "topic": null,
-        "as_stated": "The Republic of Korea (South Korea) does not appear in Annex I or Annex II on the Commission listing page last confirmed on 10 November 2026. Pets coming from Korea need a rabies antibody titration (sample at least 30 days after vaccination, result at least 0.5 IU/ml at an EU-designated laboratory) and a 3-month wait from the sample date, plus the EU animal health certificate and declaration. Commission listing"
+        "as_stated": "The Republic of Korea (South Korea) does not appear in Annex I or Annex II on the Commission listing page last confirmed on 10 November 2026. Pets coming from Korea need a rabies antibody titration (sample at least 30 days after vaccination, result at least 0.5 IU/ml at an EU-designated laboratory) and a 3-month wait from the sample date, plus the EU animal health certificate and declaration."
       },
       {
         "section": "From another EU country, or from an Annex I territory",
         "topic": null,
-        "as_stated": "From an EU member state, the pet needs identification, a valid rabies vaccination and an EU pet passport. The ministry also applies the same intra-EU conditions, where the Commission has found the rules equivalent, to movements from the Annex I territories listed with Implementing Regulation (EU) 2026/636 (Andorra, Switzerland, the Faroe Islands, Gibraltar, Greenland, Iceland, Liechtenstein, Monaco, San Marino and Vatican City State; Norway and Northern Ireland are treated as equivalent for these health purposes). Ministry of Health · Commission listing"
+        "as_stated": "From an EU member state, the pet needs identification, a valid rabies vaccination and an EU pet passport. The ministry also applies the same intra-EU conditions, where the Commission has found the rules equivalent, to movements from the Annex I territories listed with Implementing Regulation (EU) 2026/636 (Andorra, Switzerland, the Faroe Islands, Gibraltar, Greenland, Iceland, Liechtenstein, Monaco, San Marino and Vatican City State; Norway and Northern Ireland are treated as equivalent for these health purposes). Ministry of Health ·"
       },
       {
         "section": "Where you enter",
         "topic": null,
-        "as_stated": "From a non-EU country other than the Annex I territories, the dog, cat or ferret must enter through a travellers’ point of entry designated by Italy, and be presented for documentary and identity checks. Commission — Travellers’ points of entry"
+        "as_stated": "From a non-EU country other than the Annex I territories, the dog, cat or ferret must enter through a travellers’ point of entry designated by Italy, and be presented for documentary and identity checks."
       },
       {
         "section": "Where you enter",
         "topic": null,
-        "as_stated": "The latest official Italian list cited on this page is dated January 2021. It is a list designated under the former Regulation (EU) No 576/2013, and it remains the latest official list published by the Ministry. It names 41 airports and a series of ports (numbered 42 to 65 on that PDF). Since 22 April 2026 the animal-health requirements themselves are in Regulation (EU) 2016/429 , as supplemented by Delegated Regulation (EU) 2026/131 , with identification-document models in Implementing Regulation (EU) 2026/705 . Ministry of Health — points of entry (PDF, January 2021)"
+        "as_stated": "The latest official Italian list cited on this page is dated January 2021. It is a list designated under the former Regulation (EU) No 576/2013, and it remains the latest official list published by the Ministry. It names 41 airports and a series of ports (numbered 42 to 65 on that PDF). Since 22 April 2026 the animal-health requirements themselves are in Regulation (EU) 2016/429 , as supplemented by Delegated Regulation (EU) 2026/131 , with identification-document models in Implementing Regulation (EU) 2026/705 ."
       },
       {
         "section": "Where you enter",
         "topic": null,
-        "as_stated": "The Commission directory of travellers’ points of entry lists Italy (IT). The Commission’s Italy (IT) file is a Ministry of Health list dated December 2020: the same 41 airports and 16 ports (numbered 42 to 57). That file is older than the January 2021 ministry list, and it is not a list issued under the rules that apply from 22 April 2026. Commission — Italy (IT) points of entry (PDF, December 2020)"
+        "as_stated": "The Commission directory of travellers’ points of entry lists Italy (IT). The Commission’s Italy (IT) file is a Ministry of Health list dated December 2020: the same 41 airports and 16 ports (numbered 42 to 57). That file is older than the January 2021 ministry list, and it is not a list issued under the rules that apply from 22 April 2026."
       }
     ],
     "official_source_urls": [
@@ -937,28 +1277,44 @@
     "requirements": {
       "microchip": {
         "required": null,
-        "as_stated": "From a non-designated region, a dog or cat needs an ISO 11784 / 11785 microchip (a 15-digit numeric code) implanted before the first rabies vaccination | Microchip numbers starting with “900 202” are not accepted for the time being.",
+        "as_stated": "From a non-designated region, a dog or cat needs an ISO 11784 / 11785 microchip (a 15-digit numeric code) implanted before the first rabies vaccination. | Microchip numbers starting with “900 202” are not accepted for the time being.",
         "standard": "ISO 11784 / 11785",
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "rabies_vaccine": {
         "required": null,
-        "as_stated": "rabies vaccination at least twice",
+        "as_stated": "From a non-designated region, a dog or cat needs rabies vaccination at least twice.",
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "waiting_period": {
         "required": null,
-        "as_stated": null,
+        "as_stated": "Notify AQS at the expected port of entry at least 40 days before arrival, online through NACCS (or by e-mail if you cannot use NACCS). | Import is only through designated airports and seaports. | In principle, a notification submitted less than 40 days before arrival is not accepted.",
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [
+          {
+            "value": 40,
+            "unit": "days",
+            "as_stated": "40 days",
+            "context": "Notify AQS at the expected port of entry at least 40 days before arrival, online through NACCS (or by e-mail if you cannot use NACCS)."
+          },
+          {
+            "value": 40,
+            "unit": "days",
+            "as_stated": "40 days",
+            "context": "In principle, a notification submitted less than 40 days before arrival is not accepted."
+          }
+        ],
+        "entries": []
       },
       "titer_test": {
         "required": null,
-        "as_stated": "a rabies antibody test with a titre of at least 0.5 IU/ml from a designated laboratory (the result is valid for two years from the date of blood sampling) | and a waiting period of 180 days or more after that blood sampling (the sampling date counts as day 0).",
+        "as_stated": "From a non-designated region, a dog or cat needs a rabies antibody test with a titre of at least 0.5 IU/ml from a designated laboratory (the result is valid for two years from the date of blood sampling). | From a non-designated region, a dog or cat needs a waiting period of 180 days or more after that blood sampling (the sampling date counts as day 0).",
         "standard": null,
         "applies_to": null,
         "timings": [
@@ -966,20 +1322,14 @@
             "value": 180,
             "unit": "days",
             "as_stated": "180 days",
-            "context": "and a waiting period of 180 days or more after that blood sampling (the sampling date counts as day 0)."
+            "context": "From a non-designated region, a dog or cat needs a waiting period of 180 days or more after that blood sampling (the sampling date counts as day 0)."
           }
-        ]
+        ],
+        "entries": []
       },
       "health_certificate": {
         "required": null,
-        "as_stated": null,
-        "standard": null,
-        "applies_to": null,
-        "timings": []
-      },
-      "endorsement": {
-        "required": null,
-        "as_stated": "Within 10 days before boarding, the animal must have a clinical inspection by a veterinarian, who must also check the microchip number. | AQS recommends government-endorsed certificates on recommended Form AC, issued by the government authorities of the exporting country.",
+        "as_stated": "Within 10 days before boarding, the animal must have a clinical inspection by a veterinarian, who must also check the microchip number.",
         "standard": null,
         "applies_to": null,
         "timings": [
@@ -989,18 +1339,28 @@
             "as_stated": "10 days",
             "context": "Within 10 days before boarding, the animal must have a clinical inspection by a veterinarian,"
           }
-        ]
+        ],
+        "entries": []
+      },
+      "endorsement": {
+        "required": null,
+        "as_stated": "AQS recommends government-endorsed certificates on recommended Form AC, issued by the government authorities of the exporting country.",
+        "standard": null,
+        "applies_to": null,
+        "timings": [],
+        "entries": []
       },
       "import_permit": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "quarantine": {
         "required": null,
-        "as_stated": "If there are deficiencies in the certificates, the dog or cat is detained for quarantine for up to 180 days or will be shipped back, at the importer’s cost (caretaking and feeding included).",
+        "as_stated": "If there are deficiencies in the certificates, the dog or cat is detained for quarantine for up to 180 days or will be shipped back, at the importer’s cost (caretaking and feeding included). | AQS recommends sending a copy of the certificates in advance so that it can check them.",
         "standard": null,
         "applies_to": null,
         "timings": [
@@ -1010,14 +1370,16 @@
             "as_stated": "180 days",
             "context": "encies in the certificates, the dog or cat is detained for quarantine for up to 180 days or will be shipped back, at the importer’s cost (caretaking and feeding include"
           }
-        ]
+        ],
+        "entries": []
       },
       "tapeworm_treatment": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       }
     },
     "cases": [],
@@ -1025,7 +1387,7 @@
       {
         "section": "Entry rules (AQS)",
         "topic": null,
-        "as_stated": "From a non-designated region, a dog or cat needs an ISO 11784 / 11785 microchip (a 15-digit numeric code) implanted before the first rabies vaccination; rabies vaccination at least twice; a rabies antibody test with a titre of at least 0.5 IU/ml from a designated laboratory (the result is valid for two years from the date of blood sampling); and a waiting period of 180 days or more after that blood sampling (the sampling date counts as day 0). Microchip numbers starting with “900 202” are not accepted for the time being. AQS: non-designated regions"
+        "as_stated": "From a non-designated region, a dog or cat needs an ISO 11784 / 11785 microchip (a 15-digit numeric code) implanted before the first rabies vaccination; rabies vaccination at least twice; a rabies antibody test with a titre of at least 0.5 IU/ml from a designated laboratory (the result is valid for two years from the date of blood sampling); and a waiting period of 180 days or more after that blood sampling (the sampling date counts as day 0). Microchip numbers starting with “900 202” are not accepted for the time being."
       },
       {
         "section": "Entry rules (AQS)",
@@ -1060,35 +1422,65 @@
     "requirements": {
       "microchip": {
         "required": null,
-        "as_stated": "Not required by Mexico (required by CDC for US return). | Not required.",
+        "as_stated": "Dogs: Not required by Mexico (required by CDC for US return). | Cats: Not required.",
         "standard": null,
         "applies_to": "Dogs (including NEW Aug 3, 2026 NWS rule); Cats",
-        "timings": []
+        "timings": [],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "Not required by Mexico (required by CDC for US return).",
+            "applies_to": "Dogs (including NEW Aug 3, 2026 NWS rule)",
+            "timings": []
+          },
+          {
+            "species": "cats",
+            "as_stated": "Not required.",
+            "applies_to": "Cats",
+            "timings": []
+          }
+        ]
       },
       "rabies_vaccine": {
         "required": null,
-        "as_stated": "From US/Canada: not checked at entry. | From US/CA: not required at entry.",
+        "as_stated": "Dogs: From US/Canada: not checked at entry. | Cats: From US/CA: not required at entry.",
         "standard": null,
         "applies_to": "Dogs (including NEW Aug 3, 2026 NWS rule); Cats",
-        "timings": []
+        "timings": [],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "From US/Canada: not checked at entry.",
+            "applies_to": "Dogs (including NEW Aug 3, 2026 NWS rule)",
+            "timings": []
+          },
+          {
+            "species": "cats",
+            "as_stated": "From US/CA: not required at entry.",
+            "applies_to": "Cats",
+            "timings": []
+          }
+        ]
       },
       "waiting_period": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "titer_test": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "health_certificate": {
         "required": null,
-        "as_stated": "From other countries: current rabies (except <3 months) on a health certificate ≤15 days (consulate PDF). | From US: | From non-US/CA origins: certificate of good health ≤15 days. | From US: none since 16 Dec 2019 | no NWS doc for cats.",
+        "as_stated": "Dogs: From other countries: current rabies (except <3 months) on a health certificate ≤15 days (consulate PDF). | Dogs: From non-US/CA origins: certificate of good health ≤15 days. | Cats: From US: none since 16 Dec 2019; no NWS doc for cats.",
         "standard": null,
         "applies_to": "Dogs (including NEW Aug 3, 2026 NWS rule); Cats",
         "timings": [
@@ -1110,11 +1502,44 @@
             "as_stated": "15 days",
             "context": "From non-US/CA origins: certificate of good health ≤15 days."
           }
+        ],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "From other countries: current rabies (except <3 months) on a health certificate ≤15 days (consulate PDF). | From non-US/CA origins: certificate of good health ≤15 days.",
+            "applies_to": "Dogs (including NEW Aug 3, 2026 NWS rule)",
+            "timings": [
+              {
+                "value": 15,
+                "unit": "days",
+                "as_stated": "15 days",
+                "context": "rom other countries: current rabies (except <3 months) on a health certificate ≤15 days (consulate PDF)."
+              },
+              {
+                "value": 3,
+                "unit": "months",
+                "as_stated": "3 months",
+                "context": "From other countries: current rabies (except <3 months) on a health certificate ≤15 days (consulate PDF)."
+              },
+              {
+                "value": 15,
+                "unit": "days",
+                "as_stated": "15 days",
+                "context": "From non-US/CA origins: certificate of good health ≤15 days."
+              }
+            ]
+          },
+          {
+            "species": "cats",
+            "as_stated": "From US: none since 16 Dec 2019; no NWS doc for cats.",
+            "applies_to": "Cats",
+            "timings": []
+          }
         ]
       },
       "endorsement": {
         "required": null,
-        "as_stated": "NO health certificate, BUT since 3 Aug 2026 an 'NWS Inspection Certificate for Pet Dogs Moving from the US to Mexico' signed by a USDA-accredited vet ≤5 days before entry (no APHIS endorsement).",
+        "as_stated": "From US: NO health certificate, BUT since 3 Aug 2026 an 'NWS Inspection Certificate for Pet Dogs Moving from the US to Mexico' signed by a USDA-accredited vet ≤5 days before entry (no APHIS endorsement).",
         "standard": null,
         "applies_to": "Dogs (including NEW Aug 3, 2026 NWS rule)",
         "timings": [
@@ -1124,28 +1549,32 @@
             "as_stated": "5 days",
             "context": "ate for Pet Dogs Moving from the US to Mexico' signed by a USDA-accredited vet ≤5 days before entry (no APHIS endorsement)."
           }
-        ]
+        ],
+        "entries": []
       },
       "import_permit": {
         "required": null,
         "as_stated": "Certificado Zoosanitario para Importación (CZI) issued at OISA on arrival after physical inspection.",
         "standard": null,
         "applies_to": "Dogs (including NEW Aug 3, 2026 NWS rule)",
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "quarantine": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "tapeworm_treatment": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       }
     },
     "cases": [],
@@ -1201,14 +1630,15 @@
     "requirements": {
       "microchip": {
         "required": null,
-        "as_stated": "A microchip must be ISO-compliant (ISO 11784 and 11785).",
+        "as_stated": "A microchip must be ISO-compliant (ISO 11784 and 11785). | For any other chip, the importer must bring a scanner that can read it.",
         "standard": "ISO-compliant (ISO 11784 and 11785)",
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "rabies_vaccine": {
         "required": null,
-        "as_stated": "Cats and dogs younger than 90 days, or originating from rabies-free countries, do not require prior rabies vaccination, but they must be microchipped. | APQA points to a separate list of areas designated as rabies-free (that list can change)",
+        "as_stated": "Cats and dogs younger than 90 days, or originating from rabies-free countries, do not require prior rabies vaccination, but they must be microchipped. | APQA points to a separate list of areas designated as rabies-free (that list can change); check the current list before you travel. | This guide does not name individual countries on that list.",
         "standard": null,
         "applies_to": null,
         "timings": [
@@ -1218,18 +1648,20 @@
             "as_stated": "90 days",
             "context": "Cats and dogs younger than 90 days, or originating from rabies-free countries, do not require prior rabies vaccina"
           }
-        ]
+        ],
+        "entries": []
       },
       "waiting_period": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "titer_test": {
         "required": null,
-        "as_stated": "For cats and dogs aged 90 days or older originating from countries that are not rabies-free, a microchip and a rabies-neutralising antibody test are mandatory. | A titre below 0.5 IU/ml, a missing test, or a missing or mismatched microchip can lead to an extended quarantine at the owner’s expense.",
+        "as_stated": "For cats and dogs aged 90 days or older originating from countries that are not rabies-free, a microchip and a rabies-neutralising antibody test are mandatory. | The test must be carried out by an internationally approved laboratory or by the competent authority of the exporting country, and the blood must have been collected within the previous 24 months. | A titre below 0.5 IU/ml, a missing test, or a missing or mismatched microchip can lead to an extended quarantine at the owner’s expense. | APQA states that the average extended quarantine is 10 days and that the period can be longer depending on the case.",
         "standard": null,
         "applies_to": null,
         "timings": [
@@ -1238,43 +1670,61 @@
             "unit": "days",
             "as_stated": "90 days",
             "context": "For cats and dogs aged 90 days or older originating from countries that are not rabies-free, a microchip and a"
+          },
+          {
+            "value": 24,
+            "unit": "months",
+            "as_stated": "24 months",
+            "context": "e exporting country, and the blood must have been collected within the previous 24 months."
+          },
+          {
+            "value": 10,
+            "unit": "days",
+            "as_stated": "10 days",
+            "context": "APQA states that the average extended quarantine is 10 days and that the period can be longer depending on the case."
           }
-        ]
+        ],
+        "entries": []
       },
       "health_certificate": {
         "required": null,
-        "as_stated": "The owner must submit a health certificate issued by the government of the exporting country that states the microchip number and the date of birth. | On arrival you must submit a government health certificate that confirms the microchip number and the antibody-test result. | Without a health certificate, the animal must be returned to the exporting country at the owner’s cost.",
+        "as_stated": "The owner must submit a health certificate issued by the government of the exporting country that states the microchip number and the date of birth. | On arrival you must submit a government health certificate that confirms the microchip number and the antibody-test result. | Without a health certificate, the animal must be returned to the exporting country at the owner’s cost. | If the documents are verified and health is confirmed by a clinical examination at the port of entry, the animal may be released on the day of arrival. | Advance notification to APQA for the use of a quarantine facility is required when a traveller brings ten or more cats and/or dogs.",
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "endorsement": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "import_permit": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "quarantine": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "tapeworm_treatment": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       }
     },
     "cases": [],
@@ -1315,14 +1765,34 @@
     "requirements": {
       "microchip": {
         "required": null,
-        "as_stated": "An ISO transponder (microchip) meeting ISO 11784 and ISO 11785, or a tattoo applied before 3 July 2011 and still readable. | The same certificate, language, microchip and rabies-vaccination rules apply. | At the airport, port or road border, find the control point and declare the pet to the Resguardo Fiscal of the Guardia Civil or other authorised customs staff, and present the documents for documentary and identity checks, including a reading of the microchip.",
+        "as_stated": "Dogs: An ISO transponder (microchip) meeting ISO 11784 and ISO 11785, or a tattoo applied before 3 July 2011 and still readable. | Dogs: MAPA · APHIS Spain · | The same certificate, language, microchip and rabies-vaccination rules apply. | Dogs, cats and ferrets arriving from a non-EU country must enter through an authorised travellers’ point of entry ( Punto de Entrada de Viajeros , PEV). | Dogs and cats: At the airport, port or road border, find the control point and declare the pet to the Resguardo Fiscal of the Guardia Civil or other authorised customs staff, and present the documents for documentary and identity checks, including a reading of the microchip.",
         "standard": "ISO",
         "applies_to": "Dogs",
-        "timings": []
+        "timings": [],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "An ISO transponder (microchip) meeting ISO 11784 and ISO 11785, or a tattoo applied before 3 July 2011 and still readable. | MAPA · APHIS Spain ·",
+            "applies_to": "Dogs",
+            "timings": []
+          },
+          {
+            "species": null,
+            "as_stated": "The same certificate, language, microchip and rabies-vaccination rules apply.",
+            "applies_to": null,
+            "timings": []
+          },
+          {
+            "species": "dogs_and_cats",
+            "as_stated": "Dogs, cats and ferrets arriving from a non-EU country must enter through an authorised travellers’ point of entry ( Punto de Entrada de Viajeros , PEV). | At the airport, port or road border, find the control point and declare the pet to the Resguardo Fiscal of the Guardia Civil or other authorised customs staff, and present the documents for documentary and identity checks, including a reading of the microchip.",
+            "applies_to": null,
+            "timings": []
+          }
+        ]
       },
       "rabies_vaccine": {
         "required": null,
-        "as_stated": "The chip must be in place before the rabies vaccination. | Vaccination at 12 weeks of age or older, after identification, with a vaccine that is valid at the time of travel. | APHIS treats a primary rabies vaccination given in the United States as valid for 1 year for EU purposes, even if a 3-year product was used | Spain does not grant exceptions and does not authorise entry of dogs, cats or ferrets younger than 15 weeks, and therefore not yet holding a valid rabies vaccination (minimum vaccination age 12 weeks, plus at least 21 days). | From an EU member state, Norway, Northern Ireland, or an Annex I territory under Implementing Regulation (EU) 2026/636 (Andorra, Switzerland, the Faroe Islands, Gibraltar, Greenland, Iceland, Liechtenstein, Monaco, San Marino and Vatican City State), the pet needs a microchip or a qualifying tattoo, a valid rabies vaccination recorded in an EU pet passport, and must be at least 15 weeks old.",
+        "as_stated": "Dogs: The chip must be in place before the rabies vaccination. | Dogs: Vaccination at 12 weeks of age or older, after identification, with a vaccine that is valid at the time of travel. | Dogs: APHIS treats a primary rabies vaccination given in the United States as valid for 1 year for EU purposes, even if a 3-year product was used; keep boosters without a gap. | Dogs and cats: Spain does not grant exceptions and does not authorise entry of dogs, cats or ferrets younger than 15 weeks, and therefore not yet holding a valid rabies vaccination (minimum vaccination age 12 weeks, plus at least 21 days). | Dogs and cats: From an EU member state, Norway, Northern Ireland, or an Annex I territory under Implementing Regulation (EU) 2026/636 (Andorra, Switzerland, the Faroe Islands, Gibraltar, Greenland, Iceland, Liechtenstein, Monaco, San Marino and Vatican City State), the pet needs a microchip or a qualifying tattoo, a valid rabies vaccination recorded in an EU pet passport, and must be at least 15 weeks old. | Dogs and cats: MAPA points to its instruction on introducing dogs, cats and ferrets from other member states.",
         "standard": null,
         "applies_to": "Dogs",
         "timings": [
@@ -1356,11 +1826,57 @@
             "as_stated": "15 weeks",
             "context": "a valid rabies vaccination recorded in an EU pet passport, and must be at least 15 weeks old."
           }
+        ],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "The chip must be in place before the rabies vaccination. | Vaccination at 12 weeks of age or older, after identification, with a vaccine that is valid at the time of travel. | APHIS treats a primary rabies vaccination given in the United States as valid for 1 year for EU purposes, even if a 3-year product was used; keep boosters without a gap.",
+            "applies_to": "Dogs",
+            "timings": [
+              {
+                "value": 12,
+                "unit": "weeks",
+                "as_stated": "12 weeks",
+                "context": "Vaccination at 12 weeks of age or older, after identification, with a vaccine that is valid at the time"
+              }
+            ]
+          },
+          {
+            "species": "dogs_and_cats",
+            "as_stated": "Spain does not grant exceptions and does not authorise entry of dogs, cats or ferrets younger than 15 weeks, and therefore not yet holding a valid rabies vaccination (minimum vaccination age 12 weeks, plus at least 21 days). | From an EU member state, Norway, Northern Ireland, or an Annex I territory under Implementing Regulation (EU) 2026/636 (Andorra, Switzerland, the Faroe Islands, Gibraltar, Greenland, Iceland, Liechtenstein, Monaco, San Marino and Vatican City State), the pet needs a microchip or a qualifying tattoo, a valid rabies vaccination recorded in an EU pet passport, and must be at least 15 weeks old. | MAPA points to its instruction on introducing dogs, cats and ferrets from other member states.",
+            "applies_to": "Dogs",
+            "timings": [
+              {
+                "value": 21,
+                "unit": "days",
+                "as_stated": "21 days",
+                "context": "ing a valid rabies vaccination (minimum vaccination age 12 weeks, plus at least 21 days)."
+              },
+              {
+                "value": 15,
+                "unit": "weeks",
+                "as_stated": "15 weeks",
+                "context": "t exceptions and does not authorise entry of dogs, cats or ferrets younger than 15 weeks, and therefore not yet holding a valid rabies vaccination (minimum vaccination"
+              },
+              {
+                "value": 12,
+                "unit": "weeks",
+                "as_stated": "12 weeks",
+                "context": "d therefore not yet holding a valid rabies vaccination (minimum vaccination age 12 weeks, plus at least 21 days)."
+              },
+              {
+                "value": 15,
+                "unit": "weeks",
+                "as_stated": "15 weeks",
+                "context": "a valid rabies vaccination recorded in an EU pet passport, and must be at least 15 weeks old."
+              }
+            ]
+          }
         ]
       },
       "waiting_period": {
         "required": null,
-        "as_stated": "After a primary vaccination, wait at least 21 days before entry. | MAPA and the Commission guide in force since 22 April 2026 state the same 12-week minimum and 21-day wait.",
+        "as_stated": "After a primary vaccination, wait at least 21 days before entry. | APHIS still cites “EU 576/2013 Annex III” for this requirement; MAPA and the Commission guide in force since 22 April 2026 state the same 12-week minimum and 21-day wait.",
         "standard": null,
         "applies_to": "Dogs",
         "timings": [
@@ -1376,11 +1892,12 @@
             "as_stated": "21-day",
             "context": "ommission guide in force since 22 April 2026 state the same 12-week minimum and 21-day wait."
           }
-        ]
+        ],
+        "entries": []
       },
       "titer_test": {
         "required": null,
-        "as_stated": "Required when the pet comes from a territory or non-EU country that is not listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636. | The blood sample is taken at least 30 days after the primary vaccination (MAPA notes that the 30-day wait applies to a primary vaccination | a correctly maintained booster schedule does not restart that wait). | The result must be at least 0.5 IU/ml from an authorised laboratory, and the animal may enter only after 90 days from the sample date. | MAPA states that the minimum age of an animal arriving from a rabies-risk (unlisted) country is therefore 7 months. | The United States, Canada, Mexico, Great Britain and Japan are listed (no titer). | South Korea does not appear on the Commission list. | If an EU-resident pet leaves the Union for an unlisted country and returns, the 90-day wait does not apply when the titer was completed, with a favourable result, before the pet left the EU, and is recorded in the EU pet passport. | The same identification, rabies, listed/unlisted titer, certificate or passport, accompaniment and age rules apply to cats (and ferrets) as to dogs. | The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer. | Canada is listed — no rabies titer. | Japan is listed — no rabies titer for entry to the EU. | Pets coming from Korea need a rabies antibody titration (sample at least 30 days after a primary vaccination, result at least 0.5 IU/ml) and a 90-day wait from the sample date, plus the EU animal health certificate and declaration, presented at least in Spanish.",
+        "as_stated": "Dogs: Required when the pet comes from a territory or non-EU country that is not listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636. | Dogs: The blood sample is taken at least 30 days after the primary vaccination (MAPA notes that the 30-day wait applies to a primary vaccination; a correctly maintained booster schedule does not restart that wait). | Dogs: The result must be at least 0.5 IU/ml from an authorised laboratory, and the animal may enter only after 90 days from the sample date. | Dogs: MAPA states that the minimum age of an animal arriving from a rabies-risk (unlisted) country is therefore 7 months. | Dogs: The United States, Canada, Mexico, Great Britain and Japan are listed (no titer). | Dogs: South Korea does not appear on the Commission list. | Dogs: If an EU-resident pet leaves the Union for an unlisted country and returns, the 90-day wait does not apply when the titer was completed, with a favourable result, before the pet left the EU, and is recorded in the EU pet passport. | Dogs: MAPA · | Dogs and cats: The same identification, rabies, listed/unlisted titer, certificate or passport, accompaniment and age rules apply to cats (and ferrets) as to dogs. | The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer. | Commission listing · | Canada is listed — no rabies titer. | Commission listing · | Japan is listed — no rabies titer for entry to the EU. | The Republic of Korea (South Korea) does not appear in Annex I or Annex II on the Commission listing page last confirmed on 10 November 2026. | Pets coming from Korea need a rabies antibody titration (sample at least 30 days after a primary vaccination, result at least 0.5 IU/ml) and a 90-day wait from the sample date, plus the EU animal health certificate and declaration, presented at least in Spanish. | Commission listing ·",
         "standard": null,
         "applies_to": "Dogs; Cats",
         "timings": [
@@ -1388,7 +1905,7 @@
             "value": 30,
             "unit": "days",
             "as_stated": "30-day",
-            "context": "le is taken at least 30 days after the primary vaccination (MAPA notes that the 30-day wait applies to a primary vaccination"
+            "context": "le is taken at least 30 days after the primary vaccination (MAPA notes that the 30-day wait applies to a primary vaccination; a correctly maintained booster schedule"
           },
           {
             "value": 30,
@@ -1426,11 +1943,75 @@
             "as_stated": "30 days",
             "context": "Pets coming from Korea need a rabies antibody titration (sample at least 30 days after a primary vaccination, result at least 0.5 IU/ml) and a 90-day wait from"
           }
+        ],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "Required when the pet comes from a territory or non-EU country that is not listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636. | The blood sample is taken at least 30 days after the primary vaccination (MAPA notes that the 30-day wait applies to a primary vaccination; a correctly maintained booster schedule does not restart that wait). | The result must be at least 0.5 IU/ml from an authorised laboratory, and the animal may enter only after 90 days from the sample date. | MAPA states that the minimum age of an animal arriving from a rabies-risk (unlisted) country is therefore 7 months. | The United States, Canada, Mexico, Great Britain and Japan are listed (no titer). | South Korea does not appear on the Commission list. | If an EU-resident pet leaves the Union for an unlisted country and returns, the 90-day wait does not apply when the titer was completed, with a favourable result, before the pet left the EU, and is recorded in the EU pet passport. | MAPA ·",
+            "applies_to": "Dogs",
+            "timings": [
+              {
+                "value": 30,
+                "unit": "days",
+                "as_stated": "30-day",
+                "context": "le is taken at least 30 days after the primary vaccination (MAPA notes that the 30-day wait applies to a primary vaccination; a correctly maintained booster schedule"
+              },
+              {
+                "value": 30,
+                "unit": "days",
+                "as_stated": "30 days",
+                "context": "The blood sample is taken at least 30 days after the primary vaccination (MAPA notes that the 30-day wait applies to a pri"
+              },
+              {
+                "value": 90,
+                "unit": "days",
+                "as_stated": "90 days",
+                "context": "st 0.5 IU/ml from an authorised laboratory, and the animal may enter only after 90 days from the sample date."
+              },
+              {
+                "value": 7,
+                "unit": "months",
+                "as_stated": "7 months",
+                "context": "um age of an animal arriving from a rabies-risk (unlisted) country is therefore 7 months."
+              },
+              {
+                "value": 90,
+                "unit": "days",
+                "as_stated": "90-day",
+                "context": "If an EU-resident pet leaves the Union for an unlisted country and returns, the 90-day wait does not apply when the titer was completed, with a favourable result, bef"
+              }
+            ]
+          },
+          {
+            "species": "dogs_and_cats",
+            "as_stated": "The same identification, rabies, listed/unlisted titer, certificate or passport, accompaniment and age rules apply to cats (and ferrets) as to dogs.",
+            "applies_to": "Cats",
+            "timings": []
+          },
+          {
+            "species": null,
+            "as_stated": "The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer. | Commission listing · | Canada is listed — no rabies titer. | Commission listing · | Japan is listed — no rabies titer for entry to the EU. | The Republic of Korea (South Korea) does not appear in Annex I or Annex II on the Commission listing page last confirmed on 10 November 2026. | Pets coming from Korea need a rabies antibody titration (sample at least 30 days after a primary vaccination, result at least 0.5 IU/ml) and a 90-day wait from the sample date, plus the EU animal health certificate and declaration, presented at least in Spanish. | Commission listing ·",
+            "applies_to": null,
+            "timings": [
+              {
+                "value": 90,
+                "unit": "days",
+                "as_stated": "90-day",
+                "context": "at least 30 days after a primary vaccination, result at least 0.5 IU/ml) and a 90-day wait from the sample date, plus the EU animal health certificate and declaratio"
+              },
+              {
+                "value": 30,
+                "unit": "days",
+                "as_stated": "30 days",
+                "context": "Pets coming from Korea need a rabies antibody titration (sample at least 30 days after a primary vaccination, result at least 0.5 IU/ml) and a 90-day wait from"
+              }
+            ]
+          }
         ]
       },
       "health_certificate": {
         "required": null,
-        "as_stated": "Dogs, cats and ferrets arriving from a non-EU country, other than Norway, Northern Ireland and the Annex I territories, and that do not already hold a valid EU pet passport, must travel with an EU animal health certificate signed by an official veterinarian of the third country, a written declaration, and a certified copy of the identification and vaccination data. | MAPA requires the certificate to be presented at least in Spanish ( castellano ), using the EU models. | MAPA links the certificate model valid from 22 April 2026 (Implementing Regulation (EU) 2026/705). | The Commission states that the certificate is valid for 10 days from issue until the checks at the travellers’ point of entry (extended by the length of a sea journey), and then for later travel to other EU countries for 6 months or until the rabies vaccination expires, whichever is earlier. | Pet passports issued under the previous model remain valid | old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. | Implementing Regulation (EU) 2026/705 , Art. | 6). | It also states that the non-commercial certificate is valid for 30 days after the accredited veterinarian issues it, and that it may then be used for travel within the EU for up to 6 months from the day of entry, while the rabies vaccination remains valid. | If the pet already holds a valid EU pet passport, an export health certificate may not be needed — confirm on the APHIS page. | The pet still needs the ISO microchip, a valid rabies vaccination with the 21-day wait after a primary course, the EU animal health certificate and declaration (at least in Spanish), and entry through a travellers’ point of entry.",
+        "as_stated": "Dogs, cats and ferrets arriving from a non-EU country, other than Norway, Northern Ireland and the Annex I territories, and that do not already hold a valid EU pet passport, must travel with an EU animal health certificate signed by an official veterinarian of the third country, a written declaration, and a certified copy of the identification and vaccination data. | Dogs: MAPA requires the certificate to be presented at least in Spanish ( castellano ), using the EU models. | Dogs: MAPA links the certificate model valid from 22 April 2026 (Implementing Regulation (EU) 2026/705). | Dogs: The Commission states that the certificate is valid for 10 days from issue until the checks at the travellers’ point of entry (extended by the length of a sea journey), and then for later travel to other EU countries for 6 months or until the rabies vaccination expires, whichever is earlier. | Dogs: Pet passports issued under the previous model remain valid; old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. 31; Implementing Regulation (EU) 2026/705 , Art. 6). | It also states that the non-commercial certificate is valid for 30 days after the accredited veterinarian issues it, and that it may then be used for travel within the EU for up to 6 months from the day of entry, while the rabies vaccination remains valid. | If the pet already holds a valid EU pet passport, an export health certificate may not be needed — confirm on the APHIS page. | The pet still needs the ISO microchip, a valid rabies vaccination with the 21-day wait after a primary course, the EU animal health certificate and declaration (at least in Spanish), and entry through a travellers’ point of entry.",
         "standard": null,
         "applies_to": "Dogs",
         "timings": [
@@ -1464,11 +2045,63 @@
             "as_stated": "21-day",
             "context": "The pet still needs the ISO microchip, a valid rabies vaccination with the 21-day wait after a primary course, the EU animal health certificate and declaration ("
           }
+        ],
+        "entries": [
+          {
+            "species": "dogs_and_cats",
+            "as_stated": "Dogs, cats and ferrets arriving from a non-EU country, other than Norway, Northern Ireland and the Annex I territories, and that do not already hold a valid EU pet passport, must travel with an EU animal health certificate signed by an official veterinarian of the third country, a written declaration, and a certified copy of the identification and vaccination data.",
+            "applies_to": "Dogs",
+            "timings": []
+          },
+          {
+            "species": "dogs",
+            "as_stated": "MAPA requires the certificate to be presented at least in Spanish ( castellano ), using the EU models. | MAPA links the certificate model valid from 22 April 2026 (Implementing Regulation (EU) 2026/705). | The Commission states that the certificate is valid for 10 days from issue until the checks at the travellers’ point of entry (extended by the length of a sea journey), and then for later travel to other EU countries for 6 months or until the rabies vaccination expires, whichever is earlier. | Pet passports issued under the previous model remain valid; old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. 31; Implementing Regulation (EU) 2026/705 , Art. 6).",
+            "applies_to": "Dogs",
+            "timings": [
+              {
+                "value": 10,
+                "unit": "days",
+                "as_stated": "10 days",
+                "context": "The Commission states that the certificate is valid for 10 days from issue until the checks at the travellers’ point of entry (extended by the"
+              },
+              {
+                "value": 6,
+                "unit": "months",
+                "as_stated": "6 months",
+                "context": "e length of a sea journey), and then for later travel to other EU countries for 6 months or until the rabies vaccination expires, whichever is earlier."
+              }
+            ]
+          },
+          {
+            "species": null,
+            "as_stated": "It also states that the non-commercial certificate is valid for 30 days after the accredited veterinarian issues it, and that it may then be used for travel within the EU for up to 6 months from the day of entry, while the rabies vaccination remains valid. | If the pet already holds a valid EU pet passport, an export health certificate may not be needed — confirm on the APHIS page. | The pet still needs the ISO microchip, a valid rabies vaccination with the 21-day wait after a primary course, the EU animal health certificate and declaration (at least in Spanish), and entry through a travellers’ point of entry.",
+            "applies_to": null,
+            "timings": [
+              {
+                "value": 30,
+                "unit": "days",
+                "as_stated": "30 days",
+                "context": "It also states that the non-commercial certificate is valid for 30 days after the accredited veterinarian issues it, and that it may then be used for t"
+              },
+              {
+                "value": 6,
+                "unit": "months",
+                "as_stated": "6 months",
+                "context": "rian issues it, and that it may then be used for travel within the EU for up to 6 months from the day of entry, while the rabies vaccination remains valid."
+              },
+              {
+                "value": 21,
+                "unit": "days",
+                "as_stated": "21-day",
+                "context": "The pet still needs the ISO microchip, a valid rabies vaccination with the 21-day wait after a primary course, the EU animal health certificate and declaration ("
+              }
+            ]
+          }
         ]
       },
       "endorsement": {
         "required": null,
-        "as_stated": "A USDA-accredited veterinarian issues the EU non-commercial certificate and submits it through VEHCS. | APHIS must ink-sign and emboss the certificate (electronic signature is accepted from the accredited veterinarian | original ink endorsement is required from APHIS). | The endorsed original must travel with the pet. | APHIS requires the endorsement to fall within 10 days of the pet’s arrival in the EU.",
+        "as_stated": "A USDA-accredited veterinarian issues the EU non-commercial certificate and submits it through VEHCS. | APHIS must ink-sign and emboss the certificate (electronic signature is accepted from the accredited veterinarian; original ink endorsement is required from APHIS). | The endorsed original must travel with the pet. | APHIS requires the endorsement to fall within 10 days of the pet’s arrival in the EU. | The owner or designated person must complete and sign the declaration. | New non-commercial certificates took effect on 1 October 2026 (APHIS cites EU 2026/131). | MAPA still requires the document to be presented at least in Spanish; use the bilingual EU model MAPA publishes for that purpose. | APHIS Spain (dateModified 2 September 2026; checked 11 November 2026) ·",
         "standard": null,
         "applies_to": null,
         "timings": [
@@ -1478,21 +2111,24 @@
             "as_stated": "10 days",
             "context": "APHIS requires the endorsement to fall within 10 days of the pet’s arrival in the EU."
           }
-        ]
+        ],
+        "entries": []
       },
       "import_permit": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "quarantine": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "tapeworm_treatment": {
         "required": null,
@@ -1506,7 +2142,8 @@
             "as_stated": "120 hours",
             "context": "ay or Northern Ireland must be treated against E. multilocularis between 24 and 120 hours before arriving in that country."
           }
-        ]
+        ],
+        "entries": []
       }
     },
     "cases": [],
@@ -1514,82 +2151,82 @@
       {
         "section": "Dogs",
         "topic": "Identification",
-        "as_stated": "An ISO transponder (microchip) meeting ISO 11784 and ISO 11785, or a tattoo applied before 3 July 2011 and still readable. The chip must be in place before the rabies vaccination. MAPA · APHIS Spain · Commission"
+        "as_stated": "An ISO transponder (microchip) meeting ISO 11784 and ISO 11785, or a tattoo applied before 3 July 2011 and still readable. The chip must be in place before the rabies vaccination. MAPA · APHIS Spain ·"
       },
       {
         "section": "Dogs",
         "topic": "Rabies vaccination",
-        "as_stated": "Vaccination at 12 weeks of age or older, after identification, with a vaccine that is valid at the time of travel. After a primary vaccination, wait at least 21 days before entry. APHIS treats a primary rabies vaccination given in the United States as valid for 1 year for EU purposes, even if a 3-year product was used; keep boosters without a gap. APHIS still cites “EU 576/2013 Annex III” for this requirement; MAPA and the Commission guide in force since 22 April 2026 state the same 12-week minimum and 21-day wait. MAPA · APHIS Spain"
+        "as_stated": "Vaccination at 12 weeks of age or older, after identification, with a vaccine that is valid at the time of travel. After a primary vaccination, wait at least 21 days before entry. APHIS treats a primary rabies vaccination given in the United States as valid for 1 year for EU purposes, even if a 3-year product was used; keep boosters without a gap. APHIS still cites “EU 576/2013 Annex III” for this requirement; MAPA and the Commission guide in force since 22 April 2026 state the same 12-week minimum and 21-day wait. MAPA ·"
       },
       {
         "section": "Dogs",
         "topic": "Rabies titer",
-        "as_stated": "Required when the pet comes from a territory or non-EU country that is not listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636. The blood sample is taken at least 30 days after the primary vaccination (MAPA notes that the 30-day wait applies to a primary vaccination; a correctly maintained booster schedule does not restart that wait). The result must be at least 0.5 IU/ml from an authorised laboratory, and the animal may enter only after 90 days from the sample date. MAPA states that the minimum age of an animal arriving from a rabies-risk (unlisted) country is therefore 7 months. The United States, Canada, Mexico, Great Britain and Japan are listed (no titer). South Korea does not appear on the Commission list. If an EU-resident pet leaves the Union for an unlisted country and returns, the 90-day wait does not apply when the titer was completed, with a favourable result, before the pet left the EU, and is recorded in the EU pet passport. MAPA · Commission listing"
+        "as_stated": "Required when the pet comes from a territory or non-EU country that is not listed in Annex I or Annex II of Implementing Regulation (EU) 2026/636. The blood sample is taken at least 30 days after the primary vaccination (MAPA notes that the 30-day wait applies to a primary vaccination; a correctly maintained booster schedule does not restart that wait). The result must be at least 0.5 IU/ml from an authorised laboratory, and the animal may enter only after 90 days from the sample date. MAPA states that the minimum age of an animal arriving from a rabies-risk (unlisted) country is therefore 7 months. The United States, Canada, Mexico, Great Britain and Japan are listed (no titer). South Korea does not appear on the Commission list. If an EU-resident pet leaves the Union for an unlisted country and returns, the 90-day wait does not apply when the titer was completed, with a favourable result, before the pet left the EU, and is recorded in the EU pet passport. MAPA ·"
       },
       {
         "section": "Dogs",
         "topic": "EU animal health certificate",
-        "as_stated": "Dogs, cats and ferrets arriving from a non-EU country, other than Norway, Northern Ireland and the Annex I territories, and that do not already hold a valid EU pet passport, must travel with an EU animal health certificate signed by an official veterinarian of the third country, a written declaration, and a certified copy of the identification and vaccination data. MAPA requires the certificate to be presented at least in Spanish ( castellano ), using the EU models. MAPA links the certificate model valid from 22 April 2026 (Implementing Regulation (EU) 2026/705). The Commission states that the certificate is valid for 10 days from issue until the checks at the travellers’ point of entry (extended by the length of a sea journey), and then for later travel to other EU countries for 6 months or until the rabies vaccination expires, whichever is earlier. Pet passports issued under the previous model remain valid; old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. 31; Implementing Regulation (EU) 2026/705 , Art. 6). MAPA · Commission"
+        "as_stated": "Dogs, cats and ferrets arriving from a non-EU country, other than Norway, Northern Ireland and the Annex I territories, and that do not already hold a valid EU pet passport, must travel with an EU animal health certificate signed by an official veterinarian of the third country, a written declaration, and a certified copy of the identification and vaccination data. MAPA requires the certificate to be presented at least in Spanish ( castellano ), using the EU models. MAPA links the certificate model valid from 22 April 2026 (Implementing Regulation (EU) 2026/705). The Commission states that the certificate is valid for 10 days from issue until the checks at the travellers’ point of entry (extended by the length of a sea journey), and then for later travel to other EU countries for 6 months or until the rabies vaccination expires, whichever is earlier. Pet passports issued under the previous model remain valid; old-model passports issued before 1 January 2028 and animal health certificates issued before 1 October 2026 (usable until 31 March 2027) are deemed to comply ( Delegated Regulation (EU) 2026/131 , Art. 31; Implementing Regulation (EU) 2026/705 , Art. 6). MAPA ·"
       },
       {
         "section": "Dogs",
         "topic": "Number of pets and accompaniment",
-        "as_stated": "Non-commercial movement: 5 or fewer animals, not for sale or transfer of ownership, travelling with the owner or an authorised person (never alone). The owner may travel up to 5 days before or after the pet. The owner and the authorised person must be natural persons, not companies. When an authorised person travels, a written authorisation signed by the owner is attached to the identification document, in the format set out in Annex V, Part 1, of Implementing Regulation (EU) 2026/705. Documented exceptions exist for competitions, exhibitions or sporting events for animals older than 6 months. MAPA"
+        "as_stated": "Non-commercial movement: 5 or fewer animals, not for sale or transfer of ownership, travelling with the owner or an authorised person (never alone). The owner may travel up to 5 days before or after the pet. The owner and the authorised person must be natural persons, not companies. When an authorised person travels, a written authorisation signed by the owner is attached to the identification document, in the format set out in Annex V, Part 1, of Implementing Regulation (EU) 2026/705. Documented exceptions exist for competitions, exhibitions or sporting events for animals older than 6 months."
       },
       {
         "section": "Dogs",
         "topic": "Minimum age",
-        "as_stated": "Spain does not grant exceptions and does not authorise entry of dogs, cats or ferrets younger than 15 weeks, and therefore not yet holding a valid rabies vaccination (minimum vaccination age 12 weeks, plus at least 21 days). MAPA"
+        "as_stated": "Spain does not grant exceptions and does not authorise entry of dogs, cats or ferrets younger than 15 weeks, and therefore not yet holding a valid rabies vaccination (minimum vaccination age 12 weeks, plus at least 21 days)."
       },
       {
         "section": "Dogs",
         "topic": "Tapeworm",
-        "as_stated": "Spain does not require Echinococcus treatment for entry into Spain. A dog travelling onwards to Ireland, Malta, Finland, Norway or Northern Ireland must be treated against E. multilocularis between 24 and 120 hours before arriving in that country. MAPA"
+        "as_stated": "Spain does not require Echinococcus treatment for entry into Spain. A dog travelling onwards to Ireland, Malta, Finland, Norway or Northern Ireland must be treated against E. multilocularis between 24 and 120 hours before arriving in that country."
       },
       {
         "section": "Cats",
         "topic": null,
-        "as_stated": "The same identification, rabies, listed/unlisted titer, certificate or passport, accompaniment and age rules apply to cats (and ferrets) as to dogs. MAPA"
+        "as_stated": "The same identification, rabies, listed/unlisted titer, certificate or passport, accompaniment and age rules apply to cats (and ferrets) as to dogs."
       },
       {
         "section": "From the United States",
         "topic": null,
-        "as_stated": "The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer. Commission listing · MAPA"
+        "as_stated": "The United States is listed in Annex II of Implementing Regulation (EU) 2026/636 — no rabies titer. Commission listing ·"
       },
       {
         "section": "From the United States",
         "topic": null,
-        "as_stated": "A USDA-accredited veterinarian issues the EU non-commercial certificate and submits it through VEHCS. APHIS must ink-sign and emboss the certificate (electronic signature is accepted from the accredited veterinarian; original ink endorsement is required from APHIS). The endorsed original must travel with the pet. APHIS requires the endorsement to fall within 10 days of the pet’s arrival in the EU. It also states that the non-commercial certificate is valid for 30 days after the accredited veterinarian issues it, and that it may then be used for travel within the EU for up to 6 months from the day of entry, while the rabies vaccination remains valid. The owner or designated person must complete and sign the declaration. New non-commercial certificates took effect on 1 October 2026 (APHIS cites EU 2026/131). MAPA still requires the document to be presented at least in Spanish; use the bilingual EU model MAPA publishes for that purpose. If the pet already holds a valid EU pet passport, an export health certificate may not be needed — confirm on the APHIS page. APHIS Spain (dateModified 2 September 2026; checked 11 November 2026) · MAPA"
+        "as_stated": "A USDA-accredited veterinarian issues the EU non-commercial certificate and submits it through VEHCS. APHIS must ink-sign and emboss the certificate (electronic signature is accepted from the accredited veterinarian; original ink endorsement is required from APHIS). The endorsed original must travel with the pet. APHIS requires the endorsement to fall within 10 days of the pet’s arrival in the EU. It also states that the non-commercial certificate is valid for 30 days after the accredited veterinarian issues it, and that it may then be used for travel within the EU for up to 6 months from the day of entry, while the rabies vaccination remains valid. The owner or designated person must complete and sign the declaration. New non-commercial certificates took effect on 1 October 2026 (APHIS cites EU 2026/131). MAPA still requires the document to be presented at least in Spanish; use the bilingual EU model MAPA publishes for that purpose. If the pet already holds a valid EU pet passport, an export health certificate may not be needed — confirm on the APHIS page. APHIS Spain (dateModified 2 September 2026; checked 11 November 2026) ·"
       },
       {
         "section": "From Canada",
         "topic": null,
-        "as_stated": "Canada is listed — no rabies titer. The pet still needs the ISO microchip, a valid rabies vaccination with the 21-day wait after a primary course, the EU animal health certificate and declaration (at least in Spanish), and entry through a travellers’ point of entry. Commission listing · MAPA"
+        "as_stated": "Canada is listed — no rabies titer. The pet still needs the ISO microchip, a valid rabies vaccination with the 21-day wait after a primary course, the EU animal health certificate and declaration (at least in Spanish), and entry through a travellers’ point of entry. Commission listing ·"
       },
       {
         "section": "From Japan",
         "topic": null,
-        "as_stated": "Japan is listed — no rabies titer for entry to the EU. The same certificate, language, microchip and rabies-vaccination rules apply. Commission listing"
+        "as_stated": "Japan is listed — no rabies titer for entry to the EU. The same certificate, language, microchip and rabies-vaccination rules apply."
       },
       {
         "section": "From South Korea",
         "topic": null,
-        "as_stated": "The Republic of Korea (South Korea) does not appear in Annex I or Annex II on the Commission listing page last confirmed on 10 November 2026. Pets coming from Korea need a rabies antibody titration (sample at least 30 days after a primary vaccination, result at least 0.5 IU/ml) and a 90-day wait from the sample date, plus the EU animal health certificate and declaration, presented at least in Spanish. Commission listing · MAPA"
+        "as_stated": "The Republic of Korea (South Korea) does not appear in Annex I or Annex II on the Commission listing page last confirmed on 10 November 2026. Pets coming from Korea need a rabies antibody titration (sample at least 30 days after a primary vaccination, result at least 0.5 IU/ml) and a 90-day wait from the sample date, plus the EU animal health certificate and declaration, presented at least in Spanish. Commission listing ·"
       },
       {
         "section": "From another EU country, or from an Annex I territory",
         "topic": null,
-        "as_stated": "From an EU member state, Norway, Northern Ireland, or an Annex I territory under Implementing Regulation (EU) 2026/636 (Andorra, Switzerland, the Faroe Islands, Gibraltar, Greenland, Iceland, Liechtenstein, Monaco, San Marino and Vatican City State), the pet needs a microchip or a qualifying tattoo, a valid rabies vaccination recorded in an EU pet passport, and must be at least 15 weeks old. MAPA points to its instruction on introducing dogs, cats and ferrets from other member states. MAPA"
+        "as_stated": "From an EU member state, Norway, Northern Ireland, or an Annex I territory under Implementing Regulation (EU) 2026/636 (Andorra, Switzerland, the Faroe Islands, Gibraltar, Greenland, Iceland, Liechtenstein, Monaco, San Marino and Vatican City State), the pet needs a microchip or a qualifying tattoo, a valid rabies vaccination recorded in an EU pet passport, and must be at least 15 weeks old. MAPA points to its instruction on introducing dogs, cats and ferrets from other member states."
       },
       {
         "section": "Where you enter",
         "topic": null,
-        "as_stated": "Dogs, cats and ferrets arriving from a non-EU country must enter through an authorised travellers’ point of entry ( Punto de Entrada de Viajeros , PEV). At the airport, port or road border, find the control point and declare the pet to the Resguardo Fiscal of the Guardia Civil or other authorised customs staff, and present the documents for documentary and identity checks, including a reading of the microchip. MAPA"
+        "as_stated": "Dogs, cats and ferrets arriving from a non-EU country must enter through an authorised travellers’ point of entry ( Punto de Entrada de Viajeros , PEV). At the airport, port or road border, find the control point and declare the pet to the Resguardo Fiscal of the Guardia Civil or other authorised customs staff, and present the documents for documentary and identity checks, including a reading of the microchip."
       },
       {
         "section": "Where you enter",
         "topic": null,
-        "as_stated": "MAPA publishes the list of authorised points under Real Decreto 990/2022. The list linked from the ministry page, and opened for this guide, is headed as updated on 26 October 2026 and also cites Delegated Regulation (EU) 2026/131. If a pet is found not to comply, the measures listed on that document are redispatch, isolation or euthanasia. MAPA — list of travellers’ points of entry (updated 26 October 2026) · Commission — Travellers’ points of entry"
+        "as_stated": "MAPA publishes the list of authorised points under Real Decreto 990/2022. The list linked from the ministry page, and opened for this guide, is headed as updated on 26 October 2026 and also cites Delegated Regulation (EU) 2026/131. If a pet is found not to comply, the measures listed on that document are redispatch, isolation or euthanasia. MAPA — list of travellers’ points of entry (updated 26 October 2026) ·"
       }
     ],
     "official_source_urls": [
@@ -1617,34 +2254,31 @@
         "as_stated": "If the chip is implanted after the vaccine, the pet must be vaccinated again.",
         "standard": null,
         "applies_to": "Dogs",
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "rabies_vaccine": {
         "required": null,
         "as_stated": "The pet must be microchipped before the rabies vaccination. | Vaccinate against rabies. | How long you must wait before travelling depends on the vaccine used.",
         "standard": null,
         "applies_to": "Dogs",
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "waiting_period": {
         "required": null,
-        "as_stated": "This will be at least 21 full days after the first vaccination (or the last of the first course). | Same microchip-before-rabies rule, same minimum 21-day wait, and the same travel document rules as for dogs (listed vs not listed",
+        "as_stated": "This will be at least 21 full days after the first vaccination (or the last of the first course).",
         "standard": null,
-        "applies_to": "Dogs; Cats",
+        "applies_to": "Dogs",
         "timings": [
           {
             "value": 21,
             "unit": "days",
             "as_stated": "21 full days",
             "context": "This will be at least 21 full days after the first vaccination (or the last of the first course)."
-          },
-          {
-            "value": 21,
-            "unit": "days",
-            "as_stated": "21-day",
-            "context": "Same microchip-before-rabies rule, same minimum 21-day wait, and the same travel document rules as for dogs (listed vs not listed"
           }
-        ]
+        ],
+        "entries": []
       },
       "titer_test": {
         "required": null,
@@ -1664,11 +2298,12 @@
             "as_stated": "3 months",
             "context": "vaccination, tested at an EU-approved lab, result at least 0.5 IU/ml, then wait 3 months from the sample date."
           }
-        ]
+        ],
+        "entries": []
       },
       "health_certificate": {
         "required": null,
-        "as_stated": "From the rest of the world you need a Great Britain pet health certificate signed, stamped and dated by an official veterinarian. | The pet must enter Great Britain within 10 days of the certificate being issued. | From an EU country you may use an EU pet passport (or certain other documents listed on GOV.UK). | From Northern Ireland, the Channel Islands or the Isle of Man, no passport or health certificate is needed to enter Great Britain. | GB certificate · Which document | GB pet health certificate within 10 days from the rest of the world). | Use a Great Britain pet health certificate. | an animal health certificate issued in Great Britain in the last 6 months",
+        "as_stated": "Dogs: From the rest of the world you need a Great Britain pet health certificate signed, stamped and dated by an official veterinarian. | Dogs: The pet must enter Great Britain within 10 days of the certificate being issued. | Dogs: From an EU country you may use an EU pet passport (or certain other documents listed on GOV.UK). | Dogs: From Northern Ireland, the Channel Islands or the Isle of Man, no passport or health certificate is needed to enter Great Britain. | Dogs: GB certificate · Which document | Dogs and cats: Same microchip-before-rabies rule, same minimum 21-day wait, and the same travel document rules as for dogs (listed vs not listed; GB pet health certificate within 10 days from the rest of the world). | The USA (including American Samoa, Guam, Northern Mariana Islands, Puerto Rico and the US Virgin Islands) is a listed country. | Use a Great Britain pet health certificate. | From an EU country the pet must have one of: a pet passport issued in an EU country or certain other countries. | From an EU country the pet must have an animal health certificate issued in Great Britain in the last 6 months. | From an EU country the pet must have a Great Britain pet health certificate. | From an EU country the pet must have or a pet passport issued in Great Britain before 1 January 2021.",
         "standard": null,
         "applies_to": "Dogs; Cats",
         "timings": [
@@ -1679,22 +2314,75 @@
             "context": "The pet must enter Great Britain within 10 days of the certificate being issued."
           },
           {
+            "value": 21,
+            "unit": "days",
+            "as_stated": "21-day",
+            "context": "Same microchip-before-rabies rule, same minimum 21-day wait, and the same travel document rules as for dogs (listed vs not listed; GB"
+          },
+          {
             "value": 10,
             "unit": "days",
             "as_stated": "10 days",
-            "context": "GB pet health certificate within 10 days from the rest of the world)."
+            "context": "ument rules as for dogs (listed vs not listed; GB pet health certificate within 10 days from the rest of the world)."
           },
           {
             "value": 6,
             "unit": "months",
             "as_stated": "6 months",
-            "context": "an animal health certificate issued in Great Britain in the last 6 months"
+            "context": "pet must have an animal health certificate issued in Great Britain in the last 6 months."
+          }
+        ],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "From the rest of the world you need a Great Britain pet health certificate signed, stamped and dated by an official veterinarian. | The pet must enter Great Britain within 10 days of the certificate being issued. | From an EU country you may use an EU pet passport (or certain other documents listed on GOV.UK). | From Northern Ireland, the Channel Islands or the Isle of Man, no passport or health certificate is needed to enter Great Britain. | GB certificate · Which document",
+            "applies_to": "Dogs",
+            "timings": [
+              {
+                "value": 10,
+                "unit": "days",
+                "as_stated": "10 days",
+                "context": "The pet must enter Great Britain within 10 days of the certificate being issued."
+              }
+            ]
+          },
+          {
+            "species": "dogs_and_cats",
+            "as_stated": "Same microchip-before-rabies rule, same minimum 21-day wait, and the same travel document rules as for dogs (listed vs not listed; GB pet health certificate within 10 days from the rest of the world).",
+            "applies_to": "Cats",
+            "timings": [
+              {
+                "value": 21,
+                "unit": "days",
+                "as_stated": "21-day",
+                "context": "Same microchip-before-rabies rule, same minimum 21-day wait, and the same travel document rules as for dogs (listed vs not listed; GB"
+              },
+              {
+                "value": 10,
+                "unit": "days",
+                "as_stated": "10 days",
+                "context": "ument rules as for dogs (listed vs not listed; GB pet health certificate within 10 days from the rest of the world)."
+              }
+            ]
+          },
+          {
+            "species": null,
+            "as_stated": "The USA (including American Samoa, Guam, Northern Mariana Islands, Puerto Rico and the US Virgin Islands) is a listed country. | Use a Great Britain pet health certificate. | From an EU country the pet must have one of: a pet passport issued in an EU country or certain other countries. | From an EU country the pet must have an animal health certificate issued in Great Britain in the last 6 months. | From an EU country the pet must have a Great Britain pet health certificate. | From an EU country the pet must have or a pet passport issued in Great Britain before 1 January 2021.",
+            "applies_to": null,
+            "timings": [
+              {
+                "value": 6,
+                "unit": "months",
+                "as_stated": "6 months",
+                "context": "pet must have an animal health certificate issued in Great Britain in the last 6 months."
+              }
+            ]
           }
         ]
       },
       "endorsement": {
         "required": null,
-        "as_stated": "USDA APHIS: a USDA-accredited veterinarian completes the correct GB certificate and submits it via VEHCS. | APHIS requires original ink endorsement (not digital-only). | Arrive in Great Britain within 10 days of APHIS endorsement.",
+        "as_stated": "USDA APHIS: a USDA-accredited veterinarian completes the correct GB certificate and submits it via VEHCS. | APHIS requires original ink endorsement (not digital-only). | Arrive in Great Britain within 10 days of APHIS endorsement. | USDA APHIS dateModified 6 Oct 2026; checked 10 Nov 2026",
         "standard": null,
         "applies_to": null,
         "timings": [
@@ -1704,14 +2392,16 @@
             "as_stated": "10 days",
             "context": "Arrive in Great Britain within 10 days of APHIS endorsement."
           }
-        ]
+        ],
+        "entries": []
       },
       "import_permit": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "quarantine": {
         "required": null,
@@ -1725,11 +2415,12 @@
             "as_stated": "4 months",
             "context": "If you do not follow the rules, the pet may be put into quarantine for up to 4 months — or refused entry if you travelled by sea — at your cost."
           }
-        ]
+        ],
+        "entries": []
       },
       "tapeworm_treatment": {
         "required": null,
-        "as_stated": "A vet must treat the dog for tapeworm every time you bring it to Great Britain, with praziquantel or an equivalent proven against Echinococcus multilocularis , and record product, manufacturer, date and time, stamp and signature. | Treatment must be no less than 24 hours and no more than 5 days (120 hours) before you arrive. | Exempt if you are coming directly from Finland, Ireland, Northern Ireland, Malta or Norway. | The tapeworm treatment page applies to dogs. | GOV.UK does not require this treatment for cats. | Dogs still need tapeworm treatment unless arriving directly from Finland, Ireland, Northern Ireland, Malta or Norway.",
+        "as_stated": "Dogs: A vet must treat the dog for tapeworm every time you bring it to Great Britain, with praziquantel or an equivalent proven against Echinococcus multilocularis , and record product, manufacturer, date and time, stamp and signature. | Dogs: Treatment must be no less than 24 hours and no more than 5 days (120 hours) before you arrive. | Dogs: Exempt if you are coming directly from Finland, Ireland, Northern Ireland, Malta or Norway. | Dogs and cats: The tapeworm treatment page applies to dogs. | Cats: GOV.UK does not require this treatment for cats. | Dogs still need tapeworm treatment unless arriving directly from Finland, Ireland, Northern Ireland, Malta or Norway.",
         "standard": null,
         "applies_to": "Dogs; Tapeworm (dogs only); Cats",
         "timings": [
@@ -1750,6 +2441,45 @@
             "unit": "hours",
             "as_stated": "120 hours",
             "context": "Treatment must be no less than 24 hours and no more than 5 days (120 hours) before you arrive."
+          }
+        ],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "A vet must treat the dog for tapeworm every time you bring it to Great Britain, with praziquantel or an equivalent proven against Echinococcus multilocularis , and record product, manufacturer, date and time, stamp and signature. | Treatment must be no less than 24 hours and no more than 5 days (120 hours) before you arrive. | Exempt if you are coming directly from Finland, Ireland, Northern Ireland, Malta or Norway. | Dogs still need tapeworm treatment unless arriving directly from Finland, Ireland, Northern Ireland, Malta or Norway.",
+            "applies_to": "Dogs; Tapeworm (dogs only)",
+            "timings": [
+              {
+                "value": 5,
+                "unit": "days",
+                "as_stated": "5 days",
+                "context": "Treatment must be no less than 24 hours and no more than 5 days (120 hours) before you arrive."
+              },
+              {
+                "value": 24,
+                "unit": "hours",
+                "as_stated": "24 hours",
+                "context": "Treatment must be no less than 24 hours and no more than 5 days (120 hours) before you arrive."
+              },
+              {
+                "value": 120,
+                "unit": "hours",
+                "as_stated": "120 hours",
+                "context": "Treatment must be no less than 24 hours and no more than 5 days (120 hours) before you arrive."
+              }
+            ]
+          },
+          {
+            "species": "dogs_and_cats",
+            "as_stated": "The tapeworm treatment page applies to dogs.",
+            "applies_to": "Cats",
+            "timings": []
+          },
+          {
+            "species": "cats",
+            "as_stated": "GOV.UK does not require this treatment for cats.",
+            "applies_to": "Cats",
+            "timings": []
           }
         ]
       }
@@ -1849,7 +2579,7 @@
     "requirements": {
       "microchip": {
         "required": null,
-        "as_stated": "CDC Dog Import Form receipt for every dog, plus a healthy look, age 6 months or older and a microchip.",
+        "as_stated": "Dogs entering the US: CDC Dog Import Form receipt for every dog, plus a healthy look, age 6 months or older and a microchip.",
         "standard": null,
         "applies_to": null,
         "timings": [
@@ -1857,27 +2587,75 @@
             "value": 6,
             "unit": "months",
             "as_stated": "6 months",
-            "context": "CDC Dog Import Form receipt for every dog, plus a healthy look, age 6 months or older and a microchip."
+            "context": "ing the US: CDC Dog Import Form receipt for every dog, plus a healthy look, age 6 months or older and a microchip."
           }
-        ]
+        ],
+        "entries": []
       },
       "rabies_vaccine": {
         "required": null,
-        "as_stated": "No federal rabies proof or USDA health requirements for pet cats | Microchip before the rabies vaccine | no proof of rabies vaccination required (recommended). | some states and countries require a rabies certificate.",
+        "as_stated": "Dogs from high-risk rabies countries need extra forms (see below). | Cats entering the US: No federal rabies proof or USDA health requirements for pet cats; they must look healthy. | Cats: State, airline, Hawaii and Guam rules still apply. | Dogs: Microchip before the rabies vaccine; first vaccine at 12 weeks or older and at least 28 days before. | Cats: CDC: cats must appear healthy and may be inspected; no proof of rabies vaccination required (recommended). | Cats: USDA APHIS has no animal health requirements for pet cats. | Cats: State and airline rules still apply; Hawaii and Guam quarantine rules apply to all cats. | Dogs and cats: Some states and countries require a rabies certificate.",
         "standard": null,
         "applies_to": "Dogs / Entering / US-vaccinated, returning from a high-risk country; Cats / Entering / All cats; Dogs & cats / Flying / Airline health certificate",
-        "timings": []
+        "timings": [
+          {
+            "value": 28,
+            "unit": "days",
+            "as_stated": "28 days",
+            "context": "chip before the rabies vaccine; first vaccine at 12 weeks or older and at least 28 days before."
+          },
+          {
+            "value": 12,
+            "unit": "weeks",
+            "as_stated": "12 weeks",
+            "context": "Microchip before the rabies vaccine; first vaccine at 12 weeks or older and at least 28 days before."
+          }
+        ],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "Dogs from high-risk rabies countries need extra forms (see below). | Microchip before the rabies vaccine; first vaccine at 12 weeks or older and at least 28 days before.",
+            "applies_to": "Dogs / Entering / US-vaccinated, returning from a high-risk country",
+            "timings": [
+              {
+                "value": 28,
+                "unit": "days",
+                "as_stated": "28 days",
+                "context": "chip before the rabies vaccine; first vaccine at 12 weeks or older and at least 28 days before."
+              },
+              {
+                "value": 12,
+                "unit": "weeks",
+                "as_stated": "12 weeks",
+                "context": "Microchip before the rabies vaccine; first vaccine at 12 weeks or older and at least 28 days before."
+              }
+            ]
+          },
+          {
+            "species": "cats",
+            "as_stated": "Cats entering the US: No federal rabies proof or USDA health requirements for pet cats; they must look healthy. | State, airline, Hawaii and Guam rules still apply. | CDC: cats must appear healthy and may be inspected; no proof of rabies vaccination required (recommended). | USDA APHIS has no animal health requirements for pet cats. | State and airline rules still apply; Hawaii and Guam quarantine rules apply to all cats.",
+            "applies_to": "Cats / Entering / All cats",
+            "timings": []
+          },
+          {
+            "species": "dogs_and_cats",
+            "as_stated": "Some states and countries require a rabies certificate.",
+            "applies_to": "Dogs & cats / Flying / Airline health certificate",
+            "timings": []
+          }
+        ]
       },
       "waiting_period": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "titer_test": {
         "required": null,
-        "as_stated": "Rabies-free with a quarantine program: two rabies vaccinations, a passing FAVN test and a 30-day wait are needed to qualify for direct release | Certification of Foreign Rabies Vaccination and Microchip form (government-vet endorsed, within 30 days of travel), a valid rabies titer from a CDC-approved lab, and a reservation at a CDC-registered animal care facility (28-day quarantine if no valid titer).",
+        "as_stated": "Hawaii: Rabies-free with a quarantine program: two rabies vaccinations, a passing FAVN test and a 30-day wait are needed to qualify for direct release. | Certification of Foreign Rabies Vaccination and Microchip form (government-vet endorsed, within 30 days of travel), a valid rabies titer from a CDC-approved lab, and a reservation at a CDC-registered animal care facility (28-day quarantine if no valid titer). | Must arrive by air at that facility's airport.",
         "standard": null,
         "applies_to": "Dogs / Entering / Foreign-vaccinated, from a high-risk country",
         "timings": [
@@ -1885,7 +2663,7 @@
             "value": 30,
             "unit": "days",
             "as_stated": "30-day",
-            "context": "e with a quarantine program: two rabies vaccinations, a passing FAVN test and a 30-day wait are needed to qualify for direct release"
+            "context": "e with a quarantine program: two rabies vaccinations, a passing FAVN test and a 30-day wait are needed to qualify for direct release."
           },
           {
             "value": 28,
@@ -1899,11 +2677,12 @@
             "as_stated": "30 days",
             "context": "Foreign Rabies Vaccination and Microchip form (government-vet endorsed, within 30 days of travel), a valid rabies titer from a CDC-approved lab, and a reservation at"
           }
-        ]
+        ],
+        "entries": []
       },
       "health_certificate": {
         "required": null,
-        "as_stated": "Many states want a CVI (health certificate, usually issued within 30 days) and proof of rabies vaccination | USDA: airlines may require a health and acclimation certificate signed by a licensed vet within 10 days of travel",
+        "as_stated": "Traveling between states: No federal rule: the destination state decides. | Many states want a CVI (health certificate, usually issued within 30 days) and proof of rabies vaccination; airlines often want a certificate within 10 days. | USDA: airlines may require a health and acclimation certificate signed by a licensed vet within 10 days of travel.",
         "standard": null,
         "applies_to": "Dogs & cats / Flying / Airline health certificate",
         "timings": [
@@ -1911,33 +2690,55 @@
             "value": 30,
             "unit": "days",
             "as_stated": "30 days",
-            "context": "Many states want a CVI (health certificate, usually issued within 30 days) and proof of rabies vaccination"
+            "context": "Many states want a CVI (health certificate, usually issued within 30 days) and proof of rabies vaccination; airlines often want a certificate within 10 d"
           },
           {
             "value": 10,
             "unit": "days",
             "as_stated": "10 days",
-            "context": "ay require a health and acclimation certificate signed by a licensed vet within 10 days of travel"
+            "context": "days) and proof of rabies vaccination; airlines often want a certificate within 10 days."
+          },
+          {
+            "value": 10,
+            "unit": "days",
+            "as_stated": "10 days",
+            "context": "ay require a health and acclimation certificate signed by a licensed vet within 10 days of travel."
           }
-        ]
+        ],
+        "entries": []
       },
       "endorsement": {
         "required": null,
-        "as_stated": "CDC Dog Import Form receipt plus the Certification of U.S.-issued Rabies Vaccination form, completed by a USDA-accredited vet and endorsed by USDA before the dog leaves the US. | A USDA-accredited vet prepares the health certificate and submits it to APHIS for endorsement through VEHCS.",
+        "as_stated": "Dogs: CDC Dog Import Form receipt plus the Certification of U.S.-issued Rabies Vaccination form, completed by a USDA-accredited vet and endorsed by USDA before the dog leaves the US. | Dogs: USDA export certificates issued after July 31, 2025 are not accepted instead. | Dogs and cats: The destination country sets the rules. | Dogs and cats: A USDA-accredited vet prepares the health certificate and submits it to APHIS for endorsement through VEHCS.",
         "standard": null,
         "applies_to": "Dogs / Entering / US-vaccinated, returning from a high-risk country; Dogs & cats / Leaving / Export to another country",
-        "timings": []
+        "timings": [],
+        "entries": [
+          {
+            "species": "dogs",
+            "as_stated": "CDC Dog Import Form receipt plus the Certification of U.S.-issued Rabies Vaccination form, completed by a USDA-accredited vet and endorsed by USDA before the dog leaves the US. | USDA export certificates issued after July 31, 2025 are not accepted instead.",
+            "applies_to": "Dogs / Entering / US-vaccinated, returning from a high-risk country",
+            "timings": []
+          },
+          {
+            "species": "dogs_and_cats",
+            "as_stated": "The destination country sets the rules. | A USDA-accredited vet prepares the health certificate and submits it to APHIS for endorsement through VEHCS.",
+            "applies_to": "Dogs & cats / Leaving / Export to another country",
+            "timings": []
+          }
+        ]
       },
       "import_permit": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       },
       "quarantine": {
         "required": null,
-        "as_stated": "otherwise up to 120 days of quarantine.",
+        "as_stated": "Otherwise up to 120 days of quarantine.",
         "standard": null,
         "applies_to": null,
         "timings": [
@@ -1945,16 +2746,18 @@
             "value": 120,
             "unit": "days",
             "as_stated": "120 days",
-            "context": "otherwise up to 120 days of quarantine."
+            "context": "Otherwise up to 120 days of quarantine."
           }
-        ]
+        ],
+        "entries": []
       },
       "tapeworm_treatment": {
         "required": null,
         "as_stated": null,
         "standard": null,
         "applies_to": null,
-        "timings": []
+        "timings": [],
+        "entries": []
       }
     },
     "cases": [

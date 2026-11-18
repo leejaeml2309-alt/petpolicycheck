@@ -186,8 +186,9 @@
 .pl-fee-amt{display:block;font-size:1.05rem;font-weight:600;color:#F0D58C;margin:2px 0 4px;font-variant-numeric:tabular-nums}
 .pl-fee-sep{color:#b9a26a;font-weight:400;margin:0 4px}
 .pl-fee-txt{display:block}
+.pl-fee-row{display:block}.pl-fee-row+.pl-fee-row{margin-top:8px;padding-top:8px;border-top:1px dashed var(--pl-line2)}
 @media print{
-  @page{size:A4;margin:8mm 8mm}
+  @page{size:A4;margin:7mm 8mm}
   html,body,body.v-c{background:#fff!important;background-image:none!important;color:#0b1a2e!important}
   body::before,body::after,html::before,html::after{display:none!important;content:none!important;background:none!important}
   body{font-size:8.5pt}
@@ -202,7 +203,7 @@
   .pl-sum div{background:#fff;padding:3pt 6pt;border-left:1.5pt solid #b9a26a}
   .pl-sum dd{color:#0b1a2e;font-size:9pt}
   .pl-sec{padding:3pt 0;border:0!important;border-radius:0;margin:0 0 1pt;break-inside:auto}
-  .pl-sec-h{font-size:11.5pt;margin:0 0 5pt;color:#001f3f}
+  .pl-sec-h{font-size:10.5pt;margin:0 0 3pt;color:#001f3f}
   .pl-sec-h::before{height:10px;flex-basis:22px}
   .pl-sub{margin:0 0 5pt;font-size:8.5pt;color:#4a5565}
   .pl-modes,.pl-checks{grid-template-columns:repeat(3,1fr);gap:5pt}
@@ -230,7 +231,7 @@
   .pl-st--na{color:#3a4250;border-color:#8a8f99}
   .pl-null{color:#3a4250;border-color:#8a8f99}
   .pl-tl::before{left:11px;background:#b9a26a}
-  .pl-tl-item{grid-template-columns:110pt 1fr;gap:2pt 10pt;padding:0 0 5pt 28px;break-inside:avoid}
+  .pl-tl-item{grid-template-columns:96pt 1fr;gap:1pt 8pt;padding:0 0 3pt 26px;break-inside:avoid}
   .pl-tl-node{left:2px;width:18px;height:18px;box-shadow:none;background:#fff}
   .pl-tl-node::after{inset:4px;background:#6a9a62}
   .pl-tl-travel .pl-tl-node{background:#b9a26a}
@@ -263,6 +264,9 @@
   .pl-srcbox,.pl-check-row{break-inside:auto}
   .pl-conds li{break-inside:avoid}
   .pl-privacy{display:none!important}
+  .pl-checks:has(.pl-conds){grid-template-columns:.85fr 1.7fr .95fr}
+  .pl-conds{grid-template-columns:1fr 1fr}
+  .pl-scope-dup{display:none!important} /* the official wording below starts with the same label */
   .screen-only{display:none!important}
   .pl-req-meta .pl-as-k,.pl-fee-txt .pl-as-k,.pl-check-row .pl-as .pl-as-k,.pl-mode .pl-as .pl-as-k{display:inline;margin:0 3pt 0 0}
   .pl-disc .print-only{display:inline!important;margin:0!important}
@@ -271,9 +275,10 @@
   .pl-srcgrid{grid-template-columns:1fr 1.5fr}
   .pl-srcgrid>:first-child .pl-srclist{columns:1}
   .pl-print-note,.pl-hint{font-size:6.6pt!important;margin:2pt 0 0!important}
-  .pl-disc{font-size:7pt!important;padding:2pt 6pt!important;margin:3pt 0 1pt!important}
+  .pl-disc{font-size:6.6pt!important;line-height:1.25!important;padding:1pt 5pt!important;margin:2pt 0 0!important}
   .pl-conds{gap:3pt;margin:3pt 0}.pl-conds li{padding:3pt 5pt;background:#fff!important;border-color:#d8cba5!important}
   .pl-cond-k{font-size:7.6pt;color:#001f3f;margin:0 0 1pt}
   .pl-cond-lim{font-size:7.6pt;color:#001f3f;margin:0 0 1pt}.pl-cond-lim .pl-as-k{display:inline;margin-right:3pt}
-  .pl-fee-amt{font-size:8.4pt;color:#001f3f;margin:0 0 1pt}.pl-fee-sep{color:#7a5c12}
+  .pl-fee-amt{font-size:8.4pt;color:#001f3f;margin:0 0 1pt}
+  .pl-fee-row+.pl-fee-row{margin-top:2pt;padding-top:2pt}.pl-fee-sep{color:#7a5c12}
 }
