@@ -24,7 +24,7 @@ sp+='</svg>';
 function pst(k,cls){return '<span class="pst theme-'+k+(cls?' '+cls:'')+'" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#pst-'+k+'"/></svg></span>'}
 window.PPC_PST=pst;
 function boot(){
- document.body.insertAdjacentHTML('afterbegin',sp);
+ if(!document.getElementById('pst-map')&&!document.getElementById('ppc-pst-sprite')) document.body.insertAdjacentHTML('afterbegin',sp);
  var path=location.pathname || '/';
  /* Exact relative root: /countries/usa-map.html → '../'; /airlines/compare/ → '../../' */
  /* /es/* and /it/* pages: treat the locale prefix as root so nav stays under it when a page exists. */
@@ -105,7 +105,7 @@ function boot(){
    return '<a class="sec theme-'+s[0]+extra+'" href="'+s[1]+'"'+(s[0]===navCur?' aria-current="page"':'')+(ik?' data-i18n="'+ik+'"':'')+'>'+pst(s[0])+'<span class="lbl">'+CAT[s[0]][li]+'</span></a>'}).join('');
  h+='<span class="menu-sep menu-only" aria-hidden="true"></span>'+
     [(plab('Compare')+'|'+tgt('#compare')),(plab('Guides')+'|'+tgt('#gear')),(plab('Updates')+'|'+tgt('updates.html')),(plab('About')+'|'+tgt('about.html'))].map(function(x){x=x.split('|');return '<a class="menu-only sub" href="'+x[1]+'">'+x[0]+'</a>'}).join('');
- m.innerHTML=h; m.classList.add('pst-nav');
+ if(!m.classList.contains('pst-nav')){ m.innerHTML=h; m.classList.add('pst-nav'); }
  /* badge d'en-tête de section, même tampon que la nav (taille page) */
  var h1=document.querySelector('main h1, #main h1, h1');
  /* Country maps: clickable back-link to the homepage World map (never a dead div). */
