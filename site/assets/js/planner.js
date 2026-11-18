@@ -95,6 +95,16 @@
     if (!s || s.length <= cap) return esc(s || '');
     return '<span class="pl-full">' + esc(s) + '</span><span class="pl-excerpt"><b lang="' + LANG + '">' + esc(S.excerpt) + '</b> ' + excerpt(s, cap) + '</span>';
   }
+  function quoteAround(q, needle, cap) { /* print excerpt keeps the stated timing in view */
+    if (!q || q.length <= cap) return esc(q || '');
+    var i = needle ? q.indexOf(needle) : -1;
+    if (i < 0 || i + needle.length < cap * .8) return fullAndExcerpt(q, cap);
+    var a = Math.max(0, i - Math.round(cap * .45)), b = Math.min(q.length, a + cap);
+    var sa = q.indexOf(' ', a); if (a > 0 && sa > -1 && sa < i) a = sa + 1;
+    var sb = q.lastIndexOf(' ', b); if (b < q.length && sb > i + needle.length) b = sb;
+    var ex = (a > 0 ? '…' : '') + esc(q.slice(a, b)) + (b < q.length ? '…' : '');
+    return '<span class="pl-full">' + esc(q) + '</span><span class="pl-excerpt"><b lang="' + LANG + '">' + esc(S.excerpt) + '</b> ' + ex + '</span>';
+  }
   function countryName(id) { return CN[id] || (byK[id] && byK[id].name) || id; }
 
   function rail() {
@@ -249,7 +259,7 @@
     events.forEach(function (e) {
       var past = e.d < now;
       h += '<li class="pl-tl-item' + (past ? ' is-past' : '') + '"><span class="pl-tl-node" aria-hidden="true"></span><div class="pl-tl-date"><time datetime="' + iso(e.d) + '">' + esc(fd(e.d)) + '</time><span class="pl-tl-delta">' + esc(fmtS(S.countback, { v: e.t.value, u: S.units[e.t.unit] || e.t.unit })) + '</span>' + (past ? statusChip('warn', S.passed) : '') + '</div>' +
-        '<div class="pl-tl-body"><p class="pl-tl-k">' + esc(S.req[e.key]) + (e.applies ? ' · <span class="pl-tl-ap">' + fullAndExcerpt(e.applies, 90) + '</span>' : '') + '</p><blockquote lang="en">' + fullAndExcerpt(e.quote, 300) + '</blockquote></div></li>';
+        '<div class="pl-tl-body"><p class="pl-tl-k">' + esc(S.req[e.key]) + (e.applies ? ' · <span class="pl-tl-ap">' + fullAndExcerpt(e.applies, 90) + '</span>' : '') + '</p><blockquote lang="en">' + quoteAround(e.quote, e.t.as_stated, 300) + '</blockquote></div></li>';
     });
     h += '<li class="pl-tl-item pl-tl-travel"><span class="pl-tl-node" aria-hidden="true"></span><div class="pl-tl-date"><time datetime="' + iso(travel) + '">' + esc(fd(travel)) + '</time><span class="pl-tl-delta">' + esc(S.travelDay) + '</span></div><div class="pl-tl-body"><p class="pl-tl-k">' + esc(countryName(st.o) && st.o && st.o !== 'other' ? countryName(st.o) + ' → ' + countryName(k.id) : countryName(k.id)) + '</p></div></li></ol>';
     h += '<h4 class="pl-sub-h">' + esc(S.reqDetails) + '</h4><dl class="pl-reqs">';
