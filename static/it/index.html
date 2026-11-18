@@ -149,12 +149,28 @@ html.intro-lock .vas-grid{flex:1 1 auto !important;min-height:0 !important;overf
 html:not(.intro-lock) .map-nav{display:block !important}
 html:not(.intro-lock) section.intro,html:not(.intro-lock) .intro-spacer,html:not(.intro-lock) .intro-id{display:none !important}
 </style>
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-K45B2WNXMC"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
+(function(){
+  var skip=false;
+  try{
+    var p=new URLSearchParams(location.search);
+    if(p.get('qa')==='0') localStorage.removeItem('ppc_qa');
+    else if(p.get('qa')==='1') localStorage.setItem('ppc_qa','1');
+    if(p.get('qa')==='1'||localStorage.getItem('ppc_qa')==='1') skip=true;
+  }catch(e){}
+  if(navigator.webdriver===true) skip=true;
+  if(/HeadlessChrome|Headless|PhantomJS|Lighthouse|Chrome-Lighthouse|PageSpeed|GTmetrix|bot|crawler|spider|Playwright|Puppeteer/i.test(navigator.userAgent||'')) skip=true;
+  if(skip) return;
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-K45B2WNXMC';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-K45B2WNXMC');
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config','G-K45B2WNXMC');
+})();
 </script>
 <meta content="27QQs3iqHRAV_uJ_UuaZ30vZfE1h09ym_lo6i3dGnLI" name="google-site-verification"/>
 <meta content="2223e17fcc7f70953407f06fec611439" name="p:domain_verify"/>

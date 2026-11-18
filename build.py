@@ -142,12 +142,28 @@ def ga4_head(cfg):
         print(f"  WARNING: ga4_measurement_id {mid!r} is not a GA4 measurement id; analytics tag skipped")
         return ""
     return (
-        f'<script async src="https://www.googletagmanager.com/gtag/js?id={mid}"></script>\n'
         "<script>\n"
-        "  window.dataLayer = window.dataLayer || [];\n"
+        "(function(){\n"
+        "  var skip=false;\n"
+        "  try{\n"
+        "    var p=new URLSearchParams(location.search);\n"
+        "    if(p.get('qa')==='0') localStorage.removeItem('ppc_qa');\n"
+        "    else if(p.get('qa')==='1') localStorage.setItem('ppc_qa','1');\n"
+        "    if(p.get('qa')==='1'||localStorage.getItem('ppc_qa')==='1') skip=true;\n"
+        "  }catch(e){}\n"
+        "  if(navigator.webdriver===true) skip=true;\n"
+        "  if(/HeadlessChrome|Headless|PhantomJS|Lighthouse|Chrome-Lighthouse|PageSpeed|GTmetrix|bot|crawler|spider|Playwright|Puppeteer/i.test(navigator.userAgent||'')) skip=true;\n"
+        "  if(skip) return;\n"
+        "  var s=document.createElement('script');\n"
+        "  s.async=true;\n"
+        f"  s.src='https://www.googletagmanager.com/gtag/js?id={mid}';\n"
+        "  document.head.appendChild(s);\n"
+        "  window.dataLayer=window.dataLayer||[];\n"
         "  function gtag(){dataLayer.push(arguments);}\n"
-        "  gtag('js', new Date());\n"
-        f"  gtag('config', '{mid}');\n"
+        "  window.gtag=gtag;\n"
+        "  gtag('js',new Date());\n"
+        f"  gtag('config','{mid}');\n"
+        "})();\n"
         "</script>"
     )
 
