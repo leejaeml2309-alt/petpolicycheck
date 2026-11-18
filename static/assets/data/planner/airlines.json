@@ -1,0 +1,1944 @@
+[
+  {
+    "id": "aeromexico",
+    "name": "Aeromexico",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/aeromexico.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": null,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: larger pets in hold with approved crate, health certificate, advance reservation",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Small dogs and cats",
+    "cabin_max_weight": {
+      "kg": 9,
+      "lb": null,
+      "as_stated": "9 kg including carrier",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "To be confirmed with the airline",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "9 kg including carrier",
+    "fees": [],
+    "fees_as_stated": "To be confirmed with the airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "To be confirmed with the airline",
+      "breeds_as_stated": "To be confirmed with the airline",
+      "routes_as_stated": "No exotic species, min 8 weeks; Aeromexico flies MEX/MTY-Tokyo NRT",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://www.aeromexico.com/es_mx/vuelos-con-mascotas"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "air-canada",
+    "name": "Air Canada",
+    "iata": "AC",
+    "iata_source": "data/airlines/air-canada.json",
+    "page_url": "https://petpolicycheck.com/airlines/air-canada.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": true,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes, in the baggage compartment (hard-sided kennel) with seasonal and route embargoes; Air Canada Cargo (AC Animals) for unaccompanied pets.",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Cats and small dogs (one per passenger, at least 10 weeks old)",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": null,
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Soft-sided only. Most mainline jets: 43 x 40 x 20 cm (17 x 16 x 8 in) L x W x H; Dash 8-400/E175/CRJ900: 55 x 40 x 27 cm; widebody Business Class: 41 x 21 x 28 cm",
+    "hold_limits_as_stated": "Baggage compartment: up to 45 kg (100 lb) pet + kennel; max 292 cm (115 in) linear",
+    "weight_as_stated": "Baggage compartment: up to 45 kg (100 lb) pet + kennel; max 292 cm (115 in) linear",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": 50,
+        "amount_max": 60,
+        "currency": null,
+        "currency_as_stated": "CA/US $",
+        "scope": "Cabin: within Canada and Canada/U.S.",
+        "as_stated": "Cabin: within Canada and Canada/U.S.: CA/US $50-$60 one way"
+      },
+      {
+        "amount": null,
+        "amount_min": 100,
+        "amount_max": 120,
+        "currency": null,
+        "currency_as_stated": "CA/US $",
+        "scope": "Cabin: international",
+        "as_stated": "Cabin: international: CA/US $100-$120 one way"
+      },
+      {
+        "amount": null,
+        "amount_min": 105,
+        "amount_max": 126,
+        "currency": null,
+        "currency_as_stated": "CA/US $",
+        "scope": "Baggage compartment: within Canada and Canada/U.S.",
+        "as_stated": "Baggage compartment: within Canada and Canada/U.S.: CA/US $105-$126 one way"
+      },
+      {
+        "amount": null,
+        "amount_min": 270,
+        "amount_max": 324,
+        "currency": null,
+        "currency_as_stated": "CA/US $",
+        "scope": "Baggage compartment: international",
+        "as_stated": "Baggage compartment: international: CA/US $270-$324 one way"
+      }
+    ],
+    "fees_as_stated": "Cabin: within Canada and Canada/U.S.: CA/US $50-$60 one way; Cabin: international: CA/US $100-$120 one way; Baggage compartment: within Canada and Canada/U.S.: CA/US $105-$126 one way; Baggage compartment: international: CA/US $270-$324 one way",
+    "restrictions": {
+      "brachycephalic_as_stated": "Short/snub-nosed (brachycephalic) dog breeds cannot travel in the baggage compartment; 'strong' breeds need reinforced crates.",
+      "breeds_as_stated": "Short/snub-nosed (brachycephalic) dog breeds cannot travel in the baggage compartment; 'strong' breeds need reinforced crates.",
+      "routes_as_stated": "No pet carriers on Air Canada Jetz or codeshare flights operated by partners; no cabin pets in Premium Economy. Many seasonal baggage-compartment embargoes (e.g. Dec 18 - Jan 4 no checked pets or cargo).",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "See Air Canada's accessibility services page for service or emotional support dogs.",
+    "official_source_urls": [
+      "https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/pets.html"
+    ],
+    "verified_date": "2026-10-22",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Oct 22, 2026 against the official Air Canada pet policy page ."
+  },
+  {
+    "id": "air-france",
+    "name": "Air France",
+    "iata": "AF",
+    "iata_source": "data/airlines/air-france.json",
+    "page_url": "https://petpolicycheck.com/airlines/air-france.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": null,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: pets over 8 kg and up to 75 kg with carrier travel in the hold (subject to availability).",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Cats and dogs",
+    "cabin_max_weight": {
+      "kg": 8,
+      "lb": 17.64,
+      "as_stated": "8 kg (17.64 lb) pet + carrier in cabin",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Soft-sided bag, max 46 x 28 x 24 cm (per Air France's official cabin checklist PDF, Oct 2025)",
+    "hold_limits_as_stated": "over 8 kg and up to 75 kg (165.35 lb) must travel in the hold",
+    "weight_as_stated": "8 kg (17.64 lb) pet + carrier in cabin; over 8 kg and up to 75 kg (165.35 lb) must travel in the hold",
+    "fees": [],
+    "fees_as_stated": "Check with airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "Check with airline",
+      "breeds_as_stated": "Check with airline",
+      "routes_as_stated": "Check with airline",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Check with airline",
+    "official_source_urls": [
+      "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat"
+    ],
+    "verified_date": "2026-10-22",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Oct 22, 2026 against the official Air France pet policy page ."
+  },
+  {
+    "id": "air-premia",
+    "name": "Air Premia",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/air-premia.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": null,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes, max 2 in hold per aircraft; up to 45 kg incl. container (fee bands)",
+    "species_allowed": [
+      "dogs",
+      "cats",
+      "birds"
+    ],
+    "species_as_stated": "Dogs, cats and birds",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "To be confirmed with the airline",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "To be confirmed with the airline",
+    "hold_limits_as_stated": "Yes, max 2 in hold per aircraft; up to 45 kg incl. container (fee bands)",
+    "weight_as_stated": "To be confirmed with the airline",
+    "fees": [],
+    "fees_as_stated": "To be confirmed with the airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "To be confirmed with the airline",
+      "breeds_as_stated": "To be confirmed with the airline",
+      "routes_as_stated": "No pets ICN → HKG. Not in an emergency exit or front row.",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://www.airpremia.com/a/en/support/need/pet"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "air-transat",
+    "name": "Air Transat",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/air-transat.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": true,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: cats and dogs in the checked baggage hold, in a plain rigid leak-proof plastic cage (wire doors are acceptable; cages with a top petting door are not). Maximum carrier size at check-in: 122 cm × 81.3 cm × 89 cm (48 × 32 × 35 in). Larger cages must go via Air Transat cargo, with advance arrangements. Hold space is not available on connecting or codeshare flights, flights operated by another carrier, vacation packages, or Train + Air.",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Domestic cats and dogs only. All other animals are not accepted on Air Transat flights.",
+    "cabin_max_weight": {
+      "kg": 8,
+      "lb": null,
+      "as_stated": "Cabin: must not exceed 8 kg.",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Cabin: soft-sided only, must not exceed 25 cm (10 in) in height × 24 cm (9.5 in) in width × 43 cm (17 in) in length, and must fit under the seat. Hard-sided carriers are not permitted in the cabin.",
+    "hold_limits_as_stated": "Hold: maximum 45 kg (99 lb) including the carrier.",
+    "weight_as_stated": "Cabin: must not exceed 8 kg. Hold: maximum 45 kg (99 lb) including the carrier.",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Cabin, per pet, per flight segment (paid up to 24 hours before departure, as published on Air Transat's Canada site)",
+        "as_stated": "Cabin, per pet, per flight segment (paid up to 24 hours before departure, as published on Air Transat's Canada site): $50 to the USA or within Canada; $100 to Europe and Africa, or South."
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page)",
+        "as_stated": "Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page): $100 within Canada; $150 to the USA; $275 to Europe and Africa, or South."
+      },
+      {
+        "amount": 30,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": "CAD",
+        "currency_as_stated": "CAD $",
+        "scope": null,
+        "as_stated": "Upon entry into Canada, a CAD $30 fee (plus tax, per animal) is required for inspection by the Canadian Food Inspection Agency; arrivals from the USA are exempt."
+      }
+    ],
+    "fees_as_stated": "Cabin, per pet, per flight segment (paid up to 24 hours before departure, as published on Air Transat's Canada site): $50 to the USA or within Canada; $100 to Europe and Africa, or South.; Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page): $100 within Canada; $150 to the USA; $275 to Europe and Africa, or South.; Upon entry into Canada, a CAD $30 fee (plus tax, per animal) is required for inspection by the Canadian Food Inspection Agency; arrivals from the USA are exempt.",
+    "restrictions": {
+      "brachycephalic_as_stated": "Air Transat will not transport the following breeds or mixed breeds, including one or more of these: mastiffs (all breeds, including Dogo Argentino, Bandog, Boerboel, Fila Brasileiro, Cane Corso, Neapolitan, Presa Canario and Tosa Inu); pit bulls (all breeds, including American Bully, American Pit Bull Terrier, American Staffordshire Terrier and Staffordshire Bull Terrier); Akita; Caucasian Ovcharka; Kangal/Anatolian Shepherd (Karabash); Rottweiler; wolf-dog hybrids; and Doberman Pinscher. Bull Mastiffs and French Mastiffs (Dogue de Bordeaux) are exempt from that list and are accepted. For the hold, the official page also lists French Bulldogs and American Bulldogs among breeds it is unable to transport, and states that French Bulldogs are allowed in the cabin only. Other brachycephalic (snub-nosed) dogs and cats not on the refusal list are accepted in the hold only with extra conditions, including a kennel one size larger than the normal standard and ventilation openings on all four sides.",
+      "breeds_as_stated": "Air Transat will not transport the following breeds or mixed breeds, including one or more of these: mastiffs (all breeds, including Dogo Argentino, Bandog, Boerboel, Fila Brasileiro, Cane Corso, Neapolitan, Presa Canario and Tosa Inu); pit bulls (all breeds, including American Bully, American Pit Bull Terrier, American Staffordshire Terrier and Staffordshire Bull Terrier); Akita; Caucasian Ovcharka; Kangal/Anatolian Shepherd (Karabash); Rottweiler; wolf-dog hybrids; and Doberman Pinscher. Bull Mastiffs and French Mastiffs (Dogue de Bordeaux) are exempt from that list and are accepted. For the hold, the official page also lists French Bulldogs and American Bulldogs among breeds it is unable to transport, and states that French Bulldogs are allowed in the cabin only. Other brachycephalic (snub-nosed) dogs and cats not on the refusal list are accepted in the hold only with extra conditions, including a kennel one size larger than the normal standard and ventilation openings on all four sides.",
+      "routes_as_stated": "Cabin pets are not available on codeshare flights or vacation packages. To and from the United Kingdom, cats and dogs are accepted as cargo only (certified service dogs are excepted). To the Republic of Ireland, cats and dogs are accepted as cargo only (certified service dogs excepted); from Ireland, cats and dogs may be accepted in the cabin, in the hold, or as cargo, subject to Air Transat's acceptance conditions.",
+      "cargo_only_as_stated": "Yes: cats and dogs in the checked baggage hold, in a plain rigid leak-proof plastic cage (wire doors are acceptable; cages with a top petting door are not). Maximum carrier size at check-in: 122 cm × 81.3 cm × 89 cm (48 × 32 × 35 in). Larger cages must go via Air Transat cargo, with advance arrangements. Hold space is not available on connecting or codeshare flights, flights operated by another carrier, vacation packages, or Train + Air. | Cabin pets are not available on codeshare flights or vacation packages. To and from the United Kingdom, cats and dogs are accepted as cargo only (certified service dogs are excepted). To the Republic of Ireland, cats and dogs are accepted as cargo only (certified service dogs excepted); from Ireland, cats and dogs may be accepted in the cabin, in the hold, or as cargo, subject to Air Transat's acceptance conditions."
+    },
+    "service_animals_as_stated": "When accompanied by certification and documentation and travelling with a person with a disability, emotional support and certified service dogs are welcome in the passenger cabin. Service animals on duty fly in the cabin free of charge.",
+    "official_source_urls": [
+      "https://www.airtransat.com/en-CA/travel-information/special-services/pets-and-service-dogs"
+    ],
+    "verified_date": "2026-11-18",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Nov 18, 2026 against the official Air Transat pets and assistance dogs page ."
+  },
+  {
+    "id": "alaska",
+    "name": "Alaska Airlines (and Hawaiian Airlines)",
+    "iata": "AS",
+    "iata_source": "data/airlines/alaska.json",
+    "page_url": "https://petpolicycheck.com/airlines/alaska.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": true,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: temperature-controlled baggage compartment on your flight, or Pet Connect via Alaska Air Cargo for unaccompanied pets.",
+    "species_allowed": null,
+    "species_as_stated": "Check with airline",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": null,
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Soft-sided carrier max 17 x 11 x 9.5 in (per Alaska's official newsroom, Aug 26, 2026)",
+    "hold_limits_as_stated": "Baggage compartment: up to 150 lb pet + kennel combined (official newsroom, Aug 26, 2026)",
+    "weight_as_stated": "Baggage compartment: up to 150 lb pet + kennel combined (official newsroom, Aug 26, 2026)",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "In cabin",
+        "as_stated": "In cabin: $100 per carrier each way ($35 wholly within Hawaii)"
+      },
+      {
+        "amount": 200,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "scope": "Baggage compartment",
+        "as_stated": "Baggage compartment: $200 per kennel each way (discounts within Alaska/Hawaii and for active-duty military)"
+      }
+    ],
+    "fees_as_stated": "In cabin: $100 per carrier each way ($35 wholly within Hawaii); Baggage compartment: $200 per kennel each way (discounts within Alaska/Hawaii and for active-duty military)",
+    "restrictions": {
+      "brachycephalic_as_stated": "Brachycephalic (short-nosed) dogs are not permitted in the baggage compartment (official newsroom).",
+      "breeds_as_stated": "Brachycephalic (short-nosed) dogs are not permitted in the baggage compartment (official newsroom).",
+      "routes_as_stated": "Check with airline",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Trained service animals travel free; see Alaska's accessible travel services section.",
+    "official_source_urls": [
+      "https://www.alaskaair.com/content/travel-info/policies/pets-traveling-with-pets"
+    ],
+    "verified_date": "2026-10-22",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Oct 22, 2026 against the official Alaska Airlines (and Hawaiian Airlines) pet policy page ."
+  },
+  {
+    "id": "american",
+    "name": "American Airlines",
+    "iata": "AA",
+    "iata_source": "data/airlines/american.json",
+    "page_url": "https://petpolicycheck.com/airlines/american.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": true,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Checked pets only for active-duty U.S. Military and State Department Foreign Service on official orders. Others: American Airlines Cargo (PetEmbark).",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Cats and dogs",
+    "cabin_max_weight": {
+      "kg": 9.07,
+      "lb": 20,
+      "as_stated": "20 lb (9.07 kg) pet + carrier on A321T premium cabins",
+      "scope": "A321T premium cabins; no general in-cabin limit stated"
+    },
+    "carrier_dimensions_as_stated": "Soft-sided (recommended): 18 x 11 x 11 in (46 x 28 x 28 cm); hard-sided mainline: 19 x 13 x 9 in; hard-sided American Eagle: 16 x 12 x 8 in",
+    "hold_limits_as_stated": "checked kennel max 100 lb (45 kg) combined.",
+    "weight_as_stated": "20 lb (9.07 kg) pet + carrier on A321T premium cabins; checked kennel max 100 lb (45 kg) combined. No general in-cabin limit stated.",
+    "fees": [
+      {
+        "amount": 150,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "scope": "Carry-on: U.S., Canada, Mexico, Central America, Caribbean",
+        "as_stated": "Carry-on: U.S., Canada, Mexico, Central America, Caribbean: $150 per kennel each way"
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Checked (active-duty military / State Dept only)",
+        "as_stated": "Checked (active-duty military / State Dept only): $200 per kennel; $150 to/from Brazil"
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Cargo (PetEmbark)",
+        "as_stated": "Cargo (PetEmbark): Varies"
+      }
+    ],
+    "fees_as_stated": "Carry-on: U.S., Canada, Mexico, Central America, Caribbean: $150 per kennel each way; Checked (active-duty military / State Dept only): $200 per kennel; $150 to/from Brazil; Cargo (PetEmbark): Varies",
+    "restrictions": {
+      "brachycephalic_as_stated": "Checked: brachycephalic cats (e.g. Burmese, Persian, Himalayan, Exotic Shorthair) and brachycephalic dogs (e.g. Boxer, Bulldog, Pug, Shih Tzu, Pit Bull, Mastiff, and more).",
+      "breeds_as_stated": "Checked: brachycephalic cats (e.g. Burmese, Persian, Himalayan, Exotic Shorthair) and brachycephalic dogs (e.g. Boxer, Bulldog, Pug, Shih Tzu, Pit Bull, Mastiff, and more).",
+      "routes_as_stated": "No carry-on pets to/from Hawaii, Jamaica, Argentina, Brazil, Chile, Colombia, Uruguay, or on trans-Atlantic and trans-Pacific trips.",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Fully-trained service dogs fly in the cabin at no charge if they meet requirements.",
+    "official_source_urls": [
+      "https://www.aa.com/i18n/travel-info/special-assistance/pets.jsp"
+    ],
+    "verified_date": "2026-10-22",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Oct 22, 2026 against the official American Airlines pet policy page ."
+  },
+  {
+    "id": "ana",
+    "name": "ANA (All Nippon Airways)",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/ana.html",
+    "cabin": false,
+    "hold": true,
+    "cargo": null,
+    "cabin_as_stated": "No",
+    "hold_or_cargo_as_stated": "Yes: as checked baggage in the hold, ANA-operated + ANA flight number only (not partner-code bookings)",
+    "species_allowed": null,
+    "species_as_stated": "To be confirmed with the airline",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "Not applicable — no cabin pets",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Not applicable — no cabin pets",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "Not applicable — no cabin pets",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": 400,
+        "amount_max": 400,
+        "currency": "USD",
+        "currency_as_stated": "USD",
+        "scope": "Per cage, international",
+        "as_stated": "Per cage, international: across two areas (e.g. Haneda-Los Angeles) JPY 40,000 / USD 400 / CAD 400 / EUR 300; within one area (e.g. Asia incl. Japan-Korea) JPY 25,000 / USD 250 / CAD 250 / EUR 200. Japan domestic JPY 6,600 (JPY 4,400 certain routes) from 2026-05-19"
+      }
+    ],
+    "fees_as_stated": "Per cage, international: across two areas (e.g. Haneda-Los Angeles) JPY 40,000 / USD 400 / CAD 400 / EUR 300; within one area (e.g. Asia incl. Japan-Korea) JPY 25,000 / USD 250 / CAD 250 / EUR 200. Japan domestic JPY 6,600 (JPY 4,400 certain routes) from 2026-05-19",
+    "restrictions": {
+      "brachycephalic_as_stated": "To be confirmed with the airline",
+      "breeds_as_stated": "To be confirmed with the airline",
+      "routes_as_stated": "North America/Latin America (US, Canada, Mexico) = Area 1; Japan & Korea = Area 3",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://www.ana.co.jp/en/jp/guide/reservation/support/international/pets/"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "asiana",
+    "name": "Asiana Airlines",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/asiana.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": null,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: up to 2 per adult; max 45 kg incl. cage, cage L+W+H <=285 cm, height <=84 cm; not on A321 international routes",
+    "species_allowed": [
+      "dogs",
+      "cats",
+      "birds"
+    ],
+    "species_as_stated": "Dogs, cats and pet birds",
+    "cabin_max_weight": {
+      "kg": 7,
+      "lb": null,
+      "as_stated": "7 kg including carrier",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "45 × 32 × 21 cm; soft carriers up to 26 cm high if compressible to 21 cm",
+    "hold_limits_as_stated": "Yes: up to 2 per adult; max 45 kg incl. cage, cage L+W+H <=285 cm, height <=84 cm; not on A321 international routes",
+    "weight_as_stated": "7 kg including carrier",
+    "fees": [],
+    "fees_as_stated": "To be confirmed with the airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "To be confirmed with the airline",
+      "breeds_as_stated": "To be confirmed with the airline",
+      "routes_as_stated": "Cabin: one pet per adult; children cannot travel with cabin pets. No under-seat storage in Business except A321. Hold not available on A321 international routes.",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://flyasiana.com/C/KR/EN/contents/traveling-with-pets"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "avelo",
+    "name": "Avelo Airlines",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/avelo.html",
+    "cabin": true,
+    "hold": false,
+    "cargo": false,
+    "cabin_as_stated": "Yes (domestic flights only)",
+    "hold_or_cargo_as_stated": "No. Avelo does not allow pets in the cargo bin or aircraft cargo compartment.",
+    "species_allowed": [
+      "dogs",
+      "cats",
+      "birds",
+      "rabbits"
+    ],
+    "species_as_stated": "Small vaccinated domestic cats, dogs, rabbits and birds only",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": null,
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Hard-sided: 17\"L × 13\"H × 9\"W (43 × 33 × 22 cm); soft-sided containers must fit in the same space",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": null,
+    "fees": [
+      {
+        "amount": 125,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": "USD",
+        "currency_as_stated": "USD",
+        "scope": null,
+        "as_stated": "USD 125 each way, per pet carrier"
+      }
+    ],
+    "fees_as_stated": "USD 125 each way, per pet carrier",
+    "restrictions": {
+      "brachycephalic_as_stated": null,
+      "breeds_as_stated": null,
+      "routes_as_stated": "Pets are accepted on domestic flights only (Contract of Carriage, effective 4 November 2026).",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Only dogs are accepted as trained service animals; they do not count toward the pet limit. Service animals in training are not accepted. A completed U.S. DOT Service Animal Air Transportation Form is required. A customer may travel with a trained service animal and a pet if they purchase a non-refundable additional seat and stow the pet carrier under that seat.",
+    "official_source_urls": [
+      "https://www.aveloair.com/help/pet-policy",
+      "https://www.aveloair.com/contract-of-carriage"
+    ],
+    "verified_date": "2026-11-18",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Nov 18, 2026 against the official Avelo pet policy page and Contract of Carriage ."
+  },
+  {
+    "id": "breeze",
+    "name": "Breeze Airways",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/breeze.html",
+    "cabin": true,
+    "hold": false,
+    "cargo": false,
+    "cabin_as_stated": "Yes (domestic flights only)",
+    "hold_or_cargo_as_stated": "No. Breeze does not accept cats, dogs or other animals as cargo or as checked baggage.",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Domesticated cats and dogs",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": 25,
+      "as_stated": "The pet must weigh 25 lb or less",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Soft-sided only, not exceeding 17\" × 8\" × 13\" (L × W × H), and must fit under the seat",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "The pet must weigh 25 lb or less",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": null,
+        "as_stated": "An additional charge applies, as posted on the Breeze website. The official Contract of Carriage does not publish a dollar amount."
+      }
+    ],
+    "fees_as_stated": "An additional charge applies, as posted on the Breeze website. The official Contract of Carriage does not publish a dollar amount.",
+    "restrictions": {
+      "brachycephalic_as_stated": null,
+      "breeds_as_stated": null,
+      "routes_as_stated": "Pets are not permitted on international flights. The guest may not sit in the Breeze Ascent section, in the row immediately behind Breeze Ascent, or in an exit row.",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Service dogs are accepted in the cabin at no additional charge, in line with FAA safety rules; no other type of service animal is accepted. The U.S. DOT Service Animal Air Transportation Form must be received by Breeze at least 48 hours before departure. Emotional support animals are not treated as service animals and must travel as pets when they qualify.",
+    "official_source_urls": [
+      "https://media.flybreeze.com/docs/policies/contractofcarriage.pdf"
+    ],
+    "verified_date": "2026-11-18",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Nov 18, 2026 against the official Breeze Contract of Carriage ."
+  },
+  {
+    "id": "british-airways",
+    "name": "British Airways",
+    "iata": "BA",
+    "iata_source": "data/airlines/british-airways.json",
+    "page_url": "https://petpolicycheck.com/airlines/british-airways.html",
+    "cabin": false,
+    "hold": true,
+    "cargo": true,
+    "cabin_as_stated": "No",
+    "hold_or_cargo_as_stated": "Pets travel in the hold, arranged by partners: PetAir UK (from the UK) or IAG Cargo (to the UK).",
+    "species_allowed": null,
+    "species_as_stated": "None (no pets in the cabin on any route)",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "Check with airline",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Not applicable: BA carries no pets in the cabin",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "Check with airline",
+    "fees": [],
+    "fees_as_stated": "Check with airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "Check with airline",
+      "breeds_as_stated": "Check with airline",
+      "routes_as_stated": "Check with airline",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Assistance dogs fly free in the cabin on most BA flights; emotional support dogs are not accepted in the cabin and must travel as pets.",
+    "official_source_urls": [
+      "https://www.britishairways.com/content/information/travel-assistance/travelling-with-pets"
+    ],
+    "verified_date": "2026-10-22",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Oct 22, 2026 against the official British Airways pet policy page ."
+  },
+  {
+    "id": "delta",
+    "name": "Delta Air Lines",
+    "iata": "DL",
+    "iata_source": "data/airlines/delta.json",
+    "page_url": "https://petpolicycheck.com/airlines/delta.html",
+    "cabin": true,
+    "hold": false,
+    "cargo": true,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "No checked pets for the general public. Delta Cargo ships pets only for active U.S. Military or U.S. State Department Foreign Service personnel with permanent change of station orders (until further notice).",
+    "species_allowed": [
+      "dogs",
+      "cats",
+      "birds"
+    ],
+    "species_as_stated": "Small dogs, cats and household birds (birds only within the contiguous U.S.)",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "Check with airline",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Depends on aircraft under-seat space; Delta recommends a soft-sided kennel of max 18 x 11 x 11 in, which fits most aircraft",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "Check with airline",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "U.S./Canada/Puerto Rico/U.S. Virgin Islands",
+        "as_stated": "U.S./Canada/Puerto Rico/U.S. Virgin Islands: $150 USD/CAD each way (tickets issued on/after Apr 8, 2025; $95 before)"
+      },
+      {
+        "amount": 200,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "scope": "International",
+        "as_stated": "International: $200 USD/CAD/EUR each way"
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Brazil",
+        "as_stated": "Brazil: $200 USD each way (tickets issued on/after Apr 8, 2025; $75 before)"
+      }
+    ],
+    "fees_as_stated": "U.S./Canada/Puerto Rico/U.S. Virgin Islands: $150 USD/CAD each way (tickets issued on/after Apr 8, 2025; $95 before); International: $200 USD/CAD/EUR each way; Brazil: $200 USD each way (tickets issued on/after Apr 8, 2025; $75 before)",
+    "restrictions": {
+      "brachycephalic_as_stated": "Brachycephalic (snub-nosed) dogs, cats and their mixes are not permitted in cargo (per Delta's Shipping Your Pet page).",
+      "breeds_as_stated": "Brachycephalic (snub-nosed) dogs, cats and their mixes are not permitted in cargo (per Delta's Shipping Your Pet page).",
+      "routes_as_stated": "No in-cabin pets to/from Australia, Barbados, Brazil/Colombia/Dominican Republic (originating), Hawaii (flights to), Hong Kong, Iceland, Jamaica, New Zealand, South Africa, United Kingdom, United Arab Emirates. No pets in Delta One, Delta Premium or international Business.",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Trained service animals follow separate guidelines (see Delta's service animal page).",
+    "official_source_urls": [
+      "https://www.delta.com/us/en/pet-travel/overview"
+    ],
+    "verified_date": "2026-10-22",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Oct 22, 2026 against the official Delta Air Lines pet policy page ."
+  },
+  {
+    "id": "finnair",
+    "name": "Finnair",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/finnair.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": true,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: bigger dogs and ferrets may travel in the hold on the same flight if weight and crate limits are met. Cargo is required when the combined weight exceeds the hold limit, for species other than dogs, cats, pet rabbits, tortoises, hedgehogs and ferrets, when travelling from outside the EU (except dogs, cats and ferrets), when travelling to or via certain countries, and for unaccompanied animals and animals brought by a third person from outside the EU.",
+    "species_allowed": [
+      "dogs",
+      "cats",
+      "rabbits",
+      "ferrets",
+      "hedgehogs",
+      "tortoises"
+    ],
+    "species_as_stated": "Cats and dogs may travel in the cabin or the hold from EU and non-EU countries. Pet rabbits, tortoises and hedgehogs are allowed in the cabin or the hold only from EU countries. Ferrets may travel in the hold from EU and non-EU countries. All other species are forbidden on board and can only be shipped as cargo.",
+    "cabin_max_weight": {
+      "kg": 8,
+      "lb": 17.6,
+      "as_stated": "Cabin: maximum total weight of the carrier and the pet is 8 kg (17.6 lb).",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Cabin, on Finnair- and Norra-operated flights: soft carriers 55 × 40 × 23 cm (21.7 × 15.7 × 9.1 in), with 23 cm the maximum compressed height; hard carriers 35 × 30 × 20 cm (14.8 × 11.9 × 7.9 in). Hold crate maxima (L × W × H): 122 × 81 × 89 cm on Airbus A319, A320, A321, A330 and A350; 101 × 68 × 76 cm on Embraer E90 (Norra); 81 × 57 × 53 cm on ATR (Norra).",
+    "hold_limits_as_stated": "Hold: 75 kg (165 lb) on Finnair-operated flights; 50 kg (110 lb) on Norra-operated flights. Above those hold limits, the pet must be shipped as cargo.",
+    "weight_as_stated": "Cabin: maximum total weight of the carrier and the pet is 8 kg (17.6 lb). Hold: 75 kg (165 lb) on Finnair-operated flights; 50 kg (110 lb) on Norra-operated flights. Above those hold limits, the pet must be shipped as cargo.",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": null,
+        "as_stated": "Fees are per pet carrier or container, per direction, for flights operated by Finnair (AY code on the ticket). When departing from India, local taxes are added."
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Cabin, Finland/Scandinavia/Baltics",
+        "as_stated": "Cabin, Finland/Scandinavia/Baltics: EUR 60 or 7,800 Avios (7 days or more before departure); EUR 65 or 8,500 Avios (6 days or less)."
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Cabin, within Europe",
+        "as_stated": "Cabin, within Europe: EUR 70 or 9,100 Avios (7 days or more); EUR 80 or 10,500 Avios (6 days or less)."
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Cabin, intercontinental (including the Middle East, excluding Australia)",
+        "as_stated": "Cabin, intercontinental (including the Middle East, excluding Australia): EUR 140 / USD 160 or 18,500 Avios (7 days or more); EUR 170 / USD 190 or 22,500 Avios (6 days or less)."
+      },
+      {
+        "amount": 140,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": "EUR",
+        "currency_as_stated": "EUR",
+        "scope": "Hold, Finland/Scandinavia/Baltics",
+        "as_stated": "Hold, Finland/Scandinavia/Baltics: EUR 140 or 18,500 Avios."
+      },
+      {
+        "amount": 160,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": "EUR",
+        "currency_as_stated": "EUR",
+        "scope": "Hold, within Europe",
+        "as_stated": "Hold, within Europe: EUR 160 or 21,100 Avios."
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Hold, intercontinental",
+        "as_stated": "Hold, intercontinental: EUR 650 / USD 750 or 86,500 Avios."
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": null,
+        "as_stated": "Cargo pricing is on the Finnair Cargo website."
+      }
+    ],
+    "fees_as_stated": "Fees are per pet carrier or container, per direction, for flights operated by Finnair (AY code on the ticket). When departing from India, local taxes are added.; Cabin, Finland/Scandinavia/Baltics: EUR 60 or 7,800 Avios (7 days or more before departure); EUR 65 or 8,500 Avios (6 days or less).; Cabin, within Europe: EUR 70 or 9,100 Avios (7 days or more); EUR 80 or 10,500 Avios (6 days or less).; Cabin, intercontinental (including the Middle East, excluding Australia): EUR 140 / USD 160 or 18,500 Avios (7 days or more); EUR 170 / USD 190 or 22,500 Avios (6 days or less).; Hold, Finland/Scandinavia/Baltics: EUR 140 or 18,500 Avios.; Hold, within Europe: EUR 160 or 21,100 Avios.; Hold, intercontinental: EUR 650 / USD 750 or 86,500 Avios.; Cargo pricing is on the Finnair Cargo website.",
+    "restrictions": {
+      "brachycephalic_as_stated": null,
+      "breeds_as_stated": null,
+      "routes_as_stated": "When travelling to or via certain countries, including for example Great Britain, Hong Kong and the United Arab Emirates, pets can only be shipped as cargo. Finnair does not transport pets to Australia. Pets cannot travel in Business Class on long-haul flights, because there is not enough room under those seats. Hold pets are not possible if the ticket includes flights operated by airlines other than Finnair or Norra. The minimum transfer time between flights with a pet in the hold is 3 hours; hold pets do not transfer automatically to connecting flights.",
+      "cargo_only_as_stated": "When travelling to or via certain countries, including for example Great Britain, Hong Kong and the United Arab Emirates, pets can only be shipped as cargo. Finnair does not transport pets to Australia. Pets cannot travel in Business Class on long-haul flights, because there is not enough room under those seats. Hold pets are not possible if the ticket includes flights operated by airlines other than Finnair or Norra. The minimum transfer time between flights with a pet in the hold is 3 hours; hold pets do not transfer automatically to connecting flights."
+    },
+    "service_animals_as_stated": "Assistance dogs and working dogs on an official search or rescue mission are welcome in the cabin on all Finnair flights free of charge, regardless of size. Inform Finnair in advance with the special assistance form, at least 48 hours before departure. Working dogs in training are transported in the cargo hold like pets.",
+    "official_source_urls": [
+      "https://www.finnair.com/en/pets-on-finnair-flights"
+    ],
+    "verified_date": "2026-11-18",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Nov 18, 2026 against the official Finnair pets page ."
+  },
+  {
+    "id": "frontier",
+    "name": "Frontier Airlines",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/frontier.html",
+    "cabin": true,
+    "hold": false,
+    "cargo": false,
+    "cabin_as_stated": "Yes — US domestic only",
+    "hold_or_cargo_as_stated": "No",
+    "species_allowed": [
+      "dogs",
+      "cats",
+      "birds",
+      "rabbits",
+      "hamsters",
+      "guinea pigs"
+    ],
+    "species_as_stated": "Dogs, cats, rabbits, guinea pigs, hamsters and small birds",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "To be confirmed with the airline",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Hard: 18 × 14 × 8 in; soft: 18 × 14 × 11 in",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "To be confirmed with the airline",
+    "fees": [],
+    "fees_as_stated": "To be confirmed with the airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "To be confirmed with the airline",
+      "breeds_as_stated": "To be confirmed with the airline",
+      "routes_as_stated": "International flights (incl. Mexico/Canada): service dogs only, no pets",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://faq.flyfrontier.com/help/do-you-allow-pets-on-the-plane",
+      "https://www.flyfrontier.com/optional-services"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "hawaiian",
+    "name": "Hawaiian Airlines",
+    "iata": "HA",
+    "iata_source": "data/airlines/hawaiian.json",
+    "page_url": "https://petpolicycheck.com/airlines/hawaiian.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": true,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: climate-controlled baggage compartment on your flight in a hard-sided kennel, with a vet health certificate issued within 10 days of travel; or Pet Connect via Alaska and Hawaiian Air Cargo for pets traveling without a passenger. Only dogs and cats in the baggage compartment to/from Hawaii and international locations.",
+    "species_allowed": [
+      "dogs",
+      "cats",
+      "birds",
+      "rabbits"
+    ],
+    "species_as_stated": "Small dogs and house cats (also domesticated rabbits and small household birds on some routes; only dogs, cats and rabbits in the cabin to Hawaii, rabbits to Honolulu only)",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": null,
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Soft-sided only, max 17 x 11 x 9.5 in (length x width x height); hard-sided kennels are not allowed in the cabin",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "Baggage compartment: up to 150 lb (68 kg) pet + kennel combined; heavier pets via Pet Connect (Alaska and Hawaiian Air Cargo). No in-cabin weight limit stated: the pet must fit comfortably in the carrier under the seat.",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "In cabin",
+        "as_stated": "In cabin: $100 per carrier each way ($35 wholly within Hawaii)"
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Baggage compartment",
+        "as_stated": "Baggage compartment: $200 per kennel each way ($60 wholly within Hawaii; $100 wholly within Alaska or for active-duty U.S. Military and dependents on travel orders)"
+      }
+    ],
+    "fees_as_stated": "In cabin: $100 per carrier each way ($35 wholly within Hawaii); Baggage compartment: $200 per kennel each way ($60 wholly within Hawaii; $100 wholly within Alaska or for active-duty U.S. Military and dependents on travel orders)",
+    "restrictions": {
+      "brachycephalic_as_stated": "Brachycephalic (short-nosed) dogs and cats and their mixes are not accepted in the baggage compartment (e.g. Boston Terrier, Boxer, Bulldog, French Bulldog, Pug, Shih Tzu; Burmese, Exotic Shorthair, Himalayan and Persian cats). They may still fly in the cabin if the carrier fits under the seat.",
+      "breeds_as_stated": "Brachycephalic (short-nosed) dogs and cats and their mixes are not accepted in the baggage compartment (e.g. Boston Terrier, Boxer, Bulldog, French Bulldog, Pug, Shih Tzu; Burmese, Exotic Shorthair, Himalayan and Persian cats). They may still fly in the cabin if the carrier fits under the seat.",
+      "routes_as_stated": "No pets in the cabin or baggage compartment to/from Europe, London (LHR), Japan, Seoul (ICN), Belize City, Guatemala City, Pago Pago, Papeete, Rarotonga and Sydney (limited military exceptions for the baggage compartment to Japan). Pets are accepted within Hawaii and between Hawaii and the U.S. mainland, subject to Hawaii's entry rules: no animals arriving in Honolulu after 10 pm, and non-stop flights to Kona, Lihue or Kahului need a Neighbor Island Inspection Permit (dogs and cats only). No pet carriers in Business Class on A330 or 787 aircraft.",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Trained service dogs travel free (up to two per guest) with the U.S. DOT Service Animal Air Transportation Form, ideally submitted 48 hours before departure. Emotional support animals travel as pets.",
+    "official_source_urls": [
+      "https://www.hawaiianairlines.com/content/travel-info/pets",
+      "https://www.hawaiianairlines.com/content/travel-info/policies/pets-traveling-with-pets/pets-in-cabin",
+      "https://www.hawaiianairlines.com/content/travel-info/policies/pets-traveling-with-pets/pets-in-baggage-compartment",
+      "https://www.hawaiianairlines.com/content/travel-info/policies/pets-traveling-hawaii",
+      "https://www.hawaiianairlines.com/content/travel-info/accessible-services/specialservices-support-animals/",
+      "https://dab.hawaii.gov/ai/aqs/aqs-info/",
+      "https://news.alaskaair.com/company/alaska-airlines-completes-acquisition-of-hawaiian-airlines-expanding-benefits-and-choice-for-travelers/"
+    ],
+    "verified_date": "2026-10-23",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Oct 23, 2026 against the official Hawaiian Airlines pet policy page ."
+  },
+  {
+    "id": "iberia",
+    "name": "Iberia",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/iberia.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": null,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: cats and dogs in the hold, except snub-nosed dogs and dangerous breeds, up to 45 kg including the carrier, with prior authorisation through Iberia booking offices. The same carrier may hold two adult animals accustomed to living together and weighing no more than 14 kg each, or three animals less than 6 months old from the same litter. For connections, transit must be no less than 90 minutes and no more than 4 hours.",
+    "species_allowed": [
+      "dogs",
+      "cats",
+      "birds",
+      "ferrets",
+      "tortoises"
+    ],
+    "species_as_stated": "Cabin: dogs, cats, tortoises and birds (except poultry and birds of prey), provided they do not exceed 8 kg including the carrier. Ornamental fish require prior authorisation from Iberia booking offices. Hold: cats and dogs only, except snub-nosed dogs and dangerous breeds. Animals in the weasel family (including ferrets and pine martens) are not transported.",
+    "cabin_max_weight": {
+      "kg": 8,
+      "lb": null,
+      "as_stated": "Cabin: 8 kg including the carrier.",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Cabin: maximum 45 cm (length) × 35 cm (width) × 25 cm (height), and the sum of these dimensions must not exceed 105 cm. On Iberia flights operated by Air Nostrum, the carrier cannot be rigid. Hold: aircraft limits vary; for Iberia Regional Air Nostrum flights the maximum dimensions are 83 cm × 65 cm × 56 cm.",
+    "hold_limits_as_stated": "Hold: 45 kg (pet + carrier). Above 45 kg, or where legal or breed restrictions apply, transport is as cargo (Iberia directs customers to a cargo agent such as WOOF Airlines / IAG Cargo).",
+    "weight_as_stated": "Cabin: 8 kg including the carrier. Hold: 45 kg (pet + carrier). Above 45 kg, or where legal or breed restrictions apply, transport is as cargo (Iberia directs customers to a cargo agent such as WOOF Airlines / IAG Cargo).",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Cabin, per segment, per carrier (if the itinerary connects different zones, the highest-priced zone applies)",
+        "as_stated": "Cabin, per segment, per carrier (if the itinerary connects different zones, the highest-priced zone applies): Spain (except Canary Islands) online EUR 40 / USD 50 / GBP 35, airport EUR 44 / USD 55 / GBP 40; Canary Islands, Europe, North Africa and Israel online EUR 60 / USD 75 / GBP 55, airport EUR 66 / USD 80 / GBP 60; America, Asia and Qatar online EUR 180 / USD 215 / GBP 160, airport EUR 198 / USD 235 / GBP 175."
+      },
+      {
+        "amount": null,
+        "amount_min": 90,
+        "amount_max": 110,
+        "currency": "EUR",
+        "currency_as_stated": "EUR",
+        "scope": "Hold, payable at the airport only, per segment (connecting-flight prices are higher, as published on the official page)",
+        "as_stated": "Hold, payable at the airport only, per segment (connecting-flight prices are higher, as published on the official page): Spain (except Canary Islands) EUR 90 / USD 110 / GBP 80 up to 10 kg, EUR 100 / USD 120 / GBP 90 for 11–25 kg, EUR 110 / USD 130 / GBP 100 for 26–45 kg; Canary Islands, Europe, North Africa and Israel EUR 135 / USD 160 / GBP 120 up to 10 kg, EUR 145 / USD 170 / GBP 130 for 11–25 kg, EUR 155 / USD 185 / GBP 135 for 26–45 kg; America, Asia and Qatar EUR 290 / USD 340 / GBP 255 up to 10 kg, EUR 310 / USD 365 / GBP 270 for 11–25 kg, EUR 330 / USD 390 / GBP 290 for 26–45 kg."
+      }
+    ],
+    "fees_as_stated": "Cabin, per segment, per carrier (if the itinerary connects different zones, the highest-priced zone applies): Spain (except Canary Islands) online EUR 40 / USD 50 / GBP 35, airport EUR 44 / USD 55 / GBP 40; Canary Islands, Europe, North Africa and Israel online EUR 60 / USD 75 / GBP 55, airport EUR 66 / USD 80 / GBP 60; America, Asia and Qatar online EUR 180 / USD 215 / GBP 160, airport EUR 198 / USD 235 / GBP 175.; Hold, payable at the airport only, per segment (connecting-flight prices are higher, as published on the official page): Spain (except Canary Islands) EUR 90 / USD 110 / GBP 80 up to 10 kg, EUR 100 / USD 120 / GBP 90 for 11–25 kg, EUR 110 / USD 130 / GBP 100 for 26–45 kg; Canary Islands, Europe, North Africa and Israel EUR 135 / USD 160 / GBP 120 up to 10 kg, EUR 145 / USD 170 / GBP 130 for 11–25 kg, EUR 155 / USD 185 / GBP 135 for 26–45 kg; America, Asia and Qatar EUR 290 / USD 340 / GBP 255 up to 10 kg, EUR 310 / USD 365 / GBP 270 for 11–25 kg, EUR 330 / USD 390 / GBP 290 for 26–45 kg.",
+    "restrictions": {
+      "brachycephalic_as_stated": "Iberia does not accept in the hold or the cabin the following dog breeds classified as dangerous: Pit Bull Terrier, Staffordshire Bull Terrier, American Staffordshire Terrier, Rottweiler, Doberman, Argentine Dogo, Brazilian Mastiff, Tosa and Akita; acceptance of other breeds depends on build, muscle, height and weight. Brachycephalic dogs and cats cannot travel in the hold; they may travel in the cabin if they meet cabin conditions. The official brachycephalic dog list includes Affenpinscher, Boston Terrier, Boxer (all breeds), Brussels Griffon, Bulldog (all breeds), Bull Mastiff, Canary Prey dog, Cane Corso, Cavalier Spaniel, Chihuahua, Chow Chow, Dogue de Bordeaux, English Toy Spaniel, Japanese Chin, Japanese Spaniel, King Charles Spaniel, Lhasa Apso, Maltese, Mastiff, Miniature Pinscher, Pekingese, Pit Bull, Pug, Saint Bernard, Shar Pei, Shih Tzu, Tibetan Spaniel and Yorkshire Terrier. Brachycephalic cats listed: Burmese, Exotic Shorthair, Himalayan and Persian.",
+      "breeds_as_stated": "Iberia does not accept in the hold or the cabin the following dog breeds classified as dangerous: Pit Bull Terrier, Staffordshire Bull Terrier, American Staffordshire Terrier, Rottweiler, Doberman, Argentine Dogo, Brazilian Mastiff, Tosa and Akita; acceptance of other breeds depends on build, muscle, height and weight. Brachycephalic dogs and cats cannot travel in the hold; they may travel in the cabin if they meet cabin conditions. The official brachycephalic dog list includes Affenpinscher, Boston Terrier, Boxer (all breeds), Brussels Griffon, Bulldog (all breeds), Bull Mastiff, Canary Prey dog, Cane Corso, Cavalier Spaniel, Chihuahua, Chow Chow, Dogue de Bordeaux, English Toy Spaniel, Japanese Chin, Japanese Spaniel, King Charles Spaniel, Lhasa Apso, Maltese, Mastiff, Miniature Pinscher, Pekingese, Pit Bull, Pug, Saint Bernard, Shar Pei, Shih Tzu, Tibetan Spaniel and Yorkshire Terrier. Brachycephalic cats listed: Burmese, Exotic Shorthair, Himalayan and Persian.",
+      "routes_as_stated": null,
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Iberia has a specific procedure for guide dogs; see the assistance dogs information on the official Iberia pets page. Details of that procedure are on Iberia's assistance-dog information, which should be re-checked with the airline.",
+    "official_source_urls": [
+      "https://www.iberia.com/us/fly-with-iberia/pets/"
+    ],
+    "verified_date": "2026-11-18",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Nov 18, 2026 against the official Iberia travelling with pets page ."
+  },
+  {
+    "id": "ita-airways",
+    "name": "ITA Airways",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/ita-airways.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": null,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: dogs and cats in the hold, up to 75 kg including carrier and food, except brachycephalic breeds (see breed restrictions). The in-cabin pet service is refundable without supporting documentation. Hold refunds for illness or death of the animal require a death certificate or a veterinary health certificate proving the animal cannot travel.",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "As of 1 December 2025, pet transport is permitted only for dogs and cats, both in the cabin and in the hold. Reservations made by 30 November 2025 for other species in the cabin remain valid until those confirmed reservations are exhausted.",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "Cabin, including carrier and food: 12 kg on domestic flights and 8 kg on all other flights",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Cabin: a soft carrier placed under the seat in front, not exceeding 55 × 40 × 23 cm (maximum total 118 cm). Hold: a rigid fibreglass or rigid-plastic carrier; maximum dimensions vary by aircraft type. Dog hold carriers must have a metal door with a locking system that secures the central, upper and lower locking points, and metal (not plastic) side air vents. Wheels must be removed or, if retractable, secured with adhesive tape.",
+    "hold_limits_as_stated": "Hold, including carrier and food: up to 75 kg. On a selection of domestic routes identified as Large Dog flights, ITA also offers a Large Dog On Board service for dogs above the standard cabin limits and up to 30 kg; terms are on ITA's dedicated page for that service",
+    "weight_as_stated": "Cabin, including carrier and food: 12 kg on domestic flights and 8 kg on all other flights. Hold, including carrier and food: up to 75 kg. On a selection of domestic routes identified as Large Dog flights, ITA also offers a Large Dog On Board service for dogs above the standard cabin limits and up to 30 kg; terms are on ITA's dedicated page for that service.",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": null,
+        "as_stated": "Fees are quoted in euros for departures from Europe and Japan, and in US dollars for departures from the United States and the rest of the world, and refer to a single flight route. The official charges page lists a cabin fee and a hold fee for each zone:"
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Domestic flights",
+        "as_stated": "Domestic flights: cabin EUR 73 / USD 85; hold EUR 83 / USD 105."
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "To/from Europe, Algeria, Tunisia",
+        "as_stated": "To/from Europe, Algeria, Tunisia: cabin EUR 95 / USD 120; hold EUR 105 / USD 135."
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Cairo, Tel Aviv, Amman, Beirut, Tripoli",
+        "as_stated": "Cairo, Tel Aviv, Amman, Beirut, Tripoli: cabin EUR 100 / USD 125; hold EUR 120 / USD 150."
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Jeddah, Riad, Dakar, Accra, Dubai",
+        "as_stated": "Jeddah, Riad, Dakar, Accra, Dubai: cabin EUR 100 / USD 125; hold EUR 120 / USD 150."
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Miami, Boston, Delhi, Malè, New York, Washington, Chicago, Toronto",
+        "as_stated": "Miami, Boston, Delhi, Malè, New York, Washington, Chicago, Toronto: cabin EUR 210 / USD 265; hold EUR 280 / USD 350."
+      },
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Los Angeles, Houston, Buenos Aires, Rio de Janeiro, San Paolo, Tokyo, Bangkok, San Francisco, Mauritius",
+        "as_stated": "Los Angeles, Houston, Buenos Aires, Rio de Janeiro, San Paolo, Tokyo, Bangkok, San Francisco, Mauritius: cabin EUR 230 / USD 290; hold EUR 300 / USD 375."
+      }
+    ],
+    "fees_as_stated": "Fees are quoted in euros for departures from Europe and Japan, and in US dollars for departures from the United States and the rest of the world, and refer to a single flight route. The official charges page lists a cabin fee and a hold fee for each zone:; Domestic flights: cabin EUR 73 / USD 85; hold EUR 83 / USD 105.; To/from Europe, Algeria, Tunisia: cabin EUR 95 / USD 120; hold EUR 105 / USD 135.; Cairo, Tel Aviv, Amman, Beirut, Tripoli: cabin EUR 100 / USD 125; hold EUR 120 / USD 150.; Jeddah, Riad, Dakar, Accra, Dubai: cabin EUR 100 / USD 125; hold EUR 120 / USD 150.; Miami, Boston, Delhi, Malè, New York, Washington, Chicago, Toronto: cabin EUR 210 / USD 265; hold EUR 280 / USD 350.; Los Angeles, Houston, Buenos Aires, Rio de Janeiro, San Paolo, Tokyo, Bangkok, San Francisco, Mauritius: cabin EUR 230 / USD 290; hold EUR 300 / USD 375.",
+    "restrictions": {
+      "brachycephalic_as_stated": "From 26 October 2025, ITA no longer sells the hold (AVIH) service for brachycephalic dog and cat breeds. Reservations made and confirmed by 25 October 2025 remain valid. Cabin transport remains available for all breeds if the animal and carrier meet the weight and size limits. ITA lists these breeds as brachycephalic under IATA rules: dogs — Affenpinscher, American Pit Bull Terrier, American Staffordshire Terrier, Bichon Frise, Boston Terrier, Boxer, Brussels Griffon, Bulldog, Bullmastiff, Cane Corso, Cavalier King Charles Spaniel, Chihuahua (apple-headed), Chow Chow, Dogo Argentino, Dogue de Bordeaux, English Mastiff, French Bulldog, Japanese Chin, King Charles Spaniel, Lhasa Apso, Maltese, Neapolitan Mastiff, Newfoundland, Pekingese, Presa Canario, Pug, Shar-Pei, Shih Tzu, Silky Terrier, Tibetan Spaniel, Valley Bulldog, Yorkshire Terrier; cats — Burmese, Exotic Shorthair, Persian, Himalayan.",
+      "breeds_as_stated": "From 26 October 2025, ITA no longer sells the hold (AVIH) service for brachycephalic dog and cat breeds. Reservations made and confirmed by 25 October 2025 remain valid. Cabin transport remains available for all breeds if the animal and carrier meet the weight and size limits. ITA lists these breeds as brachycephalic under IATA rules: dogs — Affenpinscher, American Pit Bull Terrier, American Staffordshire Terrier, Bichon Frise, Boston Terrier, Boxer, Brussels Griffon, Bulldog, Bullmastiff, Cane Corso, Cavalier King Charles Spaniel, Chihuahua (apple-headed), Chow Chow, Dogo Argentino, Dogue de Bordeaux, English Mastiff, French Bulldog, Japanese Chin, King Charles Spaniel, Lhasa Apso, Maltese, Neapolitan Mastiff, Newfoundland, Pekingese, Presa Canario, Pug, Shar-Pei, Shih Tzu, Silky Terrier, Tibetan Spaniel, Valley Bulldog, Yorkshire Terrier; cats — Burmese, Exotic Shorthair, Persian, Himalayan.",
+      "routes_as_stated": null,
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Recognised guide and assistance dogs, regardless of breed or type, may travel in the cabin free of charge. A training certificate on letterhead (or with a legible stamp) from the training centre is required. The service must be requested at least 48 hours before departure. Service dogs are not subject to quotas. Emotional support dogs are not treated as trained assistance dogs and cannot travel free of charge; they follow the paid cabin or hold rules according to weight. Transportation remains free even if the dog must travel in the hold. The dog must stay under the passenger's direct control, may not sit on seats or stand near emergency exits, and a guide dog must remain in front of the owner's seat and wear a harness.",
+    "official_source_urls": [
+      "https://www.ita-airways.com/us/en/book-and-prepare/other-requests/travelling-with-pets/pets-in-cabin",
+      "https://www.ita-airways.com/us/en/book-and-prepare/other-requests/travelling-with-pets/pets-as-cargo",
+      "https://www.ita-airways.com/us/en/book-and-prepare/other-requests/travelling-with-pets/pet-transportation-charges",
+      "https://www.ita-airways.com/us/en/book-and-prepare/other-requests/travelling-with-pets/assistance-dogs"
+    ],
+    "verified_date": "2026-11-18",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Nov 18, 2026 against the official ITA pets in the cabin page and animals in the hold page and pet travel supplement page and assistance dogs page ."
+  },
+  {
+    "id": "jal",
+    "name": "Japan Airlines (JAL)",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/jal.html",
+    "cabin": false,
+    "hold": true,
+    "cargo": null,
+    "cabin_as_stated": "No",
+    "hold_or_cargo_as_stated": "Yes: dogs, cats, small birds, rabbits, ferrets, hamsters, marmots, squirrels, chinchillas; IATA-compliant hard crate; rental crates M 32x32x39 cm (7.4 kg) and L 45x45x41 cm (11.5 kg), reserve up to 4 days before",
+    "species_allowed": [
+      "dogs",
+      "cats",
+      "birds",
+      "rabbits",
+      "ferrets",
+      "hamsters",
+      "chinchillas",
+      "marmots",
+      "squirrels"
+    ],
+    "species_as_stated": "Dogs, cats, small birds, rabbits, ferrets, hamsters, marmots, squirrels and chinchillas",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "Not applicable — no cabin pets",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "IATA-compliant hard crate for the hold; rental M 32 × 32 × 39 cm / L 45 × 45 × 41 cm",
+    "hold_limits_as_stated": "Yes: dogs, cats, small birds, rabbits, ferrets, hamsters, marmots, squirrels, chinchillas; IATA-compliant hard crate; rental crates M 32x32x39 cm (7.4 kg) and L 45x45x41 cm (11.5 kg), reserve up to 4 days before",
+    "weight_as_stated": "Not applicable — no cabin pets",
+    "fees": [],
+    "fees_as_stated": "To be confirmed with the airline",
+    "restrictions": {
+      "brachycephalic_as_stated": null,
+      "breeds_as_stated": "French Bulldogs and Bulldogs not accepted on any flight. JAL Cargo (unaccompanied) refuses 23 breeds incl. pug, shih tzu, boxer, Boston terrier, pit bull etc.",
+      "routes_as_stated": "Extra requirements for dogs to the US (CDC); pick up at baggage claim then go to animal quarantine",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://www.jal.co.jp/jp/en/inter/support/pet/"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "jeju-air",
+    "name": "Jeju Air",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/jeju-air.html",
+    "cabin": null,
+    "hold": null,
+    "cargo": null,
+    "cabin_as_stated": "To be confirmed with the airline",
+    "hold_or_cargo_as_stated": "To be confirmed with the airline",
+    "species_allowed": null,
+    "species_as_stated": "To be confirmed with the airline",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "To be confirmed with the airline",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "To be confirmed with the airline",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "To be confirmed with the airline",
+    "fees": [],
+    "fees_as_stated": "To be confirmed with the airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "To be confirmed with the airline",
+      "breeds_as_stated": "To be confirmed with the airline",
+      "routes_as_stated": "To be confirmed with the airline",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://www.jejuair.net/ko/linkService/help/main.do"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "jetblue",
+    "name": "JetBlue",
+    "iata": "B6",
+    "iata_source": "data/airlines/jetblue.json",
+    "page_url": "https://petpolicycheck.com/airlines/jetblue.html",
+    "cabin": true,
+    "hold": false,
+    "cargo": false,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "No large dogs accommodated; pets travel in the cabin only.",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Small dogs and cats only",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "Check with airline",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "17 x 12.5 x 8.5 in (43.18 x 31.75 x 21.59 cm); soft- or hard-sided",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "Check with airline",
+    "fees": [],
+    "fees_as_stated": "Check with airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "Check with airline",
+      "breeds_as_stated": "Check with airline",
+      "routes_as_stated": "Check with airline",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Different policies apply to service animals (see JetBlue Accessibility Assistance).",
+    "official_source_urls": [
+      "https://www.jetblue.com/help/traveling-with-pets"
+    ],
+    "verified_date": "2026-10-22",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Oct 22, 2026 against the official JetBlue pet policy page ."
+  },
+  {
+    "id": "korean-air",
+    "name": "Korean Air",
+    "iata": "KE",
+    "iata_source": "data/airlines/korean-air.json",
+    "page_url": "https://petpolicycheck.com/airlines/korean-air.html",
+    "cabin": null,
+    "hold": null,
+    "cargo": null,
+    "cabin_as_stated": "Check with airline",
+    "hold_or_cargo_as_stated": "Check with airline",
+    "species_allowed": null,
+    "species_as_stated": "Check with airline",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "Check with airline",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Check with airline",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "Check with airline",
+    "fees": [],
+    "fees_as_stated": "Check with airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "Check with airline",
+      "breeds_as_stated": "Check with airline",
+      "routes_as_stated": "Check with airline",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Check with airline",
+    "official_source_urls": [
+      "https://www.koreanair.com/contents/plan-your-travel/special-help/traveling-with-pets"
+    ],
+    "verified_date": "2026-10-22",
+    "verification_status": "not_yet_verified",
+    "verification_as_stated": "Not yet verified. Last check attempt: Oct 22, 2026"
+  },
+  {
+    "id": "lufthansa",
+    "name": "Lufthansa",
+    "iata": "LH",
+    "iata_source": "data/airlines/lufthansa.json",
+    "page_url": "https://petpolicycheck.com/airlines/lufthansa.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": true,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: dogs and cats over 8 kg as excess baggage in the air-conditioned hold; other animals via Lufthansa Cargo.",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Small dogs and cats only",
+    "cabin_max_weight": {
+      "kg": 8,
+      "lb": null,
+      "as_stated": "8 kg pet + carrier in cabin",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Soft-sided, 55 x 40 x 23 cm (22 x 16 x 9 in), 118 cm total",
+    "hold_limits_as_stated": "Yes: dogs and cats over 8 kg as excess baggage in the air-conditioned hold; other animals via Lufthansa Cargo.",
+    "weight_as_stated": "8 kg pet + carrier in cabin",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": 65,
+        "amount_max": 80,
+        "currency": "EUR",
+        "currency_as_stated": "EUR",
+        "scope": "Cabin: domestic",
+        "as_stated": "Cabin: domestic: EUR 65-85 / USD 80-100"
+      },
+      {
+        "amount": null,
+        "amount_min": 80,
+        "amount_max": 95,
+        "currency": "EUR",
+        "currency_as_stated": "EUR",
+        "scope": "Cabin: Europe",
+        "as_stated": "Cabin: Europe: EUR 80-100 / USD 95-115"
+      },
+      {
+        "amount": null,
+        "amount_min": 100,
+        "amount_max": 110,
+        "currency": "EUR",
+        "currency_as_stated": "EUR",
+        "scope": "Cabin: Levant and Egypt",
+        "as_stated": "Cabin: Levant and Egypt: EUR 100-120 / USD 110-130"
+      },
+      {
+        "amount": null,
+        "amount_min": 105,
+        "amount_max": 120,
+        "currency": "EUR",
+        "currency_as_stated": "EUR",
+        "scope": "Cabin: intercontinental short haul",
+        "as_stated": "Cabin: intercontinental short haul: EUR 105-125 / USD 120-140"
+      },
+      {
+        "amount": null,
+        "amount_min": 115,
+        "amount_max": 135,
+        "currency": "EUR",
+        "currency_as_stated": "EUR",
+        "scope": "Cabin: intercontinental medium haul",
+        "as_stated": "Cabin: intercontinental medium haul: EUR 115-135 / USD 135-155"
+      },
+      {
+        "amount": null,
+        "amount_min": 125,
+        "amount_max": 145,
+        "currency": "EUR",
+        "currency_as_stated": "EUR",
+        "scope": "Cabin: intercontinental long haul",
+        "as_stated": "Cabin: intercontinental long haul: EUR 125-145 / USD 145-165"
+      }
+    ],
+    "fees_as_stated": "Cabin: domestic: EUR 65-85 / USD 80-100; Cabin: Europe: EUR 80-100 / USD 95-115; Cabin: Levant and Egypt: EUR 100-120 / USD 110-130; Cabin: intercontinental short haul: EUR 105-125 / USD 120-140; Cabin: intercontinental medium haul: EUR 115-135 / USD 135-155; Cabin: intercontinental long haul: EUR 125-145 / USD 145-165",
+    "restrictions": {
+      "brachycephalic_as_stated": "Special rules for 'fighting dog' breeds and snub-nosed breeds (see Lufthansa's dedicated pages). Pregnant animals not accepted.",
+      "breeds_as_stated": "Special rules for 'fighting dog' breeds and snub-nosed breeds (see Lufthansa's dedicated pages). Pregnant animals not accepted.",
+      "routes_as_stated": "New bookings for dogs to the USA only to Atlanta, Los Angeles, Miami, New York-JFK, Philadelphia, Washington DC, and Newark (if no high-risk rabies country in prior 6 months). Bookings may be refused on routes such as the UK, Ireland or Bangalore.",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Assistance dogs fly in the cabin free of charge; CDC requirements apply for the USA.",
+    "official_source_urls": [
+      "https://www.lufthansa.com/us/en/travelling-with-animals"
+    ],
+    "verified_date": "2026-10-22",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Oct 22, 2026 against the official Lufthansa pet policy page ."
+  },
+  {
+    "id": "peach",
+    "name": "Peach Aviation",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/peach.html",
+    "cabin": false,
+    "hold": false,
+    "cargo": false,
+    "cabin_as_stated": "No",
+    "hold_or_cargo_as_stated": "No",
+    "species_allowed": [],
+    "species_as_stated": "No pets",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "Not applicable — no pets",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Not applicable — no pets",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "Not applicable — no pets",
+    "fees": [],
+    "fees_as_stated": "Not applicable — no pets",
+    "restrictions": {
+      "brachycephalic_as_stated": null,
+      "breeds_as_stated": "Not applicable — no pets",
+      "routes_as_stated": "Flies Japan-Korea; no pets",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Assistance dogs only",
+    "official_source_urls": [
+      "https://cs.flypeach.com/hc/en-us/articles/4659163046558-Can-I-get-aboard-with-my-pets"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "porter",
+    "name": "Porter Airlines",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/porter.html",
+    "cabin": true,
+    "hold": false,
+    "cargo": null,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "No (not in baggage hold)",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "House cats and small dogs",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "To be confirmed with the airline",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Soft-sided: 55 × 40 × 27 cm",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "To be confirmed with the airline",
+    "fees": [
+      {
+        "amount": 50,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": "USD",
+        "currency_as_stated": "USD",
+        "scope": null,
+        "as_stated": "CAD/USD 50 + tax (50-57.50) per direction, non-refundable"
+      }
+    ],
+    "fees_as_stated": "CAD/USD 50 + tax (50-57.50) per direction, non-refundable",
+    "restrictions": {
+      "brachycephalic_as_stated": "To be confirmed with the airline",
+      "breeds_as_stated": "To be confirmed with the airline",
+      "routes_as_stated": "US-bound dogs: CDC Dog Import Form receipt checked before boarding",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://www.flyporter.com/en-ca/travel-information/baggage/pets"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "sas",
+    "name": "SAS",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/sas.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": true,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: dogs and cats in the cargo hold if they do not meet cabin criteria, arranged through SAS Customer Service. Up to 2 adult pets of similar size (maximum 14 kg each) may share a container, except on flights to the US. Up to 3 pets of up to 6 months from the same litter may travel in the same container. To and from the United Kingdom, pets are not accepted in the cabin or as checked baggage and must travel as cargo, except certified service animals in the cabin.",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Cabin: a small dog or cat older than 8 weeks. Hold: dogs and cats only.",
+    "cabin_max_weight": {
+      "kg": 8,
+      "lb": null,
+      "as_stated": "Cabin: maximum 8 kg including the pet.",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Cabin: soft-sided, fully closeable, well-ventilated and bite- and leak-proof; maximum 40 × 25 × 23 cm (L × W × H). Hold: an escape-proof container that meets IATA regulations; maximum size depends on the aircraft type.",
+    "hold_limits_as_stated": "Hold: maximum 50 kg including the pet.",
+    "weight_as_stated": "Cabin: maximum 8 kg including the pet. Hold: maximum 50 kg including the pet.",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": null,
+        "as_stated": "Charged per pet container, per one-way flight. Service dogs travel free in the cabin."
+      },
+      {
+        "amount": 740,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "US",
+        "scope": "Cabin",
+        "as_stated": "Cabin: domestic 420 DKK, 550 NOK, 550 SEK, 55 EUR, 60 USD; Scandinavia, Europe and Middle East 550 DKK, 750 NOK, 750 SEK, 75 EUR, 80 USD; Asia, Canada and US 740 DKK, 990 NOK, 990 SEK, 99 EUR, 105 USD; China 1,100 DKK, 1,540 NOK, 1,540 SEK, 149 EUR, 159 USD."
+      },
+      {
+        "amount": 2,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "US",
+        "scope": "Hold",
+        "as_stated": "Hold: domestic 680 DKK, 950 NOK, 950 SEK, 90 EUR, 100 USD; Scandinavia, Europe and Middle East 1,250 DKK, 1,740 NOK, 1,740 SEK, 169 EUR, 195 USD; Asia, Canada and US 2,500 DKK, 3,500 NOK, 3,500 SEK, 340 EUR, 370 USD; China 5,400 DKK, 7,600 NOK, 7,600 SEK, 725 EUR, 775 USD."
+      }
+    ],
+    "fees_as_stated": "Charged per pet container, per one-way flight. Service dogs travel free in the cabin.; Cabin: domestic 420 DKK, 550 NOK, 550 SEK, 55 EUR, 60 USD; Scandinavia, Europe and Middle East 550 DKK, 750 NOK, 750 SEK, 75 EUR, 80 USD; Asia, Canada and US 740 DKK, 990 NOK, 990 SEK, 99 EUR, 105 USD; China 1,100 DKK, 1,540 NOK, 1,540 SEK, 149 EUR, 159 USD.; Hold: domestic 680 DKK, 950 NOK, 950 SEK, 90 EUR, 100 USD; Scandinavia, Europe and Middle East 1,250 DKK, 1,740 NOK, 1,740 SEK, 169 EUR, 195 USD; Asia, Canada and US 2,500 DKK, 3,500 NOK, 3,500 SEK, 340 EUR, 370 USD; China 5,400 DKK, 7,600 NOK, 7,600 SEK, 725 EUR, 775 USD.",
+    "restrictions": {
+      "brachycephalic_as_stated": "Certain snub-nosed (brachycephalic) dogs such as bulldogs, pugs, Pekingese and crossbreeds of these may not travel in the hold for health reasons. Other snub-nosed dogs and cats may travel in the hold if the container is large enough and the door has open bars from top to bottom for ventilation.",
+      "breeds_as_stated": "Certain snub-nosed (brachycephalic) dogs such as bulldogs, pugs, Pekingese and crossbreeds of these may not travel in the hold for health reasons. Other snub-nosed dogs and cats may travel in the hold if the container is large enough and the door has open bars from top to bottom for ventilation.",
+      "routes_as_stated": "No pets are allowed in the cabin in Business on flights to or from North America and Asia, or on SAS charter flights. SAS does not accept pets in the cabin or as checked baggage on flights to and from the United Kingdom (cargo only, except certified service animals in the cabin). For flights to the US departing from 22 April 2025, a dog must be at least 6 months old, have a microchip and travel with a completed CDC dog import form; a dog that has been in a high-risk rabies country in the last 6 months is not permitted to fly with SAS to the US. Special entry permission is required for Greenland, for dogs to Svalbard (cats are not allowed there), and for Iceland.",
+      "cargo_only_as_stated": "Yes: dogs and cats in the cargo hold if they do not meet cabin criteria, arranged through SAS Customer Service. Up to 2 adult pets of similar size (maximum 14 kg each) may share a container, except on flights to the US. Up to 3 pets of up to 6 months from the same litter may travel in the same container. To and from the United Kingdom, pets are not accepted in the cabin or as checked baggage and must travel as cargo, except certified service animals in the cabin. | No pets are allowed in the cabin in Business on flights to or from North America and Asia, or on SAS charter flights. SAS does not accept pets in the cabin or as checked baggage on flights to and from the United Kingdom (cargo only, except certified service animals in the cabin). For flights to the US departing from 22 April 2025, a dog must be at least 6 months old, have a microchip and travel with a completed CDC dog import form; a dog that has been in a high-risk rabies country in the last 6 months is not permitted to fly with SAS to the US. Special entry permission is required for Greenland, for dogs to Svalbard (cats are not allowed there), and for Iceland."
+    },
+    "service_animals_as_stated": "Service dogs are always welcome on board and travel free in the cabin. Certified service animals are permitted in the cabin on flights to and from the United Kingdom, where other pets must travel as cargo. CDC rules for travel to the US also apply to service dogs.",
+    "official_source_urls": [
+      "https://www.flysas.com/en/travel-info/travel-with-pets/cabin",
+      "https://www.flysas.com/en/travel-info/travel-with-pets/in-hold"
+    ],
+    "verified_date": "2026-11-18",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Nov 18, 2026 against the official SAS pets in cabin page and pets traveling in hold page ."
+  },
+  {
+    "id": "southwest",
+    "name": "Southwest Airlines",
+    "iata": "WN",
+    "iata_source": "data/airlines/southwest.json",
+    "page_url": "https://petpolicycheck.com/airlines/southwest.html",
+    "cabin": true,
+    "hold": false,
+    "cargo": false,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "No. Southwest does not transport pets in the cargo compartment.",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Small vaccinated domestic cats and dogs (at least 8 weeks old)",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "Check with airline",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Check with airline",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "Check with airline",
+    "fees": [
+      {
+        "amount": 125,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "scope": "U.S. mainland",
+        "as_stated": "U.S. mainland: $125 per pet carrier each way"
+      },
+      {
+        "amount": 35,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "scope": "Between Hawaiian Islands",
+        "as_stated": "Between Hawaiian Islands: $35 per pet carrier each way"
+      }
+    ],
+    "fees_as_stated": "U.S. mainland: $125 per pet carrier each way; Between Hawaiian Islands: $35 per pet carrier each way",
+    "restrictions": {
+      "brachycephalic_as_stated": "Check with airline",
+      "breeds_as_stated": "Check with airline",
+      "routes_as_stated": "No pets on international itineraries or on flights to/from Hawaii (inter-island flights allowed).",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Check with airline",
+    "official_source_urls": [
+      "https://support.southwest.com/helpcenter/s/article/pet-policy"
+    ],
+    "verified_date": "2026-10-22",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Oct 22, 2026 against the official Southwest Airlines pet policy page ."
+  },
+  {
+    "id": "spirit",
+    "name": "Spirit Airlines",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/spirit.html",
+    "cabin": null,
+    "hold": null,
+    "cargo": null,
+    "cabin_as_stated": "To be confirmed with the airline",
+    "hold_or_cargo_as_stated": "To be confirmed with the airline",
+    "species_allowed": null,
+    "species_as_stated": "To be confirmed with the airline",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "To be confirmed with the airline",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "To be confirmed with the airline",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "To be confirmed with the airline",
+    "fees": [],
+    "fees_as_stated": "To be confirmed with the airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "To be confirmed with the airline",
+      "breeds_as_stated": "To be confirmed with the airline",
+      "routes_as_stated": "To be confirmed with the airline",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://foundation.spirit.com/en-us/category/article/KA-01181"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "sun-country",
+    "name": "Sun Country Airlines",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/sun-country.html",
+    "cabin": true,
+    "hold": null,
+    "cargo": false,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Sun Country does not accept unaccompanied animals of any kind as cargo. The pet policy in the Contract of Carriage covers pets in the passenger cabin as carry-on.",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Small cats and dogs weighing 35 lb or less",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": 35,
+      "as_stated": "Small cats and dogs weighing 35 lb or less",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Must not exceed 17\"L × 12\"W × 9\"H and must remain under the seat in front of the passenger",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "Small cats and dogs weighing 35 lb or less",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": null,
+        "as_stated": "A non-refundable fee is charged for each flight segment when a reservation is made in advance; pets without an advance reservation are subject to a higher per-segment fee. The official Contract of Carriage (updated 1 January 2026) does not publish the dollar amounts."
+      }
+    ],
+    "fees_as_stated": "A non-refundable fee is charged for each flight segment when a reservation is made in advance; pets without an advance reservation are subject to a higher per-segment fee. The official Contract of Carriage (updated 1 January 2026) does not publish the dollar amounts.",
+    "restrictions": {
+      "brachycephalic_as_stated": null,
+      "breeds_as_stated": null,
+      "routes_as_stated": "Pets are not accepted on international flights or on flights to or from Anchorage, Alaska; Hawaii; or Puerto Rico. Pets are not accepted for interline travel.",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "A service animal accompanying a passenger with a disability is accepted in the cabin without charge; it may not occupy a seat and must travel in the passenger's lap or foot space. A current U.S. DOT Service Animal Air Transportation Form is required, and for flight segments of eight hours or more a DOT Service Animal Relief Attestation Form is also required. If the reservation is made more than 48 hours before departure, the applicable form(s) must be submitted 48 hours in advance.",
+    "official_source_urls": [
+      "https://assets.ctfassets.net/2aov1ouggrmn/6pjlsMvuaBFa9iE7F3qGFF/91b44685006da079165739c0ff850f42/2026-01-27_Contract_of_Carriage.pdf"
+    ],
+    "verified_date": "2026-11-18",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Nov 18, 2026 against the official Sun Country Contract of Carriage (updated 1 January 2026) ."
+  },
+  {
+    "id": "tway",
+    "name": "T’way Air",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/tway.html",
+    "cabin": true,
+    "hold": false,
+    "cargo": null,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "No (not in hold)",
+    "species_allowed": [
+      "dogs",
+      "cats",
+      "birds"
+    ],
+    "species_as_stated": "Dogs and cats internationally; also birds domestically",
+    "cabin_max_weight": {
+      "kg": 9,
+      "lb": null,
+      "as_stated": "9 kg including carrier",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Hard case: width ≤37 cm, height ≤23 cm; soft height ≤26 cm; L + W + H ≤115 cm",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "9 kg including carrier",
+    "fees": [
+      {
+        "amount": null,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "scope": "Domestic KRW 30,000 (airport). International one-way",
+        "as_stated": "Domestic KRW 30,000 (airport). International one-way: Japan/China short-haul KRW 100,000 / JPY 10,000 / USD 100 / CAD 100; long China/Taiwan KRW 150,000; SE Asia/Guam/Saipan KRW 200,000"
+      }
+    ],
+    "fees_as_stated": "Domestic KRW 30,000 (airport). International one-way: Japan/China short-haul KRW 100,000 / JPY 10,000 / USD 100 / CAD 100; long China/Taiwan KRW 150,000; SE Asia/Guam/Saipan KRW 200,000",
+    "restrictions": {
+      "brachycephalic_as_stated": null,
+      "breeds_as_stated": "Fighting breeds (American pit bull terrier, Rottweiler, Doberman) refused",
+      "routes_as_stated": "No online/kiosk check-in. International travel: selected routes only; noisy dogs must wear a muzzle.",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://www.twayair.com/app/serviceInfo/contents/70"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "united",
+    "name": "United Airlines",
+    "iata": "UA",
+    "iata_source": "data/airlines/united.json",
+    "page_url": "https://petpolicycheck.com/airlines/united.html",
+    "cabin": true,
+    "hold": false,
+    "cargo": true,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "PetSafe checked-pet program ended. Pets fly in cargo only with certain active-duty military or State Department employees.",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Cats and dogs only",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "No weight limit (United states there are no weight or breed limitations; pet must fit the carrier)",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Hard-sided: 9 x 17.5 x 12 in (22 x 44 x 30 cm); soft-sided: 11 x 18 x 11 in (27 x 45 x 27 cm); max 10 in tall on Boeing 737 MAX",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "No weight limit (United states there are no weight or breed limitations; pet must fit the carrier)",
+    "fees": [
+      {
+        "amount": 150,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": "$",
+        "scope": "All routes",
+        "as_stated": "All routes: $150 each way"
+      }
+    ],
+    "fees_as_stated": "All routes: $150 each way",
+    "restrictions": {
+      "brachycephalic_as_stated": null,
+      "breeds_as_stated": "None for in-cabin pets (United states no breed limitations).",
+      "routes_as_stated": "No pets to/from/through: Australia, Barbados, Brazil, Cuba, Dominica, Dominican Republic, French Polynesia, Greenland, Guam (partial), Guyana, Hawaii, Hong Kong, Iceland, Ireland, Jamaica, Marshall Islands, Micronesia, Mongolia, Morocco, New Zealand, Northern Mariana Islands, Palau, Philippines, St Kitts & Nevis, South Africa, Spain (Bilbao only), Sweden, Taiwan (partial), Thailand, Trinidad & Tobago, UAE, United Kingdom, Vietnam.",
+      "cargo_only_as_stated": "PetSafe checked-pet program ended. Pets fly in cargo only with certain active-duty military or State Department employees."
+    },
+    "service_animals_as_stated": "Therapy and emotional support cats and dogs must fly as pets, not service animals.",
+    "official_source_urls": [
+      "https://www.united.com/en/us/fly/travel/animals.html"
+    ],
+    "verified_date": "2026-10-22",
+    "verification_status": "verified",
+    "verification_as_stated": "✓ Last verified Oct 22, 2026 against the official United Airlines pet policy page ."
+  },
+  {
+    "id": "viva-aerobus",
+    "name": "Viva Aerobus",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/viva-aerobus.html",
+    "cabin": true,
+    "hold": null,
+    "cargo": null,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "To be confirmed with the airline",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Dogs and cats",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "12 kg including carrier; 10 kg to/from Colombia",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "44 × 35 × 21 cm; rigid or semi-rigid",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "12 kg including carrier; 10 kg to/from Colombia",
+    "fees": [],
+    "fees_as_stated": "To be confirmed with the airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "Brachycephalic breeds not allowed in hold",
+      "breeds_as_stated": "Brachycephalic breeds not allowed in hold",
+      "routes_as_stated": "Mexico->US dogs: 6 months, microchip, CDC form, screwworm-free certificate by official vet within 5 days; currently only dogs not in high-risk rabies countries in prior 6 months. US->Mexico dogs: GBG screwworm inspection certificate within 5 days + SENASICA inspection (updated Aug 2026)",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://www.vivaaerobus.com/es-mx/info/preparate-para-volar/viajando-con-animales/mascotas-en-cabina"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "volaris",
+    "name": "Volaris",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/volaris.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": null,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: max 45 kg incl. rigid crate, max height 90 cm; 4 checked pets per flight",
+    "species_allowed": [
+      "dogs",
+      "cats"
+    ],
+    "species_as_stated": "Dogs and cats",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "To be confirmed with the airline",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "44 × 30 × 19 cm; cats in rigid carriers",
+    "hold_limits_as_stated": "Yes: max 45 kg incl. rigid crate, max height 90 cm; 4 checked pets per flight",
+    "weight_as_stated": "To be confirmed with the airline",
+    "fees": [],
+    "fees_as_stated": "To be confirmed with the airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "To be confirmed with the airline",
+      "breeds_as_stated": "To be confirmed with the airline",
+      "routes_as_stated": "Not available on Frontier-operated flights. Minimum age: To be confirmed with the airline. Official web page and PDF disagree.",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://cms.volaris.com/es/informacion-util/servicios-opcionales/viaja-con-tu-mascota/",
+      "https://cms.volaris.com/globalassets/pdfs/esp/terminos-y-condiciones-mascotas.pdf"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "westjet",
+    "name": "WestJet",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/westjet.html",
+    "cabin": true,
+    "hold": true,
+    "cargo": null,
+    "cabin_as_stated": "Yes",
+    "hold_or_cargo_as_stated": "Yes: birds, cats, chinchillas, dogs, guinea pigs, hedgehogs, rabbits; max 45 kg incl. kennel, max 101x68x81 cm, hard-sided; 3 kennels/flight on 737, 2 on 787, 1 on Dash 8",
+    "species_allowed": [
+      "dogs",
+      "cats",
+      "birds",
+      "rabbits",
+      "hedgehogs",
+      "guinea pigs",
+      "chinchillas"
+    ],
+    "species_as_stated": "Cabin: dogs, cats and birds. Hold: birds, cats, chinchillas, dogs, guinea pigs, hedgehogs and rabbits",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "To be confirmed with the airline",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Soft-sided under-seat: 41 × 25.4 × 21.5 cm (16 × 10 × 8.5 in)",
+    "hold_limits_as_stated": "Yes: birds, cats, chinchillas, dogs, guinea pigs, hedgehogs, rabbits; max 45 kg incl. kennel, max 101x68x81 cm, hard-sided; 3 kennels/flight on 737, 2 on 787, 1 on Dash 8",
+    "weight_as_stated": "To be confirmed with the airline",
+    "fees": [],
+    "fees_as_stated": "To be confirmed with the airline",
+    "restrictions": {
+      "brachycephalic_as_stated": "Since 2023-07-04 bookings: brachycephalic cats/dogs (pug, bulldogs, Shih Tzu, Boston, boxer, Persian...) not in hold; strong breeds (pit bull, Rottweiler, Doberman...) cargo only; pit bull types restricted into/through Ontario",
+      "breeds_as_stated": "Since 2023-07-04 bookings: brachycephalic cats/dogs (pug, bulldogs, Shih Tzu, Boston, boxer, Persian...) not in hold; strong breeds (pit bull, Rottweiler, Doberman...) cargo only; pit bull types restricted into/through Ontario",
+      "routes_as_stated": "No pets to/from Barbados, Hawaii, Dublin or Jamaica; no pets on codeshare/interline itineraries. No cabin pets in 787 Business. UK / LHR acceptance: To be confirmed with the airline (conflicting research notes).",
+      "cargo_only_as_stated": "Since 2023-07-04 bookings: brachycephalic cats/dogs (pug, bulldogs, Shih Tzu, Boston, boxer, Persian...) not in hold; strong breeds (pit bull, Rottweiler, Doberman...) cargo only; pit bull types restricted into/through Ontario"
+    },
+    "service_animals_as_stated": "To be confirmed with the airline",
+    "official_source_urls": [
+      "https://www.westjet.com/en-ca/travel-info/pets"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  },
+  {
+    "id": "zipair",
+    "name": "ZIPAIR",
+    "iata": null,
+    "iata_source": null,
+    "page_url": "https://petpolicycheck.com/airlines/zipair.html",
+    "cabin": false,
+    "hold": false,
+    "cargo": false,
+    "cabin_as_stated": "No",
+    "hold_or_cargo_as_stated": "No",
+    "species_allowed": [],
+    "species_as_stated": "No pets",
+    "cabin_max_weight": {
+      "kg": null,
+      "lb": null,
+      "as_stated": "Not applicable — no pets",
+      "scope": null
+    },
+    "carrier_dimensions_as_stated": "Not applicable — no pets",
+    "hold_limits_as_stated": null,
+    "weight_as_stated": "Not applicable — no pets",
+    "fees": [],
+    "fees_as_stated": "Not applicable — no pets",
+    "restrictions": {
+      "brachycephalic_as_stated": null,
+      "breeds_as_stated": "Not applicable — no pets",
+      "routes_as_stated": "Flies Tokyo-US/Canada/Korea; no pets at all",
+      "cargo_only_as_stated": null
+    },
+    "service_animals_as_stated": "Assistance dogs only",
+    "official_source_urls": [
+      "https://www.zipair.net/en/faq/animal/bringingAnimalsOnBoard"
+    ],
+    "verified_date": "2026-11-07",
+    "verification_status": "checked",
+    "verification_as_stated": "Checked 7 Nov 2026"
+  }
+]
