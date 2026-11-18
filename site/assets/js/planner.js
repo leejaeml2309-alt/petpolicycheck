@@ -202,6 +202,7 @@
     conds.forEach(function (c) { [c.as_stated, c.condition].forEach(function (t) { if (t) rest = rest.split(t).join(' '); }); });
     return /[A-Za-z0-9]/.test(rest.replace(/\b(and|or|on|the|to|from|flights?|including|carrier)\b/gi, ''));
   }
+  function incl(a) { var w = a.cabin_max_weight && a.cabin_max_weight.weight_includes; return w ? ' (' + esc(S.wIncludesShort) + ' <span lang="en">' + esc(w) + '</span>)' : ''; }
   function weightBlock(a) {
     if (a.cabin === false) return noCabinBlock(S.weightRow, a);
     var r = C.checkCabinWeight(a, { petWeight: st.pw, carrierWeight: st.cw, unit: st.wu });
@@ -212,14 +213,16 @@
         var src = conds[i] || {}, lim = [];
         if (typeof src.kg === 'number') lim.push(src.kg + ' ' + S.kg);
         if (typeof src.lb === 'number') lim.push(src.lb + ' ' + S.lb);
-        return '<li><p class="pl-cond-k"><span lang="en">' + esc(c.condition || '') + '</span>' + (c.condition ? '' : esc(S.condNone)) +
-          '</p>' + (lim.length ? '<p class="pl-cond-lim"><span class="pl-as-k">' + esc(S.condLimit) + '</span> ' + esc(lim.join(' / ')) + '</p>' : '') +
+        var hasNamed = r.conditions.some(function (x) { return !!x.condition; });
+        return '<li><p class="pl-cond-k"><span lang="en">' + esc(c.condition || '') + '</span>' + (c.condition ? '' : esc(hasNamed ? S.condGeneral : S.condNone)) +
+          '</p>' + (lim.length ? '<p class="pl-cond-lim"><span class="pl-as-k">' + esc(S.condLimit) + '</span> ' + esc(lim.join(' / ')) + incl(a) + '</p>' : '') +
           weightVerdict(c) + '<p class="pl-as"><span class="pl-as-k">' + esc(S.statedAs) + '</span> ' + txtA(c.asStated) + '</p></li>';
       }).join('') + '</ul>';
       h += '<p class="pl-as"><span class="pl-as-k">' + esc(S.statedAs) + '</span> ' + txtA(r.asStated) + '</p>';
       if (r.notes && notesAddText(r.notes, conds)) h += '<p class="pl-as"><span class="pl-as-k">' + esc(S.notes) + '</span> ' + txtA(r.notes) + '</p>';
     } else {
       h += weightVerdict(r) + '<p class="pl-as"><span class="pl-as-k">' + esc(S.statedAs) + '</span> ' + (r.asStated ? esc(r.asStated) : nullA()) + '</p>';
+      if (a.cabin_max_weight && a.cabin_max_weight.weight_includes) h += '<p class="pl-as"><span class="pl-as-k">' + esc(S.wIncludes) + '</span> <span lang="en">' + esc(a.cabin_max_weight.weight_includes) + '</span></p>';
       if (r.notes) h += '<p class="pl-as"><span class="pl-as-k">' + esc(S.notes) + '</span> ' + txtA(r.notes) + '</p>';
     }
     if (r.scope) h += '<p class="pl-as"><span class="pl-as-k">' + esc(S.scope) + '</span> ' + esc(r.scope) + '</p>';
@@ -279,11 +282,12 @@
     return src.slice(s, e).replace(/^\s*\|\s*/, '').replace(/\s*\|$/, '').trim();
   }
   /* Species-specific requirement view: keep entries for the plan's species (plus dogs_and_cats and unlabelled ones). */
-  var ENTRY_SPECIES = { dog: ['dogs', 'dogs_and_cats'], cat: ['cats', 'dogs_and_cats'], ferret: ['ferrets'] };
+  /* Show an entry when its species is the pet's, dogs_and_cats, or null (= all pets). */
+  var ENTRY_SPECIES = { dog: 'dogs', cat: 'cats', ferret: 'ferrets', bird: 'birds', rabbit: 'rabbits' };
   function viewReq(r) {
     if (!r || !Array.isArray(r.entries) || !r.entries.length) return r || {};
-    var want = ENTRY_SPECIES[st.sp];
-    var keep = r.entries.filter(function (e) { return !want || e.species == null || want.indexOf(e.species) >= 0; });
+    var want = ENTRY_SPECIES[st.sp] || null;
+    var keep = r.entries.filter(function (e) { return e.species == null || e.species === 'dogs_and_cats' || (want !== null && e.species === want); });
     var v = {}; for (var k in r) v[k] = r[k];
     var ap = [];
     keep.forEach(function (e) { String(e.applies_to || '').split(/\s*;\s*/).forEach(function (x) { if (x && ap.indexOf(x) < 0) ap.push(x); }); });
@@ -325,7 +329,7 @@
     var shown = {};
     REQ_ORDER.forEach(function (key) {
       var r = viewReq(k.requirements[key] || {});
-      var chip = r.required === true ? statusChip('ok', S.rTrue) : (r.required === false ? statusChip('na', S.rFalse) : (r.as_stated ? statusChip('warn', S.rNull) : ''));
+      var chip = r._otherOnly ? '' : r.required === true ? statusChip('ok', S.rTrue) : (r.required === false ? statusChip('na', S.rFalse) : (r.as_stated ? statusChip('warn', S.rNull) : ''));
       h += '<div class="pl-req"><dt><span class="pl-req-name">' + esc(S.req[key]) + '</span>' + chip +
         (r.applies_to ? '<span class="pl-req-meta"><span class="pl-as-k">' + esc(S.appliesTo) + '</span> ' + fullAndExcerpt(r.applies_to, 90) + '</span>' : '') +
         (r.standard ? '<span class="pl-req-meta"><span class="pl-as-k">' + esc(S.standard) + '</span> ' + esc(r.standard) + '</span>' : '') +
@@ -366,7 +370,7 @@
   function statusLabel(s) { return s === 'verified' ? S.verified : (s === 'checked' ? S.checked : S.notVerified); }
   function srcBlock(kind, rec, localPage) {
     var d = parseDate(rec.verified_date);
-    var h = '<div class="pl-srcbox"><p class="pl-srcbox-k">' + esc(kind) + ' · ' + esc(kind === S.airlineSrc ? rec.name : countryName(rec.id)) + '</p>' +
+    var h = '<div class="pl-srcbox"><p class="pl-srcbox-k">' + esc(kind) + ' · ' + esc(kind === S.airlineSrc ? rec.name + (rec.iata ? ' (' + rec.iata + ')' : '') : countryName(rec.id)) + '</p>' +
       '<p class="pl-verif">' + statusChip(rec.verification_status === 'verified' ? 'ok' : (rec.verification_status === 'checked' ? 'warn' : 'bad'), statusLabel(rec.verification_status)) +
       ' <time datetime="' + esc(rec.verified_date) + '">' + esc(d ? fds(d) : rec.verified_date) + '</time> <span class="pl-iso">(' + esc(rec.verified_date) + ')</span></p>' +
       (rec.verification_as_stated ? '<p class="pl-hint" lang="en">' + esc(rec.verification_as_stated) + '</p>' : '') + '<p class="pl-as-k pl-srch">' + esc(S.officialSrc) + ' (' + (rec.official_source_urls || []).length + ')</p><ul class="pl-srclist">';
@@ -501,7 +505,7 @@
   window.addEventListener('hashchange', function () { var n = decode(location.hash.slice(1)); if (encode() !== location.hash.slice(1)) { st = n; render(false); } });
 
   root.innerHTML = '<p class="pl-loading" role="status">' + esc(S.loading) + '</p>';
-  Promise.all([fetch(BASE + 'airlines.json?v=20261118pl3').then(function (r) { if (!r.ok) throw r.status; return r.json(); }), fetch(BASE + 'countries.json?v=20261118pl3').then(function (r) { if (!r.ok) throw r.status; return r.json(); })])
+  Promise.all([fetch(BASE + 'airlines.json?v=20261118pl4').then(function (r) { if (!r.ok) throw r.status; return r.json(); }), fetch(BASE + 'countries.json?v=20261118pl4').then(function (r) { if (!r.ok) throw r.status; return r.json(); })])
     .then(function (res) {
       A = res[0]; K = res[1];
       A.forEach(function (a) { byA[a.id] = a; }); K.forEach(function (k) { byK[k.id] = k; });

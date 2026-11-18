@@ -75,11 +75,11 @@
   }
 
   /* One stated limit object {kg, lb, as_stated} → result in the user's unit, never converted. */
-  function evalWeight(w, unit, pet, carrier, inclText) {
+  function evalWeight(w, unit, pet, carrier, inclText, inclStated) {
     var other = unit === 'kg' ? 'lb' : 'kg';
     var res = {
       status: 'unknown', unit: unit, limit: statedLimit(w, unit), otherUnit: null,
-      includesCarrier: limitIncludesCarrier(inclText), pet: pet, carrier: carrier,
+      includesCarrier: inclStated ? true : limitIncludesCarrier(inclText), pet: pet, carrier: carrier,
       total: pet !== null ? pet + (carrier || 0) : null, carrierEntered: carrier !== null,
       asStated: (w && w.as_stated) || null
     };
@@ -107,7 +107,9 @@
     var unit = input && WEIGHT_UNITS.indexOf(input.unit) >= 0 ? input.unit : 'kg';
     var pet = num(input && input.petWeight);
     var carrier = num(input && input.carrierWeight);
-    var res = evalWeight(w, unit, pet, carrier, w.as_stated);
+    /* weight_includes ("carrier", "carrier and food", "pet + carrier") is stated for the whole limit */
+    var inclStated = /carrier|kennel|container/i.test(w.weight_includes || '');
+    var res = evalWeight(w, unit, pet, carrier, w.as_stated, inclStated);
     res.scope = w.scope || null;
     res.notes = w.notes || null;
     res.conditions = [];
@@ -115,7 +117,7 @@
     if (conds.length && res.limit === null && res.status !== 'other-unit') {
       res.status = 'conditional';
       res.conditions = conds.map(function (c) {
-        var r = evalWeight(c, unit, pet, carrier, c.as_stated || null);
+        var r = evalWeight(c, unit, pet, carrier, c.as_stated || null, inclStated);
         r.condition = c.condition || null;
         return r;
       });

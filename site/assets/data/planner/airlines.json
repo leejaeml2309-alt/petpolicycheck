@@ -2,8 +2,8 @@
   {
     "id": "aeromexico",
     "name": "Aeromexico",
-    "iata": null,
-    "iata_source": null,
+    "iata": "AM",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/aeromexico/9/",
     "page_url": "https://petpolicycheck.com/airlines/aeromexico.html",
     "cabin": true,
     "hold": true,
@@ -21,7 +21,8 @@
       "as_stated": "9 kg including carrier",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": "carrier"
     },
     "carrier_dimensions_as_stated": "To be confirmed with the airline",
     "hold_limits_as_stated": null,
@@ -64,7 +65,8 @@
       "as_stated": null,
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Soft-sided only. Most mainline jets: 43 x 40 x 20 cm (17 x 16 x 8 in) L x W x H; Dash 8-400/E175/CRJ900: 55 x 40 x 27 cm; widebody Business Class: 41 x 21 x 28 cm",
     "hold_limits_as_stated": "Baggage compartment: up to 45 kg (100 lb) pet + kennel; max 292 cm (115 in) linear",
@@ -164,7 +166,8 @@
       "as_stated": "8 kg (17.64 lb) pet + carrier in cabin",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": "pet + carrier"
     },
     "carrier_dimensions_as_stated": "Soft-sided bag, max 46 x 28 x 24 cm (per Air France's official cabin checklist PDF, Oct 2025)",
     "hold_limits_as_stated": "over 8 kg and up to 75 kg (165.35 lb) must travel in the hold",
@@ -188,8 +191,8 @@
   {
     "id": "air-premia",
     "name": "Air Premia",
-    "iata": null,
-    "iata_source": null,
+    "iata": "YP",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/air-premia/652/",
     "page_url": "https://petpolicycheck.com/airlines/air-premia.html",
     "cabin": true,
     "hold": true,
@@ -208,7 +211,8 @@
       "as_stated": "To be confirmed with the airline",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "To be confirmed with the airline",
     "hold_limits_as_stated": "Yes, max 2 in hold per aircraft; up to 45 kg incl. container (fee bands)",
@@ -232,8 +236,8 @@
   {
     "id": "air-transat",
     "name": "Air Transat",
-    "iata": null,
-    "iata_source": null,
+    "iata": "TS",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/air-transat/377/",
     "page_url": "https://petpolicycheck.com/airlines/air-transat.html",
     "cabin": true,
     "hold": true,
@@ -251,7 +255,8 @@
       "as_stated": "Cabin: must not exceed 8 kg.",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Cabin: soft-sided only, must not exceed 25 cm (10 in) in height × 24 cm (9.5 in) in width × 43 cm (17 in) in length, and must fit under the seat. Hard-sided carriers are not permitted in the cabin.",
     "hold_limits_as_stated": "Hold: maximum 45 kg (99 lb) including the carrier.",
@@ -360,7 +365,8 @@
       "as_stated": null,
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Soft-sided carrier max 17 x 11 x 9.5 in (per Alaska's official newsroom, Aug 26, 2026)",
     "hold_limits_as_stated": "Baggage compartment: up to 150 lb pet + kennel combined (official newsroom, Aug 26, 2026)",
@@ -437,7 +443,8 @@
       "as_stated": "20 lb (9.07 kg) pet + carrier on A321T premium cabins",
       "scope": "A321T premium cabins; no general in-cabin limit stated",
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": "pet + carrier"
     },
     "carrier_dimensions_as_stated": "Soft-sided (recommended): 18 x 11 x 11 in (46 x 28 x 28 cm); hard-sided mainline: 19 x 13 x 9 in; hard-sided American Eagle: 16 x 12 x 8 in",
     "hold_limits_as_stated": "checked kennel max 100 lb (45 kg) combined.",
@@ -506,8 +513,8 @@
   {
     "id": "ana",
     "name": "ANA (All Nippon Airways)",
-    "iata": null,
-    "iata_source": null,
+    "iata": "NH",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/ana-/37/",
     "page_url": "https://petpolicycheck.com/airlines/ana.html",
     "cabin": false,
     "hold": true,
@@ -522,7 +529,8 @@
       "as_stated": "Not applicable — no cabin pets",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Not applicable — no cabin pets",
     "hold_limits_as_stated": null,
@@ -558,8 +566,8 @@
   {
     "id": "asiana",
     "name": "Asiana Airlines",
-    "iata": null,
-    "iata_source": null,
+    "iata": "OZ",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/asiana-airlines/329/",
     "page_url": "https://petpolicycheck.com/airlines/asiana.html",
     "cabin": true,
     "hold": true,
@@ -578,7 +586,8 @@
       "as_stated": "7 kg including carrier",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": "carrier"
     },
     "carrier_dimensions_as_stated": "45 × 32 × 21 cm; soft carriers up to 26 cm high if compressible to 21 cm",
     "hold_limits_as_stated": "Yes: up to 2 per adult; max 45 kg incl. cage, cage L+W+H <=285 cm, height <=84 cm; not on A321 international routes",
@@ -602,8 +611,8 @@
   {
     "id": "avelo",
     "name": "Avelo Airlines",
-    "iata": null,
-    "iata_source": null,
+    "iata": "XP",
+    "iata_source": "https://www.aveloair.com/route-announcements/viva-las-vegas-avelo-airlines-launches-nonstop-service-between-santa-rosa-and-las-vegas",
     "page_url": "https://petpolicycheck.com/airlines/avelo.html",
     "cabin": true,
     "hold": false,
@@ -623,7 +632,8 @@
       "as_stated": null,
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Hard-sided: 17\"L × 13\"H × 9\"W (43 × 33 × 22 cm); soft-sided containers must fit in the same space",
     "hold_limits_as_stated": null,
@@ -662,8 +672,8 @@
   {
     "id": "breeze",
     "name": "Breeze Airways",
-    "iata": null,
-    "iata_source": null,
+    "iata": "MX",
+    "iata_source": "https://www.iata.org/globalassets/iata/services/financial-services/sis/wfsim/sis_participants_with_voting_rights_2026.pdf",
     "page_url": "https://petpolicycheck.com/airlines/breeze.html",
     "cabin": true,
     "hold": false,
@@ -681,7 +691,8 @@
       "as_stated": "The pet must weigh 25 lb or less",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Soft-sided only, not exceeding 17\" × 8\" × 13\" (L × W × H), and must fit under the seat",
     "hold_limits_as_stated": null,
@@ -733,7 +744,8 @@
       "as_stated": "Check with airline",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Not applicable: BA carries no pets in the cabin",
     "hold_limits_as_stated": null,
@@ -777,7 +789,8 @@
       "as_stated": "Check with airline",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Depends on aircraft under-seat space; Delta recommends a soft-sided kennel of max 18 x 11 x 11 in, which fits most aircraft",
     "hold_limits_as_stated": null,
@@ -844,8 +857,8 @@
   {
     "id": "finnair",
     "name": "Finnair",
-    "iata": null,
-    "iata_source": null,
+    "iata": "AY",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/finnair/86/",
     "page_url": "https://petpolicycheck.com/airlines/finnair.html",
     "cabin": true,
     "hold": true,
@@ -867,7 +880,8 @@
       "as_stated": "Cabin: maximum total weight of the carrier and the pet is 8 kg (17.6 lb).",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Cabin, on Finnair- and Norra-operated flights: soft carriers 55 × 40 × 23 cm (21.7 × 15.7 × 9.1 in), with 23 cm the maximum compressed height; hard carriers 35 × 30 × 20 cm (14.8 × 11.9 × 7.9 in). Hold crate maxima (L × W × H): 122 × 81 × 89 cm on Airbus A319, A320, A321, A330 and A350; 101 × 68 × 76 cm on Embraer E90 (Norra); 81 × 57 × 53 cm on ATR (Norra).",
     "hold_limits_as_stated": "Hold: 75 kg (165 lb) on Finnair-operated flights; 50 kg (110 lb) on Norra-operated flights. Above those hold limits, the pet must be shipped as cargo.",
@@ -999,8 +1013,8 @@
   {
     "id": "frontier",
     "name": "Frontier Airlines",
-    "iata": null,
-    "iata_source": null,
+    "iata": "F9",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/frontier-airlines/676/",
     "page_url": "https://petpolicycheck.com/airlines/frontier.html",
     "cabin": true,
     "hold": false,
@@ -1022,7 +1036,8 @@
       "as_stated": "To be confirmed with the airline",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Hard: 18 × 14 × 8 in; soft: 18 × 14 × 11 in",
     "hold_limits_as_stated": null,
@@ -1068,7 +1083,8 @@
       "as_stated": null,
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Soft-sided only, max 17 x 11 x 9.5 in (length x width x height); hard-sided kennels are not allowed in the cabin",
     "hold_limits_as_stated": null,
@@ -1154,8 +1170,8 @@
   {
     "id": "iberia",
     "name": "Iberia",
-    "iata": null,
-    "iata_source": null,
+    "iata": "IB",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/iberia/412/",
     "page_url": "https://petpolicycheck.com/airlines/iberia.html",
     "cabin": true,
     "hold": true,
@@ -1176,7 +1192,8 @@
       "as_stated": "Cabin: 8 kg including the carrier.",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": "carrier"
     },
     "carrier_dimensions_as_stated": "Cabin: maximum 45 cm (length) × 35 cm (width) × 25 cm (height), and the sum of these dimensions must not exceed 105 cm. On Iberia flights operated by Air Nostrum, the carrier cannot be rigid. Hold: aircraft limits vary; for Iberia Regional Air Nostrum flights the maximum dimensions are 83 cm × 65 cm × 56 cm.",
     "hold_limits_as_stated": "Hold: 45 kg (pet + carrier). Above 45 kg, or where legal or breed restrictions apply, transport is as cargo (Iberia directs customers to a cargo agent such as WOOF Airlines / IAG Cargo).",
@@ -1223,8 +1240,8 @@
   {
     "id": "ita-airways",
     "name": "ITA Airways",
-    "iata": null,
-    "iata_source": null,
+    "iata": "AZ",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/ita-airways/565/",
     "page_url": "https://petpolicycheck.com/airlines/ita-airways.html",
     "cabin": true,
     "hold": true,
@@ -1255,7 +1272,8 @@
           "condition": "all other flights",
           "as_stated": "8 kg on all other flights"
         }
-      ]
+      ],
+      "weight_includes": "carrier and food"
     },
     "carrier_dimensions_as_stated": "Cabin: a soft carrier placed under the seat in front, not exceeding 55 × 40 × 23 cm (maximum total 118 cm). Hold: a rigid fibreglass or rigid-plastic carrier; maximum dimensions vary by aircraft type. Dog hold carriers must have a metal door with a locking system that secures the central, upper and lower locking points, and metal (not plastic) side air vents. Wheels must be removed or, if retractable, secured with adhesive tape.",
     "hold_limits_as_stated": "Hold, including carrier and food: up to 75 kg. On a selection of domestic routes identified as Large Dog flights, ITA also offers a Large Dog On Board service for dogs above the standard cabin limits and up to 30 kg; terms are on ITA's dedicated page for that service",
@@ -1360,8 +1378,8 @@
   {
     "id": "jal",
     "name": "Japan Airlines (JAL)",
-    "iata": null,
-    "iata_source": null,
+    "iata": "JL",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/japan-airlines/93/",
     "page_url": "https://petpolicycheck.com/airlines/jal.html",
     "cabin": false,
     "hold": true,
@@ -1386,7 +1404,8 @@
       "as_stated": "Not applicable — no cabin pets",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "IATA-compliant hard crate for the hold; rental M 32 × 32 × 39 cm / L 45 × 45 × 41 cm",
     "hold_limits_as_stated": "Yes: dogs, cats, small birds, rabbits, ferrets, hamsters, marmots, squirrels, chinchillas; IATA-compliant hard crate; rental crates M 32x32x39 cm (7.4 kg) and L 45x45x41 cm (11.5 kg), reserve up to 4 days before",
@@ -1410,8 +1429,8 @@
   {
     "id": "jeju-air",
     "name": "Jeju Air",
-    "iata": null,
-    "iata_source": null,
+    "iata": "7C",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/jeju-air/531/",
     "page_url": "https://petpolicycheck.com/airlines/jeju-air.html",
     "cabin": null,
     "hold": null,
@@ -1426,7 +1445,8 @@
       "as_stated": "To be confirmed with the airline",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "To be confirmed with the airline",
     "hold_limits_as_stated": null,
@@ -1469,7 +1489,8 @@
       "as_stated": "Check with airline",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "17 x 12.5 x 8.5 in (43.18 x 31.75 x 21.59 cm); soft- or hard-sided",
     "hold_limits_as_stated": null,
@@ -1509,7 +1530,8 @@
       "as_stated": "Check with airline",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Check with airline",
     "hold_limits_as_stated": null,
@@ -1552,7 +1574,8 @@
       "as_stated": "8 kg pet + carrier in cabin",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": "pet + carrier"
     },
     "carrier_dimensions_as_stated": "Soft-sided, 55 x 40 x 23 cm (22 x 16 x 9 in), 118 cm total",
     "hold_limits_as_stated": "Yes: dogs and cats over 8 kg as excess baggage in the air-conditioned hold; other animals via Lufthansa Cargo.",
@@ -1733,8 +1756,8 @@
   {
     "id": "peach",
     "name": "Peach Aviation",
-    "iata": null,
-    "iata_source": null,
+    "iata": "MM",
+    "iata_source": "https://www.flypeach.com/portals/1/PressReleases/2011/111109-Press-Release-E.pdf",
     "page_url": "https://petpolicycheck.com/airlines/peach.html",
     "cabin": false,
     "hold": false,
@@ -1749,7 +1772,8 @@
       "as_stated": "Not applicable — no pets",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Not applicable — no pets",
     "hold_limits_as_stated": null,
@@ -1773,8 +1797,8 @@
   {
     "id": "porter",
     "name": "Porter Airlines",
-    "iata": null,
-    "iata_source": null,
+    "iata": "PD",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/porter-airlines/670/",
     "page_url": "https://petpolicycheck.com/airlines/porter.html",
     "cabin": true,
     "hold": false,
@@ -1792,7 +1816,8 @@
       "as_stated": "To be confirmed with the airline",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Soft-sided: 55 × 40 × 27 cm",
     "hold_limits_as_stated": null,
@@ -1831,8 +1856,8 @@
   {
     "id": "sas",
     "name": "SAS",
-    "iata": null,
-    "iata_source": null,
+    "iata": "SK",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/sas/171/",
     "page_url": "https://petpolicycheck.com/airlines/sas.html",
     "cabin": true,
     "hold": true,
@@ -1850,7 +1875,8 @@
       "as_stated": "Cabin: maximum 8 kg including the pet.",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Cabin: soft-sided, fully closeable, well-ventilated and bite- and leak-proof; maximum 40 × 25 × 23 cm (L × W × H). Hold: an escape-proof container that meets IATA regulations; maximum size depends on the aircraft type.",
     "hold_limits_as_stated": "Hold: maximum 50 kg including the pet.",
@@ -1928,7 +1954,8 @@
       "as_stated": "Check with airline",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Check with airline",
     "hold_limits_as_stated": null,
@@ -1991,7 +2018,8 @@
       "as_stated": "To be confirmed with the airline",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "To be confirmed with the airline",
     "hold_limits_as_stated": null,
@@ -2015,8 +2043,8 @@
   {
     "id": "sun-country",
     "name": "Sun Country Airlines",
-    "iata": null,
-    "iata_source": null,
+    "iata": "SY",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/sun-country-airlines/599/",
     "page_url": "https://petpolicycheck.com/airlines/sun-country.html",
     "cabin": true,
     "hold": null,
@@ -2034,7 +2062,8 @@
       "as_stated": "Small cats and dogs weighing 35 lb or less",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Must not exceed 17\"L × 12\"W × 9\"H and must remain under the seat in front of the passenger",
     "hold_limits_as_stated": null,
@@ -2070,8 +2099,8 @@
   {
     "id": "tway",
     "name": "T’way Air",
-    "iata": null,
-    "iata_source": null,
+    "iata": "TW",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/trinity-airways/472/",
     "page_url": "https://petpolicycheck.com/airlines/tway.html",
     "cabin": true,
     "hold": false,
@@ -2090,7 +2119,8 @@
       "as_stated": "9 kg including carrier",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": "carrier"
     },
     "carrier_dimensions_as_stated": "Hard case: width ≤37 cm, height ≤23 cm; soft height ≤26 cm; L + W + H ≤115 cm",
     "hold_limits_as_stated": null,
@@ -2145,7 +2175,8 @@
       "as_stated": "No weight limit (United states there are no weight or breed limitations; pet must fit the carrier)",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Hard-sided: 9 x 17.5 x 12 in (22 x 44 x 30 cm); soft-sided: 11 x 18 x 11 in (27 x 45 x 27 cm); max 10 in tall on Boeing 737 MAX",
     "hold_limits_as_stated": null,
@@ -2181,8 +2212,8 @@
   {
     "id": "viva-aerobus",
     "name": "Viva Aerobus",
-    "iata": null,
-    "iata_source": null,
+    "iata": "VB",
+    "iata_source": "https://www.iata.org/globalassets/iata/services/financial-services/sis/wfsim/sis_participants_with_voting_rights_2026.pdf",
     "page_url": "https://petpolicycheck.com/airlines/viva-aerobus.html",
     "cabin": true,
     "hold": null,
@@ -2204,7 +2235,7 @@
         {
           "kg": 12,
           "lb": null,
-          "condition": "including carrier",
+          "condition": null,
           "as_stated": "12 kg including carrier"
         },
         {
@@ -2213,7 +2244,8 @@
           "condition": "to/from Colombia",
           "as_stated": "10 kg to/from Colombia"
         }
-      ]
+      ],
+      "weight_includes": "carrier"
     },
     "carrier_dimensions_as_stated": "44 × 35 × 21 cm; rigid or semi-rigid",
     "hold_limits_as_stated": null,
@@ -2237,8 +2269,8 @@
   {
     "id": "volaris",
     "name": "Volaris",
-    "iata": null,
-    "iata_source": null,
+    "iata": "Y4",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/volaris/397/",
     "page_url": "https://petpolicycheck.com/airlines/volaris.html",
     "cabin": true,
     "hold": true,
@@ -2256,7 +2288,8 @@
       "as_stated": "To be confirmed with the airline",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "44 × 30 × 19 cm; cats in rigid carriers",
     "hold_limits_as_stated": "Yes: max 45 kg incl. rigid crate, max height 90 cm; 4 checked pets per flight",
@@ -2281,8 +2314,8 @@
   {
     "id": "westjet",
     "name": "WestJet",
-    "iata": null,
-    "iata_source": null,
+    "iata": "WS",
+    "iata_source": "https://www.iata.org/en/about/members/airline-list/westjet/473/",
     "page_url": "https://petpolicycheck.com/airlines/westjet.html",
     "cabin": true,
     "hold": true,
@@ -2305,7 +2338,8 @@
       "as_stated": "To be confirmed with the airline",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Soft-sided under-seat: 41 × 25.4 × 21.5 cm (16 × 10 × 8.5 in)",
     "hold_limits_as_stated": "Yes: birds, cats, chinchillas, dogs, guinea pigs, hedgehogs, rabbits; max 45 kg incl. kennel, max 101x68x81 cm, hard-sided; 3 kennels/flight on 737, 2 on 787, 1 on Dash 8",
@@ -2329,8 +2363,8 @@
   {
     "id": "zipair",
     "name": "ZIPAIR",
-    "iata": null,
-    "iata_source": null,
+    "iata": "ZG",
+    "iata_source": "https://www.zipair.net/en/notification/147",
     "page_url": "https://petpolicycheck.com/airlines/zipair.html",
     "cabin": false,
     "hold": false,
@@ -2345,7 +2379,8 @@
       "as_stated": "Not applicable — no pets",
       "scope": null,
       "notes": null,
-      "conditions": []
+      "conditions": [],
+      "weight_includes": null
     },
     "carrier_dimensions_as_stated": "Not applicable — no pets",
     "hold_limits_as_stated": null,
