@@ -286,7 +286,7 @@
     var keep = r.entries.filter(function (e) { return !want || e.species == null || want.indexOf(e.species) >= 0; });
     var v = {}; for (var k in r) v[k] = r[k];
     var ap = [];
-    keep.forEach(function (e) { if (e.applies_to && ap.indexOf(e.applies_to) < 0) ap.push(e.applies_to); });
+    keep.forEach(function (e) { String(e.applies_to || '').split(/\s*;\s*/).forEach(function (x) { if (x && ap.indexOf(x) < 0) ap.push(x); }); });
     v.as_stated = keep.map(function (e) { return e.as_stated; }).filter(Boolean).join(' | ') || null;
     v.applies_to = ap.join('; ') || null;
     v.timings = [].concat.apply([], keep.map(function (e) { return e.timings || []; }));
