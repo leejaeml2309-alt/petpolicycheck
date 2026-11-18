@@ -179,12 +179,19 @@
   .pl-sec--two{gap:8px}
 }
 /* Print: one or two A4 pages, sources and dates kept */
+.pl-conds{list-style:none;margin:10px 0 6px;padding:0;display:grid;gap:8px}
+.pl-conds li{padding:10px 12px;border:1px solid var(--pl-line2);border-radius:10px;background:rgba(0,20,45,.45)}
+.pl-cond-k{margin:0 0 4px;font-weight:600;color:var(--pl-gold-l)}
+.pl-cond-lim{margin:0 0 6px;font-weight:600;color:#F0D58C}
+.pl-fee-amt{display:block;font-size:1.05rem;font-weight:600;color:#F0D58C;margin:2px 0 4px;font-variant-numeric:tabular-nums}
+.pl-fee-sep{color:#b9a26a;font-weight:400;margin:0 4px}
+.pl-fee-txt{display:block}
 @media print{
-  @page{size:A4;margin:9mm 9mm}
+  @page{size:A4;margin:8mm 8mm}
   html,body,body.v-c{background:#fff!important;background-image:none!important;color:#0b1a2e!important}
   body::before,body::after,html::before,html::after{display:none!important;content:none!important;background:none!important}
   body{font-size:8.5pt}
-  header.top,footer,.foot,.skip,.ppc-lang-sw,.pl-hero,.pl-rail,.no-print,.site-search,#ppc-search,[class*="search"],.pl-corner,.pl-mode::after,ins,.adsbygoogle,.ppc-ad,.ad-slot{display:none!important}
+  header.top,footer,.foot,.skip,.ppc-lang-sw,.pl-hero,.pl-rail,.no-print,.site-search,#ppc-search,[class*="search"],.pl-corner,.pl-mode::after{display:none!important}
   main.wrap{max-width:none!important;padding:0!important;margin:0!important}
   .pl-page{max-width:none;padding:0;color:#0b1a2e;--pl-gold:#7a5c12;--pl-gold-l:#7a5c12;--pl-ivory:#001f3f;--pl-ink:#0b1a2e;--pl-mut:#4a5565;--pl-line:#b9a26a;--pl-line2:#d8cba5}
   .pl-plan-head,.pl-sec,.pl-mode,.pl-check-row,.pl-case,.pl-srcbox{background:#fff!important;box-shadow:none!important;border-color:#d8cba5!important}
@@ -210,7 +217,7 @@
   .pl-sec--two{grid-template-columns:1fr 1.3fr;gap:10pt}
   .pl-mode,.pl-check-row,.pl-case,.pl-srcbox{padding:4pt 6pt;border-radius:5pt;break-inside:avoid}
   .pl-mode h4,.pl-check-row h4{font-size:10pt;margin:0 0 3pt;color:#001f3f}
-  .pl-as,.pl-det,.pl-req-txt,.pl-dl dd,.pl-fees li,.pl-case p,.pl-tl blockquote{font-size:8pt;line-height:1.35;margin-top:3pt;color:#0b1a2e}
+  .pl-as,.pl-det,.pl-req-txt,.pl-dl dd,.pl-fees li,.pl-case p,.pl-tl blockquote{font-size:8pt;line-height:1.3;margin-top:2pt;color:#0b1a2e}
   .pl-as-k,.pl-dl dt{color:#4a5565;font-size:6.5pt}
   .pl-st{padding:0 4pt;font-size:7pt;background:#fff!important;white-space:nowrap}
   .pl-check-row .pl-st,.pl-mode .pl-st{white-space:normal;max-width:100%;height:auto}
@@ -236,7 +243,7 @@
   .pl-more{display:none!important}
   .pl-req-txt .pl-same{font-size:6.8pt!important;margin:1pt 0!important}
   .pl-morenote{font-style:italic;margin:1pt 0 0}
-  .pl-printurl{display:block!important;margin-top:1pt}
+  .pl-printurl{display:block!important;margin-top:1pt;font-size:5.8pt!important;line-height:1.2}
   .pl-fees li{font-size:7.4pt!important}
   .pl-sub-h{margin:6pt 0 4pt;font-size:7.5pt;color:#7a5c12}
   .pl-fees li{padding:3pt 0 3pt 10pt}
@@ -250,4 +257,23 @@
   .pl-print-note{font-size:7.2pt!important;color:#3a4250!important;margin:4pt 0 0}
   .print-only{display:block!important;font-size:7pt;color:#4a5565;overflow-wrap:anywhere}
   .pl-note{background:#fff;font-size:8pt;padding:3pt 6pt;color:#0b1a2e}
+  .pl-cases{grid-template-columns:repeat(3,minmax(0,1fr));gap:4pt}
+  .pl-case{padding:2pt 4pt}
+  .pl-case-k{font-size:6.8pt;margin:0 0 1pt}
+  .pl-srcbox,.pl-check-row{break-inside:auto}
+  .pl-conds li{break-inside:avoid}
+  .pl-privacy{display:none!important}
+  .screen-only{display:none!important}
+  .pl-req-meta .pl-as-k,.pl-fee-txt .pl-as-k,.pl-check-row .pl-as .pl-as-k,.pl-mode .pl-as .pl-as-k{display:inline;margin:0 3pt 0 0}
+  .pl-disc .print-only{display:inline!important;margin:0!important}
+  .pl-disc{break-inside:auto}
+  .pl-srcbox .pl-hint{margin:1pt 0}
+  .pl-srcgrid{grid-template-columns:1fr 1.5fr}
+  .pl-srcgrid>:first-child .pl-srclist{columns:1}
+  .pl-print-note,.pl-hint{font-size:6.6pt!important;margin:2pt 0 0!important}
+  .pl-disc{font-size:7pt!important;padding:2pt 6pt!important;margin:3pt 0 1pt!important}
+  .pl-conds{gap:3pt;margin:3pt 0}.pl-conds li{padding:3pt 5pt;background:#fff!important;border-color:#d8cba5!important}
+  .pl-cond-k{font-size:7.6pt;color:#001f3f;margin:0 0 1pt}
+  .pl-cond-lim{font-size:7.6pt;color:#001f3f;margin:0 0 1pt}.pl-cond-lim .pl-as-k{display:inline;margin-right:3pt}
+  .pl-fee-amt{font-size:8.4pt;color:#001f3f;margin:0 0 1pt}.pl-fee-sep{color:#7a5c12}
 }

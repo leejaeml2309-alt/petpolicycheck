@@ -44,51 +44,82 @@
     return typeof v === 'number' ? v : null;
   }
 
-  /**
-   * Cabin weight check.
-   * @param {object} airline  planner airline record
-   * @param {object} input    {petWeight, carrierWeight, unit:'kg'|'lb'}
-   * @returns {object} {status:'within'|'over'|'depends'|'unknown'|'other-unit'|'no-input',
-   *                    limit, unit, otherUnit, includesCarrier, total, pet, asStated, scope}
-   */
-  function checkCabinWeight(airline, input) {
-    var w = (airline && airline.cabin_max_weight) || {};
-    var unit = input && WEIGHT_UNITS.indexOf(input.unit) >= 0 ? input.unit : 'kg';
+  /* Compare the entered weights with one stated limit (same unit only). */
+  function compareLimit(res) {
+    if (res.pet === null) { res.status = 'no-input'; return res; }
+    if (res.includesCarrier === false) {
+      res.status = res.pet <= res.limit ? 'within' : 'over';
+      res.compared = 'pet';
+      return res;
+    }
+    if (res.includesCarrier === true) {
+      if (!res.carrierEntered) {
+        res.status = res.pet > res.limit ? 'over' : 'depends';
+        res.compared = 'pet-only-entered';
+        return res;
+      }
+      res.status = res.total <= res.limit ? 'within' : 'over';
+      res.compared = 'total';
+      return res;
+    }
+    /* Unclear wording: within only if even the total (with an entered carrier) fits, over only if the pet alone exceeds. */
+    if (!res.carrierEntered) {
+      res.status = res.pet > res.limit ? 'over' : 'depends';
+      res.compared = res.pet > res.limit ? 'pet' : 'unclear-no-carrier';
+      return res;
+    }
+    if (res.total <= res.limit) { res.status = 'within'; res.compared = 'total'; }
+    else if (res.pet > res.limit) { res.status = 'over'; res.compared = 'pet'; }
+    else { res.status = 'depends'; res.compared = 'unclear'; }
+    return res;
+  }
+
+  /* One stated limit object {kg, lb, as_stated} → result in the user's unit, never converted. */
+  function evalWeight(w, unit, pet, carrier, inclText) {
     var other = unit === 'kg' ? 'lb' : 'kg';
-    var pet = num(input && input.petWeight);
-    var carrier = num(input && input.carrierWeight);
-    var total = pet !== null ? pet + (carrier || 0) : null;
     var res = {
       status: 'unknown', unit: unit, limit: statedLimit(w, unit), otherUnit: null,
-      includesCarrier: limitIncludesCarrier(w.as_stated), pet: pet, carrier: carrier,
-      total: total, carrierEntered: carrier !== null,
-      asStated: w.as_stated || null, scope: w.scope || null
+      includesCarrier: limitIncludesCarrier(inclText), pet: pet, carrier: carrier,
+      total: pet !== null ? pet + (carrier || 0) : null, carrierEntered: carrier !== null,
+      asStated: (w && w.as_stated) || null
     };
     if (res.limit === null) {
       var o = statedLimit(w, other);
       if (o !== null) { res.status = 'other-unit'; res.otherUnit = { value: o, unit: other }; }
       return res;
     }
-    if (pet === null) { res.status = 'no-input'; return res; }
-    if (res.includesCarrier === false) {
-      res.status = pet <= res.limit ? 'within' : 'over';
-      res.compared = 'pet';
-      return res;
+    return compareLimit(res);
+  }
+
+  /**
+   * Cabin weight check.
+   * @param {object} airline  planner airline record
+   * @param {object} input    {petWeight, carrierWeight, unit:'kg'|'lb'}
+   * @returns {object} {status:'within'|'over'|'depends'|'unknown'|'other-unit'|'no-input'|'conditional',
+   *                    limit, unit, otherUnit, includesCarrier, total, pet, asStated, scope, notes,
+   *                    conditions:[{condition, asStated, ...same result fields}]}
+   * When the source states several limits (cabin_max_weight.conditions) and no top-level
+   * figure, status is "conditional" and each condition is checked on its own, only in the
+   * unit the source states for it. A condition's carrier wording is read from its own text.
+   */
+  function checkCabinWeight(airline, input) {
+    var w = (airline && airline.cabin_max_weight) || {};
+    var unit = input && WEIGHT_UNITS.indexOf(input.unit) >= 0 ? input.unit : 'kg';
+    var pet = num(input && input.petWeight);
+    var carrier = num(input && input.carrierWeight);
+    var res = evalWeight(w, unit, pet, carrier, w.as_stated);
+    res.scope = w.scope || null;
+    res.notes = w.notes || null;
+    res.conditions = [];
+    var conds = Array.isArray(w.conditions) ? w.conditions : [];
+    if (conds.length && res.limit === null && res.status !== 'other-unit') {
+      res.status = 'conditional';
+      res.conditions = conds.map(function (c) {
+        var r = evalWeight(c, unit, pet, carrier, c.as_stated || null);
+        r.condition = c.condition || null;
+        return r;
+      });
     }
-    if (res.includesCarrier === true) {
-      if (!res.carrierEntered) {
-        res.status = pet > res.limit ? 'over' : 'depends';
-        res.compared = 'pet-only-entered';
-        return res;
-      }
-      res.status = total <= res.limit ? 'within' : 'over';
-      res.compared = 'total';
-      return res;
-    }
-    /* Unclear wording: within only if even the total fits, over only if the pet alone exceeds. */
-    if (total <= res.limit) { res.status = 'within'; res.compared = 'total'; }
-    else if (pet > res.limit) { res.status = 'over'; res.compared = 'pet'; }
-    else { res.status = 'depends'; res.compared = 'unclear'; }
     return res;
   }
 

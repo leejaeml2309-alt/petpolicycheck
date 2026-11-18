@@ -19,7 +19,9 @@
       "kg": 9,
       "lb": null,
       "as_stated": "9 kg including carrier",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "To be confirmed with the airline",
     "hold_limits_as_stated": null,
@@ -60,7 +62,9 @@
       "kg": null,
       "lb": null,
       "as_stated": null,
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Soft-sided only. Most mainline jets: 43 x 40 x 20 cm (17 x 16 x 8 in) L x W x H; Dash 8-400/E175/CRJ900: 55 x 40 x 27 cm; widebody Business Class: 41 x 21 x 28 cm",
     "hold_limits_as_stated": "Baggage compartment: up to 45 kg (100 lb) pet + kennel; max 292 cm (115 in) linear",
@@ -71,7 +75,11 @@
         "amount_min": 50,
         "amount_max": 60,
         "currency": null,
-        "currency_as_stated": "CA/US $",
+        "currency_as_stated": "CA/US",
+        "currencies": [
+          "CAD",
+          "USD"
+        ],
         "scope": "Cabin: within Canada and Canada/U.S.",
         "as_stated": "Cabin: within Canada and Canada/U.S.: CA/US $50-$60 one way"
       },
@@ -80,7 +88,11 @@
         "amount_min": 100,
         "amount_max": 120,
         "currency": null,
-        "currency_as_stated": "CA/US $",
+        "currency_as_stated": "CA/US",
+        "currencies": [
+          "CAD",
+          "USD"
+        ],
         "scope": "Cabin: international",
         "as_stated": "Cabin: international: CA/US $100-$120 one way"
       },
@@ -89,7 +101,11 @@
         "amount_min": 105,
         "amount_max": 126,
         "currency": null,
-        "currency_as_stated": "CA/US $",
+        "currency_as_stated": "CA/US",
+        "currencies": [
+          "CAD",
+          "USD"
+        ],
         "scope": "Baggage compartment: within Canada and Canada/U.S.",
         "as_stated": "Baggage compartment: within Canada and Canada/U.S.: CA/US $105-$126 one way"
       },
@@ -98,7 +114,11 @@
         "amount_min": 270,
         "amount_max": 324,
         "currency": null,
-        "currency_as_stated": "CA/US $",
+        "currency_as_stated": "CA/US",
+        "currencies": [
+          "CAD",
+          "USD"
+        ],
         "scope": "Baggage compartment: international",
         "as_stated": "Baggage compartment: international: CA/US $270-$324 one way"
       }
@@ -138,7 +158,9 @@
       "kg": 8,
       "lb": 17.64,
       "as_stated": "8 kg (17.64 lb) pet + carrier in cabin",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Soft-sided bag, max 46 x 28 x 24 cm (per Air France's official cabin checklist PDF, Oct 2025)",
     "hold_limits_as_stated": "over 8 kg and up to 75 kg (165.35 lb) must travel in the hold",
@@ -180,7 +202,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "To be confirmed with the airline",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "To be confirmed with the airline",
     "hold_limits_as_stated": "Yes, max 2 in hold per aircraft; up to 45 kg incl. container (fee bands)",
@@ -221,7 +245,9 @@
       "kg": 8,
       "lb": null,
       "as_stated": "Cabin: must not exceed 8 kg.",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Cabin: soft-sided only, must not exceed 25 cm (10 in) in height × 24 cm (9.5 in) in width × 43 cm (17 in) in length, and must fit under the seat. Hard-sided carriers are not permitted in the cabin.",
     "hold_limits_as_stated": "Hold: maximum 45 kg (99 lb) including the carrier.",
@@ -233,6 +259,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Cabin, per pet, per flight segment (paid up to 24 hours before departure, as published on Air Transat's Canada site)",
         "as_stated": "Cabin, per pet, per flight segment (paid up to 24 hours before departure, as published on Air Transat's Canada site): $50 to the USA or within Canada; $100 to Europe and Africa, or South."
       },
@@ -242,6 +269,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page)",
         "as_stated": "Hold, per pet, per flight segment (paid up to 24 hours before departure, as published on the same page): $100 within Canada; $150 to the USA; $275 to Europe and Africa, or South."
       },
@@ -249,8 +277,9 @@
         "amount": 30,
         "amount_min": null,
         "amount_max": null,
-        "currency": "CAD",
-        "currency_as_stated": "CAD $",
+        "currency": null,
+        "currency_as_stated": "$",
+        "currencies": null,
         "scope": null,
         "as_stated": "Upon entry into Canada, a CAD $30 fee (plus tax, per animal) is required for inspection by the Canadian Food Inspection Agency; arrivals from the USA are exempt."
       }
@@ -287,7 +316,9 @@
       "kg": null,
       "lb": null,
       "as_stated": null,
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Soft-sided carrier max 17 x 11 x 9.5 in (per Alaska's official newsroom, Aug 26, 2026)",
     "hold_limits_as_stated": "Baggage compartment: up to 150 lb pet + kennel combined (official newsroom, Aug 26, 2026)",
@@ -299,6 +330,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "In cabin",
         "as_stated": "In cabin: $100 per carrier each way ($35 wholly within Hawaii)"
       },
@@ -308,6 +340,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": "$",
+        "currencies": null,
         "scope": "Baggage compartment",
         "as_stated": "Baggage compartment: $200 per kennel each way (discounts within Alaska/Hawaii and for active-duty military)"
       }
@@ -347,7 +380,9 @@
       "kg": 9.07,
       "lb": 20,
       "as_stated": "20 lb (9.07 kg) pet + carrier on A321T premium cabins",
-      "scope": "A321T premium cabins; no general in-cabin limit stated"
+      "scope": "A321T premium cabins; no general in-cabin limit stated",
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Soft-sided (recommended): 18 x 11 x 11 in (46 x 28 x 28 cm); hard-sided mainline: 19 x 13 x 9 in; hard-sided American Eagle: 16 x 12 x 8 in",
     "hold_limits_as_stated": "checked kennel max 100 lb (45 kg) combined.",
@@ -359,6 +394,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": "$",
+        "currencies": null,
         "scope": "Carry-on: U.S., Canada, Mexico, Central America, Caribbean",
         "as_stated": "Carry-on: U.S., Canada, Mexico, Central America, Caribbean: $150 per kennel each way"
       },
@@ -368,6 +404,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Checked (active-duty military / State Dept only)",
         "as_stated": "Checked (active-duty military / State Dept only): $200 per kennel; $150 to/from Brazil"
       },
@@ -377,6 +414,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Cargo (PetEmbark)",
         "as_stated": "Cargo (PetEmbark): Varies"
       }
@@ -413,7 +451,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "Not applicable — no cabin pets",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Not applicable — no cabin pets",
     "hold_limits_as_stated": null,
@@ -421,10 +461,11 @@
     "fees": [
       {
         "amount": null,
-        "amount_min": 400,
-        "amount_max": 400,
-        "currency": "USD",
-        "currency_as_stated": "USD",
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "currencies": null,
         "scope": "Per cage, international",
         "as_stated": "Per cage, international: across two areas (e.g. Haneda-Los Angeles) JPY 40,000 / USD 400 / CAD 400 / EUR 300; within one area (e.g. Asia incl. Japan-Korea) JPY 25,000 / USD 250 / CAD 250 / EUR 200. Japan domestic JPY 6,600 (JPY 4,400 certain routes) from 2026-05-19"
       }
@@ -465,7 +506,9 @@
       "kg": 7,
       "lb": null,
       "as_stated": "7 kg including carrier",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "45 × 32 × 21 cm; soft carriers up to 26 cm high if compressible to 21 cm",
     "hold_limits_as_stated": "Yes: up to 2 per adult; max 45 kg incl. cage, cage L+W+H <=285 cm, height <=84 cm; not on A321 international routes",
@@ -508,7 +551,9 @@
       "kg": null,
       "lb": null,
       "as_stated": null,
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Hard-sided: 17\"L × 13\"H × 9\"W (43 × 33 × 22 cm); soft-sided containers must fit in the same space",
     "hold_limits_as_stated": null,
@@ -520,6 +565,9 @@
         "amount_max": null,
         "currency": "USD",
         "currency_as_stated": "USD",
+        "currencies": [
+          "USD"
+        ],
         "scope": null,
         "as_stated": "USD 125 each way, per pet carrier"
       }
@@ -560,7 +608,9 @@
       "kg": null,
       "lb": 25,
       "as_stated": "The pet must weigh 25 lb or less",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Soft-sided only, not exceeding 17\" × 8\" × 13\" (L × W × H), and must fit under the seat",
     "hold_limits_as_stated": null,
@@ -572,6 +622,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": null,
         "as_stated": "An additional charge applies, as posted on the Breeze website. The official Contract of Carriage does not publish a dollar amount."
       }
@@ -608,7 +659,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "Check with airline",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Not applicable: BA carries no pets in the cabin",
     "hold_limits_as_stated": null,
@@ -650,7 +703,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "Check with airline",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Depends on aircraft under-seat space; Delta recommends a soft-sided kennel of max 18 x 11 x 11 in, which fits most aircraft",
     "hold_limits_as_stated": null,
@@ -662,6 +717,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "U.S./Canada/Puerto Rico/U.S. Virgin Islands",
         "as_stated": "U.S./Canada/Puerto Rico/U.S. Virgin Islands: $150 USD/CAD each way (tickets issued on/after Apr 8, 2025; $95 before)"
       },
@@ -670,7 +726,12 @@
         "amount_min": null,
         "amount_max": null,
         "currency": null,
-        "currency_as_stated": "$",
+        "currency_as_stated": "USD/CAD/EUR",
+        "currencies": [
+          "USD",
+          "CAD",
+          "EUR"
+        ],
         "scope": "International",
         "as_stated": "International: $200 USD/CAD/EUR each way"
       },
@@ -680,6 +741,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Brazil",
         "as_stated": "Brazil: $200 USD each way (tickets issued on/after Apr 8, 2025; $75 before)"
       }
@@ -723,7 +785,9 @@
       "kg": 8,
       "lb": 17.6,
       "as_stated": "Cabin: maximum total weight of the carrier and the pet is 8 kg (17.6 lb).",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Cabin, on Finnair- and Norra-operated flights: soft carriers 55 × 40 × 23 cm (21.7 × 15.7 × 9.1 in), with 23 cm the maximum compressed height; hard carriers 35 × 30 × 20 cm (14.8 × 11.9 × 7.9 in). Hold crate maxima (L × W × H): 122 × 81 × 89 cm on Airbus A319, A320, A321, A330 and A350; 101 × 68 × 76 cm on Embraer E90 (Norra); 81 × 57 × 53 cm on ATR (Norra).",
     "hold_limits_as_stated": "Hold: 75 kg (165 lb) on Finnair-operated flights; 50 kg (110 lb) on Norra-operated flights. Above those hold limits, the pet must be shipped as cargo.",
@@ -735,6 +799,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": null,
         "as_stated": "Fees are per pet carrier or container, per direction, for flights operated by Finnair (AY code on the ticket). When departing from India, local taxes are added."
       },
@@ -744,6 +809,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Cabin, Finland/Scandinavia/Baltics",
         "as_stated": "Cabin, Finland/Scandinavia/Baltics: EUR 60 or 7,800 Avios (7 days or more before departure); EUR 65 or 8,500 Avios (6 days or less)."
       },
@@ -753,6 +819,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Cabin, within Europe",
         "as_stated": "Cabin, within Europe: EUR 70 or 9,100 Avios (7 days or more); EUR 80 or 10,500 Avios (6 days or less)."
       },
@@ -762,6 +829,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Cabin, intercontinental (including the Middle East, excluding Australia)",
         "as_stated": "Cabin, intercontinental (including the Middle East, excluding Australia): EUR 140 / USD 160 or 18,500 Avios (7 days or more); EUR 170 / USD 190 or 22,500 Avios (6 days or less)."
       },
@@ -771,6 +839,9 @@
         "amount_max": null,
         "currency": "EUR",
         "currency_as_stated": "EUR",
+        "currencies": [
+          "EUR"
+        ],
         "scope": "Hold, Finland/Scandinavia/Baltics",
         "as_stated": "Hold, Finland/Scandinavia/Baltics: EUR 140 or 18,500 Avios."
       },
@@ -780,17 +851,35 @@
         "amount_max": null,
         "currency": "EUR",
         "currency_as_stated": "EUR",
+        "currencies": [
+          "EUR"
+        ],
         "scope": "Hold, within Europe",
         "as_stated": "Hold, within Europe: EUR 160 or 21,100 Avios."
       },
       {
-        "amount": null,
+        "amount": 650,
         "amount_min": null,
         "amount_max": null,
-        "currency": null,
-        "currency_as_stated": null,
+        "currency": "EUR",
+        "currency_as_stated": "EUR",
+        "currencies": [
+          "EUR"
+        ],
         "scope": "Hold, intercontinental",
-        "as_stated": "Hold, intercontinental: EUR 650 / USD 750 or 86,500 Avios."
+        "as_stated": "EUR 650"
+      },
+      {
+        "amount": 750,
+        "amount_min": null,
+        "amount_max": null,
+        "currency": "USD",
+        "currency_as_stated": "USD",
+        "currencies": [
+          "USD"
+        ],
+        "scope": "Hold, intercontinental",
+        "as_stated": "USD 750"
       },
       {
         "amount": null,
@@ -798,6 +887,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": null,
         "as_stated": "Cargo pricing is on the Finnair Cargo website."
       }
@@ -841,7 +931,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "To be confirmed with the airline",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Hard: 18 × 14 × 8 in; soft: 18 × 14 × 11 in",
     "hold_limits_as_stated": null,
@@ -885,7 +977,9 @@
       "kg": null,
       "lb": null,
       "as_stated": null,
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Soft-sided only, max 17 x 11 x 9.5 in (length x width x height); hard-sided kennels are not allowed in the cabin",
     "hold_limits_as_stated": null,
@@ -897,6 +991,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "In cabin",
         "as_stated": "In cabin: $100 per carrier each way ($35 wholly within Hawaii)"
       },
@@ -906,6 +1001,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Baggage compartment",
         "as_stated": "Baggage compartment: $200 per kennel each way ($60 wholly within Hawaii; $100 wholly within Alaska or for active-duty U.S. Military and dependents on travel orders)"
       }
@@ -954,7 +1050,9 @@
       "kg": 8,
       "lb": null,
       "as_stated": "Cabin: 8 kg including the carrier.",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Cabin: maximum 45 cm (length) × 35 cm (width) × 25 cm (height), and the sum of these dimensions must not exceed 105 cm. On Iberia flights operated by Air Nostrum, the carrier cannot be rigid. Hold: aircraft limits vary; for Iberia Regional Air Nostrum flights the maximum dimensions are 83 cm × 65 cm × 56 cm.",
     "hold_limits_as_stated": "Hold: 45 kg (pet + carrier). Above 45 kg, or where legal or breed restrictions apply, transport is as cargo (Iberia directs customers to a cargo agent such as WOOF Airlines / IAG Cargo).",
@@ -966,15 +1064,17 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Cabin, per segment, per carrier (if the itinerary connects different zones, the highest-priced zone applies)",
         "as_stated": "Cabin, per segment, per carrier (if the itinerary connects different zones, the highest-priced zone applies): Spain (except Canary Islands) online EUR 40 / USD 50 / GBP 35, airport EUR 44 / USD 55 / GBP 40; Canary Islands, Europe, North Africa and Israel online EUR 60 / USD 75 / GBP 55, airport EUR 66 / USD 80 / GBP 60; America, Asia and Qatar online EUR 180 / USD 215 / GBP 160, airport EUR 198 / USD 235 / GBP 175."
       },
       {
         "amount": null,
-        "amount_min": 90,
-        "amount_max": 110,
-        "currency": "EUR",
-        "currency_as_stated": "EUR",
+        "amount_min": null,
+        "amount_max": null,
+        "currency": null,
+        "currency_as_stated": null,
+        "currencies": null,
         "scope": "Hold, payable at the airport only, per segment (connecting-flight prices are higher, as published on the official page)",
         "as_stated": "Hold, payable at the airport only, per segment (connecting-flight prices are higher, as published on the official page): Spain (except Canary Islands) EUR 90 / USD 110 / GBP 80 up to 10 kg, EUR 100 / USD 120 / GBP 90 for 11–25 kg, EUR 110 / USD 130 / GBP 100 for 26–45 kg; Canary Islands, Europe, North Africa and Israel EUR 135 / USD 160 / GBP 120 up to 10 kg, EUR 145 / USD 170 / GBP 130 for 11–25 kg, EUR 155 / USD 185 / GBP 135 for 26–45 kg; America, Asia and Qatar EUR 290 / USD 340 / GBP 255 up to 10 kg, EUR 310 / USD 365 / GBP 270 for 11–25 kg, EUR 330 / USD 390 / GBP 290 for 26–45 kg."
       }
@@ -1014,7 +1114,22 @@
       "kg": null,
       "lb": null,
       "as_stated": "Cabin, including carrier and food: 12 kg on domestic flights and 8 kg on all other flights",
-      "scope": null
+      "scope": null,
+      "notes": "domestic flights: Cabin, including carrier and food: 12 kg on domestic flights; all other flights: 8 kg on all other flights",
+      "conditions": [
+        {
+          "kg": 12,
+          "lb": null,
+          "condition": "domestic flights",
+          "as_stated": "Cabin, including carrier and food: 12 kg on domestic flights"
+        },
+        {
+          "kg": 8,
+          "lb": null,
+          "condition": "all other flights",
+          "as_stated": "8 kg on all other flights"
+        }
+      ]
     },
     "carrier_dimensions_as_stated": "Cabin: a soft carrier placed under the seat in front, not exceeding 55 × 40 × 23 cm (maximum total 118 cm). Hold: a rigid fibreglass or rigid-plastic carrier; maximum dimensions vary by aircraft type. Dog hold carriers must have a metal door with a locking system that secures the central, upper and lower locking points, and metal (not plastic) side air vents. Wheels must be removed or, if retractable, secured with adhesive tape.",
     "hold_limits_as_stated": "Hold, including carrier and food: up to 75 kg. On a selection of domestic routes identified as Large Dog flights, ITA also offers a Large Dog On Board service for dogs above the standard cabin limits and up to 30 kg; terms are on ITA's dedicated page for that service",
@@ -1026,6 +1141,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": null,
         "as_stated": "Fees are quoted in euros for departures from Europe and Japan, and in US dollars for departures from the United States and the rest of the world, and refer to a single flight route. The official charges page lists a cabin fee and a hold fee for each zone:"
       },
@@ -1035,6 +1151,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Domestic flights",
         "as_stated": "Domestic flights: cabin EUR 73 / USD 85; hold EUR 83 / USD 105."
       },
@@ -1044,6 +1161,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "To/from Europe, Algeria, Tunisia",
         "as_stated": "To/from Europe, Algeria, Tunisia: cabin EUR 95 / USD 120; hold EUR 105 / USD 135."
       },
@@ -1053,6 +1171,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Cairo, Tel Aviv, Amman, Beirut, Tripoli",
         "as_stated": "Cairo, Tel Aviv, Amman, Beirut, Tripoli: cabin EUR 100 / USD 125; hold EUR 120 / USD 150."
       },
@@ -1062,6 +1181,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Jeddah, Riad, Dakar, Accra, Dubai",
         "as_stated": "Jeddah, Riad, Dakar, Accra, Dubai: cabin EUR 100 / USD 125; hold EUR 120 / USD 150."
       },
@@ -1071,6 +1191,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Miami, Boston, Delhi, Malè, New York, Washington, Chicago, Toronto",
         "as_stated": "Miami, Boston, Delhi, Malè, New York, Washington, Chicago, Toronto: cabin EUR 210 / USD 265; hold EUR 280 / USD 350."
       },
@@ -1080,6 +1201,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Los Angeles, Houston, Buenos Aires, Rio de Janeiro, San Paolo, Tokyo, Bangkok, San Francisco, Mauritius",
         "as_stated": "Los Angeles, Houston, Buenos Aires, Rio de Janeiro, San Paolo, Tokyo, Bangkok, San Francisco, Mauritius: cabin EUR 230 / USD 290; hold EUR 300 / USD 375."
       }
@@ -1129,7 +1251,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "Not applicable — no cabin pets",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "IATA-compliant hard crate for the hold; rental M 32 × 32 × 39 cm / L 45 × 45 × 41 cm",
     "hold_limits_as_stated": "Yes: dogs, cats, small birds, rabbits, ferrets, hamsters, marmots, squirrels, chinchillas; IATA-compliant hard crate; rental crates M 32x32x39 cm (7.4 kg) and L 45x45x41 cm (11.5 kg), reserve up to 4 days before",
@@ -1167,7 +1291,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "To be confirmed with the airline",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "To be confirmed with the airline",
     "hold_limits_as_stated": null,
@@ -1208,7 +1334,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "Check with airline",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "17 x 12.5 x 8.5 in (43.18 x 31.75 x 21.59 cm); soft- or hard-sided",
     "hold_limits_as_stated": null,
@@ -1246,7 +1374,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "Check with airline",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Check with airline",
     "hold_limits_as_stated": null,
@@ -1287,7 +1417,9 @@
       "kg": 8,
       "lb": null,
       "as_stated": "8 kg pet + carrier in cabin",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Soft-sided, 55 x 40 x 23 cm (22 x 16 x 9 in), 118 cm total",
     "hold_limits_as_stated": "Yes: dogs and cats over 8 kg as excess baggage in the air-conditioned hold; other animals via Lufthansa Cargo.",
@@ -1296,38 +1428,98 @@
       {
         "amount": null,
         "amount_min": 65,
-        "amount_max": 80,
+        "amount_max": 85,
         "currency": "EUR",
         "currency_as_stated": "EUR",
+        "currencies": [
+          "EUR"
+        ],
         "scope": "Cabin: domestic",
-        "as_stated": "Cabin: domestic: EUR 65-85 / USD 80-100"
+        "as_stated": "EUR 65-85"
       },
       {
         "amount": null,
         "amount_min": 80,
-        "amount_max": 95,
+        "amount_max": 100,
+        "currency": "USD",
+        "currency_as_stated": "USD",
+        "currencies": [
+          "USD"
+        ],
+        "scope": "Cabin: domestic",
+        "as_stated": "USD 80-100"
+      },
+      {
+        "amount": null,
+        "amount_min": 80,
+        "amount_max": 100,
         "currency": "EUR",
         "currency_as_stated": "EUR",
+        "currencies": [
+          "EUR"
+        ],
         "scope": "Cabin: Europe",
-        "as_stated": "Cabin: Europe: EUR 80-100 / USD 95-115"
+        "as_stated": "EUR 80-100"
+      },
+      {
+        "amount": null,
+        "amount_min": 95,
+        "amount_max": 115,
+        "currency": "USD",
+        "currency_as_stated": "USD",
+        "currencies": [
+          "USD"
+        ],
+        "scope": "Cabin: Europe",
+        "as_stated": "USD 95-115"
       },
       {
         "amount": null,
         "amount_min": 100,
-        "amount_max": 110,
+        "amount_max": 120,
         "currency": "EUR",
         "currency_as_stated": "EUR",
+        "currencies": [
+          "EUR"
+        ],
         "scope": "Cabin: Levant and Egypt",
-        "as_stated": "Cabin: Levant and Egypt: EUR 100-120 / USD 110-130"
+        "as_stated": "EUR 100-120"
+      },
+      {
+        "amount": null,
+        "amount_min": 110,
+        "amount_max": 130,
+        "currency": "USD",
+        "currency_as_stated": "USD",
+        "currencies": [
+          "USD"
+        ],
+        "scope": "Cabin: Levant and Egypt",
+        "as_stated": "USD 110-130"
       },
       {
         "amount": null,
         "amount_min": 105,
-        "amount_max": 120,
+        "amount_max": 125,
         "currency": "EUR",
         "currency_as_stated": "EUR",
+        "currencies": [
+          "EUR"
+        ],
         "scope": "Cabin: intercontinental short haul",
-        "as_stated": "Cabin: intercontinental short haul: EUR 105-125 / USD 120-140"
+        "as_stated": "EUR 105-125"
+      },
+      {
+        "amount": null,
+        "amount_min": 120,
+        "amount_max": 140,
+        "currency": "USD",
+        "currency_as_stated": "USD",
+        "currencies": [
+          "USD"
+        ],
+        "scope": "Cabin: intercontinental short haul",
+        "as_stated": "USD 120-140"
       },
       {
         "amount": null,
@@ -1335,8 +1527,23 @@
         "amount_max": 135,
         "currency": "EUR",
         "currency_as_stated": "EUR",
+        "currencies": [
+          "EUR"
+        ],
         "scope": "Cabin: intercontinental medium haul",
-        "as_stated": "Cabin: intercontinental medium haul: EUR 115-135 / USD 135-155"
+        "as_stated": "EUR 115-135"
+      },
+      {
+        "amount": null,
+        "amount_min": 135,
+        "amount_max": 155,
+        "currency": "USD",
+        "currency_as_stated": "USD",
+        "currencies": [
+          "USD"
+        ],
+        "scope": "Cabin: intercontinental medium haul",
+        "as_stated": "USD 135-155"
       },
       {
         "amount": null,
@@ -1344,8 +1551,23 @@
         "amount_max": 145,
         "currency": "EUR",
         "currency_as_stated": "EUR",
+        "currencies": [
+          "EUR"
+        ],
         "scope": "Cabin: intercontinental long haul",
-        "as_stated": "Cabin: intercontinental long haul: EUR 125-145 / USD 145-165"
+        "as_stated": "EUR 125-145"
+      },
+      {
+        "amount": null,
+        "amount_min": 145,
+        "amount_max": 165,
+        "currency": "USD",
+        "currency_as_stated": "USD",
+        "currencies": [
+          "USD"
+        ],
+        "scope": "Cabin: intercontinental long haul",
+        "as_stated": "USD 145-165"
       }
     ],
     "fees_as_stated": "Cabin: domestic: EUR 65-85 / USD 80-100; Cabin: Europe: EUR 80-100 / USD 95-115; Cabin: Levant and Egypt: EUR 100-120 / USD 110-130; Cabin: intercontinental short haul: EUR 105-125 / USD 120-140; Cabin: intercontinental medium haul: EUR 115-135 / USD 135-155; Cabin: intercontinental long haul: EUR 125-145 / USD 145-165",
@@ -1380,7 +1602,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "Not applicable — no pets",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Not applicable — no pets",
     "hold_limits_as_stated": null,
@@ -1421,7 +1645,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "To be confirmed with the airline",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Soft-sided: 55 × 40 × 27 cm",
     "hold_limits_as_stated": null,
@@ -1431,8 +1657,12 @@
         "amount": 50,
         "amount_min": null,
         "amount_max": null,
-        "currency": "USD",
-        "currency_as_stated": "USD",
+        "currency": null,
+        "currency_as_stated": "CAD/USD",
+        "currencies": [
+          "CAD",
+          "USD"
+        ],
         "scope": null,
         "as_stated": "CAD/USD 50 + tax (50-57.50) per direction, non-refundable"
       }
@@ -1472,7 +1702,9 @@
       "kg": 8,
       "lb": null,
       "as_stated": "Cabin: maximum 8 kg including the pet.",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Cabin: soft-sided, fully closeable, well-ventilated and bite- and leak-proof; maximum 40 × 25 × 23 cm (L × W × H). Hold: an escape-proof container that meets IATA regulations; maximum size depends on the aircraft type.",
     "hold_limits_as_stated": "Hold: maximum 50 kg including the pet.",
@@ -1484,25 +1716,28 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": null,
         "as_stated": "Charged per pet container, per one-way flight. Service dogs travel free in the cabin."
       },
       {
-        "amount": 740,
+        "amount": null,
         "amount_min": null,
         "amount_max": null,
         "currency": null,
-        "currency_as_stated": "US",
-        "scope": "Cabin",
+        "currency_as_stated": null,
+        "currencies": null,
+        "scope": null,
         "as_stated": "Cabin: domestic 420 DKK, 550 NOK, 550 SEK, 55 EUR, 60 USD; Scandinavia, Europe and Middle East 550 DKK, 750 NOK, 750 SEK, 75 EUR, 80 USD; Asia, Canada and US 740 DKK, 990 NOK, 990 SEK, 99 EUR, 105 USD; China 1,100 DKK, 1,540 NOK, 1,540 SEK, 149 EUR, 159 USD."
       },
       {
-        "amount": 2,
+        "amount": null,
         "amount_min": null,
         "amount_max": null,
         "currency": null,
-        "currency_as_stated": "US",
-        "scope": "Hold",
+        "currency_as_stated": null,
+        "currencies": null,
+        "scope": null,
         "as_stated": "Hold: domestic 680 DKK, 950 NOK, 950 SEK, 90 EUR, 100 USD; Scandinavia, Europe and Middle East 1,250 DKK, 1,740 NOK, 1,740 SEK, 169 EUR, 195 USD; Asia, Canada and US 2,500 DKK, 3,500 NOK, 3,500 SEK, 340 EUR, 370 USD; China 5,400 DKK, 7,600 NOK, 7,600 SEK, 725 EUR, 775 USD."
       }
     ],
@@ -1542,7 +1777,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "Check with airline",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Check with airline",
     "hold_limits_as_stated": null,
@@ -1554,6 +1791,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": "$",
+        "currencies": null,
         "scope": "U.S. mainland",
         "as_stated": "U.S. mainland: $125 per pet carrier each way"
       },
@@ -1563,6 +1801,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": "$",
+        "currencies": null,
         "scope": "Between Hawaiian Islands",
         "as_stated": "Between Hawaiian Islands: $35 per pet carrier each way"
       }
@@ -1599,7 +1838,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "To be confirmed with the airline",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "To be confirmed with the airline",
     "hold_limits_as_stated": null,
@@ -1640,7 +1881,9 @@
       "kg": null,
       "lb": 35,
       "as_stated": "Small cats and dogs weighing 35 lb or less",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Must not exceed 17\"L × 12\"W × 9\"H and must remain under the seat in front of the passenger",
     "hold_limits_as_stated": null,
@@ -1652,6 +1895,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": null,
         "as_stated": "A non-refundable fee is charged for each flight segment when a reservation is made in advance; pets without an advance reservation are subject to a higher per-segment fee. The official Contract of Carriage (updated 1 January 2026) does not publish the dollar amounts."
       }
@@ -1692,7 +1936,9 @@
       "kg": 9,
       "lb": null,
       "as_stated": "9 kg including carrier",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Hard case: width ≤37 cm, height ≤23 cm; soft height ≤26 cm; L + W + H ≤115 cm",
     "hold_limits_as_stated": null,
@@ -1704,6 +1950,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": null,
+        "currencies": null,
         "scope": "Domestic KRW 30,000 (airport). International one-way",
         "as_stated": "Domestic KRW 30,000 (airport). International one-way: Japan/China short-haul KRW 100,000 / JPY 10,000 / USD 100 / CAD 100; long China/Taiwan KRW 150,000; SE Asia/Guam/Saipan KRW 200,000"
       }
@@ -1743,7 +1990,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "No weight limit (United states there are no weight or breed limitations; pet must fit the carrier)",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Hard-sided: 9 x 17.5 x 12 in (22 x 44 x 30 cm); soft-sided: 11 x 18 x 11 in (27 x 45 x 27 cm); max 10 in tall on Boeing 737 MAX",
     "hold_limits_as_stated": null,
@@ -1755,6 +2004,7 @@
         "amount_max": null,
         "currency": null,
         "currency_as_stated": "$",
+        "currencies": null,
         "scope": "All routes",
         "as_stated": "All routes: $150 each way"
       }
@@ -1794,7 +2044,22 @@
       "kg": null,
       "lb": null,
       "as_stated": "12 kg including carrier; 10 kg to/from Colombia",
-      "scope": null
+      "scope": null,
+      "notes": "12 kg including carrier; to/from Colombia: 10 kg to/from Colombia",
+      "conditions": [
+        {
+          "kg": 12,
+          "lb": null,
+          "condition": null,
+          "as_stated": "12 kg including carrier"
+        },
+        {
+          "kg": 10,
+          "lb": null,
+          "condition": "to/from Colombia",
+          "as_stated": "10 kg to/from Colombia"
+        }
+      ]
     },
     "carrier_dimensions_as_stated": "44 × 35 × 21 cm; rigid or semi-rigid",
     "hold_limits_as_stated": null,
@@ -1835,7 +2100,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "To be confirmed with the airline",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "44 × 30 × 19 cm; cats in rigid carriers",
     "hold_limits_as_stated": "Yes: max 45 kg incl. rigid crate, max height 90 cm; 4 checked pets per flight",
@@ -1882,7 +2149,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "To be confirmed with the airline",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Soft-sided under-seat: 41 × 25.4 × 21.5 cm (16 × 10 × 8.5 in)",
     "hold_limits_as_stated": "Yes: birds, cats, chinchillas, dogs, guinea pigs, hedgehogs, rabbits; max 45 kg incl. kennel, max 101x68x81 cm, hard-sided; 3 kennels/flight on 737, 2 on 787, 1 on Dash 8",
@@ -1920,7 +2189,9 @@
       "kg": null,
       "lb": null,
       "as_stated": "Not applicable — no pets",
-      "scope": null
+      "scope": null,
+      "notes": null,
+      "conditions": []
     },
     "carrier_dimensions_as_stated": "Not applicable — no pets",
     "hold_limits_as_stated": null,

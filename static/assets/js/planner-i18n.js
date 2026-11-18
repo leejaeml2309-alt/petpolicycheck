@@ -1,7 +1,7 @@
 /* PetPolicyCheck · Pet Travel Planner UI strings (EN / IT / ES). Official-rule quotations stay in English as published. */
 window.PPC_PLANNER_I18N = {
   en: {
-    morePara: '+{n} further official passage(s) — see the online plan or the official source.', excerpt: 'Excerpt:', printExcerpt: 'Print summary: long quotations are excerpted (…). Read every complete rule and its conditions in the linked official sources or reopen this plan online.',
+    morePara: '+{n} further official passage(s) — see the online plan or the official source.', excerpt: 'Excerpt:', printExcerpt: 'Long quotations are excerpted (…): full rules in the official sources or the online plan.',
     noCabin: 'No cabin option with this airline — see the hold and cargo rules',
     sameAs: '↑ Same official text as “{r}” above.',
     passed: 'This date has already passed', eventsNone: 'The destination rule text gives no timing counted before travel.', reqDetails: 'Every requirement, as stated', notes: 'Notes', name: 'Name', step3H: 'Your printable plan', airlineNoLocal: '',
@@ -38,7 +38,7 @@ window.PPC_PLANNER_I18N = {
     dManual: 'Compare your measurements with the stated size', dNoInput: 'No measurements entered', dUnknown: 'No size stated',
     dYours: 'Your carrier', dStated: 'Airline size, as stated',
     dNote: 'The source text gives the size in its own order and units, so the planner shows both side by side and does not compute a fit.',
-    feesH: 'Fees', feesNone: 'No fee figure in the data',
+    feesH: 'Fees', feeOr: 'or', feeCurAs: 'Currency as stated', feeSrcText: 'Official wording', wConditional: 'Different limits by condition', condNone: 'No condition stated', condLimit: 'Stated limit', wDependsNoCarrier: 'Your pet alone: {p} {u} · stated limit {l} {u}. The wording does not say whether the carrier counts — add the carrier weight to compare.', feesNone: 'No fee figure in the data',
     restrH: 'Restrictions', brachy: 'Snub-nosed breeds', breeds: 'Breed restrictions', routes: 'Route restrictions', cargoOnly: 'Cargo only', service: 'Service animals',
     snubFlag: 'You marked a snub-nosed breed',
     healthH: 'Destination health timeline', healthSub: 'Counted back from your travel date where the official rule gives a timing before travel. Read each quoted rule: “within” and “at least” mean different things.',
@@ -57,7 +57,7 @@ window.PPC_PLANNER_I18N = {
     choose: 'Choose…'
   },
   it: {
-    morePara: '+{n} ulteriori passaggi ufficiali — vedi il piano online o la fonte ufficiale.', excerpt: 'Estratto:', printExcerpt: 'Riepilogo di stampa: le citazioni lunghe sono estratte (…). Leggi ogni regola completa e le sue condizioni nelle fonti ufficiali collegate o riapri questo piano online.',
+    morePara: '+{n} ulteriori passaggi ufficiali — vedi il piano online o la fonte ufficiale.', excerpt: 'Estratto:', printExcerpt: 'Citazioni lunghe estratte (…): regole complete nelle fonti ufficiali o nel piano online.',
     noCabin: 'Nessuna opzione in cabina con questa compagnia — vedi le regole per stiva e cargo',
     sameAs: '↑ Stesso testo ufficiale di «{r}» qui sopra.',
     passed: 'Questa data è già passata', eventsNone: 'Le regole della destinazione non indicano scadenze da contare prima del viaggio.', reqDetails: 'Tutti i requisiti, come indicati', notes: 'Note', name: 'Nome', step3H: 'Il tuo piano stampabile', airlineNoLocal: ' (in inglese)',
@@ -94,7 +94,7 @@ window.PPC_PLANNER_I18N = {
     dManual: 'Confronta le tue misure con quelle indicate', dNoInput: 'Nessuna misura inserita', dUnknown: 'Nessuna misura indicata',
     dYours: 'Il tuo trasportino', dStated: 'Misure della compagnia, come indicate',
     dNote: 'Il testo della fonte riporta le misure nel proprio ordine e nelle proprie unità: il pianificatore le mostra affiancate e non calcola l’idoneità.',
-    feesH: 'Tariffe', feesNone: 'Nessun importo nei dati',
+    feesH: 'Tariffe', feeOr: 'o', feeCurAs: 'Valuta come indicata', feeSrcText: 'Testo ufficiale', wConditional: 'Limiti diversi secondo la condizione', condNone: 'Nessuna condizione indicata', condLimit: 'Limite indicato', wDependsNoCarrier: 'Solo l’animale: {p} {u} · limite indicato {l} {u}. Il testo non dice se il trasportino è incluso — aggiungi il peso del trasportino per confrontare.', feesNone: 'Nessun importo nei dati',
     restrH: 'Restrizioni', brachy: 'Razze brachicefale', breeds: 'Restrizioni di razza', routes: 'Restrizioni di rotta', cargoOnly: 'Solo cargo', service: 'Animali di servizio',
     snubFlag: 'Hai indicato una razza brachicefala',
     healthH: 'Calendario sanitario per la destinazione', healthSub: 'Calcolato a ritroso dalla data del viaggio quando la regola ufficiale indica una scadenza prima della partenza. Leggi ogni regola citata: «within» (entro) e «at least» (almeno) non significano la stessa cosa.',
@@ -113,7 +113,7 @@ window.PPC_PLANNER_I18N = {
     choose: 'Scegli…'
   },
   es: {
-    morePara: '+{n} pasajes oficiales más — vea el plan en línea o la fuente oficial.', excerpt: 'Extracto:', printExcerpt: 'Resumen impreso: las citas largas se muestran como extractos (…). Lea cada regla completa y sus condiciones en las fuentes oficiales enlazadas o vuelva a abrir este plan en línea.',
+    morePara: '+{n} pasajes oficiales más — vea el plan en línea o la fuente oficial.', excerpt: 'Extracto:', printExcerpt: 'Citas largas en extracto (…): reglas completas en las fuentes oficiales o en el plan en línea.',
     noCabin: 'Esta aerolínea no ofrece cabina — vea las reglas de bodega y carga',
     sameAs: '↑ Mismo texto oficial que «{r}» más arriba.',
     passed: 'Esta fecha ya pasó', eventsNone: 'Las reglas del destino no dan plazos que contar antes del viaje.', reqDetails: 'Todos los requisitos, tal como se indican', notes: 'Notas', name: 'Nombre', step3H: 'Su plan imprimible', airlineNoLocal: ' (en inglés)',
@@ -150,7 +150,7 @@ window.PPC_PLANNER_I18N = {
     dManual: 'Compare sus medidas con el tamaño indicado', dNoInput: 'No se introdujeron medidas', dUnknown: 'No se indica tamaño',
     dYours: 'Su transportadora', dStated: 'Tamaño de la aerolínea, tal como se indica',
     dNote: 'El texto de la fuente da el tamaño en su propio orden y unidades, así que el planificador los muestra lado a lado y no calcula si cabe.',
-    feesH: 'Tarifas', feesNone: 'No hay importe en los datos',
+    feesH: 'Tarifas', feeOr: 'o', feeCurAs: 'Moneda tal como se indica', feeSrcText: 'Texto oficial', wConditional: 'Límites distintos según la condición', condNone: 'Sin condición indicada', condLimit: 'Límite indicado', wDependsNoCarrier: 'Solo la mascota: {p} {u} · límite indicado {l} {u}. El texto no dice si cuenta la transportadora — añada su peso para comparar.', feesNone: 'No hay importe en los datos',
     restrH: 'Restricciones', brachy: 'Razas braquicéfalas', breeds: 'Restricciones de raza', routes: 'Restricciones de ruta', cargoOnly: 'Solo carga', service: 'Animales de servicio',
     snubFlag: 'Usted indicó una raza braquicéfala',
     healthH: 'Calendario sanitario del destino', healthSub: 'Contado hacia atrás desde la fecha del viaje cuando la regla oficial da un plazo antes del viaje. Lea cada regla citada: «within» (dentro de) y «at least» (al menos) no significan lo mismo.',

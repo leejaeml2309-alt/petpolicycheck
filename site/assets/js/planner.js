@@ -167,19 +167,58 @@
   function noCabinBlock(title, a) {
     return '<div class="pl-check-row"><h4>' + esc(title) + '</h4>' + statusChip('na', S.noCabin) + '<p class="pl-as"><span class="pl-as-k">' + esc(S.statedAs) + '</span> ' + txtA(a.cabin_as_stated) + '</p></div>';
   }
-  function weightBlock(a) {
-    if (a.cabin === false) return noCabinBlock(S.weightRow, a);
-    var r = C.checkCabinWeight(a, { petWeight: st.pw, carrierWeight: st.cw, unit: st.wu });
-    var u = S[r.unit], o = { p: n2(r.pet), t: n2(r.total), l: r.limit, u: u };
-    var chip, det = '';
+  /* Structured fee only when its figures and currency code(s) are all in the official wording; never converted. */
+  function feeAmount(f) {
+    var t = f.as_stated || '', cs = f.currency ? [f.currency] : (Array.isArray(f.currencies) ? f.currencies : []);
+    var vals = typeof f.amount === 'number' ? [f.amount] : [f.amount_min, f.amount_max].filter(function (v) { return typeof v === 'number'; });
+    if (!t || !cs.length || !vals.length) return null;
+    var nums = (t.match(/\d[\d,]*(?:\.\d+)?/g) || []).map(function (x) { return parseFloat(x.replace(/,/g, '')); });
+    if (!vals.every(function (v) { return nums.indexOf(v) >= 0; })) return null;
+    var cas = f.currency_as_stated || '';
+    if (!cs.every(function (c) { return t.indexOf(c) >= 0 || cas.indexOf(c) >= 0 || (cas.indexOf('/') >= 0 && cas.split('/').indexOf(c.slice(0, 2)) >= 0); })) return null;
+    var amt = typeof f.amount === 'number' ? String(f.amount) : (vals.length === 2 ? f.amount_min + '–' + f.amount_max : String(vals[0]));
+    return cs.join('/') + ' ' + amt;
+  }
+  function sameFeeText(t, fa, scope) {
+    var n = function (x) { return String(x).replace(/[\s$]/g, '').replace(/[–—]/g, '-').toLowerCase(); };
+    var tt = n(t); if (scope && tt.indexOf(n(scope)) === 0) tt = tt.slice(n(scope).length).replace(/^[:,]/, '');
+    return tt === n(fa);
+  }
+  function weightVerdict(r) {
+    var o = { p: n2(r.pet), t: n2(r.total), l: r.limit, u: S[r.unit] }, chip, det = '';
     if (r.status === 'within') { chip = statusChip('ok', S.wWithin); det = fmtS(r.compared === 'pet' ? S.wDetailPet : S.wDetailTotal, o); }
     else if (r.status === 'over') { chip = statusChip('bad', S.wOver); det = fmtS(r.compared === 'total' ? S.wDetailTotal : S.wDetailPet, o); }
-    else if (r.status === 'depends') { chip = statusChip('warn', S.wDepends); det = fmtS(r.compared === 'pet-only-entered' ? S.wDependsPet : S.wDependsUnclear, o); }
+    else if (r.status === 'depends') { chip = statusChip('warn', S.wDepends); det = fmtS(r.compared === 'pet-only-entered' ? S.wDependsPet : (r.compared === 'unclear-no-carrier' ? S.wDependsNoCarrier : S.wDependsUnclear), o); }
     else if (r.status === 'other-unit') { chip = statusChip('na', fmtS(S.wOther, { u: S[r.otherUnit.unit] })); det = fmtS(S.wOtherDetail, { v: r.otherUnit.value, ou: S[r.otherUnit.unit] }); }
     else if (r.status === 'no-input') { chip = statusChip('na', S.wNoInput); }
     else { chip = statusChip('na', S.wUnknown); }
-    var h = '<div class="pl-check-row"><h4>' + esc(S.weightRow) + '</h4>' + chip + (det ? '<p class="pl-det">' + esc(det) + '</p>' : '') +
-      '<p class="pl-as"><span class="pl-as-k">' + esc(S.statedAs) + '</span> ' + (r.asStated ? esc(r.asStated) : nullA()) + '</p>';
+    return chip + (det ? '<p class="pl-det">' + esc(det) + '</p>' : '');
+  }
+  function notesAddText(notes, conds) { /* hide notes that only repeat the conditions' own wording */
+    var rest = String(notes || '');
+    conds.forEach(function (c) { [c.as_stated, c.condition].forEach(function (t) { if (t) rest = rest.split(t).join(' '); }); });
+    return /[A-Za-z0-9]/.test(rest.replace(/\b(and|or|on|the|to|from|flights?|including|carrier)\b/gi, ''));
+  }
+  function weightBlock(a) {
+    if (a.cabin === false) return noCabinBlock(S.weightRow, a);
+    var r = C.checkCabinWeight(a, { petWeight: st.pw, carrierWeight: st.cw, unit: st.wu });
+    var h = '<div class="pl-check-row"><h4>' + esc(S.weightRow) + '</h4>';
+    if (r.status === 'conditional') {
+      var conds = (a.cabin_max_weight && a.cabin_max_weight.conditions) || [];
+      h += statusChip('warn', S.wConditional) + '<ul class="pl-conds">' + r.conditions.map(function (c, i) {
+        var src = conds[i] || {}, lim = [];
+        if (typeof src.kg === 'number') lim.push(src.kg + ' ' + S.kg);
+        if (typeof src.lb === 'number') lim.push(src.lb + ' ' + S.lb);
+        return '<li><p class="pl-cond-k"><span lang="en">' + esc(c.condition || '') + '</span>' + (c.condition ? '' : esc(S.condNone)) +
+          '</p>' + (lim.length ? '<p class="pl-cond-lim"><span class="pl-as-k">' + esc(S.condLimit) + '</span> ' + esc(lim.join(' / ')) + '</p>' : '') +
+          weightVerdict(c) + '<p class="pl-as"><span class="pl-as-k">' + esc(S.statedAs) + '</span> ' + txtA(c.asStated) + '</p></li>';
+      }).join('') + '</ul>';
+      h += '<p class="pl-as"><span class="pl-as-k">' + esc(S.statedAs) + '</span> ' + txtA(r.asStated) + '</p>';
+      if (r.notes && notesAddText(r.notes, conds)) h += '<p class="pl-as"><span class="pl-as-k">' + esc(S.notes) + '</span> ' + txtA(r.notes) + '</p>';
+    } else {
+      h += weightVerdict(r) + '<p class="pl-as"><span class="pl-as-k">' + esc(S.statedAs) + '</span> ' + (r.asStated ? esc(r.asStated) : nullA()) + '</p>';
+      if (r.notes) h += '<p class="pl-as"><span class="pl-as-k">' + esc(S.notes) + '</span> ' + txtA(r.notes) + '</p>';
+    }
     if (r.scope) h += '<p class="pl-as"><span class="pl-as-k">' + esc(S.scope) + '</span> ' + esc(r.scope) + '</p>';
     return h + '</div>';
   }
@@ -299,7 +338,7 @@
         h += '</div>';
       }
     }
-    return h + '<p class="pl-hint">' + esc(S.quotedEn) + '</p></section>';
+    return h + (LANG === 'en' ? '' : '<p class="pl-hint screen-only">' + esc(S.quotedEn) + '</p>') + '</section>';
   }
 
   function host(u) { try { var x = new URL(u); return x.hostname.replace(/^www\./, '') + (x.pathname.length > 1 ? x.pathname.replace(/\/$/, '').replace(/^(.{0,34}).*$/, function (m, a) { return a + (m.length > 34 ? '…' : ''); }) : ''); } catch (e) { return u; } }
@@ -344,7 +383,24 @@
 
     h += '<section class="pl-sec pl-sec--two" aria-labelledby="pl-fh"><div><h3 id="pl-fh" class="pl-sec-h"><span>' + esc(S.feesH) + '</span></h3>';
     if (a.fees && a.fees.length) {
-      h += '<ul class="pl-fees">' + a.fees.map(function (f) { return '<li>' + (f.scope ? '<span class="pl-as-k">' + esc(f.scope) + '</span> ' : '') + fullAndExcerpt(f.as_stated || '', 280) + '</li>'; }).join('') + '</ul>';
+      var groups = [];
+      a.fees.forEach(function (f) {
+        var g = groups[groups.length - 1];
+        if (!g || !f.scope || g.scope !== f.scope) { g = { scope: f.scope || '', fees: [] }; groups.push(g); }
+        g.fees.push(f);
+      });
+      h += '<ul class="pl-fees">' + groups.map(function (g) {
+        var amts = [], texts = [];
+        g.fees.forEach(function (f) {
+          var fa = feeAmount(f), t = (f.as_stated || '').trim();
+          if (fa) amts.push(fa);
+          if (t && texts.indexOf(t) < 0 && !(fa && sameFeeText(t, fa, g.scope))) texts.push(t);
+        });
+        return '<li>' + (g.scope ? '<span class="pl-as-k">' + esc(g.scope) + '</span> ' : '') +
+          (amts.length ? '<span class="pl-fee-amt">' + amts.map(esc).join(' <span class="pl-fee-sep">·</span> ') + '</span>' : '') +
+          (texts.length ? (amts.length ? '<span class="pl-fee-txt"><span class="pl-as-k">' + esc(S.feeSrcText) + '</span> ' : '<span class="pl-fee-txt pl-fee-txt--only">') + texts.map(function (t) { return '<span lang="en">' + fullAndExcerpt(t, 280) + '</span>'; }).join(' ') + '</span>' : '') +
+          '</li>';
+      }).join('') + '</ul>';
     } else h += '<p class="pl-as">' + (a.fees_as_stated ? '<span class="pl-as-k">' + esc(S.statedAs) + '</span> ' + esc(a.fees_as_stated) : nullA()) + '</p>';
     h += '</div><div><h3 class="pl-sec-h"><span>' + esc(S.restrH) + '</span></h3><dl class="pl-dl pl-dl--restr">' +
       '<dt' + (st.snub ? ' class="is-flag"' : '') + '>' + esc(S.brachy) + (st.snub ? ' <span class="pl-flag">' + esc(S.snubFlag) + '</span>' : '') + '</dt><dd>' + txtA(r.brachycephalic_as_stated) + '</dd>' +
@@ -356,7 +412,7 @@
 
     h += '<section class="pl-sec pl-sec--src" aria-labelledby="pl-sh"><h3 id="pl-sh" class="pl-sec-h"><span>' + esc(S.sourcesH) + '</span></h3><div class="pl-srcgrid">' +
       srcBlock(S.airlineSrc, a, airlinePage(a)) + srcBlock(S.countrySrc, k, { url: LOCAL_TREE + '/countries/' + k.id + '.html' }) + '</div>' +
-      '<p class="pl-print-note print-only">' + esc(S.printExcerpt) + '</p><p class="pl-disc">' + esc(S.disclaimer) + '</p><p class="pl-hint">' + esc(S.privacy) + '</p></section></article>';
+      '<p class="pl-disc">' + esc(S.disclaimer) + ' <span class="pl-print-note print-only">' + (LANG === 'en' ? '' : esc(S.quotedEn) + ' ') + esc(S.printExcerpt) + '</span></p><p class="pl-hint pl-privacy">' + esc(S.privacy) + '</p></section></article>';
     return h;
   }
 
@@ -419,7 +475,7 @@
   window.addEventListener('hashchange', function () { var n = decode(location.hash.slice(1)); if (encode() !== location.hash.slice(1)) { st = n; render(false); } });
 
   root.innerHTML = '<p class="pl-loading" role="status">' + esc(S.loading) + '</p>';
-  Promise.all([fetch(BASE + 'airlines.json?v=20261118pl1').then(function (r) { if (!r.ok) throw r.status; return r.json(); }), fetch(BASE + 'countries.json?v=20261118pl1').then(function (r) { if (!r.ok) throw r.status; return r.json(); })])
+  Promise.all([fetch(BASE + 'airlines.json?v=20261118pl2').then(function (r) { if (!r.ok) throw r.status; return r.json(); }), fetch(BASE + 'countries.json?v=20261118pl2').then(function (r) { if (!r.ok) throw r.status; return r.json(); })])
     .then(function (res) {
       A = res[0]; K = res[1];
       A.forEach(function (a) { byA[a.id] = a; }); K.forEach(function (k) { byK[k.id] = k; });
