@@ -12,12 +12,17 @@ const enc = encodeURIComponent;
 const ABBRS = Object.keys(GEO).sort((a,b)=>GEO[a].name.localeCompare(GEO[b].name));
 const PLANE = 'M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5z';
 const TAG = {aff:'Affiliate',off:'Official',srch:'Search',stub:'Coming soon'};
+function mapTags(){
+  if(mapLang()==='fr') return {aff:'Affilié',off:'Officiel',srch:'Recherche',stub:'Bientôt'};
+  return TAG;
+}
 function lk(ic,title,sub,href,tag){
-  if(!href) return `<span class="lk soon"><span class="ic" aria-hidden="true">${ic}</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:''}</span><span class="tag soon">${TAG.stub}</span></span>`;
-  return `<a class="lk" href="${esc(href)}" target="_blank" rel="${tag==='aff'?'sponsored nofollow noopener':'noopener'}"><span class="ic" aria-hidden="true">${ic}</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:''}</span><span class="tag ${tag}">${TAG[tag]||TAG.off}</span></a>`;
+  const T=mapTags();
+  if(!href) return `<span class="lk soon"><span class="ic" aria-hidden="true">${ic}</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:''}</span><span class="tag soon">${T.stub}</span></span>`;
+  return `<a class="lk" href="${esc(href)}" target="_blank" rel="${tag==='aff'?'sponsored nofollow noopener':'noopener'}"><span class="ic" aria-hidden="true">${ic}</span><span class="t">${esc(title)}${sub?`<small>${esc(sub)}</small>`:''}</span><span class="tag ${tag}">${T[tag]||T.off}</span></a>`;
 }
 function honest(v, fallback){
-  if(v==null || v==='' || v===false) return fallback || 'Not published on official page — confirm directly';
+  if(v==null || v==='' || v===false) return fallback || (mapLang()==='fr'?'Non publié sur la page officielle — confirmez directement':'Not published on official page — confirm directly');
   return v;
 }
 function el(tag, attrs){
@@ -35,14 +40,16 @@ function buildSwitcher(){
   const path=(location.pathname||'');
   const es = path.indexOf('/es/')===0;
   const it = path.indexOf('/it/')===0;
+  const fr = path.indexOf('/fr/')===0;
   const ORDER = ['usa','ca','mx','uk','it','fr','es','jp','de','kr','au'];
   const ACC = {usa:'usa',ca:'maple',mx:'mxgreen',uk:'unionjack',it:'italy',fr:'tricolore',es:'rojigualda',jp:'hinomaru',de:'schwarzrotgold',kr:'taegeuk',au:'ausflag'};
   const FILE = {usa:'usa',ca:'canada',mx:'mexico',uk:'uk',it:'italy',fr:'france',es:'spain',jp:'japan',de:'germany',kr:'south-korea',au:'australia'};
   const LBL = es ? {usa:'Mapa de EE. UU.',ca:'Mapa de Canadá',mx:'Mapa de México',uk:'Mapa del Reino Unido',it:'Mapa Italia',fr:'Mapa de Francia',es:'Mapa de España',jp:'Mapa de Japón',de:'Mapa de Alemania',kr:'Mapa de Corea',au:'Mapa de Australia'}
     : it ? {usa:'Mappa USA',ca:'Mappa del Canada',mx:'Mappa del Messico',uk:'Mappa del Regno Unito',it:'Mappa dell\u2019Italia',fr:'Mappa della Francia',es:'Mappa della Spagna',jp:'Mappa del Giappone',de:'Mappa della Germania',kr:'Mappa della Corea',au:'Mappa dell\u2019Australia'}
+    : fr ? {usa:'Carte États-Unis',ca:'Carte Canada',mx:'Carte Mexique',uk:'Carte Royaume-Uni',it:'Carte Italie',fr:'Carte France',es:'Carte Espagne',jp:'Carte Japon',de:'Carte Allemagne',kr:'Carte Corée',au:'Carte Australie'}
     : {usa:'USA Map',ca:'Canada Map',mx:'Mexico Map',uk:'UK Map',it:'Italy Map',fr:'France Map',es:'Spain Map',jp:'Japan Map',de:'Germany Map',kr:'Korea Map',au:'Australia Map'};
   const ES_FALLBACK_EN = {uk:1, de:1};
-  const pre = es ? '/es/countries/' : it ? '/it/countries/' : '';
+  const pre = es ? '/es/countries/' : it ? '/it/countries/' : fr ? '/fr/countries/' : '';
   const tabs = ORDER.filter(id => LBL[id]).map(id => {
     const file = FILE[id] + '-map.html';
     const href = es
@@ -51,8 +58,8 @@ function buildSwitcher(){
     return {id, href, label: LBL[id], accent: ACC[id]};
   });
   const cur = ({CA:'ca',MX:'mx',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp',IT:'it',ES:'es',AU:'au'}[DATA.country]) || 'usa';
-  const backHref = es ? '/es/?view=map' : it ? '/it/?view=map' : '../?view=map';
-  const backLabel = es ? '\u2190 Mapa mundial' : it ? '\u2190 Mappa del mondo' : '\u2190 World Map';
+  const backHref = es ? '/es/?view=map' : it ? '/it/?view=map' : fr ? '/fr/?view=map' : '../?view=map';
+  const backLabel = es ? '\u2190 Mapa mundial' : it ? '\u2190 Mappa del mondo' : fr ? '\u2190 Carte du monde' : '\u2190 World Map';
   const back = `<a class="msw-tab world-back" href="${backHref}" style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${backLabel}</span></a>`;
   host.innerHTML = back + tabs.map(t =>
     `<a class="msw-tab accent-${t.accent}${t.id===cur?' is-current':''}" href="${t.href}"${t.id===cur?' aria-current="page"':''} style="touch-action:manipulation;position:relative;z-index:5"><i aria-hidden="true"></i><span>${t.label}</span></a>`
@@ -77,13 +84,14 @@ function mountCamxLabelLegend(){
     else host.appendChild(box);
   }
   const lang=((document.documentElement.lang||'')+' '+(location.pathname||'')).toLowerCase();
-  const loc=/\/es(?:\/|$)/.test(location.pathname)||/\bes\b/.test(lang)?'es':
-            /\/it(?:\/|$)/.test(location.pathname)||/\bit\b/.test(lang)?'it':'en';
+  const loc=mapLang();
   const isMx=/accent-mxgreen/.test(accent);
   const L=loc==='es'
     ? {r:isMx?'Estados':'Provincias', c:'Ciudades', k:'Capital', a:'Aeropuertos', aria:'Leyenda de etiquetas'}
     : loc==='it'
     ? {r:isMx?'Stati':'Province', c:'Città', k:'Capitale', a:'Aeroporti', aria:'Legenda etichette'}
+    : loc==='fr'
+    ? {r:isMx?'États':'Provinces', c:'Villes', k:'Capitale', a:'Aéroports', aria:'Légende des libellés'}
     : {r:isMx?'States':'Provinces', c:'Cities', k:'Capital', a:'Airports', aria:'Label colour legend'};
   const sm=isMx?{r:'JAL',c:'Guadalajara',k:'CDMX',a:'MEX'}:{r:'ON',c:'Vancouver',k:'Ottawa',a:'YYZ'};
   box.setAttribute('aria-label', L.aria);
@@ -286,9 +294,14 @@ function buildAirports(){
 
 
 function mapLang(){
-  const blob=((document.documentElement.lang||'')+' '+(document.documentElement.getAttribute('data-lang')||'')).toLowerCase();
+  const path=location.pathname||'';
+  if(path==='/fr'||path.indexOf('/fr/')===0) return 'fr';
+  if(path==='/es'||path.indexOf('/es/')===0) return 'es';
+  if(path==='/it'||path.indexOf('/it/')===0) return 'it';
+  const blob=((document.documentElement.lang||'')+' '+(document.documentElement.getAttribute('data-lang')||'')+' '+(document.documentElement.getAttribute('data-ppc-locale')||'')).toLowerCase();
   let stored='';
   try{ stored=(localStorage.getItem('ppc_lang')||'').toLowerCase(); }catch(_){}
+  if(/\bfr\b/.test(blob) || stored==='fr') return 'fr';
   if(/\bit\b/.test(blob) || stored==='it') return 'it';
   if(/\bes\b/.test(blob) || stored==='es') return 'es';
   return 'en';
@@ -298,6 +311,17 @@ function mapChoosePlaceholder(){
   const unit=(DATA && DATA.unit) || 'region';
   if(lang==='es') return unit==='community' ? 'Elija una comunidad autónoma…' : 'Elija una región…';
   if(lang==='it') return unit==='community' ? 'Scelga una comunità autonoma…' : 'Scelga una regione…';
+  if(lang==='fr'){
+    const u=(unit||'').toLowerCase();
+    if(u==='community'||u.indexOf('communaut')>=0) return 'Choisissez une communauté autonome…';
+    if(u==='nation') return 'Choisissez une nation…';
+    if(u==='state'||u==='état'||u==='etat') return 'Choisissez un État…';
+    if(u==='province') return 'Choisissez une province…';
+    if(u==='prefecture'||u==='préfecture') return 'Choisissez une préfecture…';
+    if(u==='territory'||u==='territoire') return 'Choisissez un territoire…';
+    if(u==='state or territory'||u==='état ou territoire'||u==='etat ou territoire') return 'Choisissez un État ou un territoire…';
+    return 'Choisissez une région…';
+  }
   return 'Choose a ' + unit + '…';
 }
 function mapPickTitle(){
@@ -305,6 +329,7 @@ function mapPickTitle(){
   const unit=(DATA && DATA.unit) || 'region';
   if(lang==='es') return unit==='community' ? 'Seleccione una comunidad autónoma o ciudad' : 'Seleccione una región o ciudad';
   if(lang==='it') return unit==='community' ? 'Selezioni una comunità autonoma o una città' : 'Selezioni una regione o una città';
+  if(lang==='fr') return unit==='community' ? 'Choisissez une communauté autonome ou une ville' : 'Choisissez une région ou une ville';
   return 'Pick a ' + unit + ' or city';
 }
 function mapClickLead(){
@@ -312,30 +337,35 @@ function mapClickLead(){
   const unit=(DATA && DATA.unit) || 'region';
   if(lang==='es') return 'Haga clic en cualquier región del mapa (or use the list) to open its panel. Plane marks are the airport hubs:';
   if(lang==='it') return 'Faccia clic su una regione qualsiasi della mappa (or use the list) to open its panel. Plane marks are the airport hubs:';
+  if(lang==='fr') return 'Cliquez sur une région de la carte (ou utilisez la liste) pour ouvrir son panneau. Les pictogrammes d’avion indiquent les aéroports :';
   return 'Click any ' + unit + ' on the map (or use the list) to open its panel. Plane marks are the airport hubs:';
 }
 function mapJourneyOrder(){
   const lang=mapLang();
   if(lang==='es') return 'Orden del viaje: 1 veterinario + normativa → 2 carretera/tren → 3 avión → 4 hotel → 5 peluquería.';
   if(lang==='it') return 'Ordine del viaggio: 1 veterinario + normative → 2 strada/treno → 3 aereo → 4 hotel → 5 toelettatura.';
+  if(lang==='fr') return 'Ordre du voyage : 1 vétérinaire + réglementation → 2 route/train → 3 avion → 4 hôtel → 5 toilettage.';
   return 'Journey order: 1 vet + laws → 2 road/rail → 3 plane → 4 hotel → 5 grooming.';
 }
 function mapPanelVetLaws(){
   const lang=mapLang();
   if(lang==='es') return 'Veterinario + normativa';
   if(lang==='it') return 'Veterinario + normative';
+  if(lang==='fr') return 'Vétérinaire + réglementation';
   return 'Vet + laws';
 }
 function mapPanelAuthority(){
   const lang=mapLang();
   if(lang==='es') return 'AUTORIDAD';
   if(lang==='it') return 'AUTORITÀ';
+  if(lang==='fr') return 'Autorité';
   return 'Authority';
 }
 function mapPanelMainCities(){
   const lang=mapLang();
   if(lang==='es') return 'CIUDADES PRINCIPALES';
   if(lang==='it') return 'CITTÀ PRINCIPALI';
+  if(lang==='fr') return 'Villes principales';
   return 'Main cities';
 }
 
@@ -344,15 +374,18 @@ function mountLabelLegend(){
   const host = root && root.querySelector('.mapcard');
   if(!host || host.querySelector('.lbl-legend')) return;
   const lang = ((document.documentElement.lang||'') + ' ' + (document.documentElement.getAttribute('data-lang')||'')).toLowerCase();
-  let es = /\bes\b/.test(lang);
-  try{ es = es || (localStorage.getItem('ppc_lang')||'')==='es'; }catch(_){}
-  const L = es
-    ? {r:'Regiones', c:'Ciudades', k:'Capital', a:'Aeropuertos internacionales'}
-    : {r:'Regions', c:'Cities', k:'Capital', a:'International airports'};
+  const loc = mapLang();
+  const L = loc==='es'
+    ? {r:'Regiones', c:'Ciudades', k:'Capital', a:'Aeropuertos internacionales', aria:'Leyenda de etiquetas'}
+    : loc==='it'
+    ? {r:'Regioni', c:'Città', k:'Capitale', a:'Aeroporti internazionali', aria:'Legenda etichette'}
+    : loc==='fr'
+    ? {r:'Régions', c:'Villes', k:'Capitale', a:'Aéroports internationaux', aria:'Légende des libellés'}
+    : {r:'Regions', c:'Cities', k:'Capital', a:'International airports', aria:'Label colour legend'};
   const box = document.createElement('div');
   box.className = 'lbl-legend';
   box.setAttribute('role','note');
-  box.setAttribute('aria-label', es ? 'Leyenda de etiquetas' : 'Label colour legend');
+  box.setAttribute('aria-label', L.aria);
   box.innerHTML =
     '<span class="ll-r"><i aria-hidden="true"></i>'+L.r+'</span>'+
     '<span class="ll-c"><i aria-hidden="true"></i>'+L.c+'</span>'+
@@ -366,7 +399,7 @@ function buildPortalGrid(){
   grid.innerHTML = ABBRS.map(a => {
     const special = DATA.special && DATA.special[a];
     const hub = (DATA.provHub&&DATA.provHub[a]) || (DATA.stateHub&&DATA.stateHub[a]);
-    return `<button type="button" data-a="${a}" class="${special?'rule':''}${hub?' hub':''}"><b>${a}</b><span>${esc(GEO[a].name)}</span>${special?'<em>Alert</em>':''}${hub?`<em class="hub">${hub}</em>`:''}</button>`;
+    return `<button type="button" data-a="${a}" class="${special?'rule':''}${hub?' hub':''}"><b>${a}</b><span>${esc(GEO[a].name)}</span>${special?'<em>'+(mapLang()==='fr'?'Alerte':'Alert')+'</em>':''}${hub?`<em class="hub">${hub}</em>`:''}</button>`;
   }).join('');
   grid.querySelectorAll('button').forEach(b => b.onclick = () => { selectRegion(b.dataset.a); $('#panel').scrollIntoView({behavior:'smooth',block:'nearest'}); });
 }
@@ -375,7 +408,7 @@ function buildPortalGrid(){
 let step = 1, cur = null;
 function header(a, title, sub){
   const P = window.PPC_PST ? PPC_PST('map','pst-ph') : '';
-  return `<div class="ph theme-map accent-head"><div class="mark">${esc(a)}</div><div><div class="ph-eye">${P}<span>${esc(DATA.name)} map · ${esc(DATA.unit)} panel</span></div><h2>${esc(title)}</h2><div class="sub">${sub}</div></div></div>`;
+  return `<div class="ph theme-map accent-head"><div class="mark">${esc(a)}</div><div><div class="ph-eye">${P}<span>${mapLang()==='fr'?esc('Carte '+DATA.name+' · panneau '+DATA.unit):esc(DATA.name)+' map · '+esc(DATA.unit)+' panel'}</span></div><h2>${esc(title)}</h2><div class="sub">${sub}</div></div></div>`;
 }
 function dogsCatsBlock(){
   const d = DATA.dogs||{}, c = DATA.cats||{};
@@ -1148,15 +1181,15 @@ function initFreeZoom(){const m=$('#map');if(!m)return;
  let wrap=m.parentNode;if(!wrap.classList.contains('mapwrap')){wrap=document.createElement('div');wrap.className='mapwrap';m.parentNode.insertBefore(wrap,m);wrap.appendChild(m)}
  /* Country-specific empty-space placement: CA Pacific SW, MX Pacific SW (desktop). Mobile: under map. */
  wrap.classList.add('zoom-pos-'+({MX:'mx',CA:'ca',UK:'uk',FR:'fr',DE:'de',KR:'kr',JP:'jp',IT:'it',ES:'es'}[DATA.country]||'ca'));
- if(!$('#zin')){const z=document.createElement('div');z.className='zoom';z.setAttribute('role','group');z.setAttribute('aria-label','Map zoom');
-  z.innerHTML='<button type="button" id="zin" aria-label="Zoom in" title="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out" title="Zoom out">&minus;</button><button type="button" id="zreset" aria-label="Reset map view" title="Reset map view">&#8634;</button>';
+ if(!$('#zin')){const z=document.createElement('div');z.className='zoom';z.setAttribute('role','group');const _ml=mapLang();const _za=_ml==='fr'?{g:'Zoom de la carte',i:'Zoom avant',o:'Zoom arrière',r:'Réinitialiser la vue'}:{g:'Map zoom',i:'Zoom in',o:'Zoom out',r:'Reset map view'};z.setAttribute('aria-label',_za.g);
+  z.innerHTML='<button type="button" id="zin" aria-label="'+_za.i+'" title="'+_za.i+'">+</button><button type="button" id="zout" aria-label="'+_za.o+'" title="'+_za.o+'">&minus;</button><button type="button" id="zreset" aria-label="'+_za.r+'" title="'+_za.r+'">&#8634;</button>';
   wrap.appendChild(z)}
  const ctr=()=>[vb[0]+vb[2]/2,vb[1]+vb[3]/2];
  $('#zin').onclick=()=>{const c=ctr();zoomAt(c[0],c[1],1.6,250)};
  $('#zout').onclick=()=>{const c=ctr();zoomAt(c[0],c[1],1/1.6,250)};
  $('#zreset').onclick=()=>animateTo(FULL,300);
  const note=document.querySelector('#country-map .mapnote');
- if(note&&!note.querySelector('.mhint')){note.insertAdjacentHTML('afterbegin','<span class="mhint">Pinch with two fingers to zoom, swipe sideways to move the map. </span><span class="dhint">Scroll over the map to zoom, drag to move. </span>')}
+ if(note&&!note.querySelector('.mhint')){note.insertAdjacentHTML('afterbegin', mapLang()==='fr'?'<span class="mhint">Pincez avec deux doigts pour zoomer, glissez latéralement pour déplacer la carte. </span><span class="dhint">Faites défiler la carte pour zoomer, faites glisser pour la déplacer. </span>':'<span class="mhint">Pinch with two fingers to zoom, swipe sideways to move the map. </span><span class="dhint">Scroll over the map to zoom, drag to move. </span>')}
  syncZoomUI();
  const toSVG=(cx,cy)=>{const r=m.getBoundingClientRect();return [vb[0]+(cx-r.left)*vb[2]/r.width,vb[1]+(cy-r.top)*vb[3]/r.height]};
  const perPx=()=>vb[2]/(m.getBoundingClientRect().width||MAP_W);
