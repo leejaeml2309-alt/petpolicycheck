@@ -25,7 +25,27 @@ sp+='</svg>';
 function pst(k,cls){return '<span class="pst theme-'+k+(cls?' '+cls:'')+'" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#pst-'+k+'"/></svg></span>'}
 window.PPC_PST=pst;
 function boot(){
- if(!document.getElementById('pst-map')&&!document.getElementById('ppc-pst-sprite')) document.body.insertAdjacentHTML('afterbegin',sp);
+ function ensureSprite(){
+  if(!document.getElementById('pst-map')&&!document.getElementById('ppc-pst-sprite')){
+   document.body.insertAdjacentHTML('afterbegin',sp);
+   return;
+  }
+  var root=document.getElementById('ppc-pst-sprite');
+  if(!root){var m=document.getElementById('pst-map'); root=m&&m.closest('svg');}
+  if(!root) return;
+  var tmp=document.createElement('div');
+  tmp.innerHTML=sp;
+  var src=tmp.querySelector('svg');
+  if(!src) return;
+  var added=[];
+  Array.prototype.forEach.call(src.querySelectorAll('symbol'),function(sym){
+   if(!document.getElementById(sym.id)){ root.appendChild(sym); added.push('#'+sym.id); }
+  });
+  added.forEach(function(href){
+   document.querySelectorAll('use[href="'+href+'"]').forEach(function(u){ u.setAttribute('href',href); });
+  });
+ }
+ ensureSprite();
  var path=location.pathname || '/';
  /* Exact relative root: /countries/usa-map.html → '../'; /airlines/compare/ → '../../' */
  /* /es/* and /it/* pages: treat the locale prefix as root so nav stays under it when a page exists. */
