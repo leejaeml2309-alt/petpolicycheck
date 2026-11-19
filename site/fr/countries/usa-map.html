@@ -76,7 +76,7 @@ document.addEventListener('click',function(e){if(m.classList.contains('open')&&!
 m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
 m.addEventListener('focusout',function(e){var r=e.relatedTarget;if(m.classList.contains('open')&&r&&!m.contains(r)&&T.indexOf(r)<0)set(false)})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script><main class="wrap" id="main">
-<link href="/assets/css/usa-map.css?v=20261116tc3" rel="stylesheet"/>
+<link href="/assets/css/usa-map.css?v=20261117lbl7" rel="stylesheet"/>
 <div id="usa-map">
 <section class="intro">
 <div><h1>Voyagez aux États-Unis avec votre animal</h1>
@@ -109,11 +109,28 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <div class="grid" id="grid"></div>
 </section>
 </div>
-<script src="/assets/js/grooming-data.js"></script>
-<script src="/assets/js/grooming.js"></script>
-<script src="/assets/js/usa-map-geo.js"></script>
-<script src="/assets/js/usa-map-rules.fr.js?v=20261119fr1"></script>
-<script src="/assets/js/usa-map.js?v=20261116tc3"></script>
+<script>
+(function(){
+  var items=['/assets/js/grooming-data.js', '/assets/js/grooming.js', '/assets/js/usa-map-geo-a.js?v=20261117lbl7', '/assets/js/usa-map-geo-b.js?v=20261117lbl7', '/assets/js/usa-map-rules.fr.js?v=20261119fr2', '/assets/js/usa-label-plans.js?v=20261117lbl7', '/assets/js/map-region-labels.fr.js?v=20261119fr3', '/assets/js/usa-airports.js?v=20261117lbl7', '/assets/js/usa-map-core.js?v=20261117lbl7', '/assets/js/usa-map.js?v=20261118camx1'];
+  var i=0;
+  function next(){
+    if(i>=items.length){ window.USA_CSS_READY=true; return; }
+    var url=items[i++], el;
+    if(/\.css(\?|$)/.test(url)){
+      el=document.createElement('link');
+      el.rel='stylesheet'; el.href=url;
+    } else {
+      el=document.createElement('script');
+      el.src=url;
+    }
+    el.onload=function(){ setTimeout(next,0); };
+    el.onerror=function(){ setTimeout(next,0); };
+    document.head.appendChild(el);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',function(){ setTimeout(next,0); });
+  else setTimeout(next,0);
+})();
+</script>
 </main>
 <footer class="foot foot-compact">
 <div class="wrap cols">

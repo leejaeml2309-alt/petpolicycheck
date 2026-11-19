@@ -244,7 +244,7 @@
       root = segs.length ? '../'.repeat(segs.length) : '';
     } catch (e) {}
     var html = '<aside id="ppc-ref-notice" class="ppc-ref-notice" role="status">'
-      + '<span class="ppc-ref-msg">' + msg + '</span>'
+      + '<span class="ppc-ref-msg">' + msg + '</span> '
       + '<span class="ppc-ref-links">'
       + '<a href="' + root + 'airlines/compare/">' + (links.split(' · ')[0] || 'Comparator') + '</a>'
       + ' · <a href="' + root + 'passport/">' + (links.split(' · ')[1] || 'Passport') + '</a>'

@@ -529,6 +529,7 @@ function usaUiLang(){
   try{ loc=localStorage.getItem('ppc_lang')||loc; }catch(_){}
   if(/\/it(?:\/|$)/.test(location.pathname) || /\bit\b/.test(lang) || loc==='it') return 'it';
   if(/\/es(?:\/|$)/.test(location.pathname) || /\bes\b/.test(lang) || loc==='es') return 'es';
+  if(/\/fr(?:\/|$)/.test(location.pathname) || /\bfr\b/.test(lang) || loc==='fr') return 'fr';
   return 'en';
 }
 function usaUi(){
@@ -563,6 +564,16 @@ function usaUi(){
       serving:n=>'Aeroporti al servizio di '+n,
       cityPanel:n=>'Pannello città: taxi e hotel a '+n,
       zoomIn:'Ingrandisci', zoomOut:'Riduci', resetView:'Reimposta la mappa'
+    },
+    fr:{
+      pickTitle:'Choisissez un État ou une ville',
+      pickLead:'Cliquez sur l’un des 50 États de la carte (ou utilisez la liste) pour ouvrir son portail législatif. Les villes en or ont le guide de réservation complet. Les pictogrammes d’avion indiquent les aéroports de cette ville :',
+      journey:'Ordre du voyage : 1 vétérinaire + lois → 2 route/train → 3 avion → 4 hôtel → 5 toilettage.',
+      choose:'Choisissez un État…',
+      fifty:'50 États',
+      serving:n=>'Aéroports desservant '+n,
+      cityPanel:n=>'Panneau de la ville : taxis et hôtels à '+n,
+      zoomIn:'Zoom avant', zoomOut:'Zoom arrière', resetView:'Réinitialiser la carte'
     }
   };
   return pack[loc]||pack.en;

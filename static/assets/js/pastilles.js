@@ -72,7 +72,7 @@ function boot(){
  try{ if((path==='/'||path==='/es'||path==='/es/'||path==='/it'||path==='/it/'||path==='/fr'||path==='/fr/'||/\/(index\.html)?$/.test(path)) && new URLSearchParams(location.search).get('view')==='map') cur='map'; }catch(e){}
  var PAST_IT={map:'Mappa del mondo',flight:'Compagnie aeree',hotel:'Hotel',grooming:'Toelettatura',ground:'Trasferimenti',shop:'Prodotti',law:'Norme',forum:'Forum',vet:'Veterinario',k9:'K9',service:'Cani di servizio',veterans:'Veterani',b2b:'Per le aziende',Compare:'Confronta',Guides:'Guide',Updates:'Aggiornamenti',About:'Chi siamo'};
  var PAST_ES={map:'Mapa mundial',flight:'Aerolíneas',hotel:'Hoteles',grooming:'Peluquería',ground:'Traslados',shop:'Productos',law:'Normas',forum:'Foro',vet:'Veterinario',k9:'K9',service:'Perros de servicio',veterans:'Veteranos',b2b:'Para empresas',Compare:'Comparar',Guides:'Guías',Updates:'Actualizaciones',About:'Acerca de'};
- var PAST_FR={map:'Carte du monde',flight:'Avion',hotel:'Hôtel',grooming:'Toilettage',ground:'Trajets',shop:'Produits',law:'Lois',forum:'Forum',vet:'Vétérinaire',k9:'K9',service:'Chiens d’assistance',veterans:'Anciens combattants',b2b:'Professionnels',Compare:'Comparer',Guides:'Guides',Updates:'Mises à jour',About:'À propos'};
+ var PAST_FR={map:'Carte du monde',flight:'Avion',hotel:'Hôtel',grooming:'Toilettage',ground:'Trajets',shop:'Produits',law:'Lois',forum:'Forum',vet:'Vétérinaire',k9:'K9',service:'Chiens d’assistance',veterans:'Vétérans',b2b:'Pour les pros',Compare:'Comparer',Guides:'Guides',Updates:'Mises à jour',About:'À propos'};
  var locPack=ppcLangRoot==='/it'?PAST_IT:(ppcLangRoot==='/es'?PAST_ES:(ppcLangRoot==='/fr'?PAST_FR:null));
  var plab=function(en,key){return locPack&&locPack[key||en]?locPack[key||en]:en;};
  var V=(new URLSearchParams(location.search).get('nav'))||document.documentElement.dataset.nav||'8';
@@ -84,8 +84,8 @@ function boot(){
  var CAT={map:['World map','Mappa del mondo','Mapa mundial','Carte du monde'],law:['Laws','Norme','Leyes','Lois'],vet:['Vet','Veterinario','Veterinario','Vétérinaire'],
    flight:['Plane','Aereo','Avión','Avion'],hotel:['Hotel','Hotel','Hotel','Hôtel'],grooming:['Grooming','Toelettatura','Peluquería','Toilettage'],
    shop:['Products','Prodotti','Productos','Produits'],ground:['Rides','Trasferimenti','Traslados','Trajets'],forum:['Forum','Forum','Foro','Forum'],
-   k9:['K9','K9','K9','K9'],service:['Service dogs','Cani di servizio','Perros de servicio','Chiens d’assistance'],veterans:['Veterans','Veterani','Veteranos','Anciens combattants'],
-   b2b:['For Business','Per le aziende','Para empresas','Professionnels']};
+   k9:['K9','K9','K9','K9'],service:['Service dogs','Cani di servizio','Perros de servicio','Chiens d’assistance'],veterans:['Veterans','Veterani','Veteranos','Vétérans'],
+   b2b:['For Business','Per le aziende','Para empresas','Pour les pros']};
  var li=LNG==='it'?1:(LNG==='es'?2:(LNG==='fr'?3:0));
  /* Pages that exist under /it/ and /es/; anything else falls back to the English page. */
  var HAS={it:'?view=map countries/usa.html vet-info/ airlines/ hotels/ grooming/ products/ taxi/ forum/ k9/ veterans/ pro/ updates.html about.html #compare #gear',
