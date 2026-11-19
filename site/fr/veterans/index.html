@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html data-ppc-locale="fr" lang="fr"><head>
+<meta charset="utf-8"/>
+<script>
+(function(){
+  var skip=false;
+  try{
+    var p=new URLSearchParams(location.search);
+    if(p.get('qa')==='0') localStorage.removeItem('ppc_qa');
+    else if(p.get('qa')==='1') localStorage.setItem('ppc_qa','1');
+    if(p.get('qa')==='1'||localStorage.getItem('ppc_qa')==='1') skip=true;
+  }catch(e){}
+  if(navigator.webdriver===true) skip=true;
+  if(/HeadlessChrome|Headless|PhantomJS|Lighthouse|Chrome-Lighthouse|PageSpeed|GTmetrix|bot|crawler|spider|Playwright|Puppeteer/i.test(navigator.userAgent||'')) skip=true;
+  if(skip) return;
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-K45B2WNXMC';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config','G-K45B2WNXMC');
+})();
+</script><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title data-i18n="veterans.meta.title" data-i18n-html="">Espace vétérans : chiens d'assistance et voyages avec animaux (États-Unis et Canada) | PetPolicyCheck</title><link href="https://petpolicycheck.com/fr/veterans/" rel="canonical"/>
+<link href="https://petpolicycheck.com/veterans/" hreflang="en" rel="alternate"/>
+<link href="https://petpolicycheck.com/es/veterans/" hreflang="es" rel="alternate"/>
+<link href="https://petpolicycheck.com/it/veterans/" hreflang="it" rel="alternate"/>
+<link href="https://petpolicycheck.com/fr/veterans/" hreflang="fr" rel="alternate"/>
+<link href="https://petpolicycheck.com/veterans/" hreflang="x-default" rel="alternate"/><meta content="Règles DOT Part 382 et règles canadiennes de l'OTC (CTA) pour les chiens d'assistance, droits ADA à l'hôtel, carte de maître-chien CR80, notes snowbirds et hébergement VA. Gratuit, sans dons." data-i18n-content="veterans.meta.description" name="description"/>
+<meta content="#001f3f" name="theme-color"/>
+<link href="/assets/css/theme.css?v=20261117sb1" rel="stylesheet"/><link href="/style.css?v=20261112footer4" rel="stylesheet"/>
+<link href="/assets/css/ppc-i18n.css?v=20261113nav1" rel="stylesheet"/>
+<script defer="" src="/assets/i18n/ui.js?v=20261112footer5"></script>
+<script defer="" src="/assets/i18n/veterans-ui.js?v=20261112itp5b"></script>
+<script defer="" src="/assets/js/ppc-i18n.js?v=20261112itp5b"></script>
+<script defer="" src="/assets/js/pastilles.js?v=20261112nav2"></script>
+<link href="/assets/css/theme-navy.css?v=20261107n" rel="stylesheet"/>
+<link href="/assets/css/veterans-wall.css?v=20261110wall2" rel="stylesheet"/>
+<style>
+/* Veterans institutional deep midnight navy (#001f3f) — scoped tokens beat theme.css teal mineral */
+body.v-c.theme-navy, body.theme-navy{
+  --bg:#001f3f;--paper:#03284f;--ink:#f4f6fa;--mut:#b8c4d4;--head:#f4f6fa;--link:#e2c275;
+  --pri:#d4af37;--on-pri:#001f3f;--acc:#d4af37;--gold:#d4af37;--gold-l:#e2c275;
+  --line:rgba(212,175,55,.28);--line2:rgba(212,175,55,.42);--chip:#06315e;--zebra:#042a52;
+  --hdr:rgba(0,31,63,.94);--foot:#001526;--foot-ink:#c9d3e0;--panel-h:#03284f;--panel-h-ink:#f4f6fa;
+  --field:#001f3f;--field-b:rgba(212,175,55,.35);--th:#03284f;--border:#001f3f;
+  background:#001f3f !important;color:#f4f6fa;
+}
+/* Neutralize global wallpaper tile so navy is the visible surface (not masked by teal mineral) */
+body.v-c.theme-navy::before, body.theme-navy::before{
+  background:
+    radial-gradient(ellipse 90% 55% at 12% -10%, #06315e 0%, transparent 58%),
+    radial-gradient(ellipse 70% 50% at 92% 110%, #03284f 0%, transparent 55%),
+    linear-gradient(180deg, #001f3f 0%, #001a35 48%, #001526 100%) !important;
+  background-size:auto !important;opacity:1;
+}
+body.theme-navy .top{background:rgba(0,31,63,.94);border-bottom:1px solid rgba(212,175,55,.28)}
+body.theme-navy .foot{background:#001526;color:#c9d3e0}
+.growth-hero{padding:22px 0 8px;max-width:980px;margin:0 auto}
+.growth-hero h1{font-family:Marcellus,serif;font-weight:400;color:#f4f6fa;margin:0 0 8px}
+.growth-hero .sub{color:#b8c4d4;max-width:68ch}
+.gcard{border:1px solid rgba(212,175,55,.35);border-radius:14px;padding:14px 16px;background:linear-gradient(165deg,rgba(6,49,94,.92),rgba(3,40,79,.88));margin:12px 0;box-shadow:0 8px 28px rgba(0,0,0,.28)}
+.gcard h2,.gcard h3{margin:0 0 8px;color:#e2c275;font-size:1.05rem}
+.btn{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:9px 14px;background:#d4af37;color:#001f3f;font-weight:700;text-decoration:none;border:0;cursor:pointer}
+.btn.ghost{background:transparent;color:#e2c275;border:1px solid rgba(212,175,55,.45)}
+label{display:block;margin:8px 0 4px;color:#c9d3e0;font-size:.86rem}
+input,select{width:100%;max-width:420px;padding:8px 10px;border-radius:10px;border:1px solid rgba(212,175,55,.35);background:#001f3f;color:#f4f6fa}
+.row{display:flex;flex-wrap:wrap;gap:12px}.row>div{flex:1 1 200px}
+.mode-sw button{appearance:none;border:1px solid rgba(212,175,55,.35);background:transparent;color:#c9d3e0;padding:.45rem .9rem;border-radius:999px;cursor:pointer;margin:4px}
+.mode-sw button[aria-pressed="true"]{background:#d4af37;color:#001f3f;font-weight:700}
+.privacy{font-size:.82rem;color:#b8c4d4;border-left:3px solid #d4af37;padding-left:10px}
+.cr80{width:85.6mm;height:54mm;border-radius:3mm;padding:0;box-sizing:border-box;background:#f7f3ea;color:#141414;font:600 10.5px/1.25 Inter,system-ui,sans-serif;border:1.5px solid #d4af37;margin:8px 0;overflow:hidden;box-shadow:0 0 0 1px #001f3f;display:flex;flex-direction:column;-webkit-print-color-adjust:exact;print-color-adjust:exact;break-inside:avoid;page-break-inside:avoid}
+.cr80[hidden]{display:none}
+.cr80-stripe{flex:none;display:flex;justify-content:space-between;align-items:center;gap:2mm;min-height:4.6mm;padding:0 2.4mm;background:linear-gradient(90deg,#001f3f,#06315e 55%,#001f3f);border-bottom:1.2px solid #d4af37;color:#f4f6fa;font:700 9px/1.15 Inter,system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase}
+.cr80-url{flex:none;color:#e2c275;text-transform:none;letter-spacing:0;font-weight:600}
+.cr80-body{flex:1;min-height:0;overflow:hidden;padding:1.4mm 2.4mm 1.2mm}
+.cr80 p,.cr80 ul{margin:0 0 1.6px}.cr80 ul{padding-left:11px}.cr80 li{margin:0 0 1px}
+.cr80-note{font-weight:500;color:#333}.cr80-lbl{margin:1px 0 0!important;letter-spacing:.05em;text-transform:uppercase;color:#7a5b10;font-weight:700}
+#cr80set .cr80-side{font-size:.78rem;color:#b8c4d4;margin:10px 0 0}
+@media print{header,footer,.ppc-lang-sw,.no-print,.mode-sw{display:none!important} body{background:#fff} .print-sheet{display:block!important}}
+</style>
+<link href="/assets/site-search.css?v=20261117sb2" rel="stylesheet"/>
+</head>
+<body class="v-c theme-navy">
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="top"><div class="wrap">
+<a aria-label="PetPolicyCheck — Accueil" class="brand" href="/fr/"><span class="lbadge"><img alt="PetPolicyCheck" height="48" src="/assets/img/logo-mark-header.png" width="62"/></span></a>
+<nav aria-label="Principal" class="nav menu" id="site-menu"><a data-i18n="site.nav.map" href="/fr/?view=map">Carte du monde</a><a href="/fr/countries/usa.html#federal">Lois</a><a href="/fr/vet-info/">Vétérinaire</a><a href="/fr/airlines/">Avion</a><a href="/fr/hotels/">Hôtel</a><a data-i18n="site.nav.grooming" href="/fr/grooming/">Toilettage</a><a data-i18n="site.nav.products" href="/fr/products/">Produits</a><a data-i18n="site.nav.rides" href="/fr/taxi/">Trajets</a><span aria-hidden="true" class="nav-group-sep"></span><a data-i18n="site.nav.forum" href="/fr/forum/">Forum</a><a href="/fr/k9/">K9</a><a href="/fr/veterans/#service-dog-support">Chiens d’assistance</a><a aria-current="page" class="nav-vet" data-i18n="site.nav.veterans" href="/fr/veterans/">Anciens combattants</a><a class="nav-biz" data-i18n="site.nav.pro" href="/fr/pro/">Professionnels</a><a class="menu-only sub" href="/fr/#compare">Comparer</a><a class="menu-only sub" href="/fr/#gear">Guides</a><a class="menu-only sub" href="/fr/updates.html">Mises à jour</a><a class="menu-only sub" href="/fr/about.html">À propos</a></nav><button aria-controls="site-menu" aria-expanded="false" class="menu-btn" type="button"><svg aria-hidden="true" focusable="false" height="20" viewbox="0 0 24 24" width="20"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg><span data-i18n="site.nav.menu">Menu</span></button>
+</div></header>
+<main class="wrap" id="main">
+<section class="growth-hero">
+<p class="eyebrow" data-i18n="veterans.hero.eyebrow" data-i18n-html="" style="color:#d9b765;letter-spacing:.08em;text-transform:uppercase">Vétérans · États-Unis &amp; Canada</p>
+<h1 data-i18n="veterans.hero.h1" data-i18n-html="">Chiens d'assistance &amp; voyages des vétérans avec leurs animaux</h1>
+<p class="sub" data-i18n="veterans.hero.sub" data-i18n-html="">Service public gratuit pour les vétérans américains et canadiens. Aucun don. Design institutionnel bleu nuit, pensé pour que VA, Legion, DAV, VFW et les organisations de chiens d'assistance puissent y renvoyer.</p>
+</section>
+<section class="gcard no-print">
+<div aria-label="Mode" class="mode-sw" data-i18n-aria="veterans.switch.mode.aria" role="group">
+<button aria-pressed="true" data-i18n="veterans.switch.mode.sd" data-i18n-html="" data-mode="sd" type="button">Chien d'assistance (TSPT / mobilité / guide)</button>
+<button aria-pressed="false" data-i18n="veterans.switch.mode.pet" data-i18n-html="" data-mode="pet" type="button">Animal de compagnie &amp; déménagement</button>
+</div>
+<div aria-label="Pays" class="mode-sw" data-i18n-aria="veterans.switch.country.aria" role="group">
+<button aria-pressed="true" data-c="US" data-i18n="veterans.switch.country.US" data-i18n-html="" type="button">États-Unis</button>
+<button aria-pressed="false" data-c="CA" data-i18n="veterans.switch.country.CA" data-i18n-html="" type="button">Canada</button>
+<button aria-pressed="false" data-c="XB" data-i18n="veterans.switch.country.XB" data-i18n-html="" type="button">Transfrontalier États-Unis ↔ Canada</button>
+</div>
+</section>
+<section class="gcard" id="panel-air"></section>
+<section class="gcard" id="panel-hotel"></section>
+<section class="gcard" id="card">
+<h2 data-i18n="veterans.cardsec.h2" data-i18n-html="">Carte d'accès du maître-chien d'assistance (CR80)</h2>
+<p class="privacy" data-i18n="veterans.cardsec.privacy" data-i18n-html="">100 % local dans votre navigateur : aucune donnée médicale ou personnelle n'est transmise ni stockée sur nos serveurs.</p>
+<div class="row no-print">
+<div><label data-i18n="veterans.cardsec.label.handler" data-i18n-html="">Prénom du maître-chien (facultatif)</label><input id="hName"/></div>
+<div><label data-i18n="veterans.cardsec.label.dog" data-i18n-html="">Nom du chien (facultatif)</label><input id="dName"/></div>
+<div><label data-i18n="veterans.cardsec.label.juri" data-i18n-html="">Juridiction</label>
+<select id="juri"><option data-i18n="veterans.cardsec.opt.US" data-i18n-html="" value="US">États-Unis : ADA + DOT</option><option data-i18n="veterans.cardsec.opt.CA" data-i18n-html="" value="CA">Canada : OTC (CTA) + provincial</option><option data-i18n="veterans.cardsec.opt.XB" data-i18n-html="" value="XB">Transfrontalier États-Unis ↔ Canada</option></select></div>
+</div>
+<p class="no-print"><button class="btn" data-i18n="veterans.cardsec.btn.generate" data-i18n-html="" id="mk" type="button">Générer la carte</button>
+<button class="btn ghost" data-i18n="veterans.cardsec.btn.print" data-i18n-html="" id="printC" type="button">Imprimer</button>
+<button class="btn ghost" data-i18n="veterans.cardsec.btn.png" data-i18n-html="" id="pngC" type="button">Télécharger le PNG</button></p>
+<p class="privacy" data-i18n="veterans.cardsec.dotnote" data-i18n-html="" id="card-dot-note"><b>Verso de la carte, texte intégral :</b> formulaires du DOT : vérifiez la procédure d’envoi de la compagnie. Un préavis pouvant aller jusqu’à 48 heures peut s’appliquer aux réservations effectuées plus de 48 heures avant le premier départ prévu ; pour les réservations de dernière minute, les formulaires peuvent être remis à la porte d’embarquement.</p>
+<p class="privacy" id="card-gear"></p>
+<div id="cr80set">
+<div class="cr80" id="crFront"></div>
+<div class="cr80" id="crBack"></div>
+<div class="cr80" hidden="" id="crFront2"></div>
+</div>
+<canvas height="638" id="cv" style="display:none" width="1012"></canvas>
+</section>
+<!-- sourced boxes: SD vs ESA + service dog costs (EN until Traducteur) -->
+<section class="gcard" id="sd-vs-esa">
+<h2>Chien d’assistance ou animal de soutien émotionnel ? Ce qui a changé sur les vols américains en 2021</h2>
+<p><strong>Règle officielle (US DOT, Air Carrier Access Act, 14 CFR Part 382)</strong></p>
+<ul>
+<li>Le DOT a publié sa règle finale <em>Traveling by Air with Service Animals</em> le 10 décembre 2020 (annoncée le 2 décembre 2020). Elle est entrée en vigueur le <strong>11 janvier 2021</strong>.</li>
+<li>Un <strong>animal d’assistance</strong> est désormais un <strong>chien</strong>, de toute race ou de tout type, <strong>dressé individuellement pour effectuer un travail ou des tâches</strong> au profit d’une personne handicapée, <strong>y compris en cas de handicap psychiatrique</strong>.</li>
+<li><strong>Les animaux de soutien émotionnel, de réconfort ou de compagnie et les animaux d’assistance en formation ne sont pas des animaux d’assistance.</strong> Les compagnies peuvent traiter un animal de soutien émotionnel comme un <strong>animal de compagnie</strong>. Certaines peuvent encore choisir de le transporter gratuitement, mais elles n’y sont pas obligées.</li>
+<li><strong>Les chiens d’assistance psychiatrique doivent être traités comme les autres chiens d’assistance.</strong> Les anciennes étapes supplémentaires qui leur étaient imposées, comme une lettre d’un professionnel de la santé mentale et un enregistrement une heure plus tôt, ont été supprimées.</li>
+<li>Les seuls documents qu’une compagnie peut exiger sont les formulaires du DOT : le <strong><a href="https://www.transportation.gov/individuals/aviation-consumer-protection/service-animals/Air_Transportation_Form" rel="noopener" target="_blank">DOT Service Animal Air Transportation Form</a></strong> et, pour les vols de 8 heures ou plus, l’attestation relative aux besoins naturels. Chaque compagnie a sa propre façon de les recevoir. Consultez le panneau sur les voyages aériens aux États-Unis ci-dessus pour les délais.</li>
+</ul>
+<p><strong>Ce que cela signifie pour les anciens combattants atteints de TSPT</strong></p>
+<ul>
+<li><strong>Un chien d’assistance psychiatrique dressé pour effectuer des tâches précises liées à votre TSPT</strong> est un animal d’assistance selon les règles du DOT. Il voyage en cabine sans frais pour animal, aux mêmes conditions que tout autre chien d’assistance.</li>
+<li><strong>Un chien qui aide par sa seule présence</strong>, par le réconfort, la compagnie ou le soutien émotionnel, est un animal de soutien émotionnel. La compagnie peut appliquer sa <strong>politique pour les animaux de compagnie</strong>, ce qui peut signifier des frais, des limites de taille du sac de transport et un nombre maximal d’animaux transportés.</li>
+<li>Selon la définition du DOT, c’est le dressage du chien qui compte. Un diagnostic ou une lettre ne suffisent pas à faire d’un chien un animal d’assistance. Le DOT n’exige pas de dressage par une école précise : les chiens dressés par leur maître peuvent remplir les conditions s’ils répondent à la définition.</li>
+<li>Le formulaire du DOT comporte un avertissement fédéral contre les fausses déclarations (18 U.S.C. § 1001). N’attestez que du dressage que votre chien a réellement reçu.</li>
+</ul>
+<p>Sources : <a href="https://www.transportation.gov/resources/individuals/aviation-consumer-protection/service-animals" rel="noopener" target="_blank">DOT — Service Animals</a> · <a href="https://www.transportation.gov/briefing-room/us-department-transportation-announces-final-rule-traveling-air-service-animals" rel="noopener" target="_blank">DOT — annonce de la règle finale (2 déc. 2020)</a> · <a href="https://www.transportation.gov/individuals/aviation-consumer-protection/final-rule-traveling-air-service-animals" rel="noopener" target="_blank">DOT — page de la règle finale</a> · <a href="https://www.federalregister.gov/documents/2020/12/10/2020-26679/traveling-by-air-with-service-animals" rel="noopener" target="_blank">Federal Register, 85 FR 79742</a> <em>Vérifié le 9 nov. 2026.</em></p>
+</section>
+<section class="gcard" id="service-dog-support">
+<h2>Aide pour les frais de chien d’assistance : VA (États-Unis) et Anciens Combattants Canada</h2>
+<p><em>Chaque point distingue ce qu’<strong>est</strong> le programme et <strong>qui y a droit</strong>. L’éligibilité est décidée par le VA ou ACC, pas par PetPolicyCheck.</em></p>
+<h3 style="color:#d9b765;margin-top:1.1em">États-Unis — Department of Veterans Affairs (VA)</h3>
+<p><strong>1. Service Dog Veterinary Health Benefit (38 CFR 17.148)</strong></p>
+<ul>
+<li><strong>De quoi s’agit-il :</strong> le VA <strong>ne fournit pas</strong> de chiens d’assistance. Pour les anciens combattants dont le dossier est approuvé, le VA prend en charge une assurance vétérinaire commerciale pour <strong>un chien d’assistance à la fois</strong>, couvrant les traitements médicalement nécessaires et les médicaments sur ordonnance. Les coûts au-delà des plafonds de la police restent à la charge de l’ancien combattant. Le VA couvre aussi le <strong>matériel</strong> dont le chien a besoin pour accomplir ses tâches, comme un harnais, via le Prosthetic and Sensory Aids Service, ainsi que les <strong>frais de déplacement</strong> pour obtenir un chien ou un chien de remplacement.</li>
+<li><strong>Non couverts</strong>, selon le VA : médailles d’enregistrement, nourriture sans ordonnance, toilettage, pension, médicaments en vente libre et articles similaires.</li>
+<li><strong>Qui y a droit :</strong> les anciens combattants à qui une équipe clinique du VA a <strong>prescrit</strong> un chien guide ou d’assistance pour une <strong>déficience visuelle, auditive ou une limitation importante de la mobilité</strong>. Le VA mentionne aussi une procédure de <strong>mobilité liée à la santé mentale</strong> : un prestataire de santé mentale du VA détermine si un trouble mental est la cause principale d’une limitation importante de la mobilité et si un chien d’assistance à la mobilité est le meilleur traitement. Le chien et l’ancien combattant doivent avoir suivi une formation auprès d’une organisation accréditée par <strong>Assistance Dogs International (ADI)</strong> ou l’<strong>International Guide Dog Federation (IGDF)</strong>, avec un certificat.</li>
+<li><strong>Pour commencer :</strong> parlez-en à votre prestataire de soins cliniques du VA, ou à un prestataire de santé mentale du VA pour la procédure de mobilité liée à la santé mentale.</li>
+<li>Source : <a href="https://www.prosthetics.va.gov/Serviceandguidedogs.asp" rel="noopener" target="_blank">VA Prosthetic and Sensory Aids Service — Service Dog Veterinary Health Benefit</a> <em>(page mise à jour le 27 mai 2025)</em> · <em>Vérifié le 9 nov. 2026.</em></li>
+</ul>
+<p><strong>2. Le TSPT seul</strong></p>
+<ul>
+<li>Le National Center for PTSD du VA indique que le VA ne fournit de chiens d’assistance pour aucune affection, y compris le TSPT, et que la recherche ne permet pas encore de savoir si les chiens aident à traiter le TSPT. Il précise que le VA prendrait en charge les soins vétérinaires des chiens d’assistance pour le TSPT si la recherche venait à en soutenir l’usage.</li>
+<li>Source : <a href="https://www.ptsd.va.gov/gethelp/dogs_ptsd.asp" rel="noopener" target="_blank">VA National Center for PTSD — Dogs and PTSD</a> · <em>Vérifié le 9 nov. 2026.</em></li>
+</ul>
+<p><strong>3. PAWS for Veterans Therapy Act — programme pilote PAWS</strong></p>
+<ul>
+<li><strong>De quoi s’agit-il (loi) :</strong> la loi PAWS impose au VA de mener un <strong>programme pilote de cinq ans</strong> proposant du <strong>dressage de chiens</strong> aux anciens combattants éligibles atteints de TSPT, dans le cadre des soins de santé complémentaires et intégratifs. Le VA indique cinq sites pilotes : Asheville (NC), West Palm Beach (FL), San Antonio (TX), Palo Alto (CA) et Anchorage (AK).</li>
+<li><strong>Ce que ce n’est pas :</strong> les participants <strong>dressent des chiens d’assistance pour d’autres anciens combattants</strong>. Le VA précise que vous <strong>ne recevrez pas de chien d’assistance</strong> dans le cadre du programme pilote et que celui-ci ne remplace pas un traitement du TSPT fondé sur des données probantes.</li>
+<li><strong>Qui y a droit</strong> (critères publiés par VA Palo Alto) : un ancien combattant suivi en ambulatoire présentant des symptômes actuels de TSPT, inscrit dans un centre médical du VA d’un site pilote, vu en soins primaires, en santé mentale ou dans un service similaire au cours des 3 derniers mois, évalué et approuvé par le psychologue PAWS, et disponible pour 8 séances hebdomadaires. D’autres sites peuvent formuler leurs critères différemment.</li>
+<li>Sources : <a href="https://news.va.gov/135044/paws-puppies-assisting-wounded-servicemembers/" rel="noopener" target="_blank">VA News — PAWS: Puppies Assisting Wounded Servicemembers (25 sept. 2024)</a> · <a href="https://www.va.gov/palo-alto-health-care/programs/service-animals/puppies-assisting-wounded-service-members-paws/" rel="noopener" target="_blank">VA Palo Alto — programme pilote PAWS (mis à jour le 29 avr. 2026)</a> · <em>Vérifié le 9 nov. 2026.</em></li>
+</ul>
+<h3 style="color:#d9b765;margin-top:1.1em">Canada — Anciens Combattants Canada (ACC)</h3>
+<p><strong>4. Avantages de traitement d’ACC et chiens d’assistance psychiatrique</strong></p>
+<ul>
+<li><strong>Position actuelle (officielle) :</strong> les avantages de traitement d’ACC <strong>ne reconnaissent pas les chiens d’assistance psychiatrique</strong> comme traitement en santé mentale, et <strong>ACC ne finance pas les dépenses liées aux animaux de soutien émotionnel</strong>. ACC indique continuer à examiner les données, y compris le programme pilote du VA américain.</li>
+<li><strong>Contexte :</strong> ACC a financé en 2015 une étude pilote sur les chiens d’assistance pour les anciens combattants atteints de TSPT (31 recrutés, 18 l’ayant terminée). ACC juge ses résultats prometteurs mais limités par la petite taille de l’échantillon.</li>
+<li>Sources : <a href="https://www.veterans.gc.ca/en/contact-us/help/faqs/service-dog-pilot-study" rel="noopener" target="_blank">ACC — FAQ sur l’étude pilote sur les chiens d’assistance</a> <em>(date de modification 2024-05-28)</em> · <a href="https://www.veterans.gc.ca/sites/default/files/5-feb-2026-Standing-Committee-on-Veterans-Affairs.pdf" rel="noopener" target="_blank">ACC — cahier d’information pour le Comité permanent, 5 févr. 2026, note « Service Dogs » (PDF)</a> · <em>Vérifié le 9 nov. 2026.</em></li>
+</ul>
+<p><strong>5. Crédit d’impôt pour frais médicaux (Agence du revenu du Canada) : un crédit d’impôt, et non un avantage d’ACC</strong></p>
+<ul>
+<li>
+<p><strong>De quoi s’agit-il :</strong> le coût d’un <strong>animal d’assistance spécialement dressé</strong> peut constituer une dépense médicale admissible pour les personnes se trouvant dans les situations énumérées par l’ARC. Il s’agit notamment d’une déficience mentale grave, pour les dépenses postérieures à 2017 ; de la cécité ; d’une surdité profonde ; et de déficiences graves et prolongées qui limitent de façon marquée l’usage des bras ou des jambes. L’animal doit être spécialement dressé pour accomplir des tâches précises. <strong>Un animal qui n’apporte qu’un soutien émotionnel n’est pas admissible.</strong></p>
+</li>
+<li>
+<p><strong>Qui y a droit :</strong> selon les règles de l’ARC. ACC précise que le crédit est accessible aux Canadiens admissibles, y compris les anciens combattants.</p>
+</li>
+<li>Source : <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/lines-33099-33199-eligible-medical-expenses-you-claim-on-your-tax-return/details-medical-expenses.html" rel="noopener" target="_blank">ARC — Détails des frais médicaux (animaux d’assistance)</a> · <em>Vérifié le 9 nov. 2026.</em></li>
+</ul>
+<h3 style="color:#d9b765;margin-top:1.1em">Trouver un organisme de dressage accrédité (ligne facultative)</h3>
+<p>L’avantage vétérinaire du VA exige un dressage auprès d’un organisme accrédité ADI ou IGDF. Assistance Dogs International publie un <strong><a href="https://assistancedogsinternational.org/resources/member-search" rel="noopener" target="_blank">moteur de recherche des membres</a></strong> avec des filtres, dont un pour les programmes destinés aux anciens combattants. PetPolicyCheck ne recommande ni ne classe aucun dresseur ou programme. Contactez directement les organismes au sujet de l’éligibilité, des délais d’attente et des coûts. <em>Vérifié le 9 nov. 2026.</em></p>
+<p><em>Information uniquement : il ne s’agit pas d’un conseil juridique, médical ou fiscal. Les règles et programmes évoluent : vérifiez auprès de votre compagnie, du VA, d’ACC ou de l’ARC avant de vous y fier.</em></p>
+</section>
+<section aria-labelledby="woh-title" class="gcard no-print" id="wall-of-heroes">
+<h2 id="woh-title">Mur des héros</h2>
+<p class="woh-intro">Futurs voyageurs et anciens combattants maîtres-chiens : envoyez une photo de votre <strong>K9 ou chien d’assistance d’ancien combattant</strong> et, après vérification par notre équipe, elle pourra apparaître ici sur PetPolicyCheck — un discret tableau d’honneur pour les compagnons qui voyagent avec vous.</p>
+<div aria-live="polite" class="woh-grid" id="woh-grid">
+<!-- filled by veterans-wall.js?v=20261110wall3 -->
+</div>
+<div class="woh-submit" id="woh-submit">
+<h3>Envoyer une photo</h3>
+<ul class="woh-rules">
+<li>Envoyez <strong>1 à 3 photos</strong> du chien seul, ou vu de dos — <strong>aucun visage humain</strong>.</li>
+<li><strong>Aucun nom de personne</strong>, ni insigne militaire, badge, grade, écusson d’unité ou plaque d’immatriculation dans le cadre.</li>
+<li>Vous devez <strong>détenir les droits</strong> sur la ou les photos.</li>
+<li>Chaque photo est <strong>vérifiée par notre équipe</strong> avant sa mise en ligne et peut être retirée sur demande.</li>
+</ul>
+<div class="woh-consent">
+<input id="woh-consent" name="woh-consent" type="checkbox" value="1"/> <label for="woh-consent">J’accepte la publication des photos approuvées uniquement sur <strong>petpolicycheck.com</strong> (Mur des héros). Je comprends que les photos sont vérifiées avant leur mise en ligne et peuvent être retirées sur demande.</label>
+</div>
+<div class="woh-actions">
+<a aria-disabled="true" class="btn" href="#woh-consent" id="woh-mailto" tabindex="-1">Envoyez votre photo par e-mail à contact@petpolicycheck.com</a>
+</div>
+<p class="woh-note">Ouvre votre application de messagerie avec un message prérempli. Joignez la ou les photos avant l’envoi. Nous ne stockons pas de fichiers sur ce site statique.</p>
+</div>
+</section>
+<section class="gcard" id="snowbirds">
+<h2 data-i18n="veterans.snow.h2" data-i18n-html="">Vétérans « snowbirds » &amp; hébergement VA / militaire</h2>
+<ul>
+<li data-i18n="veterans.snow.li1" data-i18n-html=""><b>Canada → États-Unis (snowbirds) :</b> reçu du CDC Dog Import Form — souvent utilisable pendant plusieurs mois pour les chiens venant de pays indemnes de rage canine ou à faible risque (vérifiez auprès du CDC). Gardez les documents antirabiques à jour.</li>
+<li data-i18n="veterans.snow.li2" data-i18n-html=""><b>Mexique :</b> entrée SENASICA/OISA. Les chiens entrant ou revenant aux États-Unis depuis le Mexique doivent disposer d’une certification d’absence de lucilie bouchère fondée sur une inspection dans les cinq jours précédant l’expédition. Le Mexique exige aussi un document d’inspection NWS distinct pour les chiens de compagnie originaires des États-Unis et voyageant depuis ce pays, en vigueur depuis le 3 août 2026. Vérifiez le signataire et le document exigés dans chaque sens.</li>
+<li data-i18n="veterans.snow.li3" data-i18n-html=""><b>Fisher House :</b> Fisher House n’est pas un hébergement ordinaire acceptant les animaux. Par exemple, VA South Texas n’accepte pas les animaux et exige une autorisation préalable pour l’animal d’assistance dressé de l’hôte enregistré. Vérifiez l’éligibilité et la procédure de la maison concernée pour les animaux d’assistance avant l’arrivée.</li>
+<li data-i18n="veterans.snow.li4" data-i18n-html=""><b>Navy Lodge / IHG Army Hotels :</b> chiens d’assistance gratuits. La disponibilité pour les animaux de compagnie, l’attribution des chambres, les frais et les limites de taille dépendent de l’établissement. Navy Lodge demande d’enregistrer les animaux et de contacter l’établissement pour plusieurs animaux ou les animaux de plus de 70 lb. IHG Army Hotels demande de prévenir le service des réservations et de consulter sa politique pour les animaux. Une réservation de chambre ne donne pas accès à la base.</li>
+</ul>
+<aside class="plink-callout" data-plink-callout="1"><p>Guides associés</p><div class="plink-row"><a class="plink plink--route" href="/fr/routes/usa-canada.html"><span aria-hidden="true" class="plink__ico"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.6"></circle><path d="M3.4 12h17.2M12 3.4c2.4 2.5 3.6 5.4 3.6 8.6s-1.2 6.1-3.6 8.6M12 3.4C9.6 5.9 8.4 8.8 8.4 12s1.2 6.1 3.6 8.6"></path><path d="M16.2 8.2 19 12l-2.8 3.8"></path></svg></span><span class="plink__lbl">Guide complet : États-Unis ↔ Canada</span><span aria-hidden="true" class="plink__arrow">→</span></a>
+<a class="plink plink--route" href="/fr/routes/usa-mexico.html"><span aria-hidden="true" class="plink__ico"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24"><circle cx="12" cy="12" r="8.6"></circle><path d="M3.4 12h17.2M12 3.4c2.4 2.5 3.6 5.4 3.6 8.6s-1.2 6.1-3.6 8.6M12 3.4C9.6 5.9 8.4 8.8 8.4 12s1.2 6.1 3.6 8.6"></path><path d="M16.2 8.2 19 12l-2.8 3.8"></path></svg></span><span class="plink__lbl">Guide complet : États-Unis ↔ Mexique</span><span aria-hidden="true" class="plink__arrow">→</span></a>
+<a class="plink plink--breeds" href="/fr/airlines/snub-nosed-breeds.html"><span aria-hidden="true" class="plink__ico"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" viewbox="0 0 24 24"><path d="M7.2 9.2c0-2.6 2-4.7 4.8-4.7s4.8 2.1 4.8 4.7c0 .4 0 .8-.1 1.1"></path><path d="M5.4 10.2c-.9.2-1.6 1.1-1.4 2.2.3 1.4 1.6 2 2.7 1.7"></path><path d="M18.6 10.2c.9.2 1.6 1.1 1.4 2.2-.3 1.4-1.6 2-2.7 1.7"></path><path d="M8.2 14.2c.7 2.2 2.1 3.5 3.8 3.5s3.1-1.3 3.8-3.5"></path><path d="M10.2 13.1h.01M13.8 13.1h.01"></path><path d="M11.2 15.1h1.6"></path></svg></span><span class="plink__lbl">Races brachycéphales : règles des compagnies</span><span aria-hidden="true" class="plink__arrow">→</span></a></div></aside>
+<p><a class="btn ghost" data-i18n="veterans.snow.btn.pcs" data-i18n-html="" href="/fr/military-pcs/">Kit de mutation militaire (PCS)</a> <a class="btn ghost" data-i18n="veterans.snow.btn.filter" data-i18n-html="" href="/fr/airlines/compare/?military=1">Filtre militaires et chiens d’assistance</a> <a class="btn ghost" data-i18n="veterans.snow.btn.passport" data-i18n-html="" href="/fr/passport/">Passeport</a></p>
+</section>
+<script>
+const T=(k,en)=>window.PPC_T?window.PPC_T(k,en):en;
+const AIRK={US_sd:['h2','p1','note','p2'],CA_sd:['h2','p1'],XB_sd:['h2','p1'],US_pet:['h2','p1'],CA_pet:['h2','p1'],XB_pet:['h2','p1']};
+const HOTELK={US:['h2','p1'],CA:['h2','p1'],XB:['h2','p1']};
+/* Localised panel from the page pack (veterans-ui.js); any missing key -> the EN block below, unchanged */
+function blk(pre,parts,en){
+  if(!window.PPC_T) return en;
+  let out='';
+  for(const k of parts){const v=window.PPC_T(pre+k,null); if(v==null) return en;
+    out+= k==='h2'?'<h2>'+v+'</h2>' : k==='note'?'<p class="privacy">'+v+'</p>' : '<p>'+v+'</p>';}
+  return out;
+}
+/* CR80 fit: body text starts at 10.5px and steps down to the 9px legibility floor; only if a face still overflows at 9px
+   does it go lower (reported). Returns the size used. */
+function fitCard(el){
+  const b=el.querySelector('.cr80-body'); if(!b) return 0;
+  let fs=10.5; b.style.fontSize=fs+"px";
+  while(b.scrollHeight>b.clientHeight+0.5&&fs>6){fs=Math.round((fs-0.25)*100)/100;b.style.fontSize=fs+'px';}
+  const st=el.querySelector('.cr80-stripe'), u=st&&st.querySelector('.cr80-url');
+  if(u&&st.scrollWidth>st.clientWidth+0.5) u.remove();   /* URL only if the stripe has room */
+  el.dataset.fs=fs; return fs;
+}
+const AIR={
+US_sd:`<h2>US air travel — 14 CFR Part 382</h2><p>Task-trained service dogs (including psychiatric/PTSD and mobility) may fly in cabin at <b>$0</b> under DOT rules. Pet weight limits are not the test for service dogs. The dog must fit safely on your lap or in your foot space without encroaching on another passenger. If it cannot, the carrier must consider the alternatives in 14 CFR 382.77. If your reservation was made more than 48 hours before the first originally scheduled departure, the airline may require the DOT form up to 48 hours in advance. If booked less than 48 hours before departure, it may require the form at the departure gate on travel day, but not advance notice. Contact the airline promptly; reasonable-effort accommodation rules also apply. For a flight segment scheduled to take eight hours or more, the airline may also require the DOT Service Animal Relief Attestation Form. Complete current DOT forms on or after the date you purchase your ticket.</p><p class="privacy"><b>Note:</b> A universal 48-hour deadline is not the DOT rule: last-minute bookings have a departure-gate submission pathway, and reasonable-effort accommodation requirements apply. AMC service-animal paperwork follows separate rules.</p><p><b>Owner-trained</b> service dogs are accepted under US DOT when they meet the definition. ESAs are <b>not</b> service animals for airlines since 2021. Official resource: <a href="https://www.transportation.gov/" rel="noopener" target="_blank">transportation.gov</a>.</p>`,
+CA_sd:`<h2>Canada air travel — CTA / ATPDR trap</h2><p>Canada’s transportation regulator is the Canadian Transportation Agency (CTA/OTC), not Air Canada. Under the ATPDR, carriers may request evidence of individual training by an organization or person specializing in service-dog training. ADI/IGDF accreditation is not a universal ATPDR requirement. Check your airline’s accepted documentation. US acceptance does not automatically establish eligibility on every non-US flight. Air Canada offers an assessment pathway for eligible owner-trained dogs through Cabin-Ready Canines; its June 2, 2026 announcement excludes travel to/from the United States, where US documentation rules apply. Confirm the process with Accessibility Services. Canada does not have one universal ADI-only rule for airline travel, hotel access and border entry. Check the applicable transport rule, carrier policy, provincial law and import category separately. Confirm: <a href="https://otc-cta.gc.ca/" rel="noopener" target="_blank">otc-cta.gc.ca</a>.</p>`,
+XB_sd:`<h2>Cross-border US ↔ Canada</h2><p>Check the operating carrier and each flight. DOT Part 382 applies to US carriers and covered foreign-carrier flights to/from US airports; US codeshares may add responsibilities. Air Canada states that US documentation rules govern travel to/from the United States. Check Canadian requirements separately for other flights and for border entry. Canada does not have one universal ADI-only rule for airline travel, hotel access and border entry. Check the applicable transport rule, carrier policy, provincial law and import category separately.</p>`,
+US_pet:`<h2>US companion pet flights</h2><p>Pets pay airline pet fees and must fit published carriers. Use <a href="../fit/">Fit Check</a> and <a href="../airlines/compare/">comparator</a>. Military PCS cargo exceptions: see <a href="../military-pcs/">PCS kit</a>.</p>`,
+CA_pet:`<h2>Canada companion pet flights</h2><p>Confirm cabin dimensions (often soft-sided only) and CFIA entry pathway. Dogs imported for rescue, adoption, fostering or transfer to another person fall under commercial-import rules. An unaccompanied journey alone does not determine the category: establish ownership, the importer, age, origin and intended use using CFIA guidance.</p>`,
+XB_pet:`<h2>Cross-border companion pets</h2><p>CDC Dog Import Form into the US; CFIA personal vs commercial into Canada. Never assume a rescue handoff is “personal.”</p>`
+};
+const HOTEL={
+US:`<h2>US hotels — ADA Title III</h2><p>Service dogs: <b>$0 pet fee</b>; breed/weight bans do not apply. Staff may ask only (1) whether the dog is a service animal required because of a disability, and (2) what work or task it is trained to perform. No medical documentation required. Handler remains responsible for control and damages.</p>`,
+CA:`<h2>Canada hotels — provincial service dog / human rights laws</h2><p>Accredited/recognized service dogs are generally exempt from pet fees and pet bans under provincial frameworks. Policies vary by province — carry provincial ID/lettering if issued.</p>`,
+XB:`<h2>Hotels on both sides of the border</h2><p>US ADA two-question rule + Canadian provincial service dog protections. Always clarify service dog vs pet at booking.</p>`
+};
+let mode='sd', country='US';
+function paint(){
+  document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.mode===mode)));
+  document.querySelectorAll('[data-c]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.c===country)));
+  }
+function refresh(){
+  document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.mode===mode)));
+  document.querySelectorAll('[data-c]').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.c===country)));
+  const ak=AIR[country+'_'+mode]?country+'_'+mode:'US_sd', hk=HOTEL[country]?country:'US';
+  document.getElementById('panel-air').innerHTML = blk('veterans.air.'+ak+'.', AIRK[ak], AIR[ak]);
+  document.getElementById('panel-hotel').innerHTML = blk('veterans.hotel.'+hk+'.', HOTELK[hk], HOTEL[hk]);
+}
+document.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{mode=b.dataset.mode;refresh()});
+document.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{country=b.dataset.c;refresh()});
+function genCard(){
+  const j=juri.value;
+  const q1=T('veterans.card.q1','Is the dog a service animal required because of a disability?');
+  const q2=T('veterans.card.q2','What work or task has the dog been trained to perform?');
+  const V15=T('veterans.card.v15','US ADA information only — not a service-dog certificate or proof of eligibility. This card does not replace airline forms, Canadian documentation or border-entry requirements. Check the law applicable to your destination.');
+  const ADA=`<p><b>${T('veterans.card.ada_title','US ADA — only 2 questions staff may ask')}</b><br>1. ${q1}<br>2. ${q2}</p>`;
+  const FEE='<p>'+T('veterans.card.fee','<b>$0 pet fee</b> for task-trained service dogs (ADA Title III).')+'</p>';
+  const CAN='<p>'+T('veterans.card.can','<b>Canada</b> — check the applicable transport rule, the carrier’s service-dog policy and the provincial law before you travel.')+'</p>';
+  const DOT=T('veterans.card.back.dot','DOT forms: follow the airline’s process. Up to 48 h notice may apply if booked >48 h ahead; last-minute bookings: at the gate.');
+  const RELIEF8=T('veterans.card.back.relief8','Flights of 8 h or more: the airline may also require the DOT Relief Attestation Form.');
+  const GEAR=T('veterans.card.back.gear','Relief schedule · harness · “service dog” ID if you use one');
+  const CAB=T('veterans.card.back.ca','Canada: confirm the carrier’s accepted specialized-training evidence and any owner-trained assessment pathway. Border-import rules are separate.');
+  const H4=T('veterans.card.front.h4','Service Dog Handler Card'), BH4=T('veterans.card.back.h4','Pre-flight checklist'), URL='petpolicycheck.com/veterans';
+  const LUS='<p class="cr80-lbl">'+T('veterans.card.lbl_us','United States (ADA)')+'</p>', LCA='<p class="cr80-lbl">'+T('veterans.card.lbl_ca','Canada')+'</p>';
+  const ul=a=>'<ul>'+a.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+  const WHO=`<p><b>${T('veterans.card.front.handler','Handler:')}</b> ${hName.value||'—'} · <b>${T('veterans.card.front.dog','Dog:')}</b> ${dName.value||'—'}</p>`;
+  const NOTE=`<p class="cr80-note">${V15}</p>`;
+  /* Non-legal practical line + URL now sit on the page above the card */
+  document.getElementById('card-gear').innerHTML='<b>'+BH4+':</b> '+GEAR+' · <a href="https://'+URL+'">'+URL+'</a>';
+  /* Faces: [stripe title, body, url-in-stripe?]. XB: front = US ADA + disclaimer; back = Canada + checklist.
+     If a face still needs <9px, XB switches to the fold-over set: card 1 front (US ADA + disclaimer),
+     card 1 back (DOT checklist), card 2 (Canada). Legal sentences are never shortened. */
+  const L1={
+    US:[[H4,WHO+ADA+FEE+NOTE],[BH4,ul([DOT,RELIEF8]),1]],
+    CA:[[H4,WHO+CAN+NOTE],[BH4,ul([CAB]),1]],
+    XB:[[H4,WHO+LUS+ADA+NOTE],[BH4,LCA+CAN+ul([CAB,DOT,RELIEF8]),1]]};
+  const L2=[[H4,WHO+LUS+ADA+NOTE],[BH4,ul([DOT,RELIEF8]),1],[H4+' · '+T('veterans.card.lbl_ca','Canada'),LCA+CAN+ul([CAB])]];
+  const els=[crFront,crBack,crFront2];
+  const paint=faces=>els.map((el,i)=>{const f=faces[i]; el.hidden=!f; el.className='cr80'; if(!f){el.innerHTML='';el.dataset.fs='';return 99;}
+    el.innerHTML=`<div class="cr80-stripe"><span>${f[0]}</span>${f[2]?'<span class="cr80-url">'+URL+'</span>':''}</div><div class="cr80-body">${f[1]}</div>`;
+    return fitCard(el);});
+  let fs=paint(L1[j]||L1.US);
+  if(j==='XB'&&Math.min(...fs)<9) fs=paint(L2);
+  document.getElementById('cr80set').dataset.layout=crFront2.hidden?'1-card':'2-card';
+}
+mk.onclick=genCard; printC.onclick=()=>window.print();
+pngC.onclick=()=>{
+  genCard();
+  const c=cv; let ctx=c.getContext('2d'); const FS=24, LH=31, PAD=36, W=c.width, max=W-2*PAD;
+  ctx.font=FS+'px sans-serif';
+  const wrap=(line,max)=>{const out=[];let cur='';
+    for(const w of line.split(/(?<= )/)){const n=cur+w;
+      if(ctx.measureText(n).width<=max){cur=n;continue}
+      if(cur){out.push(cur.trimEnd());cur=''}
+      if(ctx.measureText(w).width<=max){cur=w;continue}
+      for(const ch of w){if(ctx.measureText(cur+ch).width>max&&cur){out.push(cur);cur=ch}else cur+=ch}}
+    out.push(cur.trimEnd()); return out;};
+  const faces=[crFront,crBack,crFront2].filter(e=>!e.hidden).map(e=>{
+    const head=e.querySelector('.cr80-stripe span').textContent, lines=[];
+    e.querySelector('.cr80-body').innerText.split('\n').filter(l=>l.trim()).forEach(l=>lines.push(...wrap(l,max)));
+    return {head,lines};});
+  const HDR=64, FH=54, GAP=18, FOOT=44;
+  const H=HDR+faces.reduce((h,f)=>h+FH+f.lines.length*LH+GAP+12,0)+FOOT;
+  c.height=Math.max(638,H); ctx=c.getContext('2d');
+  ctx.fillStyle='#f7f3ea'; ctx.fillRect(0,0,W,c.height);
+  ctx.fillStyle='#001f3f'; ctx.fillRect(0,0,W,56);
+  ctx.fillStyle='#d4af37'; ctx.fillRect(0,56,W,3);
+  ctx.fillStyle='#f4f6fa'; ctx.font='bold 22px sans-serif';
+  ctx.fillText(T('veterans.card.png.title','PetPolicyCheck · Service Dog Handler Card'), PAD, 37);
+  let y=HDR+8;
+  faces.forEach(f=>{
+    ctx.fillStyle='#06315e'; ctx.fillRect(PAD-12,y,W-2*PAD+24,38);
+    ctx.fillStyle='#e2c275'; ctx.font='bold 20px sans-serif'; ctx.fillText(f.head.toUpperCase(),PAD,y+26);
+    y+=FH+6; ctx.fillStyle='#1a1a1a'; ctx.font=FS+'px sans-serif';
+    f.lines.forEach(l=>{ctx.fillText(l,PAD,y); y+=LH;}); y+=GAP;});
+  ctx.fillStyle='#7a5b10'; ctx.font='18px sans-serif'; ctx.fillText('petpolicycheck.com/veterans',PAD,c.height-18);
+  const a=document.createElement('a'); a.download='ppc-service-dog-card.png'; a.href=c.toDataURL(); a.click();
+};
+refresh(); genCard();
+window.addEventListener('ppc:lang',()=>{refresh();genCard();});
+</script>
+<script defer="" src="/assets/js/veterans-wall.js?v=20261110wall3"></script>
+</main>
+<footer class="foot foot-compact">
+<div class="wrap cols">
+<div class="fbrand"><p class="wm">PetPolicyCheck</p><p data-i18n="site.foot.rules">Les règles des compagnies aériennes pour les animaux changent souvent. Vérifiez toujours auprès de la compagnie et de l’autorité officielle du pays de destination avant de réserver. Les informations présentées ici ne constituent pas un avis juridique ni vétérinaire.</p><p class="soc"><a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61596615981846" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.83c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"></path></svg></a><a aria-label="X" href="https://x.com/PetPolicyCheck" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.725-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a></p></div>
+<div><h4><a data-i18n="site.foot.vet_info" href="/fr/vet-info/">Vet info</a></h4><ul><li><a data-i18n="site.foot.vet_prep" href="/fr/vet-prep/">Vet prep</a></li><li><a data-i18n="site.nav.health" href="/fr/countries/usa.html#federal">Health certificate</a></li><li><a data-i18n="home.tools.titer" href="/fr/titer-calculator/">Titer countdown</a></li><li><a data-i18n="site.foot.vets" href="/fr/partner-vets/">Partner vets</a></li></ul></div>
+<div><h4 data-i18n="site.foot.explore">Explorer</h4><ul><li><a data-i18n="site.nav.map" href="/fr/?view=map">Carte du monde</a></li><li><a data-i18n="site.foot.airlines" href="/fr/airlines/">Airline policies</a></li><li><a data-i18n="site.nav.compare" href="/fr/airlines/compare/">Compare</a></li><li><a data-i18n="site.nav.guides" href="/fr/#gear">Guides</a></li><li><a data-i18n="site.nav.updates" href="/fr/updates.html">Updates</a></li><li><a href="/fr/routes/">Routes</a></li><li><a data-i18n="site.foot.k9" href="/fr/k9/">K9</a></li><li><a data-i18n="site.foot.service_dogs_veterans" href="/fr/veterans/">Service dogs &amp; Veterans</a></li><li><a href="/fr/fit/">Carrier fit</a></li><li><a href="/fr/airport/">Airport pet travel guides</a></li></ul></div>
+<div><h4 data-i18n="site.foot.shop">Boutique et communauté</h4><ul><li><a data-i18n="site.nav.products" href="/fr/products/">Products</a></li><li><a data-i18n="nav.forum" href="/fr/forum/">Forum</a></li><li><a data-i18n="site.foot.stories" href="/fr/forum/pet-travel-stories/">Stories</a></li><li><a data-i18n="site.foot.pro" href="/fr/pro/">B2B Pet Desk</a></li><li><a data-i18n="site.foot.clinics_usa" href="/fr/clinics/usa.html">US clinics</a></li></ul></div>
+<div><h4 data-i18n="site.foot.aboutcol">À propos</h4><ul><li><a data-i18n="site.foot.about" href="/fr/about.html">About &amp; disclaimer</a></li><li><a data-i18n="site.foot.terms" href="/fr/terms.html">Terms</a></li><li><a data-i18n="site.foot.refund" href="/fr/refund-policy.html">Refund policy</a></li><li><a data-i18n="site.foot.privacy" href="/fr/privacy.html">Privacy</a></li><li><a data-i18n="site.foot.contact" href="/fr/contact.html">Contact</a></li></ul></div>
+</div>
+<div class="wrap"><p class="disc"><span data-i18n="site.foot.copyright">© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See <a href="/fr/terms.html">Terms</a>.</span></p></div>
+</footer>
+<script defer="" src="/assets/site-search.js?v=20261117sb2"></script>
+<script defer="" src="/assets/ppc-header.js?v=20261110footerk9"></script>
+</body></html>

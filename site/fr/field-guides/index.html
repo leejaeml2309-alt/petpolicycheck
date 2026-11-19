@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html data-ppc-locale="fr" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<script>
+(function(){
+  var skip=false;
+  try{
+    var p=new URLSearchParams(location.search);
+    if(p.get('qa')==='0') localStorage.removeItem('ppc_qa');
+    else if(p.get('qa')==='1') localStorage.setItem('ppc_qa','1');
+    if(p.get('qa')==='1'||localStorage.getItem('ppc_qa')==='1') skip=true;
+  }catch(e){}
+  if(navigator.webdriver===true) skip=true;
+  if(/HeadlessChrome|Headless|PhantomJS|Lighthouse|Chrome-Lighthouse|PageSpeed|GTmetrix|bot|crawler|spider|Playwright|Puppeteer/i.test(navigator.userAgent||'')) skip=true;
+  if(skip) return;
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-K45B2WNXMC';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config','G-K45B2WNXMC');
+})();
+</script>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Pet Travel Field Guides · Conseils de la communauté · PetPolicyCheck</title><link href="https://petpolicycheck.com/fr/field-guides/" rel="canonical"/>
+<link href="https://petpolicycheck.com/field-guides/" hreflang="en" rel="alternate"/>
+<link href="https://petpolicycheck.com/es/field-guides/" hreflang="es" rel="alternate"/>
+<link href="https://petpolicycheck.com/it/field-guides/" hreflang="it" rel="alternate"/>
+<link href="https://petpolicycheck.com/fr/field-guides/" hreflang="fr" rel="alternate"/>
+<link href="https://petpolicycheck.com/field-guides/" hreflang="x-default" rel="alternate"/>
+<link as="font" crossorigin="" href="/field-guides/assets/fonts/inter-var-latin.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/field-guides/assets/fonts/marcellus-latin.woff2" rel="preload" type="font/woff2"/>
+<link href="data:," rel="icon"/>
+<link href="/assets/css/theme.css?v=20261117sb1" rel="stylesheet"/>
+<link href="/field-guides/ugc.css?v=20261112safe" rel="stylesheet"/>
+<link href="/assets/css/ppc-i18n.css?v=20261113nav1" rel="stylesheet"/>
+<script defer="" src="/assets/i18n/ui.js?v=20261112footer5"></script>
+<script defer="" src="/assets/js/ppc-i18n.js?v=20261112itp5b"></script>
+<script defer="" src="/assets/js/pastilles.js?v=20261112nav2"></script>
+<link href="/assets/site-search.css?v=20261117sb2" rel="stylesheet"/>
+</head>
+<body>
+<!-- Admin-only chrome (shown only with ?admin=1 or ?view=moderation) -->
+<div class="pvbar admin-only" hidden=""><div class="wrap">
+<span class="tag">Admin · aperçu de préproduction</span> <span class="muted">Espace unifié (#4 + #9 + #11) · Outils de modération</span>
+<nav aria-label="Vues d’administration" class="sw">
+<a data-view="gallery" href="?view=gallery">Galerie publique</a> <a data-view="submit" href="?view=submit">Porte de dépôt</a> <a data-view="moderation" href="?view=moderation">File de modération</a>
+</nav>
+<div class="rt">
+<button id="resetDemo" title="Restaurer le jeu de données de démonstration" type="button">Réinitialiser les données de démonstration</button>
+</div>
+</div></div>
+<header class="top"><div class="wrap">
+<a aria-label="PetPolicyCheck — Accueil" class="brand" href="/fr/"><span class="lbadge"><img alt="PetPolicyCheck" height="48" src="/assets/img/logo-mark-header.png" width="62"/></span></a>
+<nav aria-label="Principal" class="nav menu" id="site-menu"><a data-i18n="site.nav.map" href="/fr/?view=map">Carte du monde</a><a href="/fr/countries/usa.html#federal">Lois</a><a href="/fr/vet-info/">Vétérinaire</a><a href="/fr/airlines/">Avion</a><a href="/fr/hotels/">Hôtel</a><a data-i18n="site.nav.grooming" href="/fr/grooming/">Toilettage</a><a data-i18n="site.nav.products" href="/fr/products/">Produits</a><a data-i18n="site.nav.rides" href="/fr/taxi/">Trajets</a><span aria-hidden="true" class="nav-group-sep"></span><a data-i18n="site.nav.forum" href="/fr/forum/">Forum</a><a href="/fr/k9/">K9</a><a href="/fr/veterans/#service-dog-support">Chiens d’assistance</a><a class="nav-vet" data-i18n="site.nav.veterans" href="/fr/veterans/">Anciens combattants</a><a class="nav-biz" data-i18n="site.nav.pro" href="/fr/pro/">Professionnels</a><a class="menu-only sub" href="/fr/#compare">Comparer</a><a class="menu-only sub" href="/fr/#gear">Guides</a><a class="menu-only sub" href="/fr/updates.html">Mises à jour</a><a class="menu-only sub" href="/fr/about.html">À propos</a></nav><button aria-controls="site-menu" aria-expanded="false" class="menu-btn" type="button"><svg aria-hidden="true" focusable="false" height="20" viewbox="0 0 24 24" width="20"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg><span data-i18n="site.nav.menu">Menu</span></button>
+</div></header>
+<!-- (a) SUBMIT -->
+<main class="view wrap" hidden="" id="v-submit">
+<div class="dept" data-i18n="a_dept">Espace Communauté, vérifications de terrain et City Scouts · une seule porte, sans compte</div>
+<h1 class="ttl" data-i18n="a_ttl">Racontez ce qui s’est réellement passé avec votre animal</h1>
+<p class="lead" data-i18n="a_lead">Publiez une vidéo de 30 secondes, signalez où le contrôle réel différait de la règle officielle ou devenez Founding City Scout. Comptez environ 60 secondes, sans compte. Une personne vérifie tout par rapport à la règle officielle avant la mise en ligne, avec mention de votre nom.</p>
+<div class="sub-grid">
+<div class="panel form">
+<div aria-label="Que souhaitez-vous partager ?" class="hubmodes" role="tablist">
+<button class="on" data-pane="clip" role="tab" type="button"><i>#4</i><strong>Publier une vidéo de terrain de 30 s</strong><span>Téléversez ≤ 30 s ou ajoutez un lien TikTok / Reels / Shorts</span></button>
+<button data-pane="rule" role="tab" type="button"><i>#9</i><strong>Signaler un écart avec la règle</strong><span>5 champs : qu’est-ce qui différait de la règle officielle ?</span></button>
+<button data-pane="scout" role="tab" type="button"><i>#11</i><strong>Postuler comme Founding City Scout</strong><span>8 villes pilotes · 4 vérifications locales</span></button>
+</div>
+<form class="pane" data-pane="clip" id="subForm" novalidate="">
+<div class="sec">
+<div class="step"><b>1</b><h3 data-i18n="a_s1">Votre vidéo</h3></div>
+<div class="modes" role="radiogroup">
+<label class="mode on"><input checked="" name="mode" type="radio" value="upload"/><div><strong data-i18n="a_up">Téléverser une vidéo ≤ 30 s</strong><span>.mp4 / .mov · vérifiée dans votre navigateur</span></div></label>
+<label class="mode"><input name="mode" type="radio" value="link"/><div><strong data-i18n="a_ln">Ajouter le lien d’une vidéo existante</strong><span>TikTok · Instagram Reels · YouTube Shorts</span></div></label>
+</div>
+<div id="upBox">
+<div class="drop" id="drop">
+<div class="thumb" id="thumb"><svg aria-hidden="true" fill="currentColor" height="26" viewbox="0 0 24 24" width="26"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"></path></svg></div>
+<div><p><b data-i18n="a_drop">Glissez-déposez votre vidéo verticale ici</b> <span data-i18n="a_or">ou</span> <label class="pick" data-i18n="a_browse" for="file" style="display:inline">parcourir</label></p>
+<small data-i18n="a_dropn">30 s au maximum (tolérance 35 s) · format 9:16 de préférence · nous vérifions la durée avant le téléversement</small> <input accept="video/mp4,video/quicktime,.mp4,.mov" hidden="" id="file" type="file"/></div>
+</div>
+<div class="msg" id="upMsg"></div>
+</div>
+<div hidden="" id="lnBox">
+<div class="urlrow"><input aria-label="Lien de la vidéo" id="url" placeholder="https://www.tiktok.com/@you/video/…" type="url"/><span class="chip" id="plat">Plateforme : —</span></div>
+<div class="msg" id="lnMsg"></div>
+</div>
+</div>
+<div class="sec">
+<div class="step"><b>2</b><h3 data-i18n="a_s2">Que montre-t-elle ?</h3></div>
+<div class="fl" data-i18n="a_type">Type</div>
+<div class="types" id="types">
+<label><input checked="" name="type" type="radio" value="airline"/><span><svg viewbox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"></path></svg>Compagnie</span></label>
+<label><input name="type" type="radio" value="train"/><span><svg viewbox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5A3.5 3.5 0 0 0 7.5 19L6 20.5v.5h2l2-2h4l2 2h2v-.5L16.5 19a3.5 3.5 0 0 0 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3.5-7H6V6h5zm2 0V6h5v4zm3.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path></svg>Train / Ferry</span></label>
+<label><input name="type" type="radio" value="hotel"/><span><svg viewbox="0 0 24 24"><path d="M7 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9a4 4 0 0 0-4-4z"></path></svg>Hôtel / Séjour</span></label>
+<label><input name="type" type="radio" value="city"/><span><svg viewbox="0 0 24 24"><path d="M15 11V5l-3-3-3 3v2H3v14h18V11zm-8 8H5v-2h2zm0-4H5v-2h2zm0-4H5V9h2zm6 8h-2v-2h2zm0-4h-2v-2h2zm0-4h-2V9h2zm0-4h-2V5h2zm6 12h-2v-2h2zm0-4h-2v-2h2z"></path></svg>Ville / poste frontière</span></label>
+<label><input name="type" type="radio" value="grooming"/><span><svg viewbox="0 0 24 24"><path d="M9.6 6.3a3.1 3.1 0 1 0-1 2.2L10.8 10l-6.5 8.6 1.4 1.1L12 12.4l6.3 7.3 1.4-1.1-6.5-8.6 2.2-1.5a3.1 3.1 0 1 0-1-2.2L12 8.2zm-3.1 1A1.2 1.2 0 1 1 6.5 5a1.2 1.2 0 0 1 0 2.4zm11 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"></path></svg>Toilettage et soins (voyage et expatriés sur place)</span></label>
+</div>
+<div class="groom-use" hidden="" id="groomUse">
+<div class="fl" data-i18n="a_guse">Type de toilettage <em>— indique aux lecteurs à qui s’adresse cette vidéo</em></div>
+<div class="opts">
+<label class="mode on"><input checked="" name="guse" type="radio" value="trip"/><div><strong data-i18n="a_g1">Toilettage mobile en voyage / à l’hôtel</strong><span data-i18n="a_g1s">Bain après le vol, toilettage pendant un séjour, camion mobile à l’hôtel</span></div></label>
+<label class="mode"><input name="guse" type="radio" value="local"/><div><strong data-i18n="a_g2">Salon de confiance pour résidents et expatriés</strong><span data-i18n="a_g2s">Fear-free · EN/FR parlés · chats sans sédation · connaissance des races</span></div></label>
+</div>
+</div>
+<div class="row3" style="margin-top:14px">
+<label><div class="fl" data-i18n="a_ctry">Pays / corridor</div>
+<select id="country"><option>États-Unis</option><option>Canada</option><option>Mexique</option><option>Royaume-Uni</option><option>Allemagne</option><option>République dominicaine</option><option>France</option></select></label>
+<label><div class="fl" data-i18n="a_date">Date du voyage <em>(AAAA-MM)</em></div><input id="date" max="2026-11" min="2024-01" type="month" value="2026-10"/></label>
+<label class="full"><div class="fl" data-i18n="a_ent">Compagnie / hôtel / ville / salon exact</div>
+<input id="entity" list="entities" placeholder="p. ex. Aeroméxico LAX→MEX, LeShuttle Calais→Folkestone, toiletteur mobile dans un hôtel de Miami" type="text"/>
+<datalist id="entities"><option>Aeroméxico</option><option>Air Canada</option><option>WestJet</option><option>Air France</option><option>Lufthansa</option><option>LeShuttle (Eurotunnel)</option><option>Punta Cana PUJ</option><option>Toiletteur mobile · visite à l’hôtel</option><option>Salon fear-free (résidents / expatriés)</option></datalist></label>
+</div>
+</div>
+<div class="sec">
+<div class="step"><b>3</b><h3 data-i18n="a_s3">Votre conseil de terrain en une phrase</h3></div>
+<label><div class="fl"><span data-i18n="a_tipl">Un détail réel de l’enregistrement ou de la politique que le site officiel ne mentionne pas</span> <span class="counter"><span id="cnt">0</span>/180</span></div>
+<textarea id="tip" maxlength="180" placeholder="p. ex. un détail de l’enregistrement ou de la politique que le site officiel ne mentionne pas" rows="2"></textarea></label>
+<label style="margin-top:12px"><div class="fl" data-i18n="a_bag">Sac de transport / poids <em>(facultatif)</em></div><input id="bag" placeholder="p. ex. sac de transport souple 43×30×23 cm · chat de 4,6 kg" type="text"/></label>
+</div>
+<div class="sec">
+<div class="step"><b>4</b><h3 data-i18n="a_s4">Mention et droits</h3></div>
+<div class="row3">
+<label><div class="fl" data-i18n="a_handle">Votre @pseudo (affiché sur la vidéo)</div><input id="handle" placeholder="@votrepseudo" type="text"/></label>
+<label><div class="fl" data-i18n="a_social">Lien de profil pour la mention</div><input id="social" placeholder="URL TikTok / Instagram / YouTube / blog" type="url"/></label>
+</div>
+<p style="margin:10px 0 14px;font-size:.84rem;color:var(--mut)">Votre première vidéo approuvée débloque <span class="badge-v">✓ Verified Corridor Traveler</span></p>
+<label class="consent"><input id="consent" type="checkbox"/><span>Je confirme avoir filmé cette vidéo, avoir flouté toute donnée personnelle d’identité ou de carte d’embarquement, et j’accorde à Paw Passport (PetPolicyCheck) le droit non exclusif de la republier sur le site et les réseaux sociaux en mentionnant mon @pseudo.</span></label>
+</div>
+<div class="submitrow"><button class="btn gold" data-i18n="a_send" id="send" type="submit">Envoyer mon conseil de 30 s pour relecture</button><small data-i18n="a_sendn">Transmis à un modérateur humain · rien n’est publié automatiquement</small></div>
+<div class="msg no" id="formErr"></div>
+<div class="done" id="done"></div>
+</form>
+<form class="pane" data-pane="rule" hidden="" id="ruleForm" novalidate="">
+<div class="sec">
+<div class="step"><b>1</b><h3>Où et à quel point de contrôle ?</h3></div>
+<div class="row3">
+<label><div class="fl">Itinéraire / corridor</div><select id="rCorr"><option>États-Unis</option><option>Canada</option><option selected="">Mexique</option><option>Royaume-Uni</option><option>Allemagne</option><option>République dominicaine</option><option>France</option></select></label>
+<label><div class="fl">Point de contrôle</div><select id="rCheck"><option>Enregistrement de la compagnie / porte d’embarquement</option><option selected="">Frontière / douane</option><option>Vétérinaire / certificat sanitaire</option><option>Toilettage et soins (salon / mobile)</option></select></label>
+<label class="full"><div class="fl">Lieu ou itinéraire exact <em>(p. ex. LAX→MEX, Calais Pet Reception)</em></div><input id="rRoute" placeholder="p. ex. LAX → MEX T1, guichet SENASICA" type="text"/></label>
+</div>
+</div>
+<div class="sec">
+<div class="step"><b>2</b><h3>Qu’est-ce qui différait de la règle officielle ?</h3></div>
+<label><div class="fl">Décrivez uniquement ce que vous avez vu <span class="counter"><span id="rCnt">0</span>/240</span></div><textarea id="rDiff" maxlength="240" placeholder="p. ex. l’agent a aussi demandé à voir le carnet de vaccination papier, pas seulement la copie sur le téléphone." rows="3"></textarea></label>
+<div class="row3" style="margin-top:12px">
+<label><div class="fl">Date des faits <em>(AAAA-MM)</em></div><input id="rDate" max="2026-11" min="2024-01" type="month" value="2026-10"/></label>
+<label><div class="fl">Preuve légère <em>(lien ou note sur une photo, facultatif)</em></div><input id="rProof" placeholder="Photo floutée, e-mail, reçu…" type="text"/></label>
+<label><div class="fl">Votre @pseudo (mention)</div><input id="rHandle" placeholder="@votrepseudo" type="text"/></label>
+<label><div class="fl">Lien de profil</div><input id="rSocial" placeholder="https://…" type="url"/></label>
+</div>
+<p class="sepnote"><span class="chip off">Règle officielle</span> : elle reste exactement telle que publiée par l’autorité. Après relecture, votre note s’affiche à côté avec la mention <span class="chip gold">Field-verified · Mon YYYY</span> ; elle n’est jamais fusionnée avec la règle.</p>
+</div>
+<div class="submitrow"><button class="btn gold" type="submit">Envoyer ma vérification de règle pour relecture</button><small>Relu par une personne · rien ne change automatiquement sur le site</small></div>
+<div class="msg no err"></div><div class="done"></div>
+</form>
+<form class="pane" data-pane="scout" hidden="" id="scoutForm" novalidate="">
+<div class="sec">
+<div class="step"><b>1</b><h3>Choisissez votre ville pilote</h3></div>
+<div class="hubs" id="hubPick"></div>
+</div>
+<div class="sec">
+<div class="step"><b>2</b><h3>Vos 4 vérifications locales (le pack Scout)</h3></div>
+<div class="pack">
+<label><div class="fl"><i class="pk">1</i> Clinique vétérinaire pour l’export · EN/FR parlés</div><input id="sVet" placeholder="Clinique + ce que vous avez vérifié" type="text"/></label>
+<label><div class="fl"><i class="pk">2</i> Salon de toilettage · fear-free / chats sans sédation / toilettage mobile après le vol</div><input id="sGroom" placeholder="Salon / toiletteur mobile + manipulation" type="text"/></label>
+<label><div class="fl"><i class="pk">3</i> Taxi / transfert pour grands chiens · sans supplément surprise</div><input id="sTaxi" placeholder="Service + taille du chien + prix confirmé" type="text"/></label>
+<label><div class="fl"><i class="pk">4</i> Hôtel ou parc acceptant les animaux, testé</div><input id="sStay" placeholder="Lieu + frais / limite de poids vérifiés" type="text"/></label>
+</div>
+<div class="row3" style="margin-top:12px">
+<label><div class="fl">Votre @pseudo</div><input id="sHandle" placeholder="@votrepseudo" type="text"/></label>
+<label><div class="fl">Lien de profil</div><input id="sSocial" placeholder="https://…" type="url"/></label>
+</div>
+</div>
+<div class="submitrow"><button class="btn gold" type="submit">Postuler comme Founding City Scout</button><small>Chaque vérification est contrôlée par un modérateur avant la mise en ligne de votre profil Scout</small></div>
+<div class="msg no err"></div><div class="done"></div>
+</form>
+</div>
+<aside class="panel aside-a">
+<h3>Échelle des contributeurs</h3>
+<ol class="ladder">
+<li><i>1</i><div><small>Étape 1</small><strong>Verified Corridor Traveler</strong><span>Dès 1 vidéo de 30 s ou 1 vérification de règle approuvée : mention cliquable « Filmé par » + badge doré.</span><span class="badge-v" tabindex="0">✓ Verified Corridor Traveler<span class="tip">Affiché à côté de votre @pseudo sur chaque vidéo et vérification de règle approuvée, avec un lien vers votre profil.</span></span></div></li>
+<li><i>2</i><div><small>Étape 2</small><strong>Founding City Scout</strong><span>4 vérifications locales (dont le toilettage) dans 1 des 8 villes : profil Paw Passport dédié et mention dans les guides.</span><span class="badge-s">★ Founding City Scout</span></div></li>
+</ol>
+<ul class="ticks">
+<li><i>✓</i><div><strong>Aucun compte requis</strong><span>Une vidéo ou une note, plus votre @pseudo.</span></div></li>
+<li><i>✓</i><div><strong>Relu par une personne avant publication</strong><span>Règle officielle, bien-être animal, droits audio, vie privée.</span></div></li>
+<li><i>✓</i><div><strong>Vous restez propriétaire à 100 % + lien vers votre profil</strong><span>Licence non exclusive uniquement.</span></div></li>
+</ul>
+<div class="mini">Les notes de terrain complètent la règle officielle, sans jamais la remplacer. Vérifiez toujours auprès de la compagnie ou de l’autorité avant de voyager.</div>
+</aside>
+</div>
+</main>
+<!-- (b) MODERATION -->
+<main class="view wrap" hidden="" id="v-moderation">
+<div class="mod-head">
+<div><div class="dept">Admin · Contenu et communauté · relecture humaine obligatoire</div>
+<h1 class="ttl">File de modération unifiée — Espace 3 en 1</h1>
+<p class="lead">Les vidéos (#4), les vérifications de règles (#9) et les packs City Scout (#11) partagent une seule file. Tout entre au niveau <b>L0 (interne uniquement)</b> ; rien n’est rendu public tant qu’un modérateur n’a pas coché les 4 contrôles et cliqué sur <b>Approuver et publier</b> (L2 Field-verified). Les données sont stockées dans ce navigateur (localStorage) ; exportez le JSON approuvé pour le site statique.</p></div>
+<div class="counts" id="counts"></div>
+</div>
+<div class="toolbar">
+<label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">Statut</span><select id="fStatus"><option value="all">Tous les statuts</option><option value="pending">En attente L0 (interne uniquement)</option><option value="approved">Approuvé L2 — vérifié sur le terrain</option><option value="rejected">Refusé</option></select></label>
+<label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">Corridor</span><select id="fCorr"><option value="all">Tout</option><option>États-Unis</option><option>Canada</option><option>Mexique</option><option>Royaume-Uni</option><option>Allemagne</option><option>République dominicaine</option><option>France</option></select></label>
+<label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">Type</span><select id="fType"><option value="all">Toute la file</option><option value="clip">Vidéos de 30 s (#4)</option><option value="rule">Vérifications des règles (#9)</option><option value="scout">Packs City Scout (#11)</option><option value="grooming">Toilettage et soins (tous types)</option></select></label>
+<div class="sp"><button class="btn ghost sm" id="exportJson" type="button">Export Approved JSON</button></div>
+</div>
+<div id="queue"></div>
+</main>
+<!-- (c) GALLERY -->
+<main class="view wrap" hidden="" id="v-gallery">
+<section class="hero">
+<div><div class="dept" data-i18n="c_dept">Paw Passport Field Guides</div>
+<h1 data-i18n-html="c_ttl">Pet Policy Field Guides — <span>Principaux corridors de voyage avec animaux</span></h1>
+<p class="lead" data-i18n="c_lead">Les vignettes d’exemple présentent les règles officielles de voyage avec animaux pour les principaux corridors. Envoyer un conseil de 30 s pour relecture.</p></div>
+<div class="acts2"><a class="btn gold" data-i18n="c_submit" href="?view=submit">Envoyer un conseil de 30 s</a><small data-i18n="c_submitn" style="color:var(--mut)">Sans compte · relu par une personne</small></div>
+</section>
+<div class="filters" id="filters"></div>
+<section aria-live="polite" class="panel feat" id="feat"></section>
+<div class="ghead"><h2 data-i18n="c_more">Exemples d’épisodes</h2><span id="gcount"></span></div>
+<div class="cards" id="cards"></div>
+<div class="ghead"><h2 data-i18n="c_rules">Exemples de vérifications de règles officielles <small class="kind">#9</small></h2><span data-i18n="c_rulessub">Règles officielles uniquement : ces vignettes sont des exemples.</span></div>
+<div class="rules" id="rules"></div>
+<section class="panel scouts">
+<div class="sh"><div><div class="dept">#11 · City Scouts fondateurs</div><h2>8 City Scouts fondateurs</h2><p>Des résidents et expatriés qui vérifient les 4 éléments qui font la réussite ou l’échec d’un voyage avec un animal dans leur ville.</p></div>
+<div class="packrow"><span class="chip gold">Vétérinaire</span><span class="chip gold">Toilettage</span><span class="chip gold">Taxi grands chiens</span><span class="chip gold">Séjour</span><a class="btn gold sm" href="?view=submit&amp;mode=scout">Postuler comme Founding City Scout</a></div></div>
+<div class="hubgrid" id="hubgrid"></div>
+</section>
+<p class="disc" data-i18n="c_disc">Données de démonstration : épisodes illustratifs fondés sur les règles officielles. Les noms de marques des emplacements d’exemple ne sont que des exemples. Ils seront remplacés par de vraies contributions approuvées par une personne.</p>
+</main>
+<footer class="foot foot-compact">
+<div class="wrap cols">
+<div class="fbrand"><p class="wm">PetPolicyCheck</p><p data-i18n="site.foot.rules">Les règles des compagnies aériennes pour les animaux changent souvent. Vérifiez toujours auprès de la compagnie et de l’autorité officielle du pays de destination avant de réserver. Les informations présentées ici ne constituent pas un avis juridique ni vétérinaire.</p><p class="soc"><a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61596615981846" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.83c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"></path></svg></a><a aria-label="X" href="https://x.com/PetPolicyCheck" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.725-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a></p></div>
+<div><h4><a data-i18n="site.foot.vet_info" href="/fr/vet-info/">Vet info</a></h4><ul><li><a data-i18n="site.foot.vet_prep" href="/fr/vet-prep/">Vet prep</a></li><li><a data-i18n="site.nav.health" href="/fr/countries/usa.html#federal">Health certificate</a></li><li><a data-i18n="home.tools.titer" href="/fr/titer-calculator/">Titer countdown</a></li><li><a data-i18n="site.foot.vets" href="/fr/partner-vets/">Partner vets</a></li></ul></div>
+<div><h4 data-i18n="site.foot.explore">Explorer</h4><ul><li><a data-i18n="site.nav.map" href="/fr/?view=map">Carte du monde</a></li><li><a data-i18n="site.foot.airlines" href="/fr/airlines/">Airline policies</a></li><li><a data-i18n="site.nav.compare" href="/fr/airlines/compare/">Compare</a></li><li><a data-i18n="site.nav.guides" href="/fr/#gear">Guides</a></li><li><a data-i18n="site.nav.updates" href="/fr/updates.html">Updates</a></li><li><a href="/fr/routes/">Routes</a></li><li><a data-i18n="site.foot.k9" href="/fr/k9/">K9</a></li><li><a data-i18n="site.foot.service_dogs_veterans" href="/fr/veterans/">Service dogs &amp; Veterans</a></li><li><a href="/fr/fit/">Carrier fit</a></li><li><a href="/fr/airport/">Airport pet travel guides</a></li></ul></div>
+<div><h4 data-i18n="site.foot.shop">Boutique et communauté</h4><ul><li><a data-i18n="site.nav.products" href="/fr/products/">Products</a></li><li><a data-i18n="nav.forum" href="/fr/forum/">Forum</a></li><li><a data-i18n="site.foot.stories" href="/fr/forum/pet-travel-stories/">Stories</a></li><li><a data-i18n="site.foot.pro" href="/fr/pro/">B2B Pet Desk</a></li><li><a data-i18n="site.foot.clinics_usa" href="/fr/clinics/usa.html">US clinics</a></li></ul></div>
+<div><h4 data-i18n="site.foot.aboutcol">À propos</h4><ul><li><a data-i18n="site.foot.about" href="/fr/about.html">About &amp; disclaimer</a></li><li><a data-i18n="site.foot.terms" href="/fr/terms.html">Terms</a></li><li><a data-i18n="site.foot.refund" href="/fr/refund-policy.html">Refund policy</a></li><li><a data-i18n="site.foot.privacy" href="/fr/privacy.html">Privacy</a></li><li><a data-i18n="site.foot.contact" href="/fr/contact.html">Contact</a></li></ul></div>
+</div>
+<div class="wrap"><p class="disc" data-i18n="site.foot.copyright">© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See <a href="/fr/terms.html">Terms</a>.</p></div>
+</footer>
+<script src="/field-guides/ugc.js?v=20261112pub"></script>
+<script defer="" src="/assets/site-search.js?v=20261117sb2"></script>
+<script defer="" src="/assets/ppc-header.js?v=20261110footerk9"></script>
+</body>
+</html>

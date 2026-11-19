@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html data-ppc-locale="fr" lang="fr"><head>
+<meta charset="utf-8"/>
+<script>
+(function(){
+  var skip=false;
+  try{
+    var p=new URLSearchParams(location.search);
+    if(p.get('qa')==='0') localStorage.removeItem('ppc_qa');
+    else if(p.get('qa')==='1') localStorage.setItem('ppc_qa','1');
+    if(p.get('qa')==='1'||localStorage.getItem('ppc_qa')==='1') skip=true;
+  }catch(e){}
+  if(navigator.webdriver===true) skip=true;
+  if(/HeadlessChrome|Headless|PhantomJS|Lighthouse|Chrome-Lighthouse|PageSpeed|GTmetrix|bot|crawler|spider|Playwright|Puppeteer/i.test(navigator.userAgent||'')) skip=true;
+  if(skip) return;
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-K45B2WNXMC';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config','G-K45B2WNXMC');
+})();
+</script><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Voyager avec votre animal : ce que votre vétérinaire doit préparer | PetPolicyCheck</title><link href="https://petpolicycheck.com/fr/vet-prep/" rel="canonical"/>
+<link href="https://petpolicycheck.com/vet-prep/" hreflang="en" rel="alternate"/>
+<link href="https://petpolicycheck.com/es/vet-prep/" hreflang="es" rel="alternate"/>
+<link href="https://petpolicycheck.com/it/vet-prep/" hreflang="it" rel="alternate"/>
+<link href="https://petpolicycheck.com/fr/vet-prep/" hreflang="fr" rel="alternate"/>
+<link href="https://petpolicycheck.com/vet-prep/" hreflang="x-default" rel="alternate"/>
+<meta content="Étapes officielles suivies par votre vétérinaire pour un voyage avec un animal : puce ISO, rage, titrage, certificat et visa. Dernière vérification : novembre 2026." name="description"/>
+<meta content="#001f3f" name="theme-color"/>
+<link href="/assets/css/theme.css?v=20261117sb1" rel="stylesheet"/><link href="/style.css?v=20261112footer4" rel="stylesheet"/>
+<link href="/assets/css/ppc-i18n.css?v=20261113nav1" rel="stylesheet"/>
+<script defer="" src="/assets/i18n/ui.js?v=20261112footer5"></script>
+<script defer="" src="/assets/js/ppc-i18n.js?v=20261112itp5b"></script>
+<script defer="" src="/assets/js/pastilles.js?v=20261112nav2"></script>
+<link href="/assets/css/theme-navy.css?v=20261107n" rel="stylesheet"/>
+<style>
+/* Vet-prep long-form guide — uses theme-navy.css tokens; does not redefine --bg/--paper/--ink */
+.vet-prep-page .growth-hero{padding:22px 0 8px;max-width:980px;margin:0 auto}
+.vet-prep-page .growth-hero h1{font-family:Marcellus,serif;font-weight:400;margin:0 0 8px}
+.vet-prep-page .growth-hero .sub{max-width:72ch}
+.vet-prep-page .eyebrow{color:#d9b765;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;margin:0 0 8px}
+.vet-prep-page .gcard{border-radius:14px;padding:16px 18px;margin:12px 0}
+.vet-prep-page .gcard>h2{font-family:Marcellus,serif;font-weight:400;font-size:1.28rem;margin:0 0 .7em;color:var(--head);line-height:1.25}
+.vet-prep-page .gcard h3{font-size:1.05rem;margin:1.25em 0 .4em;color:var(--gold-l);font-weight:650}
+.vet-prep-page .gcard p,.vet-prep-page .gcard li{max-width:72ch}
+.vet-prep-page .gcard p{margin:0 0 .85em}
+.vet-prep-page .gcard ul,.vet-prep-page .gcard ol{margin:0 0 1em;padding-left:1.25em}
+.vet-prep-page .gcard li{margin:0 0 .4em}
+.vet-prep-page .gcard li:last-child{margin-bottom:0}
+.vet-prep-page .tablewrap{margin:1em 0 1.35em;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.vet-prep-page table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:640px}
+.vet-prep-page th,.vet-prep-page td{border:1px solid var(--line);padding:.55em .65em;vertical-align:top;text-align:left}
+.vet-prep-page th{background:var(--th);color:var(--head);font-weight:650}
+.vet-prep-page .privacy{font-size:.86rem;padding-left:10px;border-left:3px solid var(--acc);color:var(--mut);max-width:72ch}
+.vet-prep-page .vet-lead p:last-child{margin-bottom:0}
+.vet-prep-page ul.checks{list-style:none;padding-left:0}
+.vet-prep-page ul.checks li{padding:.35em 0 .35em 1.85em;position:relative;max-width:72ch}
+.vet-prep-page ul.checks li:before{content:"";position:absolute;left:0;top:.45em;width:.95em;height:.95em;border:1.5px solid var(--gold-l);border-radius:3px}
+</style>
+<link href="/assets/site-search.css?v=20261117sb2" rel="stylesheet"/>
+</head>
+<body class="v-c theme-navy vet-prep-page"><a class="skip" href="#main">Aller au contenu</a>
+<header class="top"><div class="wrap">
+<a aria-label="PetPolicyCheck — Accueil" class="brand" href="/fr/"><span class="lbadge"><img alt="PetPolicyCheck" height="48" src="/assets/img/logo-mark-header.png" width="62"/></span></a>
+<nav aria-label="Principal" class="nav menu" id="site-menu"><a data-i18n="site.nav.map" href="/fr/?view=map">Carte du monde</a><a href="/fr/countries/usa.html#federal">Lois</a><a href="/fr/vet-info/">Vétérinaire</a><a href="/fr/airlines/">Avion</a><a href="/fr/hotels/">Hôtel</a><a data-i18n="site.nav.grooming" href="/fr/grooming/">Toilettage</a><a data-i18n="site.nav.products" href="/fr/products/">Produits</a><a data-i18n="site.nav.rides" href="/fr/taxi/">Trajets</a><span aria-hidden="true" class="nav-group-sep"></span><a data-i18n="site.nav.forum" href="/fr/forum/">Forum</a><a href="/fr/k9/">K9</a><a href="/fr/veterans/#service-dog-support">Chiens d’assistance</a><a class="nav-vet" data-i18n="site.nav.veterans" href="/fr/veterans/">Anciens combattants</a><a class="nav-biz" data-i18n="site.nav.pro" href="/fr/pro/">Professionnels</a><a class="menu-only sub" href="/fr/#compare">Comparer</a><a class="menu-only sub" href="/fr/#gear">Guides</a><a class="menu-only sub" href="/fr/updates.html">Mises à jour</a><a class="menu-only sub" href="/fr/about.html">À propos</a></nav><button aria-controls="site-menu" aria-expanded="false" class="menu-btn" type="button"><svg aria-hidden="true" focusable="false" height="20" viewbox="0 0 24 24" width="20"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg><span data-i18n="site.nav.menu">Menu</span></button>
+</div></header>
+<main class="wrap" id="main">
+<section class="growth-hero">
+<p class="eyebrow">Clinique · Préparation vétérinaire</p>
+<h1>Voyager avec votre animal : ce que votre vétérinaire doit préparer</h1>
+<p class="sub">Dernière vérification : novembre 2026</p>
+</section>
+<section class="gcard vet-lead"><p>Cette page s’adresse aux équipes de cliniques et aux propriétaires qui préparent un voyage international avec un chien ou un chat. Elle présente les étapes vétérinaires dans l’ordre où elles doivent généralement se dérouler, et renvoie aux pages officielles des administrations ainsi qu’aux guides pays et trajets de PetPolicyCheck.</p>
+<p>C’est la destination qui fixe les règles d’entrée. Un vétérinaire accrédité par l’USDA établit le certificat sanitaire d’exportation d’un animal quittant les États-Unis et le soumet pour visa lorsque celui-ci est exigé. Informez le vétérinaire des escales, du voyage de l’animal en cabine ou en fret et de la date de départ. Voir <a href="https://www.aphis.usda.gov/pet-travel/us-to-another-country-export" rel="noopener" target="_blank">APHIS — Take a pet from the United States to another country</a>.</p>
+<p>Tout ce qui suit est une règle officielle publiée par une administration ou un organisme de réglementation. Vérifiez le texte en vigueur auprès de l’autorité de destination et de l’APHIS ou de l’organisme officiel équivalent avant de réserver ou de délivrer un certificat.</p>
+<p>Une liste de contrôle imprimable pour la clinique figure ci-dessous, ainsi que sous forme de <a href="/fr/vet-prep/checklist.html">fiche A4 prête à imprimer</a>. Les propriétaires peuvent aussi utiliser la <a href="/fr/pet-travel-checklist/">liste de contrôle pour voyager avec un animal</a>, le <a href="/fr/passport/">Pet Travel Passport</a> et le <a href="/fr/titer-calculator/">compte à rebours du titrage antirabique</a>.</p></section>
+<section class="gcard" id="choose-a-destination"><h2>Choisissez une destination</h2>
+<p>Ces liens renvoient uniquement à des pages PetPolicyCheck déjà en ligne.</p>
+<ul>
+<li><a href="/fr/countries/usa.html">États-Unis</a> · <a href="/fr/countries/usa-map.html">Carte États-Unis</a></li>
+<li><a href="/fr/countries/canada.html">Canada</a> · <a href="/fr/countries/canada-map.html">Carte Canada</a></li>
+<li><a href="/fr/countries/mexico.html">Mexique</a> · <a href="/fr/countries/mexico-map.html">Carte Mexique</a></li>
+<li><a href="/fr/countries/uk.html">Royaume-Uni</a> · <a href="/fr/countries/uk-map.html">Carte Royaume-Uni</a></li>
+<li><a href="/fr/countries/france.html">France</a> · <a href="/fr/countries/france-map.html">Carte de la France</a> (règles de l’UE)</li>
+<li><a href="/fr/countries/germany.html">Allemagne</a> · <a href="/fr/countries/germany-map.html">Carte de l’Allemagne</a> (règles de l’UE)</li>
+<li><a href="/fr/routes/usa-to-japan.html">Japon</a> · <a href="/fr/countries/japan-map.html">Carte Japon</a></li>
+<li><a href="/fr/routes/usa-to-south-korea.html">Corée du Sud</a> · <a href="/fr/countries/south-korea-map.html">Carte Corée du Sud</a></li>
+</ul>
+<p>Voir aussi <a href="/fr/routes/">tous les guides de trajets</a>, les <a href="/fr/clinics/usa.html">cliniques américaines qui gèrent les certificats de voyage</a> et les <a href="/fr/partner-vets/">vétérinaires partenaires</a>.</p></section>
+<section class="gcard" id="the-veterinary-steps-in-order"><h2>Les étapes vétérinaires, dans l’ordre</h2>
+<h3>1. Puce électronique</h3>
+<p>Identifiez l’animal par puce électronique avant toute vaccination antirabique exigée, si la destination impose que la puce soit posée en premier.</p>
+<ul>
+<li>La <a href="https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en" rel="noopener" target="_blank">Commission européenne</a> exige une puce ISO pour les chiens, chats et furets entrant dans l’UE depuis un pays tiers.</li>
+<li>Le <a href="https://www.maff.go.jp/aqs/english/animal/dog/import-other.html" rel="noopener" target="_blank">service de quarantaine animale du Japon</a> exige une puce ISO, implantée avant le premier vaccin antirabique, pour les importations depuis des régions non désignées (les États-Unis continentaux, hors Hawaï et Guam).</li>
+<li>L’<a href="https://www.apqa.go.kr/english/html/Animal_livestock/02AnimalLivestock_007-8.jsp" rel="noopener" target="_blank">APQA de Corée du Sud</a> exige une puce ISO 11784/11785 pour les chiens et chats, y compris les animaux de moins de 90 jours.</li>
+<li>Le <a href="https://www.cdc.gov/importation/dogs/index.html" rel="noopener" target="_blank">CDC</a> exige une puce électronique pour les chiens entrant aux États-Unis.</li>
+<li><a href="https://www.gov.uk/bring-pet-to-great-britain" rel="noopener" target="_blank">GOV.UK</a> exige une puce électronique pour les animaux entrant en Grande-Bretagne.</li>
+</ul>
+<p>Consignez le numéro de puce exactement tel qu’il figurera sur le certificat antirabique, le rapport de titrage et le certificat sanitaire d’exportation. Si le lecteur ne peut pas lire la puce, les contrôles à destination échoueront même si les documents semblent complets.</p>
+<h3>2. Vaccination antirabique</h3>
+<p>Vaccinez après la pose de la puce chaque fois que la destination impose cet ordre.</p>
+<ul>
+<li><strong>Union européenne :</strong> vaccination antirabique à 12 semaines ou plus, puis délai de 21 jours après la primovaccination avant le voyage. Voir le <a href="https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en" rel="noopener" target="_blank">guide de la Commission</a>.</li>
+<li><strong>Grande-Bretagne :</strong> vaccination antirabique et délai de 21 jours après la primovaccination. Consultez <a href="https://www.gov.uk/bring-pet-to-great-britain" rel="noopener" target="_blank">Bring a pet to Great Britain</a>.</li>
+<li><strong>Japon (régions non désignées, y compris les États-Unis continentaux hors Hawaï et Guam) :</strong> premier vaccin antirabique lorsque l’animal a au moins 91 jours ; second vaccin au moins 30 jours plus tard. Voir <a href="https://www.maff.go.jp/aqs/english/animal/dog/import-other.html" rel="noopener" target="_blank">MAFF AQS</a>.</li>
+<li><strong>Entrée aux États-Unis :</strong> les chiens doivent avoir au moins 6 mois. Voir <a href="https://www.cdc.gov/importation/dogs/index.html" rel="noopener" target="_blank">CDC — Bringing a dog into the United States</a>.</li>
+</ul>
+<p>Conservez le fabricant, le numéro de lot, la date de vaccination et la date de validité sur le document qui accompagnera le certificat.</p>
+<h3>3. Titrage des anticorps antirabiques, si la destination l’exige</h3>
+<p>Le titrage des anticorps neutralisants n’est pas exigé pour toutes les destinations. Il l’est lorsque la liste officielle ou la règle de laboratoire le prévoit.</p>
+<ul>
+<li><strong>Union européenne :</strong> un titrage des anticorps antirabiques est exigé, sauf si le pays d’expédition est listé dans le règlement d’exécution (UE) 2026/636. Les États-Unis, le Canada, le Mexique, le Royaume-Uni et le Japon sont listés. <strong>La Corée du Sud n’est pas listée.</strong> Voir la <a href="https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/listing-territories-and-non-eu-countries_en" rel="noopener" target="_blank">liste des territoires et pays tiers de la Commission</a>. Pour un pays non listé, le guide de la Commission précise que le prélèvement sanguin est effectué au moins 30 jours après la primovaccination et au moins 90 jours avant la délivrance du certificat.</li>
+<li><strong>Grande-Bretagne :</strong> les animaux provenant de pays non listés doivent faire un test sanguin antirabique, puis respecter un délai de 3 mois après le prélèvement, avant l’entrée. Les États-Unis sont listés. La Corée du Sud ne l’est pas. Voir <a href="https://www.gov.uk/bring-pet-to-great-britain/rabies-blood-tests" rel="noopener" target="_blank">GOV.UK — rabies blood tests</a> et <a href="https://www.gov.uk/bring-pet-to-great-britain/which-pet-travel-document" rel="noopener" target="_blank">quel document de voyage pour l’animal</a>.</li>
+<li><strong>Japon (régions non désignées) :</strong> un titrage d’au moins 0,5 UI/ml, puis un délai de 180 jours à compter de la date de la prise de sang. Voir <a href="https://www.maff.go.jp/aqs/english/animal/dog/import-other.html" rel="noopener" target="_blank">MAFF AQS</a>. Utilisez le <a href="/fr/titer-calculator/">compte à rebours du titrage</a> pour planifier ce délai.</li>
+<li><strong>Corée du Sud :</strong> les chiens et chats de 90 jours ou plus provenant d’un pays non classé indemne de rage ont besoin d’un résultat de titrage des anticorps neutralisants antirabiques d’au moins 0,5 UI/ml obtenu dans un laboratoire agréé, et d’un certificat sanitaire officiel indiquant le numéro de puce et le résultat du titrage. Voir <a href="https://www.apqa.go.kr/english/html/Animal_livestock/02AnimalLivestock_007-8.jsp" rel="noopener" target="_blank">APQA</a>.</li>
+<li><strong>Entrée aux États-Unis depuis un pays à haut risque :</strong> des documents supplémentaires du CDC s’appliquent si le chien a séjourné dans un <a href="https://www.cdc.gov/importation/dogs/high-risk-countries.html" rel="noopener" target="_blank">pays à haut risque de rage canine</a> au cours des 6 derniers mois. Pour un chien vacciné aux États-Unis, la <a href="https://www.cdc.gov/importation/dogs/us-vaccinated-high-risk-countries.html" rel="noopener" target="_blank">Certification of U.S.-Issued Rabies Vaccination</a> doit être revêtue du visa avant que le chien quitte les États-Unis ; elle ne peut pas être délivrée rétroactivement.</li>
+</ul>
+<p>Les chiens qui n’ont séjourné au cours des 6 derniers mois que dans des <a href="https://www.cdc.gov/importation/dogs/rabies-free-low-risk-countries.html" rel="noopener" target="_blank">pays indemnes de rage ou à faible risque</a> suivent la procédure allégée du CDC : Dog Import Form, âge, puce électronique et apparence de bonne santé.</p>
+<h3>4. Certificat sanitaire et examen clinique</h3>
+<p>La destination désigne le modèle de certificat. Le vétérinaire examinateur doit voir l’animal pendant la période de validité de ce modèle.</p>
+<ul>
+<li><strong>Union européenne :</strong> le certificat sanitaire non commercial figure à l’annexe III du règlement d’exécution (UE) 2026/705. Le guide de la Commission précise qu’il est valable 10 jours jusqu’au contrôle à l’entrée dans l’UE (plus la durée d’un trajet maritime), puis couvre la poursuite du voyage dans l’UE pendant 6 mois ou jusqu’à l’expiration de la vaccination antirabique, selon la première échéance. L’APHIS exige les nouveaux certificats non commerciaux de l’UE depuis le 1er octobre 2026. Voir <a href="https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-france" rel="noopener" target="_blank">APHIS — voyager avec un animal des États-Unis vers la France</a> et <a href="https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-germany" rel="noopener" target="_blank">vers l’Allemagne</a>.</li>
+<li><strong>Union européenne (ténia, chiens) :</strong> les chiens entrant en Finlande, en Irlande, à Malte, en Irlande du Nord ou en Norvège doivent être traités contre <em>Echinococcus multilocularis</em> par un vétérinaire au plus 120 heures et au moins 24 heures avant l’entrée prévue. Voir le <a href="https://food.ec.europa.eu/animals/live-animal-movements/dogs-cats-and-ferrets/bringing-pet-eu-non-eu-country_en" rel="noopener" target="_blank">guide de la Commission</a>.</li>
+<li><strong>Grande-Bretagne :</strong> un certificat sanitaire britannique pour animal de compagnie, délivré par un vétérinaire accrédité par l’USDA. Entrée en Grande-Bretagne dans les 10 jours suivant le certificat (APHIS : dans les 10 jours suivant le visa de l’APHIS). Voir <a href="https://www.gov.uk/bring-pet-to-great-britain/great-britain-pet-health-certificate" rel="noopener" target="_blank">GOV.UK — Great Britain pet health certificate</a> et <a href="https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-united-kingdom-great-britain-england-scotland" rel="noopener" target="_blank">APHIS — voyager avec un animal des États-Unis vers le Royaume-Uni</a>. Les chiens doivent aussi recevoir du praziquantel (ou un équivalent efficace contre <em>Echinococcus multilocularis</em>) au moins 24 heures et au plus 120 heures avant l’arrivée, sauf s’ils arrivent directement de Finlande, d’Irlande, d’Irlande du Nord, de Malte ou de Norvège. Voir <a href="https://www.gov.uk/bring-pet-to-great-britain/tapeworm-treatment-dogs" rel="noopener" target="_blank">GOV.UK — traitement des chiens contre le ténia</a>.</li>
+<li><strong>Japon :</strong> un examen clinique dans les 10 jours précédant l’embarquement, un préavis à l’AQS d’au moins 40 jours et le formulaire AC revêtu du visa officiel (ou l’équivalent accepté par l’APHIS). Voir <a href="https://www.maff.go.jp/aqs/english/animal/dog/import-other.html" rel="noopener" target="_blank">MAFF AQS</a> et <a href="https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-japan" rel="noopener" target="_blank">APHIS — voyager avec un animal des États-Unis vers le Japon</a>.</li>
+<li><strong>Corée du Sud :</strong> un certificat sanitaire officiel indiquant le numéro de puce et, lorsqu’un titrage est exigé, le résultat du titrage. APHIS : un vétérinaire accrédité par l’USDA délivre le certificat via VEHCS ; l’APHIS le signe à l’encre et y appose un sceau en relief ; l’original voyage avec l’animal. Voir <a href="https://www.apqa.go.kr/english/html/Animal_livestock/02AnimalLivestock_007-8.jsp" rel="noopener" target="_blank">APQA</a> et <a href="https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-korea" rel="noopener" target="_blank">APHIS — voyager avec un animal des États-Unis vers la Corée</a>.</li>
+<li><strong>Mexique (chiens venant des États-Unis) :</strong> un certificat d’inspection relatif à la lucilie bouchère signé par un vétérinaire accrédité par l’USDA dans les 5 jours précédant l’entrée (en vigueur depuis le 3 août 2026). Le visa de l’APHIS n’est pas exigé pour ce formulaire. SENASICA inspecte le chien dans un bureau OISA, puis délivre le certificat d’importation (CZI). Voir <a href="https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-mexico" rel="noopener" target="_blank">APHIS — voyager avec un animal des États-Unis vers le Mexique</a>. Les chiens revenant du Mexique aux États-Unis ont besoin d’un certificat d’absence de lucilie bouchère délivré par un <a href="https://www.gob.mx/senasica/documentos/directorio-de-mvra-en-clinicas-y-hospitales-veterinarios?state=published" rel="noopener" target="_blank">vétérinaire agréé par SENASICA</a>, avec une inspection au plus 5 jours avant le voyage, plus le CDC Dog Import Form.</li>
+<li><strong>Canada :</strong> les conditions d’importation dépendent du pays d’origine, de l’âge de l’animal, du but de l’importation et du fait que l’animal voyage ou non avec son propriétaire. Consultez <a href="https://inspection.canada.ca/en/travelling-pets-food-plants/travelling-pets/dog-travel" rel="noopener" target="_blank">ACIA — Voyager avec votre chien</a> et <a href="https://www.aphis.usda.gov/pet-travel/us-to-another-country-export/pet-travel-us-canada" rel="noopener" target="_blank">APHIS — voyager avec un animal des États-Unis vers le Canada</a> pour le modèle applicable à votre patient.</li>
+</ul>
+<h3>5. Visa de l’APHIS (VEHCS) ou de l’autorité officielle</h3>
+<p>Pour les animaux quittant les États-Unis, un vétérinaire accrédité par l’USDA crée et soumet le certificat dans <a href="https://www.aphis.usda.gov/pet-travel/vehcs" rel="noopener" target="_blank">VEHCS</a>. Les signatures électroniques des vétérinaires accrédités sont acceptées pour la délivrance. Le visa de l’APHIS, à l’encre ou numérique, dépend ensuite toujours de la destination :</p>
+<ul>
+<li>Royaume-Uni, France, Allemagne et Corée : l’APHIS signe à l’encre et appose un sceau en relief ; le certificat papier original voyage avec l’animal.</li>
+<li>Japon : l’APHIS appose un visa numérique sur les certificats des chiens et chats ; ayez sur vous une copie imprimée.</li>
+<li>Mexique (formulaire relatif à la lucilie bouchère pour les chiens depuis le 3 août 2026) : pas de visa de l’APHIS.</li>
+</ul>
+<p>L’<a href="https://www.aphis.usda.gov/pet-travel/us-to-foreign-country/cost-to-endorse" rel="noopener" target="_blank">APHIS publie ses frais de visa</a> séparément ; consultez cette page pour le montant actuel.</p>
+<p>Si l’animal quitte un autre pays, c’est l’autorité vétérinaire officielle de ce pays qui appose son visa sur le certificat. Au Canada, l’ACIA décrit un certificat d’exportation délivré par un vétérinaire agréé, puis revêtu du visa d’un vétérinaire officiel de l’ACIA. Voir <a href="https://inspection.canada.ca/en/travelling-pets-food-plants/travelling-pets/dog-travel" rel="noopener" target="_blank">ACIA — Voyager avec votre chien</a>.</p></section>
+<section class="gcard" id="typical-lead-times-before-departure"><h2>Délais habituels avant le départ</h2>
+<p>Ces délais proviennent des pages officielles citées ci-dessus. Ils s’enchaînent : commencez donc par le délai le plus long.</p>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Quoi</th>
+<th>Délai officiel</th>
+<th>Où cela s’applique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Puce ISO avant le premier vaccin antirabique</td>
+<td>Avant la vaccination</td>
+<td>Japon, régions non désignées ; respectez le même ordre partout où la destination impose la puce en premier</td>
+</tr>
+<tr>
+<td>Vaccin antirabique, puis délai d’attente</td>
+<td>Vaccin à 12 semaines ou plus, puis 21 jours après la primovaccination</td>
+<td>Union européenne ; Grande-Bretagne</td>
+</tr>
+<tr>
+<td>Série de vaccins antirabiques pour le Japon</td>
+<td>Premier vaccin à 91 jours ou plus ; second vaccin au moins 30 jours plus tard</td>
+<td>Japon, régions non désignées</td>
+</tr>
+<tr>
+<td>Titrage pour l’UE (pays non listés, dont la Corée du Sud)</td>
+<td>Prise de sang au moins 30 jours après la primovaccination et au moins 90 jours avant la délivrance du certificat</td>
+<td>Union européenne</td>
+</tr>
+<tr>
+<td>Titrage pour la Grande-Bretagne (pays non listés, dont la Corée du Sud)</td>
+<td>Titrage, puis délai de 3 mois après la prise de sang</td>
+<td>Grande-Bretagne</td>
+</tr>
+<tr>
+<td>Titrage Japon</td>
+<td>Résultat d’au moins 0,5 UI/ml, puis 180 jours après la prise de sang</td>
+<td>Japon, régions non désignées</td>
+</tr>
+<tr>
+<td>Préavis à l’AQS pour le Japon</td>
+<td>Au moins 40 jours avant l’arrivée</td>
+<td>Japon</td>
+</tr>
+<tr>
+<td>Examen clinique pour le Japon</td>
+<td>Dans les 10 jours précédant l’embarquement</td>
+<td>Japon</td>
+</tr>
+<tr>
+<td>Certificat sanitaire de l’UE</td>
+<td>Valable 10 jours jusqu’au contrôle à l’entrée dans l’UE, puis 6 mois ou jusqu’à l’expiration du vaccin antirabique, selon la première échéance</td>
+<td>Union européenne</td>
+</tr>
+<tr>
+<td>Certificat sanitaire britannique pour animal de compagnie</td>
+<td>Entrée dans les 10 jours suivant le certificat / le visa de l’APHIS</td>
+<td>Grande-Bretagne</td>
+</tr>
+<tr>
+<td>Traitement contre le ténia pour la Grande-Bretagne (chiens)</td>
+<td>24 à 120 heures avant l’arrivée</td>
+<td>Grande-Bretagne, avec les exemptions officielles par pays</td>
+</tr>
+<tr>
+<td>Traitement contre le ténia pour l’UE (chiens)</td>
+<td>24 à 120 heures avant l’entrée prévue</td>
+<td>Finlande, Irlande, Malte, Irlande du Nord et Norvège</td>
+</tr>
+<tr>
+<td>Certificat relatif à la lucilie bouchère pour le Mexique (chiens venant des États-Unis)</td>
+<td>Signé dans les 5 jours précédant l’entrée ; pas de visa de l’APHIS</td>
+<td>Mexique</td>
+</tr>
+<tr>
+<td>Certificat d’absence de lucilie bouchère du Mexique vers les États-Unis</td>
+<td>Inspection dans les 5 jours précédant l’arrivée aux États-Unis</td>
+<td>Retour aux États-Unis</td>
+</tr>
+<tr>
+<td>CDC Dog Import Form</td>
+<td>Exigé pour les chiens entrant aux États-Unis, avec un âge minimum de 6 mois, une puce électronique et une apparence de bonne santé</td>
+<td>États-Unis</td>
+</tr>
+<tr>
+<td>Certification antirabique américaine pour un retour depuis un pays à haut risque</td>
+<td>Doit être revêtue du visa avant que le chien quitte les États-Unis ; ne peut pas être délivrée après le départ</td>
+<td>Retour aux États-Unis depuis un pays à haut risque</td>
+</tr>
+</tbody>
+</table></div>
+<p>L’APHIS exige les nouveaux modèles de certificats de l’UE depuis le 1er octobre 2026.</p></section>
+<section class="gcard" id="printable-checklist"><h2>Liste de contrôle imprimable</h2>
+<p>Imprimez cette liste, ou ouvrez la <a href="/fr/vet-prep/checklist.html">liste de contrôle A4 imprimable</a>.</p>
+<ul class="checks">
+<li>Destination confirmée et règles officielles consultées (page pays ou trajet ci-dessus)</li>
+<li>Puce électronique implantée et lisible ; numéro reporté sur chaque document</li>
+<li>Vaccination antirabique effectuée dans l’ordre exigé par la destination, dates et validité consignées</li>
+<li>Délai de 21 jours après une primovaccination antirabique, en cas de voyage vers l’UE ou la Grande-Bretagne</li>
+<li>Titrage organisé, si exigé (pays non listés par l’UE ; pays non listés par la Grande-Bretagne ; régions non désignées par le Japon ; Corée du Sud depuis une provenance non indemne de rage)</li>
+<li>Délai après la prise de sang respecté (règle des 90 jours de l’UE ; 3 mois pour la Grande-Bretagne ; 180 jours pour le Japon)</li>
+<li>Modèle de certificat de destination préparé dans VEHCS ou le système officiel équivalent</li>
+<li>Examen clinique réalisé dans la période de validité du certificat (UE et Grande-Bretagne : 10 jours ; Japon : examen dans les 10 jours précédant l’embarquement)</li>
+<li>Visa de l’APHIS ou autre visa officiel obtenu, sauf si la destination indique qu’aucun n’est nécessaire (formulaire relatif à la lucilie bouchère pour les chiens se rendant au Mexique)</li>
+<li>Certificat original ou imprimé revêtu du visa rangé pour voyager avec l’animal</li>
+<li>Reçu du CDC Dog Import Form, si le chien doit entrer aux États-Unis</li>
+<li>Documents pour les pays à haut risque, le cas échéant, y compris toute certification antirabique américaine revêtue du visa avant le départ</li>
+<li>Traitement contre le ténia pour la Grande-Bretagne consigné, si le chien se rend en Grande-Bretagne</li>
+<li>Traitement contre le ténia pour l’UE consigné, si le chien se rend en Finlande, en Irlande, à Malte, en Irlande du Nord ou en Norvège</li>
+<li>AQS du Japon notifiée au moins 40 jours à l’avance, en cas de voyage au Japon</li>
+<li>Compagnie informée du choix cabine ou fret ; caisse ou sac de transport confirmé</li>
+</ul></section>
+<section class="gcard" id="frequently-asked-questions"><h2>Questions fréquentes</h2>
+<h3>Toutes les destinations exigent-elles un titrage des anticorps antirabiques ?</h3>
+<p>Non. L’Union européenne dispense de titrage les pays listés dans le règlement d’exécution (UE) 2026/636, dont les États-Unis, le Canada, le Mexique, le Royaume-Uni et le Japon. La Grande-Bretagne utilise aussi un tableau des pays listés ; les États-Unis sont listés, la Corée du Sud ne l’est pas. Le Japon exige un titrage et un délai de 180 jours pour les animaux provenant de régions non désignées. La Corée du Sud exige un titrage d’au moins 0,5 UI/ml pour les chiens et chats de 90 jours ou plus provenant d’un pays non indemne de rage.</p>
+<h3>Quand faut-il commencer pour le Japon ?</h3>
+<p>Pour un animal provenant d’une région non désignée, planifiez en partant des délais officiels les plus longs : une puce ISO avant le premier vaccin antirabique, une série de deux vaccins antirabiques (première dose à 91 jours ou plus, seconde au moins 30 jours plus tard), un titrage d’au moins 0,5 UI/ml, un délai de 180 jours après la prise de sang, un préavis à l’AQS d’au moins 40 jours et un examen clinique dans les 10 jours précédant l’embarquement.</p>
+<h3>Un propriétaire peut-il obtenir lui-même le visa de l’APHIS ?</h3>
+<p>Non. Pour les animaux quittant les États-Unis, un vétérinaire accrédité par l’USDA établit le certificat et le soumet via VEHCS. L’APHIS appose son visa lorsque la destination l’exige. Voir <a href="https://www.aphis.usda.gov/pet-travel/vehcs" rel="noopener" target="_blank">VEHCS</a>.</p>
+<h3>Les chats utilisent-ils le CDC Dog Import Form ?</h3>
+<p>Non. L’<a href="https://www.aphis.usda.gov/pet-travel/another-country-to-us-import/cats" rel="noopener" target="_blank">APHIS indique</a> que les chats entrant aux États-Unis n’utilisent pas le CDC Dog Import Form. Ils doivent paraître en bonne santé ; les règles des États, des compagnies, d’Hawaï et de Guam peuvent toujours s’appliquer.</p>
+<h3>Où trouver une clinique qui gère déjà ces documents ?</h3>
+<p>Voir les <a href="/fr/clinics/usa.html">cliniques vétérinaires américaines délivrant des certificats de voyage pour animaux</a> et les <a href="/fr/partner-vets/">vétérinaires partenaires</a>.</p></section>
+<section class="gcard" id="disclaimer"><h2>Avertissement</h2>
+<p class="privacy">Cette page est fournie à titre d’information uniquement. Elle ne constitue pas un avis vétérinaire, juridique ni de voyage. Les règles des destinations, les modèles de certificats et les délais d’attente changent. Vérifiez chaque étape auprès du vétérinaire examinateur, de l’APHIS, de l’ACIA (CFIA) ou de l’autorité officielle équivalente, ainsi qu’auprès du gouvernement de destination, avant d’établir un certificat ou de voyager.</p>
+<p class="privacy">Dernière vérification : novembre 2026</p></section>
+</main>
+<footer class="foot foot-compact">
+<div class="wrap cols">
+<div class="fbrand"><p class="wm">PetPolicyCheck</p><p data-i18n="site.foot.rules">Les règles des compagnies aériennes pour les animaux changent souvent. Vérifiez toujours auprès de la compagnie et de l’autorité officielle du pays de destination avant de réserver. Les informations présentées ici ne constituent pas un avis juridique ni vétérinaire.</p><p class="soc"><a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61596615981846" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.83c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"></path></svg></a><a aria-label="X" href="https://x.com/PetPolicyCheck" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.725-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a></p></div>
+<div><h4><a data-i18n="site.foot.vet_info" href="/fr/vet-info/">Vet info</a></h4><ul><li><a data-i18n="site.foot.vet_prep" href="/fr/vet-prep/">Vet prep</a></li><li><a data-i18n="site.nav.health" href="/fr/countries/usa.html#federal">Health certificate</a></li><li><a data-i18n="home.tools.titer" href="/fr/titer-calculator/">Titer countdown</a></li><li><a data-i18n="site.foot.vets" href="/fr/partner-vets/">Partner vets</a></li></ul></div>
+<div><h4 data-i18n="site.foot.explore">Explorer</h4><ul><li><a data-i18n="site.nav.map" href="/fr/?view=map">Carte du monde</a></li><li><a data-i18n="site.foot.airlines" href="/fr/airlines/">Airline policies</a></li><li><a data-i18n="site.nav.compare" href="/fr/airlines/compare/">Compare</a></li><li><a data-i18n="site.nav.guides" href="/fr/#gear">Guides</a></li><li><a data-i18n="site.nav.updates" href="/fr/updates.html">Updates</a></li><li><a href="/fr/routes/">Routes</a></li><li><a data-i18n="site.foot.k9" href="/fr/k9/">K9</a></li><li><a data-i18n="site.foot.service_dogs_veterans" href="/fr/veterans/">Service dogs &amp; Veterans</a></li><li><a href="/fr/fit/">Carrier fit</a></li><li><a href="/fr/airport/">Airport pet travel guides</a></li></ul></div>
+<div><h4 data-i18n="site.foot.shop">Boutique et communauté</h4><ul><li><a data-i18n="site.nav.products" href="/fr/products/">Products</a></li><li><a data-i18n="nav.forum" href="/fr/forum/">Forum</a></li><li><a data-i18n="site.foot.stories" href="/fr/forum/pet-travel-stories/">Stories</a></li><li><a data-i18n="site.foot.pro" href="/fr/pro/">B2B Pet Desk</a></li><li><a data-i18n="site.foot.clinics_usa" href="/fr/clinics/usa.html">US clinics</a></li></ul></div>
+<div><h4 data-i18n="site.foot.aboutcol">À propos</h4><ul><li><a data-i18n="site.foot.about" href="/fr/about.html">About &amp; disclaimer</a></li><li><a data-i18n="site.foot.terms" href="/fr/terms.html">Terms</a></li><li><a data-i18n="site.foot.refund" href="/fr/refund-policy.html">Refund policy</a></li><li><a data-i18n="site.foot.privacy" href="/fr/privacy.html">Privacy</a></li><li><a data-i18n="site.foot.contact" href="/fr/contact.html">Contact</a></li></ul></div>
+</div>
+<div class="wrap"><p class="disc"><span data-i18n="site.foot.copyright">© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See <a href="/fr/terms.html">Terms</a>.</span></p></div>
+</footer>
+<script defer="" src="/assets/site-search.js?v=20261117sb2"></script>
+<script defer="" src="/assets/ppc-header.js?v=20261111vetinfo"></script>
+</body></html>
