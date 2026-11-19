@@ -15,6 +15,7 @@
 .ppc-blk[data-sec="b2b"]{--sec:#8b9ce2}
 .ppc-blk[data-sec="forum"]{--sec:#7ec78c}
 .ppc-blk[data-sec="law"]{--sec:#8b9ce2}
+.ppc-blk[data-sec="adoptions"]{--sec:#d1848c}
 
 .ppc-hubs{
   padding-top:36px;padding-bottom:28px;
@@ -145,7 +146,7 @@
 }
 .ppc-support .ppc-step{min-height:220px;margin:0}
 .ppc-com{
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;
   margin-top:8px;border-radius:16px;overflow:hidden;
   box-shadow:inset 0 0 0 1px var(--line,#23413f);
   width:100%;
@@ -163,8 +164,9 @@
   .ppc-journey{grid-template-columns:1fr 1fr}
   .ppc-journey::before{display:none}
   .ppc-support{grid-template-columns:1fr}
-  .ppc-com{grid-template-columns:1fr}
+  .ppc-com{grid-template-columns:1fr 1fr}
   .ppc-com .ppc-tile{border-right:0;border-bottom:1px solid color-mix(in srgb,var(--sec) 25%,transparent)}
+  .ppc-com .ppc-tile:nth-child(2n){border-right:0}
 }
 @media (max-width:620px){
   .ppc-journey{grid-template-columns:1fr;gap:18px 0;padding-left:22px}
