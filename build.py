@@ -988,11 +988,11 @@ def build_privacy(cfg):
 <p>Some product pages include Amazon Associates links to Amazon.com. If you buy through one, we may earn a commission at no extra cost to you. When you click an Amazon Associates link, you leave our site and Amazon may set cookies or use similar technology to record that the visit came from us, under Amazon's own privacy notice. We don't receive personal information about you from Amazon, only aggregated sales or commission reports. This never changes the policy information we publish. We do not use other affiliate programs.</p>
 <p>{AMAZON_DISCLOSURE} {e(cfg['site_name'])} participates in the Amazon Services LLC Associates Program; Amazon may use cookies to record that a visit or purchase came from our links, under Amazon's own privacy notice.</p>
 {analytics_privacy(cfg)}
-<h2 id="billing">B2B Subscriptions &amp; Billing (Creem / Armitage Labs OÜ — Merchant of Record)</h2>
+<h2 id="billing">B2B Subscriptions &amp; Billing (Gumroad, Inc. — Merchant of Record)</h2>
 <p>PetPolicyCheck / Paw Passport is operated by <strong>LEVRAT Marc Jea Won</strong>, 266-17 Pyeonghwa-ro, Paju-si, Gyeonggi-do 10849, Republic of Korea. Contact: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#112;&#101;&#116;&#112;&#111;&#108;&#105;&#99;&#121;&#99;&#104;&#101;&#99;&#107;&#46;&#99;&#111;&#109;">&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#112;&#101;&#116;&#112;&#111;&#108;&#105;&#99;&#121;&#99;&#104;&#101;&#99;&#107;&#46;&#99;&#111;&#109;</a>.</p>
-<p>For paid <strong>B2B Pet Desk</strong> subscriptions (<a href="pro/">current pricing</a>), <strong>Creem / Armitage Labs OÜ (Estonia)</strong> (&ldquo;Creem&rdquo;) acts as the <strong>payment processor and Merchant of Record</strong> and as an independent controller of payment and billing data. Card and other payment details are collected and processed by Creem — they <strong>never touch PetPolicyCheck servers</strong>.</p>
-<p><strong>Our order process is conducted by our online reseller Creem (creem.io). Creem is the Merchant of Record for all our orders and handles payments, taxes, invoicing and refunds.</strong></p>
-<p>Creem&rsquo;s processing of billing data is governed by the <a href="https://www.creem.io/privacy" rel="noopener" target="_blank">Creem Privacy Policy</a>. Buyer support for paid orders: the Creem customer portal (a link is sent in your Creem receipt or confirmation email), or <a href="mailto:contact@petpolicycheck.com">contact@petpolicycheck.com</a>. See also our <a href="terms.html">Terms of Service</a> and <a href="refund-policy.html">Refund policy</a>.</p>
+<p>For paid <strong>B2B Pet Desk</strong> subscriptions (<a href="pro/">current pricing</a>), <strong>Gumroad, Inc.</strong> (&ldquo;Gumroad&rdquo;) is the <strong>Merchant of Record</strong>. Card and other payment details are collected and processed by Gumroad — they <strong>never touch PetPolicyCheck servers</strong>.</p>
+<p><strong>Our order process is conducted by our online reseller Gumroad, Inc. (gumroad.com). Gumroad, Inc. is the Merchant of Record for all our orders. It collects payment, handles taxes and VAT, and issues receipts.</strong></p>
+<p>Gumroad&rsquo;s processing of billing data is described in <a href="https://gumroad.com/terms" rel="noopener" target="_blank">Gumroad's Terms</a>. Buyer support for paid orders: a link in your Gumroad receipt or confirmation email, or <a href="mailto:contact@petpolicycheck.com">contact@petpolicycheck.com</a>. See also our <a href="terms.html">Terms of Service</a> and <a href="refund-policy.html">Refund policy</a>.</p>
 <h2>External links</h2>
 <p>We link to airline and government websites. Their privacy practices are their own.</p>
 <h2>Children</h2>
@@ -3458,7 +3458,7 @@ def main():
 </html>
 """
     )
-    # privacy.html is generated above (includes Creem MoR section). Keep static/privacy.html
+    # privacy.html is generated above (includes Gumroad MoR section). Keep static/privacy.html
     # as a reference mirror only — do not overwrite the generated page.
     (OUT / "contact.html").write_text(build_contact(cfg))
     (OUT / "advertise" / "index.html").write_text(build_advertise(cfg))

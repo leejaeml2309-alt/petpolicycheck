@@ -656,8 +656,8 @@ def patch_ugc(path: Path):
 
 
 def write_docs():
-    (ROOT / "docs" / "Creem-noads-reversible.md").write_text(
-        """# Creem no-ads preview — how to restore ad panels
+    (ROOT / "docs" / "noads-reversible.md").write_text(
+        """# No-ads preview — how to restore ad panels
 
 This branch is a **local preview**. Nothing is published until Marc types « publie ».
 
