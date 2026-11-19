@@ -148,7 +148,7 @@ main.wrap:has(#usa-map){max-width:1320px}
  #usa-map .top .r{display:none}
  #usa-map .wrap{padding:0 12px}#usa-map .pill{font-size:.6rem;padding:1px 8px}#usa-map .wm{font-size:1.1rem}
  #usa-map .intro{padding:14px 0 2px}#usa-map .intro p{font-size:.88rem}
- #usa-map .steps{flex-wrap:nowrap;overflow-x:auto;gap:6px;margin:10px 0}#usa-map .steps li{flex:none}
+ #usa-map .steps{flex-wrap:wrap;overflow-x:hidden;gap:6px;margin:10px 0;max-width:100%}#usa-map .steps li{flex:0 1 auto;min-width:0}
  #usa-map .mapcard{padding:8px 6px 6px}#usa-map .legend{font-size:.72rem;gap:8px}#usa-map .maptools{gap:6px}
  #usa-map .ct text{font-size:calc(14px*var(--kt,1))}#usa-map .ct circle{r:calc(4px*var(--k,1))}#usa-map .ct.sample circle{r:calc(6.5px*var(--k,1))}#usa-map .ct.sample circle.ring{r:calc(10px*var(--k,1))}#usa-map .ct:hover circle, #usa-map .ct.sel circle{r:calc(7px*var(--k,1))}
  #usa-map .ap text{font-size:12px}}
@@ -328,18 +328,24 @@ html.accent-maple #country-map{
 html.accent-maple #country-map .st.hub{fill:#2a2420}
 html.accent-maple #country-map .st.rule{/* USA model: .rule kept for a11y only — no fill/stroke of its own */}
 html.accent-maple #country-map .st.sel{fill:#6d5a2c;stroke:var(--gold-l,#f0d58c);stroke-width:2}
-/* Canada neighbor-distinct tones (2026-11-09 tweak): lighter mineral teal/forest ~USA luminance; soft t1; gold sel unchanged */
-/* Generic #country-map.st-t* left for non-maple; maple overrides with wider spread. */
+/* Canada neighbour-distinct pastels (2026-11-20): wider hue spread so adjacent provinces/territories stay distinct.
+   Mid-value pastels for cream label contrast; gold selection and navy charter unchanged. Generic t* left for non-maple. */
 #country-map .st.st-t1{fill:#244f48 !important}
 #country-map .st.st-t2{fill:#1b3d45 !important}
 #country-map .st.st-t3{fill:#2f4a3a !important}
 #country-map .st.st-t4{fill:#16352f !important}
 #country-map .st.st-t5{fill:#3a4f3e !important}
-html.accent-maple #country-map .st.st-t1{fill:#41B99D !important}
-html.accent-maple #country-map .st.st-t2{fill:#329F91 !important}
-html.accent-maple #country-map .st.st-t3{fill:#43B13E !important}
-html.accent-maple #country-map .st.st-t4{fill:#30917C !important}
-html.accent-maple #country-map .st.st-t5{fill:#3891B2 !important}
+#country-map .st.st-t6{fill:#3a2e32 !important}
+#country-map .st.st-t7{fill:#24382e !important}
+#country-map .st.st-t8{fill:#2c2a3a !important}
+html.accent-maple #country-map .st.st-t1{fill:#3EADA0 !important} /* aqua */
+html.accent-maple #country-map .st.st-t2{fill:#5B8BB0 !important} /* steel blue */
+html.accent-maple #country-map .st.st-t3{fill:#6BA85C !important} /* leaf */
+html.accent-maple #country-map .st.st-t4{fill:#C4A056 !important} /* muted gold */
+html.accent-maple #country-map .st.st-t5{fill:#4E7D8C !important} /* slate */
+html.accent-maple #country-map .st.st-t6{fill:#C17B72 !important} /* dusty rose */
+html.accent-maple #country-map .st.st-t7{fill:#5D9A78 !important} /* sage */
+html.accent-maple #country-map .st.st-t8{fill:#7A72A3 !important} /* lavender */
 html.accent-maple #country-map .st.hub{filter:saturate(1.06) brightness(1.05)}
 html.accent-maple #country-map .lbl{
   fill:#fffdf6;font-weight:700;
@@ -580,7 +586,7 @@ html.accent-mxgreen #country-map .zoom button:hover:not(:disabled){border-color:
  #country-map .maptools{gap:6px}
  #country-map .mapcard{padding:8px 6px 6px}
  #country-map .intro{padding:14px 0 2px}#country-map .intro p{font-size:.88rem}
- #country-map .steps{flex-wrap:nowrap;overflow-x:auto;gap:6px;margin:10px 0}#country-map .steps li{flex:none}
+ #country-map .steps{flex-wrap:wrap;overflow-x:hidden;gap:6px;margin:10px 0;max-width:100%}#country-map .steps li{flex:0 1 auto;min-width:0}
  #country-map .ct circle{r:calc(4px*var(--k,1))}#country-map .ct.sample circle{r:calc(6.5px*var(--k,1))}#country-map .ct.sample circle.ring{r:calc(10px*var(--k,1))}
  #country-map .ct:hover circle,#country-map .ct.sel circle{r:calc(7px*var(--k,1))}
 }
@@ -1359,4 +1365,9 @@ html.accent-mxgreen #country-map .legend .lg-city,
 #country-map.accent-mxgreen .legend .lg-city{
   background:#e9dfc6 !important;border:0 !important;box-shadow:0 0 0 1px #0B1719 !important;
   width:10px;height:10px;border-radius:50%;display:inline-block;vertical-align:-1px;margin-right:5px;
+}
+
+@media (max-width:420px){
+ #usa-map .steps button,#country-map .steps button{font-size:.74rem;padding:5px 8px 5px 5px;gap:6px}
+ #usa-map .steps button b,#country-map .steps button b{width:22px;height:22px;font-size:.72rem}
 }

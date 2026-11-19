@@ -148,7 +148,7 @@ main.wrap:has(#usa-map){max-width:1320px}
  #usa-map .top .r{display:none}
  #usa-map .wrap{padding:0 12px}#usa-map .pill{font-size:.6rem;padding:1px 8px}#usa-map .wm{font-size:1.1rem}
  #usa-map .intro{padding:14px 0 2px}#usa-map .intro p{font-size:.88rem}
- #usa-map .steps{flex-wrap:nowrap;overflow-x:auto;gap:6px;margin:10px 0}#usa-map .steps li{flex:none}
+ #usa-map .steps{flex-wrap:wrap;overflow-x:hidden;gap:6px;margin:10px 0;max-width:100%}#usa-map .steps li{flex:0 1 auto;min-width:0}
  #usa-map .mapcard{padding:8px 6px 6px}#usa-map .legend{font-size:.72rem;gap:8px}#usa-map .maptools{gap:6px}
  #usa-map .ct text{font-size:calc(14px*var(--kt,1))}#usa-map .ct circle{r:calc(4px*var(--k,1))}#usa-map .ct.sample circle{r:calc(6.5px*var(--k,1))}#usa-map .ct.sample circle.ring{r:calc(10px*var(--k,1))}#usa-map .ct:hover circle, #usa-map .ct.sel circle{r:calc(7px*var(--k,1))}
  #usa-map .ap text{font-size:12px}}
@@ -221,7 +221,7 @@ main.wrap:has(#usa-map){max-width:1320px}
 }
 .state-picker-btn{
   appearance:none;-webkit-appearance:none;display:inline-flex;align-items:center;justify-content:space-between;gap:8px;
-  width:max-content;min-width:0;max-width:min(280px,92vw);height:34px;padding:5px 10px 5px 12px;border-radius:999px;
+  width:max-content;min-width:0;max-width:none;height:34px;padding:4px 8px 4px 9px;border-radius:999px;
   background:linear-gradient(180deg,#13292e 0%,#0d1d21 100%);
   border:1px solid rgba(217,183,101,.45);
   box-shadow:inset 0 1px 0 rgba(248,231,181,.08),0 4px 14px rgba(0,0,0,.35);
@@ -628,3 +628,8 @@ html:not([data-lbl]) #usa-map .legend .lg-ap{color:#7ED0E6}
 html[data-lbl="B"] #usa-map .legend .lg-ap{color:#FFB0A4}
 html[data-lbl="C"] #usa-map .legend .lg-ap{color:#8ED4C8}
 @media (max-width:900px){ #usa-map .lbl-legend{margin-top:8px;font-size:11px} }
+
+@media (max-width:420px){
+ #usa-map .steps button,#country-map .steps button{font-size:.74rem;padding:5px 8px 5px 5px;gap:6px}
+ #usa-map .steps button b,#country-map .steps button b{width:22px;height:22px;font-size:.72rem}
+}
