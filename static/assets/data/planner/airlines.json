@@ -2002,8 +2002,8 @@
   {
     "id": "spirit",
     "name": "Spirit Airlines",
-    "iata": null,
-    "iata_source": null,
+    "iata": "NK",
+    "iata_source": "https://www.prnewswire.com/news-releases/spirit-airlines-unveils-its-first-ever-pink-uniform-collection-in-honor-of-breast-cancer-awareness-month-302263371.html",
     "page_url": "https://petpolicycheck.com/airlines/spirit.html",
     "cabin": null,
     "hold": null,

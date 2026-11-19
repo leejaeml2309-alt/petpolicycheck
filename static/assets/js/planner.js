@@ -505,7 +505,7 @@
   window.addEventListener('hashchange', function () { var n = decode(location.hash.slice(1)); if (encode() !== location.hash.slice(1)) { st = n; render(false); } });
 
   root.innerHTML = '<p class="pl-loading" role="status">' + esc(S.loading) + '</p>';
-  Promise.all([fetch(BASE + 'airlines.json?v=20261118pl4').then(function (r) { if (!r.ok) throw r.status; return r.json(); }), fetch(BASE + 'countries.json?v=20261118pl4').then(function (r) { if (!r.ok) throw r.status; return r.json(); })])
+  Promise.all([fetch(BASE + 'airlines.json?v=20261119pl5').then(function (r) { if (!r.ok) throw r.status; return r.json(); }), fetch(BASE + 'countries.json?v=20261119pl5').then(function (r) { if (!r.ok) throw r.status; return r.json(); })])
     .then(function (res) {
       A = res[0]; K = res[1];
       A.forEach(function (a) { byA[a.id] = a; }); K.forEach(function (k) { byK[k.id] = k; });
