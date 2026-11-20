@@ -1,4 +1,4 @@
-/* PetPolicyCheck airline comparator UI — v2 (2026-11-20): military/service-dog columns, official sourced cells, mobile stacked cards */
+/* PetPolicyCheck airline comparator UI — v2 (2026-11-20): military/service-dog one-line summaries + collapsible official text */
 const DATA = window.PPC_COMPARATOR;
 let militaryOn = new URLSearchParams(location.search).get('military') === '1';
 let militaryData = null, militaryFailed = false;
@@ -52,10 +52,18 @@ function militaryFact(f){
   if (!f || f.status !== 'verified') {
     return `<p class="mil-none">${esc(t('mil.none'))}</p>${militaryEvidence(f)}`;
   }
-  const body = f.value
+  const full = f.value
     ? `<p>${esc(f.value)}</p>`
     : (f.keys || []).map(k => `<p>${esc(t(k))}</p>`).join('');
-  return `<div class="mil-fact">${body}${militaryEvidence(f)}</div>`;
+  const summary = esc(f.summary || f.value || t('mil.none'));
+  return `<div class="mil-fact">
+    <p class="mil-summary">${summary}</p>
+    ${militaryEvidence(f)}
+    <details class="mil-full">
+      <summary>${esc(t('mil.full'))}</summary>
+      ${full}
+    </details>
+  </div>`;
 }
 function paintMilitaryThead(){
   const head = document.querySelector('#ppc-compare thead tr');
@@ -169,4 +177,4 @@ paintStatic();
 setMilitary(militaryOn, false);
 $('#fMilitary').addEventListener('change', () => setMilitary($('#fMilitary').checked,true));
 window.addEventListener('popstate',()=>setMilitary(new URLSearchParams(location.search).get('military')==='1',false));
-fetch('/assets/data/military-airlines.json?v=20261120mil1').then(r=>{if(!r.ok)throw new Error('Military policy data unavailable');return r.json();}).then(d=>{militaryData=d;if(militaryOn)render();}).catch(()=>{militaryFailed=true;if(militaryOn)render();});
+fetch('/assets/data/military-airlines.json?v=20261120mil2').then(r=>{if(!r.ok)throw new Error('Military policy data unavailable');return r.json();}).then(d=>{militaryData=d;if(militaryOn)render();}).catch(()=>{militaryFailed=true;if(militaryOn)render();});

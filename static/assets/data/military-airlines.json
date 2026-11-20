@@ -29,7 +29,8 @@
         "value": "Only fully-trained dogs that assist a person with a disability are accepted as service animals; emotional support animals are not recognized as service animals and follow pet rules. Service animals in training are generally not eligible (a trainer en route to the owner is a limited exception). The DOT Service Animal Air Transportation Form is required for all service animals; flights of 8 hours or more also require the Relief Attestation Form. Submit completed forms and a service request to Delta at least 48 hours before departure; if needed, bring printed copies on the day of travel and an agent can assist. No fee for trained service animals or their assistive devices. Maximum two service animals.",
         "url": "https://www.delta.com/us/en/accessible-travel-services/service-animals",
         "checked": "2026-11-20",
-        "method": "WebFetch"
+        "method": "WebFetch",
+        "summary": "Fully-trained dogs only, free in cabin · DOT form required 48 h ahead · max 2"
       },
       "military": [
         {
@@ -37,21 +38,24 @@
           "value": "Delta accepts animals as checked baggage only for active U.S. military or active U.S. State Department Foreign Service Officers and their spouses or dependents with active transfer orders, such as a PCS. Pets must be booked as checked baggage at least 48 hours before arrival. Published fee: $200 each way for the U.S. / U.S. Virgin Islands / Puerto Rico and for international Canada or Caribbean routings (currency as stated on the page); Brazil is $200 for tickets issued on or after 8 April 2025 ($150 if issued before). Up to two crates per flight. Animals are not included in the free baggage allowance; fees are charged each time the pet is checked, including at stopovers. Not accepted as checked baggage on a single Delta-operated flight of more than 12 hours, or on itineraries with more than one connection. Snub-nosed or pug-nosed dogs and cats are not accepted as checked baggage. Aircraft, weather and destination restrictions apply.",
           "url": "https://www.delta.com/us/en/special-circumstances/military-travel/pets",
           "checked": "2026-11-20",
-          "method": "WebFetch"
+          "method": "WebFetch",
+          "summary": "Checked pets only for active US military / FSO and spouses or dependents on transfer orders (e.g. PCS) · $200 each way · book 48 h ahead · up to 2 crates"
         },
         {
           "status": "verified",
           "value": "Until further notice, Delta Cargo has a temporary global embargo on household pet shipments, with a limited exception for active U.S. military or U.S. State Department Foreign Service Officers traveling on PCS orders. For U.S.-origin shipments, book through the Delta Cargo Customer Service Center and provide a copy of the orders. Standard live-animal rules still apply (temperature, embargoed breeds, IATA crate, health certificate). Even under this exception, pet shipments are not accepted to or from Amsterdam (AMS), Paris (CDG), Frankfurt (FRA), London (LHR), Seoul (ICN) or Tokyo (HND).",
           "url": "https://www.deltacargo.com/Cargo/catalog/products/pets",
           "checked": "2026-11-20",
-          "method": "WebFetch"
+          "method": "WebFetch",
+          "summary": "Delta Cargo household-pet embargo, with a limited PCS exception for active US military / FSO (not to/from AMS, CDG, FRA, LHR, ICN, HND)"
         },
         {
           "status": "verified",
           "value": "Active-duty U.S. military on orders: five free checked bags; embargoes and regional weight restrictions apply. The page states this allowance applies to Delta-marketed tickets, including some partner-operated travel. Animals are not included in the free baggage allowance.",
           "url": "https://www.delta.com/us/en/baggage/checked-baggage/military-baggage-allowance",
           "checked": "2026-11-20",
-          "method": "WebFetch"
+          "method": "WebFetch",
+          "summary": "5 free checked bags on orders (not a pet-fee waiver; embargoes and regional limits apply)"
         }
       ]
     },
@@ -63,7 +67,8 @@
         "value": "Up to two trained service dogs may fly free on United and United Express if they meet United’s requirements (task-trained for a person with a disability). Emotional support and therapy animals travel as pets. Dogs in training are not accepted. For domestic flights, complete the paperwork in Trip details after booking; if adding a service dog to an existing booking, United recommends submitting the request at least 48 hours before travel. For international flights, Guam and Hawaii, and for journeys arriving in or departing from the U.S., United directs passengers to its Open Doors Organization partner to submit required documentation. Destination and CDC entry rules still apply.",
         "url": "https://www.united.com/en/us/fly/travel/accessibility-and-assistance/service-animals.html",
         "checked": "2026-11-20",
-        "method": "WebFetch"
+        "method": "WebFetch",
+        "summary": "Up to 2 trained service dogs fly free · domestic paperwork recommended 48 h ahead · Open Doors process for international, Guam and Hawaii"
       },
       "military": [
         {
@@ -71,14 +76,16 @@
           "value": "United no longer offers the PetSafe checked-pet programme to the general public. Its Military Pet Program is only between Guam (GUM) and Honolulu (HNL), for U.S. military members on current orders, State Department Foreign Service Personnel on reassignment, and their spouses. Book by emailing militarypets@united.com 5–10 days before travel, with the itinerary, active PCS orders, a health certificate dated within 10 days, and a signed acknowledgement form. One pet move per PCS order; check in at the airport counter; pets travel in cargo. The official page states a per-person limit of two pets (a second adjacent seat must be purchased for a second pet) and, in its FAQ, up to four pets on GUM–HNL and up to two on HNL–GUM, with pet plus crate under 99.9 lb. Confirm the limit that applies to your itinerary when you book. This is not a worldwide cargo service.",
           "url": "https://www.united.com/en/us/fly/travel/trip-planning/military-pet-program.html",
           "checked": "2026-11-20",
-          "method": "WebFetch"
+          "method": "WebFetch",
+          "summary": "Military Pet Program only GUM–HNL, for military / FSP on current orders and spouses · book by email 5–10 days ahead"
         },
         {
           "status": "verified",
           "value": "Eligible active-duty U.S. military: up to five checked bags free, depending on the type of travel. Confirm the allowance for your itinerary. This is a baggage allowance, not a pet-transport waiver.",
           "url": "https://www.united.com/en/us/fly/company/company-info/military-benefits-and-discounts.html",
           "checked": "2026-11-14",
-          "method": "prior WebSearch; 2026-11-20 fetch timed out"
+          "method": "prior WebSearch; 2026-11-20 fetch timed out",
+          "summary": "Up to 5 free checked bags for eligible active-duty, depending on travel type (not a pet-fee waiver)"
         }
       ]
     },
@@ -90,7 +97,8 @@
         "value": "Fully-trained service dogs may fly in the cabin at no charge. Emotional support, comfort animals and service animals in training travel as pets, with pet fees and rules. American recommends submitting the U.S. DOT Service Animal Air Transportation Form electronically at least 48 hours before the flight; the completed form may also be presented at the airport on the day of travel. A DOT Service Animal Relief Attestation Form is also required if any flight in the itinerary is over 8 hours. Maximum two service animals per person. Destination and CDC entry rules still apply.",
         "url": "https://www.aa.com/i18n/travel-info/special-assistance/service-animals.jsp",
         "checked": "2026-11-20",
-        "method": "WebFetch"
+        "method": "WebFetch",
+        "summary": "Fully-trained service dogs fly free in cabin · DOT form recommended 48 h ahead or at the airport · max 2"
       },
       "military": [
         {
@@ -98,21 +106,24 @@
           "value": "Checked pets are accepted at the ticket counter only for active-duty U.S. military and U.S. State Department Foreign Service personnel traveling on official orders. Up to two pets, first-come capacity, aircraft and destination restrictions apply. Contact Reservations at least 48 hours ahead; check in at the ticket counter with official orders, allow 2–4 hours, and provide a veterinary health certificate. Published checked-pet fee: $200 per kennel ($150 to/from Brazil) on the regions listed on American’s pets page. Combined pet and kennel weight must not exceed 100 lbs.",
           "url": "https://www.aa.com/web/i18n/travel-info/special-assistance/pets.html",
           "checked": "2026-11-20",
-          "method": "WebFetch"
+          "method": "WebFetch",
+          "summary": "Checked pets at the ticket counter only for active-duty US military / State Dept. on official orders · up to 2 pets · $200 per kennel ($150 to/from Brazil) · book 48 h ahead"
         },
         {
           "status": "verified",
           "value": "American Airlines Cargo offers a 50% discount off the published rate for cats and dogs traveling within the domestic United States and San Juan under PCS or TDY orders. At booking, provide a scanned copy of a valid military ID and of the orders. PCS orders must be dated no more than 120 days before or after the report date; TDY orders no more than 30 days before or after. Bring the ID and documents when the pet is presented for transport.",
           "url": "https://www.aacargo.com/learn/animals-policy-and-restrictions.html",
           "checked": "2026-11-20",
-          "method": "WebFetch"
+          "method": "WebFetch",
+          "summary": "50% AA Cargo discount on PCS/TDY (US + San Juan)"
         },
         {
           "status": "verified",
           "value": "Active U.S. military and/or dependents traveling on orders: up to five free checked bags, 100 lbs each, with military ID, on American-marketed and operated itineraries only (not partner-operated codeshares). Destination restrictions apply. This is a baggage allowance, not a waiver of pet-transport fees.",
           "url": "https://www.aa.com/web/i18n/customer-service/programs-products/military-benefits.html",
           "checked": "2026-11-20",
-          "method": "WebFetch"
+          "method": "WebFetch",
+          "summary": "Up to 5 free checked bags, 100 lbs each, on orders (American-operated itineraries only; not a pet-fee waiver)"
         }
       ]
     },
@@ -124,7 +135,8 @@
         "value": "Southwest’s Contract of Carriage (59th Revised, effective 6 November 2026) permits fully trained service dogs, used by a qualified individual with a disability, to travel onboard at no charge. Species other than dogs, emotional support, comfort or companionship animals, and service animals in training are not trained service animals under that contract (with a limited, documented exception for Canine Companions for Independence dogs in training). A completed U.S. DOT Service Animal Air Transportation Form must be provided. Maximum two trained service animals per qualified passenger. The animal must be harnessed, leashed or tethered in the airport and on the aircraft. The contract does not state a 48-hour advance-submission deadline; confirm current airport procedures with Southwest.",
         "url": "https://www.southwest.com/swa-resources/pdfs/corporate-commitments/contract-of-carriage.pdf",
         "checked": "2026-11-20",
-        "method": "WebFetch"
+        "method": "WebFetch",
+        "summary": "Fully trained service dogs fly free · DOT form required · max 2 (no 48-hour deadline stated in the contract)"
       },
       "military": [
         {
@@ -132,7 +144,8 @@
           "value": "No published policy was found for household pets on a PCS move. Southwest does not transport pets in the cargo compartment. Separately, the airline’s military-travel page and Contract of Carriage cover Military Working Dogs traveling as a handler-and-dog team on official TDY or PCS orders: the handler presents a DoD ID and DD Form 1610 or PCS orders that include the dog’s name and tattoo number. Military working dogs are not carried in the cargo compartment. Active-duty baggage exceptions on that page are not a pet-transport policy.",
           "url": "https://www.southwest.com/military-travel/",
           "checked": "2026-11-20",
-          "method": "WebFetch"
+          "method": "WebFetch",
+          "summary": "No published household-pet PCS policy; no pets in cargo. Official rules cover Military Working Dogs on TDY/PCS orders only"
         }
       ]
     },
@@ -144,7 +157,8 @@
         "value": "Alaska Airlines and Hawaiian Airlines accept trained service dogs, including psychiatric service dogs, at no charge. Emotional support animals are not service animals and may travel as pets. Maximum two service dogs per guest; the animal must fit in the seat footprint. Service animals in training are not covered by this process. Complete the U.S. DOT Service Animal Air Transportation Form attesting to the dog’s health, training and behavior. If travel was booked more than 48 hours ahead, they recommend submitting the form 48 hours before departure. If booked less than 48 hours before departure, the completed form may be presented at check-in or the gate. If you cannot submit it in advance, they will make reasonable efforts to accept a form completed at the airport without delaying the flight.",
         "url": "https://www.alaskaair.com/content/travel-info/accessible-services/specialservices-support-animals",
         "checked": "2026-11-20",
-        "method": "WebFetch"
+        "method": "WebFetch",
+        "summary": "Trained service dogs fly free (Alaska and Hawaiian) · DOT form recommended 48 h ahead, or at check-in/gate if booked under 48 h · max 2"
       },
       "military": [
         {
@@ -152,14 +166,16 @@
           "value": "Current U.S. service members and their dependents may receive a pet-shipping discount on Alaska Air Cargo for shipments directly related to a move on official PCS orders. Present a Common Access Card (military ID; no photocopies) at payment and at the airport, and PCS orders dated within 60 days of the report date at tender. If no orders are provided or they are outside that window, the full AVI rate is charged. The discount does not apply to commercial shipments or personal moves. Confirm the cargo quote.",
           "url": "https://www.alaskaair.com/content/about-us/social-responsibility/salute-to-service",
           "checked": "2026-11-20",
-          "method": "WebFetch"
+          "method": "WebFetch",
+          "summary": "Alaska Air Cargo pet-shipping discount for current service members/dependents on official PCS orders (ID + orders within 60 days of report date)"
         },
         {
           "status": "verified",
           "value": "Current U.S. service members and accompanying spouse or dependent children: first two checked bags free, and the first five bags free when traveling on orders. This is a baggage allowance, not a waiver of pet-transport fees.",
           "url": "https://www.alaskaair.com/content/about-us/social-responsibility/salute-to-service",
           "checked": "2026-11-20",
-          "method": "WebFetch"
+          "method": "WebFetch",
+          "summary": "First 2 bags free; first 5 free when traveling on orders (not a pet-fee waiver)"
         }
       ]
     },
@@ -171,7 +187,8 @@
         "value": "Alaska Airlines and Hawaiian Airlines accept trained service dogs, including psychiatric service dogs, at no charge. Emotional support animals are not service animals and may travel as pets. Maximum two service dogs per guest; the animal must fit in the seat footprint. Service animals in training are not covered by this process. Complete the U.S. DOT Service Animal Air Transportation Form attesting to the dog’s health, training and behavior. If travel was booked more than 48 hours ahead, they recommend submitting the form 48 hours before departure. If booked less than 48 hours before departure, the completed form may be presented at check-in or the gate. If you cannot submit it in advance, they will make reasonable efforts to accept a form completed at the airport without delaying the flight.",
         "url": "https://www.alaskaair.com/content/travel-info/accessible-services/specialservices-support-animals",
         "checked": "2026-11-20",
-        "method": "WebFetch"
+        "method": "WebFetch",
+        "summary": "Trained service dogs fly free (Alaska and Hawaiian) · DOT form recommended 48 h ahead, or at check-in/gate if booked under 48 h · max 2"
       },
       "military": [
         {
@@ -190,7 +207,8 @@
         "value": "JetBlue accepts trained service dogs only. Notification of service-animal travel and the U.S. DOT Service Animal Air Transportation Form are required at least 48 hours before the first scheduled departure. If the reservation was booked within 48 hours of departure, the form may be completed at the airport with a Complaints Resolution Official; arrive early. Service animals in training are not accepted. Emotional support animals are not treated as service animals on this page’s terms (trained service dogs only).",
         "url": "https://www.jetblue.com/at-the-airport/accessibility-assistance/service-dogs-animals",
         "checked": "2026-11-20",
-        "method": "WebFetch"
+        "method": "WebFetch",
+        "summary": "Trained service dogs only · DOT form required at least 48 h ahead (or at the airport with a CRO if booked within 48 h)"
       },
       "military": [
         {
@@ -209,7 +227,8 @@
         "value": "On flights to or from the U.S.: DOT Service Animal Air Transportation Form; see official route-specific requirements.",
         "url": "https://www.aircanada.com/content/dam/aircanada/portal/documents/PDF/en/atpdr/US-dot-service-animal-health-behaviour-training-form-AirCanada.pdf",
         "checked": "2026-11-07",
-        "method": "prior WebFetch; not re-fetched 2026-11-20"
+        "method": "prior WebFetch; not re-fetched 2026-11-20",
+        "summary": "DOT form on flights to or from the US"
       },
       "military": [
         {
@@ -228,7 +247,8 @@
         "value": "Trained service dogs travel in the cabin without a service-animal fee, subject to the airline’s acceptance, space, behaviour and route requirements. On flights to or from the U.S.: DOT Service Animal Air Transportation Form; see official route-specific requirements.",
         "url": "https://wwws.airfrance.us/information/passagers/acheter-billet-avion-pmr-autres-handicaps/svan",
         "checked": "2026-11-07",
-        "method": "prior WebFetch; not re-fetched 2026-11-20"
+        "method": "prior WebFetch; not re-fetched 2026-11-20",
+        "summary": "Free in cabin, subject to acceptance · DOT form on US flights"
       },
       "military": [
         {
@@ -247,7 +267,8 @@
         "value": "Trained service dogs travel in the cabin without a service-animal fee, subject to the airline’s acceptance, space, behaviour and route requirements. On flights to or from the U.S.: DOT Service Animal Air Transportation Form; see official route-specific requirements.",
         "url": "https://www.lufthansa.com/us/en/assistenzhunde",
         "checked": "2026-11-07",
-        "method": "prior WebFetch; not re-fetched 2026-11-20"
+        "method": "prior WebFetch; not re-fetched 2026-11-20",
+        "summary": "Free in cabin, subject to acceptance · DOT form on US flights"
       },
       "military": [
         {
@@ -266,7 +287,8 @@
         "value": "Assistance dogs accepted free on most flights; register through the airline’s Open Doors Organization process. Acceptance and destination rules apply.",
         "url": "https://www.britishairways.com/content/information/disability-assistance/travelling-with-your-assistance-dog",
         "checked": "2026-11-07",
-        "method": "prior WebFetch; not re-fetched 2026-11-20"
+        "method": "prior WebFetch; not re-fetched 2026-11-20",
+        "summary": "Assistance dogs free on most flights · register through Open Doors Organization"
       },
       "military": [
         {
@@ -321,7 +343,8 @@
         "value": "Under the U.S. DOT rules as stated on Frontier’s Special Services page, only dogs trained to do work or perform tasks for a person with a disability are accepted as service animals, including psychiatric service dogs. Comfort or companionship animals are not recognized as service animals. Service animals in training are not accepted. Animals under 4 months are not accepted. Maximum two service animals per passenger with a disability. Passengers must complete and submit the DOT Service Animal Air Transportation Form. For reservations booked more than 48 hours before travel, the form must be submitted no later than 48 hours prior; if booked less than 48 hours ahead, submit the completed form in person to a Customer Service Agent at the airport.",
         "url": "https://www.flyfrontier.com/travel/travel-info/special-services/",
         "checked": "2026-11-20",
-        "method": "WebFetch"
+        "method": "WebFetch",
+        "summary": "Trained service dogs only · DOT form required 48 h ahead (or at the airport if booked under 48 h) · max 2"
       },
       "military": [
         {
