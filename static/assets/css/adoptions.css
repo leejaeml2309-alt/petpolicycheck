@@ -215,18 +215,13 @@ a.adopt-partner:focus-visible{outline:3px solid #d1848c;outline-offset:2px}
   background:color-mix(in srgb,#001f3f 38%,var(--paper,#11252a));
   box-shadow:inset 0 0 0 1px color-mix(in srgb,#e2c275 40%,transparent),inset 3px 0 0 #d1848c
 }
-.story-card__photo{
+.story-card__illu{
   position:relative;margin:0;background:#001f3f;border-radius:10px;overflow:hidden;
-  aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  box-shadow:inset 0 0 0 1px color-mix(in srgb,#e2c275 55%,transparent);
-  color:#e2c275;text-align:center;padding:16px
+  aspect-ratio:4/5;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,#e2c275 55%,transparent)
 }
-.story-card__mono{
-  font-family:Marcellus,serif;font-size:4.2rem;line-height:1;color:#e2c275;font-weight:400
-}
-.story-card__photo-label{
-  font:700 .66rem/1.3 var(--text,Inter,system-ui,sans-serif);
-  letter-spacing:.14em;text-transform:uppercase;color:#d1848c;margin:0
+.story-card__illu svg{
+  position:absolute;inset:8%;width:84%;height:84%;display:block
 }
 .story-card__body{display:flex;flex-direction:column;justify-content:center;min-width:0}
 .story-card__k{
@@ -246,8 +241,7 @@ a.adopt-partner:focus-visible{outline:3px solid #d1848c;outline-offset:2px}
   .adopt-partners{grid-template-columns:repeat(2,minmax(0,1fr))}
   .adopt-shelters{grid-template-columns:1fr}
   .story-card{grid-template-columns:1fr;gap:16px;padding:14px}
-  .story-card__photo{aspect-ratio:16/10;min-height:160px}
-  .story-card__mono{font-size:3.2rem}
+  .story-card__illu{aspect-ratio:16/10;min-height:160px}
   .adopt-empty{padding:26px 18px 22px}
   .shelter-card__btn{align-self:stretch;text-align:center}
 }
