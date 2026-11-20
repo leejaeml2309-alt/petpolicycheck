@@ -1,4 +1,4 @@
-/* PetPolicyCheck airline comparator UI — v2 (2026-11-14): search, i18n (6 langs), mobile cards, "Check with airline" for unverified values */
+/* PetPolicyCheck airline comparator UI — v2 (2026-11-20): military/service-dog columns, official sourced cells, mobile stacked cards */
 const DATA = window.PPC_COMPARATOR;
 let militaryOn = new URLSearchParams(location.search).get('military') === '1';
 let militaryData = null, militaryFailed = false;
@@ -41,7 +41,7 @@ function rowsFiltered(useCabin = true){
 function cell(label, html, cls){ return `<td${cls ? ` class="${cls}"` : ''} data-label="${esc(label)}"><div class="v">${html}</div></td>`; }
 function militaryRank(a){
   const d = militaryData && militaryData.airlines[a.id];
-  return d ? (d.service.status === 'verified' ? 1 : 0) + (d.military.some(f => f.status === 'verified') ? 2 : 0) : 0;
+  return d ? (d.service && d.service.status === 'verified' ? 1 : 0) + ((d.military || []).some(f => f.status === 'verified') ? 2 : 0) : 0;
 }
 function militaryEvidence(f){
   if (!f || !f.url) return '';
@@ -49,20 +49,54 @@ function militaryEvidence(f){
   return `<p class="mil-evidence"><a href="${esc(f.url)}" rel="noopener" target="_blank">${esc(t('mil.source'))} ↗</a>${date}</p>`;
 }
 function militaryFact(f){
-  if (!f || f.status !== 'verified') return `<p class="mil-unknown">${esc(t('mil.unknown'))}</p>${militaryEvidence(f)}`;
-  return `<div class="mil-fact">${f.keys.map(k=>`<p>${esc(t(k))}</p>`).join('')}
-    ${militaryEvidence(f)}</div>`;
+  if (!f || f.status !== 'verified') {
+    return `<p class="mil-none">${esc(t('mil.none'))}</p>${militaryEvidence(f)}`;
+  }
+  const body = f.value
+    ? `<p>${esc(f.value)}</p>`
+    : (f.keys || []).map(k => `<p>${esc(t(k))}</p>`).join('');
+  return `<div class="mil-fact">${body}${militaryEvidence(f)}</div>`;
+}
+function paintMilitaryThead(){
+  const head = document.querySelector('#ppc-compare thead tr');
+  if (!head) return;
+  head.innerHTML = `<th data-k="name">${esc(t('compare.col.airline'))}</th>
+    <th>${esc(t('mil.col.military'))}</th>
+    <th>${esc(t('mil.col.service'))}</th>`;
+}
+function paintCompareThead(){
+  const L = k => t('compare.col.' + k);
+  const head = document.querySelector('#ppc-compare thead tr');
+  if (!head) return;
+  head.innerHTML = `<th data-k="name">${esc(L('airline'))}</th><th>${esc(L('dogscats'))}</th><th data-k="short">${esc(L('fee'))}</th><th>${esc(L('weight'))}</th><th>${esc(L('dims'))}</th><th>${esc(L('hold'))}</th><th>${esc(L('snub'))}</th><th>${esc(L('source'))}</th>`;
 }
 function renderMilitary(){
   const r = rowsFiltered();
   $('#count').textContent = t('compare.count', {n:r.length,t:A.length});
-  $('#mil-dot-date').textContent = $('#mil-amc-date').textContent = militaryData ? t('mil.checked',{d:militaryData.meta.checked_date}) : '';
-  $('#military-results').innerHTML = !militaryData ? `<p role="status">${esc(t(militaryFailed?'mil.error':'mil.loading'))}</p>` : !r.length ? `<p>${esc(t('compare.count.none'))}</p>` : r.map(a=>{
+  const govDate = militaryData ? t('mil.checked', {d: militaryData.meta.checked_date}) : '';
+  const dotDate = $('#mil-dot-date'), amcDate = $('#mil-amc-date');
+  if (dotDate) dotDate.textContent = govDate;
+  if (amcDate) amcDate.textContent = govDate;
+  paintMilitaryThead();
+  const statusCell = msg => `<tr><td class="empty" colspan="3">${esc(msg)}</td></tr>`;
+  if (!militaryData) {
+    $('#tb').innerHTML = statusCell(t(militaryFailed ? 'mil.error' : 'mil.loading'));
+    return;
+  }
+  if (!r.length) {
+    $('#tb').innerHTML = statusCell(t('compare.count.none'));
+    return;
+  }
+  $('#tb').innerHTML = r.map(a => {
     const d = militaryData.airlines[a.id];
-    return `<article class="mil-card" data-slug="${esc(a.id)}"><header><h3>${esc(a.name)}</h3><small>${esc(a.iata)} · ${esc(t('compare.r.'+a.region))}</small></header>
-      <section><h4>${esc(t('mil.service'))}</h4>${militaryFact(d && d.service)}</section>
-      <section><h4>${esc(t('mil.military'))}</h4>${(d ? d.military : [null]).map(militaryFact).join('')}</section>
-      <p class="mil-policy"><a href="${esc(d ? d.official_policy_url : a.official_policy_url)}" target="_blank" rel="noopener">${esc(t('mil.policy'))} ↗</a></p></article>`;
+    const milFacts = d && d.military && d.military.length ? d.military : [null];
+    const policy = (d && d.official_policy_url) || a.official_policy_url;
+    const policyLink = policy ? `<p class="mil-policy"><a href="${esc(policy)}" target="_blank" rel="noopener">${esc(t('mil.policy'))} ↗</a></p>` : '';
+    return `<tr data-dept="plane" data-slug="${esc(a.id)}">
+      <td class="name" data-label="${esc(t('compare.col.airline'))}"><b>${esc(a.name)}</b><small>${esc(a.iata)} · ${esc(t('compare.r.' + a.region))}</small></td>
+      ${cell(t('mil.col.military'), milFacts.map(militaryFact).join('') + policyLink)}
+      ${cell(t('mil.col.service'), militaryFact(d && d.service))}
+    </tr>`;
   }).join('');
 }
 function setMilitary(on, updateURL){
@@ -79,6 +113,7 @@ function setMilitary(on, updateURL){
 }
 function render(){
   if (militaryOn) { renderMilitary(); return; }
+  paintCompareThead();
 
   const r = rowsFiltered(), all = rowsFiltered(false), hidden = all.length - r.length;
   let c = t('compare.count', {n: r.length, t: A.length});
@@ -112,7 +147,7 @@ function paintStatic(){
   sel.value = cur;
   render(); }
 document.querySelectorAll('.filters input:not(#fMilitary),.filters select,#fQ').forEach(e => e.addEventListener('input', render));
-document.querySelectorAll('th[data-k]').forEach(th => th.addEventListener('click', () => { $('#fSort').value = th.dataset.k; render(); }));
+document.querySelector('#ppc-compare thead').addEventListener('click', e => { const th = e.target.closest('th[data-k]'); if (th) { $('#fSort').value = th.dataset.k; render(); } });
 function toast(x){ const e = $('#toast'); e.textContent = x; e.style.display = 'block'; setTimeout(() => e.style.display = 'none', 2200); }
 function summary(){
   const r = rowsFiltered().slice(0, 10), tags = [$('#fDog').checked && 'dog', $('#fCat').checked && 'cat', $('#fNoLimit').checked && 'no published weight limit', $('#fRegion').value].filter(Boolean).join(', ');
@@ -134,4 +169,4 @@ paintStatic();
 setMilitary(militaryOn, false);
 $('#fMilitary').addEventListener('change', () => setMilitary($('#fMilitary').checked,true));
 window.addEventListener('popstate',()=>setMilitary(new URLSearchParams(location.search).get('military')==='1',false));
-fetch('/assets/data/military-airlines.json?v=20261114mil1').then(r=>{if(!r.ok)throw new Error('Military policy data unavailable');return r.json();}).then(d=>{militaryData=d;if(militaryOn)render();}).catch(()=>{militaryFailed=true;if(militaryOn)render();});
+fetch('/assets/data/military-airlines.json?v=20261120mil1').then(r=>{if(!r.ok)throw new Error('Military policy data unavailable');return r.json();}).then(d=>{militaryData=d;if(militaryOn)render();}).catch(()=>{militaryFailed=true;if(militaryOn)render();});

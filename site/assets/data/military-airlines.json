@@ -1,19 +1,23 @@
 {
   "meta": {
-    "checked_date": "2026-11-14",
+    "checked_date": "2026-11-20",
     "timezone": "Asia/Seoul",
-    "scope": "Airline statements only; unknown is not unavailable. Claims dated 2026-11-14 were re-checked on official pages that day; older dates were not re-fetched."
+    "scope": "Official airline pages or U.S. government sources only. Claims dated 2026-11-20 were checked on official pages that day. Claims with an older checked date were not re-fetched on 2026-11-20 and keep their prior date. 'none' means no official military/PCS pet policy was found — not that a benefit is unavailable."
   },
   "government": {
     "dot": {
       "url": "https://www.transportation.gov/resources/individuals/aviation-consumer-protection/service-animals",
-      "checked": "2026-11-14",
-      "status": "verified"
+      "legal_url": "https://www.ecfr.gov/current/title-14/chapter-II/subchapter-D/part-382/subpart-E/section-382.75",
+      "checked": "2026-11-20",
+      "status": "verified",
+      "method": "eCFR section 382.75 fetched 2026-11-20; transportation.gov consumer page timed out / HTTP 403 the same day, URL retained as the official consumer page",
+      "note": "14 CFR Part 382 (Air Carrier Access Act). Dec 2020 final rule: only trained dogs are service animals; carriers may require the DOT Service Animal Air Transportation Form; for segments of 8 hours or more they may also require the Relief Attestation Form; emotional support animals are not service animals under the rule."
     },
     "amc": {
       "url": "https://www.amc.af.mil/AMC-Travel-Site/AMC-Pet-Travel-Page/",
-      "checked": "2026-11-14",
-      "status": "verified"
+      "checked": "2026-11-20",
+      "status": "verified",
+      "method": "WebFetch"
     }
   },
   "airlines": {
@@ -22,38 +26,32 @@
       "official_policy_url": "https://www.delta.com/us/en/pet-travel/overview",
       "service": {
         "status": "verified",
-        "keys": [
-          "mil.free",
-          "mil.dotRequired"
-        ],
+        "value": "Only fully-trained dogs that assist a person with a disability are accepted as service animals; emotional support animals are not recognized as service animals and follow pet rules. Service animals in training are generally not eligible (a trainer en route to the owner is a limited exception). The DOT Service Animal Air Transportation Form is required for all service animals; flights of 8 hours or more also require the Relief Attestation Form. Submit completed forms and a service request to Delta at least 48 hours before departure; if needed, bring printed copies on the day of travel and an agent can assist. No fee for trained service animals or their assistive devices. Maximum two service animals.",
         "url": "https://www.delta.com/us/en/accessible-travel-services/service-animals",
-        "checked": "2026-11-14",
+        "checked": "2026-11-20",
         "method": "WebFetch"
       },
       "military": [
         {
           "status": "verified",
-          "keys": [
-            "mil.deltaCargo"
-          ],
+          "value": "Delta accepts animals as checked baggage only for active U.S. military or active U.S. State Department Foreign Service Officers and their spouses or dependents with active transfer orders, such as a PCS. Pets must be booked as checked baggage at least 48 hours before arrival. Published fee: $200 each way for the U.S. / U.S. Virgin Islands / Puerto Rico and for international Canada or Caribbean routings (currency as stated on the page); Brazil is $200 for tickets issued on or after 8 April 2025 ($150 if issued before). Up to two crates per flight. Animals are not included in the free baggage allowance; fees are charged each time the pet is checked, including at stopovers. Not accepted as checked baggage on a single Delta-operated flight of more than 12 hours, or on itineraries with more than one connection. Snub-nosed or pug-nosed dogs and cats are not accepted as checked baggage. Aircraft, weather and destination restrictions apply.",
+          "url": "https://www.delta.com/us/en/special-circumstances/military-travel/pets",
+          "checked": "2026-11-20",
+          "method": "WebFetch"
+        },
+        {
+          "status": "verified",
+          "value": "Until further notice, Delta Cargo has a temporary global embargo on household pet shipments, with a limited exception for active U.S. military or U.S. State Department Foreign Service Officers traveling on PCS orders. For U.S.-origin shipments, book through the Delta Cargo Customer Service Center and provide a copy of the orders. Standard live-animal rules still apply (temperature, embargoed breeds, IATA crate, health certificate). Even under this exception, pet shipments are not accepted to or from Amsterdam (AMS), Paris (CDG), Frankfurt (FRA), London (LHR), Seoul (ICN) or Tokyo (HND).",
           "url": "https://www.deltacargo.com/Cargo/catalog/products/pets",
-          "checked": "2026-11-14"
+          "checked": "2026-11-20",
+          "method": "WebFetch"
         },
         {
           "status": "verified",
-          "keys": [
-            "mil.deltaMilPets"
-          ],
+          "value": "Active-duty U.S. military on orders: five free checked bags; embargoes and regional weight restrictions apply. The page states this allowance applies to Delta-marketed tickets, including some partner-operated travel. Animals are not included in the free baggage allowance.",
           "url": "https://www.delta.com/us/en/baggage/checked-baggage/military-baggage-allowance",
-          "checked": "2026-11-14"
-        },
-        {
-          "status": "verified",
-          "keys": [
-            "mil.deltaBags"
-          ],
-          "url": "https://www.delta.com/us/en/baggage/checked-baggage/military-baggage-allowance",
-          "checked": "2026-11-14"
+          "checked": "2026-11-20",
+          "method": "WebFetch"
         }
       ]
     },
@@ -62,65 +60,59 @@
       "official_policy_url": "https://www.united.com/en/us/fly/travel/animals.html",
       "service": {
         "status": "verified",
-        "keys": [
-          "mil.free"
-        ],
+        "value": "Up to two trained service dogs may fly free on United and United Express if they meet United’s requirements (task-trained for a person with a disability). Emotional support and therapy animals travel as pets. Dogs in training are not accepted. For domestic flights, complete the paperwork in Trip details after booking; if adding a service dog to an existing booking, United recommends submitting the request at least 48 hours before travel. For international flights, Guam and Hawaii, and for journeys arriving in or departing from the U.S., United directs passengers to its Open Doors Organization partner to submit required documentation. Destination and CDC entry rules still apply.",
         "url": "https://www.united.com/en/us/fly/travel/accessibility-and-assistance/service-animals.html",
-        "checked": "2026-11-14",
+        "checked": "2026-11-20",
         "method": "WebFetch"
       },
       "military": [
         {
           "status": "verified",
-          "keys": [
-            "mil.unitedPcs"
-          ],
+          "value": "United no longer offers the PetSafe checked-pet programme to the general public. Its Military Pet Program is only between Guam (GUM) and Honolulu (HNL), for U.S. military members on current orders, State Department Foreign Service Personnel on reassignment, and their spouses. Book by emailing militarypets@united.com 5–10 days before travel, with the itinerary, active PCS orders, a health certificate dated within 10 days, and a signed acknowledgement form. One pet move per PCS order; check in at the airport counter; pets travel in cargo. The official page states a per-person limit of two pets (a second adjacent seat must be purchased for a second pet) and, in its FAQ, up to four pets on GUM–HNL and up to two on HNL–GUM, with pet plus crate under 99.9 lb. Confirm the limit that applies to your itinerary when you book. This is not a worldwide cargo service.",
           "url": "https://www.united.com/en/us/fly/travel/trip-planning/military-pet-program.html",
-          "checked": "2026-11-14",
-          "method": "WebSearch"
+          "checked": "2026-11-20",
+          "method": "WebFetch"
         },
         {
           "status": "verified",
-          "keys": [
-            "mil.unitedBags"
-          ],
+          "value": "Eligible active-duty U.S. military: up to five checked bags free, depending on the type of travel. Confirm the allowance for your itinerary. This is a baggage allowance, not a pet-transport waiver.",
           "url": "https://www.united.com/en/us/fly/company/company-info/military-benefits-and-discounts.html",
           "checked": "2026-11-14",
-          "method": "WebSearch"
+          "method": "prior WebSearch; 2026-11-20 fetch timed out"
         }
       ]
     },
     "american": {
       "name": "American Airlines",
-      "official_policy_url": "https://www.aa.com/i18n/travel-info/special-assistance/pets.jsp",
+      "official_policy_url": "https://www.aa.com/web/i18n/travel-info/special-assistance/pets.html",
       "service": {
         "status": "verified",
-        "keys": [
-          "mil.free",
-          "mil.dotRequired"
-        ],
+        "value": "Fully-trained service dogs may fly in the cabin at no charge. Emotional support, comfort animals and service animals in training travel as pets, with pet fees and rules. American recommends submitting the U.S. DOT Service Animal Air Transportation Form electronically at least 48 hours before the flight; the completed form may also be presented at the airport on the day of travel. A DOT Service Animal Relief Attestation Form is also required if any flight in the itinerary is over 8 hours. Maximum two service animals per person. Destination and CDC entry rules still apply.",
         "url": "https://www.aa.com/i18n/travel-info/special-assistance/service-animals.jsp",
-        "checked": "2026-11-14",
+        "checked": "2026-11-20",
         "method": "WebFetch"
       },
       "military": [
         {
           "status": "verified",
-          "keys": [
-            "mil.aaPcs"
-          ],
-          "url": "https://www.aa.com/i18n/travel-info/special-assistance/pets.jsp",
-          "checked": "2026-11-14",
+          "value": "Checked pets are accepted at the ticket counter only for active-duty U.S. military and U.S. State Department Foreign Service personnel traveling on official orders. Up to two pets, first-come capacity, aircraft and destination restrictions apply. Contact Reservations at least 48 hours ahead; check in at the ticket counter with official orders, allow 2–4 hours, and provide a veterinary health certificate. Published checked-pet fee: $200 per kennel ($150 to/from Brazil) on the regions listed on American’s pets page. Combined pet and kennel weight must not exceed 100 lbs.",
+          "url": "https://www.aa.com/web/i18n/travel-info/special-assistance/pets.html",
+          "checked": "2026-11-20",
           "method": "WebFetch"
         },
         {
           "status": "verified",
-          "keys": [
-            "mil.aaBags"
-          ],
+          "value": "American Airlines Cargo offers a 50% discount off the published rate for cats and dogs traveling within the domestic United States and San Juan under PCS or TDY orders. At booking, provide a scanned copy of a valid military ID and of the orders. PCS orders must be dated no more than 120 days before or after the report date; TDY orders no more than 30 days before or after. Bring the ID and documents when the pet is presented for transport.",
+          "url": "https://www.aacargo.com/learn/animals-policy-and-restrictions.html",
+          "checked": "2026-11-20",
+          "method": "WebFetch"
+        },
+        {
+          "status": "verified",
+          "value": "Active U.S. military and/or dependents traveling on orders: up to five free checked bags, 100 lbs each, with military ID, on American-marketed and operated itineraries only (not partner-operated codeshares). Destination restrictions apply. This is a baggage allowance, not a waiver of pet-transport fees.",
           "url": "https://www.aa.com/web/i18n/customer-service/programs-products/military-benefits.html",
-          "checked": "2026-11-14",
-          "method": "WebSearch"
+          "checked": "2026-11-20",
+          "method": "WebFetch"
         }
       ]
     },
@@ -128,21 +120,19 @@
       "name": "Southwest Airlines",
       "official_policy_url": "https://support.southwest.com/helpcenter/s/article/pet-policy",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
-        "url": "https://support.southwest.com/helpcenter/s/article/pet-policy",
-        "checked": null
+        "status": "verified",
+        "value": "Southwest’s Contract of Carriage (59th Revised, effective 6 November 2026) permits fully trained service dogs, used by a qualified individual with a disability, to travel onboard at no charge. Species other than dogs, emotional support, comfort or companionship animals, and service animals in training are not trained service animals under that contract (with a limited, documented exception for Canine Companions for Independence dogs in training). A completed U.S. DOT Service Animal Air Transportation Form must be provided. Maximum two trained service animals per qualified passenger. The animal must be harnessed, leashed or tethered in the airport and on the aircraft. The contract does not state a 48-hour advance-submission deadline; confirm current airport procedures with Southwest.",
+        "url": "https://www.southwest.com/swa-resources/pdfs/corporate-commitments/contract-of-carriage.pdf",
+        "checked": "2026-11-20",
+        "method": "WebFetch"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
-          "url": "https://support.southwest.com/helpcenter/s/article/pet-policy",
-          "checked": null
+          "status": "verified",
+          "value": "No published policy was found for household pets on a PCS move. Southwest does not transport pets in the cargo compartment. Separately, the airline’s military-travel page and Contract of Carriage cover Military Working Dogs traveling as a handler-and-dog team on official TDY or PCS orders: the handler presents a DoD ID and DD Form 1610 or PCS orders that include the dog’s name and tattoo number. Military working dogs are not carried in the cargo compartment. Active-duty baggage exceptions on that page are not a pet-transport policy.",
+          "url": "https://www.southwest.com/military-travel/",
+          "checked": "2026-11-20",
+          "method": "WebFetch"
         }
       ]
     },
@@ -151,23 +141,24 @@
       "official_policy_url": "https://www.alaskaair.com/content/travel-info/policies/pets-traveling-with-pets",
       "service": {
         "status": "verified",
-        "keys": [
-          "mil.free",
-          "mil.dotRequired"
-        ],
+        "value": "Alaska Airlines and Hawaiian Airlines accept trained service dogs, including psychiatric service dogs, at no charge. Emotional support animals are not service animals and may travel as pets. Maximum two service dogs per guest; the animal must fit in the seat footprint. Service animals in training are not covered by this process. Complete the U.S. DOT Service Animal Air Transportation Form attesting to the dog’s health, training and behavior. If travel was booked more than 48 hours ahead, they recommend submitting the form 48 hours before departure. If booked less than 48 hours before departure, the completed form may be presented at check-in or the gate. If you cannot submit it in advance, they will make reasonable efforts to accept a form completed at the airport without delaying the flight.",
         "url": "https://www.alaskaair.com/content/travel-info/accessible-services/specialservices-support-animals",
-        "checked": "2026-11-07",
-        "method": "WebSearch"
+        "checked": "2026-11-20",
+        "method": "WebFetch"
       },
       "military": [
         {
           "status": "verified",
-          "keys": [
-            "mil.alaskaBags",
-            "mil.alaskaPcs"
-          ],
+          "value": "Current U.S. service members and their dependents may receive a pet-shipping discount on Alaska Air Cargo for shipments directly related to a move on official PCS orders. Present a Common Access Card (military ID; no photocopies) at payment and at the airport, and PCS orders dated within 60 days of the report date at tender. If no orders are provided or they are outside that window, the full AVI rate is charged. The discount does not apply to commercial shipments or personal moves. Confirm the cargo quote.",
           "url": "https://www.alaskaair.com/content/about-us/social-responsibility/salute-to-service",
-          "checked": "2026-11-14",
+          "checked": "2026-11-20",
+          "method": "WebFetch"
+        },
+        {
+          "status": "verified",
+          "value": "Current U.S. service members and accompanying spouse or dependent children: first two checked bags free, and the first five bags free when traveling on orders. This is a baggage allowance, not a waiver of pet-transport fees.",
+          "url": "https://www.alaskaair.com/content/about-us/social-responsibility/salute-to-service",
+          "checked": "2026-11-20",
           "method": "WebFetch"
         }
       ]
@@ -176,21 +167,18 @@
       "name": "Hawaiian Airlines",
       "official_policy_url": "https://www.hawaiianairlines.com/content/travel-info/pets",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
-        "url": "https://www.hawaiianairlines.com/content/travel-info/pets",
-        "checked": null
+        "status": "verified",
+        "value": "Alaska Airlines and Hawaiian Airlines accept trained service dogs, including psychiatric service dogs, at no charge. Emotional support animals are not service animals and may travel as pets. Maximum two service dogs per guest; the animal must fit in the seat footprint. Service animals in training are not covered by this process. Complete the U.S. DOT Service Animal Air Transportation Form attesting to the dog’s health, training and behavior. If travel was booked more than 48 hours ahead, they recommend submitting the form 48 hours before departure. If booked less than 48 hours before departure, the completed form may be presented at check-in or the gate. If you cannot submit it in advance, they will make reasonable efforts to accept a form completed at the airport without delaying the flight.",
+        "url": "https://www.alaskaair.com/content/travel-info/accessible-services/specialservices-support-animals",
+        "checked": "2026-11-20",
+        "method": "WebFetch"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.hawaiianairlines.com/content/travel-info/pets",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -199,21 +187,17 @@
       "official_policy_url": "https://www.jetblue.com/help/traveling-with-pets",
       "service": {
         "status": "verified",
-        "keys": [
-          "mil.jetblue",
-          "mil.dotRequired"
-        ],
+        "value": "JetBlue accepts trained service dogs only. Notification of service-animal travel and the U.S. DOT Service Animal Air Transportation Form are required at least 48 hours before the first scheduled departure. If the reservation was booked within 48 hours of departure, the form may be completed at the airport with a Complaints Resolution Official; arrive early. Service animals in training are not accepted. Emotional support animals are not treated as service animals on this page’s terms (trained service dogs only).",
         "url": "https://www.jetblue.com/at-the-airport/accessibility-assistance/service-dogs-animals",
-        "checked": "2026-11-14"
+        "checked": "2026-11-20",
+        "method": "WebFetch"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.jetblue.com/help/traveling-with-pets",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -222,21 +206,17 @@
       "official_policy_url": "https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/pets.html",
       "service": {
         "status": "verified",
-        "keys": [
-          "mil.usDotRequired"
-        ],
+        "value": "On flights to or from the U.S.: DOT Service Animal Air Transportation Form; see official route-specific requirements.",
         "url": "https://www.aircanada.com/content/dam/aircanada/portal/documents/PDF/en/atpdr/US-dot-service-animal-health-behaviour-training-form-AirCanada.pdf",
         "checked": "2026-11-07",
-        "method": "WebSearch"
+        "method": "prior WebFetch; not re-fetched 2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.aircanada.com/ca/en/aco/home/plan/special-assistance/pets.html",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -245,22 +225,17 @@
       "official_policy_url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat",
       "service": {
         "status": "verified",
-        "keys": [
-          "mil.free",
-          "mil.usDotRequired"
-        ],
+        "value": "Trained service dogs travel in the cabin without a service-animal fee, subject to the airline’s acceptance, space, behaviour and route requirements. On flights to or from the U.S.: DOT Service Animal Air Transportation Form; see official route-specific requirements.",
         "url": "https://wwws.airfrance.us/information/passagers/acheter-billet-avion-pmr-autres-handicaps/svan",
         "checked": "2026-11-07",
-        "method": "WebFetch"
+        "method": "prior WebFetch; not re-fetched 2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://wwws.airfrance.us/information/passagers/voyager-avec-son-animal-chien-chat",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -269,22 +244,17 @@
       "official_policy_url": "https://www.lufthansa.com/us/en/travelling-with-animals",
       "service": {
         "status": "verified",
-        "keys": [
-          "mil.free",
-          "mil.usDotRequired"
-        ],
+        "value": "Trained service dogs travel in the cabin without a service-animal fee, subject to the airline’s acceptance, space, behaviour and route requirements. On flights to or from the U.S.: DOT Service Animal Air Transportation Form; see official route-specific requirements.",
         "url": "https://www.lufthansa.com/us/en/assistenzhunde",
         "checked": "2026-11-07",
-        "method": "WebFetch"
+        "method": "prior WebFetch; not re-fetched 2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.lufthansa.com/us/en/travelling-with-animals",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -293,21 +263,17 @@
       "official_policy_url": "https://www.britishairways.com/content/information/travel-assistance/travelling-with-pets",
       "service": {
         "status": "verified",
-        "keys": [
-          "mil.ba"
-        ],
+        "value": "Assistance dogs accepted free on most flights; register through the airline’s Open Doors Organization process. Acceptance and destination rules apply.",
         "url": "https://www.britishairways.com/content/information/disability-assistance/travelling-with-your-assistance-dog",
         "checked": "2026-11-07",
-        "method": "WebFetch"
+        "method": "prior WebFetch; not re-fetched 2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.britishairways.com/content/information/travel-assistance/travelling-with-pets",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -315,21 +281,17 @@
       "name": "Korean Air",
       "official_policy_url": "https://www.koreanair.com/contents/plan-your-travel/special-assistance/travel-with-pets/guide?hl=en",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.koreanair.com/contents/plan-your-travel/special-assistance/travel-with-pets/guide?hl=en",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.koreanair.com/contents/plan-your-travel/special-assistance/travel-with-pets/guide?hl=en",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -337,21 +299,17 @@
       "name": "Spirit Airlines",
       "official_policy_url": "https://foundation.spirit.com/en-US/category/article/KA-01181",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://foundation.spirit.com/en-US/category/article/KA-01181",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://foundation.spirit.com/en-US/category/article/KA-01181",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -359,21 +317,18 @@
       "name": "Frontier Airlines",
       "official_policy_url": "https://faq.flyfrontier.com/help/do-you-allow-pets-on-the-plane",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
-        "url": "https://faq.flyfrontier.com/help/do-you-allow-pets-on-the-plane",
-        "checked": null
+        "status": "verified",
+        "value": "Under the U.S. DOT rules as stated on Frontier’s Special Services page, only dogs trained to do work or perform tasks for a person with a disability are accepted as service animals, including psychiatric service dogs. Comfort or companionship animals are not recognized as service animals. Service animals in training are not accepted. Animals under 4 months are not accepted. Maximum two service animals per passenger with a disability. Passengers must complete and submit the DOT Service Animal Air Transportation Form. For reservations booked more than 48 hours before travel, the form must be submitted no later than 48 hours prior; if booked less than 48 hours ahead, submit the completed form in person to a Customer Service Agent at the airport.",
+        "url": "https://www.flyfrontier.com/travel/travel-info/special-services/",
+        "checked": "2026-11-20",
+        "method": "WebFetch"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://faq.flyfrontier.com/help/do-you-allow-pets-on-the-plane",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -381,21 +336,17 @@
       "name": "WestJet",
       "official_policy_url": "https://www.westjet.com/en-us/pets",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.westjet.com/en-us/pets",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.westjet.com/en-us/pets",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -403,21 +354,17 @@
       "name": "Porter Airlines",
       "official_policy_url": "https://www.flyporter.com/en-ca/travel-information/baggage/pets",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.flyporter.com/en-ca/travel-information/baggage/pets",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.flyporter.com/en-ca/travel-information/baggage/pets",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -425,21 +372,17 @@
       "name": "KLM Royal Dutch Airlines",
       "official_policy_url": "https://www.klm.com/information/pets/reservation",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.klm.com/information/pets/reservation",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.klm.com/information/pets/reservation",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -447,21 +390,17 @@
       "name": "Virgin Atlantic",
       "official_policy_url": "https://www.virginatlantic.com/en-us/policies/conditions-of-carriage/article-16",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.virginatlantic.com/en-us/policies/conditions-of-carriage/article-16",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.virginatlantic.com/en-us/policies/conditions-of-carriage/article-16",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -469,21 +408,17 @@
       "name": "Iberia",
       "official_policy_url": "https://www.iberia.com/us/fly-with-iberia/pets/",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.iberia.com/us/fly-with-iberia/pets/",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.iberia.com/us/fly-with-iberia/pets/",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -491,21 +426,17 @@
       "name": "SWISS International Air Lines",
       "official_policy_url": "https://www.swiss.com/ch/en/prepare/special-care/animals-travelling",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.swiss.com/ch/en/prepare/special-care/animals-travelling",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.swiss.com/ch/en/prepare/special-care/animals-travelling",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -513,21 +444,17 @@
       "name": "TAP Air Portugal",
       "official_policy_url": "https://www.flytap.com/en-pt/information/traveling-with-animals/pets",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.flytap.com/en-pt/information/traveling-with-animals/pets",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.flytap.com/en-pt/information/traveling-with-animals/pets",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -535,21 +462,17 @@
       "name": "Turkish Airlines",
       "official_policy_url": "https://www.turkishairlines.com/en-us/any-questions/traveling-with-pets/",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.turkishairlines.com/en-us/any-questions/traveling-with-pets/",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.turkishairlines.com/en-us/any-questions/traveling-with-pets/",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -557,21 +480,17 @@
       "name": "Aeroméxico",
       "official_policy_url": "https://www.aeromexico.com/es_mx/vuelos-con-mascotas",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.aeromexico.com/es_mx/vuelos-con-mascotas",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.aeromexico.com/es_mx/vuelos-con-mascotas",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -579,21 +498,17 @@
       "name": "Copa Airlines",
       "official_policy_url": "https://www.copaair.com/assets/eng-com-24-027-update-service-emotional-support-dog-pet-in-cabin-transportation-policy.pdf",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.copaair.com/assets/eng-com-24-027-update-service-emotional-support-dog-pet-in-cabin-transportation-policy.pdf",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.copaair.com/assets/eng-com-24-027-update-service-emotional-support-dog-pet-in-cabin-transportation-policy.pdf",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -601,21 +516,17 @@
       "name": "LATAM Airlines",
       "official_policy_url": "https://www.latamairlines.com/us/en/help-center/faq/pets/transport/airplaine-flight",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.latamairlines.com/us/en/help-center/faq/pets/transport/airplaine-flight",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.latamairlines.com/us/en/help-center/faq/pets/transport/airplaine-flight",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -623,21 +534,17 @@
       "name": "Asiana Airlines",
       "official_policy_url": "https://flyasiana.com/C/US/EN/contents/traveling-with-pets",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://flyasiana.com/C/US/EN/contents/traveling-with-pets",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://flyasiana.com/C/US/EN/contents/traveling-with-pets",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -645,21 +552,17 @@
       "name": "ANA All Nippon Airways",
       "official_policy_url": "https://www.ana.co.jp/en/us/travel-information/pet-policy/",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.ana.co.jp/en/us/travel-information/pet-policy/",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.ana.co.jp/en/us/travel-information/pet-policy/",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -667,21 +570,17 @@
       "name": "Japan Airlines (JAL)",
       "official_policy_url": "https://www.jal.co.jp/jp/en/inter/support/pet/",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.jal.co.jp/jp/en/inter/support/pet/",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.jal.co.jp/jp/en/inter/support/pet/",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -689,21 +588,17 @@
       "name": "Qatar Airways",
       "official_policy_url": "https://www.qatarairways.com/en/baggage/animals.html",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.qatarairways.com/en/baggage/animals.html",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.qatarairways.com/en/baggage/animals.html",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     },
@@ -711,21 +606,17 @@
       "name": "Emirates",
       "official_policy_url": "https://www.emirates.com/us/english/help/faq-topics/baggage-and-lost-property/faq/what-are-the-rules-and-charges-for-travelling-with-animals/",
       "service": {
-        "status": "unknown",
-        "keys": [
-          "mil.unknown"
-        ],
+        "status": "none",
+        "value": null,
         "url": "https://www.emirates.com/us/english/help/faq-topics/baggage-and-lost-property/faq/what-are-the-rules-and-charges-for-travelling-with-animals/",
-        "checked": null
+        "checked": "2026-11-20"
       },
       "military": [
         {
-          "status": "unknown",
-          "keys": [
-            "mil.unknown"
-          ],
+          "status": "none",
+          "value": null,
           "url": "https://www.emirates.com/us/english/help/faq-topics/baggage-and-lost-property/faq/what-are-the-rules-and-charges-for-travelling-with-animals/",
-          "checked": null
+          "checked": "2026-11-20"
         }
       ]
     }
