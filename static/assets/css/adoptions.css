@@ -216,12 +216,12 @@ a.adopt-partner:focus-visible{outline:3px solid #d1848c;outline-offset:2px}
   box-shadow:inset 0 0 0 1px color-mix(in srgb,#e2c275 40%,transparent),inset 3px 0 0 #d1848c
 }
 .story-card__illu{
-  position:relative;margin:0;background:#001f3f;border-radius:10px;overflow:hidden;
-  aspect-ratio:4/5;
+  position:relative;margin:0;background:#001636;border-radius:10px;overflow:hidden;
+  aspect-ratio:3/4;
   box-shadow:inset 0 0 0 1px color-mix(in srgb,#e2c275 55%,transparent)
 }
-.story-card__illu svg{
-  position:absolute;inset:8%;width:84%;height:84%;display:block
+.story-card__illu img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block
 }
 .story-card__body{display:flex;flex-direction:column;justify-content:center;min-width:0}
 .story-card__k{
@@ -241,7 +241,7 @@ a.adopt-partner:focus-visible{outline:3px solid #d1848c;outline-offset:2px}
   .adopt-partners{grid-template-columns:repeat(2,minmax(0,1fr))}
   .adopt-shelters{grid-template-columns:1fr}
   .story-card{grid-template-columns:1fr;gap:16px;padding:14px}
-  .story-card__illu{aspect-ratio:16/10;min-height:160px}
+  .story-card__illu{aspect-ratio:3/4}
   .adopt-empty{padding:26px 18px 22px}
   .shelter-card__btn{align-self:stretch;text-align:center}
 }
