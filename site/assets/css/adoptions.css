@@ -132,17 +132,24 @@ html.theme-adoptions .adopt-det>summary h2::before,
 .adopt-empty--shelters .adopt-empty__text{color:var(--mut,#a7b0a2)}
 .adopt-ss .adopt-empty--shelters{margin-top:2px}
 
+.adoptions-page .gcard .adopt-empty p{
+  max-width:42ch;
+  margin:0 auto .55em;
+  margin-inline:auto;
+  text-align:center;
+  text-wrap:balance;
+}
 .adopt-empty__k{
   font:700 .68rem/1 var(--text,Inter,system-ui,sans-serif);
   letter-spacing:.16em;text-transform:uppercase;color:var(--rose);
-  margin:0 0 .55em
+  margin-bottom:.55em
 }
 .adopt-empty__title{
   font-family:Marcellus,serif;font-weight:400;font-size:clamp(1.35rem,2.4vw,1.7rem);
-  line-height:1.2;color:var(--gold);margin:0 0 .45em
+  line-height:1.2;color:var(--gold);margin-bottom:.45em
 }
 .adopt-empty__text{
-  margin:0 auto;max-width:42ch;color:color-mix(in srgb,#f5ecd6 82%,var(--gold));
+  margin-bottom:0;color:color-mix(in srgb,#f5ecd6 82%,var(--gold));
   font-size:.95rem;line-height:1.5
 }
 
