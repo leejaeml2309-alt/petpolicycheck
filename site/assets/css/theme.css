@@ -97,12 +97,14 @@ h1,h2,h3{font-family:var(--disp);font-weight:var(--hw,400);color:var(--head);mar
  --theme-law:#a7b1d3;     /* Ardoise indigo grisé */
  --theme-forum:#9dc2a0;   /* Sauge douce */
  --theme-grooming:#c6a4db; /* Lavande savon / iris minéral */
+ --theme-news:#3e8e8a;    /* Gazette teal — News (unused elsewhere) */
  --theme-accent:var(--pri);
 }
 .theme-map{--theme-accent:var(--theme-map)}.theme-flight{--theme-accent:var(--theme-flight)}
 .theme-hotel{--theme-accent:var(--theme-hotel)}.theme-ground{--theme-accent:var(--theme-ground)}
 .theme-shop{--theme-accent:var(--theme-shop)}.theme-law{--theme-accent:var(--theme-law)}
 .theme-forum{--theme-accent:var(--theme-forum)}.theme-grooming{--theme-accent:var(--theme-grooming)}
+.theme-news{--theme-accent:var(--theme-news)}
 
 /* ---- Tampon commun (famille .lbadge) ---- */
 .pst{--s:24px;flex:none;display:inline-grid;place-items:center;width:var(--s);height:var(--s);border-radius:7px;
@@ -251,6 +253,7 @@ html body #usa-map .sec.focus{background:linear-gradient(90deg,color-mix(in srgb
   --theme-law: #8b9ce2;      /* Indigo ardoise législation franc */
   --theme-forum: #7ec78c;    /* Sauge vive forum franc */
   --theme-adoptions: #d1848c; /* Rose foyer / old rose — Adoptions */
+  --theme-news: #3e8e8a; /* Gazette teal — News */
 }
 
 html[class*="theme-"] {
@@ -595,8 +598,8 @@ header.top .nav a{
 @media (max-width:1099px){.top .nav.menu.open{flex-wrap:nowrap;max-height:calc(100vh - 84px);max-height:calc(100dvh - 84px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}.top .nav.menu.open>*{flex-shrink:0}}
 /* Header groups (Marc 2026-11-13): all 13 hubs stay on ONE desktop row,
    with a compact vertical rule between Rides and Forum. Mobile drawer keeps a line break. */
-:root{--theme-vet:#7cc9b5;--theme-k9:#cfa57a;--theme-service:#86aee6;--theme-adoptions:#d1848c}
-.theme-vet{--theme-accent:var(--theme-vet)}.theme-k9{--theme-accent:var(--theme-k9)}.theme-service{--theme-accent:var(--theme-service)}.theme-adoptions{--theme-accent:var(--theme-adoptions)}
+:root{--theme-vet:#7cc9b5;--theme-k9:#cfa57a;--theme-service:#86aee6;--theme-adoptions:#d1848c;--theme-news:#3e8e8a}
+.theme-vet{--theme-accent:var(--theme-vet)}.theme-k9{--theme-accent:var(--theme-k9)}.theme-service{--theme-accent:var(--theme-service)}.theme-adoptions{--theme-accent:var(--theme-adoptions)}.theme-news{--theme-accent:var(--theme-news)}
 .top .nav.pst-nav .nav-group-sep{display:none}
 @media (min-width:1100px){
   header.top .wrap,
@@ -780,6 +783,7 @@ header.top .nav a{
 .theme-veterans,[data-sec="veterans"]{--sec:#0a2e5c;--sec-spot:#e2c275}
 .theme-b2b,    [data-sec="b2b"]{--sec:#8b9ce2}
 .theme-adoptions,[data-sec="adoptions"]{--sec:#d1848c}
+.theme-news,     [data-sec="news"]{--sec:#3e8e8a}
 .theme-map,    [data-sec="map"]{--sec:#dfc06b}
 
 /* On section pages, kickers, links and default buttons follow the section token.

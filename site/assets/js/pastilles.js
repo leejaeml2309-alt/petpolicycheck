@@ -16,7 +16,8 @@ var G={
  k9:'<path d="M6.2 5.2 4 10.2l2.6 1.1v3.4a5.4 5.4 0 0 0 10.8 0v-3.4l2.6-1.1-2.2-5-3.3 2.2H9.5L6.2 5.2Z"/><path d="M10 12h.01M14 12h.01M11 15.4h2l-1 1.1-1-1.1Z"/>',
  service:'<path d="M4.6 12.6h14.8v5.2a1.6 1.6 0 0 1-1.6 1.6H6.2a1.6 1.6 0 0 1-1.6-1.6v-5.2Z"/><path d="M9 12.6V8.4a3 3 0 0 1 6 0v4.2M12 14.6v3M10.5 16.1h3"/>',
  veterans:'<path d="M12 3.2 19 6v5.4c0 4.6-3 7.9-7 9.4-4-1.5-7-4.8-7-9.4V6l7-2.8Z"/><path d="m12 8 1.15 2.35 2.6.38-1.88 1.83.44 2.59L12 13.93l-2.31 1.22.44-2.59-1.88-1.83 2.6-.38L12 8Z"/>',
- adoptions:'<path d="M3.8 11.5 12 4.2l8.2 7.3"/><path d="M5.6 10.6v9.2h12.8v-9.2"/><path d="M10 19.8v-5.4h4v5.4"/>'
+ adoptions:'<path d="M3.8 11.5 12 4.2l8.2 7.3"/><path d="M5.6 10.6v9.2h12.8v-9.2"/><path d="M10 19.8v-5.4h4v5.4"/>',
+ news:'<path d="M5 5.6h11.2A1.6 1.6 0 0 1 17.8 7.2v11.6H6.6A1.6 1.6 0 0 1 5 17.2V5.6Z"/><path d="M17.8 9.2h1.8A1.4 1.4 0 0 1 21 10.6v7.4a2 2 0 0 1-2 2H6.8"/><path d="M7.6 8.8h6.8M7.6 11.6h6.8M7.6 14.4h4.6"/>'
 };
 window.PPC_GLYPHS=G;
 var sp='<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">';
@@ -83,7 +84,7 @@ function boot(){
   /\/products\//.test(path)||/\/fit\//.test(path)?'shop':
   /\/countries\/[^/]+-map\.html/.test(path)?'':/\/countries\//.test(path)||/\/updates\.html$/.test(path)?'law':
   /\/forum\//.test(path)?'forum':/\/grooming\//.test(path)?'grooming':
-  /\/k9\//.test(path)?'k9':/\/veterans\//.test(path)||/\/military-pcs\//.test(path)?'veterans':/\/adoptions\//.test(path)?'adoptions':
+  /\/k9\//.test(path)?'k9':/\/veterans\//.test(path)||/\/military-pcs\//.test(path)?'veterans':/\/news\//.test(path)?'news':/\/adoptions\//.test(path)?'adoptions':
   /\/vet-info\//.test(path)||/\/vet-prep\//.test(path)||/\/titer-calculator\//.test(path)||/\/partner-vets\//.test(path)||/\/clinics\//.test(path)?'vet':
   /\/routes\//.test(path)||/\/airport\//.test(path)||/\/field-guides\//.test(path)?'flight':
   /\/(?:pro|b2b-pet-desk|widgets)\/?/.test(path)?'b2b':
@@ -91,9 +92,9 @@ function boot(){
   onCountryMap?'':(/usa-map|\/map/.test(path)?'map':''));
  /* Homepage unlocked world-map view (?view=map) marks World map current */
  try{ if((path==='/'||path==='/es'||path==='/es/'||path==='/it'||path==='/it/'||path==='/fr'||path==='/fr/'||/\/(index\.html)?$/.test(path)) && new URLSearchParams(location.search).get('view')==='map') cur='map'; }catch(e){}
- var PAST_IT={map:'Mappa del mondo',flight:'Compagnie aeree',hotel:'Hotel',grooming:'Toelettatura',ground:'Trasferimenti',shop:'Prodotti',law:'Norme',forum:'Forum',vet:'Veterinario',k9:'K9',service:'Cani di servizio',veterans:'Veterani',adoptions:'Adozioni',b2b:'Per le aziende',Compare:'Confronta',Guides:'Guide',Updates:'Aggiornamenti',About:'Chi siamo'};
- var PAST_ES={map:'Mapa mundial',flight:'Aerolíneas',hotel:'Hoteles',grooming:'Peluquería',ground:'Traslados',shop:'Productos',law:'Normas',forum:'Foro',vet:'Veterinario',k9:'K9',service:'Perros de servicio',veterans:'Veteranos',adoptions:'Adopciones',b2b:'Para empresas',Compare:'Comparar',Guides:'Guías',Updates:'Actualizaciones',About:'Acerca de'};
- var PAST_FR={map:'Carte du monde',flight:'Avion',hotel:'Hôtel',grooming:'Toilettage',ground:'Trajets',shop:'Produits',law:'Lois',forum:'Forum',vet:'Vétérinaire',k9:'K9',service:'Chiens d’assistance',veterans:'Vétérans',adoptions:'Adoptions',b2b:'Pour les pros',Compare:'Comparer',Guides:'Guides',Updates:'Mises à jour',About:'À propos'};
+ var PAST_IT={map:'Mappa del mondo',flight:'Compagnie aeree',hotel:'Hotel',grooming:'Toelettatura',ground:'Trasferimenti',shop:'Prodotti',law:'Norme',forum:'Forum',vet:'Veterinario',k9:'K9',service:'Cani di servizio',veterans:'Veterani',adoptions:'Adozioni',news:'Notizie',b2b:'Per le aziende',Compare:'Confronta',Guides:'Guide',Updates:'Aggiornamenti',About:'Chi siamo'};
+ var PAST_ES={map:'Mapa mundial',flight:'Aerolíneas',hotel:'Hoteles',grooming:'Peluquería',ground:'Traslados',shop:'Productos',law:'Normas',forum:'Foro',vet:'Veterinario',k9:'K9',service:'Perros de servicio',veterans:'Veteranos',adoptions:'Adopciones',news:'Noticias',b2b:'Para empresas',Compare:'Comparar',Guides:'Guías',Updates:'Actualizaciones',About:'Acerca de'};
+ var PAST_FR={map:'Carte du monde',flight:'Avion',hotel:'Hôtel',grooming:'Toilettage',ground:'Trajets',shop:'Produits',law:'Lois',forum:'Forum',vet:'Vétérinaire',k9:'K9',service:'Chiens d’assistance',veterans:'Vétérans',adoptions:'Adoptions',news:'Actualités',b2b:'Pour les pros',Compare:'Comparer',Guides:'Guides',Updates:'Mises à jour',About:'À propos'};
  var locPack=ppcLangRoot==='/it'?PAST_IT:(ppcLangRoot==='/es'?PAST_ES:(ppcLangRoot==='/fr'?PAST_FR:null));
  var plab=function(en,key){return locPack&&locPack[key||en]?locPack[key||en]:en;};
  var V=(new URLSearchParams(location.search).get('nav'))||document.documentElement.dataset.nav||'8';
@@ -107,6 +108,7 @@ function boot(){
    shop:['Products','Prodotti','Productos','Produits'],ground:['Rides','Trasferimenti','Traslados','Trajets'],forum:['Forum','Forum','Foro','Forum'],
    k9:['K9','K9','K9','K9'],service:['Service dogs','Cani di servizio','Perros de servicio','Chiens d’assistance'],veterans:['Veterans','Veterani','Veteranos','Vétérans'],
    adoptions:['Adoptions','Adozioni','Adopciones','Adoptions'],
+   news:['News','Notizie','Noticias','Actualités'],
    b2b:['For Business','Per le aziende','Para empresas','Pour les pros']};
  var li=LNG==='it'?1:(LNG==='es'?2:(LNG==='fr'?3:0));
  /* Pages that exist under /it/ and /es/; anything else falls back to the English page. */
@@ -118,13 +120,13 @@ function boot(){
  var S=[['map',tgt('?view=map')],['law',tgt('countries/usa.html#federal')],['vet',tgt('vet-info/')],
         ['flight',tgt(LNG==='es'?'airlines/compare/':'airlines/')],['hotel',tgt('hotels/')],['grooming',tgt('grooming/')],
         ['shop',tgt('products/')],['ground',tgt('taxi/')],['|'],
-        ['forum',tgt('forum/')],['k9',tgt('k9/')],['service',tgt('veterans/#service-dog-support')],['veterans',tgt('veterans/')],['adoptions',tgt('adoptions/')],['b2b',tgt('pro/')]];
+        ['forum',tgt('forum/')],['k9',tgt('k9/')],['service',tgt('veterans/#service-dog-support')],['veterans',tgt('veterans/')],['adoptions',tgt('adoptions/')],['news',tgt('news/')],['b2b',tgt('pro/')]];
  document.documentElement.classList.add('nav-v'+V);
  var bookCur=false; if(V==='7g'&&cur==='ground'){cur='';bookCur=true}
  if(cur) document.documentElement.classList.add('theme-'+cur);
  if(onCountryMap) document.documentElement.classList.add('theme-map');
  var m=document.getElementById('site-menu')||document.querySelector('.map-nav nav.nav, header.map-nav nav'); if(!m) return;
- var NAV_I18N={map:'site.nav.map',grooming:'site.nav.grooming',ground:'site.nav.rides',shop:'site.nav.products',forum:'site.nav.forum',veterans:'site.nav.veterans',adoptions:'site.nav.adoptions',b2b:'site.nav.pro'};
+ var NAV_I18N={map:'site.nav.map',grooming:'site.nav.grooming',ground:'site.nav.rides',shop:'site.nav.products',forum:'site.nav.forum',veterans:'site.nav.veterans',adoptions:'site.nav.adoptions',news:'site.nav.news',b2b:'site.nav.pro'};
  var navCur=cur||(/\/vet-info\//.test(path)?'vet':(/\/k9\//.test(path)?'k9':''));
  var h=S.map(function(s){ if(s[0]==='|') return '<span class="nav-group-sep" aria-hidden="true"></span>';
    var extra=s[0]==='b2b'?' nav-biz':(s[0]==='veterans'?' nav-vet':'');var ik=NAV_I18N[s[0]]||'';
@@ -138,7 +140,7 @@ function boot(){
  if(onCountryMap&&h1&&!document.querySelector('.sec-eyebrow')){
   h1.insertAdjacentHTML('beforebegin','<a class="sec-eyebrow theme-map" href="'+ppcHref('?view=map')+'" style="text-decoration:none;cursor:pointer;pointer-events:auto;touch-action:manipulation">'+pst('map','pst-lg')+'<span data-i18n="site.nav.world_back">\u2190 World map</span></a>');
  }else if(cur&&h1&&!document.querySelector('.sec-eyebrow')){
-  var L={map:plab('World map','map'),flight:plab('Airlines','flight'),hotel:plab('Hotels','hotel'),ground:plab('Rides','ground'),shop:plab('Products','shop'),law:ppcLangRoot==='/es'?'Normas y certificado de salud':(ppcLangRoot==='/it'?'Norme e certificato sanitario':(ppcLangRoot==='/fr'?'Règles et certificat sanitaire':'Rules & health certificate')),forum:plab('Forum','forum'),grooming:ppcLangRoot==='/es'?'Cuidado y peluquería (viaje + expat)':(ppcLangRoot==='/it'?'Cura e toelettatura (viaggio + expat)':(ppcLangRoot==='/fr'?'Toilettage et soins (voyage + expatriation)':'Care & Grooming (Travel + Expat)')),veterans:plab('Veterans','veterans'),k9:ppcLangRoot==='/es'?'K9 · Perros de trabajo':(ppcLangRoot==='/it'?'K9 · Cani da lavoro':(ppcLangRoot==='/fr'?'K9 · Chiens de travail':'K9 · Working dogs')),vet:ppcLangRoot==='/es'?'Clínica · Info veterinaria':(ppcLangRoot==='/it'?'Ambulatorio · Info veterinarie':(ppcLangRoot==='/fr'?'Clinique · Infos vétérinaires':'Clinic · Vet info')),service:plab('Service dogs','service'),b2b:plab('For Business','b2b')||'B2B Pet Desk',adoptions:plab('Adoptions','adoptions')};
+  var L={map:plab('World map','map'),flight:plab('Airlines','flight'),hotel:plab('Hotels','hotel'),ground:plab('Rides','ground'),shop:plab('Products','shop'),law:ppcLangRoot==='/es'?'Normas y certificado de salud':(ppcLangRoot==='/it'?'Norme e certificato sanitario':(ppcLangRoot==='/fr'?'Règles et certificat sanitaire':'Rules & health certificate')),forum:plab('Forum','forum'),grooming:ppcLangRoot==='/es'?'Cuidado y peluquería (viaje + expat)':(ppcLangRoot==='/it'?'Cura e toelettatura (viaggio + expat)':(ppcLangRoot==='/fr'?'Toilettage et soins (voyage + expatriation)':'Care & Grooming (Travel + Expat)')),veterans:plab('Veterans','veterans'),k9:ppcLangRoot==='/es'?'K9 · Perros de trabajo':(ppcLangRoot==='/it'?'K9 · Cani da lavoro':(ppcLangRoot==='/fr'?'K9 · Chiens de travail':'K9 · Working dogs')),vet:ppcLangRoot==='/es'?'Clínica · Info veterinaria':(ppcLangRoot==='/it'?'Ambulatorio · Info veterinarie':(ppcLangRoot==='/fr'?'Clinique · Infos vétérinaires':'Clinic · Vet info')),service:plab('Service dogs','service'),b2b:plab('For Business','b2b')||'B2B Pet Desk',adoptions:plab('Adoptions','adoptions'),news:plab('News','news')};
   h1.insertAdjacentHTML('beforebegin','<div class="sec-eyebrow theme-'+cur+'">'+pst(cur,'pst-lg')+'<span>'+L[cur]+'</span></div>');
  }
 

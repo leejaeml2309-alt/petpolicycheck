@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>PetPolicyCheck News</title>
+<link>https://petpolicycheck.com/news/</link>
+<description>Official pet-travel rule updates from CDC, USDA, airlines and destination authorities, each with a dated official source.</description>
+<language>en-us</language>
+<lastBuildDate>Fri, 20 Nov 2026 03:25:12 +0000</lastBuildDate>
+<atom:link href="https://petpolicycheck.com/news/feed.xml" rel="self" type="application/rss+xml"/>
+</channel>
+</rss>

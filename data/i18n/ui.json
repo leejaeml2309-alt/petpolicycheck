@@ -94,7 +94,9 @@
       "home.tools.pcs": "Military PCS",
       "home.tools.volunteer": "Flight volunteer kit",
       "home.tools.veterans": "Veterans & service dogs",
-      "site.foot.see_terms": "See {terms}."
+      "site.foot.see_terms": "See {terms}.",
+      "site.nav.news": "News",
+      "site.foot.news": "News"
     },
     "fr": {
       "site.nav.map": "Carte du monde",
@@ -191,7 +193,9 @@
       "nav.forum": "Forum",
       "site.foot.rules": "Les règles des compagnies aériennes pour les animaux changent souvent. Vérifiez toujours auprès de la compagnie et de l’autorité officielle du pays de destination avant de réserver. Les informations présentées ici ne constituent pas un avis juridique ni vétérinaire.",
       "site.foot.copyright": "© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission.",
-      "site.foot.see_terms": "See {terms}."
+      "site.foot.see_terms": "See {terms}.",
+      "site.nav.news": "Actualités",
+      "site.foot.news": "Actualités"
     },
     "es": {
       "site.nav.map": "Mapa mundial",
@@ -279,7 +283,9 @@
       "map.switch.france": "Mapa Francia",
       "map.switch.germany": "Mapa Alemania",
       "map.switch.japan": "Mapa Japón",
-      "map.switch.korea": "Mapa Corea del Sur"
+      "map.switch.korea": "Mapa Corea del Sur",
+      "site.nav.news": "Noticias",
+      "site.foot.news": "Noticias"
     },
     "de": {
       "site.nav.map": "Weltkarte",
@@ -360,7 +366,9 @@
       "home.tools.embeds": "Kostenlose Embeds",
       "home.tools.pcs": "Military PCS",
       "home.tools.volunteer": "Flug-Freiwilligen-Kit",
-      "home.tools.veterans": "Veteranen & Assistenzhunde"
+      "home.tools.veterans": "Veteranen & Assistenzhunde",
+      "site.nav.news": "Nachrichten",
+      "site.foot.news": "Nachrichten"
     },
     "ko": {
       "site.nav.map": "세계 지도",
@@ -441,7 +449,9 @@
       "home.tools.embeds": "무료 위젯",
       "home.tools.pcs": "군인 PCS",
       "home.tools.volunteer": "기내 봉사 키트",
-      "home.tools.veterans": "보훈·보조견"
+      "home.tools.veterans": "보훈·보조견",
+      "site.nav.news": "뉴스",
+      "site.foot.news": "뉴스"
     },
     "ja": {
       "site.nav.map": "世界地図",
@@ -522,7 +532,9 @@
       "home.tools.embeds": "無料埋め込み",
       "home.tools.pcs": "軍事PCS",
       "home.tools.volunteer": "フライトボランティアキット",
-      "home.tools.veterans": "退役軍人・補助犬"
+      "home.tools.veterans": "退役軍人・補助犬",
+      "site.nav.news": "ニュース",
+      "site.foot.news": "ニュース"
     },
     "it": {
       "home.tools.veterans": "Veterani e cani di servizio",
@@ -600,7 +612,9 @@
       "compare.col.airline": "Compagnia aerea",
       "compare.col.fee": "Tariffa in cabina (solo andata)",
       "lang.aria": "Lingua",
-      "compare.military": "Militari e cane di servizio"
+      "compare.military": "Militari e cane di servizio",
+      "site.nav.news": "Notizie",
+      "site.foot.news": "Notizie"
     }
   }
 }
