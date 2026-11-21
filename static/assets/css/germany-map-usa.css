@@ -1,4 +1,4 @@
-/* Germany map — USA typography & airport tags; flag-band fill (N→S).
+/* Germany map — USA typography & airport tags; per-Land flag shades (N→S).
    Loaded only on germany-map pages. Gold selection stays visible on all bands. */
 
 html.accent-schwarzrotgold #country-map,
@@ -54,20 +54,30 @@ html.accent-schwarzrotgold #country-map svg#map.is-zoomed{
   --lbl-name-px:var(--lbl-name-zoom-px);
 }
 
-/* Continuous German flag bands, north → south, one shared SVG gradient. */
+/* Flat per-Land flag shades (centroid latitude, neighbours never share a tone). */
 html.accent-schwarzrotgold #country-map .st,
-html.accent-schwarzrotgold #country-map .st.st-t1,
-html.accent-schwarzrotgold #country-map .st.st-t2,
-html.accent-schwarzrotgold #country-map .st.st-t3,
-html.accent-schwarzrotgold #country-map .st.st-t4,
-html.accent-schwarzrotgold #country-map .st.st-t5,
 html.accent-schwarzrotgold #country-map .st:hover:not(.sel){
-  fill:url(#de-flag-fill) !important;
   stroke:#1A1408 !important;
   stroke-width:.95px !important;
   vector-effect:non-scaling-stroke;
   filter:none;
 }
+html.accent-schwarzrotgold #country-map #s-SH{fill:#2A2A2A !important}
+html.accent-schwarzrotgold #country-map #s-HH{fill:#3A3634 !important}
+html.accent-schwarzrotgold #country-map #s-HB{fill:#45403C !important}
+html.accent-schwarzrotgold #country-map #s-MV{fill:#4A4440 !important}
+html.accent-schwarzrotgold #country-map #s-NW{fill:#9E2A30 !important}
+html.accent-schwarzrotgold #country-map #s-TH{fill:#8F242A !important}
+html.accent-schwarzrotgold #country-map #s-ST{fill:#A83236 !important}
+html.accent-schwarzrotgold #country-map #s-NI{fill:#C4333A !important}
+html.accent-schwarzrotgold #country-map #s-BB{fill:#9E2A30 !important}
+html.accent-schwarzrotgold #country-map #s-SN{fill:#D44A48 !important}
+html.accent-schwarzrotgold #country-map #s-HE{fill:#D9554F !important}
+html.accent-schwarzrotgold #country-map #s-BE{fill:#D9554F !important}
+html.accent-schwarzrotgold #country-map #s-RP{fill:#C8961C !important}
+html.accent-schwarzrotgold #country-map #s-BW{fill:#D4A627 !important}
+html.accent-schwarzrotgold #country-map #s-SL{fill:#E2B84A !important}
+html.accent-schwarzrotgold #country-map #s-BY{fill:#E2B84A !important}
 html.accent-schwarzrotgold #country-map .st.hub{filter:none}
 html.accent-schwarzrotgold #country-map .st:hover:not(.sel){
   stroke:#F0D58C !important;
@@ -79,6 +89,32 @@ html.accent-schwarzrotgold #country-map .st.sel:hover{
   stroke:#F8E7B5 !important;
   stroke-width:2.4px !important;
   filter:none !important;
+}
+/* Outer silhouette only — a faint light rim so the charcoal north reads on the dark page. */
+html.accent-schwarzrotgold #country-map #g-sil path{
+  fill:var(--de-sil-fill, #2A2A2A) !important;
+  stroke:#C4BEB4 !important;
+  stroke-width:2.8px !important;
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
+  pointer-events:none;
+}
+/* Desktop: park zoom controls in the empty SW padding, below Saarland, so they never cover SL. */
+@media (min-width:901px){
+  html.accent-schwarzrotgold #country-map .mapwrap.zoom-pos-de > .zoom{
+    left:8px !important;
+    right:auto !important;
+    top:auto !important;
+    bottom:12px !important;
+    transform:none !important;
+  }
+  /* Once zoomed, the SW padding disappears and Saarland sits on the left edge — move the stack to the open SE. */
+  html.accent-schwarzrotgold #country-map .mapwrap.zoom-pos-de:has(svg.is-zoomed) > .zoom{
+    left:auto !important;
+    right:8px !important;
+    bottom:12px !important;
+    top:auto !important;
+  }
 }
 html.accent-schwarzrotgold #country-map .st:focus,
 html.accent-schwarzrotgold #country-map .st:focus-visible{
@@ -313,3 +349,5 @@ html.accent-schwarzrotgold #country-map #g-lb text.ap-label.on-gold{
 html.accent-schwarzrotgold #country-map .lbl.sel.on-gold{
   fill:#0B1719 !important;
 }
+
+html.accent-schwarzrotgold #country-map text.de-clip{display:none !important}

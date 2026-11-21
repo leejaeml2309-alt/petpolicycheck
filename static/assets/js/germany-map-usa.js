@@ -224,8 +224,15 @@
   function toneLabelsForBands(){
     var m=document.querySelector('#country-map svg#map');
     if(!m) return;
-    var flag=window.PPC_DE_FLAG||{};
-    var goldFrom=flag.goldFrom!=null?flag.goldFrom:388;
+    var gold=(window.PPC_DE_FLAG&&window.PPC_DE_FLAG.gold)||{RP:1,SL:1,BY:1,BW:1};
+    function regionOf(t){
+      if(t.id&&t.id.indexOf('l-')===0) return t.id.slice(2);
+      var abbr=t.getAttribute('data-abbr');
+      if(abbr) return abbr;
+      var host=t.closest('.ct')||t.closest('.ap')||t.closest('[data-s]')||t.closest('[data-region]');
+      if(!host) return '';
+      return host.getAttribute('data-s')||host.getAttribute('data-region')||'';
+    }
     var nodes=m.querySelectorAll('#g-lb text.lbl, #g-ct .ct text, #g-ap text.map-label, #g-lb text.ct-label, #g-lb text.ap-label');
     nodes.forEach(function(t){
       var cs=getComputedStyle(t);
@@ -233,18 +240,61 @@
         t.classList.remove('on-gold');
         return;
       }
-      if(svgMidY(t)>=goldFrom) t.classList.add('on-gold');
+      if(gold[regionOf(t)]) t.classList.add('on-gold');
       else t.classList.remove('on-gold');
     });
   }
 
+
+  function installSilhouette(){
+    var svg=document.querySelector('#country-map svg#map');
+    var gst=document.getElementById('g-st');
+    if(!svg||!gst) return;
+    var sil=document.getElementById('g-sil');
+    if(sil) sil.parentNode.removeChild(sil);
+    sil=document.createElementNS('http://www.w3.org/2000/svg','g');
+    sil.setAttribute('id','g-sil');
+    sil.setAttribute('aria-hidden','true');
+    gst.parentNode.insertBefore(sil, gst);
+    var fills=(window.PPC_DE_FLAG&&window.PPC_DE_FLAG.fills)||{};
+    gst.querySelectorAll('path.st, path').forEach(function(p){
+      var c=p.cloneNode(false);
+      c.removeAttribute('id');
+      c.removeAttribute('tabindex');
+      c.removeAttribute('role');
+      c.classList.remove('st','sel','hub','rule');
+      var id=(p.id||'').replace(/^s-/,'');
+      if(fills[id]) c.style.setProperty('--de-sil-fill', fills[id]);
+      sil.appendChild(c);
+    });
+  }
+
+
+  function hideOverflowLabels(){
+    var svg=document.querySelector('#country-map svg#map');
+    if(!svg) return;
+    var sb=svg.getBoundingClientRect();
+    svg.querySelectorAll('text').forEach(function(t){
+      t.classList.remove('de-clip');
+      var cs=getComputedStyle(t);
+      if(cs.display==='none'||cs.visibility==='hidden') return;
+      var a=t.getBoundingClientRect();
+      if(a.width<2||a.height<2) return;
+      var clipL=sb.left-a.left, clipR=a.right-sb.right, clipT=sb.top-a.top, clipB=a.bottom-sb.bottom;
+      /* Hide labels that would read as fragments at the viewBox edge (e.g. "aden" from Baden-Baden). */
+      if(clipL>6||clipR>6||clipT>10||clipB>20) t.classList.add('de-clip');
+    });
+  }
+
   function run(){
+    installSilhouette();
     applyLandCodes();
     restoreAirports();
     hideDuplicateCityNames();
     resolveLands();
     dropZoomOnlyCollisions();
     toneLabelsForBands();
+    hideOverflowLabels();
   }
 
   CFG.afterLabels=run;
