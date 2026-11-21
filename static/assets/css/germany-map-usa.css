@@ -1,5 +1,5 @@
-/* Germany map — USA system (density choropleth, typography, airport tags).
-   Loaded only on germany-map pages. Gold selection stays #6d5a2c. */
+/* Germany map — USA typography & airport tags; flag-band fill (N→S).
+   Loaded only on germany-map pages. Gold selection stays visible on all bands. */
 
 html.accent-schwarzrotgold #country-map,
 html.accent-schwarzrotgold #country-map svg#map{
@@ -20,11 +20,9 @@ html.accent-schwarzrotgold #country-map svg#map{
   --lbl-airport-zoom-px:8.5px;
   --lbl-name-zoom-px:7.5px;
   --lbl-track:.18em;
-  --de-t1:#E2B84A;
-  --de-t2:#C48A1C;
-  --de-t3:#9A6410;
-  --de-t4:#72480C;
-  --de-t5:#4A2E08;
+  --de-flag-black:#2A2A2A;
+  --de-flag-red:#C4333A;
+  --de-flag-gold:#D4A627;
   --map-vb-w:460;
 }
 #country-map,
@@ -56,23 +54,30 @@ html.accent-schwarzrotgold #country-map svg#map.is-zoomed{
   --lbl-name-px:var(--lbl-name-zoom-px);
 }
 
-/* Saturated gold/amber density ramp (light → dark). */
-html.accent-schwarzrotgold #country-map .st.st-t1{fill:#E2B84A !important}
-html.accent-schwarzrotgold #country-map .st.st-t2{fill:#C48A1C !important}
-html.accent-schwarzrotgold #country-map .st.st-t3{fill:#9A6410 !important}
-html.accent-schwarzrotgold #country-map .st.st-t4{fill:#72480C !important}
-html.accent-schwarzrotgold #country-map .st.st-t5{fill:#4A2E08 !important}
-html.accent-schwarzrotgold #country-map .st{
+/* Continuous German flag bands, north → south, one shared SVG gradient. */
+html.accent-schwarzrotgold #country-map .st,
+html.accent-schwarzrotgold #country-map .st.st-t1,
+html.accent-schwarzrotgold #country-map .st.st-t2,
+html.accent-schwarzrotgold #country-map .st.st-t3,
+html.accent-schwarzrotgold #country-map .st.st-t4,
+html.accent-schwarzrotgold #country-map .st.st-t5,
+html.accent-schwarzrotgold #country-map .st:hover:not(.sel){
+  fill:url(#de-flag-fill) !important;
   stroke:#1A1408 !important;
   stroke-width:.95px !important;
   vector-effect:non-scaling-stroke;
+  filter:none;
 }
 html.accent-schwarzrotgold #country-map .st.hub{filter:none}
+html.accent-schwarzrotgold #country-map .st:hover:not(.sel){
+  stroke:#F0D58C !important;
+  stroke-width:1.7px !important;
+}
 html.accent-schwarzrotgold #country-map .st.sel,
 html.accent-schwarzrotgold #country-map .st.sel:hover{
   fill:#6D5A2C !important;
-  stroke:#F0D58C !important;
-  stroke-width:2px !important;
+  stroke:#F8E7B5 !important;
+  stroke-width:2.4px !important;
   filter:none !important;
 }
 html.accent-schwarzrotgold #country-map .st:focus,
@@ -180,16 +185,16 @@ html.accent-schwarzrotgold #country-map .ap-link{
   pointer-events:none;
 }
 
-/* Density legend swatch. */
+/* Flag-band legend swatch (north → south). */
 html.accent-schwarzrotgold #country-map .dens-swatch{
   display:inline-block;
-  width:72px;
-  height:10px;
-  border-radius:999px;
-  vertical-align:-1px;
-  margin-right:6px;
-  background:linear-gradient(90deg,#E2B84A,#C48A1C,#9A6410,#72480C,#4A2E08);
-  box-shadow:inset 0 0 0 1px rgba(244,239,230,.35);
+  width:11px;
+  height:22px;
+  border-radius:2px;
+  vertical-align:-6px;
+  margin-right:8px;
+  background:linear-gradient(180deg,#2A2A2A 0 32%,#C4333A 38% 62%,#D4A627 68% 100%);
+  box-shadow:inset 0 0 0 1px rgba(244,239,230,.28);
 }
 html.accent-schwarzrotgold #country-map .legend .dens-label{
   font-size:.78rem;
@@ -288,4 +293,23 @@ html.accent-schwarzrotgold #country-map .lbl-legend .ll-a b{
 }
 @media (max-width:720px){
   html.accent-schwarzrotgold #country-map .lbl-legend{font-size:11px;gap:8px 12px;margin-top:8px}
+}
+
+/* Dark type on the southern gold band — no halo (ivory/amber would vanish on gold). */
+html.accent-schwarzrotgold #country-map .lbl.on-gold,
+html.accent-schwarzrotgold #country-map #g-lb text.lbl.on-gold,
+html.accent-schwarzrotgold #country-map .ct text.on-gold,
+html.accent-schwarzrotgold #country-map #g-lb text.ct-label.on-gold,
+html.accent-schwarzrotgold #country-map .ct.cap text.on-gold,
+html.accent-schwarzrotgold #country-map .ap text.on-gold,
+html.accent-schwarzrotgold #country-map .ap text.map-label.on-gold,
+html.accent-schwarzrotgold #country-map #g-lb text.ap-label.on-gold{
+  fill:#14110C !important;
+  stroke:none !important;
+  stroke-width:0 !important;
+  filter:none !important;
+  paint-order:fill;
+}
+html.accent-schwarzrotgold #country-map .lbl.sel.on-gold{
+  fill:#0B1719 !important;
 }

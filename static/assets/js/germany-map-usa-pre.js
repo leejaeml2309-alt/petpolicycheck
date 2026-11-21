@@ -6,6 +6,38 @@
   var svg=document.getElementById('map');
   if(svg) svg.setAttribute('viewBox', VIEW.join(' '));
 
+  /* Shared north→south flag gradient, in map user units, before paths paint. */
+  (function installFlagGradient(){
+    var svg=document.getElementById('map');
+    if(!svg) return;
+    var Y0=44, Y1=582, X=440;
+    var ns='http://www.w3.org/2000/svg';
+    var defs=svg.querySelector('#de-flag-defs');
+    if(!defs){
+      defs=document.createElementNS(ns,'defs');
+      defs.setAttribute('id','de-flag-defs');
+      var lg=document.createElementNS(ns,'linearGradient');
+      lg.setAttribute('id','de-flag-fill');
+      lg.setAttribute('gradientUnits','userSpaceOnUse');
+      lg.setAttribute('x1', String(X));
+      lg.setAttribute('x2', String(X));
+      lg.setAttribute('y1', String(Y0));
+      lg.setAttribute('y2', String(Y1));
+      /* Equal flag bands with short, smooth blends — not a per-Land mix. */
+      var stops=[['0','#2A2A2A'],['0.26','#2A2A2A'],['0.36','#C4333A'],['0.64','#C4333A'],['0.74','#D4A627'],['1','#D4A627']];
+      stops.forEach(function(s){
+        var st=document.createElementNS(ns,'stop');
+        st.setAttribute('offset', s[0]);
+        st.setAttribute('stop-color', s[1]);
+        lg.appendChild(st);
+      });
+      defs.appendChild(lg);
+      svg.insertBefore(defs, svg.firstChild);
+    }
+    /* 0.64 = start of the red→gold blend, so labels on orange/gold go dark. */
+    window.PPC_DE_FLAG={y0:Y0, y1:Y1, goldFrom:Y0+(Y1-Y0)*0.64, colors:['#2A2A2A','#C4333A','#D4A627']};
+  })();
+
   var GEO=window.DE_GEO||CFG.geo||{};
   var APS=window.DE_GEO_AIRPORTS||CFG.airports||[];
   var DATA=window.DE_MAP_DATA||CFG.data||{};

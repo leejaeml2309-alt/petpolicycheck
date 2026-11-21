@@ -211,12 +211,40 @@
       '<span class="ll-a"><b aria-hidden="true">'+sm.a+'</b>'+L.a+'</span>';
   }
 
+
+  function svgMidY(el){
+    var m=document.querySelector('#country-map svg#map');
+    if(!m||!el) return 0;
+    var mb=m.getBoundingClientRect();
+    var b=el.getBoundingClientRect();
+    var vb=m.viewBox && m.viewBox.baseVal;
+    var y0=vb?vb.y:0, h=vb?vb.height:590;
+    return y0+((b.top+b.bottom)/2-mb.top)*h/mb.height;
+  }
+  function toneLabelsForBands(){
+    var m=document.querySelector('#country-map svg#map');
+    if(!m) return;
+    var flag=window.PPC_DE_FLAG||{};
+    var goldFrom=flag.goldFrom!=null?flag.goldFrom:388;
+    var nodes=m.querySelectorAll('#g-lb text.lbl, #g-ct .ct text, #g-ap text.map-label, #g-lb text.ct-label, #g-lb text.ap-label');
+    nodes.forEach(function(t){
+      var cs=getComputedStyle(t);
+      if(cs.display==='none'||cs.visibility==='hidden'){
+        t.classList.remove('on-gold');
+        return;
+      }
+      if(svgMidY(t)>=goldFrom) t.classList.add('on-gold');
+      else t.classList.remove('on-gold');
+    });
+  }
+
   function run(){
     applyLandCodes();
     restoreAirports();
     hideDuplicateCityNames();
     resolveLands();
     dropZoomOnlyCollisions();
+    toneLabelsForBands();
   }
 
   CFG.afterLabels=run;
