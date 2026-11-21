@@ -594,8 +594,24 @@ header.top .nav a{
   .plink-row > .plink{width:100%}
 }
 
-/* Restored full menu (2026-11-12): keep the open Menu dropdown inside the screen and scrollable on short viewports */
-@media (max-width:1099px){.top .nav.menu.open{flex-wrap:nowrap;max-height:calc(100vh - 84px);max-height:calc(100dvh - 84px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}.top .nav.menu.open>*{flex-shrink:0}}
+/* Restored full menu (2026-11-12): keep the open Menu dropdown inside the screen and scrollable on short viewports.
+   .nav uses justify-content:flex-end to right-align the desktop row. On the column dropdown that packs
+   overflowing items above the scrollport, where overflow-y:auto cannot reach them (scrollTop cannot go
+   negative). flex-start puts overflow at the bottom so the panel can scroll. */
+@media (max-width:1099px){
+  .top .nav.menu.open{
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    max-height:calc(100vh - 84px);
+    max-height:calc(100dvh - 84px);
+    max-height:calc(100dvh - 84px - env(safe-area-inset-bottom, 0px));
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+    touch-action:pan-y;
+  }
+  .top .nav.menu.open>*{flex-shrink:0}
+}
 /* Header groups (Marc 2026-11-13): all 13 hubs stay on ONE desktop row,
    with a compact vertical rule between Rides and Forum. Mobile drawer keeps a line break. */
 :root{--theme-vet:#7cc9b5;--theme-k9:#cfa57a;--theme-service:#86aee6;--theme-adoptions:#d1848c;--theme-news:#3e8e8a}
