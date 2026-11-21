@@ -1,24 +1,38 @@
 /* ES locale strings for /es/ home (BOOK_USA stays page-provided). */
 (function(){var ES={guideAvail:" • guía disponible",guideParen:" (guía disponible)",guidesOG:"Guías por país",allOG:"Todos los países",guideStar:"  ★ guía",close:"Cerrar",bookH:"Hoteles y traslados que admiten mascotas",bookLede:"Normas para mascotas de hoteles por ciudad, y traslados del aeropuerto al hotel.",bookCta:"Información de hoteles que admiten mascotas →",usaSoon:"Guía completa de EE. UU. próximamente.",reqPrefix:"Solicitud de guía de país: ",reqCta:"Solicitar este país",topTitleLink:"Normas de viaje con mascotas · perros y gatos",mapNote:"Haga clic en un estado para las normas de entrada, luego en una ciudad para taxis, trenes, vuelos y hoteles que admiten mascotas.",flyingThere:"¿Vuela hacia allá?",comparePolicies:"Compare las políticas de mascotas de las aerolíneas ✈",underseat:"Medidas de transportadora bajo el asiento",topTitleUncovered:"Normas de importación de mascotas",notVerified:"Todavía no hemos verificado {name}.",uncoveredBody:"Cada guía de país en PetPolicyCheck se verifica con la fuente oficial del gobierno y se fecha, así que solo publicamos un país cuando eso está hecho. Guías hasta ahora: {list}.",forumCta:"Pregunte a la comunidad en el foro",airlineLink:"Políticas de mascotas de las aerolíneas ✈",topTitleLegacy:"Normas de importación de mascotas · perros y gatos",mainHealth:"Principales normas sanitarias y obligaciones",officialProc:"Procedimiento oficial",summaryNote:"Resumen de la página oficial, verificado {date}. Las normas cambian: siga siempre la página oficial y contacte al Animal Quarantine Service en su aeropuerto de llegada.",vetClinicsTokyo:"Clínicas veterinarias (Tokio, en inglés)",websiteSrc:"Sitio web / fuente ↗",clinicNote:"Datos de clínicas copiados del sitio de cada clínica (consultado el 23 oct 2026). Incluirlas no es un respaldo; llame antes para confirmar horarios y servicios."};
 var IT={"guideAvail":" • guida disponibile","guideParen":" (guida disponibile)","guidesOG":"Guide per paese","allOG":"Tutti i paesi","guideStar":"  ★ guida","close":"Chiudi","bookH":"Hotel e trasferimenti pet-friendly","bookLede":"Regole degli hotel per gli animali per città, e informazioni sul trasferimento dall’aeroporto all’hotel.","bookCta":"Informazioni sugli hotel pet-friendly →","usaSoon":"Guida completa sugli Stati Uniti in arrivo.","reqPrefix":"Richiesta di guida paese: ","reqCta":"Richieda questo paese","topTitleLink":"Norme di viaggio con animali · cani e gatti","mapNote":"Faccia clic su uno Stato per le norme di ingresso, poi su una città per taxi, treni, voli e hotel pet-friendly.","flyingThere":"Vola verso quella destinazione?","comparePolicies":"Confronti le policy delle compagnie per gli animali ✈","underseat":"Misure dei trasportini sotto il sedile","topTitleUncovered":"Norme di importazione degli animali","notVerified":"Non abbiamo ancora verificato {name}.","uncoveredBody":"Ogni guida paese su PetPolicyCheck è verificata sulla fonte ufficiale del governo e datata, quindi pubblichiamo un paese solo quando questo è fatto. Guide finora: {list}.","forumCta":"Chieda alla community nel forum","airlineLink":"Policy delle compagnie per gli animali ✈","topTitleLegacy":"Norme di importazione degli animali · cani e gatti","mainHealth":"Principali norme sanitarie e obblighi","officialProc":"Procedura ufficiale","summaryNote":"Sintesi della pagina ufficiale, verificata il {date}. Le norme cambiano: segua sempre la pagina ufficiale e contatti l’Animal Quarantine Service all’aeroporto di arrivo.","vetClinicsTokyo":"Cliniche veterinarie (Tokyo, in inglese)","websiteSrc":"Sito web / fonte ↗","clinicNote":"Dati delle cliniche copiati dal sito di ciascuna clinica (consultato il 23 ott 2026). Includerle non è un endorsement; chiami in anticipo per confermare orari e servizi."};
+var DE={guideAvail:" • Leitfaden verfügbar",guideParen:" (Leitfaden verfügbar)",guidesOG:"Leitfäden nach Land",allOG:"Alle Länder",guideStar:"  ★ Leitfaden",close:"Schließen"};
+var DE_PIN={"USA":"USA","United States":"USA","Canada":"Kanada","Mexico":"Mexiko","UK":"UK","United Kingdom":"UK","France":"Frankreich","Germany":"Deutschland","Italy":"Italien","Spain":"Spanien","Japan":"Japan","South Korea":"Südkorea","Australia":"Australien"};
 function ppcHomeLang(){
   try{
     var loc=(document.documentElement.getAttribute('data-ppc-locale')||'');
-    if(loc==='es'||loc==='it') return loc;
+    if(loc==='es'||loc==='it'||loc==='de') return loc;
     var hl=(document.documentElement.lang||'').toLowerCase();
     if(hl.indexOf('es')===0) return 'es';
     if(hl.indexOf('it')===0) return 'it';
+    /* Path and data-ppc-locale decide DE. Do not read html[lang]=de:
+       ppc-i18n may set that from localStorage on EN pages. */
     var pn=location.pathname||'';
     if(pn.indexOf('/es/')===0 || pn==='/es') return 'es';
     if(pn.indexOf('/it/')===0 || pn==='/it') return 'it';
+    if(pn.indexOf('/de/')===0 || pn==='/de') return 'de';
   }catch(e){}
   return 'en';
 }
-function ppcHS(k, en){var lang=ppcHomeLang();return (lang==='es' && ES[k]) ? ES[k] : (lang==='it' && IT[k]) ? IT[k] : en;}
-window.PPC_HOME_I18N={lang:ppcHomeLang,es:ES,it:IT,t:ppcHS};
-window.ppcHS=ppcHS;
+function ppcHS(k, en){var lang=ppcHomeLang();return (lang==='es' && ES[k]) ? ES[k] : (lang==='it' && IT[k]) ? IT[k] : (lang==='de' && DE[k]) ? DE[k] : en;}
+function ppcGuidePinText(G){
+  var raw=(G && (G.short||G.name))||'';
+  if(ppcHomeLang()==='de'){
+    var n=DE_PIN[raw]||DE_PIN[G && G.name]||raw;
+    return n+'-Leitfaden';
+  }
+  return raw+' guide';
+}
+window.PPC_HOME_I18N={lang:ppcHomeLang,es:ES,it:IT,de:DE,t:ppcHS,pin:ppcGuidePinText};
+window.ppcHS=ppcHS;window.ppcGuidePinText=ppcGuidePinText;
 })();
 var ppcHS=window.ppcHS;
+var ppcGuidePinText=window.ppcGuidePinText;
 (function(){
 var W=960,H=500,VH=H,marks=[],svg=d3.select('#world-map'),tip=document.getElementById('tip'),box=document.getElementById('mapbox');
 var countries=topojson.feature(ATLAS,ATLAS.objects.countries).features.filter(function(f){return f.id!=='010'&&f.properties.name!=='Antarctica'});
@@ -75,7 +89,7 @@ Object.keys(GUIDES).forEach(function(id){var f=countries.find(function(c){return
  var Gpin=GUIDES[id], lx=Gpin.label_dx!=null?Gpin.label_dx:(Gpin.label_left?-9:9), ly=Gpin.label_dy!=null?Gpin.label_dy:4;
  var anchor=Gpin.label_left?'end':(Gpin.label_anchor||null);
  if(Math.hypot(lx,ly)>14){pin.append('line').attr('class','pin-leader').attr('x1',0).attr('y1',0).attr('x2',lx*0.82).attr('y2',ly*0.82)}
- pin.append('text').attr('x',lx).attr('text-anchor',anchor).attr('y',ly).text((Gpin.short||Gpin.name)+' guide')});
+ pin.append('text').attr('x',lx).attr('text-anchor',anchor).attr('y',ly).text(ppcGuidePinText(Gpin))});
 /* Decorative dashed bridges (behind pins/labels, pointer-events none).
    16 routes: Korea–Japan; USA to UK/FR/DE/IT/ES/AU/CA/MX; Australia to
    KR/JP/UK/FR/DE/IT/ES. Each is a single quadratic Bézier in projected
