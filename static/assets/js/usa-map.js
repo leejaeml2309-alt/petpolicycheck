@@ -21,12 +21,15 @@ function mountLabelLegend(){
   const lang = ((document.documentElement.lang||'') + ' ' + (document.documentElement.getAttribute('data-lang')||'')).toLowerCase();
   let loc='en';
   try{ loc = (localStorage.getItem('ppc_lang')||loc); }catch(_){}
-  if(/\bit\b/.test(lang) || loc==='it') loc='it';
+  if(/^\/de(\/|$)/.test(location.pathname) || /\bde\b/.test(lang)) loc='de';
+  else if(/\bit\b/.test(lang) || loc==='it') loc='it';
   else if(/\bes\b/.test(lang) || loc==='es') loc='es';
   const L = loc==='es'
     ? {r:'Estados', c:'Ciudades', k:'Capital', a:'Aeropuertos', aria:'Leyenda de etiquetas'}
     : loc==='it'
     ? {r:'Stati', c:'Città', k:'Capitale', a:'Aeroporti', aria:'Legenda etichette'}
+    : loc==='de'
+    ? {r:'Bundesstaaten', c:'Städte', k:'Hauptstadt', a:'Flughäfen', aria:'Legende der Beschriftungen'}
     : {r:'States', c:'Cities', k:'Capital', a:'Airports', aria:'Label colour legend'};
   const sm={r:'TX',c:'Chicago',k:'Denver',a:'LAX'};
   let box=host.querySelector('.lbl-legend');
@@ -527,6 +530,7 @@ function usaUiLang(){
   const lang=((document.documentElement.lang||'')+' '+(document.documentElement.getAttribute('data-lang')||'')+' '+(document.documentElement.getAttribute('data-ppc-locale')||'')).toLowerCase();
   let loc='en';
   try{ loc=localStorage.getItem('ppc_lang')||loc; }catch(_){}
+  if(/^\/de(?:\/|$)/.test(location.pathname) || /\bde\b/.test(lang)) return 'de';
   if(/\/it(?:\/|$)/.test(location.pathname) || /\bit\b/.test(lang) || loc==='it') return 'it';
   if(/\/es(?:\/|$)/.test(location.pathname) || /\bes\b/.test(lang) || loc==='es') return 'es';
   if(/\/fr(?:\/|$)/.test(location.pathname) || /\bfr\b/.test(lang) || loc==='fr') return 'fr';
@@ -574,6 +578,16 @@ function usaUi(){
       serving:n=>'Aéroports desservant '+n,
       cityPanel:n=>'Panneau de la ville : taxis et hôtels à '+n,
       zoomIn:'Zoom avant', zoomOut:'Zoom arrière', resetView:'Réinitialiser la carte'
+    },
+    de:{
+      pickTitle:'Wählen Sie einen Bundesstaat oder eine Stadt',
+      pickLead:'Klicken Sie auf einen der 50 Bundesstaaten der Karte (oder nutzen Sie die Liste), um sein Rechtsportal zu öffnen. Goldene Städte haben den vollständigen Buchungsleitfaden. Die Flugzeugsymbole markieren die Flughäfen dieser Stadt:',
+      journey:'Reihenfolge der Reise: 1 Tierarzt + Gesetze → 2 Straße/Bahn → 3 Flug → 4 Hotel → 5 Pflege.',
+      choose:'Wählen Sie einen Bundesstaat…',
+      fifty:'50 Bundesstaaten',
+      serving:n=>'Flughäfen für '+n,
+      cityPanel:n=>'Stadt-Panel: Taxis und Hotels in '+n,
+      zoomIn:'Vergrößern', zoomOut:'Verkleinern', resetView:'Kartenansicht zurücksetzen'
     }
   };
   return pack[loc]||pack.en;

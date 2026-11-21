@@ -6,7 +6,7 @@
   var root = document.getElementById('planner-app');
   if (!root) return;
   var htmlLang = document.documentElement.getAttribute('data-ppc-locale');
-  var LANG = htmlLang || ((location.pathname.match(/^\/(it|es|fr)\//) || [])[1]) || 'en';
+  var LANG = htmlLang || ((location.pathname.match(/^\/(it|es|fr|de)\//) || [])[1]) || 'en';
   var I = window.PPC_PLANNER_I18N || {};
   var S = I[LANG] || I.en;
   var CN = (window.PPC_PLANNER_COUNTRY_NAMES || {})[LANG] || (window.PPC_PLANNER_COUNTRY_NAMES || {}).en || {};

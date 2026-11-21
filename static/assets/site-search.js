@@ -33,6 +33,12 @@
       Transport: "Transport", Airlines: "Compagnies aériennes", Routes: "Itinéraires",
       Hotels: "Hôtels", Guides: "Guides", Veterans: "Anciens combattants",
       Pro: "Pet Desk Pro", Tools: "Outils", Legal: "Mentions légales"
+    },
+    de: {
+      Countries: "Länder", Cities: "Städte", Airports: "Flughäfen",
+      Transport: "Transport", Airlines: "Airlines", Routes: "Strecken",
+      Hotels: "Hotels", Guides: "Leitfäden", Veterans: "Veteranen",
+      Pro: "Pet Desk Pro", Tools: "Tools", Legal: "Rechtliches"
     }
   };
   var ICONS = {
@@ -361,6 +367,14 @@
       statusOne: "1 suggestion",
       statusMany: "{n} suggestions",
       unavailable: "Index de recherche indisponible"
+    },
+    de: {
+      clear: "Suche löschen",
+      placeholder: "Airlines, Strecken, Hotels suchen…",
+      none: "Keine Ergebnisse für „{q}“",
+      statusOne: "1 Vorschlag",
+      statusMany: "{n} Vorschläge",
+      unavailable: "Suchindex nicht verfügbar"
     }
   };
 
@@ -372,7 +386,7 @@
     var fromRoot = root && root.getAttribute("data-lang");
     var fromHtml = document.documentElement.getAttribute("data-ppc-locale") || document.documentElement.lang;
     var lang = (fromRoot || fromHtml || "en").split("-")[0].toLowerCase();
-    if (lang === "es" || lang === "en" || lang === "it" || lang === "fr") return lang;
+    if (lang === "es" || lang === "en" || lang === "it" || lang === "fr" || lang === "de") return lang;
     return "en";
   }
 
