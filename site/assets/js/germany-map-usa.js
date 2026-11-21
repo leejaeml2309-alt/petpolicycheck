@@ -178,6 +178,39 @@
     }
   }
 
+
+  function isDe(){
+    try{
+      var path=location.pathname||'';
+      return path==='/de'||path.indexOf('/de/')===0||document.documentElement.getAttribute('data-ppc-locale')==='de';
+    }catch(_){ return false; }
+  }
+
+  /* USA-style typography key: dark sample chips + plain readable labels. */
+  function mountUsaStyleLegend(){
+    var root=document.getElementById('country-map');
+    var host=root && root.querySelector('.mapcard');
+    if(!host) return;
+    var de=isDe();
+    var L=de
+      ? {r:'Regionen', c:'Städte', k:'Hauptstadt', a:'Internationale Flughäfen', aria:'Legende der Beschriftungen'}
+      : {r:'Regions', c:'Cities', k:'Capital', a:'International airports', aria:'Label colour legend'};
+    var sm={r:'BY', c:de?'Nürnberg':'Nuremberg', k:'Dresden', a:'MUC'};
+    var box=host.querySelector('.lbl-legend');
+    if(!box){
+      box=document.createElement('div');
+      box.className='lbl-legend';
+      box.setAttribute('role','note');
+      host.appendChild(box);
+    }
+    box.setAttribute('aria-label', L.aria);
+    box.innerHTML=
+      '<span class="ll-r"><i aria-hidden="true">'+sm.r+'</i>'+L.r+'</span>'+
+      '<span class="ll-c"><i aria-hidden="true">'+sm.c+'</i>'+L.c+'</span>'+
+      '<span class="ll-k"><i aria-hidden="true">'+sm.k+'</i>'+L.k+'</span>'+
+      '<span class="ll-a"><b aria-hidden="true">'+sm.a+'</b>'+L.a+'</span>';
+  }
+
   function run(){
     applyLandCodes();
     restoreAirports();
@@ -188,6 +221,7 @@
 
   CFG.afterLabels=run;
   run();
+  mountUsaStyleLegend();
   if(window.PPC_mapView && typeof window.PPC_mapView.refreshLabels==='function'){
     requestAnimationFrame(function(){ window.PPC_mapView.refreshLabels(); });
   }

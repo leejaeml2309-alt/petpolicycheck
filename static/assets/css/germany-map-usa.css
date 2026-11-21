@@ -210,3 +210,82 @@ html.accent-schwarzrotgold #country-map #g-lb text.ct-label-crowd,
 html.accent-schwarzrotgold #country-map .ap text.map-name{
   display:none !important;
 }
+
+
+/* Bottom typography key — USA option A: dark type samples, readable muted labels.
+   Overrides the shared white chip + ivory “Regionen” (white-on-white). */
+html.accent-schwarzrotgold #country-map .lbl-legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 16px;
+  align-items:center;
+  margin:10px 4px 0;
+  padding:8px 4px 0;
+  border-top:1px solid rgba(255,255,255,.08);
+  font:600 12px/1.3 Inter,system-ui,sans-serif;
+  color:#d7ddd8;
+}
+html.accent-schwarzrotgold #country-map .lbl-legend span,
+html.accent-schwarzrotgold #country-map .lbl-legend .ll-r,
+html.accent-schwarzrotgold #country-map .lbl-legend .ll-c,
+html.accent-schwarzrotgold #country-map .lbl-legend .ll-k,
+html.accent-schwarzrotgold #country-map .lbl-legend .ll-a{
+  display:inline-flex !important;
+  align-items:center;
+  gap:6px;
+  background:transparent !important;
+  color:#d7ddd8 !important;
+  padding:0 !important;
+  border-radius:0;
+  font-variant:normal;
+  text-transform:none;
+  letter-spacing:0;
+  font-weight:600;
+  white-space:nowrap;
+}
+html.accent-schwarzrotgold #country-map .lbl-legend i,
+html.accent-schwarzrotgold #country-map .lbl-legend b{
+  display:inline-block;
+  width:auto !important;
+  height:auto !important;
+  min-width:0;
+  box-shadow:none !important;
+  border-radius:2px;
+  padding:1px 5px;
+  font-size:10px;
+  line-height:1.3;
+  font-style:normal;
+  font-weight:700;
+  background:#0B1719 !important;
+}
+html.accent-schwarzrotgold #country-map .lbl-legend .ll-r i{
+  color:#F4EFE6 !important;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-weight:700;
+  font-style:normal;
+  font-variant:normal;
+}
+html.accent-schwarzrotgold #country-map .lbl-legend .ll-c i{
+  color:#FFB547 !important;
+  font-style:italic !important;
+  font-weight:500;
+  text-transform:none;
+  letter-spacing:0;
+}
+html.accent-schwarzrotgold #country-map .lbl-legend .ll-k i{
+  color:#FFD56A !important;
+  font-style:normal;
+  font-weight:700;
+  text-transform:none;
+  letter-spacing:0;
+}
+html.accent-schwarzrotgold #country-map .lbl-legend .ll-a b{
+  color:#7ED0E6 !important;
+  font-style:normal;
+  font-weight:700;
+  font-family:Inter,system-ui,sans-serif;
+}
+@media (max-width:720px){
+  html.accent-schwarzrotgold #country-map .lbl-legend{font-size:11px;gap:8px 12px;margin-top:8px}
+}
