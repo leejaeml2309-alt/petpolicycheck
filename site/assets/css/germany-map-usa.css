@@ -1,0 +1,212 @@
+/* Germany map — USA system (density choropleth, typography, airport tags).
+   Loaded only on germany-map pages. Gold selection stays #6d5a2c. */
+
+html.accent-schwarzrotgold #country-map,
+html.accent-schwarzrotgold #country-map svg#map{
+  --lbl-region:#F4EFE6;
+  --lbl-city:#FFB547;
+  --lbl-capital:#FFD56A;
+  --lbl-airport:#7ED0E6;
+  --lbl-halo:#0B1719;
+  --lbl-halo-ink:#0B1719;
+  --lbl-region-px:10.5px;
+  --lbl-city-px:8px;
+  --lbl-capital-px:8.5px;
+  --lbl-airport-px:7.5px;
+  --lbl-name-px:7px;
+  --lbl-region-zoom-px:12px;
+  --lbl-city-zoom-px:9px;
+  --lbl-capital-zoom-px:9.5px;
+  --lbl-airport-zoom-px:8.5px;
+  --lbl-name-zoom-px:7.5px;
+  --lbl-track:.18em;
+  --de-t1:#E2B84A;
+  --de-t2:#C48A1C;
+  --de-t3:#9A6410;
+  --de-t4:#72480C;
+  --de-t5:#4A2E08;
+  --map-vb-w:460;
+}
+#country-map,
+#country-map svg#map,
+html.accent-schwarzrotgold #country-map,
+html.accent-schwarzrotgold #country-map svg#map{
+  --map-vb-w:460;
+}
+@media (max-width:720px){
+  html.accent-schwarzrotgold #country-map,
+  html.accent-schwarzrotgold #country-map svg#map{
+    --lbl-region-px:11px;
+    --lbl-city-px:9px;
+    --lbl-capital-px:9.5px;
+    --lbl-airport-px:8px;
+    --lbl-name-px:7.5px;
+    --lbl-region-zoom-px:13px;
+    --lbl-city-zoom-px:10px;
+    --lbl-capital-zoom-px:10.5px;
+    --lbl-airport-zoom-px:10px;
+    --lbl-name-zoom-px:8.5px;
+  }
+}
+html.accent-schwarzrotgold #country-map svg#map.is-zoomed{
+  --lbl-region-px:var(--lbl-region-zoom-px);
+  --lbl-city-px:var(--lbl-city-zoom-px);
+  --lbl-capital-px:var(--lbl-capital-zoom-px);
+  --lbl-airport-px:var(--lbl-airport-zoom-px);
+  --lbl-name-px:var(--lbl-name-zoom-px);
+}
+
+/* Saturated gold/amber density ramp (light → dark). */
+html.accent-schwarzrotgold #country-map .st.st-t1{fill:#E2B84A !important}
+html.accent-schwarzrotgold #country-map .st.st-t2{fill:#C48A1C !important}
+html.accent-schwarzrotgold #country-map .st.st-t3{fill:#9A6410 !important}
+html.accent-schwarzrotgold #country-map .st.st-t4{fill:#72480C !important}
+html.accent-schwarzrotgold #country-map .st.st-t5{fill:#4A2E08 !important}
+html.accent-schwarzrotgold #country-map .st{
+  stroke:#1A1408 !important;
+  stroke-width:.95px !important;
+  vector-effect:non-scaling-stroke;
+}
+html.accent-schwarzrotgold #country-map .st.hub{filter:none}
+html.accent-schwarzrotgold #country-map .st.sel,
+html.accent-schwarzrotgold #country-map .st.sel:hover{
+  fill:#6D5A2C !important;
+  stroke:#F0D58C !important;
+  stroke-width:2px !important;
+  filter:none !important;
+}
+html.accent-schwarzrotgold #country-map .st:focus,
+html.accent-schwarzrotgold #country-map .st:focus-visible{
+  outline:none !important;
+}
+
+/* Land codes — USA option A: ivory, bold, uppercase, dark halo, 10.5px. */
+html.accent-schwarzrotgold #country-map .lbl,
+html.accent-schwarzrotgold #country-map #g-lb text.lbl{
+  font-family:Inter,system-ui,sans-serif !important;
+  font-weight:600 !important;
+  font-style:normal !important;
+  font-variant:normal !important;
+  text-transform:uppercase !important;
+  letter-spacing:var(--lbl-track,.18em) !important;
+  fill:var(--lbl-region) !important;
+  stroke:var(--lbl-halo) !important;
+  stroke-linejoin:round !important;
+  paint-order:stroke !important;
+  filter:drop-shadow(0 0 0.6px var(--lbl-halo-ink)) !important;
+  font-size:var(--lbl-region-px) !important;
+  stroke-width:calc(var(--lbl-region-px) * .22) !important;
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+html.accent-schwarzrotgold #country-map .lbl.sel{
+  fill:#FFF7DF !important;
+}
+
+/* Cities (italic amber) and capitals (slightly larger gold). */
+html.accent-schwarzrotgold #country-map .ct text,
+html.accent-schwarzrotgold #country-map #g-lb text.ct-label{
+  font-family:Inter,system-ui,sans-serif !important;
+  font-weight:500 !important;
+  font-style:italic !important;
+  fill:var(--lbl-city) !important;
+  stroke:var(--lbl-halo) !important;
+  stroke-linejoin:round !important;
+  paint-order:stroke !important;
+  filter:drop-shadow(0 0 0.6px var(--lbl-halo-ink)) !important;
+  font-size:var(--lbl-city-px) !important;
+  stroke-width:calc(var(--lbl-city-px) * .22) !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+}
+html.accent-schwarzrotgold #country-map .ct.cap text,
+html.accent-schwarzrotgold #country-map #g-lb text.ct-label.is-cap{
+  fill:var(--lbl-capital) !important;
+  font-weight:600 !important;
+  font-size:var(--lbl-capital-px) !important;
+  stroke-width:calc(var(--lbl-capital-px) * .22) !important;
+}
+
+/* IATA · City tags — cyan, 7.5px, dark halo. */
+html.accent-schwarzrotgold #country-map .ap text,
+html.accent-schwarzrotgold #country-map .ap text.map-label,
+html.accent-schwarzrotgold #country-map #g-lb text.ap-label{
+  font-family:Inter,system-ui,sans-serif !important;
+  font-weight:700 !important;
+  font-style:normal !important;
+  fill:var(--lbl-airport) !important;
+  stroke:var(--lbl-halo) !important;
+  stroke-linejoin:round !important;
+  paint-order:stroke !important;
+  filter:drop-shadow(0 0 0.6px var(--lbl-halo-ink)) !important;
+  font-size:var(--lbl-airport-px) !important;
+  stroke-width:calc(var(--lbl-airport-px) * .26) !important;
+  letter-spacing:.02em !important;
+  text-transform:none !important;
+}
+html.accent-schwarzrotgold #country-map .ap text.map-name{display:none !important}
+html.accent-schwarzrotgold #country-map svg#map.is-zoomed .ap text.map-name{display:none !important}
+
+/* Markers like USA. */
+html.accent-schwarzrotgold #country-map .ct circle{
+  fill:#F2EDE2;
+  stroke:#0B1719;
+  stroke-width:1;
+}
+html.accent-schwarzrotgold #country-map .ct.cap circle{
+  fill:#DCE6F5;
+  stroke:#1F4FA3;
+  stroke-width:1.2;
+}
+html.accent-schwarzrotgold #country-map .ct.cap .ring{
+  fill:none;
+  stroke:#1F4FA3;
+  stroke-width:1.2;
+  opacity:1;
+}
+html.accent-schwarzrotgold #country-map .ap .pad{
+  fill:#0B1719;
+  stroke:#7EC8E3;
+  stroke-width:1.3;
+}
+html.accent-schwarzrotgold #country-map .ap .glyph{fill:#D9B765}
+html.accent-schwarzrotgold #country-map .ap.sel .pad{fill:#6D5A2C;stroke:#F0D58C;stroke-width:2}
+html.accent-schwarzrotgold #country-map .ap-link{
+  fill:none;
+  stroke:#D9B765;
+  stroke-width:1;
+  stroke-dasharray:2.4 2.2;
+  opacity:.55;
+  pointer-events:none;
+}
+
+/* Density legend swatch. */
+html.accent-schwarzrotgold #country-map .dens-swatch{
+  display:inline-block;
+  width:72px;
+  height:10px;
+  border-radius:999px;
+  vertical-align:-1px;
+  margin-right:6px;
+  background:linear-gradient(90deg,#E2B84A,#C48A1C,#9A6410,#72480C,#4A2E08);
+  box-shadow:inset 0 0 0 1px rgba(244,239,230,.35);
+}
+html.accent-schwarzrotgold #country-map .legend .dens-label{
+  font-size:.78rem;
+  color:var(--mut,#a9b3a4);
+}
+html.accent-schwarzrotgold #country-map .legend .lg-ap{color:#7EC8E3;font-style:normal;font-weight:700;margin-right:4px}
+
+/* Map fills the card width; no leftover empty frame. */
+html.accent-schwarzrotgold #country-map .mapcard svg#map{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+html.accent-schwarzrotgold #country-map .ct text.lbl-crowd,
+html.accent-schwarzrotgold #country-map .ct text.ct-label-crowd,
+html.accent-schwarzrotgold #country-map #g-lb text.ct-label-crowd,
+html.accent-schwarzrotgold #country-map .ap text.map-name{
+  display:none !important;
+}
