@@ -96,6 +96,8 @@ function boot(){
  var PAST_IT={map:'Mappa del mondo',flight:'Compagnie aeree',hotel:'Hotel',grooming:'Toelettatura',ground:'Trasferimenti',shop:'Prodotti',law:'Norme',forum:'Forum',vet:'Veterinario',k9:'K9',service:'Cani di servizio',veterans:'Veterani',adoptions:'Adozioni',news:'Notizie',b2b:'Per le aziende',Compare:'Confronta',Guides:'Guide',Updates:'Aggiornamenti',About:'Chi siamo'};
  var PAST_ES={map:'Mapa mundial',flight:'Aerolíneas',hotel:'Hoteles',grooming:'Peluquería',ground:'Traslados',shop:'Productos',law:'Normas',forum:'Foro',vet:'Veterinario',k9:'K9',service:'Perros de servicio',veterans:'Veteranos',adoptions:'Adopciones',news:'Noticias',b2b:'Para empresas',Compare:'Comparar',Guides:'Guías',Updates:'Actualizaciones',About:'Acerca de'};
  var PAST_FR={map:'Carte du monde',flight:'Avion',hotel:'Hôtel',grooming:'Toilettage',ground:'Trajets',shop:'Produits',law:'Lois',forum:'Forum',vet:'Vétérinaire',k9:'K9',service:'Chiens d’assistance',veterans:'Vétérans',adoptions:'Adoptions',news:'Actualités',b2b:'Pour les pros',Compare:'Comparer',Guides:'Guides',Updates:'Mises à jour',About:'À propos'};
+ var PAST_DE={map:'Weltkarte',flight:'Fluggesellschaften',hotel:'Hotel',grooming:'Pflege',ground:'Fahrten',shop:'Produkte',law:'Gesetze',forum:'Forum',vet:'Tierarzt',k9:'K9',service:'Assistenzhunde',veterans:'Veteranen',adoptions:'Adoptionen',news:'Nachrichten',b2b:'Für Unternehmen',Compare:'Vergleich',Guides:'Leitfäden',Updates:'Neuigkeiten',About:'Über uns'};
+ /* PAST_DE must be defined before locPack (was declared later, so DE menus fell back to English). */
  var locPack=ppcLangRoot==='/it'?PAST_IT:(ppcLangRoot==='/es'?PAST_ES:(ppcLangRoot==='/fr'?PAST_FR:(ppcLangRoot==='/de'?PAST_DE:null)));
  var plab=function(en,key){return locPack&&locPack[key||en]?locPack[key||en]:en;};
  var V=(new URLSearchParams(location.search).get('nav'))||document.documentElement.dataset.nav||'8';
@@ -104,7 +106,6 @@ function boot(){
  /* Header order (Marc 2026-11-12): first the trip-preparation path (destination, entry laws, vet,
     plane, hotel, grooming, then crate/gear and rides), then the other main sections after a group break. */
  var LNG=ppcLangRoot==='/it'?'it':(ppcLangRoot==='/es'?'es':(ppcLangRoot==='/fr'?'fr':(ppcLangRoot==='/de'?'de':'en')));
- var PAST_DE={map:'Weltkarte',flight:'Flug',hotel:'Hotel',grooming:'Pflege',ground:'Fahrten',shop:'Produkte',law:'Gesetze',forum:'Forum',vet:'Tierarzt',k9:'K9',service:'Assistenzhunde',veterans:'Veteranen',adoptions:'Adoptionen',news:'Nachrichten',b2b:'Für Unternehmen',Compare:'Vergleich',Guides:'Leitfäden',Updates:'Neuigkeiten',About:'Über uns'};
  var CAT={map:['World map','Mappa del mondo','Mapa mundial','Carte du monde','Weltkarte'],law:['Laws','Norme','Leyes','Lois','Gesetze'],vet:['Vet','Veterinario','Veterinario','Vétérinaire','Tierarzt'],
    flight:['Plane','Aereo','Avión','Avion','Flug'],hotel:['Hotel','Hotel','Hotel','Hôtel','Hotel'],grooming:['Grooming','Toelettatura','Peluquería','Toilettage','Pflege'],
    shop:['Products','Prodotti','Productos','Produits','Produkte'],ground:['Rides','Trasferimenti','Traslados','Trajets','Fahrten'],forum:['Forum','Forum','Foro','Forum','Forum'],
