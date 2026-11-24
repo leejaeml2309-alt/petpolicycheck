@@ -3,10 +3,12 @@
 var IT={"guideAvail":" • guida disponibile","guideParen":" (guida disponibile)","guidesOG":"Guide per paese","allOG":"Tutti i paesi","guideStar":"  ★ guida","close":"Chiudi","bookH":"Hotel e trasferimenti pet-friendly","bookLede":"Regole degli hotel per gli animali per città, e informazioni sul trasferimento dall’aeroporto all’hotel.","bookCta":"Informazioni sugli hotel pet-friendly →","usaSoon":"Guida completa sugli Stati Uniti in arrivo.","reqPrefix":"Richiesta di guida paese: ","reqCta":"Richieda questo paese","topTitleLink":"Norme di viaggio con animali · cani e gatti","mapNote":"Faccia clic su uno Stato per le norme di ingresso, poi su una città per taxi, treni, voli e hotel pet-friendly.","flyingThere":"Vola verso quella destinazione?","comparePolicies":"Confronti le policy delle compagnie per gli animali ✈","underseat":"Misure dei trasportini sotto il sedile","topTitleUncovered":"Norme di importazione degli animali","notVerified":"Non abbiamo ancora verificato {name}.","uncoveredBody":"Ogni guida paese su PetPolicyCheck è verificata sulla fonte ufficiale del governo e datata, quindi pubblichiamo un paese solo quando questo è fatto. Guide finora: {list}.","forumCta":"Chieda alla community nel forum","airlineLink":"Policy delle compagnie per gli animali ✈","topTitleLegacy":"Norme di importazione degli animali · cani e gatti","mainHealth":"Principali norme sanitarie e obblighi","officialProc":"Procedura ufficiale","summaryNote":"Sintesi della pagina ufficiale, verificata il {date}. Le norme cambiano: segua sempre la pagina ufficiale e contatti l’Animal Quarantine Service all’aeroporto di arrivo.","vetClinicsTokyo":"Cliniche veterinarie (Tokyo, in inglese)","websiteSrc":"Sito web / fonte ↗","clinicNote":"Dati delle cliniche copiati dal sito di ciascuna clinica (consultato il 23 ott 2026). Includerle non è un endorsement; chiami in anticipo per confermare orari e servizi."};
 var DE={guideAvail:" • Leitfaden verfügbar",guideParen:" (Leitfaden verfügbar)",guidesOG:"Leitfäden nach Land",allOG:"Alle Länder",guideStar:"  ★ Leitfaden",close:"Schließen",bookH:"Haustierfreundliche Hotels und Transfers",bookLede:"Hotelregeln für Haustiere nach Stadt, und Informationen zur Fahrt vom Flughafen zum Hotel.",bookCta:"Informationen zu haustierfreundlichen Hotels →",usaSoon:"Der vollständige USA-Leitfaden erscheint in Kürze.",reqPrefix:"Anfrage für einen Länderleitfaden: ",reqCta:"Dieses Land anfragen",topTitleLink:"Reiseregeln für Haustiere · Hunde und Katzen",mapNote:"Klicken Sie auf eine Region, um die Einreiseregeln zu sehen, dann auf eine Stadt für Taxis, Züge, Flüge und haustierfreundliche Hotels.",flyingThere:"Sie fliegen dorthin?",comparePolicies:"Airline-Regeln für Haustiere vergleichen ✈",underseat:"Maße der Transporttasche unter dem Sitz",topTitleUncovered:"Einreiseregeln für Haustiere",notVerified:"Wir haben {name} noch nicht geprüft.",uncoveredBody:"Jeder Länderleitfaden auf PetPolicyCheck wird anhand der offiziellen Regierungsquelle geprüft und datiert; wir veröffentlichen ein Land erst, wenn das geschehen ist. Leitfäden bisher: {list}.",forumCta:"Fragen Sie die Community im Forum",airlineLink:"Airline-Regeln für Haustiere ✈",topTitleLegacy:"Einreiseregeln für Haustiere · Hunde und Katzen",mainHealth:"Die wichtigsten Gesundheitsregeln und Pflichten",officialProc:"Offizielles Verfahren",summaryNote:"Zusammenfassung der offiziellen Seite, geprüft am {date}. Die Regeln ändern sich: folgen Sie stets der offiziellen Seite und kontaktieren Sie den Animal Quarantine Service an Ihrem Ankunftsflughafen.",vetClinicsTokyo:"Tierkliniken (Tokio, englischsprachig)",websiteSrc:"Website / Quelle ↗",clinicNote:"Klinikangaben von der jeweiligen Website übernommen (konsultiert am 23. Oktober 2026). Die Nennung ist keine Empfehlung; rufen Sie vorher an, um Öffnungszeiten und Leistungen zu bestätigen."};
 var DE_PIN={"USA":"USA","United States":"USA","Canada":"Kanada","Mexico":"Mexiko","UK":"UK","United Kingdom":"UK","France":"Frankreich","Germany":"Deutschland","Italy":"Italien","Spain":"Spanien","Japan":"Japan","South Korea":"Südkorea","Australia":"Australien"};
+var JA={guideAvail:" • ガイドあり",guideParen:"（ガイドあり）",guidesOG:"国別ガイド",allOG:"すべての国",guideStar:"  ★ ガイド",close:"閉じる",bookH:"ペット同伴可ホテルと空港送迎",bookCta:"ペット同伴可ホテルの情報 →",topTitleLink:"ペット旅行の規定 · 犬と猫",flyingThere:"飛行機で行きますか？",comparePolicies:"航空会社のペット規定を比較 ✈",underseat:"座席下キャリーのサイズ",topTitleLegacy:"ペットの入国規定 · 犬と猫",mainHealth:"主な健康規定と義務",officialProc:"公式の手続き",vetClinicsTokyo:"動物病院（東京・英語対応）",websiteSrc:"ウェブサイト / 情報源 ↗",topTitleUncovered:"ペットの入国規定",reqCta:"この国をリクエスト",forumCta:"フォーラムでコミュニティに質問",airlineLink:"航空会社のペット規定 ✈"};
+var JA_PIN={"USA":"米国","United States":"米国","Canada":"カナダ","Mexico":"メキシコ","UK":"英国","United Kingdom":"英国","France":"フランス","Germany":"ドイツ","Italy":"イタリア","Spain":"スペイン","Japan":"日本","South Korea":"韓国","Australia":"オーストラリア"};
 function ppcHomeLang(){
   try{
     var loc=(document.documentElement.getAttribute('data-ppc-locale')||'');
-    if(loc==='es'||loc==='it'||loc==='de') return loc;
+    if(loc==='es'||loc==='it'||loc==='de'||loc==='ja') return loc;
     var hl=(document.documentElement.lang||'').toLowerCase();
     if(hl.indexOf('es')===0) return 'es';
     if(hl.indexOf('it')===0) return 'it';
@@ -16,19 +18,24 @@ function ppcHomeLang(){
     if(pn.indexOf('/es/')===0 || pn==='/es') return 'es';
     if(pn.indexOf('/it/')===0 || pn==='/it') return 'it';
     if(pn.indexOf('/de/')===0 || pn==='/de') return 'de';
+    if(pn.indexOf('/ja/')===0 || pn==='/ja') return 'ja';
   }catch(e){}
   return 'en';
 }
-function ppcHS(k, en){var lang=ppcHomeLang();return (lang==='es' && ES[k]) ? ES[k] : (lang==='it' && IT[k]) ? IT[k] : (lang==='de' && DE[k]) ? DE[k] : en;}
+function ppcHS(k, en){var lang=ppcHomeLang();return (lang==='es' && ES[k]) ? ES[k] : (lang==='it' && IT[k]) ? IT[k] : (lang==='de' && DE[k]) ? DE[k] : (lang==='ja' && JA[k]) ? JA[k] : en;}
 function ppcGuidePinText(G){
   var raw=(G && (G.short||G.name))||'';
   if(ppcHomeLang()==='de'){
     var n=DE_PIN[raw]||DE_PIN[G && G.name]||raw;
     return n+'-Leitfaden';
   }
+  if(ppcHomeLang()==='ja'){
+    var nj=JA_PIN[raw]||JA_PIN[G && G.name]||raw;
+    return nj+'ガイド';
+  }
   return raw+' guide';
 }
-window.PPC_HOME_I18N={lang:ppcHomeLang,es:ES,it:IT,de:DE,t:ppcHS,pin:ppcGuidePinText};
+window.PPC_HOME_I18N={lang:ppcHomeLang,es:ES,it:IT,de:DE,ja:JA,t:ppcHS,pin:ppcGuidePinText};
 window.ppcHS=ppcHS;window.ppcGuidePinText=ppcGuidePinText;
 })();
 var ppcHS=window.ppcHS;

@@ -21,7 +21,8 @@ function mountLabelLegend(){
   const lang = ((document.documentElement.lang||'') + ' ' + (document.documentElement.getAttribute('data-lang')||'')).toLowerCase();
   let loc='en';
   try{ loc = (localStorage.getItem('ppc_lang')||loc); }catch(_){}
-  if(/^\/de(\/|$)/.test(location.pathname) || /\bde\b/.test(lang)) loc='de';
+  if(/^\/ja(\/|$)/.test(location.pathname) || /\bja\b/.test(lang)) loc='ja';
+  else if(/^\/de(\/|$)/.test(location.pathname) || /\bde\b/.test(lang)) loc='de';
   else if(/\bit\b/.test(lang) || loc==='it') loc='it';
   else if(/\bes\b/.test(lang) || loc==='es') loc='es';
   const L = loc==='es'
@@ -30,6 +31,8 @@ function mountLabelLegend(){
     ? {r:'Stati', c:'Città', k:'Capitale', a:'Aeroporti', aria:'Legenda etichette'}
     : loc==='de'
     ? {r:'Bundesstaaten', c:'Städte', k:'Hauptstadt', a:'Flughäfen', aria:'Legende der Beschriftungen'}
+    : loc==='ja'
+    ? {r:'州', c:'都市', k:'州都', a:'空港', aria:'ラベルの凡例'}
     : {r:'States', c:'Cities', k:'Capital', a:'Airports', aria:'Label colour legend'};
   const sm={r:'TX',c:'Chicago',k:'Denver',a:'LAX'};
   let box=host.querySelector('.lbl-legend');
@@ -530,6 +533,7 @@ function usaUiLang(){
   const lang=((document.documentElement.lang||'')+' '+(document.documentElement.getAttribute('data-lang')||'')+' '+(document.documentElement.getAttribute('data-ppc-locale')||'')).toLowerCase();
   let loc='en';
   try{ loc=localStorage.getItem('ppc_lang')||loc; }catch(_){}
+  if(/^\/ja(?:\/|$)/.test(location.pathname) || /\bja\b/.test(lang)) return 'ja';
   if(/^\/de(?:\/|$)/.test(location.pathname) || /\bde\b/.test(lang)) return 'de';
   if(/\/it(?:\/|$)/.test(location.pathname) || /\bit\b/.test(lang) || loc==='it') return 'it';
   if(/\/es(?:\/|$)/.test(location.pathname) || /\bes\b/.test(lang) || loc==='es') return 'es';
@@ -588,6 +592,16 @@ function usaUi(){
       serving:n=>'Flughäfen für '+n,
       cityPanel:n=>'Stadt-Panel: Taxis und Hotels in '+n,
       zoomIn:'Vergrößern', zoomOut:'Verkleinern', resetView:'Kartenansicht zurücksetzen'
+    },
+    ja:{
+      pickTitle:'州または都市を選択してください',
+      pickLead:'地図上の50州のいずれかをクリック（または一覧を使用）すると、その州の法規ポータルが開きます。金色の都市には完全な予約ガイドがあります。飛行機のアイコンはその都市の空港を示しています：',
+      journey:'旅の順序：1 獣医＋法規 → 2 道路・鉄道 → 3 フライト → 4 ホテル → 5 グルーミング。',
+      choose:'州を選択してください…',
+      fifty:'50州',
+      serving:n=>n+'の空港',
+      cityPanel:n=>'都市パネル：'+n+'のタクシーとホテル',
+      zoomIn:'拡大', zoomOut:'縮小', resetView:'地図の表示をリセット'
     }
   };
   return pack[loc]||pack.en;

@@ -39,6 +39,12 @@
       Transport: "Transport", Airlines: "Airlines", Routes: "Strecken",
       Hotels: "Hotels", Guides: "Leitfäden", Veterans: "Veteranen",
       Pro: "Pet Desk Pro", Tools: "Tools", Legal: "Rechtliches"
+    },
+    ja: {
+      Countries: "国", Cities: "都市", Airports: "空港",
+      Transport: "交通", Airlines: "航空会社", Routes: "ルート",
+      Hotels: "ホテル", Guides: "ガイド", Veterans: "退役軍人",
+      Pro: "Pet Desk Pro", Tools: "ツール", Legal: "法的情報"
     }
   };
   var ICONS = {
@@ -60,11 +66,15 @@
   var cache = Object.create(null);
 
   function norm(s) {
-    s = String(s || "").toLowerCase();
+    s = String(s || "");
+    /* NFKC folds full-width Latin/digits and half-width kana (JA queries). */
+    try { s = s.normalize("NFKC"); } catch (e) {}
+    s = s.toLowerCase();
     try {
       s = s.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     } catch (e) {}
-    return s.replace(/[^a-z0-9+#.\s-]+/g, " ").replace(/\s+/g, " ").trim();
+    /* Keep Japanese kana and kanji (incl. NFD voiced marks) so /ja/ search can match unsegmented text by substring. */
+    return s.replace(/[^a-z0-9+#.\s\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff-]+/g, " ").replace(/\s+/g, " ").trim();
   }
 
   function tokens(s) {
@@ -375,6 +385,14 @@
       statusOne: "1 Vorschlag",
       statusMany: "{n} Vorschläge",
       unavailable: "Suchindex nicht verfügbar"
+    },
+    ja: {
+      clear: "検索をクリア",
+      placeholder: "航空会社、ルート、ホテルを検索…",
+      none: "「{q}」に一致する結果はありません",
+      statusOne: "候補1件",
+      statusMany: "候補{n}件",
+      unavailable: "検索インデックスを利用できません"
     }
   };
 
@@ -386,7 +404,7 @@
     var fromRoot = root && root.getAttribute("data-lang");
     var fromHtml = document.documentElement.getAttribute("data-ppc-locale") || document.documentElement.lang;
     var lang = (fromRoot || fromHtml || "en").split("-")[0].toLowerCase();
-    if (lang === "es" || lang === "en" || lang === "it" || lang === "fr" || lang === "de") return lang;
+    if (lang === "es" || lang === "en" || lang === "it" || lang === "fr" || lang === "de" || lang === "ja") return lang;
     return "en";
   }
 

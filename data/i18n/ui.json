@@ -545,7 +545,18 @@
       "home.tools.volunteer": "フライトボランティアキット",
       "home.tools.veterans": "退役軍人・補助犬",
       "site.nav.news": "ニュース",
-      "site.foot.news": "ニュース"
+      "site.foot.news": "ニュース",
+      "site.foot.copyright": "© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission.",
+      "site.foot.see_terms": "See {terms}.",
+      "site.foot.vets": "提携獣医",
+      "site.foot.stories": "体験談",
+      "site.foot.clinics_usa": "米国クリニック",
+      "site.foot.planner": "ペット旅行プランナー",
+      "site.foot.fit": "キャリーのサイズ確認",
+      "site.foot.airports": "空港のペット旅行ガイド",
+      "site.foot.routes": "ルート",
+      "nav.forum": "フォーラム",
+      "site.foot.rules": "航空会社のペット規定は頻繁に変わります。予約前に必ず航空会社と渡航先の公的機関にご確認ください。ここに掲載している情報は、法的助言や獣医学的助言ではありません。"
     },
     "it": {
       "home.tools.veterans": "Veterani e cani di servizio",

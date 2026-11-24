@@ -912,3 +912,8 @@ html.theme-veterans main h2::before{
   background-color:#e2c275;
 }
 
+
+/* Japanese (/ja/) — JP font fallbacks after the Latin faces, and strict Japanese line breaking (no Latin keep-all). */
+html[data-ppc-locale="ja"]{--text:"Inter","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Yu Gothic","Meiryo","Noto Sans JP","Noto Sans CJK JP",system-ui,sans-serif;--disp:"Marcellus","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP","Noto Serif CJK JP",Georgia,serif}
+html[data-ppc-locale="ja"] body{line-break:strict;word-break:normal;overflow-wrap:break-word}
+html[data-ppc-locale="ja"] h1,html[data-ppc-locale="ja"] h2,html[data-ppc-locale="ja"] h3{line-break:strict;word-break:normal;word-break:auto-phrase;overflow-wrap:break-word}

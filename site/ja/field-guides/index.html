@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="theme-flight" data-ppc-locale="ja" data-section="flight" lang="ja">
+<head>
+<meta charset="utf-8"/>
+<script>
+(function(){
+  var skip=false;
+  try{
+    var p=new URLSearchParams(location.search);
+    if(p.get('qa')==='0') localStorage.removeItem('ppc_qa');
+    else if(p.get('qa')==='1') localStorage.setItem('ppc_qa','1');
+    if(p.get('qa')==='1'||localStorage.getItem('ppc_qa')==='1') skip=true;
+  }catch(e){}
+  if(navigator.webdriver===true) skip=true;
+  if(/HeadlessChrome|Headless|PhantomJS|Lighthouse|Chrome-Lighthouse|PageSpeed|GTmetrix|bot|crawler|spider|Playwright|Puppeteer/i.test(navigator.userAgent||'')) skip=true;
+  if(skip) return;
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-K45B2WNXMC';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config','G-K45B2WNXMC');
+})();
+</script>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>ペット旅行のField Guides · コミュニティのヒント · PetPolicyCheck</title><link href="https://petpolicycheck.com/ja/field-guides/" rel="canonical"/>
+<link href="https://petpolicycheck.com/field-guides/" hreflang="en" rel="alternate"/>
+<link href="https://petpolicycheck.com/es/field-guides/" hreflang="es" rel="alternate"/>
+<link href="https://petpolicycheck.com/it/field-guides/" hreflang="it" rel="alternate"/>
+<link href="https://petpolicycheck.com/fr/field-guides/" hreflang="fr" rel="alternate"/>
+<link href="https://petpolicycheck.com/de/field-guides/" hreflang="de" rel="alternate"/>
+<link href="https://petpolicycheck.com/ja/field-guides/" hreflang="ja" rel="alternate"/>
+<link href="https://petpolicycheck.com/field-guides/" hreflang="x-default" rel="alternate"/>
+
+
+
+
+
+<link as="font" crossorigin="" href="/field-guides/assets/fonts/inter-var-latin.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="/field-guides/assets/fonts/marcellus-latin.woff2" rel="preload" type="font/woff2"/>
+<link href="data:," rel="icon"/>
+<link href="/assets/css/theme.css?v=20261124ja1" rel="stylesheet"/>
+<link href="/field-guides/ugc.css?v=20261112safe" rel="stylesheet"/>
+<link href="/assets/css/ppc-i18n.css?v=20261113nav1" rel="stylesheet"/>
+<script defer="" src="/assets/i18n/ui.js?v=20261124ja1"></script>
+<script defer="" src="/assets/js/ppc-i18n.js?v=20261124ja1"></script>
+<script defer="" src="/assets/js/pastilles.js?v=20261124ja1"></script>
+<link href="/assets/site-search.css?v=20261117sb2" rel="stylesheet"/>
+</head>
+<body><!-- Admin-only chrome (shown only with ?admin=1 or ?view=moderation) -->
+<div class="pvbar admin-only" hidden=""><div class="wrap">
+<span class="tag">管理者 · 段階的プレビュー</span> <span class="muted">統合ハブ（#4 + #9 + #11） · モデレーションツール</span>
+<nav aria-label="管理者ビュー" class="sw">
+<a data-view="gallery" href="?view=gallery">公開ギャラリー</a> <a data-view="submit" href="?view=submit">投稿の入口</a> <a data-view="moderation" href="?view=moderation">モデレーションの待ち行列</a>
+</nav>
+<div class="rt">
+<button id="resetDemo" title="プレビュー用のサンプルデータを復元" type="button">デモデータをリセット</button>
+</div>
+</div></div>
+<header class="top"><div class="wrap">
+<a aria-label="PetPolicyCheck — ホーム" class="brand" href="/ja/"><span class="lbadge"><img alt="PetPolicyCheck" height="48" src="/assets/img/logo-mark-header.png" width="62"/></span></a>
+<nav aria-label="メイン" class="nav menu" id="site-menu"><a data-i18n="site.nav.map" href="/ja/?view=map">世界地図</a><a href="/ja/countries/usa.html#federal">法規</a><a href="/ja/vet-info/">獣医</a><a href="/ja/airlines/">飛行機</a><a href="/ja/hotels/">ホテル</a><a data-i18n="site.nav.grooming" href="/ja/grooming/">グルーミング</a><a data-i18n="site.nav.products" href="/ja/products/">製品</a><a data-i18n="site.nav.rides" href="/ja/taxi/">移動</a><span aria-hidden="true" class="nav-group-sep"></span><a data-i18n="site.nav.forum" href="/ja/forum/">フォーラム</a><a href="/ja/k9/">K9</a><a href="/ja/veterans/#service-dog-support">補助犬</a><a class="nav-vet" data-i18n="site.nav.veterans" href="/ja/veterans/">退役軍人</a><a data-i18n="site.nav.adoptions" href="/adoptions/">里親</a><a data-i18n="site.nav.news" href="/news/">ニュース</a><a class="nav-biz" data-i18n="site.nav.pro" href="/ja/pro/">法人向け</a><a class="menu-only sub" href="/ja/#compare">比較</a><a class="menu-only sub" href="/ja/#gear">ガイド</a><a class="menu-only sub" href="/ja/updates.html">更新情報</a><a class="menu-only sub" href="/ja/about.html">概要</a></nav><button aria-controls="site-menu" aria-expanded="false" class="menu-btn" type="button"><svg aria-hidden="true" focusable="false" height="20" viewbox="0 0 24 24" width="20"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg><span data-i18n="site.nav.menu">メニュー</span></button>
+</div></header>
+<!-- (a) SUBMIT -->
+<main class="view wrap" hidden="" id="v-submit">
+<div class="dept" data-i18n="a_dept">コミュニティ、現地確認、City Scoutsのハブ · 入口は1つ、アカウント不要</div>
+<h1 class="ttl" data-i18n="a_ttl">ペットと実際に体験したことを共有してください</h1>
+<p class="lead" data-i18n="a_lead">30秒のクリップを投稿したり、実際の確認が公式規定と異なっていた点を報告したり、Founding City Scoutになったりできます。所要時間は約60秒、アカウント不要です。公開前にすべての内容を人が公式規定と照合し、あなたのクレジット付きで掲載します。</p>
+<div class="sub-grid">
+<div class="panel form">
+<div aria-label="何を共有しますか？" class="hubmodes" role="tablist">
+<button class="on" data-pane="clip" role="tab" type="button"><i>#4</i><strong>30秒の現地クリップを投稿</strong><span>30秒以内の動画をアップロードするか、TikTok／Reels／Shortsのリンクを貼ってください</span></button>
+<button data-pane="rule" role="tab" type="button"><i>#9</i><strong>規定との違いを報告</strong><span>5つの項目：公式規定と何が違いましたか？</span></button>
+<button data-pane="scout" role="tab" type="button"><i>#11</i><strong>Founding City Scoutに応募</strong><span>8つのパイロットハブ · 4つの現地確認</span></button>
+</div>
+<form class="pane" data-pane="clip" id="subForm" novalidate="">
+<div class="sec">
+<div class="step"><b>1</b><h3 data-i18n="a_s1">あなたのクリップ</h3></div>
+<div class="modes" role="radiogroup">
+<label class="mode on"><input checked="" name="mode" type="radio" value="upload"/><div><strong data-i18n="a_up">30秒以内の動画をアップロード</strong><span>.mp4 / .mov · ブラウザ上で確認します</span></div></label>
+<label class="mode"><input name="mode" type="radio" value="link"/><div><strong data-i18n="a_ln">既存のクリップをリンク</strong><span>TikTok · Instagram Reels · YouTube Shorts</span></div></label>
+</div>
+<div id="upBox">
+<div class="drop" id="drop">
+<div class="thumb" id="thumb"><svg aria-hidden="true" fill="currentColor" height="26" viewbox="0 0 24 24" width="26"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11z"></path></svg></div>
+<div><p><b data-i18n="a_drop">縦長のクリップをここにドラッグ＆ドロップ</b> <span data-i18n="a_or">または</span> <label class="pick" data-i18n="a_browse" for="file" style="display:inline">ファイルを選択</label></p>
+<small data-i18n="a_dropn">最大30秒（35秒まで許容） · 縦長9:16推奨 · アップロード前に長さを確認します</small> <input accept="video/mp4,video/quicktime,.mp4,.mov" hidden="" id="file" type="file"/></div>
+</div>
+<div class="msg" id="upMsg"></div>
+</div>
+<div hidden="" id="lnBox">
+<div class="urlrow"><input aria-label="クリップのリンク" id="url" placeholder="https://www.tiktok.com/@you/video/…" type="url"/><span class="chip" id="plat">プラットフォーム：—</span></div>
+<div class="msg" id="lnMsg"></div>
+</div>
+</div>
+<div class="sec">
+<div class="step"><b>2</b><h3 data-i18n="a_s2">何が写っていますか？</h3></div>
+<div class="fl" data-i18n="a_type">タイプ</div>
+<div class="types" id="types">
+<label><input checked="" name="type" type="radio" value="airline"/><span><svg viewbox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"></path></svg>航空会社</span></label>
+<label><input name="type" type="radio" value="train"/><span><svg viewbox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5A3.5 3.5 0 0 0 7.5 19L6 20.5v.5h2l2-2h4l2 2h2v-.5L16.5 19a3.5 3.5 0 0 0 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm3.5-7H6V6h5zm2 0V6h5v4zm3.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"></path></svg>鉄道・フェリー</span></label>
+<label><input name="type" type="radio" value="hotel"/><span><svg viewbox="0 0 24 24"><path d="M7 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm12-6h-8v7H3V5H1v15h2v-3h18v3h2v-9a4 4 0 0 0-4-4z"></path></svg>ホテル・宿泊</span></label>
+<label><input name="type" type="radio" value="city"/><span><svg viewbox="0 0 24 24"><path d="M15 11V5l-3-3-3 3v2H3v14h18V11zm-8 8H5v-2h2zm0-4H5v-2h2zm0-4H5V9h2zm6 8h-2v-2h2zm0-4h-2v-2h2zm0-4h-2V9h2zm0-4h-2V5h2zm6 12h-2v-2h2zm0-4h-2v-2h2z"></path></svg>都市／国境の拠点</span></label>
+<label><input name="type" type="radio" value="grooming"/><span><svg viewbox="0 0 24 24"><path d="M9.6 6.3a3.1 3.1 0 1 0-1 2.2L10.8 10l-6.5 8.6 1.4 1.1L12 12.4l6.3 7.3 1.4-1.1-6.5-8.6 2.2-1.5a3.1 3.1 0 1 0-1-2.2L12 8.2zm-3.1 1A1.2 1.2 0 1 1 6.5 5a1.2 1.2 0 0 1 0 2.4zm11 0a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"></path></svg>グルーミング・ケア（旅行者・地元の駐在者）</span></label>
+</div>
+<div class="groom-use" hidden="" id="groomUse">
+<div class="fl" data-i18n="a_guse">グルーミングの用途 <em>— このクリップが誰向けかを読者に伝えます</em></div>
+<div class="opts">
+<label class="mode on"><input checked="" name="guse" type="radio" value="trip"/><div><strong data-i18n="a_g1">旅行中・ホテルでの出張グルーミング</strong><span data-i18n="a_g1s">フライト後のシャンプー、滞在中のグルーミング、ホテルへの出張バン</span></div></label>
+<label class="mode"><input name="guse" type="radio" value="local"/><div><strong data-i18n="a_g2">居住者・駐在者が信頼するサロン</strong><span data-i18n="a_g2s">フィアフリー · 英語・フランス語対応 · 鎮静なしの猫 · 犬種・猫種の知識</span></div></label>
+</div>
+</div>
+<div class="row3" style="margin-top:14px">
+<label><div class="fl" data-i18n="a_ctry">国・ルート</div>
+<select id="country"><option>米国</option><option>カナダ</option><option>メキシコ</option><option>英国</option><option>ドイツ</option><option>ドミニカ共和国</option><option>フランス</option></select></label>
+<label><div class="fl" data-i18n="a_date">旅行日 <em>（YYYY-MM）</em></div><input id="date" max="2026-11" min="2024-01" type="month" value="2026-10"/></label>
+<label class="full"><div class="fl" data-i18n="a_ent">正確な航空会社／ホテル／都市／サロン</div>
+<input id="entity" list="entities" placeholder="例：Aeroméxico LAX→MEX、LeShuttle Calais→Folkestone、マイアミのホテルへの出張グルーマー" type="text"/>
+<datalist id="entities"><option>Aeroméxico</option><option>Air Canada</option><option>WestJet</option><option>Air France</option><option>Lufthansa</option><option>LeShuttle (Eurotunnel)</option><option>Punta Cana PUJ</option><option>出張グルーマー · ホテルへの訪問</option><option>フィアフリーのサロン（居住者・駐在者）</option></datalist></label>
+</div>
+</div>
+<div class="sec">
+<div class="step"><b>3</b><h3 data-i18n="a_s3">現地のヒントを1文で</h3></div>
+<label><div class="fl"><span data-i18n="a_tipl">公式サイトに書かれていない、実際のチェックインや規定の詳細を1つ</span> <span class="counter"><span id="cnt">0</span>/180</span></div>
+<textarea id="tip" maxlength="180" placeholder="例：公式サイトに記載のない、チェックインや規定に関する詳細を1つ" rows="2"></textarea></label>
+<label style="margin-top:12px"><div class="fl" data-i18n="a_bag">キャリー・体重 <em>（任意）</em></div><input id="bag" placeholder="例：ソフトキャリー 43×30×23 cm · 猫 4.6 kg" type="text"/></label>
+</div>
+<div class="sec">
+<div class="step"><b>4</b><h3 data-i18n="a_s4">クレジットと権利</h3></div>
+<div class="row3">
+<label><div class="fl" data-i18n="a_handle">あなたの@ハンドル（クリップに表示）</div><input id="handle" placeholder="@yourhandle" type="text"/></label>
+<label><div class="fl" data-i18n="a_social">クレジット用のプロフィールのリンク</div><input id="social" placeholder="TikTok／Instagram／YouTube／ブログのURL" type="url"/></label>
+</div>
+<p style="margin:10px 0 14px;font-size:.84rem;color:var(--mut)">最初のクリップが承認されると<span class="badge-v">✓ Verified Corridor Traveler</span>が付与されます</p>
+<label class="consent"><input id="consent" type="checkbox"/><span>このクリップを自分で撮影し、個人の身分証や搭乗券の詳細をぼかしたことを確認し、Paw Passport（PetPolicyCheck）に、私の@ハンドルのクレジット付きでウェブサイトとソーシャルチャネルに再掲載する非独占的な権利を許諾します。</span></label>
+</div>
+<div class="submitrow"><button class="btn gold" data-i18n="a_send" id="send" type="submit">30秒のヒントを審査に送信</button><small data-i18n="a_sendn">人のモデレーターに送られます · 自動で公開されることはありません</small></div>
+<div class="msg no" id="formErr"></div>
+<div class="done" id="done"></div>
+</form>
+<form class="pane" data-pane="rule" hidden="" id="ruleForm" novalidate="">
+<div class="sec">
+<div class="step"><b>1</b><h3>どこで、どの確認地点でしたか？</h3></div>
+<div class="row3">
+<label><div class="fl">ルート</div><select id="rCorr"><option>米国</option><option>カナダ</option><option selected="">メキシコ</option><option>英国</option><option>ドイツ</option><option>ドミニカ共和国</option><option>フランス</option></select></label>
+<label><div class="fl">確認地点</div><select id="rCheck"><option>航空会社のチェックイン・ゲート</option><option selected="">国境・税関</option><option>動物病院・健康証明書</option><option>グルーミング・ケア（サロン／出張）</option></select></label>
+<label class="full"><div class="fl">正確な場所またはルート <em>（例：LAX→MEX、Calais Pet Reception）</em></div><input id="rRoute" placeholder="例：LAX → MEX T1、SENASICAの窓口" type="text"/></label>
+</div>
+</div>
+<div class="sec">
+<div class="step"><b>2</b><h3>公式規定と何が違いましたか？</h3></div>
+<label><div class="fl">見たことだけを書いてください <span class="counter"><span id="rCnt">0</span>/240</span></div><textarea id="rDiff" maxlength="240" placeholder="例：担当官から、スマートフォンのコピーだけでなく紙のワクチン接種記録も見せるよう求められました。" rows="3"></textarea></label>
+<div class="row3" style="margin-top:12px">
+<label><div class="fl">起きた日付 <em>（YYYY-MM）</em></div><input id="rDate" max="2026-11" min="2024-01" type="month" value="2026-10"/></label>
+<label><div class="fl">簡単な証拠 <em>（任意のリンクまたは写真のメモ）</em></div><input id="rProof" placeholder="ぼかした写真、メール、領収書など" type="text"/></label>
+<label><div class="fl">あなたの@ハンドル（クレジット）</div><input id="rHandle" placeholder="@yourhandle" type="text"/></label>
+<label><div class="fl">プロフィールのリンク</div><input id="rSocial" placeholder="https://…" type="url"/></label>
+</div>
+<p class="sepnote"><span class="chip off">公式規定</span>は当局が公表したとおりに掲載します。あなたのメモは確認後、その横に<span class="chip gold">現地確認済み · YYYY年M月</span>として表示され、規定に統合されることはありません。</p>
+</div>
+<div class="submitrow"><button class="btn gold" type="submit">規定の確認を審査に送信</button><small>人が確認します · サイト上の情報が自動で変わることはありません</small></div>
+<div class="msg no err"></div><div class="done"></div>
+</form>
+<form class="pane" data-pane="scout" hidden="" id="scoutForm" novalidate="">
+<div class="sec">
+<div class="step"><b>1</b><h3>パイロットハブを選択</h3></div>
+<div class="hubs" id="hubPick"></div>
+</div>
+<div class="sec">
+<div class="step"><b>2</b><h3>4つの現地確認（Scoutパック）</h3></div>
+<div class="pack">
+<label><div class="fl"><i class="pk">1</i> 輸出対応の動物病院 · 英語・フランス語対応</div><input id="sVet" placeholder="動物病院＋確認した内容" type="text"/></label>
+<label><div class="fl"><i class="pk">2</i> グルーミングサロン · フィアフリー／鎮静なしの猫／フライト後の出張</div><input id="sGroom" placeholder="サロン／出張グルーマー＋扱い方" type="text"/></label>
+<label><div class="fl"><i class="pk">3</i> 大型犬対応のタクシー・送迎 · 予想外の追加料金なし</div><input id="sTaxi" placeholder="サービス＋犬のサイズ＋料金を確認済み" type="text"/></label>
+<label><div class="fl"><i class="pk">4</i> ペット同伴可のホテルや公園を実際に確認</div><input id="sStay" placeholder="場所＋確認した料金・体重制限" type="text"/></label>
+</div>
+<div class="row3" style="margin-top:12px">
+<label><div class="fl">あなたの@ハンドル</div><input id="sHandle" placeholder="@yourhandle" type="text"/></label>
+<label><div class="fl">プロフィールのリンク</div><input id="sSocial" placeholder="https://…" type="url"/></label>
+</div>
+</div>
+<div class="submitrow"><button class="btn gold" type="submit">Founding City Scoutに応募</button><small>Scoutのプロフィールが公開される前に、各確認項目をモデレーターが検証します</small></div>
+<div class="msg no err"></div><div class="done"></div>
+</form>
+</div>
+<aside class="panel aside-a">
+<h3>投稿者ランク</h3>
+<ol class="ladder">
+<li><i>1</i><div><small>ステップ1</small><strong>Verified Corridor Traveler</strong><span>承認された30秒のクリップ1本または承認された規定の確認1件から：クリック可能な「撮影者」クレジット＋金色のバッジ。</span><span class="badge-v" tabindex="0">✓ Verified Corridor Traveler<span class="tip">承認されたすべてのクリップと規定の確認で、あなたの@ハンドルの横にプロフィールへのリンク付きで表示されます。</span></span></div></li>
+<li><i>2</i><div><small>ステップ2</small><strong>Founding City Scout</strong><span>8つのハブのうち1つで4つの現地確認（グルーミングを含む）：Paw Passportの専用プロフィールとガイドでのクレジット。</span><span class="badge-s">★ Founding City Scout</span></div></li>
+</ol>
+<ul class="ticks">
+<li><i>✓</i><div><strong>アカウント不要</strong><span>クリップまたはメモと、あなたの@ハンドルだけ。</span></div></li>
+<li><i>✓</i><div><strong>公開前に人が確認</strong><span>公式規定、動物福祉、音声の権利、プライバシー。</span></div></li>
+<li><i>✓</i><div><strong>所有権は100%あなたのもの＋プロフィールへのリンク</strong><span>非独占的なライセンスのみです。</span></div></li>
+</ul>
+<div class="mini">現地のメモは公式規定を補足するもので、決して置き換えるものではありません。旅行前に必ず航空会社または当局にご確認ください。</div>
+</aside>
+</div>
+</main>
+<!-- (b) MODERATION -->
+<main class="view wrap" hidden="" id="v-moderation">
+<div class="mod-head">
+<div><div class="dept">管理者 · コンテンツとコミュニティ · 人による確認が必要</div>
+<h1 class="ttl">統合モデレーション待ち行列 — 3-in-1ハブ</h1>
+<p class="lead">クリップ（#4）、規定の確認（#9）、City Scoutパック（#11）は1つの待ち行列を共有します。すべての投稿は<b>L0（内部のみ）</b>で受け付けられ、モデレーターが4つの確認項目すべてにチェックを入れて<b>承認して公開</b>（L2 現地確認済み）をクリックするまで公開されません。データはこのブラウザ（localStorage）に保存されます。静的サイト用に承認済みのJSONをエクスポートしてください。</p></div>
+<div class="counts" id="counts"></div>
+</div>
+<div class="toolbar">
+<label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">ステータス</span><select id="fStatus"><option value="all">すべてのステータス</option><option value="pending">保留中 L0（内部のみ）</option><option value="approved">Approved L2 — Field-Verified</option><option value="rejected">不承認</option></select></label>
+<label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">ルート</span><select id="fCorr"><option value="all">すべて</option><option>米国</option><option>カナダ</option><option>メキシコ</option><option>英国</option><option>ドイツ</option><option>ドミニカ共和国</option><option>フランス</option></select></label>
+<label style="display:flex;gap:8px;align-items:center"><span class="fl" style="margin:0">タイプ</span><select id="fType"><option value="all">すべての待ち行列</option><option value="clip">30秒のクリップ（#4）</option><option value="rule">Rule Checks (#9)</option><option value="scout">City Scout Packs (#11)</option><option value="grooming">グルーミング・ケア（すべての種類）</option></select></label>
+<div class="sp"><button class="btn ghost sm" id="exportJson" type="button">承認済みをJSONでエクスポート</button></div>
+</div>
+<div id="queue"></div>
+</main>
+<!-- (c) GALLERY -->
+<main class="view wrap" hidden="" id="v-gallery">
+<section class="hero">
+<div><div class="dept" data-i18n="c_dept">Paw Passport Field Guides</div>
+<h1 data-i18n-html="c_ttl">Pet Policy Field Guides — <span>主なペット旅行ルート</span></h1>
+<p class="lead" data-i18n="c_lead">サンプルのタイルは、主なルートの公式のペット旅行規則を示しています。30秒のヒントを審査に送信。</p></div>
+<div class="acts2"><a class="btn gold" data-i18n="c_submit" href="?view=submit">30秒のヒントを投稿</a><small data-i18n="c_submitn" style="color:var(--mut)">アカウント不要 · 人が確認します</small></div>
+</section>
+<div class="filters" id="filters"></div>
+<section aria-live="polite" class="panel feat" id="feat"></section>
+<div class="ghead"><h2 data-i18n="c_more">エピソードの例</h2><span id="gcount"></span></div>
+<div class="cards" id="cards"></div>
+<div class="ghead"><h2 data-i18n="c_rules">公式規定の確認例 <small class="kind">#9</small></h2><span data-i18n="c_rulessub">公式規則のみ — これらのタイルはサンプルです。</span></div>
+<div class="rules" id="rules"></div>
+<section class="panel scouts">
+<div class="sh"><div><div class="dept">#11 · Founding City Scouts</div><h2>8 Founding City Scouts</h2><p>自分の街でペット旅行の成否を左右する4つのことを確認する、地元の方や駐在者の方。</p></div>
+<div class="packrow"><span class="chip gold">動物病院</span><span class="chip gold">グルーミング</span><span class="chip gold">大型犬対応タクシー</span><span class="chip gold">宿泊</span><a class="btn gold sm" href="?view=submit&amp;mode=scout">Founding City Scoutに応募</a></div></div>
+<div class="hubgrid" id="hubgrid"></div>
+</section>
+<p class="disc" data-i18n="c_disc">プレビュー用サンプル：公式規定に基づく説明用のエピソード。サンプル枠のブランド名は例にすぎません。人が承認した実際の投稿に置き換えられます。</p>
+</main>
+<footer class="foot foot-compact">
+<div class="wrap cols">
+<div class="fbrand"><p class="wm">PetPolicyCheck</p><p data-i18n="site.foot.rules">航空会社のペット規定は頻繁に変わります。予約前に必ず航空会社と渡航先の公的機関にご確認ください。ここに掲載している情報は、法的助言や獣医学的助言ではありません。</p><p class="soc"><a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61596615981846" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.83c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"></path></svg></a><a aria-label="X" href="https://x.com/PetPolicyCheck" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.725-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a></p></div>
+<div><h4><a data-i18n="site.foot.vet_info" href="/ja/vet-info/">獣医情報</a></h4><ul><li><a data-i18n="site.foot.vet_prep" href="/ja/vet-prep/">獣医の準備</a></li><li><a data-i18n="site.nav.health" href="/ja/countries/usa.html#federal">健康証明書</a></li><li><a data-i18n="home.tools.titer" href="/ja/titer-calculator/">抗体価カウントダウン</a></li><li><a data-i18n="site.foot.vets" href="/ja/partner-vets/">提携獣医</a></li><li><a data-i18n="site.foot.clinics_usa" href="/ja/clinics/usa.html">米国クリニック</a></li></ul></div>
+<div><h4 data-i18n="site.foot.explore">探す</h4><ul><li><a data-i18n="site.nav.map" href="/ja/?view=map">世界地図</a></li><li><a data-i18n="site.foot.airlines" href="/ja/airlines/">航空会社の規定</a></li><li><a data-i18n="site.nav.compare" href="/ja/airlines/compare/">比較</a></li><li><a data-i18n="site.nav.guides" href="/ja/#gear">ガイド</a></li><li><a data-i18n="site.nav.updates" href="/ja/updates.html">更新情報</a></li><li><a href="/ja/routes/">ルート</a></li><li><a data-i18n="site.foot.k9" href="/ja/k9/">K9</a></li><li><a data-i18n="site.foot.service_dogs_veterans" href="/ja/veterans/">補助犬・退役軍人</a></li><li><a data-i18n="site.foot.adoptions" href="/adoptions/">譲渡</a></li><li><a data-i18n="site.foot.news" href="/news/">ニュース</a></li><li><a href="/ja/fit/">キャリーのサイズ確認</a></li><li><a href="/ja/planner/">ペット旅行プランナー</a></li><li><a href="/ja/airport/">空港のペット旅行ガイド</a></li></ul></div>
+<div><h4 data-i18n="site.foot.shop">ショップ＆コミュニティ</h4><ul><li><a data-i18n="site.nav.products" href="/ja/products/">製品</a></li><li><a data-i18n="nav.forum" href="/ja/forum/">フォーラム</a></li><li><a data-i18n="site.foot.stories" href="/ja/forum/pet-travel-stories/">体験談</a></li><li><a data-i18n="site.foot.pro" href="/ja/pro/">B2B Pet Desk</a></li></ul></div>
+<div><h4 data-i18n="site.foot.aboutcol">概要</h4><ul><li><a data-i18n="site.foot.about" href="/ja/about.html">概要と免責事項</a></li><li><a data-i18n="site.foot.terms" href="/ja/terms.html">利用規約</a></li><li><a data-i18n="site.foot.refund" href="/ja/refund-policy.html">返金ポリシー</a></li><li><a data-i18n="site.foot.privacy" href="/ja/privacy.html">プライバシー</a></li><li><a data-i18n="site.foot.contact" href="/ja/contact.html">お問い合わせ</a></li><li><a href="https://ticketsntails.com/" rel="noopener" target="_blank" data-i18n="site.foot.travel_blog">旅行ブログ</a></li></ul></div>
+</div>
+<div class="wrap"><p class="disc" data-i18n="site.foot.copyright">© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See <a href="/ja/terms.html">Terms</a>.</p></div>
+</footer>
+<script src="/field-guides/ugc.js?v=20261112pub"></script>
+<script defer="" src="/assets/site-search.js?v=20261124ja1"></script>
+<script defer="" src="/assets/ppc-header.js?v=20261110footerk9"></script>
+</body>
+</html>

@@ -186,14 +186,24 @@
     }catch(_){ return false; }
   }
 
+  function isJa(){
+    try{
+      var path=location.pathname||'';
+      return path==='/ja'||path.indexOf('/ja/')===0||document.documentElement.getAttribute('data-ppc-locale')==='ja';
+    }catch(_){ return false; }
+  }
+
   /* USA-style typography key: dark sample chips + plain readable labels. */
   function mountUsaStyleLegend(){
     var root=document.getElementById('country-map');
     var host=root && root.querySelector('.mapcard');
     if(!host) return;
     var de=isDe();
+    var ja=isJa();
     var L=de
       ? {r:'Regionen', c:'Städte', k:'Hauptstadt', a:'Internationale Flughäfen', aria:'Legende der Beschriftungen'}
+      : ja
+      ? {r:'州', c:'都市', k:'州都', a:'国際空港', aria:'ラベルの凡例'}
       : {r:'Regions', c:'Cities', k:'Capital', a:'International airports', aria:'Label colour legend'};
     var sm={r:'BY', c:de?'Nürnberg':'Nuremberg', k:'Dresden', a:'MUC'};
     var box=host.querySelector('.lbl-legend');
