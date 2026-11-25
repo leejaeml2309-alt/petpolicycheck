@@ -97,7 +97,7 @@
   "f.err.not_configured": "The forum isn't connected yet.",
   "f.auth.email": "Email",
   "f.auth.password": "Password",
-  "f.auth.password_hint": "At least 8 characters",
+  "f.auth.password_hint": "Au moins 8 caractères",
   "f.auth.display_name": "Display name (shown publicly)",
   "f.auth.display_hint": "Not your full name, please: e.g. MinaAndMochi",
   "f.auth.signin_h": "Sign in",
@@ -275,5 +275,18 @@
   "cat.topic.road_trip_camping": "Road trip & camping",
   "cat.topic.adoption": "Adoption",
   "cat.topic.health_seniors": "Santé & seniors",
-  "cat.topic.life_with_pet": "Vie avec son animal"
+  "cat.topic.life_with_pet": "Vie avec son animal",
+  "f.auth.confirm_password": "Confirmer le mot de passe",
+  "f.auth.password_mismatch": "Les deux mots de passe ne correspondent pas.",
+  "f.auth.recovery_expired": "Ce lien de réinitialisation a expiré ou a déjà été utilisé. Demandez-en un nouveau ci-dessous.",
+  "f.auth.check_inbox_h": "Vérifiez votre e-mail",
+  "f.auth.confirm_inbox_h": "Confirmez votre e-mail",
+  "f.auth.check_inbox_reset": "Nous avons envoyé un lien de réinitialisation à :",
+  "f.auth.check_inbox_signup": "Nous avons envoyé un lien de confirmation à :",
+  "f.auth.link_expires_1h": "Le lien expire dans 1 heure.",
+  "f.auth.check_spam": "Vérifiez aussi les dossiers spam ou promotions. Avec Gmail, les messages peuvent être regroupés dans le même fil.",
+  "f.auth.resend": "Renvoyer l’e-mail",
+  "f.auth.resend_wait": "Renvoyer l’e-mail ({n}s)",
+  "f.auth.resend_sent": "Un nouvel e-mail est en cours d’envoi.",
+  "f.auth.back_to_signin": "Retour à la connexion"
 }

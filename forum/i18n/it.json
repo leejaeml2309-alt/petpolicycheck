@@ -273,5 +273,18 @@
   "cat.topic.road_trip_camping": "Road trip e camping",
   "cat.topic.adoption": "Adozione",
   "cat.topic.health_seniors": "Salute e senior",
-  "cat.topic.life_with_pet": "Vita con il tuo animale"
+  "cat.topic.life_with_pet": "Vita con il tuo animale",
+  "f.auth.confirm_password": "Conferma password",
+  "f.auth.password_mismatch": "Le due password non coincidono.",
+  "f.auth.recovery_expired": "Questo link per reimpostare la password è scaduto o è già stato usato. Richiedine uno nuovo qui sotto.",
+  "f.auth.check_inbox_h": "Controlla la tua email",
+  "f.auth.confirm_inbox_h": "Conferma la tua email",
+  "f.auth.check_inbox_reset": "Abbiamo inviato un link per reimpostare la password a:",
+  "f.auth.check_inbox_signup": "Abbiamo inviato un link di conferma a:",
+  "f.auth.link_expires_1h": "Il link scade tra 1 ora.",
+  "f.auth.check_spam": "Controlla anche le cartelle spam o promozioni. Con Gmail i messaggi possono essere raggruppati nello stesso thread.",
+  "f.auth.resend": "Reinvia email",
+  "f.auth.resend_wait": "Reinvia email ({n}s)",
+  "f.auth.resend_sent": "Una nuova email è in arrivo.",
+  "f.auth.back_to_signin": "Torna all’accesso"
 }

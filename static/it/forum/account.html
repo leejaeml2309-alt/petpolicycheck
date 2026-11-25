@@ -95,9 +95,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <form class="fform" hidden="" id="f-signup"><h2 class="fh" data-i18n="f.auth.signup_h">Crea un account</h2>
 <div class="ffield"><label data-i18n="f.auth.display_name" for="su-name">Nome visualizzato (visibile pubblicamente)</label><input autocomplete="nickname" id="su-name" maxlength="40" minlength="2" required="" type="text"/></div><p class="small fhint" data-i18n="f.auth.display_hint">Non il Suo nome completo, per favore: es. MinaAndMochi</p>
 <div class="ffield"><label data-i18n="f.auth.email" for="su-email">Email</label><input autocomplete="email" id="su-email" required="" type="email"/></div>
-<div class="ffield"><label data-i18n="f.auth.password" for="su-pass">Password</label><input autocomplete="new-password" id="su-pass" minlength="8" required="" type="password"/></div><p class="small fhint" data-i18n="f.auth.password_hint">Almeno 8 caratteri</p>
+<div class="ffield"><label data-i18n="f.auth.password" for="su-pass">Password</label><input autocomplete="new-password" id="su-pass" minlength="8" required="" type="password"/></div><div class="ffield"><label data-i18n="f.auth.confirm_password" for="su-pass2">Conferma password</label><input autocomplete="new-password" id="su-pass2" minlength="8" required="" type="password"/></div><p class="small fhint" data-i18n="f.auth.password_hint">Almeno 8 caratteri</p>
 <p class="small"><span data-i18n="f.auth.agree">Creando un account, accetta le regole della community e l'informativa sulla privacy.</span> <a data-i18n="f.rules" href="/it/forum/guidelines.html">Regole della community</a> · <a data-i18n="site.foot.privacy" href="/it/privacy.html#forum">Privacy</a></p>
-<p class="fbtns"><button class="fbtn" data-i18n="f.auth.signup_btn" type="submit">Crea account</button></p>
+<p class="fbtns"><button class="fbtn" data-i18n="f.auth.signup_btn" id="su-submit" disabled="" type="submit">Crea account</button></p>
 <p class="small"><a data-i18n="f.auth.to_signin" data-show="f-signin" href="#">Ha già un account? Acceda</a></p>
 </form>
 <form class="fform" hidden="" id="f-reset"><h2 class="fh" data-i18n="f.auth.forgot">Password dimenticata?</h2>
@@ -107,9 +107,21 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </form>
 </div>
 </section>
+
+<div class="fform" id="f-check-email" hidden>
+ <p class="fcheck-ico" aria-hidden="true" style="display:flex;justify-content:center;margin:0 0 .8rem;color:currentColor"><svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></p>
+ <h2 class="fh" id="f-check-title" data-i18n="f.auth.check_inbox_h">Controlla la tua email</h2>
+ <p class="small" id="f-check-lead"></p>
+ <p class="small"><b id="f-check-addr"></b></p>
+ <p class="small" id="f-check-exp" hidden data-i18n="f.auth.link_expires_1h">Il link scade tra 1 ora.</p>
+ <p class="small" data-i18n="f.auth.check_spam">Controlla anche le cartelle spam o promozioni. Con Gmail i messaggi possono essere raggruppati nello stesso thread.</p>
+ <p class="fbtns"><button type="button" class="fbtn" id="f-check-resend" data-i18n="f.auth.resend">Reinvia email</button></p>
+ <p class="small verified" id="f-check-ok" hidden></p>
+ <p class="small"><a href="#" id="f-check-back" data-show="f-signin" data-i18n="f.auth.back_to_signin">Torna all’accesso</a></p>
+</div>
 <form class="fform" hidden="" id="f-newpass"><h2 class="fh" data-i18n="f.auth.new_password">Nuova password</h2>
-<div class="ffield"><label data-i18n="f.auth.new_password" for="np-pass">Nuova password</label><input autocomplete="new-password" id="np-pass" minlength="8" required="" type="password"/></div>
-<p class="fbtns"><button class="fbtn" data-i18n="f.auth.save_password" type="submit">Salva la nuova password</button></p>
+<div class="ffield"><label data-i18n="f.auth.new_password" for="np-pass">Nuova password</label><input autocomplete="new-password" id="np-pass" minlength="8" required="" type="password"/></div><div class="ffield"><label data-i18n="f.auth.confirm_password" for="np-pass2">Conferma password</label><input autocomplete="new-password" id="np-pass2" minlength="8" required="" type="password"/></div><p class="small fhint" data-i18n="f.auth.password_hint">Almeno 8 caratteri</p>
+<p class="fbtns"><button class="fbtn" data-i18n="f.auth.save_password" id="np-submit" disabled="" type="submit">Salva la nuova password</button></p>
 </form>
 <section hidden="" id="acc-in">
 <p><span data-i18n="f.acc.signed_in_as">Accesso effettuato come</span> <b id="acc-email"></b> · <button class="linkbtn" data-i18n="f.signout" id="acc-out-btn" type="button">Esci</button></p>
@@ -120,7 +132,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <h2 data-i18n="f.acc.my_comments">I miei commenti</h2><ul class="fmine" id="acc-comments"></ul>
 <p class="small" data-email="contact@petpolicycheck.com" data-i18n-html="f.acc.delete_info">Per eliminare il Suo account e tutto ciò che ha pubblicato, invii un'email a <a href="mailto:contact@petpolicycheck.com">contact@petpolicycheck.com</a>. Può eliminare i singoli post e commenti personalmente qui sotto.</p>
 </section>
-<div class="forum" data-page="account" id="forum"></div><noscript><p class="warn">Attivi JavaScript per accedere, pubblicare o commentare. 로그인·글쓰기·댓글에는 자바스크립트가 필요해요.</p></noscript><script defer="" src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script><script defer="" src="/forum/i18n.js?v=20261125reset1"></script><script defer="" src="/forum/config.js?v=2a2a946f"></script><script defer="" src="/forum/forum.js?v=20261125reset1"></script>
+<div class="forum" data-page="account" id="forum"></div><noscript><p class="warn">Attivi JavaScript per accedere, pubblicare o commentare. 로그인·글쓰기·댓글에는 자바스크립트가 필요해요.</p></noscript><script defer="" src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script><script defer="" src="/forum/i18n.js?v=20261125reset2"></script><script defer="" src="/forum/config.js?v=2a2a946f"></script><script defer="" src="/forum/forum.js?v=20261125reset2"></script>
 </main>
 <footer class="foot foot-compact">
 <div class="wrap cols">

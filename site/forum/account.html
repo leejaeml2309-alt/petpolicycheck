@@ -97,9 +97,9 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   <form class="fform" id="f-signup" hidden><h2 class="fh" data-i18n="f.auth.signup_h">Create an account</h2>
    <div class="ffield"><label for="su-name" data-i18n="f.auth.display_name">Display name (shown publicly)</label><input id="su-name" type="text" minlength="2" maxlength="40" required autocomplete="nickname"></div><p class="small fhint" data-i18n="f.auth.display_hint">Not your full name, please: e.g. MinaAndMochi</p>
    <div class="ffield"><label for="su-email" data-i18n="f.auth.email">Email</label><input id="su-email" type="email" autocomplete="email" required></div>
-   <div class="ffield"><label for="su-pass" data-i18n="f.auth.password">Password</label><input id="su-pass" type="password" autocomplete="new-password" minlength="8" required></div><p class="small fhint" data-i18n="f.auth.password_hint">At least 8 characters</p>
+   <div class="ffield"><label for="su-pass" data-i18n="f.auth.password">Password</label><input id="su-pass" type="password" autocomplete="new-password" minlength="8" required></div><div class="ffield"><label for="su-pass2" data-i18n="f.auth.confirm_password">Confirm password</label><input id="su-pass2" type="password" autocomplete="new-password" minlength="8" required></div><p class="small fhint" data-i18n="f.auth.password_hint">At least 8 characters</p>
    <p class="small"><span data-i18n="f.auth.agree">By creating an account you agree to the community rules and the privacy policy.</span> <a href="guidelines.html" data-i18n="f.rules">Community rules</a> &middot; <a href="../privacy.html#forum" data-i18n="site.foot.privacy">Privacy</a></p>
-   <p class="fbtns"><button class="fbtn" type="submit" data-i18n="f.auth.signup_btn">Create account</button></p>
+   <p class="fbtns"><button class="fbtn" type="submit" id="su-submit" disabled data-i18n="f.auth.signup_btn">Create account</button></p>
    <p class="small"><a href="#" data-show="f-signin" data-i18n="f.auth.to_signin">Already have an account? Sign in</a></p>
   </form>
   <form class="fform" id="f-reset" hidden><h2 class="fh" data-i18n="f.auth.forgot">Forgot your password?</h2>
@@ -110,9 +110,21 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   
  </div>
 </section>
+
+<div class="fform" id="f-check-email" hidden>
+ <p class="fcheck-ico" aria-hidden="true" style="display:flex;justify-content:center;margin:0 0 .8rem;color:currentColor"><svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg></p>
+ <h2 class="fh" id="f-check-title" data-i18n="f.auth.check_inbox_h">Check your email</h2>
+ <p class="small" id="f-check-lead"></p>
+ <p class="small"><b id="f-check-addr"></b></p>
+ <p class="small" id="f-check-exp" hidden data-i18n="f.auth.link_expires_1h">The link expires in 1 hour.</p>
+ <p class="small" data-i18n="f.auth.check_spam">Check your spam or promotions folder too. If you use Gmail, the messages may be grouped in the same thread.</p>
+ <p class="fbtns"><button type="button" class="fbtn" id="f-check-resend" data-i18n="f.auth.resend">Resend email</button></p>
+ <p class="small verified" id="f-check-ok" hidden></p>
+ <p class="small"><a href="#" id="f-check-back" data-show="f-signin" data-i18n="f.auth.back_to_signin">Back to sign in</a></p>
+</div>
 <form class="fform" id="f-newpass" hidden><h2 class="fh" data-i18n="f.auth.new_password">New password</h2>
- <div class="ffield"><label for="np-pass" data-i18n="f.auth.new_password">New password</label><input id="np-pass" type="password" autocomplete="new-password" minlength="8" required></div>
- <p class="fbtns"><button class="fbtn" type="submit" data-i18n="f.auth.save_password">Save new password</button></p>
+ <div class="ffield"><label for="np-pass" data-i18n="f.auth.new_password">New password</label><input id="np-pass" type="password" autocomplete="new-password" minlength="8" required></div><div class="ffield"><label for="np-pass2" data-i18n="f.auth.confirm_password">Confirm password</label><input id="np-pass2" type="password" autocomplete="new-password" minlength="8" required></div><p class="small fhint" data-i18n="f.auth.password_hint">At least 8 characters</p>
+ <p class="fbtns"><button class="fbtn" type="submit" id="np-submit" disabled data-i18n="f.auth.save_password">Save new password</button></p>
 </form>
 <section id="acc-in" hidden>
  <p><span data-i18n="f.acc.signed_in_as">Signed in as</span> <b id="acc-email"></b> &middot; <button type="button" class="linkbtn" id="acc-out-btn" data-i18n="f.signout">Sign out</button></p>
@@ -123,7 +135,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
  <h2 data-i18n="f.acc.my_comments">My comments</h2><ul class="fmine" id="acc-comments"></ul>
  <p class="small" data-i18n-html="f.acc.delete_info" data-email="contact@petpolicycheck.com">To delete your account and everything you posted, email <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#112;&#101;&#116;&#112;&#111;&#108;&#105;&#99;&#121;&#99;&#104;&#101;&#99;&#107;&#46;&#99;&#111;&#109;">&#99;&#111;&#110;&#116;&#97;&#99;&#116;&#64;&#112;&#101;&#116;&#112;&#111;&#108;&#105;&#99;&#121;&#99;&#104;&#101;&#99;&#107;&#46;&#99;&#111;&#109;</a>. You can delete single posts and comments yourself below.</p>
 </section>
-<div id="forum" class="forum" data-page="account"></div><noscript><p class="warn">Please enable JavaScript to sign in, post or comment. 로그인·글쓰기·댓글에는 자바스크립트가 필요해요.</p></noscript><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" defer></script><script src="../forum/i18n.js?v=20261125reset1" defer></script><script src="../forum/config.js?v=2a2a946f" defer></script><script src="../forum/forum.js?v=20261125reset1" defer></script>
+<div id="forum" class="forum" data-page="account"></div><noscript><p class="warn">Please enable JavaScript to sign in, post or comment. 로그인·글쓰기·댓글에는 자바스크립트가 필요해요.</p></noscript><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" defer></script><script src="../forum/i18n.js?v=20261125reset2" defer></script><script src="../forum/config.js?v=2a2a946f" defer></script><script src="../forum/forum.js?v=20261125reset2" defer></script>
 </main>
 <footer class="foot foot-compact">
 <div class="wrap cols">

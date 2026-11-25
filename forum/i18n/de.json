@@ -97,7 +97,7 @@
   "f.err.not_configured": "The forum isn't connected yet.",
   "f.auth.email": "Email",
   "f.auth.password": "Password",
-  "f.auth.password_hint": "At least 8 characters",
+  "f.auth.password_hint": "Mindestens 8 Zeichen",
   "f.auth.display_name": "Display name (shown publicly)",
   "f.auth.display_hint": "Not your full name, please: e.g. MinaAndMochi",
   "f.auth.signin_h": "Sign in",
@@ -275,5 +275,18 @@
   "cat.topic.road_trip_camping": "Roadtrip & Camping",
   "cat.topic.adoption": "Adoption",
   "cat.topic.health_seniors": "Gesundheit & Senioren",
-  "cat.topic.life_with_pet": "Leben mit dem Tier"
+  "cat.topic.life_with_pet": "Leben mit dem Tier",
+  "f.auth.confirm_password": "Passwort bestätigen",
+  "f.auth.password_mismatch": "Die beiden Passwörter stimmen nicht überein.",
+  "f.auth.recovery_expired": "Dieser Link zum Zurücksetzen ist abgelaufen oder wurde bereits verwendet. Fordern Sie unten einen neuen an.",
+  "f.auth.check_inbox_h": "Prüfen Sie Ihre E-Mails",
+  "f.auth.confirm_inbox_h": "Bestätigen Sie Ihre E-Mail-Adresse",
+  "f.auth.check_inbox_reset": "Wir haben einen Link zum Zurücksetzen des Passworts gesendet an:",
+  "f.auth.check_inbox_signup": "Wir haben einen Bestätigungslink gesendet an:",
+  "f.auth.link_expires_1h": "Der Link läuft in 1 Stunde ab.",
+  "f.auth.check_spam": "Schauen Sie auch im Spam- oder Promotions-Ordner nach. Bei Gmail können die Nachrichten im selben Thread zusammengefasst sein.",
+  "f.auth.resend": "E-Mail erneut senden",
+  "f.auth.resend_wait": "E-Mail erneut senden ({n}s)",
+  "f.auth.resend_sent": "Eine neue E-Mail ist unterwegs.",
+  "f.auth.back_to_signin": "Zurück zur Anmeldung"
 }

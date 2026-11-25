@@ -272,5 +272,18 @@
   "cat.topic.road_trip_camping": "로드트립 & 캠핑",
   "cat.topic.adoption": "입양",
   "cat.topic.health_seniors": "건강 & 시니어",
-  "cat.topic.life_with_pet": "반려동물과 함께하는 삶"
+  "cat.topic.life_with_pet": "반려동물과 함께하는 삶",
+  "f.auth.confirm_password": "비밀번호 확인",
+  "f.auth.password_mismatch": "비밀번호가 일치하지 않아요.",
+  "f.auth.recovery_expired": "이 재설정 링크는 만료되었거나 이미 사용되었습니다. 아래에서 새 링크를 요청하세요.",
+  "f.auth.check_inbox_h": "이메일을 확인해 주세요",
+  "f.auth.confirm_inbox_h": "이메일을 인증해 주세요",
+  "f.auth.check_inbox_reset": "비밀번호 재설정 링크를 다음 주소로 보냈어요:",
+  "f.auth.check_inbox_signup": "인증 링크를 다음 주소로 보냈어요:",
+  "f.auth.link_expires_1h": "링크는 1시간 후에 만료돼요.",
+  "f.auth.check_spam": "스팸함이나 프로모션함도 확인해 주세요. Gmail에서는 같은 스레드로 묶여 보일 수 있어요.",
+  "f.auth.resend": "이메일 다시 보내기",
+  "f.auth.resend_wait": "이메일 다시 보내기 ({n}초)",
+  "f.auth.resend_sent": "새 이메일을 보냈어요.",
+  "f.auth.back_to_signin": "로그인으로 돌아가기"
 }

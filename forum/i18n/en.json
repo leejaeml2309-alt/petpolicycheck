@@ -272,5 +272,18 @@
   "cat.topic.road_trip_camping": "Road trip & camping",
   "cat.topic.adoption": "Adoption",
   "cat.topic.health_seniors": "Health & seniors",
-  "cat.topic.life_with_pet": "Life with your pet"
+  "cat.topic.life_with_pet": "Life with your pet",
+  "f.auth.confirm_password": "Confirm password",
+  "f.auth.password_mismatch": "The two passwords do not match.",
+  "f.auth.recovery_expired": "This reset link has expired or has already been used. Request a new one below.",
+  "f.auth.check_inbox_h": "Check your email",
+  "f.auth.confirm_inbox_h": "Confirm your email",
+  "f.auth.check_inbox_reset": "We sent a password reset link to:",
+  "f.auth.check_inbox_signup": "We sent a confirmation link to:",
+  "f.auth.link_expires_1h": "The link expires in 1 hour.",
+  "f.auth.check_spam": "Check your spam or promotions folder too. If you use Gmail, the messages may be grouped in the same thread.",
+  "f.auth.resend": "Resend email",
+  "f.auth.resend_wait": "Resend email ({n}s)",
+  "f.auth.resend_sent": "A new email is on its way.",
+  "f.auth.back_to_signin": "Back to sign in"
 }

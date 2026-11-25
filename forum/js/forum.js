@@ -199,13 +199,44 @@
     if (st0) msg(st0, t('f.err_load'));
     return;
   }
+  /* Capture the auth callback before supabase-js initialize() strips the hash. */
+  var AUTH_CB = (function () {
+    var hash = '';
+    try { hash = String(location.hash || ''); } catch (e0) { hash = ''; }
+    if (hash.charAt(0) === '#') hash = hash.slice(1);
+    var hp, sp, stored = false;
+    try { hp = new URLSearchParams(hash); } catch (e1) { hp = new URLSearchParams(); }
+    try { sp = new URLSearchParams(location.search || ''); } catch (e2) { sp = new URLSearchParams(); }
+    function q(k) { return hp.get(k) || sp.get(k) || ''; }
+    try { stored = sessionStorage.getItem('ppc_pw_recovery') === '1'; } catch (e3) {}
+    var typ = q('type');
+    var err = q('error') || q('error_code');
+    var hasCode = !!sp.get('code');
+    return { type: typ, error: err, recovery: typ === 'recovery' || (hasCode && stored), failed: !!err };
+  })();
+  if (AUTH_CB.recovery) { try { sessionStorage.setItem('ppc_pw_recovery', '1'); } catch (e4) {} }
+
   var sb = window.supabase.createClient(C.url, C.key, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: 'implicit' } });
   var session = null;
+  var recovering = !!(AUTH_CB.recovery && !AUTH_CB.failed);
+  var recoveryFailed = !!AUTH_CB.failed;
+  var accountOnAuth = null;
+  var checkInbox = null; /* { kind: 'signup'|'recovery', email: string } */
+  var checkCdTimer = null;
+  /* Only shown if we can confirm the project mailer OTP expiry is 3600s. Public Auth settings do not expose it; leave hidden when unknown. */
+  var MAIL_OTP_EXP_SEC = null;
   function user() { return session && session.user; }
   function signinHref() { return BASE + 'account.html?next=' + encodeURIComponent((location.pathname.split('/forum/')[1] || 'index.html') + location.search); }
   function updateAcctLinks() {
     document.querySelectorAll('[data-acct]').forEach(function (a) { a.textContent = user() ? t('f.account') : t('f.signin'); a.setAttribute('data-i18n', user() ? 'f.account' : 'f.signin'); });
   }
+  /* Register immediately so PASSWORD_RECOVERY is not missed after initialize(). */
+  sb.auth.onAuthStateChange(function (event, s) {
+    session = s;
+    if (event === 'PASSWORD_RECOVERY') recovering = true;
+    updateAcctLinks();
+    if (accountOnAuth) accountOnAuth(event, s);
+  });
 
   /* ---------------------------------------------------------------- index */
   function card(p) {
@@ -443,6 +474,31 @@
       ul.appendChild(li);
     });
   }
+  function maskEmail(e) {
+    e = String(e || '');
+    var at = e.indexOf('@');
+    if (at <= 0) return e;
+    var u = e.slice(0, at), d = e.slice(at);
+    if (u.length <= 2) return u.charAt(0) + '•••' + d;
+    return u.charAt(0) + '•••' + u.charAt(u.length - 1) + d;
+  }
+  function bindPasswordPair(aId, bId, btnId, errEl) {
+    var a = $(aId), b = $(bId), btn = $(btnId);
+    function check() {
+      if (!a || !b) return;
+      var va = a.value || '', vb = b.value || '';
+      var match = va === vb;
+      var long = va.length >= 8 && vb.length >= 8;
+      if (btn) btn.disabled = !(match && long);
+      if (!errEl) return;
+      if (va && vb && !match) msg(errEl, t('f.auth.password_mismatch'));
+      else if (errEl.textContent === t('f.auth.password_mismatch')) msg(errEl, '');
+    }
+    if (a) a.addEventListener('input', check);
+    if (b) b.addEventListener('input', check);
+    check();
+    return check;
+  }
   function initAccount() {
     var err = $('acc-err'), ok = $('acc-msg');
     var next = params.get('next');
@@ -451,12 +507,80 @@
     document.querySelectorAll('[data-show]').forEach(function (a) {
       a.addEventListener('click', function (ev) {
         ev.preventDefault();
+        checkInbox = null;
+        if (checkCdTimer) { clearTimeout(checkCdTimer); checkCdTimer = null; }
+        show($('f-check-email'), false);
+        show($('acc-out'), true);
         ['f-signin', 'f-signup', 'f-reset'].forEach(function (f) { show($(f), f === a.getAttribute('data-show')); });
         msg(err, ''); msg(ok, '');
       });
     });
-    function draw() {
+    function enterRecovery() {
+      recovering = true;
+      recoveryFailed = false;
+      checkInbox = null;
+      try { sessionStorage.setItem('ppc_pw_recovery', '1'); } catch (e8) {}
       msg(err, '');
+      show($('acc-out'), false);
+      show($('acc-in'), false);
+      show($('f-check-email'), false);
+      show($('f-newpass'), true);
+    }
+    function showRecoveryExpired() {
+      recovering = false;
+      recoveryFailed = true;
+      checkInbox = null;
+      try { sessionStorage.removeItem('ppc_pw_recovery'); } catch (e9) {}
+      show($('f-newpass'), false);
+      show($('f-check-email'), false);
+      show($('acc-in'), false);
+      show($('acc-out'), true);
+      show($('f-signin'), false);
+      show($('f-signup'), false);
+      show($('f-reset'), true);
+      msg(ok, '');
+      msg(err, t('f.auth.recovery_expired'));
+    }
+    function startCheckCooldown(secs) {
+      var btn = $('f-check-resend'), n = secs;
+      if (checkCdTimer) { clearTimeout(checkCdTimer); checkCdTimer = null; }
+      if (!btn) return;
+      function tick() {
+        if (!checkInbox) { btn.disabled = false; btn.textContent = t('f.auth.resend'); return; }
+        if (n <= 0) { btn.disabled = false; btn.textContent = t('f.auth.resend'); checkCdTimer = null; return; }
+        btn.disabled = true;
+        btn.textContent = t('f.auth.resend_wait').replace('{n}', String(n));
+        n -= 1;
+        checkCdTimer = setTimeout(tick, 1000);
+      }
+      tick();
+    }
+    function showCheckInbox(kind, email) {
+      recovering = false;
+      recoveryFailed = false;
+      checkInbox = { kind: kind, email: email };
+      msg(err, ''); msg(ok, '');
+      show($('f-newpass'), false);
+      show($('acc-in'), false);
+      show($('acc-out'), false);
+      show($('f-check-email'), true);
+      var titleKey = kind === 'signup' ? 'f.auth.confirm_inbox_h' : 'f.auth.check_inbox_h';
+      var leadKey = kind === 'signup' ? 'f.auth.check_inbox_signup' : 'f.auth.check_inbox_reset';
+      var title = $('f-check-title'), lead = $('f-check-lead'), addr = $('f-check-addr'), exp = $('f-check-exp'), sent = $('f-check-ok');
+      if (title) { title.setAttribute('data-i18n', titleKey); title.textContent = t(titleKey); }
+      if (lead) { lead.setAttribute('data-i18n', leadKey); lead.textContent = t(leadKey); }
+      if (addr) addr.textContent = maskEmail(email);
+      if (exp) show(exp, MAIL_OTP_EXP_SEC === 3600);
+      if (sent) msg(sent, '');
+      startCheckCooldown(60);
+    }
+    function draw() {
+      if (recoveryFailed) { showRecoveryExpired(); return; }
+      if (recovering) { enterRecovery(); return; }
+      if (checkInbox) { showCheckInbox(checkInbox.kind, checkInbox.email); return; }
+      msg(err, '');
+      show($('f-newpass'), false);
+      show($('f-check-email'), false);
       if (!user()) { show($('acc-out'), true); show($('acc-in'), false); return; }
       if (safeNext) { location.replace(BASE + safeNext); return; }
       show($('acc-out'), false); show($('acc-in'), true);
@@ -473,47 +597,103 @@
     $('f-signup').addEventListener('submit', function (ev) {
       ev.preventDefault(); msg(err, ''); msg(ok, '');
       var name = $('su-name').value.trim(), pass = $('su-pass').value;
+      var pass2 = $('su-pass2') ? $('su-pass2').value : pass;
       if (name.length < 2 || name.length > 40) { msg(err, t('f.err.name_len')); return; }
       if (pass.length < 8) { msg(err, t('f.auth.password_hint')); return; }
-      sb.auth.signUp({ email: $('su-email').value.trim(), password: pass, options: { data: { display_name: name }, emailRedirectTo: redirectTo() } }).then(function (r) {
+      if (pass !== pass2) { msg(err, t('f.auth.password_mismatch')); return; }
+      var email = $('su-email').value.trim();
+      sb.auth.signUp({ email: email, password: pass, options: { data: { display_name: name }, emailRedirectTo: redirectTo() } }).then(function (r) {
         if (r.error) { msg(err, r.error.message || t('f.err.generic')); return; }
-        show($('f-signup'), false); show($('f-signin'), true);
-        msg(ok, t('f.auth.check_email'));
+        showCheckInbox('signup', email);
       });
     });
     $('f-reset').addEventListener('submit', function (ev) {
       ev.preventDefault(); msg(err, ''); msg(ok, '');
       var btn = this.querySelector('button[type=submit]'); if (btn) btn.disabled = true;
       function fail(e) { msg(err, t('f.auth.reset_err') + (e && e.message ? ' (' + e.message + ')' : '')); }
-      sb.auth.resetPasswordForEmail($('rs-email').value.trim(), { redirectTo: BASE + 'account.html' }).then(function (r) {
-        if (r && r.error) fail(r.error); else msg(ok, t('f.auth.reset_sent'));
+      try { sessionStorage.setItem('ppc_pw_recovery', '1'); } catch (e5) {}
+      var resetEmail = $('rs-email').value.trim();
+      sb.auth.resetPasswordForEmail(resetEmail, { redirectTo: BASE + 'account.html' }).then(function (r) {
+        if (r && r.error) fail(r.error);
+        else showCheckInbox('recovery', resetEmail);
       }, fail).then(function () { if (btn) btn.disabled = false; });
     });
     $('f-newpass').addEventListener('submit', function (ev) {
       ev.preventDefault();
-      sb.auth.updateUser({ password: $('np-pass').value }).then(function (r) {
-        if (r.error) msg(err, r.error.message || t('f.err.generic'));
-        else { show($('f-newpass'), false); msg(ok, t('f.auth.password_saved')); draw(); }
+      var pass = $('np-pass').value;
+      var pass2 = $('np-pass2') ? $('np-pass2').value : pass;
+      if (pass.length < 8) { msg(err, t('f.auth.password_hint')); return; }
+      if (pass !== pass2) { msg(err, t('f.auth.password_mismatch')); return; }
+      sb.auth.updateUser({ password: pass }).then(function (r) {
+        if (r.error) {
+          var em = ((r.error.message || '') + ' ' + (r.error.code || '')).toLowerCase();
+          if (/expired|invalid.*(session|token)|session missing|not authenticated/.test(em)) showRecoveryExpired();
+          else msg(err, r.error.message || t('f.err.generic'));
+        } else {
+          try { sessionStorage.removeItem('ppc_pw_recovery'); } catch (e6) {}
+          recovering = false;
+          show($('f-newpass'), false);
+          msg(ok, t('f.auth.password_saved'));
+          draw();
+        }
       });
     });
     if ($('g-btn')) $('g-btn').addEventListener('click', function () {
       sb.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: redirectTo() } }).then(function (r) { if (r.error) msg(err, r.error.message); });
     });
-    $('acc-out-btn').addEventListener('click', function () { sb.auth.signOut().then(function () { session = null; draw(); updateAcctLinks(); }); });
+    $('acc-out-btn').addEventListener('click', function () {
+      try { sessionStorage.removeItem('ppc_pw_recovery'); } catch (e7) {}
+      recovering = false;
+      recoveryFailed = false;
+      sb.auth.signOut().then(function () { session = null; draw(); updateAcctLinks(); });
+    });
     $('f-name').addEventListener('submit', function (ev) {
       ev.preventDefault(); msg(err, ''); msg(ok, '');
       var name = $('acc-name').value.trim();
       if (name.length < 2 || name.length > 40) { msg(err, t('f.err.name_len')); return; }
       sb.from('profiles').update({ display_name: name }).eq('id', user().id).then(function (r) { if (r.error) msg(err, errText(r.error, 'name')); else msg(ok, t('f.acc.saved')); });
     });
-    sb.auth.onAuthStateChange(function (event, s) {
-      session = s;
-      updateAcctLinks();
-      if (event === 'PASSWORD_RECOVERY') { show($('acc-out'), false); show($('f-newpass'), true); return; }
-      if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') setTimeout(draw, 0);
+    bindPasswordPair('su-pass', 'su-pass2', 'su-submit', err);
+    bindPasswordPair('np-pass', 'np-pass2', 'np-submit', err);
+    if ($('f-check-resend')) $('f-check-resend').addEventListener('click', function () {
+      if (!checkInbox) return;
+      var btn = this;
+      btn.disabled = true;
+      function after(r) {
+        if (r && r.error) msg(err, r.error.message || t('f.auth.reset_err'));
+        else {
+          msg(err, '');
+          if ($('f-check-ok')) msg($('f-check-ok'), t('f.auth.resend_sent'));
+          startCheckCooldown(60);
+        }
+        if (!checkInbox) btn.disabled = false;
+      }
+      if (checkInbox.kind === 'signup') {
+        sb.auth.resend({ type: 'signup', email: checkInbox.email, options: { emailRedirectTo: redirectTo() } }).then(after, after);
+      } else {
+        try { sessionStorage.setItem('ppc_pw_recovery', '1'); } catch (e11) {}
+        sb.auth.resetPasswordForEmail(checkInbox.email, { redirectTo: BASE + 'account.html' }).then(after, after);
+      }
     });
+    accountOnAuth = function (event, s) {
+      if (event === 'PASSWORD_RECOVERY') { enterRecovery(); return; }
+      if (recovering && s && (event === 'SIGNED_IN' || event === 'INITIAL_SESSION')) { enterRecovery(); return; }
+      if (event === 'SIGNED_IN' || event === 'SIGNED_OUT' || event === 'INITIAL_SESSION') {
+        if (!recovering && !recoveryFailed) setTimeout(draw, 0);
+      }
+    };
     rerender.push(draw);
-    draw();
+    if (AUTH_CB.failed) {
+      showRecoveryExpired();
+    } else if (AUTH_CB.recovery || recovering) {
+      if (user()) enterRecovery();
+      else showRecoveryExpired();
+    } else {
+      var held = false;
+      try { held = sessionStorage.getItem('ppc_pw_recovery') === '1'; } catch (e10) {}
+      if (held && user()) enterRecovery();
+      else draw();
+    }
   }
 
   /* ---------------------------------------------------------------- admin (manual fallback) */

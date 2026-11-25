@@ -97,7 +97,7 @@
   "f.err.not_configured": "The forum isn't connected yet.",
   "f.auth.email": "Email",
   "f.auth.password": "Password",
-  "f.auth.password_hint": "At least 8 characters",
+  "f.auth.password_hint": "8文字以上",
   "f.auth.display_name": "Display name (shown publicly)",
   "f.auth.display_hint": "Not your full name, please: e.g. MinaAndMochi",
   "f.auth.signin_h": "Sign in",
@@ -275,5 +275,18 @@
   "cat.topic.road_trip_camping": "ロードトリップ＆キャンプ",
   "cat.topic.adoption": "譲渡・里親",
   "cat.topic.health_seniors": "健康・シニア",
-  "cat.topic.life_with_pet": "ペットとの暮らし"
+  "cat.topic.life_with_pet": "ペットとの暮らし",
+  "f.auth.confirm_password": "パスワード（確認）",
+  "f.auth.password_mismatch": "パスワードが一致しません。",
+  "f.auth.recovery_expired": "このリセットリンクは期限切れか、すでに使用されています。下から新しいリンクをリクエストしてください。",
+  "f.auth.check_inbox_h": "メールをご確認ください",
+  "f.auth.confirm_inbox_h": "メールアドレスを確認してください",
+  "f.auth.check_inbox_reset": "パスワード再設定リンクを次のアドレスに送信しました：",
+  "f.auth.check_inbox_signup": "確認リンクを次のアドレスに送信しました：",
+  "f.auth.link_expires_1h": "リンクの有効期限は1時間です。",
+  "f.auth.check_spam": "迷惑メールやプロモーションフォルダもご確認ください。Gmailでは同じスレッドにまとめて表示されることがあります。",
+  "f.auth.resend": "メールを再送",
+  "f.auth.resend_wait": "メールを再送（{n}秒）",
+  "f.auth.resend_sent": "新しいメールを送信しました。",
+  "f.auth.back_to_signin": "ログインに戻る"
 }

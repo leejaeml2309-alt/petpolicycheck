@@ -97,7 +97,7 @@
   "f.err.not_configured": "The forum isn't connected yet.",
   "f.auth.email": "Email",
   "f.auth.password": "Password",
-  "f.auth.password_hint": "At least 8 characters",
+  "f.auth.password_hint": "Al menos 8 caracteres",
   "f.auth.display_name": "Display name (shown publicly)",
   "f.auth.display_hint": "Not your full name, please: e.g. MinaAndMochi",
   "f.auth.signin_h": "Sign in",
@@ -275,5 +275,18 @@
   "cat.topic.road_trip_camping": "Road trip y camping",
   "cat.topic.adoption": "Adopción",
   "cat.topic.health_seniors": "Salud y seniors",
-  "cat.topic.life_with_pet": "Vida con tu animal"
+  "cat.topic.life_with_pet": "Vida con tu animal",
+  "f.auth.confirm_password": "Confirmar contraseña",
+  "f.auth.password_mismatch": "Las dos contraseñas no coinciden.",
+  "f.auth.recovery_expired": "Este enlace para restablecer la contraseña ha caducado o ya se ha usado. Solicita uno nuevo más abajo.",
+  "f.auth.check_inbox_h": "Revisa tu correo",
+  "f.auth.confirm_inbox_h": "Confirma tu correo",
+  "f.auth.check_inbox_reset": "Hemos enviado un enlace para restablecer la contraseña a:",
+  "f.auth.check_inbox_signup": "Hemos enviado un enlace de confirmación a:",
+  "f.auth.link_expires_1h": "El enlace caduca en 1 hora.",
+  "f.auth.check_spam": "Revisa también la carpeta de spam o de promociones. Si usas Gmail, los mensajes pueden agruparse en el mismo hilo.",
+  "f.auth.resend": "Reenviar correo",
+  "f.auth.resend_wait": "Reenviar correo ({n}s)",
+  "f.auth.resend_sent": "Un nuevo correo está en camino.",
+  "f.auth.back_to_signin": "Volver a iniciar sesión"
 }
