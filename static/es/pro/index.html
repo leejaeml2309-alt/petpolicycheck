@@ -109,6 +109,102 @@
 <script src="/assets/i18n/ui.js?v=20261124ja1" defer></script>
 <script src="/assets/js/ppc-i18n.js?v=20261124ja1" defer></script>
 <link rel="stylesheet" href="/assets/site-search.css?v=20261117sb2">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué planes y precios hay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "B2B Pet Desk tiene tres planes. Starter · Advisor cuesta 49 $ al mes o 468 $ al año y se vende en línea a través de Gumroad con una prueba gratuita de 1 mes. Pro · Pet Desk Agency (149 $ al mes o 1.428 $ al año) y Enterprise · Corporate HR & Global Mobility (399 $ al mes o 3.828 $ al año) están disponibles por ahora bajo solicitud: use «Solicite la incorporación». Las suscripciones anuales se facturan por el total del año. Los impuestos se añaden en el pago según el país del comprador."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo funciona la prueba gratuita de Starter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es la prueba oficial de las membresías de Gumroad: 1 mes gratis, solo para Starter. Introduce una tarjeta de pago en el checkout de Gumroad. Al terminar el mes gratuito (tras 28 a 31 días, según el mes), Gumroad cobra el precio de Starter elegido, mensual o anual, salvo que cancele antes. Gumroad le avisa por correo 48 horas antes de ese cargo. Una prueba por cliente: si cancela durante la prueba, no podrá iniciar otra."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se me cobrará al terminar la prueba?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, salvo que cancele antes de que termine el mes gratuito. Para evitar el cargo, cancele desde el enlace «Manage membership» de su recibo de Gumroad o desde su biblioteca de Gumroad. Si cancela durante la prueba, no paga nada y su acceso termina al acabar el mes gratuito."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Pro y Enterprise tienen prueba gratuita?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Solo Starter tiene prueba gratuita. Pro y Enterprise no tienen por ahora ni prueba gratuita ni pago en línea: use «Solicite la incorporación» y le responderemos por correo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo entro en mi Pet Desk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Su recibo de Gumroad y la página de contenido del producto muestran su clave de licencia y un enlace a petpolicycheck.com/pro/desk/. Abra esa página y pegue la clave. Starter incluye 1 puesto: abrir su Desk en otro dispositivo cierra la sesión anterior. ¿Ha perdido la clave? Use la búsqueda de claves de Gumroad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Quién es el Merchant of Record?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El proceso de pedido lo gestiona nuestro revendedor en línea Gumroad (gumroad.com). Gumroad es el Merchant of Record de todos nuestros pedidos y gestiona pagos, impuestos, facturación y reembolsos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo funcionan los reembolsos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Su primer pago tiene una garantía de reembolso de 14 días. En Starter, ese primer pago se realiza al terminar el mes gratuito, y los 14 días empiezan en esa fecha, no al inicio de la prueba. Use el enlace de su recibo de Gumroad o escriba a contact@petpolicycheck.com con el correo del pedido y el nombre del plan. Gumroad abona los reembolsos aprobados en el medio de pago original. Consulte nuestra Política de reembolso y cancelación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo cancelar en cualquier momento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Cancele desde el enlace «Manage membership» de su recibo de Gumroad o desde su biblioteca de Gumroad. El acceso continúa hasta el final del mes gratuito o del periodo pagado, sin más cargos. Cancelar detiene la renovación; es independiente de una solicitud de reembolso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo obtengo un recibo o una factura?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Gumroad, el Merchant of Record, emite los recibos y las facturas. Durante el mes gratuito no hay nada que facturar; tras su primer pago, use el enlace de su recibo de Gumroad."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es SaaS o consultoría?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Acceso 100 % self-service al software y a datos normativos estructurados. La «sesión trimestral» de Enterprise es una nota de versión digital estandarizada, no consultoría humana a medida."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo puedo contactarles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Escriba a contact@petpolicycheck.com. Para pedidos pagados, también puede usar el enlace de su recibo de Gumroad."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body class="v-c"><a class="skip" href="#main" data-i18n="site.skip">Saltar al contenido</a>
 <header class="top"><div class="wrap">
@@ -153,16 +249,14 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     <div class="price"><span class="amt" data-price-mo="49" data-price-yr="468">$49</span><span class="per" data-i="per_mo">/ mes</span><span class="save" hidden data-i="eq_s">equiv. $39/mes</span></div>
     <ul>
       <li data-i="s1">1 usuario</li>
-      <li data-i="s2">Hasta 15 Pet Travel Passports digitales bilingües al mes (EN / FR / ES / DE)</li>
+      <li data-i="s2">Hasta 15 pasaportes digitales de viaje bilingües al mes (EN / ES / IT)</li>
       <li data-i="s3">Mapas interactivos de aeropuertos, veterinarios, hoteles y peluquerías: 50 estados e internacional</li>
       <li data-i="s4">Comparador de tarifas y transportadoras bajo el asiento de 30 aerolíneas</li>
-      <li data-i="s5">Hasta 5 alertas automáticas de cambios de normas por ruta</li>
+      <li data-i="s5">Lista de seguimiento de hasta 5 aerolíneas en su Desk, con cada cambio de normas registrado señalado</li>
     </ul>
-    <div class="cta-row">
-      <a class="btn-pro pri" href="mailto:contact@petpolicycheck.com?subject=B2B%20Pet%20Desk%20Starter%20-%20free%2014-day%20trial" data-i="cta_trial">Empiece su prueba gratuita de 14 días</a>
-      <p class="fine trial-micro" data-i="cta_micro">14 días gratis. Sin tarjeta. Sin compromiso. Sin suscripción automática ni cargo al terminar la prueba. Suscríbase solo si elige un plan de pago y confirma su compra a través de Gumroad.</p>
-      <!-- Gumroad checkout: href follows the monthly/annual toggle (data-href-mo / data-href-yr) -->
-<a class="btn-pro ghost" href="https://petpolicycheck.gumroad.com/l/tamiv?tier=Starter&amp;wanted=true" data-href-mo="https://petpolicycheck.gumroad.com/l/tamiv?tier=Starter&amp;wanted=true" data-href-yr="https://petpolicycheck.gumroad.com/l/tamiv?tier=Starter&amp;yearly=true&amp;wanted=true" data-i="cta_pay" rel="noopener" target="_blank">Suscribirse</a>
+    <div class="cta-row" data-pd="starter-trial">
+      <a class="btn-pro pri" href="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-mo="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-yr="https://petpolicycheck.gumroad.com/l/petdesk-starter?yearly=true&amp;wanted=true" data-i="cta_trial" rel="noopener" target="_blank">Empiece su prueba gratuita de 1 mes</a>
+      <p class="fine trial-micro" data-i="cta_micro">1 mes gratis y después 49 $/mes o 468 $/año. Se pide tarjeta en el checkout de Gumroad. El cargo es automático al terminar el mes gratuito, salvo que cancele antes; Gumroad le avisa por correo 48 horas antes.</p>
       <a class="btn-pro ghost" href="mailto:contact@petpolicycheck.com?subject=B2B%20Pet%20Desk%20Starter%20onboarding" data-i="cta_onboard">Solicite la incorporación</a>
     </div>
   </article>
@@ -181,11 +275,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       <li data-i="p5">Insignia digital Verified Pet-Friendly Partner en 4 idiomas</li>
     </ul>
     <div class="cta-row">
-      <a class="btn-pro pri" href="mailto:contact@petpolicycheck.com?subject=B2B%20Pet%20Desk%20Pro%20-%20free%2014-day%20trial" data-i="cta_trial_ipata">Empiece su prueba gratuita de 14 días</a>
-      <p class="fine trial-micro" data-i="cta_micro">14 días gratis. Sin tarjeta. Sin compromiso. Sin suscripción automática ni cargo al terminar la prueba. Suscríbase solo si elige un plan de pago y confirma su compra a través de Gumroad.</p>
-      <!-- Gumroad checkout: href follows the monthly/annual toggle (data-href-mo / data-href-yr) -->
-<a class="btn-pro ghost" href="https://gumroad.com/checkout?wanted=true&amp;product=tamiv&amp;option=k-rAPHqLwd_4MytPY3Qd4w%3D%3D&amp;quantity=1" data-href-mo="https://gumroad.com/checkout?wanted=true&amp;product=tamiv&amp;option=k-rAPHqLwd_4MytPY3Qd4w%3D%3D&amp;quantity=1" data-href-yr="https://gumroad.com/checkout?wanted=true&amp;product=tamiv&amp;option=k-rAPHqLwd_4MytPY3Qd4w%3D%3D&amp;recurrence=yearly&amp;quantity=1" data-i="cta_pay" rel="noopener" target="_blank">Suscribirse</a>
-      <a class="btn-pro ghost" href="mailto:contact@petpolicycheck.com?subject=B2B%20Pet%20Desk%20Pro%20onboarding" data-i="cta_onboard">Solicite la incorporación</a>
+      <a class="btn-pro pri" href="mailto:contact@petpolicycheck.com?subject=B2B%20Pet%20Desk%20Pro%20onboarding" data-i="cta_onboard">Solicite la incorporación</a>
+      <p class="fine trial-micro" data-i="po_note">Por ahora este plan no tiene pago en línea ni prueba gratuita. Solicite la incorporación por correo y le responderemos con los siguientes pasos.</p>
     </div>
   </article>
 
@@ -201,26 +292,29 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       <li data-i="e4">Quarterly policy &amp; platform update briefing (informe digital estandarizado sobre la plataforma y las novedades normativas — cero consultoría humana a medida)</li>
     </ul>
     <div class="cta-row">
-      <a class="btn-pro pri" href="mailto:contact@petpolicycheck.com?subject=B2B%20Pet%20Desk%20Enterprise%20-%20free%2014-day%20trial" data-i="cta_trial">Empiece su prueba gratuita de 14 días</a>
-      <p class="fine trial-micro" data-i="cta_micro">14 días gratis. Sin tarjeta. Sin compromiso. Sin suscripción automática ni cargo al terminar la prueba. Suscríbase solo si elige un plan de pago y confirma su compra a través de Gumroad.</p>
-      <!-- Gumroad checkout: href follows the monthly/annual toggle (data-href-mo / data-href-yr) -->
-<a class="btn-pro ghost" href="https://gumroad.com/checkout?wanted=true&amp;product=tamiv&amp;option=_s9W69jYydso6twsdpL_yA%3D%3D&amp;quantity=1" data-href-mo="https://gumroad.com/checkout?wanted=true&amp;product=tamiv&amp;option=_s9W69jYydso6twsdpL_yA%3D%3D&amp;quantity=1" data-href-yr="https://gumroad.com/checkout?wanted=true&amp;product=tamiv&amp;option=_s9W69jYydso6twsdpL_yA%3D%3D&amp;recurrence=yearly&amp;quantity=1" data-i="cta_pay" rel="noopener" target="_blank">Suscribirse</a>
-      <a class="btn-pro ghost" href="mailto:contact@petpolicycheck.com?subject=B2B%20Pet%20Desk%20Enterprise%20onboarding" data-i="cta_onboard">Solicite la incorporación</a>
+      <a class="btn-pro pri" href="mailto:contact@petpolicycheck.com?subject=B2B%20Pet%20Desk%20Enterprise%20onboarding" data-i="cta_onboard">Solicite la incorporación</a>
+      <p class="fine trial-micro" data-i="po_note">Por ahora este plan no tiene pago en línea ni prueba gratuita. Solicite la incorporación por correo y le responderemos con los siguientes pasos.</p>
     </div>
   </article>
 </div>
 
-<div class="notice" data-i="notice">Su prueba gratuita no crea una suscripción de pago. Si más adelante decide suscribirse, el pago lo gestiona Gumroad, nuestro Merchant of Record. Los impuestos se añaden al momento del pago según el país del comprador. Las suscripciones de pago se renuevan mensual o anualmente hasta que se cancelen. Las compras iniciales de pago cuentan con una garantía de reembolso de 14 días independiente, que comienza en la fecha de compra. Consulte nuestros <a href="/terms.html">Términos</a> y nuestra <a href="/refund-policy.html">Política de reembolso y cancelación</a> (en inglés). Las compras también están sujetas a los <a href="https://gumroad.com/terms" rel="noopener" target="_blank">Términos de Gumroad</a>.
+<div class="notice" data-i="notice">
+  La prueba gratuita es solo para Starter: 1 mes a través de Gumroad, nuestro Merchant of Record. Se pide tarjeta, y Gumroad cobra automáticamente el precio de Starter al terminar el mes gratuito, salvo que cancele antes. Los impuestos se añaden en el pago según el país del comprador. Las suscripciones de pago se renuevan cada mes o cada año hasta que se cancelen. Su primer pago tiene una garantía de reembolso independiente de 14 días. Pro y Enterprise están disponibles bajo solicitud. Consulte nuestros <a href="/es/terms.html">Términos</a> y nuestra <a href="/es/refund-policy.html">Política de reembolso y cancelación</a>. Las compras también están sujetas a los <a href="https://gumroad.com/terms" rel="noopener" target="_blank">Términos</a> de Gumroad.
 </div>
 
 <section class="pro-faq">
   <h3 data-i="faq_h">Qué incluye</h3>
-  <details open><summary data-i="f1t">¿Es SaaS o consultoría?</summary><p data-i="f1b">Acceso 100 % self-service al software y datos estructurados sobre normativas. El “Quarterly policy &amp; platform update briefing” de Enterprise es un informe digital estandarizado de novedades, no consultoría humana a medida.</p></details>
-  <details><summary data-i="f2t">¿Quién es el Merchant of Record?</summary><p data-i="f2b">El proceso de pedido lo gestiona nuestro revendedor en línea Gumroad (gumroad.com). Gumroad es el Merchant of Record de todos nuestros pedidos y se encarga de los pagos, los impuestos, la facturación y los reembolsos. Consulte nuestros <a href="/terms.html">Términos</a> y nuestra <a href="/refund-policy.html">Política de reembolso</a> (en inglés).</p></details>
-  <details><summary data-i="f3t">¿Puedo cancelar en cualquier momento?</summary><p data-i="f3b">Sí. Cancele antes de la renovación desde el enlace de su recibo o correo de confirmación de Gumroad. Las nuevas suscripciones de pago incluyen un plazo claro de reembolso de 14 días.</p></details>
-
-  <details><summary data-i="f4t">¿Se me cobrará al terminar la prueba?</summary><p data-i="f4b">No. La prueba termina sin ningún cargo ni suscripción de pago automática. Para suscribirse, debe elegir un plan de pago y confirmar su compra a través de Gumroad. No necesita cancelar la prueba para evitar un cargo.</p></details>
-  <details><summary data-i="f5t">¿La prueba es lo mismo que la garantía de reembolso?</summary><p data-i="f5b">No. La prueba es gratuita durante 14 días. La garantía de reembolso de 14 días, que es independiente, comienza en la fecha de su compra inicial de pago, si decide realizarla.</p></details>
+  <details><summary>¿Qué planes y precios hay?</summary><p>B2B Pet Desk tiene tres planes. Starter · Advisor cuesta 49 $ al mes o 468 $ al año y se vende en línea a través de Gumroad con una prueba gratuita de 1 mes. Pro · Pet Desk Agency (149 $ al mes o 1.428 $ al año) y Enterprise · Corporate HR &amp; Global Mobility (399 $ al mes o 3.828 $ al año) están disponibles por ahora bajo solicitud: use «Solicite la incorporación». Las suscripciones anuales se facturan por el total del año. Los impuestos se añaden en el pago según el país del comprador.</p></details>
+  <details><summary>¿Cómo funciona la prueba gratuita de Starter?</summary><p>Es la prueba oficial de las membresías de Gumroad: 1 mes gratis, solo para Starter. Introduce una tarjeta de pago en el checkout de Gumroad. Al terminar el mes gratuito (tras 28 a 31 días, según el mes), Gumroad cobra el precio de Starter elegido, mensual o anual, salvo que cancele antes. Gumroad le avisa por correo 48 horas antes de ese cargo. Una prueba por cliente: si cancela durante la prueba, no podrá iniciar otra.</p></details>
+  <details><summary>¿Se me cobrará al terminar la prueba?</summary><p>Sí, salvo que cancele antes de que termine el mes gratuito. Para evitar el cargo, cancele desde el enlace «Manage membership» de su recibo de Gumroad o desde su biblioteca de Gumroad. Si cancela durante la prueba, no paga nada y su acceso termina al acabar el mes gratuito.</p></details>
+  <details><summary>¿Pro y Enterprise tienen prueba gratuita?</summary><p>No. Solo Starter tiene prueba gratuita. Pro y Enterprise no tienen por ahora ni prueba gratuita ni pago en línea: use «Solicite la incorporación» y le responderemos por correo.</p></details>
+  <details><summary>¿Cómo entro en mi Pet Desk?</summary><p>Su recibo de Gumroad y la página de contenido del producto muestran su clave de licencia y un enlace a petpolicycheck.com/pro/desk/. Abra esa página y pegue la clave. Starter incluye 1 puesto: abrir su Desk en otro dispositivo cierra la sesión anterior. ¿Ha perdido la clave? Use la <a href="https://gumroad.com/license-key-lookup" rel="noopener" target="_blank">búsqueda de claves de Gumroad</a>.</p></details>
+  <details><summary>¿Quién es el Merchant of Record?</summary><p>El proceso de pedido lo gestiona nuestro revendedor en línea Gumroad (gumroad.com). Gumroad es el Merchant of Record de todos nuestros pedidos y gestiona pagos, impuestos, facturación y reembolsos.</p></details>
+  <details><summary>¿Cómo funcionan los reembolsos?</summary><p>Su primer pago tiene una garantía de reembolso de 14 días. En Starter, ese primer pago se realiza al terminar el mes gratuito, y los 14 días empiezan en esa fecha, no al inicio de la prueba. Use el enlace de su recibo de Gumroad o escriba a <a href="mailto:contact@petpolicycheck.com">contact@petpolicycheck.com</a> con el correo del pedido y el nombre del plan. Gumroad abona los reembolsos aprobados en el medio de pago original. Consulte nuestra <a href="/es/refund-policy.html">Política de reembolso y cancelación</a>.</p></details>
+  <details><summary>¿Puedo cancelar en cualquier momento?</summary><p>Sí. Cancele desde el enlace «Manage membership» de su recibo de Gumroad o desde su biblioteca de Gumroad. El acceso continúa hasta el final del mes gratuito o del periodo pagado, sin más cargos. Cancelar detiene la renovación; es independiente de una solicitud de reembolso.</p></details>
+  <details><summary>¿Cómo obtengo un recibo o una factura?</summary><p>Gumroad, el Merchant of Record, emite los recibos y las facturas. Durante el mes gratuito no hay nada que facturar; tras su primer pago, use el enlace de su recibo de Gumroad.</p></details>
+  <details><summary>¿Es SaaS o consultoría?</summary><p>Acceso 100 % self-service al software y a datos normativos estructurados. La «sesión trimestral» de Enterprise es una nota de versión digital estandarizada, no consultoría humana a medida.</p></details>
+  <details><summary>¿Cómo puedo contactarles?</summary><p>Escriba a <a href="mailto:contact@petpolicycheck.com?subject=Pet%20Desk%20Pro">contact@petpolicycheck.com</a>. Para pedidos pagados, también puede usar el enlace de su recibo de Gumroad.</p></details>
 </section>
 <p class="fine" data-i="op">Operador: LEVRAT Marc Jea Won · PetPolicyCheck / Paw Passport · 266-17 Pyeonghwa-ro, Paju-si, Gyeonggi-do 10849, República de Corea · contact@petpolicycheck.com</p>
 
@@ -238,6 +332,7 @@ de:{eyebrow:"Paw Passport · For Business",h1:"Self-Serve Compliance-Software f�
 ko:{eyebrow:"Paw Passport · 비즈니스",h1:"여행 상담사·펫 이주 업체·글로벌 모빌리티팀을 위한 셀프서브 반려동물 여행 컴플라이언스 소프트웨어",lead:"고객마다 이중 언어 디지털 Pet Travel Passport, 실시간 코리도 지도, 항공사 요금·이동장 규정, 규칙 변경 알림을 — 맞춤 컨설팅 없이. 100% SaaS / 셀프서브.",bill_mo:"월간",bill_yr:"연간 (20% 절약)",per_mo:"/ 월",per_yr:"/ 년",eq_s:"월 $39 상당",eq_p:"월 $119 상당",eq_e:"월 $319 상당",s_name:"Starter · Advisor",s_who:"개인 여행 상담사 & 독립 펫 이주 업체",s1:"좌석 1개",s2:"월 최대 15개 이중 언어 디지털 Pet Travel Passport (EN / FR / ES / DE / KO / JA)",s3:"50개 주 & 국제 공항·수의·호텔·그루밍 인터랙티브 지도",s4:"30개 항공사 요금 & 좌석 밑 이동장 비교기",s5:"최대 5개 자동 노선 규칙 변경 알림",p_name:"Pro · Pet Desk Agency",p_who:"펫 이주 데스크 & 다수 상담사 에이전시",popular:"가장 인기",p1:"팀 좌석 최대 5개",p2:"무제한 화이트라벨 Pet Travel Passport (에이전시 로고 + QR 인증)",p3:"무제한 코리도 규칙 변경 알림",p4:"CSV / JSON 정책보내기",p5:"6개 언어 Verified Pet-Friendly Partner 디지털 배지",e_name:"Enterprise · Corporate HR & Global Mobility",e_who:"기업 모빌리티 & HR 이주 프로그램",e1:"좌석 최대 25개 + 셀프서브 직원 포털",e2:"구조화된 읽기 전용 JSON 정책 피드",e3:"맞춤 코리도 워치리스트",e4:"분기별 정책·플랫폼 업데이트 브리핑 (표준 디지털 — 맞춤 인간 컨설팅 없음)",cta_trial:"Start your free 14-day trial",cta_trial_ipata:"Start your free 14-day trial",cta_onboard:"온보딩 요청",notice:"<strong>Gumroad 셀프서브 결제</strong> (Merchant of Record — 결제, 세금 및 VAT, 영수증; 14일 환불). <a href=\"mailto:contact@petpolicycheck.com\">contact@petpolicycheck.com</a>으로 온보딩/체험을 요청하세요.",faq_h:"포함 내용",f1t:"SaaS인가요, 컨설팅인가요?",f1b:"100% 셀프서브 소프트웨어와 구조화 데이터입니다. Enterprise 분기 브리핑은 표준 디지털 릴리스이며 맞춤 인간 컨설팅이 아니에요.",f2t:"Merchant of Record는 누구인가요?",f2b:"주문은 온라인 리셀러 Gumroad이 처리합니다. Gumroad이 모든 주문의 Merchant of Record입니다. <a href=\"../terms.html\">이용약관</a>과 <a href=\"../refund-policy.html\">환불 정책</a>을 확인하세요.",f3t:"언제든 해지할 수 있나요?",f3b:"네. Gumroad 영수증 또는 확인 메일의 링크에서 갱신 전에 해지하세요. 신규 유료 구독은 14일 환불 기간이 있어요.",cta_pay:"구독하기",contact_h:"문의",contact_p:"요금제, 체험 또는 구매에 관한 문의는 <a href=\"mailto:contact@petpolicycheck.com?subject=Pet%20Desk%20Pro\">contact@petpolicycheck.com</a>으로 보내 주세요.",op:"운영: LEVRAT Marc Jea Won · PetPolicyCheck / Paw Passport · 266-17 Pyeonghwa-ro, Paju-si, Gyeonggi-do 10849, Republic of Korea · contact@petpolicycheck.com"},
 ja:{eyebrow:"Paw Passport · 法人向け",h1:"旅行アドバイザー・ペット引越し・グローバルモビリティ向けセルフサーブ・ペット旅行コンプライアンスソフト",lead:"顧客ごとに二言語デジタル Pet Travel Passport、回廊マップ、航空会社料金・キャリア規則、ルール変更アラートを — 個別コンサルなしで。100% SaaS / セルフサーブ。",bill_mo:"月額",bill_yr:"年額（20%お得）",per_mo:"/ 月",per_yr:"/ 年",eq_s:"月額$39相当",eq_p:"月額$119相当",eq_e:"月額$319相当",s_name:"Starter · Advisor",s_who:"個人アドバイザー＆独立ペットリロケーター",s1:"シート1",s2:"月最大15件の二言語デジタル Pet Travel Passport（EN / FR / ES / DE / KO / JA）",s3:"50州＆国際の空港・獣医・ホテル・グルーミング地図",s4:"30航空会社の料金＆座席下キャリア比較",s5:"最大5件の自動ルート規則変更アラート",p_name:"Pro · Pet Desk Agency",p_who:"ペットリロケーションデスク＆複数アドバイザー代理店",popular:"一番人気",p1:"チームシート最大5",p2:"無制限ホワイトラベル Pet Travel Passport（ロゴ＋QR認証）",p3:"無制限コリドール規則変更アラート",p4:"CSV / JSON ポリシーエクスポート",p5:"6言語 Verified Pet-Friendly Partner デジタルバッジ",e_name:"Enterprise · Corporate HR & Global Mobility",e_who:"企業モビリティ＆HRリロケーション",e1:"シート最大25＋セルフサーブ従業員ポータル",e2:"構造化読み取り専用JSONポリシーフィード",e3:"カスタムコリドール・ウォッチリスト",e4:"四半期ポリシー＆プラットフォーム更新ブリーフィング（標準デジタル — 個別人的コンサルなし）",cta_trial:"Start your free 14-day trial",cta_trial_ipata:"Start your free 14-day trial",cta_onboard:"オンボーディングを依頼",notice:"<strong>Gumroadによるセルフサーブ決済</strong>（Merchant of Record — 支払い、税およびVAT、領収書；14日返金）。お問い合わせは <a href=\"mailto:contact@petpolicycheck.com\">contact@petpolicycheck.com</a> へ。",faq_h:"含まれるもの",f1t:"SaaSですか、コンサルですか？",f1b:"100%セルフサーブのソフトウェアと構造化データです。Enterpriseの四半期ブリーフィングは標準デジタル配信で、個別の人的コンサルではありません。",f2t:"Merchant of Recordは誰ですか？",f2b:"注文はオンライン再販業者 Gumroad（gumroad.com）が処理します。詳しくは<a href=\"../terms.html\">利用規約</a>と<a href=\"../refund-policy.html\">返金ポリシー</a>を参照してください。",f3t:"いつでも解約できますか？",f3b:"はい。Gumroad の領収書または確認メールのリンクから、更新前に解約できます。新規有料契約には明確な14日返金期間があります。",cta_pay:"購入する",contact_h:"お問い合わせ",contact_p:"プラン、試用、ご購入に関するご質問は <a href=\"mailto:contact@petpolicycheck.com?subject=Pet%20Desk%20Pro\">contact@petpolicycheck.com</a> までご連絡ください。",op:"運営: LEVRAT Marc Jea Won · PetPolicyCheck / Paw Passport · 266-17 Pyeonghwa-ro, Paju-si, Gyeonggi-do 10849, Republic of Korea · contact@petpolicycheck.com"}
 };
+(function(O){for(var k in O){if(I[k])for(var j in O[k])I[k][j]=O[k][j];}})({"en": {"cta_trial": "Start your 1-month free trial", "cta_micro": "1 month free, then $49/month or $468/year. Card required at Gumroad checkout. You are charged automatically when the free month ends unless you cancel before; Gumroad emails you 48 hours before the charge.", "s2": "Up to 15 dual-language digital Pet Travel Passports / month (EN / ES / IT)", "s5": "Watchlist of up to 5 airlines in your Desk, with every logged rule change flagged", "po_note": "No online checkout or free trial for this plan for now. Request onboarding by email and we will reply with the next steps.", "notice": "The free trial is for Starter only: 1 month through Gumroad, our Merchant of Record. A card is required, and Gumroad charges the Starter price automatically when the free month ends unless you cancel before. Taxes are added at checkout depending on the buyer's country. Paid subscriptions renew monthly or annually until cancelled. Your first payment has a separate 14-day refund guarantee. Pro and Enterprise are available on request. See our <a href=\"/terms.html\">Terms</a> and <a href=\"/refund-policy.html\">Refund &amp; Cancellation Policy</a>. Purchases are also subject to Gumroad's <a href=\"https://gumroad.com/terms\" rel=\"noopener\" target=\"_blank\">Terms</a>."}, "fr": {"cta_trial": "Commencez votre essai gratuit d’un mois", "cta_micro": "1 mois gratuit, puis 49 $/mois ou 468 $/an. Carte demandée au paiement sur Gumroad. Le prélèvement est automatique à la fin du mois gratuit, sauf si vous résiliez avant ; Gumroad vous écrit 48 heures avant.", "s2": "Jusqu’à 15 passeports numériques bilingues / mois (EN / ES / IT)", "s5": "Liste de suivi de 5 compagnies au maximum dans votre Desk, avec chaque changement de règle consigné signalé", "po_note": "Pas de paiement en ligne ni d’essai gratuit pour cette offre pour l’instant. Demandez l’onboarding par email et nous vous répondrons avec la suite.", "notice": "L’essai gratuit concerne uniquement Starter : 1 mois via Gumroad, notre Merchant of Record. Une carte est demandée, et Gumroad prélève automatiquement le prix Starter à la fin du mois gratuit, sauf si vous résiliez avant. Les taxes sont ajoutées au paiement selon le pays de l’acheteur. Les abonnements payants se renouvellent chaque mois ou chaque année jusqu’à résiliation. Votre premier paiement bénéficie d’une garantie de remboursement distincte de 14 jours. Pro et Enterprise sont disponibles sur demande. Voir nos <a href=\"/fr/terms.html\">Conditions</a> et notre <a href=\"/fr/refund-policy.html\">Politique de remboursement et de résiliation</a>. Les achats sont aussi soumis aux <a href=\"https://gumroad.com/terms\" rel=\"noopener\" target=\"_blank\">Conditions</a> de Gumroad."}, "es": {"cta_trial": "Empiece su prueba gratuita de 1 mes", "cta_micro": "1 mes gratis y después 49 $/mes o 468 $/año. Se pide tarjeta en el checkout de Gumroad. El cargo es automático al terminar el mes gratuito, salvo que cancele antes; Gumroad le avisa por correo 48 horas antes.", "s2": "Hasta 15 pasaportes digitales de viaje bilingües al mes (EN / ES / IT)", "s5": "Lista de seguimiento de hasta 5 aerolíneas en su Desk, con cada cambio de normas registrado señalado", "po_note": "Por ahora este plan no tiene pago en línea ni prueba gratuita. Solicite la incorporación por correo y le responderemos con los siguientes pasos.", "notice": "La prueba gratuita es solo para Starter: 1 mes a través de Gumroad, nuestro Merchant of Record. Se pide tarjeta, y Gumroad cobra automáticamente el precio de Starter al terminar el mes gratuito, salvo que cancele antes. Los impuestos se añaden en el pago según el país del comprador. Las suscripciones de pago se renuevan cada mes o cada año hasta que se cancelen. Su primer pago tiene una garantía de reembolso independiente de 14 días. Pro y Enterprise están disponibles bajo solicitud. Consulte nuestros <a href=\"/es/terms.html\">Términos</a> y nuestra <a href=\"/es/refund-policy.html\">Política de reembolso y cancelación</a>. Las compras también están sujetas a los <a href=\"https://gumroad.com/terms\" rel=\"noopener\" target=\"_blank\">Términos</a> de Gumroad."}, "de": {"cta_trial": "1 Monat kostenlos testen", "cta_micro": "1 Monat kostenlos, danach $49/Monat oder $468/Jahr. Zahlungskarte beim Gumroad-Checkout erforderlich. Am Ende des Gratismonats wird automatisch abgebucht, außer Sie kündigen vorher; Gumroad schreibt Ihnen 48 Stunden vorher.", "s2": "Bis zu 15 zweisprachige digitale Pet Travel Passports / Monat (EN / ES / IT)", "s5": "Beobachtungsliste mit bis zu 5 Airlines in Ihrem Desk; jede erfasste Regeländerung wird markiert", "po_note": "Für diesen Tarif gibt es derzeit keinen Online-Kauf und keine kostenlose Testphase. Fordern Sie das Onboarding per E-Mail an; wir antworten mit den nächsten Schritten.", "notice": "Die kostenlose Testphase gilt nur für Starter: 1 Monat über Gumroad, unseren Merchant of Record. Eine Zahlungskarte ist erforderlich, und Gumroad bucht den Starter-Preis am Ende des Gratismonats automatisch ab, außer Sie kündigen vorher. Steuern werden beim Bezahlen je nach Land des Käufers hinzugefügt. Kostenpflichtige Abonnements verlängern sich monatlich oder jährlich bis zur Kündigung. Für Ihre erste Zahlung gilt eine separate 14-tägige Rückerstattungsgarantie. Pro und Enterprise sind auf Anfrage erhältlich. Siehe unsere <a href=\"/de/terms.html\">AGB</a> und unsere <a href=\"/de/refund-policy.html\">Rückerstattungs- und Kündigungsrichtlinie</a>. Käufe unterliegen außerdem den <a href=\"https://gumroad.com/terms\" rel=\"noopener\" target=\"_blank\">Bedingungen</a> von Gumroad."}, "it": {"cta_trial": "Inizi la prova gratuita di 1 mese", "cta_micro": "1 mese gratis, poi 49 $/mese o 468 $/anno. Carta richiesta al checkout di Gumroad. L'addebito è automatico alla fine del mese gratuito, salvo disdetta prima; Gumroad Le scrive 48 ore prima.", "s2": "Fino a 15 Pet Travel Passport digitali bilingui al mese (EN / ES / IT)", "s5": "Elenco di fino a 5 compagnie seguite nel Suo Desk, con ogni cambio di regole registrato segnalato", "po_note": "Per ora questo piano non prevede acquisto online né prova gratuita. Richieda l'attivazione via email e Le risponderemo con i passi successivi.", "notice": "La prova gratuita è solo per Starter: 1 mese tramite Gumroad, nostro Merchant of Record. È richiesta una carta, e Gumroad addebita automaticamente il prezzo Starter alla fine del mese gratuito, salvo disdetta prima. Le imposte vengono aggiunte al pagamento in funzione del Paese dell'acquirente. Gli abbonamenti a pagamento si rinnovano mensilmente o annualmente fino a disdetta. Il Suo primo pagamento ha una garanzia di rimborso distinta di 14 giorni. Pro ed Enterprise sono disponibili su richiesta. Si vedano i nostri <a href=\"/it/terms.html\">Termini</a> e la nostra <a href=\"/it/refund-policy.html\">Politica di rimborso e disdetta</a>. Gli acquisti sono inoltre soggetti ai <a href=\"https://gumroad.com/terms\" rel=\"noopener\" target=\"_blank\">Termini</a> di Gumroad."}, "ja": {"cta_trial": "1か月の無料試用を始める", "cta_micro": "最初の1か月は無料、その後は月額$49または年額$468。Gumroadのチェックアウトでカード登録が必要です。解約しない限り無料の1か月の終了時に自動で請求され、その48時間前にGumroadからメールが届きます。", "s2": "2言語のデジタルPet Travel Passportを月15件まで（EN / ES / IT）", "s5": "デスク内で最大5社の航空会社をウォッチ（記録された規定変更をすべて表示）", "po_note": "このプランは現在、オンライン購入と無料試用を提供していません。メールで導入をご依頼いただければ、次の手順をご案内します。", "notice": "無料試用はStarterのみです。販売者（Merchant of Record）であるGumroadを通じた1か月の試用で、カード登録が必要です。解約しない限り、無料の1か月の終了時にGumroadがStarterの料金を自動で請求します。税金は購入者の国に応じてチェックアウト時に加算されます。有料サブスクリプションは解約されるまで月額または年額で更新されます。最初のお支払いには別途14日間の返金保証があります。ProとEnterpriseはご依頼に応じて提供します。<a href=\"/ja/terms.html\">利用規約</a>と<a href=\"/ja/refund-policy.html\">返金・解約ポリシー</a>をご覧ください。購入にはGumroadの<a href=\"https://gumroad.com/terms\" rel=\"noopener\" target=\"_blank\">規約</a>も適用されます。"}, "ko": {"cta_trial": "Start your 1-month free trial", "cta_micro": "1 month free, then $49/month or $468/year. Card required at Gumroad checkout. You are charged automatically when the free month ends unless you cancel before; Gumroad emails you 48 hours before the charge.", "s2": "Up to 15 dual-language digital Pet Travel Passports / month (EN / ES / IT)", "s5": "Watchlist of up to 5 airlines in your Desk, with every logged rule change flagged", "po_note": "No online checkout or free trial for this plan for now. Request onboarding by email and we will reply with the next steps.", "notice": "The free trial is for Starter only: 1 month through Gumroad, our Merchant of Record. A card is required, and Gumroad charges the Starter price automatically when the free month ends unless you cancel before. Taxes are added at checkout depending on the buyer's country. Paid subscriptions renew monthly or annually until cancelled. Your first payment has a separate 14-day refund guarantee. Pro and Enterprise are available on request. See our <a href=\"/terms.html\">Terms</a> and <a href=\"/refund-policy.html\">Refund &amp; Cancellation Policy</a>. Purchases are also subject to Gumroad's <a href=\"https://gumroad.com/terms\" rel=\"noopener\" target=\"_blank\">Terms</a>."}}); /* starter-trial 20261125 */
 var lang=(function(){try{var q=new URLSearchParams(location.search).get('lang');if(q&&['en','fr','es','de','ko','ja'].indexOf(q)>=0)return q;}catch(e){}if(location.pathname.indexOf('/es/')===0)return 'es';if(location.pathname.indexOf('/it/')===0)return 'it';try{var s=localStorage.getItem('ppc_lang');if(s&&['en','fr','es','de','ko','ja'].indexOf(s)>=0)return s;}catch(e){}return 'en';})(), bill='mo';
 window.PPC_PRO_SETLANG=function(l){lang=l;try{localStorage.setItem('ppc_lang',l);}catch(e){}apply();};
 function apply(){

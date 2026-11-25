@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr" data-site-root="/" data-msg-denied="Ouvrez ce passeport depuis votre Pet Desk.">
+<head>
+<meta charset="utf-8">
+<script>
+(function(){
+  var skip=false;
+  try{
+    var p=new URLSearchParams(location.search);
+    if(p.get('qa')==='0') localStorage.removeItem('ppc_qa');
+    else if(p.get('qa')==='1') localStorage.setItem('ppc_qa','1');
+    if(p.get('qa')==='1'||localStorage.getItem('ppc_qa')==='1') skip=true;
+  }catch(e){}
+  if(navigator.webdriver===true) skip=true;
+  if(/HeadlessChrome|Headless|PhantomJS|Lighthouse|Chrome-Lighthouse|PageSpeed|GTmetrix|bot|crawler|spider|Playwright|Puppeteer/i.test(navigator.userAgent||'')) skip=true;
+  if(skip) return;
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-K45B2WNXMC';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config','G-K45B2WNXMC');
+})();
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pet Desk · Passport | PetPolicyCheck</title>
+<link rel="icon" href="/assets/img/favicon.ico" sizes="any">
+<link rel="stylesheet" href="/assets/css/theme.css?v=20261124ja1">
+<link rel="stylesheet" href="/style.css?v=20261112footer4">
+<link rel="stylesheet" href="/assets/css/petdesk.css?v=20261125pd1">
+</head>
+<body class="pd-print-body">
+<div class="pd-printbar no-print"><a href="./">← Pet Desk</a> <button class="btn-pro pri" id="pd-print" type="button" disabled>Imprimer / PDF</button></div>
+<header class="pd-head" id="pd-head"></header>
+<div id="pd-copies"></div>
+<p class="pd-foot">PetPolicyCheck · Pet Desk Starter — Les passeports reposent sur les mêmes sources officielles que notre outil Passport public. Ce n'est pas un avis juridique ou vétérinaire : vérifiez chaque étape auprès de la compagnie et de l'autorité officielle.</p>
+<script src="/assets/js/petdesk-print.js?v=20261125pd1" defer></script>
+</body>
+</html>

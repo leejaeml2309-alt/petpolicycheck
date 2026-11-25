@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja" data-ppc-locale="ja" data-section="b2b" class="theme-b2b pro-pal" data-desk-lang="ja" data-site-root="/">
+<head>
+<meta charset="utf-8">
+<script>
+(function(){
+  var skip=false;
+  try{
+    var p=new URLSearchParams(location.search);
+    if(p.get('qa')==='0') localStorage.removeItem('ppc_qa');
+    else if(p.get('qa')==='1') localStorage.setItem('ppc_qa','1');
+    if(p.get('qa')==='1'||localStorage.getItem('ppc_qa')==='1') skip=true;
+  }catch(e){}
+  if(navigator.webdriver===true) skip=true;
+  if(/HeadlessChrome|Headless|PhantomJS|Lighthouse|Chrome-Lighthouse|PageSpeed|GTmetrix|bot|crawler|spider|Playwright|Puppeteer/i.test(navigator.userAgent||'')) skip=true;
+  if(skip) return;
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-K45B2WNXMC';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config','G-K45B2WNXMC');
+})();
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pet Desk · Starter | PetPolicyCheck</title>
+<link rel="icon" href="/assets/img/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon-180.png">
+<link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/theme.css?v=20261124ja1">
+<link rel="stylesheet" href="/style.css?v=20261112footer4">
+<script src="/assets/js/pastilles.js?v=20261124ja1" defer></script>
+<meta name="theme-color" content="#0b1719">
+<link rel="stylesheet" href="/assets/css/pro-palette.css?v=20261118pa1">
+<link rel="stylesheet" href="/assets/css/ppc-i18n.css?v=20261113nav1">
+<script src="/assets/i18n/ui.js?v=20261124ja1" defer></script>
+<script src="/assets/js/ppc-i18n.js?v=20261124ja1" defer></script>
+<link rel="stylesheet" href="/assets/site-search.css?v=20261117sb2">
+<link rel="stylesheet" href="/assets/css/petdesk.css?v=20261125pd1">
+</head>
+<body class="v-c pd-body"><a class="skip" href="#main">本文へスキップ</a>
+<header class="top"><div class="wrap">
+<a aria-label="PetPolicyCheck — ホーム" class="brand" href="/ja/"><span class="lbadge"><img alt="PetPolicyCheck" height="48" src="/assets/img/logo-mark-header.png" width="62"/></span></a>
+<nav aria-label="メイン" class="nav menu" id="site-menu"><a data-i18n="site.nav.map" href="/ja/?view=map">世界地図</a><a href="/ja/countries/usa.html#federal">法規</a><a href="/ja/vet-info/">獣医</a><a href="/ja/airlines/">飛行機</a><a href="/ja/hotels/">ホテル</a><a data-i18n="site.nav.grooming" href="/ja/grooming/">グルーミング</a><a data-i18n="site.nav.products" href="/ja/products/">製品</a><a data-i18n="site.nav.rides" href="/ja/taxi/">移動</a><span aria-hidden="true" class="nav-group-sep"></span><a data-i18n="site.nav.forum" href="/ja/forum/">フォーラム</a><a href="/ja/k9/">K9</a><a href="/ja/veterans/#service-dog-support">補助犬</a><a class="nav-vet" data-i18n="site.nav.veterans" href="/ja/veterans/">退役軍人</a><a data-i18n="site.nav.adoptions" href="/adoptions/">里親</a><a data-i18n="site.nav.news" href="/news/">ニュース</a><a aria-current="page" class="nav-biz" data-i18n="site.nav.pro" href="/ja/pro/">法人向け</a><a class="menu-only sub" href="/ja/#compare">比較</a><a class="menu-only sub" href="/ja/#gear">ガイド</a><a class="menu-only sub" href="/ja/updates.html">更新情報</a><a class="menu-only sub" href="/ja/about.html">概要</a></nav><button aria-controls="site-menu" aria-expanded="false" class="menu-btn" type="button"><svg aria-hidden="true" focusable="false" height="20" viewbox="0 0 24 24" width="20"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg><span data-i18n="site.nav.menu">メニュー</span></button>
+</div></header><script>(function(){function init(){var m=document.getElementById('site-menu');if(!m)return;
+var T=[].slice.call(document.querySelectorAll('.top .menu-btn,[data-menu-trigger]')),last=null;if(!T.length)return;
+function set(o,f,t){m.classList.toggle('open',o);T.forEach(function(x){x.setAttribute('aria-expanded',o?'true':'false')});if(o){last=t||T[0];if(f){var a=m.querySelector('a');if(a)a.focus({preventScroll:true})}}else if(f&&last)last.focus()}
+T.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var o=!m.classList.contains('open');set(o,e.detail===0||!b.classList.contains('menu-btn'),b)})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))set(false,true)});
+document.addEventListener('click',function(e){if(m.classList.contains('open')&&!m.contains(e.target))set(false)});
+m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+m.addEventListener('focusout',function(e){var r=e.relatedTarget;if(m.classList.contains('open')&&r&&!m.contains(r)&&T.indexOf(r)<0)set(false)})}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script>
+<main class="wrap pd" id="main">
+<section class="pro-sign theme-b2b pd-hero" aria-labelledby="pd-h1">
+  <div class="pro-eye"><span>Paw Passport · Pet Desk</span></div>
+  <h1 id="pd-h1">Pet Desk · Starter</h1>
+</section>
+
+<section id="pd-login" class="pd-card pd-login" aria-labelledby="pd-login-h" hidden>
+  <h2 id="pd-login-h" class="pd-h2">デスクを開く</h2>
+  <p class="pd-lead">Gumroadの領収書にあるライセンスキーを入力して、Starterのデスクを開きます。</p>
+  <form id="pd-form" autocomplete="off">
+    <label for="pd-key">ライセンスキー</label>
+    <input id="pd-key" name="key" type="text" inputmode="text" spellcheck="false" autocapitalize="characters" placeholder="XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX" required maxlength="40">
+    <button class="btn-pro pri" id="pd-open" type="submit">デスクを開く</button>
+  </form>
+  <p class="pd-msg err" id="pd-login-msg" role="alert" hidden></p>
+  <p class="fine">キーはGumroadの領収書メールと、商品のコンテンツページに記載されています。紛失した場合は<a href="https://gumroad.com/license-key-lookup" rel="noopener" target="_blank">Gumroadのライセンスキー検索</a>をご利用ください。</p>
+  <p class="fine">まだご契約がない場合は<a href="../">Starterプランをご覧ください</a>。最初の1か月は無料です。</p>
+</section>
+
+<div id="pd-app" hidden>
+  <section class="pd-card pd-statusbar" aria-live="polite">
+    <p id="pd-status" class="pd-status"></p>
+    <p class="fine" id="pd-who"></p>
+    <p class="pd-actions"><a class="btn-pro ghost" href="https://gumroad.com/library" rel="noopener" target="_blank">Gumroadで管理・解約</a> <button class="btn-pro ghost" type="button" id="pd-logout">ログアウト</button></p>
+  </section>
+
+  <section class="pd-card" aria-labelledby="pd-pass-h">
+    <h2 class="pd-h2" id="pd-pass-h">顧客用パスポート</h2>
+    <p class="pd-lead">ルートと2つの言語を選んで発行します。発行したパスポートは月15件の枠に数えられます。</p>
+    <div class="pd-quota"><span id="pd-quota"></span><span class="pd-bar"><span id="pd-quota-bar"></span></span></div>
+    <div class="pd-grid">
+      <label>出発地<select id="pd-from"><option value="US">United States</option></select></label>
+      <label>目的地<select id="pd-to"><option value="FR">France</option></select></label>
+      <label>米国の州<select id="pd-state"><option value="">—</option></select></label>
+      <label>航空会社<select id="pd-airline"><option value="">—</option></select></label>
+      <label>ペット<select id="pd-pet"><option value="dog" selected>犬</option><option value="cat">猫</option></select></label>
+      <label>旅程<select id="pd-ret"><option value="0" selected>片道</option><option value="1">往復</option></select></label>
+      <label>出発日<input type="date" id="pd-date"></label>
+      <label>帰国日<input type="date" id="pd-retdate"></label>
+      <label class="wide">顧客の参照番号（任意）<input type="text" id="pd-client" maxlength="60"></label>
+      <label>言語1<select id="pd-l1"><option value="en" selected>English</option><option value="es">Español</option><option value="it">Italiano</option></select></label>
+      <label>言語2<select id="pd-l2"><option value="en">English</option><option value="es" selected>Español</option><option value="it">Italiano</option></select></label>
+    </div>
+    <p><button class="btn-pro pri" type="button" id="pd-issue">2言語のパスポートを発行</button></p>
+    <p class="pd-msg warn" id="pd-quota-full" hidden>今月の15件を使い切りました。カウンターは毎月1日（UTC）にリセットされます。</p>
+    <p class="pd-msg err" id="pd-issue-msg" role="alert" hidden></p>
+    <h3 class="pd-h3">最近のパスポート</h3>
+    <ul class="pd-list" id="pd-recent"></ul><p class="fine" id="pd-recent-empty">まだ発行していません。</p>
+  </section>
+
+  <section class="pd-card" aria-labelledby="pd-prof-h">
+    <h2 class="pd-h2" id="pd-prof-h">パスポートに印刷する代理店名</h2>
+    <p class="pd-row"><input type="text" id="pd-agency" maxlength="80" placeholder="例：Blue Sky Pet Travel" aria-labelledby="pd-prof-h"> <button class="btn-pro ghost" type="button" id="pd-save-agency">保存</button> <span class="pd-msg ok" id="pd-profile-msg" hidden></span></p>
+  </section>
+
+  <section class="pd-card" aria-labelledby="pd-watch-h">
+    <h2 class="pd-h2" id="pd-watch-h">ウォッチする航空会社（最大5社）</h2>
+    <p class="pd-lead">最大5社を選べます。更新情報ページに記録した規定変更がここに表示されます。メール通知は含まれません。</p>
+    <ul class="pd-list pd-hits" id="pd-watch-hits"></ul>
+    <p class="fine" id="pd-watch-none" hidden>選んだ航空会社の記録済みの変更はまだありません。</p><p class="fine" id="pd-watch-pick">下から航空会社を選んでください。</p>
+    <div class="pd-chks" id="pd-watch-list"></div>
+    <p><button class="btn-pro ghost" type="button" id="pd-save-watch">リストを保存</button> <span class="pd-msg" id="pd-watch-msg" hidden></span></p>
+  </section>
+
+  <section class="pd-card" aria-labelledby="pd-tools-h">
+    <h2 class="pd-h2" id="pd-tools-h">Starterのツール</h2>
+    <ul class="pd-tools">
+      <li><a href="/ja/?view=map">インタラクティブ地図：世界、米国50州、空港、動物病院、ホテル、トリミング</a></li>
+      <li><a href="/ja/airlines/compare/">30航空会社の料金と機内用キャリーの比較</a></li>
+    </ul>
+  </section>
+  <p class="fine">パスポートは公開版Passportツールと同じ公式情報源に基づきます。法律や獣医学上の助言ではありません。各手順は航空会社と公的機関で必ず確認してください。</p>
+  <p class="fine">お問い合わせ：<a href="mailto:contact@petpolicycheck.com?subject=Pet%20Desk%20Starter">contact@petpolicycheck.com</a></p>
+</div>
+</main>
+<footer class="foot foot-compact">
+<div class="wrap cols">
+<div class="fbrand"><p class="wm">PetPolicyCheck</p><p>航空会社のペット規定は頻繁に変わります。予約前に必ず航空会社と渡航先の公的機関にご確認ください。ここに掲載している情報は、法的助言や獣医学的助言ではありません。</p><p class="soc"><a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61596615981846" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.83c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"></path></svg></a><a aria-label="X" href="https://x.com/PetPolicyCheck" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.725-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a></p></div>
+<div><h4><a data-i18n="site.foot.vet_info" href="/ja/vet-info/">獣医情報</a></h4><ul><li><a data-i18n="site.foot.vet_prep" href="/ja/vet-prep/">獣医の準備</a></li><li><a data-i18n="site.nav.health" href="/ja/countries/usa.html#federal">健康証明書</a></li><li><a data-i18n="home.tools.titer" href="/ja/titer-calculator/">抗体価カウントダウン</a></li><li><a data-i18n="site.foot.vets" href="/ja/partner-vets/">提携獣医</a></li><li><a data-i18n="site.foot.clinics_usa" href="/ja/clinics/usa.html">米国クリニック</a></li></ul></div>
+<div><h4 data-i18n="site.foot.explore">探す</h4><ul><li><a data-i18n="site.nav.map" href="/ja/?view=map">世界地図</a></li><li><a data-i18n="site.foot.airlines" href="/ja/airlines/">航空会社の規定</a></li><li><a data-i18n="site.nav.compare" href="/ja/airlines/compare/">比較</a></li><li><a data-i18n="site.nav.guides" href="/ja/#gear">ガイド</a></li><li><a data-i18n="site.nav.updates" href="/ja/updates.html">更新情報</a></li><li><a href="/ja/routes/">ルート</a></li><li><a data-i18n="site.foot.k9" href="/ja/k9/">K9</a></li><li><a data-i18n="site.foot.service_dogs_veterans" href="/ja/veterans/">補助犬・退役軍人</a></li><li><a data-i18n="site.foot.adoptions" href="/adoptions/">譲渡</a></li><li><a data-i18n="site.foot.news" href="/news/">ニュース</a></li><li><a href="/ja/fit/">キャリーのサイズ確認</a></li><li><a href="/ja/planner/">ペット旅行プランナー</a></li><li><a href="/ja/airport/">空港のペット旅行ガイド</a></li></ul></div>
+<div><h4 data-i18n="site.foot.shop">ショップ＆コミュニティ</h4><ul><li><a data-i18n="site.nav.products" href="/ja/products/">製品</a></li><li><a data-i18n="nav.forum" href="/ja/forum/">フォーラム</a></li><li><a data-i18n="site.foot.stories" href="/ja/forum/pet-travel-stories/">体験談</a></li><li><a data-i18n="site.foot.pro" href="/ja/pro/">B2B Pet Desk</a></li></ul></div>
+<div><h4 data-i18n="site.foot.aboutcol">概要</h4><ul><li><a data-i18n="site.foot.about" href="/ja/about.html">概要と免責事項</a></li><li><a data-i18n="site.foot.terms" href="/ja/terms.html">利用規約</a></li><li><a data-i18n="site.foot.refund" href="/ja/refund-policy.html">返金ポリシー</a></li><li><a data-i18n="site.foot.privacy" href="/ja/privacy.html">プライバシー</a></li><li><a data-i18n="site.foot.contact" href="/ja/contact.html">お問い合わせ</a></li><li><a href="https://ticketsntails.com/" rel="noopener" target="_blank" data-i18n="site.foot.travel_blog">旅行ブログ</a></li></ul></div>
+</div>
+<div class="wrap"><p class="disc">© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See <a href="/ja/terms.html">Terms</a>.</p></div></footer>
+<script src="/assets/js/petdesk-i18n.js?v=20261125pd1"></script>
+<script src="/assets/js/petdesk.js?v=20261125pd1" defer></script>
+<script src="/assets/site-search.js?v=20261124ja1" defer></script>
+<script src="/assets/ppc-header.js?v=20261110footerk9" defer></script>
+</body>
+</html>

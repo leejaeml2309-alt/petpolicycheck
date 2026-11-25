@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr" data-ppc-locale="fr" data-section="b2b" class="theme-b2b pro-pal" data-desk-lang="fr" data-site-root="/">
+<head>
+<meta charset="utf-8">
+<script>
+(function(){
+  var skip=false;
+  try{
+    var p=new URLSearchParams(location.search);
+    if(p.get('qa')==='0') localStorage.removeItem('ppc_qa');
+    else if(p.get('qa')==='1') localStorage.setItem('ppc_qa','1');
+    if(p.get('qa')==='1'||localStorage.getItem('ppc_qa')==='1') skip=true;
+  }catch(e){}
+  if(navigator.webdriver===true) skip=true;
+  if(/HeadlessChrome|Headless|PhantomJS|Lighthouse|Chrome-Lighthouse|PageSpeed|GTmetrix|bot|crawler|spider|Playwright|Puppeteer/i.test(navigator.userAgent||'')) skip=true;
+  if(skip) return;
+  var s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id=G-K45B2WNXMC';
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag=gtag;
+  gtag('js',new Date());
+  gtag('config','G-K45B2WNXMC');
+})();
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Pet Desk · Starter | PetPolicyCheck</title>
+<link rel="icon" href="/assets/img/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/apple-touch-icon-180.png">
+<link rel="preload" href="/assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/theme.css?v=20261124ja1">
+<link rel="stylesheet" href="/style.css?v=20261112footer4">
+<script src="/assets/js/pastilles.js?v=20261124ja1" defer></script>
+<meta name="theme-color" content="#0b1719">
+<link rel="stylesheet" href="/assets/css/pro-palette.css?v=20261118pa1">
+<link rel="stylesheet" href="/assets/css/ppc-i18n.css?v=20261113nav1">
+<script src="/assets/i18n/ui.js?v=20261124ja1" defer></script>
+<script src="/assets/js/ppc-i18n.js?v=20261124ja1" defer></script>
+<link rel="stylesheet" href="/assets/site-search.css?v=20261117sb2">
+<link rel="stylesheet" href="/assets/css/petdesk.css?v=20261125pd1">
+</head>
+<body class="v-c pd-body"><a class="skip" href="#main">Aller au contenu</a>
+<header class="top"><div class="wrap">
+<a aria-label="PetPolicyCheck — Accueil" class="brand" href="/fr/"><span class="lbadge"><img alt="PetPolicyCheck" height="48" src="/assets/img/logo-mark-header.png" width="62"/></span></a>
+<nav aria-label="Principal" class="nav menu" id="site-menu"><a data-i18n="site.nav.map" href="/fr/?view=map">Carte du monde</a><a href="/fr/countries/usa.html#federal">Lois</a><a href="/fr/vet-info/">Vétérinaire</a><a href="/fr/airlines/">Avion</a><a href="/fr/hotels/">Hôtel</a><a data-i18n="site.nav.grooming" href="/fr/grooming/">Toilettage</a><a data-i18n="site.nav.products" href="/fr/products/">Produits</a><a data-i18n="site.nav.rides" href="/fr/taxi/">Trajets</a><span aria-hidden="true" class="nav-group-sep"></span><a data-i18n="site.nav.forum" href="/fr/forum/">Forum</a><a href="/fr/k9/">K9</a><a href="/fr/veterans/#service-dog-support">Chiens d’assistance</a><a class="nav-vet" data-i18n="site.nav.veterans" href="/fr/veterans/">Vétérans</a><a href="/adoptions/" data-i18n="site.nav.adoptions">Adoptions</a><a href="/news/" data-i18n="site.nav.news">News</a><a aria-current="page" class="nav-biz" data-i18n="site.nav.pro" href="/fr/pro/">Pour les pros</a><a class="menu-only sub" href="/fr/#compare">Comparer</a><a class="menu-only sub" href="/fr/#gear">Guides</a><a class="menu-only sub" href="/fr/updates.html">Mises à jour</a><a class="menu-only sub" href="/fr/about.html">À propos</a></nav><button aria-controls="site-menu" aria-expanded="false" class="menu-btn" type="button"><svg aria-hidden="true" focusable="false" height="20" viewbox="0 0 24 24" width="20"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg><span data-i18n="site.nav.menu">Menu</span></button>
+</div></header><script>(function(){function init(){var m=document.getElementById('site-menu');if(!m)return;
+var T=[].slice.call(document.querySelectorAll('.top .menu-btn,[data-menu-trigger]')),last=null;if(!T.length)return;
+function set(o,f,t){m.classList.toggle('open',o);T.forEach(function(x){x.setAttribute('aria-expanded',o?'true':'false')});if(o){last=t||T[0];if(f){var a=m.querySelector('a');if(a)a.focus({preventScroll:true})}}else if(f&&last)last.focus()}
+T.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var o=!m.classList.contains('open');set(o,e.detail===0||!b.classList.contains('menu-btn'),b)})});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))set(false,true)});
+document.addEventListener('click',function(e){if(m.classList.contains('open')&&!m.contains(e.target))set(false)});
+m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+m.addEventListener('focusout',function(e){var r=e.relatedTarget;if(m.classList.contains('open')&&r&&!m.contains(r)&&T.indexOf(r)<0)set(false)})}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script>
+<main class="wrap pd" id="main">
+<section class="pro-sign theme-b2b pd-hero" aria-labelledby="pd-h1">
+  <div class="pro-eye"><span>Paw Passport · Pet Desk</span></div>
+  <h1 id="pd-h1">Votre Pet Desk · Starter</h1>
+</section>
+
+<section id="pd-login" class="pd-card pd-login" aria-labelledby="pd-login-h" hidden>
+  <h2 id="pd-login-h" class="pd-h2">Ouvrir mon Desk</h2>
+  <p class="pd-lead">Saisissez la clé de licence de votre reçu Gumroad pour ouvrir votre espace Starter.</p>
+  <form id="pd-form" autocomplete="off">
+    <label for="pd-key">Clé de licence</label>
+    <input id="pd-key" name="key" type="text" inputmode="text" spellcheck="false" autocapitalize="characters" placeholder="XXXXXXXX-XXXXXXXX-XXXXXXXX-XXXXXXXX" required maxlength="40">
+    <button class="btn-pro pri" id="pd-open" type="submit">Ouvrir mon Desk</button>
+  </form>
+  <p class="pd-msg err" id="pd-login-msg" role="alert" hidden></p>
+  <p class="fine">Votre clé figure dans l'email de reçu Gumroad et sur la page de contenu du produit. Perdue ? Utilisez la <a href="https://gumroad.com/license-key-lookup" rel="noopener" target="_blank">recherche de clé Gumroad</a>.</p>
+  <p class="fine">Pas encore abonné ? <a href="../">Voir l'offre Starter</a> : le premier mois est gratuit.</p>
+</section>
+
+<div id="pd-app" hidden>
+  <section class="pd-card pd-statusbar" aria-live="polite">
+    <p id="pd-status" class="pd-status"></p>
+    <p class="fine" id="pd-who"></p>
+    <p class="pd-actions"><a class="btn-pro ghost" href="https://gumroad.com/library" rel="noopener" target="_blank">Gérer ou résilier sur Gumroad</a> <button class="btn-pro ghost" type="button" id="pd-logout">Se déconnecter</button></p>
+  </section>
+
+  <section class="pd-card" aria-labelledby="pd-pass-h">
+    <h2 class="pd-h2" id="pd-pass-h">Passeports clients</h2>
+    <p class="pd-lead">Choisissez l'itinéraire et deux langues, puis émettez. Chaque passeport émis compte dans vos 15 par mois.</p>
+    <div class="pd-quota"><span id="pd-quota"></span><span class="pd-bar"><span id="pd-quota-bar"></span></span></div>
+    <div class="pd-grid">
+      <label>Départ<select id="pd-from"><option value="US">United States</option></select></label>
+      <label>Destination<select id="pd-to"><option value="FR">France</option></select></label>
+      <label>État américain<select id="pd-state"><option value="">—</option></select></label>
+      <label>Compagnie<select id="pd-airline"><option value="">—</option></select></label>
+      <label>Animal<select id="pd-pet"><option value="dog" selected>Chien</option><option value="cat">Chat</option></select></label>
+      <label>Voyage<select id="pd-ret"><option value="0" selected>Aller simple</option><option value="1">Aller-retour</option></select></label>
+      <label>Départ le<input type="date" id="pd-date"></label>
+      <label>Retour le<input type="date" id="pd-retdate"></label>
+      <label class="wide">Référence client (facultatif)<input type="text" id="pd-client" maxlength="60"></label>
+      <label>Langue 1<select id="pd-l1"><option value="en" selected>English</option><option value="es">Español</option><option value="it">Italiano</option></select></label>
+      <label>Langue 2<select id="pd-l2"><option value="en">English</option><option value="es" selected>Español</option><option value="it">Italiano</option></select></label>
+    </div>
+    <p><button class="btn-pro pri" type="button" id="pd-issue">Émettre le passeport bilingue</button></p>
+    <p class="pd-msg warn" id="pd-quota-full" hidden>Vous avez utilisé vos 15 passeports ce mois-ci. Le compteur repart le 1er du mois (UTC).</p>
+    <p class="pd-msg err" id="pd-issue-msg" role="alert" hidden></p>
+    <h3 class="pd-h3">Passeports récents</h3>
+    <ul class="pd-list" id="pd-recent"></ul><p class="fine" id="pd-recent-empty">Aucun passeport émis pour l'instant.</p>
+  </section>
+
+  <section class="pd-card" aria-labelledby="pd-prof-h">
+    <h2 class="pd-h2" id="pd-prof-h">Nom de l'agence imprimé sur les passeports</h2>
+    <p class="pd-row"><input type="text" id="pd-agency" maxlength="80" placeholder="ex. Blue Sky Pet Travel" aria-labelledby="pd-prof-h"> <button class="btn-pro ghost" type="button" id="pd-save-agency">Enregistrer</button> <span class="pd-msg ok" id="pd-profile-msg" hidden></span></p>
+  </section>
+
+  <section class="pd-card" aria-labelledby="pd-watch-h">
+    <h2 class="pd-h2" id="pd-watch-h">Compagnies suivies (5 maximum)</h2>
+    <p class="pd-lead">Choisissez jusqu'à 5 compagnies. Chaque changement de règle que nous consignons pour elles sur notre page Mises à jour est signalé ici. Les alertes par email ne sont pas incluses.</p>
+    <ul class="pd-list pd-hits" id="pd-watch-hits"></ul>
+    <p class="fine" id="pd-watch-none" hidden>Aucun changement consigné pour vos compagnies pour l'instant.</p><p class="fine" id="pd-watch-pick">Choisissez vos compagnies ci-dessous.</p>
+    <div class="pd-chks" id="pd-watch-list"></div>
+    <p><button class="btn-pro ghost" type="button" id="pd-save-watch">Enregistrer la liste</button> <span class="pd-msg" id="pd-watch-msg" hidden></span></p>
+  </section>
+
+  <section class="pd-card" aria-labelledby="pd-tools-h">
+    <h2 class="pd-h2" id="pd-tools-h">Vos outils Starter</h2>
+    <ul class="pd-tools">
+      <li><a href="/fr/?view=map">Cartes interactives : monde, 50 États américains, aéroports, vétérinaires, hôtels et toilettage</a></li>
+      <li><a href="/fr/airlines/compare/">Comparateur de frais et de sacs cabine de 30 compagnies</a></li>
+    </ul>
+  </section>
+  <p class="fine">Les passeports reposent sur les mêmes sources officielles que notre outil Passport public. Ce n'est pas un avis juridique ou vétérinaire : vérifiez chaque étape auprès de la compagnie et de l'autorité officielle.</p>
+  <p class="fine">Aide : <a href="mailto:contact@petpolicycheck.com?subject=Pet%20Desk%20Starter">contact@petpolicycheck.com</a></p>
+</div>
+</main>
+<footer class="foot foot-compact">
+<div class="wrap cols">
+<div class="fbrand"><p class="wm">PetPolicyCheck</p><p>Les règles des compagnies aériennes pour les animaux changent souvent. Vérifiez toujours auprès de la compagnie et de l’autorité officielle du pays de destination avant de réserver. Les informations présentées ici ne constituent pas un avis juridique ni vétérinaire.</p><p class="soc"><a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61596615981846" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.83c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.75 8.44-4.91 8.44-9.93z"></path></svg></a><a aria-label="X" href="https://x.com/PetPolicyCheck" rel="noopener" target="_blank"><svg aria-hidden="true" fill="currentColor" height="20" viewbox="0 0 24 24" width="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.725-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a></p></div>
+<div><h4><a data-i18n="site.foot.vet_info" href="/fr/vet-info/">Infos vétérinaires</a></h4><ul><li><a data-i18n="site.foot.vet_prep" href="/fr/vet-prep/">Préparation vétérinaire</a></li><li><a data-i18n="site.nav.health" href="/fr/countries/usa.html#federal">Certificat sanitaire</a></li><li><a data-i18n="home.tools.titer" href="/fr/titer-calculator/">Compte à rebours du titrage antirabique</a></li><li><a data-i18n="site.foot.vets" href="/fr/partner-vets/">Vétérinaires partenaires</a></li><li><a data-i18n="site.foot.clinics_usa" href="/fr/clinics/usa.html">Cliniques aux États-Unis</a></li></ul></div>
+<div><h4 data-i18n="site.foot.explore">Explorer</h4><ul><li><a data-i18n="site.nav.map" href="/fr/?view=map">Carte du monde</a></li><li><a data-i18n="site.foot.airlines" href="/fr/airlines/">Règles des compagnies</a></li><li><a data-i18n="site.nav.compare" href="/fr/airlines/compare/">Comparer</a></li><li><a data-i18n="site.nav.guides" href="/fr/#gear">Guides</a></li><li><a data-i18n="site.nav.updates" href="/fr/updates.html">Mises à jour</a></li><li><a href="/fr/routes/">Itinéraires</a></li><li><a data-i18n="site.foot.k9" href="/fr/k9/">K9</a></li><li><a data-i18n="site.foot.service_dogs_veterans" href="/fr/veterans/">Chiens d’assistance et anciens combattants</a></li><li><a href="/adoptions/" data-i18n="site.foot.adoptions">Adoptions</a></li><li><a href="/news/" data-i18n="site.foot.news">News</a></li><li><a href="/fr/fit/">Compatibilité du sac de transport</a></li>
+<li><a href="/fr/planner/">Planificateur de voyage</a></li><li><a href="/fr/airport/">Guides aéroportuaires pour voyager avec un animal</a></li></ul></div>
+<div><h4 data-i18n="site.foot.shop">Boutique et communauté</h4><ul><li><a data-i18n="site.nav.products" href="/fr/products/">Produits</a></li><li><a data-i18n="nav.forum" href="/fr/forum/">Forum</a></li><li><a data-i18n="site.foot.stories" href="/fr/forum/pet-travel-stories/">Récits</a></li><li><a data-i18n="site.foot.pro" href="/fr/pro/">B2B Pet Desk</a></li></ul></div>
+<div><h4 data-i18n="site.foot.aboutcol">À propos</h4><ul><li><a data-i18n="site.foot.about" href="/fr/about.html">À propos et mentions légales</a></li><li><a data-i18n="site.foot.terms" href="/fr/terms.html">Conditions</a></li><li><a data-i18n="site.foot.refund" href="/fr/refund-policy.html">Politique de remboursement</a></li><li><a data-i18n="site.foot.privacy" href="/fr/privacy.html">Confidentialité</a></li><li><a data-i18n="site.foot.contact" href="/fr/contact.html">Contact</a></li><li><a href="https://ticketsntails.com/" rel="noopener" target="_blank" data-i18n="site.foot.travel_blog">Notre blog de voyage</a></li></ul></div>
+</div>
+<div class="wrap"><p class="disc">© 2026 PetPolicyCheck · Paw Passport. All rights reserved. Content, data, design and images may not be copied or reproduced without written permission. See <a href="/fr/terms.html">Terms</a>.</p></div></footer>
+<script src="/assets/js/petdesk-i18n.js?v=20261125pd1"></script>
+<script src="/assets/js/petdesk.js?v=20261125pd1" defer></script>
+<script src="/assets/site-search.js?v=20261124ja1" defer></script>
+<script src="/assets/ppc-header.js?v=20261110footerk9" defer></script>
+</body>
+</html>
