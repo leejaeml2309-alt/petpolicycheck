@@ -106,3 +106,10 @@ begin
   return query select v_ref, v_used + 1, p_limit;
 end $$;
 revoke all on function public.petdesk_issue_passport(uuid,jsonb,text[],text,int) from public, anon, authenticated;
+
+-- Only the Edge Function (service_role) may use these objects. Explicit, so it does not depend on default privileges.
+grant usage on schema public to service_role;
+grant select, insert, update, delete on public.petdesk_accounts, public.petdesk_passports, public.petdesk_watch, public.petdesk_gumroad_events to service_role;
+grant execute on function public.petdesk_issue_passport(uuid,jsonb,text[],text,int) to service_role;
+grant execute on function public.petdesk_watch_limit() to service_role;
+grant usage, select on sequence public.petdesk_passports_id_seq, public.petdesk_gumroad_events_id_seq to service_role;
