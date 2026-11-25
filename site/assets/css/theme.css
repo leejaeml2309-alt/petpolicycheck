@@ -1023,3 +1023,68 @@ footer .pawpartout-credit a:focus-visible .pawpartout-name,
 .pawpartout-about a:focus-visible .pawpartout-name{
   color:#FF8A75;
 }
+
+/* XMAS-TREE-2026: remove ~6 Jan 2027 */
+.ppc-xmas-tree{
+  width:13px;
+  height:16px;
+  flex:none;
+  display:block;
+  overflow:visible;
+  pointer-events:none;
+  /* Thin gold halo so fir #24443a stays readable on --hdr #0b1719 */
+  filter:drop-shadow(0 0 .35px #d9b765);
+}
+.top .nav a.ppc-xmas-products,
+.top .nav.pst-nav a.sec.ppc-xmas-products{
+  position:relative;
+}
+/* Desktop: perch the fir on the Products control without widening the row */
+@media (min-width:1100px){
+  .top .nav a.ppc-xmas-products .ppc-xmas-tree{
+    position:absolute;
+    width:12px;
+    height:15px;
+    top:1px;
+    left:50%;
+    margin-left:-6px;
+    z-index:1;
+  }
+  .top .nav.pst-nav a.sec.ppc-xmas-products .ppc-xmas-tree{
+    left:12px;
+    margin-left:0;
+    top:0;
+  }
+}
+/* Mobile / Menu dropdown: sit next to the Products label, a touch larger */
+@media (max-width:1099px){
+  .top .nav a.ppc-xmas-products,
+  .top .nav.pst-nav a.sec.ppc-xmas-products{
+    align-items:center;
+  }
+  .top .nav a.ppc-xmas-products .ppc-xmas-tree,
+  .top .nav.pst-nav a.sec.ppc-xmas-products .ppc-xmas-tree{
+    position:static;
+    width:16px;
+    height:19px;
+    margin:0 2px 0 0;
+  }
+}
+@keyframes ppc-xmas-twinkle{
+  0%,100%{opacity:.7}
+  50%{opacity:1}
+}
+.ppc-xmas-tree .ppc-xmas-star,
+.ppc-xmas-tree .ppc-xmas-light{
+  animation:ppc-xmas-twinkle 2.8s ease-in-out infinite;
+}
+.ppc-xmas-tree .ppc-xmas-star{animation-duration:3.4s}
+.ppc-xmas-tree .ppc-xmas-light.l2{animation-delay:.9s}
+.ppc-xmas-tree .ppc-xmas-light.l3{animation-delay:1.7s}
+@media (prefers-reduced-motion:reduce){
+  .ppc-xmas-tree .ppc-xmas-star,
+  .ppc-xmas-tree .ppc-xmas-light{
+    animation:none;
+    opacity:1;
+  }
+}
