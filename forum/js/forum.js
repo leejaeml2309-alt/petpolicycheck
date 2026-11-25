@@ -8,7 +8,7 @@
   var PAGE = app.getAttribute('data-page');
   var me = document.currentScript && document.currentScript.src;
   var BASE = me ? new URL('.', me).href : new URL('./', location.href).href; // .../forum/
-  var COLS = 'id,lang,title,body,transport,weather,season,carrier,species,breed,weight,airline_slug,operator,route_from,route_to,trip_date,created_at,status,mod_reason,author_id,author:profiles(display_name)';
+  var COLS = 'id,lang,topic,title,body,transport,weather,season,carrier,species,breed,weight,airline_slug,operator,route_from,route_to,trip_date,created_at,status,mod_reason,author_id,author:profiles(display_name)';
   var PAGE_SIZE = 20;
   var params = new URLSearchParams(location.search);
   var $ = function (id) { return document.getElementById(id); };
@@ -158,7 +158,7 @@
   function author(x) { return (x && x.author && x.author.display_name) || 'Traveller'; }
   function postHref(p) { return C.static && C.static[p.id] ? BASE + C.static[p.id] : BASE + 'post.html?id=' + encodeURIComponent(p.id); }
   function tags(p) {
-    var out = ['transport', 'species', 'weight', 'carrier', 'weather', 'season'].filter(function (g) { return p[g]; }).map(function (g) {
+    var out = ['topic', 'transport', 'species', 'weight', 'carrier', 'weather', 'season'].filter(function (g) { return p[g]; }).map(function (g) {
       return h('span', { 'class': 'ftag t-' + g, text: cat(g, p[g]) });
     });
     if (p.breed) out.push(h('span', { 'class': 'ftag', text: p.breed }));
@@ -216,8 +216,23 @@
         p.operator ? ' · ' + p.operator : '', route ? ' · ' + route : ''),
       h('span', { 'class': 'fex', text: excerpt(p.body, 220) }));
   }
-  var FILTERS = ['transport', 'weather', 'season', 'carrier', 'species', 'weight', 'airline', 'plang', 'q']; // plang = post language (lang = UI language)
+  var FILTERS = ['topic', 'transport', 'weather', 'season', 'carrier', 'species', 'weight', 'airline', 'plang', 'q']; // plang = post language (lang = UI language)
+  function currentTopic() {
+    try { return new URLSearchParams(location.search).get('topic') || ''; } catch (e) { return ''; }
+  }
+  function initTopics() {
+    var topic = currentTopic();
+    document.querySelectorAll('.ftopic').forEach(function (a) {
+      var on = (a.getAttribute('data-topic') || '') === topic;
+      a.classList.toggle('is-on', on);
+      if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
+    var form = document.getElementById('ffilters');
+    if (form && form.topic && topic) form.topic.value = topic;
+  }
   function initIndex() {
+    initTopics();
+
     var form = $('ffilters'), list = $('flist'), more = $('fmore'), status = $('fstatus'), offset = 0, last = [];
     FILTERS.forEach(function (k) { if (form.elements[k] && params.get(k)) form.elements[k].value = params.get(k); });
     function query() {
@@ -369,10 +384,12 @@
 
   /* ---------------------------------------------------------------- new post */
   function initNew() {
+    initTopics();
     var form = $('newpost'), err = $('nf-err');
     if (!user()) { show($('nf-signin'), true); show(form, false); return; }
     show(form, true);
     var el = form.elements;
+    if (el.topic && currentTopic() && !el.topic.value) el.topic.value = currentTopic();
     if (el.lang && D[L] && (C.cats.lang || []).indexOf(L) >= 0) el.lang.value = L;
     var yr = el.trip_year, now = new Date(), cy = now.getFullYear();
     if (yr) { // refresh years from the visitor's clock: current year and the 5 before
@@ -388,13 +405,14 @@
       ev.preventDefault();
       msg(err, '');
       var v = function (k) { var x = el[k] && el[k].value.trim(); return x ? x : null; };
-      var row = { lang: v('lang') || L, title: v('title') || '', body: v('body') || '', transport: v('transport'), species: v('species'),
+      var row = { lang: v('lang') || L, topic: v('topic'), title: v('title') || '', body: v('body') || '', transport: v('transport'), species: v('species'),
         breed: v('breed'), weight: v('weight'), carrier: v('carrier'), weather: v('weather'), season: v('season'),
         airline_slug: v('airline_slug'), operator: v('operator'), route_from: v('route_from'), route_to: v('route_to'),
         trip_date: v('trip_month') && v('trip_year') ? v('trip_year') + '-' + v('trip_month') + '-01' : null };
       if (!!v('trip_month') !== !!v('trip_year')) { msg(err, t('f.err.trip_date')); (v('trip_month') ? el.trip_year : el.trip_month).focus(); return; }
       if (row.trip_date && row.trip_date.slice(0, 7) > cy + '-' + ('0' + (now.getMonth() + 1)).slice(-2)) { msg(err, t('f.err.trip_future')); el.trip_month.focus(); return; }
       if (row.title.length < 5 || row.title.length > 140) { msg(err, t('f.err.title_len')); el.title.focus(); return; }
+      if (el.topic && !v('topic')) { msg(err, t('f.fld.topic') + ' ?'); el.topic.focus(); return; }
       if (!row.transport) { msg(err, t('f.fld.transport') + ' ?'); el.transport.focus(); return; }
       if (!row.species) { msg(err, t('f.fld.species') + ' ?'); el.species.focus(); return; }
       if (row.body.length < 30 || row.body.length > 8000) { msg(err, t('f.err.body_len')); el.body.focus(); return; }

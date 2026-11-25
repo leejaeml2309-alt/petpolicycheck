@@ -266,5 +266,13 @@
   "site.foot.aboutcol": "Acerca de",
   "site.nav.pro": "Para empresas",
   "site.foot.terms": "Términos",
-  "site.foot.refund": "Reembolsos"
+  "site.foot.refund": "Reembolsos",
+  "f.fld.topic": "Tema",
+  "f.topics_all": "Todos los temas",
+  "f.topics_h": "Explorar por tema",
+  "cat.topic.flights": "Vuelos",
+  "cat.topic.road_trip_camping": "Road trip y camping",
+  "cat.topic.adoption": "Adopción",
+  "cat.topic.health_seniors": "Salud y seniors",
+  "cat.topic.life_with_pet": "Vida con tu animal"
 }

@@ -266,5 +266,13 @@
   "site.foot.aboutcol": "概要",
   "site.nav.pro": "法人向け",
   "site.foot.terms": "利用規約",
-  "site.foot.refund": "返金ポリシー"
+  "site.foot.refund": "返金ポリシー",
+  "f.fld.topic": "トピック",
+  "f.topics_all": "すべてのトピック",
+  "f.topics_h": "トピックから探す",
+  "cat.topic.flights": "フライト",
+  "cat.topic.road_trip_camping": "ロードトリップ＆キャンプ",
+  "cat.topic.adoption": "譲渡・里親",
+  "cat.topic.health_seniors": "健康・シニア",
+  "cat.topic.life_with_pet": "ペットとの暮らし"
 }

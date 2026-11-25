@@ -266,5 +266,13 @@
   "site.foot.aboutcol": "Über uns",
   "site.nav.pro": "Für Unternehmen",
   "site.foot.terms": "AGB",
-  "site.foot.refund": "Rückerstattung"
+  "site.foot.refund": "Rückerstattung",
+  "f.fld.topic": "Thema",
+  "f.topics_all": "Alle Themen",
+  "f.topics_h": "Nach Thema stöbern",
+  "cat.topic.flights": "Flüge",
+  "cat.topic.road_trip_camping": "Roadtrip & Camping",
+  "cat.topic.adoption": "Adoption",
+  "cat.topic.health_seniors": "Gesundheit & Senioren",
+  "cat.topic.life_with_pet": "Leben mit dem Tier"
 }

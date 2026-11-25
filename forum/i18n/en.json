@@ -263,5 +263,13 @@
   "site.foot.stories": "Stories",
   "site.foot.vets": "Partner vets",
   "site.foot.clinics_usa": "US clinics",
-  "site.foot.aboutcol": "About"
+  "site.foot.aboutcol": "About",
+  "f.fld.topic": "Topic",
+  "f.topics_all": "All topics",
+  "f.topics_h": "Browse by topic",
+  "cat.topic.flights": "Flights",
+  "cat.topic.road_trip_camping": "Road trip & camping",
+  "cat.topic.adoption": "Adoption",
+  "cat.topic.health_seniors": "Health & seniors",
+  "cat.topic.life_with_pet": "Life with your pet"
 }
