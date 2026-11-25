@@ -16,12 +16,12 @@
 
   /* Text and URL sync for the hero / sticky CTA (follows the page language and the billing toggle). */
   var TX={
-    en:{mo:"$49/mo after free month",yr:"$468/year after free month",desk:"Already a member? Open your Pet Desk"},
+    en:{mo:"$49/mo after your free month",yr:"$468/year after your free month",desk:"Already a member? Open your Pet Desk"},
     fr:{mo:"49 $/mois après le mois gratuit",yr:"468 $/an après le mois gratuit",desk:"Déjà abonné\u00a0? Ouvrez votre Pet Desk"},
     es:{mo:"49 $/mes después del mes gratis",yr:"468 $/año después del mes gratis",desk:"¿Ya es miembro? Abra su Pet Desk"},
-    de:{mo:"$49/Monat nach dem Gratismonat",yr:"$468/Jahr nach dem Gratismonat",desk:"Schon Mitglied? Ihr Pet Desk öffnen"},
-    it:{mo:"49 $/mese dopo il mese gratuito",yr:"468 $/anno dopo il mese gratuito",desk:"Già abbonato? Apra il suo Pet Desk"},
-    ja:{mo:"無料の1か月の後は月額$49",yr:"無料の1か月の後は年額$468",desk:"ご契約済みの方：Pet Deskを開く"}
+    de:{mo:"$49/Monat nach dem Gratismonat",yr:"$468/Jahr nach dem Gratismonat",desk:"Schon Mitglied? Öffnen Sie Ihren Pet Desk"},
+    it:{mo:"49 $/mese dopo il mese gratuito",yr:"468 $/anno dopo il mese gratuito",desk:"Già abbonato? Apra il Suo Pet Desk"},
+    ja:{mo:"無料期間終了後は月額$49",yr:"無料期間終了後は年額$468",desk:"ご契約済みの方：Pet Deskを開く"}
   };
   function sync(){
     var d=TX[lang()];
