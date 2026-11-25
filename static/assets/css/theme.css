@@ -1000,3 +1000,26 @@ footer .pawpartout-credit a:focus-visible{color:var(--head, #f5ecd6)}
 
 /* Keep the home band off the intro splash (main is already hidden; the band sits outside main). */
 html.intro-lock body.intro-home > .pawpartout-band{display:none !important}
+
+
+/* The word "Pawpartout" only — search-icon coral (Marc, 2026-11-17, option A).
+   #FF6B5A on --bg #0b1719 = 6.52:1; on --foot #071012 = 6.87:1 (WCAG AA ≥4.5:1).
+   Hover uses the same pair as the search icon: #FF8A75 (7.95:1 / 8.37:1). */
+.pawpartout-name{color:#FF6B5A}
+.pawpartout-band a .pawpartout-name,
+.pawpartout-credit a .pawpartout-name,
+.foot .pawpartout-credit a .pawpartout-name,
+footer .pawpartout-credit a .pawpartout-name,
+.pawpartout-about a .pawpartout-name{
+  color:#FF6B5A;
+}
+.pawpartout-band a:hover .pawpartout-name,
+.pawpartout-band a:focus-visible .pawpartout-name,
+.foot .pawpartout-credit a:hover .pawpartout-name,
+.foot .pawpartout-credit a:focus-visible .pawpartout-name,
+footer .pawpartout-credit a:hover .pawpartout-name,
+footer .pawpartout-credit a:focus-visible .pawpartout-name,
+.pawpartout-about a:hover .pawpartout-name,
+.pawpartout-about a:focus-visible .pawpartout-name{
+  color:#FF8A75;
+}
