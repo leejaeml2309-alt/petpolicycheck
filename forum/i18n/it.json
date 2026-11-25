@@ -111,6 +111,7 @@
   "f.auth.forgot": "Password dimenticata?",
   "f.auth.reset_btn": "Invia il link di reimpostazione",
   "f.auth.reset_sent": "Se esiste un account per questa email, un link di reimpostazione è in arrivo.",
+  "f.auth.reset_err": "Non è stato possibile inviare il link di reimpostazione. Riprovi tra qualche minuto.",
   "f.auth.new_password": "Nuova password",
   "f.auth.save_password": "Salva la nuova password",
   "f.auth.password_saved": "Password aggiornata.",

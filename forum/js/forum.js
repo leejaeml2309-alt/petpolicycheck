@@ -482,8 +482,12 @@
       });
     });
     $('f-reset').addEventListener('submit', function (ev) {
-      ev.preventDefault();
-      sb.auth.resetPasswordForEmail($('rs-email').value.trim(), { redirectTo: BASE + 'account.html' }).then(function () { msg(ok, t('f.auth.reset_sent')); });
+      ev.preventDefault(); msg(err, ''); msg(ok, '');
+      var btn = this.querySelector('button[type=submit]'); if (btn) btn.disabled = true;
+      function fail(e) { msg(err, t('f.auth.reset_err') + (e && e.message ? ' (' + e.message + ')' : '')); }
+      sb.auth.resetPasswordForEmail($('rs-email').value.trim(), { redirectTo: BASE + 'account.html' }).then(function (r) {
+        if (r && r.error) fail(r.error); else msg(ok, t('f.auth.reset_sent'));
+      }, fail).then(function () { if (btn) btn.disabled = false; });
     });
     $('f-newpass').addEventListener('submit', function (ev) {
       ev.preventDefault();

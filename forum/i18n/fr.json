@@ -111,6 +111,7 @@
   "f.auth.forgot": "Forgot your password?",
   "f.auth.reset_btn": "Send reset link",
   "f.auth.reset_sent": "If an account exists for this email, a reset link is on its way.",
+  "f.auth.reset_err": "Impossible d’envoyer le lien de réinitialisation. Veuillez réessayer dans quelques minutes.",
   "f.auth.new_password": "New password",
   "f.auth.save_password": "Save new password",
   "f.auth.password_saved": "Password updated.",
