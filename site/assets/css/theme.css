@@ -1032,8 +1032,10 @@ footer .pawpartout-credit a:focus-visible .pawpartout-name,
   display:block;
   overflow:visible;
   pointer-events:none;
-  /* Thin gold halo so fir #24443a stays readable on --hdr #0b1719 */
-  filter:drop-shadow(0 0 .35px #d9b765);
+}
+/* Subtle gold glow on the star (shiny tree on the dark header). */
+.ppc-xmas-tree .ppc-xmas-star{
+  filter:drop-shadow(0 0 1px #f0d58c) drop-shadow(0 0 2.2px #d9b765);
 }
 .top .nav a.ppc-xmas-products,
 .top .nav.pst-nav a.sec.ppc-xmas-products{
@@ -1056,18 +1058,24 @@ footer .pawpartout-credit a:focus-visible .pawpartout-name,
     top:0;
   }
 }
-/* Mobile / Menu dropdown: sit next to the Products label, a touch larger */
+/* Mobile / Menu dropdown: tree AFTER the label (~6px gap) so labels share the same x as Grooming/Rides.
+   .sec already uses gap:12px; a -6px start margin nets ~6px after the label. */
 @media (max-width:1099px){
   .top .nav a.ppc-xmas-products,
   .top .nav.pst-nav a.sec.ppc-xmas-products{
     align-items:center;
   }
-  .top .nav a.ppc-xmas-products .ppc-xmas-tree,
+  .top .nav a.ppc-xmas-products .ppc-xmas-tree{
+    position:static;
+    width:16px;
+    height:19px;
+    margin:0 0 0 6px;
+  }
   .top .nav.pst-nav a.sec.ppc-xmas-products .ppc-xmas-tree{
     position:static;
     width:16px;
     height:19px;
-    margin:0 2px 0 0;
+    margin:0 0 0 -6px;
   }
 }
 @keyframes ppc-xmas-twinkle{
