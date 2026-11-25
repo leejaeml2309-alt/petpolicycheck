@@ -159,3 +159,33 @@
  .g-hero-txt{padding-top:34px}
  .g-garland.g-wide{display:none}
 }
+
+/* ---------- b4: realistic painted portrait + funny band vignettes */
+.g-hero{min-height:0}
+.g-hero-visual{display:flex;align-items:center;justify-content:center;padding:84px 56px 86px 56px}
+.g-portrait{position:relative;z-index:2;margin:0;width:100%;max-width:500px;padding:7px;background:#f8eed8;border-radius:12px;box-shadow:0 0 0 1px #b8913f,0 0 0 4px #f8eed8,0 0 0 5px #d9b765,0 10px 22px #3a241040}
+.g-portrait img{display:block;width:100%;height:auto;aspect-ratio:4/3;border-radius:7px;background:#e9dcc0}
+.g-hero-txt{align-self:center;padding:96px 8px 96px 52px}
+.g-deco{position:absolute;z-index:3;top:0;width:40px;height:220px;overflow:visible;pointer-events:none}
+.g-deco-l{left:6px}
+.g-deco-r{right:8px}
+.g-hero-bow{left:-51px;bottom:6px}
+.g-band{height:auto;min-height:200px;justify-content:space-between;gap:16px;padding:12px 14px 12px 0}
+.g-band-txt{flex:1 1 auto}
+.g-band-acc{position:relative;z-index:2;flex:0 0 60px;align-self:flex-start;width:60px;height:130px;margin-top:-12px;overflow:visible}
+.g-band-pic{position:relative;z-index:2;flex:0 0 auto;margin:0;width:312px;padding:5px;background:#f8eed8;border-radius:10px;box-shadow:0 0 0 1px #b8913f,0 6px 14px #3a241038}
+.g-band-pic img{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:6px;background:#e9dcc0}
+@media (max-width:720px){
+ .g-garland.g-gmob{display:block;position:absolute;top:0;left:0;width:100%;height:60px;z-index:3;pointer-events:none;filter:drop-shadow(0 2px 1.5px #0b171933)}
+ .g-hero-visual{display:block;padding:40px 16px 0}
+ .g-hero-visual::after{content:"";display:block;height:30px;margin:16px -16px 0;background:linear-gradient(180deg,#e8d7b2,#f8eed8 30%,#f8eed8 70%,#e8d7b2);box-shadow:0 0 0 1px #0b171922}
+ .g-ribbon-h{display:none}
+ .g-portrait{max-width:none;padding:5px}
+ .g-deco{display:none}
+ .g-hero-bow{left:auto;right:3px;top:auto;bottom:-21px;width:104px}
+ .g-hero-txt{padding:26px 84px 28px 22px}
+ .g-band{display:grid;grid-template-columns:1fr 50px;grid-template-areas:"t a" "p p";min-height:0;gap:0;padding:0 14px 16px 0;align-items:start}
+ .g-band-txt{grid-area:t;max-width:none;padding:22px 8px 14px 46px}
+ .g-band-acc{grid-area:a;width:50px;height:100px;margin:0;justify-self:end}
+ .g-band-pic{grid-area:p;width:auto;margin-left:46px;padding:4px}
+}
