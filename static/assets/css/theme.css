@@ -917,3 +917,23 @@ html.theme-veterans main h2::before{
 html[data-ppc-locale="ja"]{--text:"Inter","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Yu Gothic","Meiryo","Noto Sans JP","Noto Sans CJK JP",system-ui,sans-serif;--disp:"Marcellus","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP","Noto Serif CJK JP",Georgia,serif}
 html[data-ppc-locale="ja"] body{line-break:strict;word-break:normal;overflow-wrap:break-word}
 html[data-ppc-locale="ja"] h1,html[data-ppc-locale="ja"] h2,html[data-ppc-locale="ja"] h3{line-break:strict;word-break:normal;word-break:auto-phrase;overflow-wrap:break-word}
+
+/* Desktop header fit for long FR/ES/DE/IT labels (2026-11-25).
+   At 1280+ these four languages were wider than the viewport (by 60-136px),
+   so the B2B hub and the coral search icon were pushed off-screen.
+   Each size tier starts one step later for them: 1280-1439 uses the
+   1100-1279 label/icon size, 1440+ uses the 1280 size. Header height,
+   fonts, colours, items and the search icon are unchanged; EN/JA and
+   everything below 1280px are untouched. */
+@media (min-width:1280px) and (max-width:1439px){
+  html:is([lang|=fr],[lang|=es],[lang|=de],[lang|=it]) header.top .wrap{padding-left:8px;padding-right:8px}
+  html:is([lang|=fr],[lang|=es],[lang|=de],[lang|=it]) header.top .nav.pst-nav a.sec{gap:3px;padding-left:2px;padding-right:3px;font-size:.7rem}
+  html:is([lang|=fr],[lang|=es],[lang|=de],[lang|=it]) header.top .nav.pst-nav .pst{--s:16px;border-radius:4px}
+  /* Home map header buttons carry a 1px border each side: 1px less right padding there. */
+  html:is([lang|=fr],[lang|=es],[lang|=de],[lang|=it]) header.top.map-nav .nav.pst-nav a.sec{padding-right:2px}
+}
+@media (min-width:1440px){
+  html:is([lang|=fr],[lang|=es],[lang|=de],[lang|=it]) header.top .wrap{padding-left:16px;padding-right:16px}
+  html:is([lang|=fr],[lang|=es],[lang|=de],[lang|=it]) header.top .nav.pst-nav a.sec{gap:4px;padding-left:2px;padding-right:4px;font-size:.76rem}
+  html:is([lang|=fr],[lang|=es],[lang|=de],[lang|=it]) header.top .nav.pst-nav .pst{--s:18px;border-radius:5px}
+}
