@@ -1,6 +1,6 @@
 # PREVIEW — Pet Desk Starter (25 Nov 2026, KST)
 
-**Nothing is published.** Branch `petdesk-starter-20261125`, commit `c0942619`, local worktree `/workspace/petdesk-starter-wt`. No push (a hosted branch preview wouldn't show the Desk: the Edge Function isn't deployed). No Gumroad login, no Supabase migration, build.py not run, site/ = static/ (checked file by file), GA G-K45B2WNXMC only, header/footer/coral search icon unchanged.
+**Nothing is published.** Branch `petdesk-starter-20261125`, commits `c0942619` (feature) → `bfa0685f` (SQL grants + docs) → `3b4a9e50` (shots), local worktree `/workspace/petdesk-starter-wt`. No push (a hosted branch preview wouldn't show the Desk: the Edge Function isn't deployed). No Gumroad login, no Supabase migration, build.py not run, site/ = static/ (checked file by file), GA G-K45B2WNXMC only, header/footer/coral search icon unchanged.
 
 ## How to view it
 ```
