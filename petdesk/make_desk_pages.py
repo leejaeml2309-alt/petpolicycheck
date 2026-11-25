@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 R = pathlib.Path(__file__).resolve().parent.parent
 LANGS = {"en": "", "fr": "fr/", "es": "es/", "de": "de/", "it": "it/", "ja": "ja/"}
 I = json.loads(subprocess.check_output(["node", "-e", "global.window={};require(process.argv[1]);process.stdout.write(JSON.stringify(window.PETDESK_I18N))", str(R / "site/assets/js/petdesk-i18n.js")]))
-V = "20261125pd1"
+V = "20261125pd2"
 
 def absolutize(html, base):
     def fix(m):
@@ -91,6 +91,7 @@ def desk(lang):
       <label class="wide">{t['f_client']}<input type="text" id="pd-client" maxlength="60"></label>
       <label>{t['f_l1']}<select id="pd-l1">{lopts(l1)}</select></label>
       <label>{t['f_l2']}<select id="pd-l2">{lopts(l2)}</select></label>
+      <p class="pd-langs-soon wide" id="pd-langs-soon">{t['langs_soon']}</p>
     </div>
     <p><button class="btn-pro pri" type="button" id="pd-issue">{t['issue']}</button></p>
     <p class="pd-msg warn" id="pd-quota-full" hidden>{t['quota_full']}</p>

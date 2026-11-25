@@ -60,3 +60,4 @@
 @media print{.no-print{display:none!important}.pd-print-body{padding:0}.pd-head{margin-top:0}}
 .pd-pass .qr{max-width:120px;text-align:center}
 .pd-pass .qr svg,.pd-pass .qr img{width:110px!important;height:110px!important;max-width:110px}
+.pd-grid .pd-langs-soon{grid-column:1/-1;margin:-.2rem 0 0;font-size:.86rem;opacity:.85}

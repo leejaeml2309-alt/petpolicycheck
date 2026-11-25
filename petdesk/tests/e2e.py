@@ -10,6 +10,7 @@ OLD=re.compile(r"14-day (free )?trial|No card\. No commitment|14 days free|essai
 K=dict(trial="TRIAL000-AAAA1111-BBBB2222-CCCC3333",active="ACTIVE00-AAAA1111-BBBB2222-CCCC4444",cancel="CANCEL00-AAAA1111-BBBB2222-CCCC5555",
  ended="ENDED000-AAAA1111-BBBB2222-CCCC6666",failed="FAILED00-AAAA1111-BBBB2222-CCCC7777",refund="REFUND00-AAAA1111-BBBB2222-CCCC8888",other="OTHERPRD-AAAA1111-BBBB2222-CCCC9999")
 R=[]; FAIL=[]
+SOON={"en":("Spanish","coming soon"),"fr":("espagnol","bientôt"),"es":("español","próximamente"),"de":("Spanisch","in Kürze"),"it":("spagnolo","in arrivo"),"ja":("スペイン語","近日対応予定")}
 def ok(name,cond,info=""):
     R.append((name,bool(cond),info)); 
     if not cond: FAIL.append(name)
@@ -50,8 +51,16 @@ with sync_playwright() as p:
                 lds=[json.loads(s) for s in pg.locator('script[type="application/ld+json"]').all_text_contents()]
                 fq=[d for d in lds if d.get("@type")=="FAQPage"]
                 ok(f"{L} JSON-LD parses, one FAQPage",len(fq)==1)
-                ok(f"{L} FAQPage entries == visible FAQ ({faq})",fq and len(fq[0]["mainEntity"])==faq==11,(faq,fq and len(fq[0]["mainEntity"])))
+                ok(f"{L} FAQPage entries == visible FAQ ({faq})",fq and len(fq[0]["mainEntity"])==faq==12,(faq,fq and len(fq[0]["mainEntity"])))
                 ok(f"{L} JSON-LD has no old trial claim",not OLD.search(json.dumps(fq,ensure_ascii=False)))
+                s2=pg.inner_text('[data-tier="starter"] li[data-i="s2"]'); w1,w2=SOON[L]
+                ok(f"{L} Starter lists passport languages + coming soon",w1 in s2 and w2 in s2,s2)
+                nz=lambda s:" ".join((s or "").split())
+                vis={nz(d.locator("summary").text_content()):nz(d.locator("p").text_content()) for d in pg.locator("details").all()}
+                ldq={nz(q["name"]):nz(q["acceptedAnswer"]["text"]) for q in fq[0]["mainEntity"]} if fq else {}
+                lq=[q for q in ldq if w1 in ldq[q] and w2 in ldq[q]]
+                ok(f"{L} FAQ languages question in page and JSON-LD, same text",len(lq)==1 and vis.get(lq[0])==ldq[lq[0]],lq)
+                ok(f"{L} all JSON-LD FAQ answers match visible FAQ",all(vis.get(q)==a for q,a in ldq.items()),[q for q,a in ldq.items() if vis.get(q)!=a][:2])
                 html=pg.content(); ok(f"{L} GA only, no AdSense","G-K45B2WNXMC" in html and "adsbygoogle" not in html and "pagead2" not in html)
             shot_plans(pg,SHOTS/f"pro-{L}-{w}.png"); c.close()
         # home + legal
@@ -74,6 +83,7 @@ with sync_playwright() as p:
         login(pg,K["trial"],L); ok(f"{L} desk: trial key opens desk",pg.locator("#pd-app").is_visible(),pg.inner_text("#pd-login-msg") if pg.locator("#pd-login-msg").is_visible() else "")
         pg.wait_for_timeout(1500); ok(f"{L} desk: route selects filled from passport engine",pg.locator("#pd-from option").count()>5 and pg.locator("#pd-to option").count()>5)
         ok(f"{L} desk: no JS errors",not errs,errs)
+        sn=pg.locator("#pd-langs-soon"); ok(f"{L} desk: languages note next to the picker",sn.is_visible() and SOON[L][0] in sn.inner_text() and SOON[L][1] in sn.inner_text(),sn.inner_text() if sn.count() else "missing")
         if L=="en":
             for w,h in ((1280,900),(390,844)):
                 pg.set_viewport_size({"width":w,"height":h}); pg.wait_for_timeout(200); pg.screenshot(path=str(SHOTS/f"desk-app-{w}.png"),full_page=True)

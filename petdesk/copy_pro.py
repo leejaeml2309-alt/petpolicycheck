@@ -1,7 +1,7 @@
 # /pro/ copy for the Starter 1-month Gumroad trial, 6 languages. Placeholders: {T}=terms href, {R}=refund href.
 PRO = {
 "en": dict(
- s2="Up to 15 dual-language digital Pet Travel Passports / month (EN / ES / IT)",
+ s2="Up to 15 dual-language digital Pet Travel Passports / month — currently in English, Spanish and Italian; other languages coming soon",
  s5="Watchlist of up to 5 airlines in your Desk, with every logged rule change flagged",
  cta_trial="Start your 1-month free trial",
  cta_micro="1 month free, then $49/month or $468/year. Card required at Gumroad checkout. You are charged automatically when the free month ends unless you cancel before; Gumroad emails you 48 hours before the charge.",
@@ -13,6 +13,7 @@ PRO = {
   ("Will I be charged when my trial ends?","Yes, unless you cancel before the free month ends. To avoid the charge, cancel from the “Manage membership” link in your Gumroad receipt or from your Gumroad Library. If you cancel during the trial, you pay nothing and your access ends when the free month ends."),
   ("Do Pro and Enterprise have a free trial?","No. Only Starter has a free trial. Pro and Enterprise have no free trial and no online checkout for now: use Request onboarding and we will reply by email."),
   ("How do I get into my Pet Desk?","Your Gumroad receipt and the product's content page show your license key and a link to petpolicycheck.com/pro/desk/. Open that page and paste the key. Starter includes 1 seat, so opening your Desk on a new device closes the previous session. Lost your key? Use Gumroad's <a href=\"https://gumroad.com/license-key-lookup\" rel=\"noopener\" target=\"_blank\">license key lookup</a>."),
+  ("Which languages are the passports available in?","Pet Desk passports are currently available in English, Spanish and Italian: for each dual-language passport, you choose two of these three languages. Other languages are coming soon. Your Desk itself is available in all six languages of the site."),
   ("Who is the Merchant of Record?","Our order process is conducted by our online reseller Gumroad (gumroad.com). Gumroad is the Merchant of Record for all our orders and handles payments, taxes, invoicing and refunds."),
   ("How do refunds work?","Your first payment has a 14-day refund guarantee. For Starter, that first payment is taken when the free month ends, and the 14 days start on that date, not on the trial start date. Use the link in your Gumroad receipt, or email <a href=\"mailto:contact@petpolicycheck.com\">contact@petpolicycheck.com</a> with your order email and plan name. Approved refunds are processed by Gumroad to the original payment method. See our <a href=\"{R}\">Refund &amp; Cancellation Policy</a>."),
   ("Can I cancel anytime?","Yes. Cancel from the “Manage membership” link in your Gumroad receipt or from your Gumroad Library. Access continues until the end of the free month or of the paid billing period, with no further charges. Cancelling stops renewal; it is separate from a refund request."),
@@ -21,7 +22,7 @@ PRO = {
   ("How can I get in touch?","Write to <a href=\"mailto:contact@petpolicycheck.com?subject=Pet%20Desk%20Pro\">contact@petpolicycheck.com</a>. For paid orders, you can also use the link in your Gumroad receipt."),
  ]),
 "fr": dict(
- s2="Jusqu’à 15 passeports numériques bilingues / mois (EN / ES / IT)",
+ s2="Jusqu’à 15 passeports numériques bilingues / mois — disponibles pour l’instant en anglais, espagnol et italien ; d’autres langues arrivent bientôt",
  s5="Liste de suivi de 5 compagnies au maximum dans votre Desk, avec chaque changement de règle consigné signalé",
  cta_trial="Commencez votre essai gratuit d’un mois",
  cta_micro="1 mois gratuit, puis 49 $/mois ou 468 $/an. Carte demandée au paiement sur Gumroad. Le prélèvement est automatique à la fin du mois gratuit, sauf si vous résiliez avant ; Gumroad vous écrit 48 heures avant.",
@@ -33,6 +34,7 @@ PRO = {
   ("Serai-je débité à la fin de mon essai ?","Oui, sauf si vous résiliez avant la fin du mois gratuit. Pour éviter le prélèvement, résiliez depuis le lien « Manage membership » de votre reçu Gumroad ou depuis votre bibliothèque Gumroad. Si vous résiliez pendant l’essai, vous ne payez rien et votre accès prend fin à la fin du mois gratuit."),
   ("Pro et Enterprise ont-ils un essai gratuit ?","Non. Seul Starter a un essai gratuit. Pro et Enterprise n’ont ni essai gratuit ni paiement en ligne pour l’instant : utilisez « Demander l’onboarding » et nous vous répondrons par email."),
   ("Comment accéder à mon Pet Desk ?","Votre reçu Gumroad et la page de contenu du produit affichent votre clé de licence et un lien vers petpolicycheck.com/pro/desk/. Ouvrez cette page et collez la clé. Starter comprend 1 poste : ouvrir votre Desk sur un nouvel appareil ferme la session précédente. Clé perdue ? Utilisez la <a href=\"https://gumroad.com/license-key-lookup\" rel=\"noopener\" target=\"_blank\">recherche de clé Gumroad</a>."),
+  ("En quelles langues les passeports sont-ils disponibles ?","Les passeports Pet Desk sont disponibles pour l’instant en anglais, en espagnol et en italien : pour chaque passeport bilingue, vous choisissez deux de ces trois langues. D’autres langues arrivent bientôt. Votre Desk lui-même est disponible dans les six langues du site."),
   ("Qui est le Merchant of Record ?","Notre processus de commande est assuré par notre revendeur en ligne Gumroad (gumroad.com). Gumroad est le Merchant of Record de toutes nos commandes et gère les paiements, les taxes, la facturation et les remboursements."),
   ("Comment fonctionnent les remboursements ?","Votre premier paiement bénéficie d’une garantie de remboursement de 14 jours. Pour Starter, ce premier paiement a lieu à la fin du mois gratuit, et les 14 jours commencent à cette date, pas au début de l’essai. Utilisez le lien de votre reçu Gumroad, ou écrivez à <a href=\"mailto:contact@petpolicycheck.com\">contact@petpolicycheck.com</a> avec l’email de commande et le nom de l’offre. Les remboursements acceptés sont versés par Gumroad sur le moyen de paiement d’origine. Voir notre <a href=\"{R}\">Politique de remboursement et de résiliation</a>."),
   ("Puis-je résilier à tout moment ?","Oui. Résiliez depuis le lien « Manage membership » de votre reçu Gumroad ou depuis votre bibliothèque Gumroad. L’accès continue jusqu’à la fin du mois gratuit ou de la période payée, sans autre prélèvement. La résiliation arrête le renouvellement ; elle est distincte d’une demande de remboursement."),
@@ -41,7 +43,7 @@ PRO = {
   ("Comment nous contacter ?","Écrivez à <a href=\"mailto:contact@petpolicycheck.com?subject=Pet%20Desk%20Pro\">contact@petpolicycheck.com</a>. Pour les commandes payées, vous pouvez aussi utiliser le lien de votre reçu Gumroad."),
  ]),
 "es": dict(
- s2="Hasta 15 pasaportes digitales de viaje bilingües al mes (EN / ES / IT)",
+ s2="Hasta 15 pasaportes digitales de viaje bilingües al mes, por ahora en inglés, español e italiano; más idiomas, próximamente",
  s5="Lista de seguimiento de hasta 5 aerolíneas en su Desk, con cada cambio de normas registrado señalado",
  cta_trial="Empiece su prueba gratuita de 1 mes",
  cta_micro="1 mes gratis y después 49 $/mes o 468 $/año. Se pide tarjeta en el checkout de Gumroad. El cargo es automático al terminar el mes gratuito, salvo que cancele antes; Gumroad le avisa por correo 48 horas antes.",
@@ -53,6 +55,7 @@ PRO = {
   ("¿Se me cobrará al terminar la prueba?","Sí, salvo que cancele antes de que termine el mes gratuito. Para evitar el cargo, cancele desde el enlace «Manage membership» de su recibo de Gumroad o desde su biblioteca de Gumroad. Si cancela durante la prueba, no paga nada y su acceso termina al acabar el mes gratuito."),
   ("¿Pro y Enterprise tienen prueba gratuita?","No. Solo Starter tiene prueba gratuita. Pro y Enterprise no tienen por ahora ni prueba gratuita ni pago en línea: use «Solicite la incorporación» y le responderemos por correo."),
   ("¿Cómo entro en mi Pet Desk?","Su recibo de Gumroad y la página de contenido del producto muestran su clave de licencia y un enlace a petpolicycheck.com/pro/desk/. Abra esa página y pegue la clave. Starter incluye 1 puesto: abrir su Desk en otro dispositivo cierra la sesión anterior. ¿Ha perdido la clave? Use la <a href=\"https://gumroad.com/license-key-lookup\" rel=\"noopener\" target=\"_blank\">búsqueda de claves de Gumroad</a>."),
+  ("¿En qué idiomas están disponibles los pasaportes?","Por ahora, los pasaportes de Pet Desk están disponibles en inglés, español e italiano: para cada pasaporte bilingüe, usted elige dos de estos tres idiomas. Más idiomas, próximamente. Su Desk está disponible en los seis idiomas del sitio."),
   ("¿Quién es el Merchant of Record?","El proceso de pedido lo gestiona nuestro revendedor en línea Gumroad (gumroad.com). Gumroad es el Merchant of Record de todos nuestros pedidos y gestiona pagos, impuestos, facturación y reembolsos."),
   ("¿Cómo funcionan los reembolsos?","Su primer pago tiene una garantía de reembolso de 14 días. En Starter, ese primer pago se realiza al terminar el mes gratuito, y los 14 días empiezan en esa fecha, no al inicio de la prueba. Use el enlace de su recibo de Gumroad o escriba a <a href=\"mailto:contact@petpolicycheck.com\">contact@petpolicycheck.com</a> con el correo del pedido y el nombre del plan. Gumroad abona los reembolsos aprobados en el medio de pago original. Consulte nuestra <a href=\"{R}\">Política de reembolso y cancelación</a>."),
   ("¿Puedo cancelar en cualquier momento?","Sí. Cancele desde el enlace «Manage membership» de su recibo de Gumroad o desde su biblioteca de Gumroad. El acceso continúa hasta el final del mes gratuito o del periodo pagado, sin más cargos. Cancelar detiene la renovación; es independiente de una solicitud de reembolso."),
@@ -61,7 +64,7 @@ PRO = {
   ("¿Cómo puedo contactarles?","Escriba a <a href=\"mailto:contact@petpolicycheck.com?subject=Pet%20Desk%20Pro\">contact@petpolicycheck.com</a>. Para pedidos pagados, también puede usar el enlace de su recibo de Gumroad."),
  ]),
 "de": dict(
- s2="Bis zu 15 zweisprachige digitale Pet Travel Passports / Monat (EN / ES / IT)",
+ s2="Bis zu 15 zweisprachige digitale Pet Travel Passports / Monat – derzeit auf Englisch, Spanisch und Italienisch; weitere Sprachen folgen in Kürze",
  s5="Beobachtungsliste mit bis zu 5 Airlines in Ihrem Desk; jede erfasste Regeländerung wird markiert",
  cta_trial="1 Monat kostenlos testen",
  cta_micro="1 Monat kostenlos, danach $49/Monat oder $468/Jahr. Zahlungskarte beim Gumroad-Checkout erforderlich. Am Ende des Gratismonats wird automatisch abgebucht, außer Sie kündigen vorher; Gumroad schreibt Ihnen 48 Stunden vorher.",
@@ -73,6 +76,7 @@ PRO = {
   ("Wird am Ende der Testphase abgebucht?","Ja, außer Sie kündigen vor Ende des Gratismonats. Um die Abbuchung zu vermeiden, kündigen Sie über den Link „Manage membership“ in Ihrer Gumroad-Quittung oder in Ihrer Gumroad-Bibliothek. Wenn Sie während der Testphase kündigen, zahlen Sie nichts, und Ihr Zugang endet mit dem Gratismonat."),
   ("Haben Pro und Enterprise eine kostenlose Testphase?","Nein. Nur Starter hat eine kostenlose Testphase. Pro und Enterprise haben derzeit weder eine Testphase noch einen Online-Kauf: Nutzen Sie „Onboarding anfragen“, wir antworten per E-Mail."),
   ("Wie komme ich in meinen Pet Desk?","Ihre Gumroad-Quittung und die Inhaltsseite des Produkts zeigen Ihren Lizenzschlüssel und einen Link zu petpolicycheck.com/pro/desk/. Öffnen Sie diese Seite und fügen Sie den Schlüssel ein. Starter umfasst 1 Platz: Wenn Sie Ihren Desk auf einem neuen Gerät öffnen, wird die vorherige Sitzung beendet. Schlüssel verloren? Nutzen Sie die <a href=\"https://gumroad.com/license-key-lookup\" rel=\"noopener\" target=\"_blank\">Gumroad-Schlüsselsuche</a>."),
+  ("In welchen Sprachen sind die Pässe verfügbar?","Pet-Desk-Pässe sind derzeit auf Englisch, Spanisch und Italienisch verfügbar: Für jeden zweisprachigen Pass wählen Sie zwei dieser drei Sprachen. Weitere Sprachen folgen in Kürze. Ihr Desk selbst ist in allen sechs Sprachen der Website verfügbar."),
   ("Wer ist der Merchant of Record?","Unser Bestellprozess wird von unserem Online-Wiederverkäufer Gumroad (gumroad.com) abgewickelt. Gumroad ist der Merchant of Record für alle unsere Bestellungen und übernimmt Zahlungen, Steuern, Rechnungen und Rückerstattungen."),
   ("Wie funktionieren Rückerstattungen?","Für Ihre erste Zahlung gilt eine 14-tägige Rückerstattungsgarantie. Bei Starter erfolgt diese erste Zahlung am Ende des Gratismonats, und die 14 Tage beginnen an diesem Tag, nicht am Beginn der Testphase. Nutzen Sie den Link in Ihrer Gumroad-Quittung oder schreiben Sie an <a href=\"mailto:contact@petpolicycheck.com\">contact@petpolicycheck.com</a> mit Bestell-E-Mail und Tarifname. Genehmigte Erstattungen zahlt Gumroad auf das ursprüngliche Zahlungsmittel zurück. Siehe unsere <a href=\"{R}\">Rückerstattungs- und Kündigungsrichtlinie</a>."),
   ("Kann ich jederzeit kündigen?","Ja. Kündigen Sie über den Link „Manage membership“ in Ihrer Gumroad-Quittung oder in Ihrer Gumroad-Bibliothek. Der Zugang bleibt bis zum Ende des Gratismonats bzw. des bezahlten Zeitraums bestehen, ohne weitere Abbuchungen. Die Kündigung beendet die Verlängerung; sie ist von einem Erstattungsantrag getrennt."),
@@ -81,7 +85,7 @@ PRO = {
   ("Wie erreiche ich Sie?","Schreiben Sie an <a href=\"mailto:contact@petpolicycheck.com?subject=Pet%20Desk%20Pro\">contact@petpolicycheck.com</a>. Bei bezahlten Bestellungen können Sie auch den Link in Ihrer Gumroad-Quittung nutzen."),
  ]),
 "it": dict(
- s2="Fino a 15 Pet Travel Passport digitali bilingui al mese (EN / ES / IT)",
+ s2="Fino a 15 Pet Travel Passport digitali bilingui al mese, per ora in inglese, spagnolo e italiano; altre lingue in arrivo",
  s5="Elenco di fino a 5 compagnie seguite nel Suo Desk, con ogni cambio di regole registrato segnalato",
  cta_trial="Inizi la prova gratuita di 1 mese",
  cta_micro="1 mese gratis, poi 49 $/mese o 468 $/anno. Carta richiesta al checkout di Gumroad. L'addebito è automatico alla fine del mese gratuito, salvo disdetta prima; Gumroad Le scrive 48 ore prima.",
@@ -93,6 +97,7 @@ PRO = {
   ("Le sarà addebitato un importo alla fine della prova?","Sì, salvo disdetta prima della fine del mese gratuito. Per evitare l'addebito, disdica dal link «Manage membership» della ricevuta Gumroad o dalla Sua libreria Gumroad. Se disdice durante la prova, non paga nulla e l'accesso termina alla fine del mese gratuito."),
   ("Pro ed Enterprise hanno una prova gratuita?","No. Solo Starter ha una prova gratuita. Pro ed Enterprise per ora non hanno né prova gratuita né acquisto online: usi «Richieda l'attivazione» e Le risponderemo via email."),
   ("Come accedo al mio Pet Desk?","La ricevuta Gumroad e la pagina dei contenuti del prodotto mostrano la chiave di licenza e un link a petpolicycheck.com/pro/desk/. Apra quella pagina e incolli la chiave. Starter include 1 postazione: aprire il Desk su un nuovo dispositivo chiude la sessione precedente. Ha perso la chiave? Usi la <a href=\"https://gumroad.com/license-key-lookup\" rel=\"noopener\" target=\"_blank\">ricerca chiavi di Gumroad</a>."),
+  ("In quali lingue sono disponibili i passaporti?","Per ora i passaporti Pet Desk sono disponibili in inglese, spagnolo e italiano: per ogni passaporto bilingue sceglie due di queste tre lingue. Altre lingue sono in arrivo. Il Suo Desk è disponibile in tutte e sei le lingue del sito."),
   ("Chi è il Merchant of Record?","Il processo d'ordine è gestito dal nostro rivenditore online Gumroad (gumroad.com). Gumroad è il Merchant of Record di tutti i nostri ordini e gestisce pagamenti, imposte, fatturazione e rimborsi."),
   ("Come funzionano i rimborsi?","Il Suo primo pagamento ha una garanzia di rimborso di 14 giorni. Per Starter, il primo pagamento avviene alla fine del mese gratuito e i 14 giorni decorrono da quella data, non dall'inizio della prova. Usi il link della ricevuta Gumroad o scriva a <a href=\"mailto:contact@petpolicycheck.com\">contact@petpolicycheck.com</a> indicando l'email dell'ordine e il nome del piano. I rimborsi approvati vengono accreditati da Gumroad sul metodo di pagamento originale. Si veda la nostra <a href=\"{R}\">Politica di rimborso e disdetta</a>."),
   ("Può disdire in qualsiasi momento?","Sì. Disdica dal link «Manage membership» della ricevuta Gumroad o dalla Sua libreria Gumroad. L'accesso continua fino alla fine del mese gratuito o del periodo pagato, senza altri addebiti. La disdetta interrompe il rinnovo; è distinta da una richiesta di rimborso."),
@@ -101,7 +106,7 @@ PRO = {
   ("Come posso contattarvi?","Scriva a <a href=\"mailto:contact@petpolicycheck.com?subject=Pet%20Desk%20Pro\">contact@petpolicycheck.com</a>. Per gli ordini pagati, può usare anche il link della ricevuta Gumroad."),
  ]),
 "ja": dict(
- s2="2言語のデジタルPet Travel Passportを月15件まで（EN / ES / IT）",
+ s2="2言語のデジタルPet Travel Passportを月15件まで（現在は英語・スペイン語・イタリア語に対応、その他の言語も近日対応予定）",
  s5="デスク内で最大5社の航空会社をウォッチ（記録された規定変更をすべて表示）",
  cta_trial="1か月の無料試用を始める",
  cta_micro="最初の1か月は無料、その後は月額$49または年額$468。Gumroadのチェックアウトでカード登録が必要です。解約しない限り無料の1か月の終了時に自動で請求され、その48時間前にGumroadからメールが届きます。",
@@ -113,6 +118,7 @@ PRO = {
   ("試用終了時に請求されますか？","はい、無料の1か月が終わる前に解約しない限り請求されます。請求を避けるには、Gumroadの領収書にある「Manage membership」リンク、またはGumroadのライブラリから解約してください。試用中に解約した場合、料金は発生せず、アクセスは無料の1か月の終了時に終わります。"),
   ("ProとEnterpriseに無料試用はありますか？","いいえ。無料試用があるのはStarterのみです。ProとEnterpriseは現在、無料試用もオンライン購入もありません。「導入支援を依頼」からご連絡いただければ、メールでご案内します。"),
   ("Pet Deskにはどうやって入りますか？","Gumroadの領収書と商品のコンテンツページに、ライセンスキーとpetpolicycheck.com/pro/desk/へのリンクが表示されます。そのページを開き、キーを貼り付けてください。Starterは1席のため、別の端末でデスクを開くと前のセッションは終了します。キーを紛失した場合は<a href=\"https://gumroad.com/license-key-lookup\" rel=\"noopener\" target=\"_blank\">Gumroadのライセンスキー検索</a>をご利用ください。"),
+  ("パスポートはどの言語で利用できますか？","Pet Deskのパスポートは現在、英語・スペイン語・イタリア語に対応しています。2言語パスポートごとに、この3言語から2つをお選びいただけます。その他の言語も近日対応予定です。Desk自体はサイトの6言語すべてでご利用いただけます。"),
   ("販売者（Merchant of Record）はどこですか？","当サイトの注文手続きは、オンライン販売代理店のGumroad（gumroad.com）が行います。Gumroadはすべての注文の販売者（Merchant of Record）として、支払い、税金、請求書、返金を取り扱います。"),
   ("返金はどうなりますか？","最初のお支払いには14日間の返金保証があります。Starterの場合、最初のお支払いは無料の1か月の終了時に行われ、14日間はその日から始まります（試用開始日からではありません）。Gumroadの領収書にあるリンクを使うか、注文時のメールアドレスとプラン名を添えて<a href=\"mailto:contact@petpolicycheck.com\">contact@petpolicycheck.com</a>までご連絡ください。承認された返金は、Gumroadが元の支払い方法に返金します。<a href=\"{R}\">返金・解約ポリシー</a>をご覧ください。"),
   ("いつでも解約できますか？","はい。Gumroadの領収書にある「Manage membership」リンク、またはGumroadのライブラリから解約できます。アクセスは無料の1か月または支払い済みの期間の終わりまで続き、その後の請求はありません。解約は更新を止めるもので、返金の申請とは別の手続きです。"),
