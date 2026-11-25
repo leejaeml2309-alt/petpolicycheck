@@ -128,12 +128,21 @@ async function summary(store: Store, a: Account, now: Date) {
   };
 }
 
+const secretOk = (cfg: Cfg) => typeof cfg.secret === "string" && cfg.secret.length >= 32;
+
 export async function handle(req: Request, store: Store, cfg: Cfg): Promise<Response> {
   const now = cfg.now ? cfg.now() : new Date();
   const origin = req.headers.get("origin");
   const url = new URL(req.url);
   const action = url.pathname.split("/").filter(Boolean).pop() || "";
   if (req.method === "OPTIONS") { const r = json(200, {}, origin, cfg); return new Response(null, { status: 204, headers: r.headers }); }
+
+  // Health check: no data, no secret values; only whether the function is configured.
+  if (action === "health") {
+    return json(200, { ok: true, service: "petdesk", configured: { session_key: secretOk(cfg), product_ids: cfg.productIds.length, ping: !!cfg.pingSecret } }, origin, cfg);
+  }
+  // Fail closed: never sign or read sessions with a weak or missing key.
+  if (!secretOk(cfg)) return json(503, { error: "not_configured" }, origin, cfg);
 
   // Optional phase 2: Gumroad resource-subscription callbacks (form-encoded). Secret in the URL,
   // because resource-subscription posts are not signed (https://gumroad.com/ping).

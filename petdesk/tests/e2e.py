@@ -6,6 +6,7 @@ B="http://127.0.0.1:8765"; SHOTS=pathlib.Path("/workspace/petdesk-starter-202611
 LANGS={"en":"","fr":"fr/","es":"es/","de":"de/","it":"it/","ja":"ja/"}
 MO="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true"
 YR="https://petpolicycheck.gumroad.com/l/petdesk-starter?yearly=true&wanted=true"
+FIRSTONLY=re.compile(r"initial (paid|B2B|subscription) purchase|on initial purchases|premier achat d’abonnement|premiers achats|compra inicial de suscripción|compras iniciales|ersten Kauf eines|erste Käufe|acquisto iniziale|acquisti iniziali|初回購入")
 OLD=re.compile(r"14-day (free )?trial|No card\. No commitment|14 days free|essai gratuit de 14|prueba gratuita de 14|14-tägige(n)? (kostenlose )?Test|prova gratuita di 14|14日間(無料|の無料試用)",re.I)
 K=dict(trial="TRIAL000-AAAA1111-BBBB2222-CCCC3333",active="ACTIVE00-AAAA1111-BBBB2222-CCCC4444",cancel="CANCEL00-AAAA1111-BBBB2222-CCCC5555",
  ended="ENDED000-AAAA1111-BBBB2222-CCCC6666",failed="FAILED00-AAAA1111-BBBB2222-CCCC7777",refund="REFUND00-AAAA1111-BBBB2222-CCCC8888",other="OTHERPRD-AAAA1111-BBBB2222-CCCC9999")
@@ -69,6 +70,7 @@ with sync_playwright() as p:
         for doc in ("terms","refund-policy","privacy"):
             pg.goto(f"{B}/{pre}{doc}.html",wait_until="domcontentloaded")
             t=pg.inner_text("body"); ok(f"{L} {doc}: Starter trial section present",pg.locator('[data-pd="starter-trial"]').count()>=1)
+            ok(f"{L} {doc}: 14-day refund not limited to the first payment",not FIRSTONLY.search(t),FIRSTONLY.search(t) and FIRSTONLY.search(t).group(0))
             ok(f"{L} {doc}: no 'no card' trial claim",not OLD.search(t),OLD.search(t) and OLD.search(t).group(0))
         c.close()
     # ---------- desk ----------

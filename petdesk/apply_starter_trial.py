@@ -7,7 +7,7 @@ from copy_pro import PRO
 from copy_legal import LEGAL
 R = pathlib.Path(__file__).resolve().parent.parent
 PRE = {"en": "", "fr": "fr/", "es": "es/", "de": "de/", "it": "it/", "ja": "ja/"}
-# Placeholder until Marc creates the separate Starter membership product on Gumroad.
+# Starter membership product on Gumroad (created 25 Nov 2026, product_id Qtlp1phQoytjW-w_I-h0Og==). ?yearly=true is untested: check it in the test purchase.
 GUM_MO = "https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true"
 GUM_YR = "https://petpolicycheck.gumroad.com/l/petdesk-starter?yearly=true&amp;wanted=true"
 

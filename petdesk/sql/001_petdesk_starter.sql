@@ -73,7 +73,7 @@ revoke all on public.petdesk_accounts, public.petdesk_passports, public.petdesk_
 
 -- Max 5 watched airlines per account (also checked in the Edge Function).
 create or replace function public.petdesk_watch_limit() returns trigger
-language plpgsql as $$
+language plpgsql security invoker set search_path = '' as $$
 begin
   if (select count(*) from public.petdesk_watch where account_id = new.account_id) >= 5 then
     raise exception 'watch_limit' using errcode = 'P0001';
@@ -83,6 +83,7 @@ end $$;
 drop trigger if exists petdesk_watch_limit on public.petdesk_watch;
 create trigger petdesk_watch_limit before insert on public.petdesk_watch
   for each row execute function public.petdesk_watch_limit();
+revoke all on function public.petdesk_watch_limit() from public, anon, authenticated;
 
 -- Atomic 15-passports-per-month quota. Called only by the Edge Function (service role).
 -- SECURITY INVOKER on purpose: no privileged function in the exposed public schema.

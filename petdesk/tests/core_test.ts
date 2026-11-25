@@ -6,7 +6,7 @@ import { fixtures, mockFetch, STARTER_PID } from "./fixtures.ts";
 const O = "https://petpolicycheck.com";
 function setup(now = new Date()) {
   const log: string[] = []; const store = memoryStore();
-  const cfg = { productIds: [STARTER_PID], verifyUrl: "mock://v", secret: "s3cret", origins: [O], fetch: mockFetch(fixtures(now.getTime()), log), now: () => now, pingSecret: "pp" };
+  const cfg = { productIds: [STARTER_PID], verifyUrl: "mock://v", secret: "test-session-key-0123456789abcdef0123456789", origins: [O], fetch: mockFetch(fixtures(now.getTime()), log), now: () => now, pingSecret: "pp" };
   const call = async (a: string, body: unknown) => { const r = await handle(new Request(`${O}/functions/v1/petdesk/${a}`, { method: "POST", headers: { origin: O, "content-type": "application/json" }, body: JSON.stringify(body) }), store, cfg); return { s: r.status, j: await r.json(), h: r.headers }; };
   return { call, log, store, cfg };
 }
@@ -77,4 +77,11 @@ Deno.test("ping endpoint requires secret and dedupes", async () => {
   const mk = (q: string) => handle(new Request(`${O}/functions/v1/petdesk/gumroad-ping${q}`, { method: "POST", body }), s.store, s.cfg);
   assertEquals((await mk("")).status, 403); assertEquals((await mk("?s=pp")).status, 200); assertEquals((await mk("?s=pp")).status, 200);
   assertEquals((s.store as any)._dump().acc.length, 1);
+});
+
+Deno.test("health + fail closed without a strong session key", async () => {
+  const s = setup(); const h = await s.call("health", {}); assertEquals([h.s, h.j.configured.session_key], [200, true]);
+  (s.cfg as any).secret = "short";
+  assertEquals((await s.call("login", { license_key: K.active })).j.error, "not_configured");
+  assertEquals((await s.call("health", {})).j.configured.session_key, false);
 });

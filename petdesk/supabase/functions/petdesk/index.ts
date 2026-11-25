@@ -1,8 +1,9 @@
 // Supabase Edge Function `petdesk` — deploy with:  supabase functions deploy petdesk --no-verify-jwt
 // (--no-verify-jwt because the site only has the new publishable key; this function does its own
 //  auth with the Gumroad license key + an HMAC session token.)
-// Secrets (supabase secrets set ...): GUMROAD_STARTER_PRODUCT_IDS, DESK_SESSION_SECRET,
-//   PETDESK_ALLOWED_ORIGINS, PETDESK_PING_SECRET (optional). SUPABASE_URL and
+// Optional secrets (supabase secrets set ...): GUMROAD_STARTER_PRODUCT_IDS (default: the Starter id below),
+//   DESK_SESSION_SECRET (default: derived from the service-role key), PETDESK_ALLOWED_ORIGINS (default: the
+//   two production origins), PETDESK_PING_SECRET (no default: /gumroad-ping stays closed until it is set). SUPABASE_URL and
 //   SUPABASE_SERVICE_ROLE_KEY are injected by Supabase automatically.
 import { createClient } from "npm:@supabase/supabase-js@2";
 import { handle, type Store } from "./core.ts";
@@ -45,10 +46,24 @@ const store: Store = {
   async bySubscription(sid) { return await one(sb.from("petdesk_accounts").select("*").eq("subscription_id", sid).maybeSingle()); },
 };
 
+// Pet Desk Starter product on Gumroad (public id, not a secret). The secret overrides it if set.
+const STARTER_PRODUCT_ID = "Qtlp1phQoytjW-w_I-h0Og==";
+// Session key: DESK_SESSION_SECRET if set; otherwise derived (HMAC-SHA256) from the service-role key
+// that Supabase injects server-side, so the key is never weak or missing and never leaves the server.
+async function sessionKey() {
+  const own = Deno.env.get("DESK_SESSION_SECRET");
+  if (own && own.length >= 32) return own;
+  const sr = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || "";
+  if (sr.length < 32) return "";
+  const k = await crypto.subtle.importKey("raw", new TextEncoder().encode(sr), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const s = await crypto.subtle.sign("HMAC", k, new TextEncoder().encode("petdesk-session-v1"));
+  return Array.from(new Uint8Array(s), (b) => b.toString(16).padStart(2, "0")).join("");
+}
+
 const cfg = {
-  productIds: (Deno.env.get("GUMROAD_STARTER_PRODUCT_IDS") || "").split(",").map((s) => s.trim()).filter(Boolean),
+  productIds: (Deno.env.get("GUMROAD_STARTER_PRODUCT_IDS") || STARTER_PRODUCT_ID).split(",").map((s) => s.trim()).filter(Boolean),
   verifyUrl: "https://api.gumroad.com/v2/licenses/verify",
-  secret: Deno.env.get("DESK_SESSION_SECRET")!,
+  secret: await sessionKey(),
   origins: (Deno.env.get("PETDESK_ALLOWED_ORIGINS") || "https://petpolicycheck.com,https://www.petpolicycheck.com").split(","),
   pingSecret: Deno.env.get("PETDESK_PING_SECRET") || undefined,
 };
