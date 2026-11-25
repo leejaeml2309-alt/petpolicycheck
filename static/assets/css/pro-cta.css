@@ -1,0 +1,24 @@
+/* /pro/ Starter CTA (2026-11-25): mobile hero CTA, mobile sticky bar, Desk link.
+   Desktop (>=768px) only shows the Desk link. Periwinkle #8b9ce2 = Pro/B2B. */
+.pd-hero-cta{display:none}
+.pd-desk-link{margin:.15rem 0 0;text-align:center}
+.pd-desk-link a{color:var(--pp-link,#c3ccff);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.pd-sticky{display:none}
+.pd-sub-yr{display:none}
+html[data-bill="yr"] .pd-sub-mo{display:none}
+html[data-bill="yr"] .pd-sub-yr{display:inline}
+@media (max-width:767px){
+  .pd-hero-cta{display:flex;flex-direction:column;align-items:stretch;gap:.4rem;margin-top:1rem}
+  main.wrap .pd-hero-cta .btn-pro.pri,main.wrap .pd-sticky .btn-pro.pri{background:var(--pri-bg,#8b9ce2);color:var(--pri-tx,#001f3f);border:0;box-shadow:var(--pri-sh,0 6px 18px rgba(139,156,226,.35))}
+  .pd-hero-cta .btn-pro{text-align:center;line-height:1.25}
+  .pd-hero-cta .pd-sub{text-align:center;color:var(--hero-tx,#d6dbf7);font-size:.82rem}
+  .pd-sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;flex-direction:column;align-items:stretch;gap:.3rem;
+    padding:.55rem max(.9rem,env(safe-area-inset-right)) calc(.5rem + env(safe-area-inset-bottom)) max(.9rem,env(safe-area-inset-left));
+    background:rgba(0,31,63,.97);border-top:1.5px solid #8b9ce2;box-shadow:0 -10px 28px rgba(0,0,0,.38);
+    transform:translateY(110%);transition:transform .22s ease;visibility:hidden}
+  .pd-sticky.on{transform:none;visibility:visible}
+  .pd-sticky .btn-pro{padding:.68rem .8rem;font-size:.9rem;text-align:center;line-height:1.2}
+  .pd-sticky .pd-sub{text-align:center;color:#d6dbf7;font:600 .76rem/1.25 Inter,system-ui,sans-serif}
+  body.pd-sticky-pad main.wrap{padding-bottom:calc(5.4rem + env(safe-area-inset-bottom))}
+}
+@media (prefers-reduced-motion:reduce){.pd-sticky{transition:none}}
