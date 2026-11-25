@@ -51,7 +51,7 @@ cd /workspace/petdesk-starter-wt
 
 ## Tests
 - `deno test -A petdesk/tests/core_test.ts` → **8/8 pass** (real function logic, mocked Gumroad): every subscription state, CORS, trial date, 1 seat, 15/month + 16th refused (429), invalid language pairs (EN+EN, EN+FR), watchlist > 5 refused, access closes after a re-check, ping secret + dedupe, `increment_uses_count=false` on every call.
-- `python3 petdesk/tests/e2e.py` (Chrome, with serve.ts) → **211/211 pass**; results in `e2e-results.json`:
+- `python3 petdesk/tests/e2e.py` (Chrome, with a freshly started serve.ts — its in-memory store keeps the quota between runs) → **211/211 pass**; results in `e2e-results.json`:
   - each of the 6 /pro/ pages: no JS errors; Starter label; monthly href; yearly toggle and back; click opens the Gumroad product (intercepted); Pro and Ent have no Gumroad link and a mailto primary with the right subject; no old trial text visible; JSON-LD parses with FAQPage = 11 = visible FAQ; GA present and no AdSense.
   - home (6), terms/refund/privacy (6×3).
   - desk ×6 languages: gate, noindex, lang, trial login, route lists loaded, logout.

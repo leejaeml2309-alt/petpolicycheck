@@ -20,8 +20,7 @@ def ctx(b,w=1280,h=900):
     c.route(re.compile(r"https://www\.googletagmanager\.com/.*|https://www\.google-analytics\.com/.*|https://region1\.google-analytics\.com/.*"),lambda r:r.fulfill(status=204,body=""))
     return c
 def shot_plans(pg,path):
-    box=pg.locator("#plans").bounding_box(); pg.evaluate("y=>window.scrollTo(0,y)",max(0,box["y"]+pg.evaluate("scrollY")-40))
-    pg.screenshot(path=str(path),full_page=True,clip={"x":0,"y":max(0,box["y"]+pg.evaluate("scrollY")-40),"width":pg.viewport_size["width"],"height":box["height"]+80})
+    pg.locator("#plans").screenshot(path=str(path))
 with sync_playwright() as p:
     b=p.chromium.launch(executable_path="/usr/bin/google-chrome")
     # ---------- /pro/ x 6 languages ----------
