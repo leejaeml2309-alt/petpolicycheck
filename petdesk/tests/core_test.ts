@@ -85,3 +85,30 @@ Deno.test("health + fail closed without a strong session key", async () => {
   assertEquals((await s.call("login", { license_key: K.active })).j.error, "not_configured");
   assertEquals((await s.call("health", {})).j.configured.session_key, false);
 });
+
+// Shape recorded from the real Gumroad license API on 25 Nov 2026 (100% test purchase, monthly, in trial),
+// with the key, email and buyer ids replaced. Cancellation / end / refund below are SIMULATED re-checks.
+Deno.test("real trial response shape → trial until ≈ next charge; simulated cancel / end / refund", async () => {
+  const real = JSON.parse(await Deno.readTextFile(new URL("./fixtures/gumroad-trial-response-20261125.json", import.meta.url)));
+  const P = real.purchase, KEY = P.license_key; let cur = { ...P };
+  let now = new Date("2026-11-25T00:40:00Z");
+  const store = memoryStore();
+  const cfg: any = { productIds: [P.product_id], verifyUrl: "mock://v", secret: "test-session-key-0123456789abcdef0123456789", origins: [O], now: () => now,
+    fetch: async () => new Response(JSON.stringify({ success: true, uses: 0, purchase: cur }), { status: 200 }) };
+  const call = async (a: string, b: unknown) => { const r = await handle(new Request(`${O}/x/${a}`, { method: "POST", headers: { origin: O }, body: JSON.stringify(b) }), store, cfg); return { s: r.status, j: await r.json() }; };
+  const l = await call("login", { license_key: KEY });
+  assertEquals(l.j.account.status, "trial");
+  assertEquals(l.j.account.trial_ends_approx.slice(0, 10), "2026-12-25"); // Gumroad receipt: next charge 25/12/2026
+  const t = l.j.token;
+  // cancel during the trial (Gumroad sets subscription_cancelled_at = end of the free month)
+  cur = { ...P, subscription_cancelled_at: "2026-12-25T00:35:26Z" }; now = new Date("2026-11-25T07:00:00Z");
+  let m = await call("me", { token: t, license_key: KEY });
+  assertEquals([m.s, m.j.account.status, m.j.account.access_until?.slice(0, 10)], [200, "cancelling", "2026-12-25"]);
+  // after that date: closed
+  now = new Date("2026-12-25T01:00:00Z");
+  m = await call("me", { token: t, license_key: KEY }); assertEquals([m.s, m.j.error], [401, "session"]); // 12 h session expired
+  const again = await call("login", { license_key: KEY }); assertEquals([again.s, again.j.error], [403, "ended"]);
+  // refund (fresh login), access refused at once
+  cur = { ...P, refunded: true }; now = new Date("2026-11-26T00:00:00Z");
+  assertEquals((await call("login", { license_key: KEY })).j.error, "refunded");
+});

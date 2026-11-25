@@ -86,3 +86,24 @@ cd /workspace/petdesk-starter-wt
 8. Legal "Last updated" dates to set at publishing. The site-wide banner says « 14-day refund on new paid plans »: still true, but narrower than « every payment »; left as is (banner text in 30+ pages, not in scope).
 9. The old J10/J14 emails are obsolete (EMAILS.md §4).
 10. Workflow: cloud agent not available here → done in a local worktree (no repo clone added; no git hooks in the repo).
+
+## Live test — 25 Nov 2026, 09:37–09:50 KST (real 100% test purchase, order tzcveWW-2MncvTuV9IZ41g==, monthly, in trial)
+The key was read from `test-license-key.txt` and never printed, logged or committed. The shots mask the 4 characters the desk shows. The UI ran from this branch through a **local-only proxy** (`/tmp/livetest/proxy.ts`, not committed) that forwards `/fn/petdesk/*` to the **live** function with `Origin: https://petpolicycheck.com`.
+
+**What Gumroad's license API returns during the trial** (masked copy: `live-test-gumroad-verify-masked.json`): `success:true`, `uses:0`, `recurrence:"monthly"`, `sale_timestamp:"2026-11-25T00:35:26Z"`, `price:0`, `test:true`, `subscription_id` set, `refunded/disputed:false`, `subscription_ended_at / cancelled_at / failed_at: null`. **There is no trial field and no trial end date**, so the function's rule (sale_timestamp + 1 month = 25 Dec 2026) is the only way to show the date, and it matches the receipt ("next charge 25/12/2026").
+
+| # | Check (LIVE unless marked) | Result |
+|---|---|---|
+| 1 | Login with the real key | ✅ 200; DB row `status=trial`, `recurrence=monthly`, `access_until=null` |
+| 1b | Desk status | ✅ « FREE MONTH — Gumroad charges $49 on about December 25, 2026 unless you cancel before… » |
+| 2 | 1 seat: 2nd browser logs in | ✅ 1st session → 401 `session_replaced`, gate shown: « Your desk was opened on another device… » |
+| 3 | Issue + print 1 passport (US→FR, EN+ES, agency « PPC Live Test Agency », client LIVE-TEST-01) | ✅ ref PD-202611-99E0-01, print sheet with 2 passports, agency + ref in the header |
+| 3b | Quota | ✅ « 1 of 15 passports used this month » |
+| 4 | Watchlist add Delta | ✅ saved, still ticked after reload; 2 Delta entries from Updates flagged |
+| 5 | Fake key / health (live smoke) | ✅ 403 invalid / 200 configured |
+| 6 | Cancel during the trial → « access until 25 Dec » → closed after | **SIMULATED** (core test with the real response shape + `subscription_cancelled_at`); ✅ |
+| 7 | Refund → refused | **SIMULATED** (same, `refunded:true`); ✅ |
+| 8 | **Bug found + fixed:** after printing an EN+ES passport, the whole site switched to Spanish (the hidden /es/passport/ iframe saved `ppc_lang=es`) | Fixed in petdesk.js + petdesk-print.js (the visitor's language preference is restored); red→green regression test; live recheck ✅ `ppc_lang` stays `en`, nav in English. **Front-end only, function not redeployed (still v1).** |
+
+Cleanup: deleted the test passport row and the Delta watch entry (1 + 1 rows). **The account row stays** (status trial, agency name « PPC Live Test Agency »). The real membership was not cancelled or refunded, and nothing changed on Gumroad.
+Shots: `shots/live-test/desk-login-{1280,390}.png`, `desk-app-trial-{1280,390}.png`, `desk-print-{1280,390}.png`.

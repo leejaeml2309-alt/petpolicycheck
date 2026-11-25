@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 R = pathlib.Path(__file__).resolve().parent.parent
 LANGS = {"en": "", "fr": "fr/", "es": "es/", "de": "de/", "it": "it/", "ja": "ja/"}
 I = json.loads(subprocess.check_output(["node", "-e", "global.window={};require(process.argv[1]);process.stdout.write(JSON.stringify(window.PETDESK_I18N))", str(R / "site/assets/js/petdesk-i18n.js")]))
-V = "20261125pd2"
+V = "20261125pd3"
 
 def absolutize(html, base):
     def fix(m):

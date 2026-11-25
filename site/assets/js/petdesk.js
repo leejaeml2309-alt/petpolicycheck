@@ -135,14 +135,19 @@ function doWatch(){
 }
 
 /* ---------- route selects: same options as the public Passport tool ---------- */
+/* The hidden passport iframes run the site's language script, which saves their language as the
+   visitor's site language (ppc_lang). Put the visitor's own choice back once they have loaded. */
+var PPC_LANG_KEPT=(function(){try{return localStorage.getItem('ppc_lang');}catch(e){return null;}})();
+function restoreLang(){try{if(PPC_LANG_KEPT===null)localStorage.removeItem('ppc_lang');else localStorage.setItem('ppc_lang',PPC_LANG_KEPT);}catch(e){}}
+window.addEventListener('pagehide',restoreLang);
 function fillSelects(){
   var fr=document.createElement('iframe');fr.hidden=true;fr.setAttribute('aria-hidden','true');fr.tabIndex=-1;
   fr.src=BASE+LANG_PATH[L]+'passport/?pdesk=1';
   fr.onload=function(){
-    var tries=0;(function wait(){
+    restoreLang();var tries=0;(function wait(){
       try{var d=fr.contentDocument;var f=d.getElementById('from');
         if(f&&f.options.length>1){['from','to','state','airline'].forEach(function(k){$('#pd-'+k).innerHTML=d.getElementById(k).innerHTML;});
-          $('#pd-to').value='FR';fr.remove();if(S.acc)renderWatch();return;}
+          $('#pd-to').value='FR';fr.remove();restoreLang();if(S.acc)renderWatch();return;}
       }catch(e){}
       if(++tries<60)setTimeout(wait,100);
     })();

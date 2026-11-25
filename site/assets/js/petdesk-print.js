@@ -3,6 +3,11 @@
    (same-origin iframes) and stacks both printable passports under one agency header. */
 (function(){
 'use strict';
+/* The hidden passport iframes run the site's language script, which saves their language as the
+   visitor's site language (ppc_lang). Put the visitor's own choice back once they have loaded. */
+var PPC_LANG_KEPT=(function(){try{return localStorage.getItem('ppc_lang');}catch(e){return null;}})();
+function restoreLang(){try{if(PPC_LANG_KEPT===null)localStorage.removeItem('ppc_lang');else localStorage.setItem('ppc_lang',PPC_LANG_KEPT);}catch(e){}}
+window.addEventListener('pagehide',restoreLang);
 var LOCAL=/^(127\.0\.0\.1|localhost)$/.test(location.hostname);
 var API=LOCAL?'/fn/petdesk/':'https://uouccgyeujtmbeeneuwq.supabase.co/functions/v1/petdesk/';
 var PUBKEY='sb_publishable_J3NaUoRdx7d5FBDfsFqGFQ__GY9uwYo';
@@ -33,11 +38,11 @@ fetch(API+'passport',{method:'POST',headers:h,body:JSON.stringify({token:sess.to
     host.appendChild(sec);
     var fr=document.createElement('iframe');fr.className='pd-src';fr.setAttribute('aria-hidden','true');fr.tabIndex=-1;
     fr.src=BASE+LP[l]+'passport/?'+params.toString();
-    fr.onload=function(){var n=0;(function wait(){
+    fr.onload=function(){restoreLang();var n=0;(function wait(){
       try{var p=fr.contentDocument.getElementById('pass');
         if(p&&p.innerHTML.length>500){
           [].slice.call(p.querySelectorAll('canvas')).forEach(function(c){try{var im=fr.contentDocument.createElement('img');im.src=c.toDataURL();im.width=c.width;im.height=c.height;c.replaceWith(im);}catch(e){}});
-          document.getElementById('pd-pass-'+i).innerHTML=p.innerHTML;fr.remove();
+          document.getElementById('pd-pass-'+i).innerHTML=p.innerHTML;fr.remove();restoreLang();
           if(++done===langs.length){document.body.classList.add('pd-ready');document.getElementById('pd-print').disabled=false;}
           return;}
       }catch(e){}

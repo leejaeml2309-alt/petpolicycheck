@@ -123,6 +123,8 @@ with sync_playwright() as p:
     pr=np.value; pr.wait_for_url(re.compile(r"print\.html\?ref=PD-"),timeout=15000)
     pr.wait_for_selector("body.pd-ready",timeout=30000); 
     ok("print sheet: 2 passports (EN+ES)",pr.locator(".pd-pass").count()==2)
+    pr.wait_for_timeout(500)
+    ok("print sheet: site language preference untouched by the hidden ES passport",pr.evaluate("localStorage.getItem('ppc_lang')") in (None,'en'),pr.evaluate("localStorage.getItem('ppc_lang')"))
     ok("print sheet: agency + ref in header","Blue Sky" in pr.inner_text("body") and "PD-" in pr.inner_text("body"))
     for w in (1280,390): pr.set_viewport_size({"width":w,"height":900}); pr.wait_for_timeout(300); pr.screenshot(path=str(SHOTS/f"desk-print-{w}.png"),full_page=True)
     pb.wait_for_timeout(800); ok("quota counter shows 1 used","1" in pb.inner_text("#pd-quota"),pb.inner_text("#pd-quota"))
