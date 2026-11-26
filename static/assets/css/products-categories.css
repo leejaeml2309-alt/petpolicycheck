@@ -1,4 +1,4 @@
-/* Products category hub — 20261126cat1. PCC palette. Reversible. */
+/* Products category hub — 20261126cat2. PCC palette. Reversible. */
 .ppc-prod-subnav{
   display:flex;flex-wrap:wrap;gap:8px 10px;
   margin:0 0 1.15rem;padding:2px 0 14px;
@@ -57,10 +57,33 @@
   .ppc-cat-card.is-gifts .ppc-cat-body{display:flex;flex-direction:column;justify-content:center;padding:24px 28px;flex:1}
   .ppc-cat-card.is-gifts .ppc-cat-title,.ppc-cat-card.is-gifts h2{font-size:1.7rem}
 }
-.ppc-cat-hero{margin:0 0 1.2rem}
+/* Category page header: side-by-side at desktop so products start above the fold. Banner height ~260px / 180px. */
+.ppc-cat-header{
+  display:flex;flex-direction:column;gap:10px 24px;margin:0 0 1.05rem;
+}
+.ppc-cat-header h1{margin:0}
+.ppc-cat-header .ppc-cat-lead{margin:0;max-width:40rem}
+.ppc-cat-header .ppc-cat-hero{margin:0}
+.ppc-cat-header .ppc-cat-hero img,
 .ppc-cat-hero img{
-  display:block;width:100%;height:auto;border-radius:10px;
+  display:block;width:100%;height:180px;object-fit:cover;object-position:center 48%;
+  border-radius:10px;
   border:1px solid color-mix(in srgb,var(--pri,#d9b765) 28%,transparent);background:#071318;
+}
+.ppc-cat-hero--lower img{object-position:center 62%}
+.ppc-cat-hero--car img{object-position:center 42%}
+@media(min-width:800px){
+  .ppc-cat-header{
+    display:grid;
+    grid-template-columns:minmax(260px,1fr) minmax(280px,1.2fr);
+    grid-template-rows:auto auto;
+    column-gap:28px;row-gap:6px;align-items:center;
+  }
+  .ppc-cat-header h1{grid-column:1;grid-row:1;align-self:end}
+  .ppc-cat-header .ppc-cat-lead{grid-column:1;grid-row:2;align-self:start}
+  .ppc-cat-header .ppc-cat-hero{grid-column:2;grid-row:1 / span 2;margin:0}
+  .ppc-cat-header .ppc-cat-hero img,
+  .ppc-cat-hero img{height:260px}
 }
 .ppc-glance{margin:.85rem 0 1rem;max-width:46rem}
 .ppc-fit-summary{

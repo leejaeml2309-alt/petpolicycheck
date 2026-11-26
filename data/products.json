@@ -8,8 +8,20 @@
       "category": "soft_carrier",
       "official_url": "https://sherpapet.com/products/sherpa-original-deluxe-travel-bag-pet-carrier",
       "amazon_asins": [
-        {"asin": "B07D5DFTRN", "size": "Small", "variant": "Charcoal Gray", "amazon_title": "Sherpa Original Deluxe Travel Pet Carrier, Airline Approved & Guaranteed On Board - Charcoal Gray, Small", "verified": "2026-10-23"},
-        {"asin": "B07D5FTGP7", "size": "Medium", "variant": "Charcoal Gray", "amazon_title": "Sherpa Original Deluxe Travel Pet Carrier, Airline Approved & Guaranteed On Board - Charcoal Gray, Medium", "verified": "2026-10-23"}
+        {
+          "asin": "B07D5DFTRN",
+          "size": "Small",
+          "variant": "Charcoal Gray",
+          "amazon_title": "Sherpa Original Deluxe Travel Pet Carrier, Airline Approved & Guaranteed On Board - Charcoal Gray, Small",
+          "verified": "2026-10-23"
+        },
+        {
+          "asin": "B07D5FTGP7",
+          "size": "Medium",
+          "variant": "Charcoal Gray",
+          "amazon_title": "Sherpa Original Deluxe Travel Pet Carrier, Airline Approved & Guaranteed On Board - Charcoal Gray, Medium",
+          "verified": "2026-10-23"
+        }
       ],
       "construction": "Soft-sided (Sherpa describes it as usable as \"a soft-sided crate\")",
       "dims_note": "Sherpa lists \"Product Dimensions\" without naming the axes; we read them as length x width x height.",
@@ -18,9 +30,30 @@
         "Sherpa says the carrier is part of its \"Guaranteed On Board\" program."
       ],
       "sizes": [
-        {"name": "Small", "L": 15, "W": 10, "H": 8.5, "unit": "in", "pet": "pets up to 8 lb; max pet length 13 in, height 7.5 in"},
-        {"name": "Medium", "L": 17, "W": 11, "H": 10.5, "unit": "in", "pet": "pets up to 16 lb; max pet length 16 in, height 9.5 in"},
-        {"name": "Large", "L": 19, "W": 11.75, "H": 11.5, "unit": "in", "pet": "pets up to 22 lb; max pet length 18 in, height 10.5 in"}
+        {
+          "name": "Small",
+          "L": 15,
+          "W": 10,
+          "H": 8.5,
+          "unit": "in",
+          "pet": "pets up to 8 lb; max pet length 13 in, height 7.5 in"
+        },
+        {
+          "name": "Medium",
+          "L": 17,
+          "W": 11,
+          "H": 10.5,
+          "unit": "in",
+          "pet": "pets up to 16 lb; max pet length 16 in, height 9.5 in"
+        },
+        {
+          "name": "Large",
+          "L": 19,
+          "W": 11.75,
+          "H": 11.5,
+          "unit": "in",
+          "pet": "pets up to 22 lb; max pet length 18 in, height 10.5 in"
+        }
       ]
     },
     {
@@ -30,7 +63,13 @@
       "category": "soft_carrier",
       "official_url": "https://sleepypod.com/products/sleepypod-air",
       "amazon_asins": [
-        {"asin": "B002Z6005M", "size": "One size", "variant": "Jet Black", "amazon_title": "Sleepypod Air, Airline Approved Cat/Dog Carrier, Crash Tested, Jet Black", "verified": "2026-10-23"}
+        {
+          "asin": "B002Z6005M",
+          "size": "One size",
+          "variant": "Jet Black",
+          "amazon_title": "Sleepypod Air, Airline Approved Cat/Dog Carrier, Crash Tested, Jet Black",
+          "verified": "2026-10-23"
+        }
       ],
       "construction": null,
       "dims_note": "Sleepypod lists the length as adjustable from 16 to 22 in (40.64 to 55.88 cm).",
@@ -39,7 +78,15 @@
         "Sleepypod says it doubles as a crash-tested car seat and lists a Center for Pet Safety certification for pets up to 18 lb."
       ],
       "sizes": [
-        {"name": "One size", "L": 22, "L_min": 16, "W": 10.5, "H": 10.5, "unit": "in", "pet": "recommended for pets 18 lb (8 kg) or less"}
+        {
+          "name": "One size",
+          "L": 22,
+          "L_min": 16,
+          "W": 10.5,
+          "H": 10.5,
+          "unit": "in",
+          "pet": "recommended for pets 18 lb (8 kg) or less"
+        }
       ]
     },
     {
@@ -49,7 +96,13 @@
       "category": "soft_carrier",
       "official_url": "https://sleepypod.com/products/atom",
       "amazon_asins": [
-        {"asin": "B005G5WF7A", "size": "One size", "variant": "Black", "amazon_title": "Sleepypod Atom, Airline Approved Cat/Dog Carrier, Crash Tested, Black", "verified": "2026-10-23"}
+        {
+          "asin": "B005G5WF7A",
+          "size": "One size",
+          "variant": "Black",
+          "amazon_title": "Sleepypod Atom, Airline Approved Cat/Dog Carrier, Crash Tested, Black",
+          "verified": "2026-10-23"
+        }
       ],
       "construction": null,
       "dims_note": "Exterior carrier dimensions as listed by Sleepypod (long x wide x tall). Interior: 16 x 8 x 9.5 in.",
@@ -57,7 +110,14 @@
         "Sleepypod lists a Center for Pet Safety certification for pets up to 12 lb and says it can be used as a car seat."
       ],
       "sizes": [
-        {"name": "One size", "L": 17, "W": 8.5, "H": 10.5, "unit": "in", "pet": "recommended for pets 12 lb or less"}
+        {
+          "name": "One size",
+          "L": 17,
+          "W": 8.5,
+          "H": 10.5,
+          "unit": "in",
+          "pet": "recommended for pets 12 lb or less"
+        }
       ]
     },
     {
@@ -72,7 +132,23 @@
         "Sleepypod says the Mini is \"small enough to fit under an airline seat\" and lists a Center for Pet Safety certification for pets up to 7 lb."
       ],
       "sizes": [
-        {"name": "One size", "L": 13, "W": 13, "H": 11, "unit": "in", "pet": "kittens, puppies or toy breeds (certified for pets up to 7 lb per Sleepypod)"}
+        {
+          "name": "One size",
+          "L": 13,
+          "W": 13,
+          "H": 11,
+          "unit": "in",
+          "pet": "kittens, puppies or toy breeds (certified for pets up to 7 lb per Sleepypod)"
+        }
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B001DBRF4E",
+          "size": "One size",
+          "variant": "Black",
+          "amazon_title": "Sleepypod® Mini, Crash Tested Pet Bed/Car Seat/Carrier, Black, Under 7lbs",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -88,11 +164,69 @@
         "Sturdi says flexible height rods adjust to varying seat dimensions (no compressed height is published)."
       ],
       "sizes": [
-        {"name": "Small", "L": 18, "W": 10, "H": 9.25, "unit": "in", "pet": "pet weight limit 25 lb / 11 kg"},
-        {"name": "Medium", "L": 15, "W": 12, "H": 11.75, "unit": "in", "pet": "pet weight limit 25 lb / 11 kg"},
-        {"name": "Large", "L": 18, "W": 11.5, "H": 11.5, "unit": "in", "pet": "pet weight limit 30 lb / 13 kg"},
-        {"name": "XL", "L": 20, "W": 12, "H": 15, "unit": "in", "pet": "pet weight limit 40 lb / 18 kg (not for in-cabin use per Sturdi)"},
-        {"name": "XXL", "L": 23, "W": 15, "H": 14, "unit": "in", "pet": "pet weight limit 50 lb / 22 kg (not for in-cabin use per Sturdi)"}
+        {
+          "name": "Small",
+          "L": 18,
+          "W": 10,
+          "H": 9.25,
+          "unit": "in",
+          "pet": "pet weight limit 25 lb / 11 kg"
+        },
+        {
+          "name": "Medium",
+          "L": 15,
+          "W": 12,
+          "H": 11.75,
+          "unit": "in",
+          "pet": "pet weight limit 25 lb / 11 kg"
+        },
+        {
+          "name": "Large",
+          "L": 18,
+          "W": 11.5,
+          "H": 11.5,
+          "unit": "in",
+          "pet": "pet weight limit 30 lb / 13 kg"
+        },
+        {
+          "name": "XL",
+          "L": 20,
+          "W": 12,
+          "H": 15,
+          "unit": "in",
+          "pet": "pet weight limit 40 lb / 18 kg (not for in-cabin use per Sturdi)"
+        },
+        {
+          "name": "XXL",
+          "L": 23,
+          "W": 15,
+          "H": 14,
+          "unit": "in",
+          "pet": "pet weight limit 50 lb / 22 kg (not for in-cabin use per Sturdi)"
+        }
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0F2846XNC",
+          "size": "Small",
+          "variant": "Blue Jay",
+          "amazon_title": "SturdiBag Pro 3.0 Pet Travel Carrier for Cats and Dogs – Soft-Sided with Safety Clips and Seatbelt Straps for Airplane or Car Travel | Small, Blue Jay",
+          "verified": "2026-11-26"
+        },
+        {
+          "asin": "B0F285LFT9",
+          "size": "Medium",
+          "variant": "Earthy Tan",
+          "amazon_title": "SturdiBag Pro 3.0 Pet Travel Carrier for Cats and Dogs – Soft-Sided with Safety Clips and Seatbelt Straps for Airplane or Car Travel | Medium, Earthy Tan",
+          "verified": "2026-11-26"
+        },
+        {
+          "asin": "B0F2862YRW",
+          "size": "Large",
+          "variant": "Black",
+          "amazon_title": "SturdiBag Pro 3.0 Pet Travel Carrier for Cats and Dogs – Soft-Sided with Safety Clips and Seatbelt Straps for Airplane or Car Travel | Large, Black",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -107,7 +241,24 @@
         "Sherpa says the Medium backpack carries pets up to 16 lb (7 kg) that measure 18 in H x 12 in L or less, sitting."
       ],
       "sizes": [
-        {"name": "Medium", "L": 9, "W": 13, "H": 19, "unit": "in", "pet": "pets up to 16 lb (7 kg), up to 18 in tall x 12 in long sitting"}
+        {
+          "name": "Medium",
+          "L": 9,
+          "W": 13,
+          "H": 19,
+          "unit": "in",
+          "pet": "pets up to 16 lb (7 kg), up to 18 in tall x 12 in long sitting"
+        }
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0CNWVYZ9J",
+          "size": "Medium",
+          "variant": "Blue",
+          "amazon_title": "Sherpa Blue Elevation Pet Backpack for Cats & Dogs",
+          "verified": "2026-11-26",
+          "note": "Amazon title does not say Medium; product page size is 19 × 9 × 13 in, which matches the official Medium."
+        }
       ]
     },
     {
@@ -117,8 +268,20 @@
       "category": "hard_crate",
       "official_url": "https://www.petmate.com/products/petmate-sky-kennel-1",
       "amazon_asins": [
-        {"asin": "B003WQTT1A", "size": "21\"", "variant": "Kennel Only", "amazon_title": "Petmate Sky Kennel for Air Travel, 21in Dog Crate for Pets up to 15lbs", "verified": "2026-10-23"},
-        {"asin": "B003E77OG4", "size": "36\"", "variant": "Kennel Only", "amazon_title": "Petmate Sky Kennel, for Air Travel, 36in Dog Crate for Pets 50 to 70lbs", "verified": "2026-10-23"}
+        {
+          "asin": "B003WQTT1A",
+          "size": "21\"",
+          "variant": "Kennel Only",
+          "amazon_title": "Petmate Sky Kennel for Air Travel, 21in Dog Crate for Pets up to 15lbs",
+          "verified": "2026-10-23"
+        },
+        {
+          "asin": "B003E77OG4",
+          "size": "36\"",
+          "variant": "Kennel Only",
+          "amazon_title": "Petmate Sky Kennel, for Air Travel, 36in Dog Crate for Pets 50 to 70lbs",
+          "verified": "2026-10-23"
+        }
       ],
       "construction": "Hard plastic kennel",
       "dims_note": "Petmate publishes interior dimensions only (no exterior dimensions on the product page), so we don't compare it against airline size limits.",
@@ -128,12 +291,48 @@
       ],
       "interior": true,
       "sizes": [
-        {"name": "21\"", "L": 18.75, "W": 13.5, "H": 14.5, "unit": "in"},
-        {"name": "28\"", "L": 24.25, "W": 18.25, "H": 19.5, "unit": "in"},
-        {"name": "32\"", "L": 29.5, "W": 19.75, "H": 23.5, "unit": "in"},
-        {"name": "36\"", "L": 32.5, "W": 22, "H": 26, "unit": "in"},
-        {"name": "40\"", "L": 36.25, "W": 24.75, "H": 28.8, "unit": "in"},
-        {"name": "48\"", "L": 44, "W": 29, "H": 32.5, "unit": "in"}
+        {
+          "name": "21\"",
+          "L": 18.75,
+          "W": 13.5,
+          "H": 14.5,
+          "unit": "in"
+        },
+        {
+          "name": "28\"",
+          "L": 24.25,
+          "W": 18.25,
+          "H": 19.5,
+          "unit": "in"
+        },
+        {
+          "name": "32\"",
+          "L": 29.5,
+          "W": 19.75,
+          "H": 23.5,
+          "unit": "in"
+        },
+        {
+          "name": "36\"",
+          "L": 32.5,
+          "W": 22,
+          "H": 26,
+          "unit": "in"
+        },
+        {
+          "name": "40\"",
+          "L": 36.25,
+          "W": 24.75,
+          "H": 28.8,
+          "unit": "in"
+        },
+        {
+          "name": "48\"",
+          "L": 44,
+          "W": 29,
+          "H": 32.5,
+          "unit": "in"
+        }
       ]
     },
     {
@@ -150,12 +349,92 @@
       ],
       "interior": true,
       "sizes": [
-        {"name": "21\"", "L": 18.75, "W": 13.5, "H": 14.5, "unit": "in"},
-        {"name": "28\"", "L": 24.25, "W": 18.25, "H": 19.5, "unit": "in"},
-        {"name": "32\"", "L": 29.5, "W": 19.75, "H": 23.5, "unit": "in"},
-        {"name": "36\"", "L": 32.5, "W": 26, "H": 26, "unit": "in"},
-        {"name": "40\"", "L": 36.25, "W": 24.75, "H": 28.8, "unit": "in"},
-        {"name": "48\"", "L": 44, "W": 29, "H": 32.5, "unit": "in"}
+        {
+          "name": "21\"",
+          "L": 18.75,
+          "W": 13.5,
+          "H": 14.5,
+          "unit": "in"
+        },
+        {
+          "name": "28\"",
+          "L": 24.25,
+          "W": 18.25,
+          "H": 19.5,
+          "unit": "in"
+        },
+        {
+          "name": "32\"",
+          "L": 29.5,
+          "W": 19.75,
+          "H": 23.5,
+          "unit": "in"
+        },
+        {
+          "name": "36\"",
+          "L": 32.5,
+          "W": 26,
+          "H": 26,
+          "unit": "in"
+        },
+        {
+          "name": "40\"",
+          "L": 36.25,
+          "W": 24.75,
+          "H": 28.8,
+          "unit": "in"
+        },
+        {
+          "name": "48\"",
+          "L": 44,
+          "W": 29,
+          "H": 32.5,
+          "unit": "in"
+        }
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B006P4AT7Y",
+          "size": "21\"",
+          "variant": null,
+          "amazon_title": "Petmate Ultra Vari Dog Kennel, 21in, up to 15lbs",
+          "verified": "2026-11-26"
+        },
+        {
+          "asin": "B006P4ATMY",
+          "size": "28\"",
+          "variant": null,
+          "amazon_title": "Petmate Ultra Vari Dog Kennel 28in, Small to Medium Dogs 25 to 30lbs",
+          "verified": "2026-11-26"
+        },
+        {
+          "asin": "B00062KOTO",
+          "size": "32\"",
+          "variant": null,
+          "amazon_title": "Petmate Ultra Vari Dog Kennel, Medium 32in, for 30-50lbs Dogs",
+          "verified": "2026-11-26"
+        },
+        {
+          "asin": "B0012JLOSU",
+          "size": "36\"",
+          "variant": "Bleached Linen",
+          "amazon_title": "Petmate Ultra Vari Kennel, 36-Inch, For Pets 50-70 Pounds, Bleached Linen",
+          "verified": "2026-11-26"
+        },
+        {
+          "asin": "B00186XALG",
+          "size": "40\"",
+          "variant": null,
+          "amazon_title": "Petmate Ultra Vari Dog Kennel 40in, Medium to Large Dogs 70 to 90lbs",
+          "verified": "2026-11-26"
+        },
+        {
+          "asin": "B09ZCQQHFR",
+          "size": "48\"",
+          "variant": "Taupe",
+          "amazon_title": "Petmate Ultra Vari Dog Kennel 48in, Taupe, XL Dogs 90 to 125lbs",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -170,8 +449,24 @@
         "Sleepypod says the set stores, carries and serves food and water without mixing or spilling."
       ],
       "spec_rows": [
-        ["Small", "6.5 in diameter x 3 in tall; water bowl 20 oz, food bowl 8.5 oz, lid bowl 6.5 oz"],
-        ["Medium", "7.6 in diameter x 3.5 in tall; water bowl 37 oz, food bowl 17 oz, lid bowl 11 oz"]
+        [
+          "Small",
+          "6.5 in diameter x 3 in tall; water bowl 20 oz, food bowl 8.5 oz, lid bowl 6.5 oz"
+        ],
+        [
+          "Medium",
+          "7.6 in diameter x 3.5 in tall; water bowl 37 oz, food bowl 17 oz, lid bowl 11 oz"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B08JX7BNP6",
+          "size": "Small",
+          "variant": "Very Berry",
+          "amazon_title": "Sleepypod® Dog/Cat Travel Bowls, BPA-Free Silicone 3-in-1 Set, Very Berry S",
+          "verified": "2026-11-26",
+          "note": "Canonical URL is /Sleepypod-Yummy-Travel-Bowls-Small/dp/B08JX7BNP6"
+        }
       ]
     },
     {
@@ -181,16 +476,26 @@
       "category": "bowl",
       "official_url": "https://ruffwear.com/products/quencher-packable-dog-bowl",
       "amazon_asins": [
-        {"asin": "B0CLB4YPM1", "variant": "Spring Mountains, Medium", "amazon_title": "Ruffwear, Quencher Collapsible Dog Bowl, Spring Mountains, Medium", "verified": "2026-10-23"}
+        {
+          "asin": "B0CLB4YPM1",
+          "variant": "Spring Mountains, Medium",
+          "amazon_title": "Ruffwear, Quencher Collapsible Dog Bowl, Spring Mountains, Medium",
+          "verified": "2026-10-23"
+        }
       ],
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "construction": "Collapsible fabric bowl (per Ruffwear)",
       "dims_note": "Available in one size (Medium).",
       "maker_says": [
         "Ruffwear says the Quencher folds to fit in a pocket or backpack."
       ],
       "spec_rows": [
-        ["Medium", "Opening 5.5 in (14 cm); capacity 4.2 cups (1 L)"]
+        [
+          "Medium",
+          "Opening 5.5 in (14 cm); capacity 4.2 cups (1 L)"
+        ]
       ]
     },
     {
@@ -199,7 +504,9 @@
       "brand": "Kurgo",
       "category": "harness",
       "official_url": "https://www.kurgo.com/p/enhanced-strength-dog-car-harness/K01255",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Size chart from Kurgo (measure neck and chest). Only Small, Medium and Large could be selected on the product page when we checked. Note the crash-test claim covers dogs up to 75 lb, while the Large and X-Large rows go above that.",
       "summary": "Car harness; Kurgo says crash tested for dogs up to 75 lb",
       "maker_says": [
@@ -207,11 +514,42 @@
         "Kurgo says it includes a 10 in seatbelt tether with an all-steel carabiner, is compatible with any vehicle seat belt system, and has leash attachments on the back and front for everyday walks."
       ],
       "spec_rows": [
-        ["X-Small", "Neck 9–13 in (23–33 cm); chest 12–18 in (30–46 cm); dog 5–10 lb (2–5 kg)"],
-        ["Small", "Neck 12–20 in (30–50 cm); chest 16–22 in (41–56 cm); dog 10–25 lb (5–11 kg)"],
-        ["Medium", "Neck 16–25 in (40–63 cm); chest 18–28 in (46–71 cm); dog 25–50 lb (11–23 kg)"],
-        ["Large", "Neck 18–30 in (46–76 cm); chest 24–34 in (61–86 cm); dog 50–80 lb (23–36 kg)"],
-        ["X-Large", "Neck 24–35 in (61–89 cm); chest 28–44 in (71–112 cm); dog 80–110 lb (36–50 kg)"]
+        [
+          "X-Small",
+          "Neck 9–13 in (23–33 cm); chest 12–18 in (30–46 cm); dog 5–10 lb (2–5 kg)"
+        ],
+        [
+          "Small",
+          "Neck 12–20 in (30–50 cm); chest 16–22 in (41–56 cm); dog 10–25 lb (5–11 kg)"
+        ],
+        [
+          "Medium",
+          "Neck 16–25 in (40–63 cm); chest 18–28 in (46–71 cm); dog 25–50 lb (11–23 kg)"
+        ],
+        [
+          "Large",
+          "Neck 18–30 in (46–76 cm); chest 24–34 in (61–86 cm); dog 50–80 lb (23–36 kg)"
+        ],
+        [
+          "X-Large",
+          "Neck 24–35 in (61–89 cm); chest 28–44 in (71–112 cm); dog 80–110 lb (36–50 kg)"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0CGRTCHP1",
+          "size": "Small",
+          "variant": "Charcoal",
+          "amazon_title": "Kurgo Enhanced Strength Tru-Fit Smart Harness, Charcoal, Small",
+          "verified": "2026-11-26"
+        },
+        {
+          "asin": "B009CE8106",
+          "size": "Medium",
+          "variant": "Black",
+          "amazon_title": "Kurgo Enhanced Strength Tru-Fit Smart Harness, Black, Medium",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -220,7 +558,9 @@
       "brand": "Sleepypod",
       "category": "harness",
       "official_url": "https://sleepypod.com/products/clickit-range",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Sleepypod publishes vest-front dimensions rather than a chest-girth chart, and offers a sizing quiz on its site. XL and 2XL are available in black only, per Sleepypod.",
       "summary": "Car harness; Center for Pet Safety rated up to 110 lb per Sleepypod",
       "maker_says": [
@@ -228,15 +568,42 @@
         "Sleepypod describes a three-point design for the rear passenger seat that connects to the vehicle seatbelt, and says an S-Clip and a Buckle Shield are included. It says the hardware is strength-tested for use as a walking harness too."
       ],
       "spec_rows": [
-        ["Regular – Small", "Front of vest 2.2 in W x 12.5 in L"],
-        ["Regular – Medium", "Front of vest 2.2 in W x 14.5 in L"],
-        ["Regular – Large", "Front of vest 2.1 in W x 16 in L"],
-        ["Regular – X-Large", "Front of vest 2.1 in W x 17.5 in L"],
-        ["Regular – 2X-Large", "Front of vest 2.1 in W x 19 in L"],
-        ["Long – Small", "Front of vest 2.2 in W x 14.5 in L"],
-        ["Long – Medium", "Front of vest 2.2 in W x 15.5 in L"],
-        ["Long – Large", "Front of vest 2.1 in W x 17 in L (the page lists a second \"Large\" at 2.1 in W x 19 in L, where X-Large would be expected)"],
-        ["Long – 2X-Large", "Front of vest 2.2 in W x 22 in L"]
+        [
+          "Regular – Small",
+          "Front of vest 2.2 in W x 12.5 in L"
+        ],
+        [
+          "Regular – Medium",
+          "Front of vest 2.2 in W x 14.5 in L"
+        ],
+        [
+          "Regular – Large",
+          "Front of vest 2.1 in W x 16 in L"
+        ],
+        [
+          "Regular – X-Large",
+          "Front of vest 2.1 in W x 17.5 in L"
+        ],
+        [
+          "Regular – 2X-Large",
+          "Front of vest 2.1 in W x 19 in L"
+        ],
+        [
+          "Long – Small",
+          "Front of vest 2.2 in W x 14.5 in L"
+        ],
+        [
+          "Long – Medium",
+          "Front of vest 2.2 in W x 15.5 in L"
+        ],
+        [
+          "Long – Large",
+          "Front of vest 2.1 in W x 17 in L (the page lists a second \"Large\" at 2.1 in W x 19 in L, where X-Large would be expected)"
+        ],
+        [
+          "Long – 2X-Large",
+          "Front of vest 2.2 in W x 22 in L"
+        ]
       ]
     },
     {
@@ -245,7 +612,9 @@
       "brand": "Ruffwear",
       "category": "harness",
       "official_url": "https://ruffwear.com/products/load-up-dog-car-harness",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Girth is measured around the widest part of the rib cage. Ruffwear says: in between sizes, choose the smaller size. The product page does not name a crash-test standard or weight limit; Ruffwear links a separate FAQ.",
       "summary": "Car harness with seat belt loop; girth 13–42 in",
       "maker_says": [
@@ -253,11 +622,35 @@
         "Ruffwear says it can be left on the dog for bathroom breaks and rest stops."
       ],
       "spec_rows": [
-        ["XXS", "Girth 13–17 in (33–43 cm)"],
-        ["XS", "Girth 17–22 in (43–56 cm)"],
-        ["S", "Girth 22–27 in (56–69 cm)"],
-        ["M", "Girth 27–32 in (69–81 cm)"],
-        ["L/XL", "Girth 32–42 in (81–107 cm)"]
+        [
+          "XXS",
+          "Girth 13–17 in (33–43 cm)"
+        ],
+        [
+          "XS",
+          "Girth 17–22 in (43–56 cm)"
+        ],
+        [
+          "S",
+          "Girth 22–27 in (56–69 cm)"
+        ],
+        [
+          "M",
+          "Girth 27–32 in (69–81 cm)"
+        ],
+        [
+          "L/XL",
+          "Girth 32–42 in (81–107 cm)"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0C7D2T6K8",
+          "size": "Small",
+          "variant": "Slate Blue",
+          "amazon_title": "Ruffwear, Load Up Dog Car Harness, Slate Blue, Small",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -267,9 +660,16 @@
       "category": "harness",
       "official_url": "https://ruffwear.com/products/front-range-everyday-dog-harness",
       "amazon_asins": [
-        {"asin": "B0CLB3VFB8", "variant": "Basalt Gray, X-Small", "amazon_title": "Ruffwear, Front Range Dog Chest Harness, Basalt Gray, X-Small", "verified": "2026-10-23"}
+        {
+          "asin": "B0CLB3VFB8",
+          "variant": "Basalt Gray, X-Small",
+          "amazon_title": "Ruffwear, Front Range Dog Chest Harness, Basalt Gray, X-Small",
+          "verified": "2026-10-23"
+        }
       ],
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Girth is measured around the widest part of the rib cage. Ruffwear says: in between sizes, choose the larger size. This is a walking harness; the page does not describe it as crash tested, so for the car see the car harnesses in this section.",
       "summary": "Everyday walking harness; girth 13–42 in",
       "maker_says": [
@@ -277,11 +677,26 @@
         "Ruffwear lists an ID pocket for dog tags, reflective trim and four points of adjustment."
       ],
       "spec_rows": [
-        ["XXS", "Girth 13–17 in (33–43 cm)"],
-        ["XS", "Girth 17–22 in (43–56 cm)"],
-        ["S", "Girth 22–27 in (56–69 cm)"],
-        ["M", "Girth 27–32 in (69–81 cm)"],
-        ["L/XL", "Girth 32–42 in (81–107 cm)"]
+        [
+          "XXS",
+          "Girth 13–17 in (33–43 cm)"
+        ],
+        [
+          "XS",
+          "Girth 17–22 in (43–56 cm)"
+        ],
+        [
+          "S",
+          "Girth 22–27 in (56–69 cm)"
+        ],
+        [
+          "M",
+          "Girth 27–32 in (69–81 cm)"
+        ],
+        [
+          "L/XL",
+          "Girth 32–42 in (81–107 cm)"
+        ]
       ]
     },
     {
@@ -290,16 +705,36 @@
       "brand": "Ruffwear",
       "category": "harness",
       "official_url": "https://ruffwear.com/products/front-range-lightweight-dog-leash",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "One size.",
       "summary": "5 ft (1.5 m) leash with lockable clip",
       "maker_says": [
         "Ruffwear says the leash has a padded handle with an accessory loop, plus a traffic handle for quick restraint."
       ],
       "spec_rows": [
-        ["Length", "5 ft (1.5 m)"],
-        ["Width", "3/4 in (20 mm)"],
-        ["Clip", "Swiveling, lockable Crux Clip (anodized 6061-T6 aluminum)"]
+        [
+          "Length",
+          "5 ft (1.5 m)"
+        ],
+        [
+          "Width",
+          "3/4 in (20 mm)"
+        ],
+        [
+          "Clip",
+          "Swiveling, lockable Crux Clip (anodized 6061-T6 aluminum)"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0CLB65C7D",
+          "size": "5 ft",
+          "variant": "Basalt Gray",
+          "amazon_title": "Ruffwear, Front Range Dog Leash, 5 ft Lead, Basalt Gray",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -308,7 +743,9 @@
       "brand": "Kurgo",
       "category": "car",
       "official_url": "https://www.kurgo.com/p/direct-to-seat-belt-tether/K01965",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "",
       "summary": "Seatbelt tether, 22 in; not crash tested per Kurgo",
       "maker_says": [
@@ -316,9 +753,28 @@
         "Kurgo says it attaches to the female end of your seatbelt and clips to your dog's harness with the included carabiner, and recommends pairing it with its Enhanced Strength Tru-Fit harness."
       ],
       "spec_rows": [
-        ["Length", "22 in (Kurgo says the tether was extended from 15 in to 22 in)"],
-        ["Hardware", "All steel"],
-        ["Vehicle fit", "Universal fit for most vehicles; incompatible with Volvo; not recommended for Ford F-Series trucks"]
+        [
+          "Length",
+          "22 in (Kurgo says the tether was extended from 15 in to 22 in)"
+        ],
+        [
+          "Hardware",
+          "All steel"
+        ],
+        [
+          "Vehicle fit",
+          "Universal fit for most vehicles; incompatible with Volvo; not recommended for Ford F-Series trucks"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B07VCB2BBW",
+          "size": null,
+          "variant": "Charcoal Grey, 2 Pack",
+          "amazon_title": "Kurgo Direct to Seatbelt Tether - Easy-Use Dog Car Harness Clip - Adjustable Ride Strap - Universal Fit for Most Vehicles - All Steel Hardware - Backseat Restraint - Charcoal Grey - 2 Pack",
+          "verified": "2026-11-26",
+          "note": "Single-pack ASIN B07D8XRNWR could not be opened (bot wall); accepted the 2-pack whose title matches the same model."
+        }
       ]
     },
     {
@@ -327,7 +783,9 @@
       "brand": "Kurgo",
       "category": "car",
       "official_url": "https://www.kurgo.com/p/skybox-rear-seat-booster/K01391",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Spot clean, per Kurgo.",
       "summary": "Rear-seat booster for dogs up to 30 lb",
       "maker_says": [
@@ -335,9 +793,27 @@
         "Kurgo recommends using it with a crash-tested travel harness, says it collapses for storage and can be used as a travel bed, and notes it is not for human use."
       ],
       "spec_rows": [
-        ["Interior", "15 1/2 in W x 8 1/2 in H x 12 1/2 in D (39 x 22 x 32 cm)"],
-        ["Dog size", "Dogs up to 30 lb (per Kurgo)"],
-        ["Installation", "Uses the vehicle's seatbelt system; integrated tether attaches to your dog's harness"]
+        [
+          "Interior",
+          "15 1/2 in W x 8 1/2 in H x 12 1/2 in D (39 x 22 x 32 cm)"
+        ],
+        [
+          "Dog size",
+          "Dogs up to 30 lb (per Kurgo)"
+        ],
+        [
+          "Installation",
+          "Uses the vehicle's seatbelt system; integrated tether attaches to your dog's harness"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B014V1RZCO",
+          "size": null,
+          "variant": "Grass Green/Charcoal",
+          "amazon_title": "Kurgo Skybox Rear Seat Booster, Grass Green/Charcoal",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -346,16 +822,36 @@
       "brand": "Kurgo",
       "category": "car",
       "official_url": "https://www.kurgo.com/p/kurgo-bench-seat-cover/POG30-17772",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Spot clean or hand wash; air dry, per Kurgo.",
       "summary": "Back-seat cover, 55 in wide",
       "maker_says": [
         "Kurgo says top, middle, rear and under-seat attachments keep the cover from slipping, with two large storage pockets."
       ],
       "spec_rows": [
-        ["Width", "55 in (Kurgo says this fits most vehicles); an Extended version is 63 in wide for trucks and large SUVs"],
-        ["Fabric", "Waterproof and stain resistant"],
-        ["Seatbelts", "Hook-and-loop openings to reach seatbelts and latch systems"]
+        [
+          "Width",
+          "55 in (Kurgo says this fits most vehicles); an Extended version is 63 in wide for trucks and large SUVs"
+        ],
+        [
+          "Fabric",
+          "Waterproof and stain resistant"
+        ],
+        [
+          "Seatbelts",
+          "Hook-and-loop openings to reach seatbelts and latch systems"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B00602YFBC",
+          "size": "55\" wide",
+          "variant": "Black",
+          "amazon_title": "Kurgo Rover Bench Seat Cover, Black, 55\" Wide",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -364,16 +860,36 @@
       "brand": "Ruffwear",
       "category": "car",
       "official_url": "https://ruffwear.com/products/dirtbag-dog-seat-cover",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Ruffwear's care label: remove straps, wash cold on gentle, hang dry.",
       "summary": "Bench/hammock cover, 55 x 63 in",
       "maker_says": [
         "Ruffwear says the cover is waterproof, fits the back seat of most passenger vehicles, and is machine washable; a mesh window adds airflow in hammock mode."
       ],
       "spec_rows": [
-        ["Size", "55 in (140 cm) wide x 63 in (159 cm) long"],
-        ["Configurations", "Bench or hammock"],
-        ["Seatbelts", "Integrated seatbelt access points with two-way zippers"]
+        [
+          "Size",
+          "55 in (140 cm) wide x 63 in (159 cm) long"
+        ],
+        [
+          "Configurations",
+          "Bench or hammock"
+        ],
+        [
+          "Seatbelts",
+          "Integrated seatbelt access points with two-way zippers"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0D74ZSV8S",
+          "size": null,
+          "variant": "Basalt Gray",
+          "amazon_title": "Ruffwear, Dirtbag Dog Car Seat Cover, Waterproof, Basalt Gray",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -382,15 +898,39 @@
       "brand": "Ruffwear",
       "category": "bed",
       "official_url": "https://ruffwear.com/products/highlands-camping-dog-pad",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Hand wash, air dry, per Ruffwear.",
       "summary": "Packable foam pad; Medium 0.75 lb",
       "maker_says": [
         "Ruffwear says the pad uses closed-cell foam and synthetic down for insulation, with a non-slip waterproof base and an accordion fold for transport."
       ],
       "spec_rows": [
-        ["Medium", "Flat 23.6 x 33.25 in (60 x 84.5 cm); folded 12 x 5 in (30 x 13 cm); loft 1 in (2.5 cm); 0.75 lb (340 g)"],
-        ["Large", "Flat 26.8 x 43.3 in (68 x 110 cm); folded 14 x 6 in (36 x 15 cm); loft 1 in (2.5 cm); 1.05 lb (475 g)"]
+        [
+          "Medium",
+          "Flat 23.6 x 33.25 in (60 x 84.5 cm); folded 12 x 5 in (30 x 13 cm); loft 1 in (2.5 cm); 0.75 lb (340 g)"
+        ],
+        [
+          "Large",
+          "Flat 26.8 x 43.3 in (68 x 110 cm); folded 14 x 6 in (36 x 15 cm); loft 1 in (2.5 cm); 1.05 lb (475 g)"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B082FRQYFG",
+          "size": "Medium",
+          "variant": "Cloudburst Gray",
+          "amazon_title": "Ruffwear, Highlands Dog Pad, Cloudburst Gray, Medium",
+          "verified": "2026-11-26"
+        },
+        {
+          "asin": "B082FQLQVK",
+          "size": "Large",
+          "variant": "Cloudburst Gray",
+          "amazon_title": "Ruffwear, Highlands Dog Pad, Cloudburst Gray, Large",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -399,15 +939,39 @@
       "brand": "Kurgo",
       "category": "bed",
       "official_url": "https://www.kurgo.com/p/loft-wander-dog-bed/K01740",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Only the Large size could be selected on the product page when we checked. Hand or machine wash (gentle, cold), hang dry, per Kurgo.",
       "summary": "Roll-up travel bed; Medium opens to 27 x 36 in",
       "maker_says": [
         "Kurgo says the bed has a water-resistant ripstop top, a waterproof non-slip bottom, and rolls up with a carry handle; it lists a hidden zipper pocket."
       ],
       "spec_rows": [
-        ["Medium", "Open 27 x 36 x 2 in; rolled up 12.5 x 8 in"],
-        ["Large", "Open 36 x 48 x 3 in; rolled up 17 x 9.5 in"]
+        [
+          "Medium",
+          "Open 27 x 36 x 2 in; rolled up 12.5 x 8 in"
+        ],
+        [
+          "Large",
+          "Open 36 x 48 x 3 in; rolled up 17 x 9.5 in"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B00T50S24W",
+          "size": "Medium",
+          "variant": "Chili Red",
+          "amazon_title": "Kurgo Loft Wander Dog Bed, Chili Red, Medium",
+          "verified": "2026-11-26"
+        },
+        {
+          "asin": "B01JFEAL1O",
+          "size": "Large",
+          "variant": "Chili Red",
+          "amazon_title": "Kurgo Loft Wander Dog Bed, Chili Red, Large",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -416,14 +980,28 @@
       "brand": "Chuckit! (Petmate)",
       "category": "bed",
       "official_url": "https://www.petmate.com/products/chuckit-travel-pillow-bed",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Poly-suede top and ripstop bottom, per Petmate.",
       "summary": "Quilted travel bed, 39 x 30 in, stuff sack",
       "maker_says": [
         "Petmate says the bed is machine washable, comes with a stuff sack for storage, and is ideal for dogs of most sizes."
       ],
       "spec_rows": [
-        ["One size", "39 in L x 30 in W x 3 in H (99 x 76 x 8 cm)"]
+        [
+          "One size",
+          "39 in L x 30 in W x 3 in H (99 x 76 x 8 cm)"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B002J91EW8",
+          "size": "Medium to Large",
+          "variant": "Blue",
+          "amazon_title": "Chuckit! Travel Pillow Dog Bed, Water Resistant, Medium to Large Dogs | Portable and Water Resistant Travel Pillow Bed for Medium to Large Dogs 20-100 lbs, 39 InL x 30 InW, Blue",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -432,19 +1010,48 @@
       "brand": "Ruffwear",
       "category": "clothing",
       "official_url": "https://ruffwear.com/products/float-coat-dog-life-jacket",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Girth is measured around the widest part of the rib cage. Ruffwear says: in between sizes, choose the smaller size.",
       "summary": "Dog life jacket with lift handle; girth 13–42 in",
       "maker_says": [
         "Ruffwear says the Float Coat has a reinforced handle to help dogs out of the water, foam panels that support a natural swimming position, and reflective trim."
       ],
       "spec_rows": [
-        ["XXS", "Girth 13–17 in (33–43 cm); length 7.25 in; neck 10.5–12.75 in"],
-        ["XS", "Girth 17–22 in (43–56 cm); length 10.25 in; neck 12.25–16.25 in"],
-        ["S", "Girth 22–27 in (56–69 cm); length 11.75 in; neck 15–19.75 in"],
-        ["M", "Girth 27–32 in (69–81 cm); length 15 in; neck 17.75–23.25 in"],
-        ["L", "Girth 32–36 in (81–91 cm); length 16.25 in; neck 20.75–26.75 in"],
-        ["XL", "Girth 36–42 in (91–107 cm); length 19.25 in; neck 22.75–29.5 in"]
+        [
+          "XXS",
+          "Girth 13–17 in (33–43 cm); length 7.25 in; neck 10.5–12.75 in"
+        ],
+        [
+          "XS",
+          "Girth 17–22 in (43–56 cm); length 10.25 in; neck 12.25–16.25 in"
+        ],
+        [
+          "S",
+          "Girth 22–27 in (56–69 cm); length 11.75 in; neck 15–19.75 in"
+        ],
+        [
+          "M",
+          "Girth 27–32 in (69–81 cm); length 15 in; neck 17.75–23.25 in"
+        ],
+        [
+          "L",
+          "Girth 32–36 in (81–91 cm); length 16.25 in; neck 20.75–26.75 in"
+        ],
+        [
+          "XL",
+          "Girth 36–42 in (91–107 cm); length 19.25 in; neck 22.75–29.5 in"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B08S3SWYV9",
+          "size": "Large",
+          "variant": "Blue Dusk",
+          "amazon_title": "Ruffwear, Float Coat Dog Life Jacket, Swim Vest, Blue Dusk, Large",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -453,18 +1060,44 @@
       "brand": "Kurgo",
       "category": "clothing",
       "official_url": "https://www.kurgo.com/p/surf-n-turf-dog-life-jacket/POG30-17369",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Spot clean, per Kurgo.",
       "summary": "Dog life jacket with two handles; chest 14–45 in",
       "maker_says": [
         "Kurgo says the vest has two handles to help lift your dog out, two metal D-rings for a leash, reflective accents and three adjustment points."
       ],
       "spec_rows": [
-        ["X-Small", "Neck 9–13 in; chest 14–20 in; back 9.25 in"],
-        ["Small", "Neck 12–23 in; chest 18–25 in; back 12.25 in"],
-        ["Medium", "Neck 18–27 in; chest 24–32 in; back 17 in"],
-        ["Large", "Neck 24–32 in; chest 30–37 in; back 18.5 in"],
-        ["X-Large", "Neck 28–36 in; chest 35–45 in; back 20.5 in"]
+        [
+          "X-Small",
+          "Neck 9–13 in; chest 14–20 in; back 9.25 in"
+        ],
+        [
+          "Small",
+          "Neck 12–23 in; chest 18–25 in; back 12.25 in"
+        ],
+        [
+          "Medium",
+          "Neck 18–27 in; chest 24–32 in; back 17 in"
+        ],
+        [
+          "Large",
+          "Neck 24–32 in; chest 30–37 in; back 18.5 in"
+        ],
+        [
+          "X-Large",
+          "Neck 28–36 in; chest 35–45 in; back 20.5 in"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B003NSC4LO",
+          "size": "Medium",
+          "variant": "Chili Red",
+          "amazon_title": "Kurgo Surf n' Turf Life Jacket, Chili Red, Medium",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -473,7 +1106,9 @@
       "brand": "Ruffwear",
       "category": "clothing",
       "official_url": "https://ruffwear.com/products/swamp-cooler-dog-cooling-vest",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Girth is measured around the widest part of the rib cage. Ruffwear's two size charts on the page give different advice for in-between sizes, so check the chart before ordering.",
       "summary": "Evaporative cooling vest; girth 13–42 in",
       "maker_says": [
@@ -481,12 +1116,39 @@
         "Ruffwear says a leash portal on the back lets it be worn over most harnesses."
       ],
       "spec_rows": [
-        ["XXS", "Girth 13–17 in (33–43 cm)"],
-        ["XS", "Girth 17–22 in (43–56 cm)"],
-        ["S", "Girth 22–27 in (56–69 cm)"],
-        ["M", "Girth 27–32 in (69–81 cm)"],
-        ["L", "Girth 32–36 in (81–91 cm)"],
-        ["XL", "Girth 36–42 in (91–107 cm)"]
+        [
+          "XXS",
+          "Girth 13–17 in (33–43 cm)"
+        ],
+        [
+          "XS",
+          "Girth 17–22 in (43–56 cm)"
+        ],
+        [
+          "S",
+          "Girth 22–27 in (56–69 cm)"
+        ],
+        [
+          "M",
+          "Girth 27–32 in (69–81 cm)"
+        ],
+        [
+          "L",
+          "Girth 32–36 in (81–91 cm)"
+        ],
+        [
+          "XL",
+          "Girth 36–42 in (91–107 cm)"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0DN471DKT",
+          "size": "Large",
+          "variant": "Graphite Gray",
+          "amazon_title": "Ruffwear, Swamp Cooler Dog Vest, Graphite Gray, Large",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -495,18 +1157,44 @@
       "brand": "Kurgo",
       "category": "clothing",
       "official_url": "https://www.kurgo.com/p/loft-dog-jacket/POG30-17424",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Kurgo says back coverage varies and it is more important to fit neck and chest. Machine wash gentle or hand wash; air dry.",
       "summary": "Reversible insulated jacket; chest 15–45 in",
       "maker_says": [
         "Kurgo says the insulated jacket is reversible and water-resistant, with a 2-way zipper to reach a harness or collar."
       ],
       "spec_rows": [
-        ["X-Small", "Neck 14 in; chest 15–20 in; back 10 in"],
-        ["Small", "Neck 16 in; chest 19–27 in; back 13 1/4 in"],
-        ["Medium", "Neck 19 in; chest 26–35 in; back 19 3/4 in"],
-        ["Large", "Neck 23 in; chest 30–39 in; back 22 1/2 in"],
-        ["X-Large", "Neck 26 in; chest 35–45 in; back 27 in"]
+        [
+          "X-Small",
+          "Neck 14 in; chest 15–20 in; back 10 in"
+        ],
+        [
+          "Small",
+          "Neck 16 in; chest 19–27 in; back 13 1/4 in"
+        ],
+        [
+          "Medium",
+          "Neck 19 in; chest 26–35 in; back 19 3/4 in"
+        ],
+        [
+          "Large",
+          "Neck 23 in; chest 30–39 in; back 22 1/2 in"
+        ],
+        [
+          "X-Large",
+          "Neck 26 in; chest 35–45 in; back 27 in"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B09BRDRNXW",
+          "size": "Large",
+          "variant": "Pressed Leaf",
+          "amazon_title": "Kurgo Loft Dog Jacket, Pressed Leaf, Large",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -515,15 +1203,32 @@
       "brand": "Ruffwear",
       "category": "clothing",
       "official_url": "https://ruffwear.com/products/grip-trex-dog-boot-pairs",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Ruffwear says to measure across the widest part of each paw while it bears weight, measure all paws (front paws are often wider), and size down if between sizes.",
       "summary": "Boots sold in pairs; paw width 1.5–3.25 in",
       "maker_says": [
         "Ruffwear says the boots have a Vibram non-marking outsole and a hook-and-loop cinch closure, and suggests checking the fit 15 minutes into an activity."
       ],
       "spec_rows": [
-        ["Sizes (paw width)", "1.50 in (38 mm), 1.75 in (44 mm), 2.00 in (51 mm), 2.25 in (57 mm), 2.50 in (64 mm), 2.75 in (70 mm), 3.00 in (76 mm), 3.25 in (83 mm)"],
-        ["Pack", "Set of two boots"]
+        [
+          "Sizes (paw width)",
+          "1.50 in (38 mm), 1.75 in (44 mm), 2.00 in (51 mm), 2.25 in (57 mm), 2.50 in (64 mm), 2.75 in (70 mm), 3.00 in (76 mm), 3.25 in (83 mm)"
+        ],
+        [
+          "Pack",
+          "Set of two boots"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B01MT8OV48",
+          "size": "2.50\"",
+          "variant": "Obsidian Black, 2-count (1 pair)",
+          "amazon_title": "Ruffwear, Grip Trex Dog Shoes - 2 Count, Obsidian Black, 2.50\"",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -532,7 +1237,9 @@
       "brand": "ThunderShirt",
       "category": "calming",
       "official_url": "https://thundershirt.com/products/thundershirt-for-dogs",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Dog weight ranges as listed in the size selector on the ThunderShirt page.",
       "summary": "Calming wrap; sizes by dog weight, under 8 to over 110 lb",
       "maker_says": [
@@ -540,13 +1247,43 @@
         "ThunderShirt says that if your dog is on the cusp of a weight range you should size down, but that Polo styles run small, so size up for those."
       ],
       "spec_rows": [
-        ["XXS", "Under 8 lb"],
-        ["XS", "8–14 lb"],
-        ["S", "15–25 lb"],
-        ["M", "26–40 lb"],
-        ["L", "41–64 lb"],
-        ["XL", "65–110 lb"],
-        ["XXL", "Over 110 lb"]
+        [
+          "XXS",
+          "Under 8 lb"
+        ],
+        [
+          "XS",
+          "8–14 lb"
+        ],
+        [
+          "S",
+          "15–25 lb"
+        ],
+        [
+          "M",
+          "26–40 lb"
+        ],
+        [
+          "L",
+          "41–64 lb"
+        ],
+        [
+          "XL",
+          "65–110 lb"
+        ],
+        [
+          "XXL",
+          "Over 110 lb"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0029PYC3K",
+          "size": "Medium",
+          "variant": "Heather Gray",
+          "amazon_title": "ThunderShirt for Dogs Calming Anxiety Vest, Medium, Heather Gray",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -555,16 +1292,36 @@
       "brand": "ThunderShirt",
       "category": "calming",
       "official_url": "https://thundershirt.com/products/thundershirt-for-cats",
-      "pets": ["cat"],
+      "pets": [
+        "cat"
+      ],
       "dims_note": "Cat weight ranges as listed in the size selector on the ThunderShirt page.",
       "summary": "Calming wrap for cats; 3 sizes by weight",
       "maker_says": [
         "ThunderShirt says the wrap is meant to reduce anxiety during vet visits, nail trimming and travel, describes it as \"over 80% effective\" (a company claim), and says the fabric is machine-washable."
       ],
       "spec_rows": [
-        ["S", "Under 9 lb"],
-        ["M", "9–13 lb"],
-        ["L", "Over 13 lb"]
+        [
+          "S",
+          "Under 9 lb"
+        ],
+        [
+          "M",
+          "9–13 lb"
+        ],
+        [
+          "L",
+          "Over 13 lb"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B007Y31JP6",
+          "size": "Medium (9 to 13 lb)",
+          "variant": "Heather Gray",
+          "amazon_title": "Thundershirt Classic Cat Anxiety Jacket, Heather Gray, Medium (9 to 13 lbs), THU-009",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -573,7 +1330,9 @@
       "brand": "ThunderEase (ThunderShirt)",
       "category": "calming",
       "official_url": "https://thundershirt.com/products/thunderease-for-dogs-calming-spray",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "No bottle volume is stated on the page.",
       "summary": "Pheromone spray for car or crate; wait 15 min",
       "maker_says": [
@@ -581,8 +1340,23 @@
         "ThunderShirt says over 80% of ThunderEase users saw improvement, citing a 2022 customer survey conducted on behalf of Ceva Animal Health (the maker)."
       ],
       "spec_rows": [
-        ["How to use", "Spray objects, not the dog: 8–10 pumps into an area, or 2–3 pumps onto the ThunderShirt's patch"],
-        ["Timing", "Wait 15 minutes before bringing your dog into the sprayed area; respray every 4–5 hours if needed"]
+        [
+          "How to use",
+          "Spray objects, not the dog: 8–10 pumps into an area, or 2–3 pumps onto the ThunderShirt's patch"
+        ],
+        [
+          "Timing",
+          "Wait 15 minutes before bringing your dog into the sprayed area; respray every 4–5 hours if needed"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B071XD93L4",
+          "size": null,
+          "variant": null,
+          "amazon_title": "ThunderEase Pheromone Calming Spray for Dogs",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -591,7 +1365,9 @@
       "brand": "FELIWAY",
       "category": "calming",
       "official_url": "https://us.feliway.com/products/feliway-classic-spray-60ml",
-      "pets": ["cat"],
+      "pets": [
+        "cat"
+      ],
       "dims_note": "",
       "summary": "Pheromone spray for cat carriers; 60 ml ≈ 50 sprays",
       "maker_says": [
@@ -599,9 +1375,27 @@
         "FELIWAY says the spray is not indicated for motion sickness, and suggests not feeding your cat for at least six hours before travel while keeping water available."
       ],
       "spec_rows": [
-        ["Size", "60 ml, about 50 sprays (FELIWAY says a 20 ml bottle holds about 16)"],
-        ["Dose", "8–10 sprays per application"],
-        ["Timing", "Spray the carrier at least 15 minutes before use; on long journeys repeat every 4–5 hours if necessary"]
+        [
+          "Size",
+          "60 ml, about 50 sprays (FELIWAY says a 20 ml bottle holds about 16)"
+        ],
+        [
+          "Dose",
+          "8–10 sprays per application"
+        ],
+        [
+          "Timing",
+          "Spray the carrier at least 15 minutes before use; on long journeys repeat every 4–5 hours if necessary"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B018BVZFG8",
+          "size": "60 ml",
+          "variant": null,
+          "amazon_title": "FELIWAY Classic Cat Calming Spray, 60ml",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -610,7 +1404,9 @@
       "brand": "Kurgo",
       "category": "bowl",
       "official_url": "https://www.kurgo.com/p/gourd-water-bottle-bowl/K01819",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "construction": "PVC and BPA free; top-rack dishwasher safe (per Kurgo)",
       "dims_note": "",
       "summary": "Bottle 24 fl oz + 8 fl oz dog bowl",
@@ -618,8 +1414,23 @@
         "Kurgo says the top is for you and the cup that snaps onto the bottom is for your dog."
       ],
       "spec_rows": [
-        ["Bottle", "24 fl oz (750 ml)"],
-        ["Detachable bowl", "8 fl oz (250 ml)"]
+        [
+          "Bottle",
+          "24 fl oz (750 ml)"
+        ],
+        [
+          "Detachable bowl",
+          "8 fl oz (250 ml)"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B06XJ88KYW",
+          "size": null,
+          "variant": null,
+          "amazon_title": "Kurgo Gourd 2-in-1 Dog Travel Water Bottle & Bowl",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -629,9 +1440,16 @@
       "category": "bowl",
       "official_url": "https://www.kurgo.com/p/collaps-a-bowl/K00098",
       "amazon_asins": [
-        {"asin": "B003EIDR5U", "variant": "Kurgo Blue", "amazon_title": "Kurgo Collaps-A-Bowl, Blue", "verified": "2026-10-23"}
+        {
+          "asin": "B003EIDR5U",
+          "variant": "Kurgo Blue",
+          "amazon_title": "Kurgo Collaps-A-Bowl, Blue",
+          "verified": "2026-10-23"
+        }
       ],
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "construction": "Food-grade silicone, PVC and BPA free; top-rack dishwasher safe (per Kurgo)",
       "dims_note": "",
       "summary": "Silicone bowl, 24 oz, folds under 1 in",
@@ -639,7 +1457,10 @@
         "Kurgo says the bowl packs into a backpack or glove compartment."
       ],
       "spec_rows": [
-        ["One size", "Holds 24 oz; collapses to less than 1 in high"]
+        [
+          "One size",
+          "Holds 24 oz; collapses to less than 1 in high"
+        ]
       ]
     },
     {
@@ -648,15 +1469,23 @@
       "brand": "Travel Cat",
       "category": "potty",
       "official_url": "https://yourcatbackpack.com/products/the-porta-pawty-travel-portable-litter-box-for-cats",
-      "pets": ["cat"],
+      "pets": [
+        "cat"
+      ],
       "dims_note": "",
       "summary": "Collapsible litter box, 19 x 14 x 5 in open",
       "maker_says": [
         "Travel Cat says the box has a seamless interior liner, a zippered top cover to prevent spills in transit, a top pocket for a scoop and extra litter, and side handles."
       ],
       "spec_rows": [
-        ["Open", "19 in L x 14 in W x 5 in H (48.26 x 35.56 x 12.7 cm)"],
-        ["Closed", "About 9.75 in L x 8.5 in W x 4 in H (24.77 x 21.6 x 10.16 cm)"]
+        [
+          "Open",
+          "19 in L x 14 in W x 5 in H (48.26 x 35.56 x 12.7 cm)"
+        ],
+        [
+          "Closed",
+          "About 9.75 in L x 8.5 in W x 4 in H (24.77 x 21.6 x 10.16 cm)"
+        ]
       ]
     },
     {
@@ -665,16 +1494,27 @@
       "brand": "Pet Evac Pak",
       "category": "potty",
       "official_url": "https://petevacpak.com/product/collapsible-cat-litter-box/",
-      "pets": ["cat"],
+      "pets": [
+        "cat"
+      ],
       "dims_note": "Pet Evac Pak's site says its products are sold in the USA only.",
       "summary": "Collapsible litter box, 16 x 12 in open, 9 oz",
       "maker_says": [
         "Pet Evac Pak says the box is polyurethane with a leak-proof liner and folds down and snaps together."
       ],
       "spec_rows": [
-        ["Open", "16 x 12 x 4.5 in"],
-        ["Collapsed", "8 x 5 x 3 in"],
-        ["Weight", "9 oz"]
+        [
+          "Open",
+          "16 x 12 x 4.5 in"
+        ],
+        [
+          "Collapsed",
+          "8 x 5 x 3 in"
+        ],
+        [
+          "Weight",
+          "9 oz"
+        ]
       ]
     },
     {
@@ -683,15 +1523,32 @@
       "brand": "Four Paws",
       "category": "potty",
       "official_url": "https://www.fourpaws.com/products/wee-wee-dog-pee-pads",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "",
       "summary": "Pee pads 22 x 23 in, 14 per pack",
       "maker_says": [
         "Four Paws says each pad has a 6-layer leak-proof system and a built-in attractant, and guarantees 24-hour protection."
       ],
       "spec_rows": [
-        ["Pad size", "22 x 23 in"],
-        ["Count", "14 pads (per the product page)"]
+        [
+          "Pad size",
+          "22 x 23 in"
+        ],
+        [
+          "Count",
+          "14 pads (per the product page)"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B002S47PDQ",
+          "size": "100 Count",
+          "variant": "22\" × 23\"",
+          "amazon_title": "Four Paws Wee-Wee Superior Performance Dog Pee Pads, 100 Count | Quilted leak-proof puppy pads, dog housebreaking & potty training, 24-hour floor protection, pet supplies, 22\" x 23\"",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -700,16 +1557,36 @@
       "brand": "Four Paws",
       "category": "potty",
       "official_url": "https://www.fourpaws.com/products/wee-wee-cat-pee-pads",
-      "pets": ["cat"],
+      "pets": [
+        "cat"
+      ],
       "dims_note": "",
       "summary": "Pads that go under a litter box, 28 x 30 in",
       "maker_says": [
         "Four Paws says the pads go under the litter box to catch accidents, spills and tracked litter, and neutralize cat urine ammonia odors."
       ],
       "spec_rows": [
-        ["Pad size", "28 x 30 in"],
-        ["Count", "10 pads"],
-        ["Scents", "Fresh Scent or Unscented"]
+        [
+          "Pad size",
+          "28 x 30 in"
+        ],
+        [
+          "Count",
+          "10 pads"
+        ],
+        [
+          "Scents",
+          "Fresh Scent or Unscented"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0FHTV5TDB",
+          "size": "10 Count",
+          "variant": "Unscented",
+          "amazon_title": "Four Paws Wee-Wee Cat Pads, Unscented, 10 Count",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -718,7 +1595,9 @@
       "brand": "Tractive",
       "category": "id_gps",
       "official_url": "https://tractive.com/en/pd/gps-tracker-dog",
-      "pets": ["dog"],
+      "pets": [
+        "dog"
+      ],
       "dims_note": "Specs from the comparison table on Tractive's dog tracker page.",
       "summary": "GPS tracker; subscription required; 3 models by dog size",
       "maker_says": [
@@ -726,9 +1605,18 @@
         "Tractive says its devices work in 175+ countries with cellular coverage, and lists the trackers as waterproof."
       ],
       "spec_rows": [
-        ["DOG 6", "Dogs above 9 lb; 2.8 x 1.1 x 0.7 in; 1.4 oz; battery up to 14 days with Power Saving Zones (up to 6 days without)"],
-        ["DOG 6 XL", "Dogs above 44 lb; 3.3 x 1.9 x 0.8 in; 2.5 oz; battery up to 42 days with Power Saving Zones (up to 20 days without)"],
-        ["DOG 6 XL Adventure", "Dogs above 55 lb; 3.7 x 1.9 x 0.8 in; 3.5 oz; battery up to 42 days with Power Saving Zones (up to 20 days without)"]
+        [
+          "DOG 6",
+          "Dogs above 9 lb; 2.8 x 1.1 x 0.7 in; 1.4 oz; battery up to 14 days with Power Saving Zones (up to 6 days without)"
+        ],
+        [
+          "DOG 6 XL",
+          "Dogs above 44 lb; 3.3 x 1.9 x 0.8 in; 2.5 oz; battery up to 42 days with Power Saving Zones (up to 20 days without)"
+        ],
+        [
+          "DOG 6 XL Adventure",
+          "Dogs above 55 lb; 3.7 x 1.9 x 0.8 in; 3.5 oz; battery up to 42 days with Power Saving Zones (up to 20 days without)"
+        ]
       ]
     },
     {
@@ -737,15 +1625,23 @@
       "brand": "Tractive",
       "category": "id_gps",
       "official_url": "https://tractive.com/en/pd/gps-tracker-cat",
-      "pets": ["cat"],
+      "pets": [
+        "cat"
+      ],
       "dims_note": "Specs from the comparison table on Tractive's cat tracker page.",
       "summary": "GPS tracker for cats; subscription required",
       "maker_says": [
         "Tractive says a subscription plan is needed and is priced separately from the tracker, and that its devices work in 175+ countries with cellular coverage."
       ],
       "spec_rows": [
-        ["CAT 6 Mini", "Cats 7–18 lb; 3.7 x 0.8 x 0.5 in; 1.13 oz including collar; battery up to 7 days with Power Saving Zones (up to 4 days without); collar-integrated"],
-        ["CAT Mini", "Cats above 7 lb; 2.1 x 1.1 x 0.6 in; 1.48 oz including collar; battery up to 5 days with Power Saving Zones (2 days without); rubber or clip mount"]
+        [
+          "CAT 6 Mini",
+          "Cats 7–18 lb; 3.7 x 0.8 x 0.5 in; 1.13 oz including collar; battery up to 7 days with Power Saving Zones (up to 4 days without); collar-integrated"
+        ],
+        [
+          "CAT Mini",
+          "Cats above 7 lb; 2.1 x 1.1 x 0.6 in; 1.48 oz including collar; battery up to 5 days with Power Saving Zones (2 days without); rubber or clip mount"
+        ]
       ]
     },
     {
@@ -754,14 +1650,29 @@
       "brand": "Petmate",
       "category": "travel_gear",
       "official_url": "https://www.petmate.com/products/petmate-kennel-airline-travel-kit",
-      "pets": ["dog", "cat"],
+      "pets": [
+        "dog",
+        "cat"
+      ],
       "dims_note": "",
       "summary": "Metal bolts, stickers, cup and pad for a cargo kennel",
       "maker_says": [
         "Petmate says many airlines do not accept plastic kennels held together with plastic nuts/bolts or pegs, and that the kit's metal hardware lets you modify your kennel; it says to check your airline's requirements first."
       ],
       "spec_rows": [
-        ["Contents", "Spill-resistant food & water cup, absorbent kennel pad, two Live Animals stickers, temporary pet ID tag, shipping ID sticker, 12 zip ties, metal bolts (12 x 1 1/4 in, 5 x 1 3/4 in, 5 x 1 in), 12 washers and 12 nuts"]
+        [
+          "Contents",
+          "Spill-resistant food & water cup, absorbent kennel pad, two Live Animals stickers, temporary pet ID tag, shipping ID sticker, 12 zip ties, metal bolts (12 x 1 1/4 in, 5 x 1 3/4 in, 5 x 1 in), 12 washers and 12 nuts"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B00DT2WN9M",
+          "size": null,
+          "variant": "290300",
+          "amazon_title": "Petmate 290300 Kennel Travel Kit for Pets",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -770,15 +1681,33 @@
       "brand": "Sleepypod",
       "category": "travel_gear",
       "official_url": "https://sleepypod.com/products/go-bag",
-      "pets": ["dog", "cat"],
+      "pets": [
+        "dog",
+        "cat"
+      ],
       "dims_note": "Wipe clean with a damp, soapy cloth, per Sleepypod.",
       "summary": "Cross-body bag for pet essentials, 16 x 14 x 5 in",
       "maker_says": [
         "Sleepypod says the cross-body bag organizes pet essentials for air travel, everyday use or emergency kits, with a padded pocket for documents or a tablet."
       ],
       "spec_rows": [
-        ["Main compartment", "16 in tall x 14 in wide x 5 in deep (16 in wide with side pockets extended); 1.2 lb"],
-        ["Included", "2 padded mini cubes (4.5 x 6.5 x 4.5 in each) and 1 insulated food bag (13 x 7 x 4.5 in open, 7 x 7 x 4.5 in rolled)"]
+        [
+          "Main compartment",
+          "16 in tall x 14 in wide x 5 in deep (16 in wide with side pockets extended); 1.2 lb"
+        ],
+        [
+          "Included",
+          "2 padded mini cubes (4.5 x 6.5 x 4.5 in each) and 1 insulated food bag (13 x 7 x 4.5 in open, 7 x 7 x 4.5 in rolled)"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B08JWLDJ1B",
+          "size": null,
+          "variant": "Jet Black",
+          "amazon_title": "Sleepypod® Go Travel Bag, Dog/Cat Pet Parent Travel Bag, Jet Black",
+          "verified": "2026-11-26"
+        }
       ]
     },
     {
@@ -787,39 +1716,105 @@
       "brand": "Sleepypod",
       "category": "travel_gear",
       "official_url": "https://sleepypod.com/products/safety-tether",
-      "pets": ["dog", "cat"],
+      "pets": [
+        "dog",
+        "cat"
+      ],
       "dims_note": "",
       "summary": "Escape-prevention tether for Sleepypod carriers",
       "maker_says": [
         "Sleepypod says the tether is designed to prevent escapes in public places such as the vet's office or airport security (TSA) screening."
       ],
       "spec_rows": [
-        ["Works with", "Sleepypod mobile pet bed, Sleepypod Mini, Sleepypod Air and Sleepypod Atom carriers"]
+        [
+          "Works with",
+          "Sleepypod mobile pet bed, Sleepypod Mini, Sleepypod Air and Sleepypod Atom carriers"
+        ]
       ]
     }
   ],
   "guides": [
-    {"slug": "best-airline-approved-soft-carriers", "kind": "soft"},
-    {"slug": "under-seat-carrier-size-by-airline", "kind": "airlines"},
-    {"slug": "iata-hard-crates-for-cargo", "kind": "crates"},
-    {"slug": "pet-carrier-backpacks-for-flying", "kind": "backpacks"},
-    {"slug": "travel-water-bowls", "kind": "bowls"},
-    {"slug": "dog-road-trip-packing-list", "kind": "roadtrip"},
-    {"slug": "cat-travel-checklist", "kind": "cat"}
+    {
+      "slug": "best-airline-approved-soft-carriers",
+      "kind": "soft"
+    },
+    {
+      "slug": "under-seat-carrier-size-by-airline",
+      "kind": "airlines"
+    },
+    {
+      "slug": "iata-hard-crates-for-cargo",
+      "kind": "crates"
+    },
+    {
+      "slug": "pet-carrier-backpacks-for-flying",
+      "kind": "backpacks"
+    },
+    {
+      "slug": "travel-water-bowls",
+      "kind": "bowls"
+    },
+    {
+      "slug": "dog-road-trip-packing-list",
+      "kind": "roadtrip"
+    },
+    {
+      "slug": "cat-travel-checklist",
+      "kind": "cat"
+    }
   ],
   "skipped": [
-    {"name": "Sherpa Element Pet Carrier", "reason": "No dimensions on the official product page when checked."},
-    {"name": "Sherpa Duffel Backpack Pet Carrier", "reason": "No dimensions on the official product page when checked."},
-    {"name": "Sherpa Trek Tote 2-in-1 Pet Backpack", "reason": "Official page gives dimensions labelled as a different product (Elevation), so they could not be trusted."},
-    {"name": "K9 Sport Sack Air", "reason": "Official page lists dog length ranges but no carrier dimensions."},
-    {"name": "Mr. Peanut's carriers", "reason": "Official product data could not be retrieved."},
-    {"name": "Away Pet Carrier", "reason": "Official product page not found (404)."},
-    {"name": "Sherpa Seatbelt Harness (crash-tested)", "reason": "Official page gives no sizes, chest measurements or weight range."},
-    {"name": "Sherpa Replacement Liners for Travel Pet Carriers", "reason": "Official page gives no liner dimensions, so we can't say which carriers they fit."},
-    {"name": "Sleepypod Mesh Bedding (carrier pad)", "reason": "Official page has no description or dimensions."},
-    {"name": "Sleepypod Martingale Calming Harness for cats", "reason": "Size chart is in an interactive pop-up we could not read from the official page."},
-    {"name": "Petmate Silicone Travel Bowl Duo", "reason": "Official page gives no capacity or bowl size."},
-    {"name": "Fi Series 3+ smart collar", "reason": "No product page with specs found on the official site when checked (homepage marketing only)."},
-    {"name": "Adaptil Travel Spray (US)", "reason": "The US Adaptil page redirects to ThunderEase Calming Spray (same maker, Ceva), which we list instead."}
+    {
+      "name": "Sherpa Element Pet Carrier",
+      "reason": "No dimensions on the official product page when checked."
+    },
+    {
+      "name": "Sherpa Duffel Backpack Pet Carrier",
+      "reason": "No dimensions on the official product page when checked."
+    },
+    {
+      "name": "Sherpa Trek Tote 2-in-1 Pet Backpack",
+      "reason": "Official page gives dimensions labelled as a different product (Elevation), so they could not be trusted."
+    },
+    {
+      "name": "K9 Sport Sack Air",
+      "reason": "Official page lists dog length ranges but no carrier dimensions."
+    },
+    {
+      "name": "Mr. Peanut's carriers",
+      "reason": "Official product data could not be retrieved."
+    },
+    {
+      "name": "Away Pet Carrier",
+      "reason": "Official product page not found (404)."
+    },
+    {
+      "name": "Sherpa Seatbelt Harness (crash-tested)",
+      "reason": "Official page gives no sizes, chest measurements or weight range."
+    },
+    {
+      "name": "Sherpa Replacement Liners for Travel Pet Carriers",
+      "reason": "Official page gives no liner dimensions, so we can't say which carriers they fit."
+    },
+    {
+      "name": "Sleepypod Mesh Bedding (carrier pad)",
+      "reason": "Official page has no description or dimensions."
+    },
+    {
+      "name": "Sleepypod Martingale Calming Harness for cats",
+      "reason": "Size chart is in an interactive pop-up we could not read from the official page."
+    },
+    {
+      "name": "Petmate Silicone Travel Bowl Duo",
+      "reason": "Official page gives no capacity or bowl size."
+    },
+    {
+      "name": "Fi Series 3+ smart collar",
+      "reason": "No product page with specs found on the official site when checked (homepage marketing only)."
+    },
+    {
+      "name": "Adaptil Travel Spray (US)",
+      "reason": "The US Adaptil page redirects to ThunderEase Calming Spray (same maker, Ceva), which we list instead."
+    }
   ]
 }
