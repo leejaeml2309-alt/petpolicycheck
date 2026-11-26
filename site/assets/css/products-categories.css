@@ -1,22 +1,68 @@
-/* Products category hub — 20261126cat2. PCC palette. Reversible. */
+/* Products category hub — 20261126cat3. PCC palette. Reversible.
+   Sub-nav uses --theme-shop #e5a35c (theme.css V3 :root, "Ambre fauve produits franc";
+   also --sec on .theme-shop / [data-sec="shop"]). Cream --head #f5ecd6, dark --on-pri #0b1719. */
 .ppc-prod-subnav{
-  display:flex;flex-wrap:wrap;gap:8px 10px;
+  --ppc-sub-amber:var(--theme-shop,var(--sec,#e5a35c));
+  --ppc-sub-cream:var(--head,#f5ecd6);
+  --ppc-sub-dark:var(--on-pri,#0b1719);
+  display:flex;flex-wrap:wrap;gap:10px;
   margin:0 0 1.15rem;padding:2px 0 14px;
-  border-bottom:1px solid color-mix(in srgb,var(--pri,#d9b765) 28%,transparent);
+  border-bottom:1px solid color-mix(in srgb,var(--ppc-sub-amber) 40%,transparent);
 }
 .ppc-prod-subnav a{
+  box-sizing:border-box;
+  display:inline-flex;align-items:center;justify-content:center;
   font-family:var(--text,"Inter",system-ui,sans-serif);
-  font-size:.86rem;color:var(--ink,#ece4d0);text-decoration:none;
-  padding:6px 12px;border:1px solid var(--line,#1c3338);
-  border-radius:999px;background:var(--paper,#11252a);
+  font-size:16.5px;font-weight:600;line-height:1.2;
+  color:var(--ppc-sub-cream);text-decoration:none;
+  min-height:48px;padding:12px 20px;
+  border:2px solid var(--ppc-sub-amber);
+  border-radius:999px;
+  /* 18% amber over #0b1719 — computed #323025 */
+  background:color-mix(in srgb,var(--ppc-sub-amber) 18%,#0b1719);
+  transition:background .15s,border-color .15s,color .15s,box-shadow .15s;
 }
-.ppc-prod-subnav a:hover{border-color:var(--pri,#d9b765);color:var(--head,#f5ecd6)}
+.ppc-prod-subnav a:hover,
+.ppc-prod-subnav a:focus-visible{
+  /* 32% amber over #0b1719 — computed #51442e */
+  background:color-mix(in srgb,var(--ppc-sub-amber) 32%,#0b1719);
+  border-color:var(--ppc-sub-amber);
+  color:var(--ppc-sub-cream);
+}
+.ppc-prod-subnav a:focus-visible{
+  outline:3px solid #F0D58C;
+  outline-offset:2px;
+}
 .ppc-prod-subnav a[aria-current="page"]{
-  background:color-mix(in srgb,var(--pri,#d9b765) 18%,var(--paper,#11252a));
-  border-color:var(--pri,#d9b765);color:var(--head,#f5ecd6);
+  background:var(--ppc-sub-amber);
+  border-color:var(--ppc-sub-amber);
+  color:var(--ppc-sub-dark);
 }
-.ppc-prod-subnav a.ppc-sub-gifts{
-  border-color:color-mix(in srgb,var(--pri,#d9b765) 60%,transparent);
+.ppc-prod-subnav a[aria-current="page"]:hover,
+.ppc-prod-subnav a[aria-current="page"]:focus-visible{
+  /* 10% white over #e5a35c — computed #e8ac6c */
+  background:color-mix(in srgb,#ffffff 10%,var(--ppc-sub-amber));
+  border-color:color-mix(in srgb,#ffffff 10%,var(--ppc-sub-amber));
+  color:var(--ppc-sub-dark);
+}
+@media(max-width:600px){
+  /* Bigger pills wrap past 3 rows at 390px, which pushes products down.
+     A single scroll row with a right-edge fade is cleaner. */
+  .ppc-prod-subnav{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:thin;
+    gap:10px;
+    padding:2px 28px 14px 0;
+    mask-image:linear-gradient(to right,#000 0,#000 calc(100% - 36px),transparent 100%);
+    -webkit-mask-image:linear-gradient(to right,#000 0,#000 calc(100% - 36px),transparent 100%);
+  }
+  .ppc-prod-subnav a{
+    flex:0 0 auto;
+    min-height:44px;font-size:15px;padding:10px 16px;
+  }
 }
 .ppc-cat-grid{
   list-style:none;padding:0;margin:1.1rem 0 2rem;

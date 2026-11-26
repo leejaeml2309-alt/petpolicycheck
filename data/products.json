@@ -553,60 +553,6 @@
       ]
     },
     {
-      "slug": "sleepypod-clickit-range",
-      "name": "Sleepypod Clickit Range Crash-Tested Harness",
-      "brand": "Sleepypod",
-      "category": "harness",
-      "official_url": "https://sleepypod.com/products/clickit-range",
-      "pets": [
-        "dog"
-      ],
-      "dims_note": "Sleepypod publishes vest-front dimensions rather than a chest-girth chart, and offers a sizing quiz on its site. XL and 2XL are available in black only, per Sleepypod.",
-      "summary": "Car harness; Center for Pet Safety rated up to 110 lb per Sleepypod",
-      "maker_says": [
-        "Sleepypod says Clickit Range is rated up to 110 lb (50 kg) by the Center for Pet Safety, and that its Long and Regular sizes earned a 5 Star rating for dogs 18 to 110 lb.",
-        "Sleepypod describes a three-point design for the rear passenger seat that connects to the vehicle seatbelt, and says an S-Clip and a Buckle Shield are included. It says the hardware is strength-tested for use as a walking harness too."
-      ],
-      "spec_rows": [
-        [
-          "Regular – Small",
-          "Front of vest 2.2 in W x 12.5 in L"
-        ],
-        [
-          "Regular – Medium",
-          "Front of vest 2.2 in W x 14.5 in L"
-        ],
-        [
-          "Regular – Large",
-          "Front of vest 2.1 in W x 16 in L"
-        ],
-        [
-          "Regular – X-Large",
-          "Front of vest 2.1 in W x 17.5 in L"
-        ],
-        [
-          "Regular – 2X-Large",
-          "Front of vest 2.1 in W x 19 in L"
-        ],
-        [
-          "Long – Small",
-          "Front of vest 2.2 in W x 14.5 in L"
-        ],
-        [
-          "Long – Medium",
-          "Front of vest 2.2 in W x 15.5 in L"
-        ],
-        [
-          "Long – Large",
-          "Front of vest 2.1 in W x 17 in L (the page lists a second \"Large\" at 2.1 in W x 19 in L, where X-Large would be expected)"
-        ],
-        [
-          "Long – 2X-Large",
-          "Front of vest 2.2 in W x 22 in L"
-        ]
-      ]
-    },
-    {
       "slug": "ruffwear-load-up-harness",
       "name": "Ruffwear Load Up Dog Car Harness",
       "brand": "Ruffwear",
@@ -1464,60 +1410,6 @@
       ]
     },
     {
-      "slug": "travel-cat-porta-pawty",
-      "name": "Travel Cat Porta-Pawty Litter Box",
-      "brand": "Travel Cat",
-      "category": "potty",
-      "official_url": "https://yourcatbackpack.com/products/the-porta-pawty-travel-portable-litter-box-for-cats",
-      "pets": [
-        "cat"
-      ],
-      "dims_note": "",
-      "summary": "Collapsible litter box, 19 x 14 x 5 in open",
-      "maker_says": [
-        "Travel Cat says the box has a seamless interior liner, a zippered top cover to prevent spills in transit, a top pocket for a scoop and extra litter, and side handles."
-      ],
-      "spec_rows": [
-        [
-          "Open",
-          "19 in L x 14 in W x 5 in H (48.26 x 35.56 x 12.7 cm)"
-        ],
-        [
-          "Closed",
-          "About 9.75 in L x 8.5 in W x 4 in H (24.77 x 21.6 x 10.16 cm)"
-        ]
-      ]
-    },
-    {
-      "slug": "pet-evac-pak-collapsible-litter-box",
-      "name": "Pet Evac Pak Collapsible Cat Litter Box",
-      "brand": "Pet Evac Pak",
-      "category": "potty",
-      "official_url": "https://petevacpak.com/product/collapsible-cat-litter-box/",
-      "pets": [
-        "cat"
-      ],
-      "dims_note": "Pet Evac Pak's site says its products are sold in the USA only.",
-      "summary": "Collapsible litter box, 16 x 12 in open, 9 oz",
-      "maker_says": [
-        "Pet Evac Pak says the box is polyurethane with a leak-proof liner and folds down and snaps together."
-      ],
-      "spec_rows": [
-        [
-          "Open",
-          "16 x 12 x 4.5 in"
-        ],
-        [
-          "Collapsed",
-          "8 x 5 x 3 in"
-        ],
-        [
-          "Weight",
-          "9 oz"
-        ]
-      ]
-    },
-    {
       "slug": "wee-wee-superior-performance-pads",
       "name": "Four Paws Wee-Wee Superior Performance Dog Pee Pads",
       "brand": "Four Paws",
@@ -1590,61 +1482,6 @@
       ]
     },
     {
-      "slug": "tractive-gps-dog-6",
-      "name": "Tractive GPS DOG 6 Tracker",
-      "brand": "Tractive",
-      "category": "id_gps",
-      "official_url": "https://tractive.com/en/pd/gps-tracker-dog",
-      "pets": [
-        "dog"
-      ],
-      "dims_note": "Specs from the comparison table on Tractive's dog tracker page.",
-      "summary": "GPS tracker; subscription required; 3 models by dog size",
-      "maker_says": [
-        "Tractive says a subscription plan is needed and is priced separately from the tracker.",
-        "Tractive says its devices work in 175+ countries with cellular coverage, and lists the trackers as waterproof."
-      ],
-      "spec_rows": [
-        [
-          "DOG 6",
-          "Dogs above 9 lb; 2.8 x 1.1 x 0.7 in; 1.4 oz; battery up to 14 days with Power Saving Zones (up to 6 days without)"
-        ],
-        [
-          "DOG 6 XL",
-          "Dogs above 44 lb; 3.3 x 1.9 x 0.8 in; 2.5 oz; battery up to 42 days with Power Saving Zones (up to 20 days without)"
-        ],
-        [
-          "DOG 6 XL Adventure",
-          "Dogs above 55 lb; 3.7 x 1.9 x 0.8 in; 3.5 oz; battery up to 42 days with Power Saving Zones (up to 20 days without)"
-        ]
-      ]
-    },
-    {
-      "slug": "tractive-gps-cat",
-      "name": "Tractive GPS CAT Tracker",
-      "brand": "Tractive",
-      "category": "id_gps",
-      "official_url": "https://tractive.com/en/pd/gps-tracker-cat",
-      "pets": [
-        "cat"
-      ],
-      "dims_note": "Specs from the comparison table on Tractive's cat tracker page.",
-      "summary": "GPS tracker for cats; subscription required",
-      "maker_says": [
-        "Tractive says a subscription plan is needed and is priced separately from the tracker, and that its devices work in 175+ countries with cellular coverage."
-      ],
-      "spec_rows": [
-        [
-          "CAT 6 Mini",
-          "Cats 7–18 lb; 3.7 x 0.8 x 0.5 in; 1.13 oz including collar; battery up to 7 days with Power Saving Zones (up to 4 days without); collar-integrated"
-        ],
-        [
-          "CAT Mini",
-          "Cats above 7 lb; 2.1 x 1.1 x 0.6 in; 1.48 oz including collar; battery up to 5 days with Power Saving Zones (2 days without); rubber or clip mount"
-        ]
-      ]
-    },
-    {
       "slug": "petmate-kennel-airline-travel-kit",
       "name": "Petmate Kennel Airline Travel Kit",
       "brand": "Petmate",
@@ -1711,25 +1548,595 @@
       ]
     },
     {
-      "slug": "sleepypod-safety-tether",
-      "name": "Sleepypod Safety Tether",
-      "brand": "Sleepypod",
+      "slug": "ruffwear-kibble-kaddie",
+      "name": "Ruffwear Kibble Kaddie",
+      "brand": "Ruffwear",
       "category": "travel_gear",
-      "official_url": "https://sleepypod.com/products/safety-tether",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Roll-down dog food travel bag, 10 L / about 42 cups",
+      "maker_says": [
+        "The Amazon listing describes a roll-down closure, an easy-pour top spout, and a compact waterproof odor-sealing liner with a stash pocket."
+      ],
+      "spec_rows": [
+        [
+          "Capacity",
+          "Amazon lists 10 L / about 42 cups"
+        ],
+        [
+          "Item dimensions",
+          "Amazon lists 10.28 × 7.95 × 2.48 in"
+        ],
+        [
+          "Color in this listing",
+          "Basalt Gray"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0F67PW4NB",
+          "size": "10L/42 Cups",
+          "variant": "Basalt Gray",
+          "amazon_title": "Ruffwear, Kibble Kaddie Dog Food Travel Bag, Basalt Gray | Roll-Down Closure Storage, Easy-Pour Spout, Compact Waterproof Odor-Sealing Liner with Stash Pocket, 10L/42 Cups",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "kurgo-kibble-carrier",
+      "name": "Kurgo Kibble Carrier",
+      "brand": "Kurgo",
+      "category": "travel_gear",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Dog food travel bag; Amazon lists 7 × 7 × 14 in, 4.16 oz",
+      "maker_says": [
+        "The Amazon listing describes ripstop material, a food-safe liner, a bottom bowl stash pocket and a side zip pocket."
+      ],
+      "spec_rows": [
+        [
+          "Product dimensions",
+          "Amazon lists 7 × 7 × 14 in, 4.16 oz"
+        ],
+        [
+          "Capacity",
+          "The listing says it holds up to 5 lb of kibble"
+        ],
+        [
+          "Color in this listing",
+          "Chili Red"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B014V5OUXM",
+          "size": null,
+          "variant": "Chili Red",
+          "amazon_title": "Kurgo Kibble Carrier, Chili Red | Dog Food Travel Bag, Ripstop Material, Food-Safe Liner, Bottom Bowl Stash Pocket, Side Zip Pocket, Hold Up to 5 Lb of Kibble",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "mobile-dog-gear-weekender-backpack",
+      "name": "Mobile Dog Gear Weekender Backpack",
+      "brand": "Mobile Dog Gear",
+      "category": "travel_gear",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves. Amazon listed conflicting weights for this item, so we have omitted the weight.",
+      "summary": "Quilted pet travel backpack; Amazon lists 13 × 7 × 16 in",
+      "maker_says": [
+        "The Amazon listing describes a quilted backpack that holds dog accessories, food carriers, silicone bowls and a built-in feeding placemat."
+      ],
+      "spec_rows": [
+        [
+          "Product dimensions",
+          "Amazon lists 13 × 7 × 16 in"
+        ],
+        [
+          "Color in this listing",
+          "Black"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B07F7MGC9K",
+          "size": null,
+          "variant": "Black",
+          "amazon_title": "Mobile Dog Gear: Weekender Backpack - Black - Quilted Pet Travel Bag Holds Dog Accessories, Food Carriers, Silicone Bowls, Built-In Feeding Placemat",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "mobile-dog-gear-rolling-week-away",
+      "name": "Mobile Dog Gear Rolling Week Away Bag",
+      "brand": "Mobile Dog Gear",
+      "category": "travel_gear",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Rolling pet travel bag with food carriers, bowls and a scoop",
+      "maker_says": [
+        "The Amazon listing describes two lined food carriers, a placemat, two collapsible silicone bowls, a food scoop, two sturdy luggage wheels and a locking telescopic handle."
+      ],
+      "spec_rows": [
+        [
+          "Included, per the listing",
+          "2 lined food carriers, a placemat, two collapsible silicone bowls and a food scoop"
+        ],
+        [
+          "Wheels",
+          "The listing describes two luggage wheels and a locking telescopic handle"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0BD9G5NYS",
+          "size": null,
+          "variant": null,
+          "amazon_title": "Mobile Dog Gear Rolling Week Away® Bag",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "mobile-dog-gear-week-away-bag",
+      "name": "Mobile Dog Gear Week Away Bag",
+      "brand": "Mobile Dog Gear",
+      "category": "travel_gear",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Travel bag for medium and large dogs, with food carriers and bowls",
+      "maker_says": [
+        "The Amazon listing describes two lined food carriers, two 5-cup collapsible silicone bowls, a zippered inside pocket, a divider, an adjustable shoulder strap and a removable placemat."
+      ],
+      "spec_rows": [
+        [
+          "Size in this listing",
+          "For medium and large dogs; Black"
+        ],
+        [
+          "Food carriers, per the listing",
+          "2 lined bags, up to 30 cups of food or treats"
+        ],
+        [
+          "Bowls, per the listing",
+          "2 collapsible silicone bowls, 5 cups each"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B01HDORWQK",
+          "size": "Medium/Large",
+          "variant": "Black",
+          "amazon_title": "Mobile Dog Gear, Week Away Dog Travel Bag for Medium and Large Dogs, Includes Lined Food Carriers and 2 Collapsible Dog Bowl, Black",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "mobile-dog-gear-car-seat-organizer",
+      "name": "Mobile Dog Gear Car Seat Back Organizer",
+      "brand": "Mobile Dog Gear",
+      "category": "travel_gear",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Car-seat back organizer; Amazon lists 12.8 × 12.8 × 2.6 in, 1 lb",
+      "maker_says": [
+        "The Amazon listing describes a car-seat back organizer with a built-in waste-bag dispenser and one bag roll, and states that it meets airline requirements."
+      ],
+      "spec_rows": [
+        [
+          "Product dimensions",
+          "Amazon lists 12.8 × 12.8 × 2.6 in, 1 lb"
+        ],
+        [
+          "Color in this listing",
+          "Black"
+        ],
+        [
+          "Included, per the listing",
+          "Built-in waste-bag dispenser and 1 bag roll"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B08ZD5G9P7",
+          "size": null,
+          "variant": "Black",
+          "amazon_title": "Mobile Dog Gear, Car Seat Back Organizer Travel Bag, Includes Built-in Waste Bag Dispenser and 1 Bag Roll, Black, Meets Airline Requirements",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "orvis-tough-trail-tote",
+      "name": "Orvis Tough Trail Dog Travel Tote",
+      "brand": "Orvis",
+      "category": "travel_gear",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Water-resistant dog travel tote, Asphalt",
+      "maker_says": [
+        "The Amazon listing describes a durable, water-resistant tote bag for pets, in Asphalt."
+      ],
+      "spec_rows": [
+        [
+          "Color in this listing",
+          "Asphalt"
+        ],
+        [
+          "Design, per the listing",
+          "Water-resistant tote for pets"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0DV125WNQ",
+          "size": "One Size",
+          "variant": "Asphalt",
+          "amazon_title": "Orvis Tough Trail Dog Travel Tote - Durable Tote Bag for Pets, Stylish Handbags for Outdoor Adventures, Water-Resistant Design, Asphalt",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "outward-hound-travel-essentials-bag",
+      "name": "Outward Hound Designer Pet Travel Essentials Bag and Kit",
+      "brand": "Outward Hound",
+      "category": "travel_gear",
+      "official_url": "",
       "pets": [
         "dog",
         "cat"
       ],
-      "dims_note": "",
-      "summary": "Escape-prevention tether for Sleepypod carriers",
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Travel essentials bag and kit; Amazon lists 7.5 × 3 × 10 in, 8.8 oz",
       "maker_says": [
-        "Sleepypod says the tether is designed to prevent escapes in public places such as the vet's office or airport security (TSA) screening."
+        "The Amazon listing presents this as a designer pet travel essentials bag and kit."
       ],
       "spec_rows": [
         [
-          "Works with",
-          "Sleepypod mobile pet bed, Sleepypod Mini, Sleepypod Air and Sleepypod Atom carriers"
+          "Product dimensions",
+          "Amazon lists 7.5 × 3 × 10 in, 8.8 oz"
         ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B001MV7WWK",
+          "size": null,
+          "variant": null,
+          "amazon_title": "Outward Hound Kyjen Designer Pet Travel Essentials Bag and Kit",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "petsafe-happy-ride-travel-bag",
+      "name": "PetSafe Happy Ride Travel Bag",
+      "brand": "PetSafe",
+      "category": "travel_gear",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Travel bag with bowl and poop-bag dispenser; Amazon lists 16 × 12 × 7 in, 1 lb",
+      "maker_says": [
+        "The Amazon listing describes a durable travel bag with a water and food bowl, zipper pockets and a poop-bag dispenser."
+      ],
+      "spec_rows": [
+        [
+          "Product dimensions",
+          "Amazon lists 16 × 12 × 7 in, 1 lb"
+        ],
+        [
+          "Included, per the listing",
+          "Water and food pet bowl, zipper pockets and a poop-bag dispenser"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B005DGINGO",
+          "size": null,
+          "variant": null,
+          "amazon_title": "PetSafe Happy Ride Travel Bag - Water and Food Pet Bowl Included - Great for Hiking and Adventure with Your Dog - Zipper Pockets and Poop Bag Dispenser - Durable Material and Comfortable",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "sleepypod-mobile-pet-bed",
+      "name": "Sleepypod Mobile Pet Bed",
+      "brand": "Sleepypod",
+      "category": "soft_carrier",
+      "official_url": "https://sleepypod.com/products/sleepypod",
+      "pets": [
+        "dog",
+        "cat"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves. Amazon listed conflicting weights for this item, so we have omitted the weight.",
+      "summary": "Crash-tested pet bed, car seat and carrier; Amazon lists 17 × 17 × 13.5 in",
+      "maker_says": [
+        "The Amazon listing describes the Sleepypod Mobile Pet Bed as a crash-tested cat/dog car seat and carrier, in Grey."
+      ],
+      "spec_rows": [
+        [
+          "Product dimensions",
+          "Amazon lists 17 × 17 × 13.5 in"
+        ],
+        [
+          "Color in this listing",
+          "Grey"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B08JY6YGLF",
+          "size": null,
+          "variant": "Grey",
+          "amazon_title": "Sleepypod® Mobile Pet Bed, Crash Tested Cat/Dog Car Seat + Carrier, Grey",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "natures-miracle-disposable-litter-box",
+      "name": "Nature's Miracle Disposable Travel Litter Box",
+      "brand": "Nature's Miracle",
+      "category": "potty",
+      "official_url": "",
+      "pets": [
+        "cat"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Disposable travel litter box, Jumbo 2-pack; Amazon lists 21 × 15.25 × 7.75 in, 2.75 lb",
+      "maker_says": [
+        "The Amazon listing presents this as a disposable cat litter box and travel litter box, sold as a Jumbo 2-pack. It notes that packaging and color may vary."
+      ],
+      "spec_rows": [
+        [
+          "Size in this listing",
+          "Jumbo, 2-pack"
+        ],
+        [
+          "Product dimensions",
+          "Amazon lists 21 × 15.25 × 7.75 in, 2.75 lb"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0087Y5OIE",
+          "size": "Jumbo, 2-Pack",
+          "variant": null,
+          "amazon_title": "Nature's Miracle Disposable Cat Litter Box, Travel Litter Box, Jumbo 2 Pack",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "adaptil-calming-spray",
+      "name": "ADAPTIL Dog Calming Pheromone Spray (60 mL)",
+      "brand": "ADAPTIL",
+      "category": "calming",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Dog calming pheromone spray, 60 mL",
+      "maker_says": [
+        "The Amazon listing says ADAPTIL helps dogs feel calm and comfortable by mimicking a mother dog's natural nursing pheromones."
+      ],
+      "spec_rows": [
+        [
+          "Size in this listing",
+          "60 mL"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B00TGTM5IG",
+          "size": "60 mL",
+          "variant": null,
+          "amazon_title": "ADAPTIL Dog Calming Pheromone Spray (60 mL)",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "adaptil-calming-collar",
+      "name": "ADAPTIL Calming Pheromone Collar for Dogs",
+      "brand": "ADAPTIL",
+      "category": "calming",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Dog calming pheromone collar; Small and Medium/Large listings",
+      "maker_says": [
+        "The Amazon listings present these as ADAPTIL calming pheromone collars for dogs, in Small and in Medium/Large."
+      ],
+      "spec_rows": [
+        [
+          "Sizes in these listings",
+          "Small, and Medium/Large"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B07D8PNJYV",
+          "size": "Small",
+          "variant": null,
+          "amazon_title": "ADAPTIL Calming Pheromone Collar for Dogs, Small",
+          "verified": "2026-11-26"
+        },
+        {
+          "asin": "B079R9R4F5",
+          "size": "Medium/Large",
+          "variant": null,
+          "amazon_title": "ADAPTIL Calming Pheromone Collar for Dogs, Medium/Large",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "adventure-medical-trail-dog-kit",
+      "name": "Adventure Medical Kits Trail Dog Medical Kit",
+      "brand": "Adventure Medical Kits",
+      "category": "travel_gear",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Compact dog first-aid kit; Amazon lists 7.5 × 1.5 × 5.3 in, 11.2 oz",
+      "maker_says": [
+        "The Amazon listing describes a lightweight, compact dog first-aid kit with dressings, bandages, an instruction manual and tools."
+      ],
+      "spec_rows": [
+        [
+          "Product dimensions",
+          "Amazon lists 7.5 × 1.5 × 5.3 in, 11.2 oz"
+        ],
+        [
+          "Included, per the listing",
+          "Dressings, bandages, an instruction manual and tools"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B00T72ST1Y",
+          "size": null,
+          "variant": null,
+          "amazon_title": "Adventure Medical Kits Trail Dog Medical Kit - Pet First Aid Kit with Dressings, Bandages, Instruction Manual & Tools - Lightweight, Compact Dog Safety Pack",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "greenies-pill-pockets",
+      "name": "Greenies Pill Pockets (Small, Peanut Butter)",
+      "brand": "Greenies",
+      "category": "travel_gear",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Small peanut-butter pill pockets, 3.2 oz",
+      "maker_says": [
+        "The Amazon listing describes these as vet-recommended, moldable pill pockets that mask pill smell and taste, made with natural ingredients and no filler, for tablet-size pills."
+      ],
+      "spec_rows": [
+        [
+          "Size in this listing",
+          "Small, peanut butter, 3.2 oz pouch"
+        ],
+        [
+          "Use, per the listing",
+          "Moldable pockets meant to mask pill smell and taste, for tablet-size pills"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B00A8I3ME0",
+          "size": "Small",
+          "variant": "Peanut Butter, 3.2 oz",
+          "amazon_title": "Greenies Pill Pockets Small Size Dog Treats, Peanut Butter, 3.2 oz | Vet-recommended, masks pill smell & taste, moldable texture, natural ingredients, no filler, tablet size, 3.2 oz. pouch",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "belkin-airtag-secure-holder",
+      "name": "Belkin Secure Holder for Apple AirTag",
+      "brand": "Belkin",
+      "category": "id_gps",
+      "official_url": "",
+      "pets": [
+        "dog",
+        "cat"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "AirTag holder with a wire cable, Black",
+      "maker_says": [
+        "The Amazon listing says the holder is designed to keep Apple AirTags safe and secure, with a raised edge that helps protect them from scuffs and scratches."
+      ],
+      "spec_rows": [
+        [
+          "Color in this listing",
+          "Black"
+        ],
+        [
+          "Compatibility, per the listing",
+          "Apple AirTag; includes a wire cable"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B09LCJFLXM",
+          "size": null,
+          "variant": "Black",
+          "amazon_title": "Belkin Secure Holder with Wire Cable for Apple AirTag, Black",
+          "verified": "2026-11-26"
+        }
+      ]
+    },
+    {
+      "slug": "red-dingo-id-tag",
+      "name": "Red Dingo Personalized Bone Pet ID Tag",
+      "brand": "Red Dingo",
+      "category": "id_gps",
+      "official_url": "",
+      "pets": [
+        "dog"
+      ],
+      "dims_note": "Figures below are taken from the Amazon product page, checked on 26 November 2026. We have not tested the product ourselves.",
+      "summary": "Personalized bone-shaped ID tag, Medium Red",
+      "maker_says": [
+        "The Amazon listing presents this as a Red Dingo personalized bone pet ID dog tag, Medium, Red."
+      ],
+      "spec_rows": [
+        [
+          "Size and color in this listing",
+          "Medium, Red"
+        ],
+        [
+          "Shape",
+          "Bone, per the listing"
+        ]
+      ],
+      "amazon_asins": [
+        {
+          "asin": "B0743XVC54",
+          "size": "Medium",
+          "variant": "Red",
+          "amazon_title": "Red Dingo Personalized Bone Pet ID Dog Tag (Medium Red)",
+          "verified": "2026-11-26"
+        }
       ]
     }
   ],
