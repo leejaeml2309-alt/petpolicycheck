@@ -73,8 +73,6 @@
 .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.6rem 0 1.2rem}
 @media(max-width:980px){.plans{grid-template-columns:1fr}}
 .plan{position:relative;border:1px solid rgba(217,183,101,.22);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(0,0,0,.12));padding:1.25rem 1.15rem 1.3rem;display:flex;flex-direction:column;gap:.7rem}
-.plan.pop{border-color:rgba(217,183,101,.55);box-shadow:0 0 0 1px rgba(217,183,101,.18),0 18px 40px rgba(0,0,0,.28)}
-.plan .badge{position:absolute;top:-.65rem;right:1rem;background:#d9b765;color:#0b1719;font:700 .68rem Inter,sans-serif;letter-spacing:.04em;text-transform:uppercase;padding:.28rem .55rem;border-radius:999px}
 .plan h2{font-family:Marcellus,serif;font-size:1.25rem;margin:0;color:#f3efe6}
 .plan .who{color:#a7b0a2;font-size:.86rem;margin:0}
 .price{display:flex;align-items:baseline;gap:.35rem;margin:.15rem 0}
@@ -273,9 +271,8 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     </div>
   </article>
 
-  <article class="plan pop" data-tier="pro">
-    <span class="badge" data-i="popular">Más popular</span>
-    <h2 data-i="p_name">Pro · Pet Desk Agency</h2>
+  <article class="plan" data-tier="pro">
+<h2 data-i="p_name">Pro · Pet Desk Agency</h2>
     <p class="who" data-i="p_who">Departamentos de reubicación de mascotas y agencias con varios asesores</p>
     <div class="price"><span class="amt" data-price-mo="149" data-price-yr="1428">$149</span><span class="per" data-i="per_mo">/ mes</span><span class="save" hidden data-i="eq_p">equiv. $119/mes</span></div>
     <ul>
