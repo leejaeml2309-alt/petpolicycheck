@@ -34,13 +34,13 @@
 <link rel="alternate" hreflang="de" href="https://petpolicycheck.com/de/grooming/"/>
 <link rel="alternate" hreflang="ja" href="https://petpolicycheck.com/ja/grooming/"/>
 <link rel="alternate" hreflang="x-default" href="https://petpolicycheck.com/grooming/"/>
-<meta content="Toelettatori verificati per cani e gatti, per viaggiatori ed expat locali: furgoni mobili in hotel, saloni fear-free, gatti senza sedazione. Inglese come lingua predefinita." name="description"/>
+<meta content="53 toelettatori verificati per cani e gatti in 8 paesi: USA, Canada, Regno Unito, Francia, Germania, Giappone, Corea del Sud e Australia. Furgoni mobili in hotel, saloni fear-free, gatti senza sedazione." name="description"/>
 
 
 
 
 <meta content="Toelettatura per viaggiatori ed expat locali | PetPolicyCheck" property="og:title"/>
-<meta content="Toelettatori verificati per cani e gatti, per viaggiatori ed expat locali: furgoni mobili in hotel, saloni fear-free, gatti senza sedazione. Inglese come lingua predefinita." property="og:description"/>
+<meta content="53 toelettatori verificati per cani e gatti in 8 paesi: USA, Canada, Regno Unito, Francia, Germania, Giappone, Corea del Sud e Australia. Furgoni mobili in hotel, saloni fear-free, gatti senza sedazione." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="it_IT" property="og:locale"/>
 <meta content="PetPolicyCheck" property="og:site_name"/>
@@ -51,7 +51,7 @@
 <meta content="Shih Tzu seduto in un passeggino-trasportino davanti a un albero di Natale" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Toelettatura per viaggiatori ed expat locali | PetPolicyCheck" name="twitter:title"/>
-<meta content="Toelettatori verificati per cani e gatti, per viaggiatori ed expat locali: furgoni mobili in hotel, saloni fear-free, gatti senza sedazione. Inglese come lingua predefinita." name="twitter:description"/>
+<meta content="53 toelettatori verificati per cani e gatti in 8 paesi: USA, Canada, Regno Unito, Francia, Germania, Giappone, Corea del Sud e Australia. Furgoni mobili in hotel, saloni fear-free, gatti senza sedazione." name="twitter:description"/>
 <meta content="https://petpolicycheck.com/img/og-default.jpg" name="twitter:image"/>
 <meta content="27QQs3iqHRAV_uJ_UuaZ30vZfE1h09ym_lo6i3dGnLI" name="google-site-verification"/>
 <meta content="2223e17fcc7f70953407f06fec611439" name="p:domain_verify"/>
@@ -59,6 +59,7 @@
 <link as="font" crossorigin="" href="/assets/fonts/inter-var-latin.woff2" rel="preload" type="font/woff2"/>
 <link as="font" crossorigin="" href="/assets/fonts/marcellus-latin.woff2" rel="preload" type="font/woff2"/>
 <link href="/assets/css/theme.css?v=20261126xmas2" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/grooming.css?v=20261127g53">
 <link href="/style.css?v=1765ad44" rel="stylesheet"/>
 <link href="/assets/css/ppc-i18n.css?v=20261113nav1" rel="stylesheet"/>
 <script defer="" src="/assets/i18n/ui.js?v=20261124ja1"></script>
@@ -88,15 +89,14 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <p class="warn"><b>Standard di verifica a doppio uso:</b> Ogni salone elencato è verificato quanto a tavoli a vista (niente gabbie nascoste sul retro), gestione dei gatti senza sedazione forzata, lavoro di tosatura di razza e accettazione dei certificati antirabbici esteri per i viaggiatori. Confermi i dettagli con il salone prima di prenotare.</p>
 <div class="theme-grooming" id="grooming-directory"></div>
 <p class="note">Apri anche una qualsiasi città di un corridoio principale sulla <a href="/it/countries/usa-map.html">mappa USA per viaggiare con animali</a> e scelga il passaggio 5 · Toelettatura.</p>
-<script src="/assets/js/grooming-data.js"></script>
-<script src="/assets/js/grooming.js"></script>
+<script src="/assets/js/grooming-data.js?v=20261127g53"></script>
+<script src="/assets/js/grooming.js?v=20261127g53"></script>
 <script>
 (function(){
   var el=document.getElementById('grooming-directory');
   if(!el||!window.PPC_GROOM) return;
-  var keys=Object.keys(window.PPC_GROOMERS||{});
-  el.innerHTML='<h2 id="directory">Seeded US Metro Groomers ('+PPC_GROOM.count()+' verified)</h2>'+PPC_GROOM.block(keys,'../',keys[0]||'');
-  PPC_GROOM.initBlocks();
+  el.innerHTML=PPC_GROOM.directory();
+  PPC_GROOM.initDirectory();
 })();
 </script>
 </main>

@@ -35,7 +35,7 @@
 <link href="https://petpolicycheck.com/de/grooming/" hreflang="de" rel="alternate"/>
 <link href="https://petpolicycheck.com/ja/grooming/" hreflang="ja" rel="alternate"/>
 <link href="https://petpolicycheck.com/grooming/" hreflang="x-default" rel="alternate"/>
-<meta content="旅行者と現地在住の外国人のための確認済みの犬・猫のグルーマー：ホテルへの移動トリミング車、フィアフリーのサロン、鎮静剤を使わない猫のグルーミング。初期設定は英語です。" name="description"/>
+<meta content="8か国53件の確認済み犬・猫グルーマー（アメリカ、カナダ、イギリス、フランス、ドイツ、日本、韓国、オーストラリア）。ホテルへの移動トリミング車、フィアフリーのサロン、鎮静剤を使わない猫のケア。" name="description"/>
 
 
 
@@ -43,7 +43,7 @@
 
 
 <meta content="旅行者と現地在住の外国人のためのペットグルーミング | PetPolicyCheck" property="og:title"/>
-<meta content="旅行者と現地在住の外国人のための確認済みの犬・猫のグルーマー：ホテルへの移動トリミング車、フィアフリーのサロン、鎮静剤を使わない猫のグルーミング。初期設定は英語です。" property="og:description"/>
+<meta content="8か国53件の確認済み犬・猫グルーマー（アメリカ、カナダ、イギリス、フランス、ドイツ、日本、韓国、オーストラリア）。ホテルへの移動トリミング車、フィアフリーのサロン、鎮静剤を使わない猫のケア。" property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="ja_JP" property="og:locale"/>
 <meta content="PetPolicyCheck" property="og:site_name"/>
@@ -54,7 +54,7 @@
 <meta content="クリスマスツリーの前でペット用ストローラーキャリーに座るシーズー" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="旅行者と現地在住の外国人のためのペットグルーミング | PetPolicyCheck" name="twitter:title"/>
-<meta content="旅行者と現地在住の外国人のための確認済みの犬・猫のグルーマー：ホテルへの移動トリミング車、フィアフリーのサロン、鎮静剤を使わない猫のグルーミング。初期設定は英語です。" name="twitter:description"/>
+<meta content="8か国53件の確認済み犬・猫グルーマー（アメリカ、カナダ、イギリス、フランス、ドイツ、日本、韓国、オーストラリア）。ホテルへの移動トリミング車、フィアフリーのサロン、鎮静剤を使わない猫のケア。" name="twitter:description"/>
 <meta content="https://petpolicycheck.com/img/og-default.jpg" name="twitter:image"/>
 <meta content="27QQs3iqHRAV_uJ_UuaZ30vZfE1h09ym_lo6i3dGnLI" name="google-site-verification"/>
 <meta content="2223e17fcc7f70953407f06fec611439" name="p:domain_verify"/>
@@ -62,6 +62,7 @@
 <link as="font" crossorigin="" href="/assets/fonts/inter-var-latin.woff2" rel="preload" type="font/woff2"/>
 <link as="font" crossorigin="" href="/assets/fonts/marcellus-latin.woff2" rel="preload" type="font/woff2"/>
 <link href="/assets/css/theme.css?v=20261126xmas2" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/grooming.css?v=20261127g53">
 <link href="/style.css?v=20261112footer4" rel="stylesheet"/>
 <link href="/assets/css/ppc-i18n.css?v=20261113nav1" rel="stylesheet"/>
 <script defer="" src="/assets/i18n/ui.js?v=20261124ja1"></script>
@@ -90,15 +91,14 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <p class="warn"><b>二つの用途に対応した確認基準：</b>掲載しているすべてのサロンについて、作業台が見えるか（奥に隠れたケージがないか）、猫を強制的な鎮静なしで扱うか、犬種に合わせたハサミでのカット、旅行者の外国の狂犬病証明書を受け付けるかを確認しています。予約前にサロンに詳細をご確認ください。</p>
 <div class="theme-grooming" id="grooming-directory"></div>
 <p class="note"><a href="/ja/countries/usa-map.html">米国のペット旅行地図</a>で主要ルート上の都市を開き、ステップ5 · グルーミングを選ぶこともできます。</p>
-<script src="/assets/js/grooming-data.js"></script>
-<script src="/assets/js/grooming.js"></script>
+<script src="/assets/js/grooming-data.js?v=20261127g53"></script>
+<script src="/assets/js/grooming.js?v=20261127g53"></script>
 <script>
 (function(){
   var el=document.getElementById('grooming-directory');
   if(!el||!window.PPC_GROOM) return;
-  var keys=Object.keys(window.PPC_GROOMERS||{});
-  el.innerHTML='<h2 id="directory">Seeded US Metro Groomers ('+PPC_GROOM.count()+' verified)</h2>'+PPC_GROOM.block(keys,'../',keys[0]||'');
-  PPC_GROOM.initBlocks();
+  el.innerHTML=PPC_GROOM.directory();
+  PPC_GROOM.initDirectory();
 })();
 </script>
 </main>

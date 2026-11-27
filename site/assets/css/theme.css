@@ -217,7 +217,7 @@ html body #usa-map .sec.focus{background:linear-gradient(90deg,color-mix(in srgb
 .gfilter button[aria-pressed=true]{background:var(--theme-grooming);border-color:var(--theme-grooming);color:var(--on-pri)}
 .gfilter .gf-tog{border-style:dashed}
 .ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;margin:4px 0 8px}
-.gcard{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--sec, var(--theme-accent, var(--theme-grooming)));border-radius:10px;padding:10px 11px;transition:border-color .15s}
+.gcard{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--sec, var(--theme-accent, var(--theme-grooming)));border-radius:10px;padding:10px 11px;transition:border-color .15s;display:flex;flex-direction:column;height:100%;min-width:0}
 .gcard:hover{border-color:color-mix(in srgb,var(--sec, var(--theme-accent, var(--theme-grooming))) 55%,var(--line));border-left-color:var(--sec, var(--theme-accent, var(--theme-grooming)))}
 .gcard[hidden]{display:none}
 .gc-h{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
@@ -232,7 +232,7 @@ html body #usa-map .sec.focus{background:linear-gradient(90deg,color-mix(in srgb
 .gb-ask{outline:1px dashed #e6cf9899;outline-offset:-1px;box-shadow:none}
 .gb-na{background:transparent;color:var(--mut);box-shadow:inset 0 0 0 1px var(--line2)}
 .gb-soft{background:var(--chip);color:var(--ink)}
-.gc-f{margin:7px 0 0!important;font-size:.76rem!important;color:var(--mut)}
+.gbs{flex:1 1 auto}.gc-f{margin:7px 0 0!important;margin-top:auto!important;font-size:.76rem!important;color:var(--mut)}
 .gc-f a{color:var(--theme-grooming)!important}
 .glegend{font-size:.74rem!important;color:var(--mut);margin:6px 0!important}
 .glegend .gb{font-size:.66rem}

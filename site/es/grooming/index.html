@@ -28,7 +28,7 @@
 </script>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Peluquería para viajeros y expatriados locales | PetPolicyCheck</title>
-<meta content="Peluqueros verificados de perros y gatos para viajeros y expatriados locales: furgonetas móviles de hotel, salones fear-free, gatos sin sedación. Inglés por defecto." name="description"/>
+<meta content="53 peluqueros verificados de perros y gatos en 8 países: EE. UU., Canadá, Reino Unido, Francia, Alemania, Japón, Corea del Sur y Australia. Furgonetas móviles de hotel, salones fear-free, gatos sin sedación." name="description"/>
 <link href="https://petpolicycheck.com/es/grooming/" rel="canonical"/>
 <link rel="alternate" hreflang="en" href="https://petpolicycheck.com/grooming/"/>
 <link rel="alternate" hreflang="es" href="https://petpolicycheck.com/es/grooming/"/>
@@ -38,7 +38,7 @@
 <link rel="alternate" hreflang="ja" href="https://petpolicycheck.com/ja/grooming/"/>
 <link rel="alternate" hreflang="x-default" href="https://petpolicycheck.com/grooming/"/>
 <meta content="Peluquería para viajeros y expatriados locales | PetPolicyCheck" property="og:title"/>
-<meta content="Peluqueros verificados de perros y gatos para viajeros y expatriados locales: furgonetas móviles de hotel, salones fear-free, gatos sin sedación. Inglés por defecto." property="og:description"/>
+<meta content="53 peluqueros verificados de perros y gatos en 8 países: EE. UU., Canadá, Reino Unido, Francia, Alemania, Japón, Corea del Sur y Australia. Furgonetas móviles de hotel, salones fear-free, gatos sin sedación." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="es_MX" property="og:locale"/>
 <meta content="PetPolicyCheck" property="og:site_name"/>
@@ -49,7 +49,7 @@
 <meta content="Shih Tzu sitting in a pet stroller carrier in front of a Christmas tree" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Peluquería para viajeros y expatriados locales | PetPolicyCheck" name="twitter:title"/>
-<meta content="Peluqueros verificados de perros y gatos para viajeros y expatriados locales: furgonetas móviles de hotel, salones fear-free, gatos sin sedación. Inglés por defecto." name="twitter:description"/>
+<meta content="53 peluqueros verificados de perros y gatos en 8 países: EE. UU., Canadá, Reino Unido, Francia, Alemania, Japón, Corea del Sur y Australia. Furgonetas móviles de hotel, salones fear-free, gatos sin sedación." name="twitter:description"/>
 <meta content="https://petpolicycheck.com/img/og-default.jpg" name="twitter:image"/>
 <meta content="27QQs3iqHRAV_uJ_UuaZ30vZfE1h09ym_lo6i3dGnLI" name="google-site-verification"/>
 <meta content="2223e17fcc7f70953407f06fec611439" name="p:domain_verify"/>
@@ -57,6 +57,7 @@
 <link as="font" crossorigin="" href="/assets/fonts/inter-var-latin.woff2" rel="preload" type="font/woff2"/>
 <link as="font" crossorigin="" href="/assets/fonts/marcellus-latin.woff2" rel="preload" type="font/woff2"/>
 <link href="/assets/css/theme.css?v=20261126xmas2" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/css/grooming.css?v=20261127g53">
 <link href="/style.css?v=20261112footer4" rel="stylesheet"/>
 <link href="/assets/css/ppc-i18n.css?v=20261113nav1" rel="stylesheet"/>
 <script defer="" src="/assets/i18n/ui.js?v=20261124ja1"></script>
@@ -78,15 +79,14 @@
 <p class="warn"><b>Estándar de verificación de doble uso:</b> Cada salón listado se verifica por mesas a la vista (sin jaulas traseras ocultas), manejo de gatos sin sedación forzada, trabajo de tijera por raza, y si se aceptan certificados de rabia extranjeros para viajeros. Confirme los detalles con el salón antes de reservar.</p>
 <div class="theme-grooming" id="grooming-directory"></div>
 <p class="note">También abra cualquier ciudad de un corredor principal en el <a href="../countries/usa-map.html">Mapa de viaje con mascotas de EE. UU.</a> and choose step 5 · Grooming.</p>
-<script src="/assets/js/grooming-data.js"></script>
-<script src="/assets/js/grooming.js"></script>
+<script src="/assets/js/grooming-data.js?v=20261127g53"></script>
+<script src="/assets/js/grooming.js?v=20261127g53"></script>
 <script>
 (function(){
   var el=document.getElementById('grooming-directory');
   if(!el||!window.PPC_GROOM) return;
-  var keys=Object.keys(window.PPC_GROOMERS||{});
-  el.innerHTML='<h2 id="directory">Seeded US Metro Groomers ('+PPC_GROOM.count()+' verified)</h2>'+PPC_GROOM.block(keys,'../',keys[0]||'');
-  PPC_GROOM.initBlocks();
+  el.innerHTML=PPC_GROOM.directory();
+  PPC_GROOM.initDirectory();
 })();
 </script>
 </main>

@@ -27,7 +27,7 @@
 </script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pet Grooming for Travelers &amp; Local Expats | PetPolicyCheck</title>
-<meta name="description" content="Verified dog and cat groomers for travelers and local expats: hotel mobile vans, fear-free salons, sedation-free cats. English by default.">
+<meta name="description" content="53 verified dog and cat groomers across 8 countries — USA, Canada, the UK, France, Germany, Japan, South Korea and Australia. Hotel mobile vans, fear-free salons, sedation-free cat care.">
 <link rel="canonical" href="https://petpolicycheck.com/grooming/">
 <link rel="alternate" hreflang="en" href="https://petpolicycheck.com/grooming/"/>
 <link rel="alternate" hreflang="es" href="https://petpolicycheck.com/es/grooming/"/>
@@ -38,7 +38,7 @@
 <link rel="alternate" hreflang="x-default" href="https://petpolicycheck.com/grooming/"/>
 
 <meta property="og:title" content="Pet Grooming for Travelers &amp; Local Expats | PetPolicyCheck">
-<meta property="og:description" content="Verified dog and cat groomers for travelers and local expats: hotel mobile vans, fear-free salons, sedation-free cats. English by default.">
+<meta property="og:description" content="53 verified dog and cat groomers across 8 countries — USA, Canada, the UK, France, Germany, Japan, South Korea and Australia. Hotel mobile vans, fear-free salons, sedation-free cat care.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="PetPolicyCheck">
@@ -49,7 +49,7 @@
 <meta property="og:image:alt" content="Shih Tzu sitting in a pet stroller carrier in front of a Christmas tree">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pet Grooming for Travelers &amp; Local Expats | PetPolicyCheck">
-<meta name="twitter:description" content="Verified dog and cat groomers for travelers and local expats: hotel mobile vans, fear-free salons, sedation-free cats. English by default.">
+<meta name="twitter:description" content="53 verified dog and cat groomers across 8 countries — USA, Canada, the UK, France, Germany, Japan, South Korea and Australia. Hotel mobile vans, fear-free salons, sedation-free cat care.">
 <meta name="twitter:image" content="https://petpolicycheck.com/img/og-default.jpg">
 <meta name="google-site-verification" content="27QQs3iqHRAV_uJ_UuaZ30vZfE1h09ym_lo6i3dGnLI">
 <meta name="p:domain_verify" content="2223e17fcc7f70953407f06fec611439">
@@ -57,6 +57,7 @@
 <link rel="preload" href="../assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../assets/fonts/marcellus-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/theme.css?v=20261126xmas2">
+<link rel="stylesheet" href="../assets/css/grooming.css?v=20261127g53">
 <link rel="stylesheet" href="../style.css?v=20261112footer4">
 <link rel="stylesheet" href="../assets/css/ppc-i18n.css?v=20261113nav1">
 <script src="../assets/i18n/ui.js?v=20261124ja1" defer></script>
@@ -85,15 +86,14 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <p class="warn"><b>Dual-Use Verification Standard:</b> Every listed salon is checked for open-view tables (no hidden back cages), cat handling without forced sedation, breed scissor work, and whether foreign rabies certificates are accepted for travelers. Confirm details with the salon before you book.</p>
 <div id="grooming-directory" class="theme-grooming"></div>
 <p class="note">Also open any city on a main corridor on the <a href="../countries/usa-map.html">USA pet-travel map</a> and choose step 5 · Grooming.</p>
-<script src="../assets/js/grooming-data.js"></script>
-<script src="../assets/js/grooming.js"></script>
+<script src="../assets/js/grooming-data.js?v=20261127g53"></script>
+<script src="../assets/js/grooming.js?v=20261127g53"></script>
 <script>
 (function(){
   var el=document.getElementById('grooming-directory');
   if(!el||!window.PPC_GROOM) return;
-  var keys=Object.keys(window.PPC_GROOMERS||{});
-  el.innerHTML='<h2 id="directory">Seeded US Metro Groomers ('+PPC_GROOM.count()+' verified)</h2>'+PPC_GROOM.block(keys,'../',keys[0]||'');
-  PPC_GROOM.initBlocks();
+  el.innerHTML=PPC_GROOM.directory();
+  PPC_GROOM.initDirectory();
 })();
 </script>
 </main>
