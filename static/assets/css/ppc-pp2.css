@@ -17,3 +17,8 @@ html.ppc-pp2 .ppc-tease-links{display:flex;flex-wrap:wrap;gap:14px 10px;align-it
 @media (max-width:820px){.ppc-split{margin:12px -4px 10px;padding:4px 4px 8px}.ppc-split__tab{padding:7px 12px;font-size:.8rem}}
 html.ppc-pp2 .ppc-tease-links .btn{box-shadow:0 3px 8px #0005,inset 0 1px 0 #fff6}
 html.ppc-pp2 .usa-map-tease{padding:14px 16px 16px}
+
+/* v4f: on mobile the new sticky header covers top:0, so the tab bar must stick just below it. */
+@media (max-width:820px){
+  .ppc-split{top:var(--ppc-sticky-top, 62px);z-index:5}
+}

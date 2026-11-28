@@ -379,3 +379,22 @@ html body .ppc-ticket.ppc-ticket--airline > .ppc-ticket__stub > .ppc-ticket__cta
   html body .ppc-ticket.ppc-ticket--airline:not(.ppc-ticket--portrait) > .ppc-ticket__stub:has(> .ppc-ticket__cta){align-items:center;justify-content:center}
   html body .ppc-ticket.ppc-ticket--airline:not(.ppc-ticket--portrait) > .ppc-ticket__stub > .ppc-ticket__cta{flex:0 0 auto;height:46px;align-self:center}
 }
+
+
+/* v4f: airline CTA label and arrow stay on one line, identical button size. */
+html body .ppc-ticket.ppc-ticket--airline > .ppc-ticket__stub > .ppc-ticket__cta.ppc-ticket__cta{
+  display:inline-flex!important;
+  flex-direction:row!important;
+  flex-wrap:nowrap!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px;
+  height:46px;min-height:46px;max-height:46px;
+  box-sizing:border-box;
+}
+html body .ppc-ticket.ppc-ticket--airline > .ppc-ticket__stub > .ppc-ticket__cta > span:not(.ppc-ticket__arrow){
+  flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+html body .ppc-ticket.ppc-ticket--airline > .ppc-ticket__stub > .ppc-ticket__cta .ppc-ticket__arrow{
+  flex:0 0 auto;white-space:nowrap;
+}

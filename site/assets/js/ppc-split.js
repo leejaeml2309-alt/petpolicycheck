@@ -82,7 +82,8 @@
     bar.addEventListener("click", function (e) {
       var a = e.target.closest("a.ppc-split__tab"); if (!a) return;
       e.preventDefault(); show(a.getAttribute("href").slice(1), true);
-      var top = bar.getBoundingClientRect().top + window.scrollY - 90; if (window.scrollY > top) window.scrollTo(0, top);
+      var offset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--ppc-sticky-top")) || 62;
+      var top = bar.getBoundingClientRect().top + window.scrollY - offset; if (window.scrollY > top) window.scrollTo(0, top);
       a.scrollIntoView({ block: "nearest", inline: "center" });
     });
     bar.addEventListener("keydown", function (e) {

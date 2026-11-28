@@ -81,20 +81,25 @@
       for (var q = 0; q < placed.length; q++) { var o = placed[q]; if (b[0] < o[2] && o[0] < b[2] && b[1] < o[3] && o[1] < b[3]) return false; }
       return true;
     }
-    /* who gets a name: the page you are on, then interchanges (all lines), then the selected line */
+    /* who gets a name: the page you are on, then interchanges (all lines), then the selected line,
+       then the Military line (always labelled: its navy stroke vanishes on the navy ground). */
     var want = stations.filter(function (u) { return u === curUrl; })
       .concat(stations.filter(function (u) { return u !== curUrl && linesAt(u).length > 1; }))
       .concat(selSt.filter(function (u) { return u !== curUrl && linesAt(u).length < 2; }));
+    (ROUTE.military || []).forEach(function (p) { if (typeof p === "string" && want.indexOf(p) < 0) want.push(p); });
     want.forEach(function (u) {
       var x = POS[u][0], y = Y(POS[u][1]), t = NAMES[u] || u, w = tw(t), hh = 11;
       var c = [[x - w / 2, y + 8, "middle", x, y + 17], [x - w / 2, y - 18, "middle", x, y - 9],
                [x + 10, y - 5.5, "start", x + 10, y + 4], [x - 10 - w, y - 5.5, "end", x - 10, y + 4],
                [x + 6, y + 7, "start", x + 6, y + 16], [x - 6 - w, y + 7, "end", x - 6, y + 16],
                [x + 6, y - 17, "start", x + 6, y - 8], [x - 6 - w, y - 17, "end", x - 6, y - 8]];
-      for (var n = 0; n < c.length; n++) {
-        var b = [c[n][0], c[n][1], c[n][0] + w, c[n][1] + hh];
-        if (fits(b)) { placed.push(b); labels.push([u, c[n][3], c[n][4], c[n][2], t]); return; }
+      var n, b, picked = false;
+      for (n = 0; n < c.length; n++) {
+        b = [c[n][0], c[n][1], c[n][0] + w, c[n][1] + hh];
+        if (fits(b)) { placed.push(b); labels.push([u, c[n][3], c[n][4], c[n][2], t]); picked = true; break; }
       }
+      /* still emit a text node so the runtime placer (real font metrics) can position it */
+      if (!picked) labels.push([u, c[0][3], c[0][4], c[0][2], t]);
     });
     stations.forEach(function (u) {
       var x = POS[u][0], y = Y(POS[u][1]), ls = linesAt(u);
@@ -202,11 +207,19 @@
   function placeMetroLabels(svg) {
     if (!svg || !svg.getClientRects().length) return { placed: 0 };
     /* Frame is the padded map card, not the raw viewBox, so labels may use the inner margin. */
-    var frameEl = svg.closest(".ppc-mmap, .tp-fullmap__scroller") || svg.parentElement || svg;
+    var frameEl = svg.closest(".tp-fullmap__scroller") || svg.closest("#ppc-metro") || svg.closest(".ppc-mmap") || svg.parentElement || svg;
     var sb = frameEl.getBoundingClientRect();
+    /* Compact header: use nav side/bottom padding, but do not climb into the line-selector bar. */
+    if (frameEl.id === "ppc-metro") {
+      var mmapEl = svg.closest(".ppc-mmap") || svg, mb = mmapEl.getBoundingClientRect();
+      var bar = frameEl.querySelector(".ppc-metro__bar");
+      var topMin = bar ? bar.getBoundingClientRect().bottom : mb.top;
+      sb = { left: sb.left, right: sb.right, top: topMin, bottom: sb.bottom };
+    }
     var texts = [].slice.call(svg.querySelectorAll("text"));
     var paths = [].map.call(svg.querySelectorAll("path"), screenPath);
-    var circles = [].map.call(svg.querySelectorAll("circle"), function (c) {
+    /* Collision discs are station dots/rings only — the you-are-here halo must not steal the only slot left for the current name. */
+    var circles = [].map.call(svg.querySelectorAll("circle.ppc-mmap__dot, circle.ppc-mmap__ring"), function (c) {
       var b = c.getBoundingClientRect();
       return { x: (b.left + b.right) / 2, y: (b.top + b.bottom) / 2, r: Math.max(b.width, b.height) / 2 };
     });
@@ -236,8 +249,34 @@
       t.setAttribute("x", x.toFixed(1));
       t.setAttribute("y", (y - (lines.length - 1) * lh * 0.35).toFixed(1));
     }
+    /* Each label must sit closer to its own disc than to any other, and must not stack under a neighbour. */
+    var stns = [].map.call(svg.querySelectorAll("a.ppc-mmap__st"), function (a) {
+      var c = a.querySelector("circle.ppc-mmap__dot, circle.ppc-mmap__ring") || a.querySelector("circle");
+      if (!c) return null;
+      var b = c.getBoundingClientRect();
+      return { x: (b.left + b.right) / 2, y: (b.top + b.bottom) / 2 };
+    }).filter(Boolean);
+    function nearerOwn(r, own) {
+      var dOwn = distRectCircle(r, own.x, own.y, 0), i, d;
+      for (i = 0; i < stns.length; i++) {
+        if (Math.abs(stns[i].x - own.x) < 0.6 && Math.abs(stns[i].y - own.y) < 0.6) continue;
+        d = distRectCircle(r, stns[i].x, stns[i].y, 0);
+        if (d + 8 < dOwn) return false;
+      }
+      return true;
+    }
+    function noStack(r) {
+      var i, o, ox, gap;
+      for (i = 0; i < placed.length; i++) {
+        o = placed[i];
+        ox = Math.min(r.right, o.right) - Math.max(r.left, o.left);
+        gap = Math.max(r.top, o.top) - Math.min(r.bottom, o.bottom);
+        if (ox > 8 && gap < 12) return false;
+      }
+      return true;
+    }
     texts.forEach(function (t) {
-      var a = t.closest("a"), cir = a && a.querySelector("circle");
+      var a = t.closest("a"), cir = a && a.querySelector("circle.ppc-mmap__dot, circle.ppc-mmap__ring") || (a && a.querySelector("circle"));
       if (!cir) { t.style.visibility = "visible"; return; }
       if (!t.getAttribute("data-name")) t.setAttribute("data-name", t.textContent.trim());
       var name = t.getAttribute("data-name");
@@ -246,23 +285,121 @@
         for (var w = 1; w < words.length; w++) wraps.push([words.slice(0, w).join(" "), words.slice(w).join(" ")]);
       }
       var cb = cir.getBoundingClientRect(), sx = (cb.left + cb.right) / 2, sy = (cb.top + cb.bottom) / 2;
-      var ic = a.classList.contains("is-ic");
+      var ic = a.classList.contains("is-ic") || a.classList.contains("is-here") || t.classList.contains("is-here");
       var cands = [], dists = [11, 14, 17, 20, 24, 28, 34, 42, 52, 64, 76];
       var dirs = ic
-        ? [[1, 1, "start"], [-1, 1, "end"], [1, -1, "start"], [-1, -1, "end"], [0, 1, "middle"], [0, -1, "middle"], [1, 0.35, "start"], [-1, 0.35, "end"], [1, -0.35, "start"], [-1, -0.35, "end"]]
-        : [[0, 1, "middle"], [0, -1, "middle"], [1, 1, "start"], [-1, 1, "end"], [1, -1, "start"], [-1, -1, "end"], [1, 0.4, "start"], [-1, 0.4, "end"], [1, -0.4, "start"], [-1, -0.4, "end"]];
+        ? [[1, -0.7, "start"], [-1, -0.7, "end"], [1, -0.5, "start"], [-1, -0.5, "end"], [1, 0, "start"], [-1, 0, "end"], [1, 0.25, "start"], [-1, 0.25, "end"], [1, -0.25, "start"], [-1, -0.25, "end"], [1, 1, "start"], [-1, 1, "end"], [1, -1, "start"], [-1, -1, "end"], [0, 1, "middle"], [0, -1, "middle"], [1, 0.35, "start"], [-1, 0.35, "end"], [1, -0.35, "start"], [-1, -0.35, "end"]]
+        : [[1, -0.7, "start"], [-1, -0.7, "end"], [1, -0.5, "start"], [-1, -0.5, "end"], [1, 0, "start"], [-1, 0, "end"], [0, 1, "middle"], [0, -1, "middle"], [1, 1, "start"], [-1, 1, "end"], [1, -1, "start"], [-1, -1, "end"], [1, 0.4, "start"], [-1, 0.4, "end"], [1, -0.4, "start"], [-1, -0.4, "end"]];
       dists.forEach(function (d) {
         dirs.forEach(function (an) { cands.push([sx + an[0] * d, sy + an[1] * d, an[2]]); });
       });
-      var ok = false, i, u, ux, r;
-      for (u = 0; u < wraps.length && !ok; u++) {
-        for (i = 0; i < cands.length; i++) {
-          ux = toUser(cands[i][0], cands[i][1]);
-          setPos(t, ux[0], ux[1], cands[i][2], wraps[u]);
-          t.style.visibility = "visible";
-          r = inflate(t.getBoundingClientRect(), strokePad);
-          if (labelFits(r, sb, paths, circles, placed, LABEL_GAP)) { placed.push(r); ok = true; break; }
+      var ok = false, i, u, ux, r, g, gMin = (t.classList.contains("is-here") || +t.getAttribute("data-pri") === 3) ? 2 : LABEL_GAP;
+      for (g = LABEL_GAP; g >= gMin && !ok; g--) {
+        for (u = 0; u < wraps.length && !ok; u++) {
+          for (i = 0; i < cands.length; i++) {
+            ux = toUser(cands[i][0], cands[i][1]);
+            setPos(t, ux[0], ux[1], cands[i][2], wraps[u]);
+            t.style.visibility = "visible";
+            r = inflate(t.getBoundingClientRect(), strokePad);
+            if (labelFits(r, sb, paths, circles, placed, g) && nearerOwn(r, { x: sx, y: sy }) && noStack(r)) { placed.push(r); ok = true; break; }
+            t.style.visibility = "hidden";
+          }
+        }
+      }
+      if (!ok) {
+        t.style.visibility = "hidden";
+        t.setAttribute("data-unplaced", "1");
+        t.setAttribute("aria-hidden", "true");
+      } else { t.removeAttribute("data-unplaced"); t.removeAttribute("aria-hidden"); }
+    });
+    /* Tight bottom Military row: if any of its names failed, re-place the whole row
+       in reserved left / above / right slots so every station keeps a name. */
+    (function placeMilRow() {
+      function isMil(t) {
+        var a = t.closest("a"), href = (a && a.getAttribute("href")) || "";
+        return /\/(military|military-pcs|veterans|k9)(\/|$|#)/.test(href);
+      }
+      var milTs = texts.filter(isMil);
+      if (!milTs.length || !milTs.some(function (t) { return t.getAttribute("data-unplaced"); })) return;
+      placed.length = 0;
+      texts.forEach(function (t) {
+        if (isMil(t)) return;
+        if (t.style.visibility !== "hidden" && !t.getAttribute("data-unplaced")) {
+          placed.push(inflate(t.getBoundingClientRect(), strokePad));
+        }
+      });
+      milTs.sort(function (a, b) {
+        var ca = a.closest("a").querySelector("circle.ppc-mmap__dot, circle.ppc-mmap__ring") || a.closest("a").querySelector("circle");
+        var cb = b.closest("a").querySelector("circle.ppc-mmap__dot, circle.ppc-mmap__ring") || b.closest("a").querySelector("circle");
+        return ca.getBoundingClientRect().left - cb.getBoundingClientRect().left;
+      });
+      milTs.forEach(function (t, idx) {
+        var a = t.closest("a"), cir = a.querySelector("circle.ppc-mmap__dot, circle.ppc-mmap__ring") || a.querySelector("circle");
+        var name = t.getAttribute("data-name") || t.textContent.trim();
+        if (!t.getAttribute("data-name")) t.setAttribute("data-name", name);
+        var words = name.split(/\s+/), wraps = [[name]];
+        if (words.length > 1) {
+          for (var w = 1; w < words.length; w++) wraps.push([words.slice(0, w).join(" "), words.slice(w).join(" ")]);
+        }
+        var cb = cir.getBoundingClientRect(), sx = (cb.left + cb.right) / 2, sy = (cb.top + cb.bottom) / 2;
+        var isFirst = idx === 0, isLast = idx === milTs.length - 1;
+        var dirs = isFirst
+          ? [[-1, 0.1, "end"], [-1, -0.5, "end"], [-1, -1, "end"], [0, -1, "middle"], [-1, 1, "end"]]
+          : isLast
+          ? [[1, 0.1, "start"], [1, -0.5, "start"], [1, -1, "start"], [0, -1, "middle"], [1, 1, "start"]]
+          : [[0, -1, "middle"], [0, -1.35, "middle"], [0, -1.7, "middle"], [-0.35, -1, "end"], [0.35, -1, "start"], [0, 1, "middle"]];
+        var dists = [12, 15, 18, 22, 26, 32, 40, 50];
+        var cands = [];
+        dists.forEach(function (d) {
+          dirs.forEach(function (an) { cands.push([sx + an[0] * d, sy + an[1] * d, an[2]]); });
+        });
+        var ok = false, i, u, ux, r, gap;
+        for (gap = LABEL_GAP; gap >= 2 && !ok; gap--) {
+          for (u = 0; u < wraps.length && !ok; u++) {
+            for (i = 0; i < cands.length; i++) {
+              ux = toUser(cands[i][0], cands[i][1]);
+              setPos(t, ux[0], ux[1], cands[i][2], wraps[u]);
+              t.style.visibility = "visible";
+              r = inflate(t.getBoundingClientRect(), strokePad);
+              if (labelFits(r, sb, paths, circles, placed, gap) && nearerOwn(r, { x: sx, y: sy }) && noStack(r)) {
+                placed.push(r); ok = true; break;
+              }
+              t.style.visibility = "hidden";
+            }
+          }
+        }
+        if (!ok) {
           t.style.visibility = "hidden";
+          t.setAttribute("data-unplaced", "1");
+          t.setAttribute("aria-hidden", "true");
+        } else { t.removeAttribute("data-unplaced"); t.removeAttribute("aria-hidden"); }
+      });
+    })();
+    /* Second pass: recover remaining unplaced names (e.g. Philippines on the homepage Line 0) with a slightly tighter gap. */
+    texts.forEach(function (t) {
+      if (!t.getAttribute("data-unplaced")) return;
+      var a = t.closest("a"), cir = a && a.querySelector("circle.ppc-mmap__dot, circle.ppc-mmap__ring") || (a && a.querySelector("circle"));
+      if (!cir) return;
+      var name = t.getAttribute("data-name") || t.textContent.trim();
+      var words = name.split(/\s+/), wraps = [[name]];
+      if (words.length > 1) {
+        for (var w = 1; w < words.length; w++) wraps.push([words.slice(0, w).join(" "), words.slice(w).join(" ")]);
+      }
+      var cb = cir.getBoundingClientRect(), sx = (cb.left + cb.right) / 2, sy = (cb.top + cb.bottom) / 2;
+      var dirs = [[1, -0.7, "start"], [-1, -0.7, "end"], [1, -0.5, "start"], [-1, -0.5, "end"], [1, 0, "start"], [-1, 0, "end"], [0, -1, "middle"], [0, 1, "middle"], [1, 1, "start"], [-1, 1, "end"], [1, -1, "start"], [-1, -1, "end"]];
+      var dists = [12, 15, 18, 22, 26, 32, 40, 50, 64], cands = [];
+      dists.forEach(function (d) { dirs.forEach(function (an) { cands.push([sx + an[0] * d, sy + an[1] * d, an[2]]); }); });
+      var ok = false, i, u, ux, r, gap;
+      for (gap = 3; gap >= 1 && !ok; gap--) {
+        for (u = 0; u < wraps.length && !ok; u++) {
+          for (i = 0; i < cands.length; i++) {
+            ux = toUser(cands[i][0], cands[i][1]);
+            setPos(t, ux[0], ux[1], cands[i][2], wraps[u]);
+            t.style.visibility = "visible";
+            r = inflate(t.getBoundingClientRect(), strokePad);
+            if (labelFits(r, sb, paths, circles, placed, gap) && nearerOwn(r, { x: sx, y: sy }) && noStack(r)) { placed.push(r); ok = true; break; }
+            t.style.visibility = "hidden";
+          }
         }
       }
       if (!ok) {
@@ -334,13 +471,118 @@
       var open = ap.hidden; ap.hidden = !open; ab.setAttribute("aria-expanded", String(open));
       ab.textContent = open ? "Close map" : "All lines";
     });
+    setStickyTop();
+    wireHomeMenu();
     centre();
     placeAllMetroLabels();
-    var rz; window.addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(function () { centre(); placeAllMetroLabels(); }, 120); });
+    var rz; window.addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(function () { setStickyTop(); centre(); placeAllMetroLabels(); }, 120); });
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { centre(); placeAllMetroLabels(); });
-    window.addEventListener("load", placeAllMetroLabels);
+    window.addEventListener("load", function () { setStickyTop(); placeAllMetroLabels(); });
   }
+
+  function setStickyTop() {
+    var h = document.querySelector("header.top");
+    var hh = (h && h.getBoundingClientRect().height) ? Math.round(h.getBoundingClientRect().height) : 62;
+    document.documentElement.style.setProperty("--ppc-sticky-top", hh + "px");
+  }
+
+  /* v4f: homepage menu — group by metro line, scroll the panel (not the page), lock body scroll on iOS. */
+  var MENU_GROUPS = [
+    { n: "1", name: "Destinations", c: "#d9b765", keys: ["World map", "Laws"] },
+    { n: "2", name: "Vet & paperwork", c: "#a7b1d3", keys: ["Vet"] },
+    { n: "3", name: "Airlines", c: "#98c6cc", keys: ["Plane", "Compare"] },
+    { n: "4", name: "Gear", c: "#dfa572", keys: ["Products", "Guides"] },
+    { n: "6", name: "Stay & ground", c: "#d3a0b1", keys: ["Hotel", "Rides"] },
+    { n: "7", name: "Grooming", c: "#c6a4db", keys: ["Grooming"] },
+    { n: "8", name: "Community", c: "#9dc2a0", keys: ["Forum", "Adoptions", "News", "Updates"] },
+    { n: "B", name: "Business", c: "#8b9ce2", keys: ["For Business"] },
+    { n: "M", name: "Military", c: "#0a2e5c", keys: ["K9", "Service dogs", "Veterans"], mil: true },
+    { n: "", name: "", c: "", keys: ["About"] }
+  ];
+  function menuKey(a) {
+    var t = (a.getAttribute("aria-label") || a.textContent || "").replace(/\s+/g, " ").trim();
+    t = t.replace(/\s*—.*$/, ""); /* drop the Christmas aria suffix */
+    return t;
+  }
+  function enhanceHomeMenu(m) {
+    if (!m || m.getAttribute("data-ppc-mnu") === "1") return;
+    var links = [].slice.call(m.querySelectorAll("a")), by = {};
+    links.forEach(function (a) { by[menuKey(a)] = a; });
+    if (!by["World map"] && !by["Compare"]) return;
+    var h = "", used = {};
+    MENU_GROUPS.forEach(function (g) {
+      var items = g.keys.map(function (k) { return by[k]; }).filter(Boolean);
+      if (!items.length) return;
+      items.forEach(function (a) { used[menuKey(a)] = true; });
+      if (g.n) {
+        h += '<div class="ppc-mnu__group"><p class="ppc-mnu__line">' +
+          '<span class="ppc-metro__bul' + (g.mil ? " is-mil" : "") + '" style="--c:' + g.c + '" aria-hidden="true">' + g.n + "</span>" +
+          "<span>Line " + g.n + " · " + g.name + "</span></p>";
+      } else h += '<div class="ppc-mnu__group">';
+      items.forEach(function (a) {
+        a.classList.add("ppc-mnu__item");
+        h += a.outerHTML;
+      });
+      h += "</div>";
+    });
+    /* any leftover link (should be none) */
+    links.forEach(function (a) { if (!used[menuKey(a)]) h += a.outerHTML.replace("<a ", '<a class="ppc-mnu__item" '); });
+    m.innerHTML = h;
+    m.classList.add("ppc-mnu");
+    m.setAttribute("data-ppc-mnu", "1");
+  }
+  function lockPageScroll(on) {
+    var b = document.body;
+    if (on) {
+      if (b.dataset.ppcLock != null) return;
+      var y = window.scrollY || window.pageYOffset || 0;
+      b.dataset.ppcLock = String(y);
+      b.style.position = "fixed";
+      b.style.top = "-" + y + "px";
+      b.style.left = "0";
+      b.style.right = "0";
+      b.style.width = "100%";
+      document.documentElement.style.overflow = "hidden";
+    } else if (b.dataset.ppcLock != null) {
+      var y2 = parseInt(b.dataset.ppcLock, 10) || 0;
+      delete b.dataset.ppcLock;
+      b.style.position = ""; b.style.top = ""; b.style.left = ""; b.style.right = ""; b.style.width = "";
+      document.documentElement.style.overflow = "";
+      window.scrollTo(0, y2);
+    }
+  }
+  function wireHomeMenu() {
+    if (norm(location.pathname) !== "/") return;
+    var tries = 0;
+    function go() {
+      var m = document.getElementById("site-menu");
+      if (m && m.querySelector("a")) {
+        enhanceHomeMenu(m);
+        var btn = document.querySelector("header.top .menu-btn");
+        function sync() {
+          var open = m.classList.contains("open");
+          lockPageScroll(open);
+          if (btn) {
+            var lab = btn.querySelector("[data-i18n], span:last-child") || btn;
+            if (lab && lab !== btn && !lab.querySelector("svg")) lab.textContent = open ? "Close" : "Menu";
+            btn.setAttribute("aria-expanded", open ? "true" : "false");
+          }
+        }
+        if (!m._ppcWired) {
+          m._ppcWired = true;
+          new MutationObserver(sync).observe(m, { attributes: true, attributeFilter: ["class"] });
+          document.addEventListener("keydown", function (e) { if (e.key === "Escape" && m.classList.contains("open") && btn) btn.click(); });
+        }
+        sync();
+        return;
+      }
+      if (++tries < 40) setTimeout(go, 50);
+    }
+    go();
+  }
+
   window.PPCMetro = { lines: LINES, build: build, placeLabels: placeAllMetroLabels };
+
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", build);
   else build();
 })();
