@@ -59,10 +59,10 @@
   LINES.forEach(function (L) { L.st.forEach(function (s) { NAMES[s[1]] = s[0]; }); });
   NAMES["/hotels/"] = "Hotels"; NAMES["/countries/"] = "Country guides";
   function linesAt(u) { var o = []; LINES.forEach(function (L, i) { if (ROUTE[L.id].indexOf(u) > -1) o.push(i); }); return o; }
-  /* v3 compact map: the schematic keeps its x, rows are 24 units apart (viewBox 1200x131). */
-  function Y(y) { return Math.round((15 + (y - 36) * 0.6) * 10) / 10; }
+  /* v3 compact map (viewBox 1200x138): same topology, 7px extra vertical padding so labels clear the frame by 4px. */
+  function Y(y) { return Math.round((19 + (y - 36) * 0.6) * 10) / 10; }
   function svgMap(sel, curUrl) {
-    var W = 1200, H = 131, h = '<svg class="ppc-mmap__svg" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Metro map: all lines and interchanges">';
+    var W = 1200, H = 138, h = '<svg class="ppc-mmap__svg" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Metro map: all lines and interchanges">';
     var order = LINES.map(function (L, i) { return i; }).filter(function (i) { return i !== sel; }).concat([sel]);
     order.forEach(function (i) {
       var L = LINES[i], pts = ROUTE[L.id].map(function (p) { return typeof p === "string" ? POS[p] : p; });
@@ -105,7 +105,7 @@
       else h += '<circle cx="' + x + '" cy="' + y + '" r="3.6" class="ppc-mmap__dot" style="stroke:' + LINES[ls[0]].c + '"/>';
       if (here) h += '<circle cx="' + x + '" cy="' + y + '" r="10" class="ppc-mmap__here"/>';
       labels.forEach(function (l) {
-        if (l[0] === u) h += '<text x="' + l[1] + '" y="' + l[2] + '" text-anchor="' + l[3] + '" class="ppc-mmap__lbl' + (here ? " is-here" : ic ? " is-ic" : "") + '">' + esc(l[4]) + "</text>";
+        if (l[0] === u) h += '<text x="' + l[1] + '" y="' + l[2] + '" text-anchor="' + l[3] + '" data-pri="' + (here ? 3 : ic ? 2 : 1) + '" class="ppc-mmap__lbl' + (here ? " is-here" : ic ? " is-ic" : "") + '">' + esc(l[4]) + "</text>";
       });
       h += "</a>";
     });
@@ -145,6 +145,136 @@
       h += '<li class="ppc-metro__st' + (on ? " is-here" : "") + '"><a href="' + s[1] + '"' + (on ? ' aria-current="page"' : "") + '><span class="ppc-metro__dot" aria-hidden="true"></span><span class="ppc-metro__lbl">' + esc(s[0]) + "</span></a></li>";
     });
     return h + "</ol>";
+  }
+
+
+  var LABEL_GAP = 4; /* CSS px: no label may sit closer than this to a line, disc, ring, other label or the frame */
+  function distPointSeg(px, py, x1, y1, x2, y2) {
+    var dx = x2 - x1, dy = y2 - y1, l2 = dx * dx + dy * dy;
+    if (!l2) return Math.hypot(px - x1, py - y1);
+    var t = Math.max(0, Math.min(1, ((px - x1) * dx + (py - y1) * dy) / l2));
+    return Math.hypot(px - (x1 + t * dx), py - (y1 + t * dy));
+  }
+  function distRectSeg(r, x1, y1, x2, y2) {
+    var d = Infinity, pts = [[r.left, r.top], [r.right, r.top], [r.right, r.bottom], [r.left, r.bottom]];
+    for (var i = 0; i < 4; i++) d = Math.min(d, distPointSeg(pts[i][0], pts[i][1], x1, y1, x2, y2));
+    function dpr(px, py) {
+      var cx = Math.max(r.left, Math.min(r.right, px)), cy = Math.max(r.top, Math.min(r.bottom, py));
+      return Math.hypot(px - cx, py - cy);
+    }
+    d = Math.min(d, dpr(x1, y1), dpr(x2, y2));
+    for (var i = 1; i < 6; i++) { var t = i / 6; d = Math.min(d, dpr(x1 + t * (x2 - x1), y1 + t * (y2 - y1))); }
+    return d;
+  }
+  function distRectCircle(r, cx, cy, rad) {
+    var px = Math.max(r.left, Math.min(r.right, cx)), py = Math.max(r.top, Math.min(r.bottom, cy));
+    return Math.hypot(cx - px, cy - py) - rad;
+  }
+  function gapRects(a, b) {
+    var ox = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+    var oy = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+    if (ox > 0 && oy > 0) return -Math.min(ox, oy);
+    if (ox > 0) return -oy;
+    if (oy > 0) return -ox;
+    return Math.sqrt(ox * ox + oy * oy);
+  }
+  function inflate(r, p) { return { left: r.left - p, right: r.right + p, top: r.top - p, bottom: r.bottom + p }; }
+  function screenPath(p) {
+    var sw = parseFloat(getComputedStyle(p).strokeWidth) || 4;
+    var len = p.getTotalLength(), n = Math.max(12, Math.ceil(len / 3)), pts = [], ctm = p.getScreenCTM();
+    for (var i = 0; i <= n; i++) {
+      var pt = p.getPointAtLength(len * i / n), sp = new DOMPoint(pt.x, pt.y).matrixTransform(ctm);
+      pts.push([sp.x, sp.y]);
+    }
+    return { pts: pts, hw: sw / 2 };
+  }
+  function labelFits(r, sb, paths, circles, placed, gap) {
+    if (r.left < sb.left + gap || r.right > sb.right + 0.01 - gap || r.top < sb.top + gap || r.bottom > sb.bottom + 0.01 - gap) return false;
+    var i, j, P;
+    for (i = 0; i < placed.length; i++) if (gapRects(r, placed[i]) < gap) return false;
+    for (i = 0; i < circles.length; i++) if (distRectCircle(r, circles[i].x, circles[i].y, circles[i].r) < gap) return false;
+    for (i = 0; i < paths.length; i++) {
+      P = paths[i];
+      for (j = 1; j < P.pts.length; j++) if (distRectSeg(r, P.pts[j - 1][0], P.pts[j - 1][1], P.pts[j][0], P.pts[j][1]) - P.hw < gap) return false;
+    }
+    return true;
+  }
+  function placeMetroLabels(svg) {
+    if (!svg || !svg.getClientRects().length) return { placed: 0 };
+    /* Frame is the padded map card, not the raw viewBox, so labels may use the inner margin. */
+    var frameEl = svg.closest(".ppc-mmap, .tp-fullmap__scroller") || svg.parentElement || svg;
+    var sb = frameEl.getBoundingClientRect();
+    var texts = [].slice.call(svg.querySelectorAll("text"));
+    var paths = [].map.call(svg.querySelectorAll("path"), screenPath);
+    var circles = [].map.call(svg.querySelectorAll("circle"), function (c) {
+      var b = c.getBoundingClientRect();
+      return { x: (b.left + b.right) / 2, y: (b.top + b.bottom) / 2, r: Math.max(b.width, b.height) / 2 };
+    });
+    var strokePad = 0, cs = texts[0] && getComputedStyle(texts[0]);
+    if (cs) strokePad = (parseFloat(cs.strokeWidth) || 0) / 2;
+    texts.sort(function (a, b) { return (+b.getAttribute("data-pri") || 0) - (+a.getAttribute("data-pri") || 0); });
+    texts.forEach(function (t) { t.style.visibility = "hidden"; });
+    var placed = [], inv = svg.getScreenCTM().inverse();
+    function toUser(x, y) { var p = new DOMPoint(x, y).matrixTransform(inv); return [p.x, p.y]; }
+    function setPos(t, x, y, anc, lines) {
+      t.setAttribute("text-anchor", anc);
+      t.textContent = "";
+      if (!lines || lines.length < 2) {
+        t.textContent = lines ? lines[0] : t.getAttribute("data-name") || "";
+        t.setAttribute("x", x.toFixed(1));
+        t.setAttribute("y", y.toFixed(1));
+        return;
+      }
+      var lh = 10;
+      for (var i = 0; i < lines.length; i++) {
+        var ts = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+        ts.setAttribute("x", x.toFixed(1));
+        ts.setAttribute("dy", i === 0 ? "0" : String(lh));
+        ts.textContent = lines[i];
+        t.appendChild(ts);
+      }
+      t.setAttribute("x", x.toFixed(1));
+      t.setAttribute("y", (y - (lines.length - 1) * lh * 0.35).toFixed(1));
+    }
+    texts.forEach(function (t) {
+      var a = t.closest("a"), cir = a && a.querySelector("circle");
+      if (!cir) { t.style.visibility = "visible"; return; }
+      if (!t.getAttribute("data-name")) t.setAttribute("data-name", t.textContent.trim());
+      var name = t.getAttribute("data-name");
+      var words = name.split(/\s+/), wraps = [[name]];
+      if (words.length > 1) {
+        for (var w = 1; w < words.length; w++) wraps.push([words.slice(0, w).join(" "), words.slice(w).join(" ")]);
+      }
+      var cb = cir.getBoundingClientRect(), sx = (cb.left + cb.right) / 2, sy = (cb.top + cb.bottom) / 2;
+      var ic = a.classList.contains("is-ic");
+      var cands = [], dists = [11, 14, 17, 20, 24, 28, 34, 42, 52, 64, 76];
+      var dirs = ic
+        ? [[1, 1, "start"], [-1, 1, "end"], [1, -1, "start"], [-1, -1, "end"], [0, 1, "middle"], [0, -1, "middle"], [1, 0.35, "start"], [-1, 0.35, "end"], [1, -0.35, "start"], [-1, -0.35, "end"]]
+        : [[0, 1, "middle"], [0, -1, "middle"], [1, 1, "start"], [-1, 1, "end"], [1, -1, "start"], [-1, -1, "end"], [1, 0.4, "start"], [-1, 0.4, "end"], [1, -0.4, "start"], [-1, -0.4, "end"]];
+      dists.forEach(function (d) {
+        dirs.forEach(function (an) { cands.push([sx + an[0] * d, sy + an[1] * d, an[2]]); });
+      });
+      var ok = false, i, u, ux, r;
+      for (u = 0; u < wraps.length && !ok; u++) {
+        for (i = 0; i < cands.length; i++) {
+          ux = toUser(cands[i][0], cands[i][1]);
+          setPos(t, ux[0], ux[1], cands[i][2], wraps[u]);
+          t.style.visibility = "visible";
+          r = inflate(t.getBoundingClientRect(), strokePad);
+          if (labelFits(r, sb, paths, circles, placed, LABEL_GAP)) { placed.push(r); ok = true; break; }
+          t.style.visibility = "hidden";
+        }
+      }
+      if (!ok) {
+        t.style.visibility = "hidden";
+        t.setAttribute("data-unplaced", "1");
+        t.setAttribute("aria-hidden", "true");
+      } else { t.removeAttribute("data-unplaced"); t.removeAttribute("aria-hidden"); }
+    });
+        return { placed: placed.length };
+  }
+  function placeAllMetroLabels() {
+    document.querySelectorAll("#ppc-metro .ppc-mmap svg, .tp-fullmap__svg").forEach(placeMetroLabels);
   }
 
   function build() {
@@ -192,6 +322,7 @@
         where.innerHTML = "Line " + X.n + " &middot; " + X.name;
         nav.querySelectorAll("[data-line]").forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
         centre();
+        placeAllMetroLabels();
       });
     });
     var ab = nav.querySelector(".ppc-metro__all-btn"), ap = nav.querySelector(".ppc-metro__all");
@@ -200,10 +331,12 @@
       ab.textContent = open ? "Close map" : "All lines";
     });
     centre();
-    var rz; window.addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(centre, 120); });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(centre);
+    placeAllMetroLabels();
+    var rz; window.addEventListener("resize", function () { clearTimeout(rz); rz = setTimeout(function () { centre(); placeAllMetroLabels(); }, 120); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { centre(); placeAllMetroLabels(); });
+    window.addEventListener("load", placeAllMetroLabels);
   }
-  window.PPCMetro = { lines: LINES, build: build };
+  window.PPCMetro = { lines: LINES, build: build, placeLabels: placeAllMetroLabels };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", build);
   else build();
 })();

@@ -126,3 +126,32 @@ html.ppc-v2 body::before{background:none!important}
 }
 /* v3: AA on the veterans cards (titles were #788ca5 on #0e3a6a, 3.5:1) */
 html.ppc-v2 body.theme-veterans .gcard > h2{color:#e2c275!important}
+
+/* v4: large terminal plan map (every station labelled). Header map unchanged except label clearance. */
+.tp-fullmap{margin:16px 0 10px}
+.tp-fullmap__legend{display:flex;flex-wrap:wrap;gap:8px 16px;list-style:none;margin:0 0 12px;padding:0;
+  font:600 .78rem/1.2 Inter,system-ui,sans-serif;color:#e9e2cf}
+.tp-fullmap__leg{display:inline-flex;align-items:center;gap:8px}
+.tp-fullmap__scroller{position:relative;border-radius:14px;background:linear-gradient(180deg,#0b1d45,#071330);
+  border:1px solid #2a3d6b;padding:14px 12px 18px}
+.tp-fullmap__svg{display:block;width:100%;height:auto}
+.tp-fullmap .ppc-mmap__ln{stroke-width:7;stroke-linecap:round;stroke-linejoin:round;opacity:1}
+.tp-fullmap .ppc-mmap__case{stroke-width:11;opacity:1}
+.tp-fullmap .ppc-mmap__dot{stroke-width:3}
+.tp-fullmap .ppc-mmap__ring{stroke-width:3.5}
+.tp-fullmap .ppc-mmap__lbl{font:600 15px/1 Inter,system-ui,sans-serif;stroke-width:5px}
+.tp-fullmap__cue{display:none}
+@media (max-width:820px){
+  .tp-fullmap__scroller{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
+    scrollbar-color:#d9b765 #0b1d45;
+    background-image:linear-gradient(90deg,#d9b765 0 0); /* cue track */
+    background:linear-gradient(180deg,#0b1d45,#071330)}
+  .tp-fullmap__scroller::-webkit-scrollbar{height:8px}
+  .tp-fullmap__scroller::-webkit-scrollbar-thumb{background:#d9b765;border-radius:8px}
+  .tp-fullmap__svg{width:1100px;max-width:none}
+  .tp-fullmap__cue{display:flex;align-items:center;gap:8px;margin:0 0 8px;padding:6px 12px;width:max-content;
+    border-radius:999px;background:#d9b765;color:#0b1719;font:700 .78rem/1 Inter,system-ui,sans-serif}
+}
+@media (min-width:821px){
+  .tp-fullmap__scroller{overflow:visible}
+}
