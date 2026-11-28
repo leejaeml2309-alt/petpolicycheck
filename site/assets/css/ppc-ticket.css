@@ -1,0 +1,230 @@
+/* PetPolicyCheck boarding-pass / airline-ticket frames (shared, 2026-11-28).
+   Navy and gold Pawpartout ticket: main body + perforated stub.
+   Use with .ppc-ticket and an optional modifier (.ppc-ticket--airline, .ppc-ticket--stay).
+   --ticket-accent: thin header stripe (defaults to #d9b765).
+   Desktop (≥641px): landscape, stub on the right (~26% of the width).
+   Mobile (≤640px): stub at the bottom, horizontal perforation.
+   Semicircle notches (radius 11px) sit at both ends of the perforation and
+   cut through to the page background (CSS mask). No raster images, no baked-in text. */
+
+.ppc-ticket{
+  --ticket-accent:#d9b765;
+  --ticket-gold:#d9b765;
+  --ticket-ink:#f7f0de;
+  --ticket-muted:#e9e2cf;
+  --ticket-navy:#071330;
+  --ticket-navy-2:#0c1f45;
+  --ticket-notch:11px;
+  --ticket-stub:26%;
+  --ticket-cut-x:calc(100% - var(--ticket-stub));
+  --ticket-stub-h:64px;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:row;
+  align-items:stretch;
+  width:100%;
+  min-width:0;
+  background:linear-gradient(180deg,var(--ticket-navy-2),var(--ticket-navy));
+  border:1.5px solid var(--ticket-gold);
+  border-radius:14px;
+  color:var(--ticket-muted);
+  position:relative;
+  overflow:visible;
+  -webkit-mask-image:
+    radial-gradient(circle var(--ticket-notch) at var(--ticket-cut-x) 0, #0000 var(--ticket-notch), #000 calc(var(--ticket-notch) + .5px)),
+    radial-gradient(circle var(--ticket-notch) at var(--ticket-cut-x) 100%, #0000 var(--ticket-notch), #000 calc(var(--ticket-notch) + .5px));
+  -webkit-mask-size:100% 51%,100% 51%;
+  -webkit-mask-position:0 0,0 100%;
+  -webkit-mask-repeat:no-repeat;
+  mask-image:
+    radial-gradient(circle var(--ticket-notch) at var(--ticket-cut-x) 0, #0000 var(--ticket-notch), #000 calc(var(--ticket-notch) + .5px)),
+    radial-gradient(circle var(--ticket-notch) at var(--ticket-cut-x) 100%, #0000 var(--ticket-notch), #000 calc(var(--ticket-notch) + .5px));
+  mask-size:100% 51%,100% 51%;
+  mask-position:0 0,0 100%;
+  mask-repeat:no-repeat;
+  scroll-margin-top:90px;
+}
+.ppc-ticket *,.ppc-ticket *::before,.ppc-ticket *::after{box-sizing:border-box}
+.ppc-ticket__main{
+  flex:1 1 auto;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  padding:0;
+}
+.ppc-ticket__head{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 16px 10px;
+  border-bottom:1px solid rgba(217,183,101,.32);
+}
+.ppc-ticket__head::before{
+  content:"";
+  position:absolute;
+  left:0;right:0;top:0;
+  height:3px;
+  background:var(--ticket-accent);
+  border-radius:12px 0 0 0;
+}
+.ppc-ticket__title{
+  margin:0;
+  font-family:"Marcellus",Georgia,serif;
+  font-weight:400;
+  font-size:1.18rem;
+  line-height:1.2;
+  color:var(--ticket-ink);
+  min-width:0;
+}
+.ppc-ticket__plane{flex:0 0 auto;color:var(--ticket-gold);display:block}
+.ppc-ticket__body{
+  flex:1 1 auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:10px 16px 12px;
+  min-width:0;
+}
+.ppc-ticket__fields{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:7px 16px;
+  margin:0;
+  padding:0;
+}
+.ppc-ticket__field{min-width:0}
+.ppc-ticket__lbl{
+  display:block;
+  margin:0 0 2px;
+  color:var(--ticket-gold);
+  font:600 .62rem/1.2 Inter,system-ui,sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-variant:small-caps;
+  font-variant-caps:all-small-caps;
+}
+.ppc-ticket__val{
+  margin:0;
+  font:400 .8rem/1.32 Inter,system-ui,sans-serif;
+  color:var(--ticket-muted);
+  overflow-wrap:anywhere;
+}
+.ppc-ticket__status{
+  margin:0;
+  font-family:"Marcellus",Georgia,serif;
+  font-weight:400;
+  font-size:1.12rem;
+  line-height:1.4;
+  color:var(--ticket-ink);
+  overflow-wrap:anywhere;
+}
+.ppc-ticket__stub{
+  flex:0 0 var(--ticket-stub);
+  width:var(--ticket-stub);
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 14px 14px 18px;
+  min-width:0;
+}
+.ppc-ticket__stub::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:var(--ticket-notch);
+  bottom:var(--ticket-notch);
+  border-left:2px dashed rgba(217,183,101,.55);
+}
+.ppc-ticket__cta{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  width:100%;
+  min-height:52px;
+  padding:8px 10px;
+  text-align:center;
+  text-decoration:none;
+  color:var(--ticket-gold);
+  font:600 .78rem/1.25 Inter,system-ui,sans-serif;
+  border:1.5px solid rgba(217,183,101,.7);
+  border-radius:10px;
+  background:#0a1a3c;
+  overflow-wrap:anywhere;
+}
+.ppc-ticket__cta:hover,.ppc-ticket__cta:focus-visible{background:#12295a;border-color:#f3dc98;color:#f3dc98}
+.ppc-ticket__cta:focus-visible{outline:3px solid #f3d98f;outline-offset:2px}
+.ppc-ticket__arrow{flex:0 0 auto;width:1.1em;height:1.1em;font-size:1rem;line-height:1.1;overflow:visible;text-align:center}
+
+/* Airline modifier: compact boarding-pass fields.
+   Two columns when there are two or more fields; a last odd field (often BAN / RESTRICTION)
+   spans the full width so long wording does not inflate the ticket. */
+.ppc-ticket--airline .ppc-ticket__fields{
+  align-content:center;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.ppc-ticket--airline .ppc-ticket__fields > :only-child,
+.ppc-ticket--airline .ppc-ticket__field:last-child:nth-child(odd){grid-column:1/-1}
+.ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__status{font-size:1.42rem;line-height:1.35;max-width:40ch;padding:4px 0}
+.ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__val{font-size:1.02rem;line-height:1.4}
+.ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__lbl{font-size:.68rem;letter-spacing:.14em}
+
+/* Hotel / stay strip: one compact line, city in the stub, no CTA. */
+.ppc-ticket--stay{
+  min-height:0;
+}
+.ppc-ticket--stay .ppc-ticket__head{padding:8px 14px 7px}
+.ppc-ticket--stay .ppc-ticket__title{font-size:1.02rem}
+.ppc-ticket--stay .ppc-ticket__body{padding:6px 14px 8px;justify-content:center}
+.ppc-ticket--stay .ppc-ticket__val{font-size:.82rem;line-height:1.35}
+.ppc-ticket--stay .ppc-ticket__stub{padding:8px 10px}
+.ppc-ticket--stay .ppc-ticket__lbl{margin:0;text-align:center;font-size:.68rem;letter-spacing:.14em;line-height:1.25}
+
+@media (max-width:640px){
+  .ppc-ticket{
+    flex-direction:column;
+    --ticket-cut-y:calc(100% - var(--ticket-stub-h));
+    -webkit-mask-image:
+      radial-gradient(circle var(--ticket-notch) at 0 var(--ticket-cut-y), #0000 var(--ticket-notch), #000 calc(var(--ticket-notch) + .5px)),
+      radial-gradient(circle var(--ticket-notch) at 100% var(--ticket-cut-y), #0000 var(--ticket-notch), #000 calc(var(--ticket-notch) + .5px));
+    -webkit-mask-size:51% 100%,51% 100%;
+    -webkit-mask-position:0 0,100% 0;
+    mask-image:
+      radial-gradient(circle var(--ticket-notch) at 0 var(--ticket-cut-y), #0000 var(--ticket-notch), #000 calc(var(--ticket-notch) + .5px)),
+      radial-gradient(circle var(--ticket-notch) at 100% var(--ticket-cut-y), #0000 var(--ticket-notch), #000 calc(var(--ticket-notch) + .5px));
+    mask-size:51% 100%,51% 100%;
+    mask-position:0 0,100% 0;
+  }
+  .ppc-ticket__head::before{border-radius:12px 12px 0 0}
+  .ppc-ticket__stub{
+    flex:0 0 var(--ticket-stub-h);
+    width:100%;
+    min-height:var(--ticket-stub-h);
+    padding:14px 16px 12px;
+  }
+  .ppc-ticket__stub::before{
+    left:var(--ticket-notch);
+    right:var(--ticket-notch);
+    top:0;
+    bottom:auto;
+    border-left:0;
+    border-top:2px dashed rgba(217,183,101,.55);
+  }
+  .ppc-ticket__cta{flex-direction:row;justify-content:space-between;text-align:left;padding:8px 14px}
+  .ppc-ticket--airline .ppc-ticket__fields,
+  .ppc-ticket--airline:not(.ppc-ticket--solo) .ppc-ticket__fields{grid-template-columns:minmax(0,1fr);gap:5px}
+  .ppc-ticket--airline .ppc-ticket__field{display:grid;grid-template-columns:5.6rem minmax(0,1fr);column-gap:8px;align-items:start}
+  .ppc-ticket--airline .ppc-ticket__lbl{margin:0;padding-top:.15em}
+  .ppc-ticket--airline .ppc-ticket__val{font-size:.76rem;line-height:1.28}
+  .ppc-ticket--airline .ppc-ticket__body{padding:8px 14px 10px}
+  .ppc-ticket--airline .ppc-ticket__head{padding:10px 14px 8px}
+  .ppc-ticket--airline .ppc-ticket__title{font-size:1.08rem}
+  .ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__field{grid-template-columns:minmax(0,1fr)}
+  .ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__status{font-size:1.28rem;line-height:1.4;padding:6px 0}
+  .ppc-ticket--stay{--ticket-stub-h:52px}
+  .ppc-ticket--stay .ppc-ticket__cta{/* none */}
+}
