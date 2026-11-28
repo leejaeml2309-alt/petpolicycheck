@@ -124,12 +124,15 @@ function boot(){
           fr:'?view=map countries/usa.html vet-info/ airlines/ hotels/ grooming/ products/ taxi/ forum/ k9/ veterans/ pro/ updates.html about.html #compare #gear'};
  var tgt=function(rel){ if(LNG==='en') return up+rel; var bare=rel.split('#')[0]; if(rel.charAt(0)==='#'||rel.charAt(0)==='?') bare=rel;
    return ((' '+HAS[LNG]+' ').indexOf(' '+bare+' ')>=0?ppcLangRoot+'/':'/')+rel; };
- /* XMAS-TREE-2026: remove ~6 Jan 2027 */
+ /* XMAS-TREE-2026: remove ~6 Jan 2027. m18: Marc 28 Nov 15:27 "Le sapin seulement sur l'accueil" -> the tree exists only on the homepages (/, /fr/, /es/, /de/, /it/, /ja/) and only in the desktop pill row (>=1100px); never in the mobile menu nor on inner pages. */
+ var XMAS_HOME=/^\/(?:(?:es|it|fr|de|ja)\/?)?(?:index\.html)?$/.test(path);
+ var XMAS_MQ=window.matchMedia?window.matchMedia('(min-width:1100px)'):null;
+ var XMAS_ON=function(){return XMAS_HOME&&(!XMAS_MQ||XMAS_MQ.matches)};
  var XMAS_ARIA={en:'Products — Christmas gifts for pets',fr:'Produits — Cadeaux de Noël pour animaux',es:'Productos — Regalos de Navidad para mascotas',de:'Produkte — Weihnachtsgeschenke für Haustiere',it:'Prodotti — Regali di Natale per animali',ja:'製品 — ペットへのクリスマスギフト'};
  var XMAS_TREE='<!-- XMAS-TREE-2026: remove ~6 Jan 2027 --><svg class="ppc-xmas-tree" viewBox="0 0 16 20" width="14" height="17" aria-hidden="true" focusable="false"><path class="ppc-xmas-star" fill="#d9b765" d="M8 1.15l.82 1.66 1.84.27-1.33 1.3.31 1.82L8 5.26 6.36 6.2l.31-1.82-1.33-1.3 1.84-.27z"/><path class="ppc-xmas-body" fill="#3f9b6e" stroke="#d9b765" stroke-width=".7" stroke-linejoin="round" d="M8 5.05l4.15 4.35h-1.55l2.15 3.15h-2.35L14 16.35H2l3.6-3.8H3.25l2.15-3.15H3.85z"/><rect class="ppc-xmas-trunk" x="7.15" y="16.25" width="1.7" height="2.35" rx=".25" fill="#3f9b6e" stroke="#d9b765" stroke-width=".5"/><circle class="ppc-xmas-light l1" cx="6.25" cy="10.15" r=".7" fill="#d9b765"/><circle class="ppc-xmas-light l2" cx="9.55" cy="11.85" r=".7" fill="#d9b765"/><circle class="ppc-xmas-light l3" cx="7.35" cy="14.35" r=".7" fill="#d9b765"/></svg>';
  var S=[['map',tgt('?view=map')],['law',tgt('countries/usa.html#federal')],['vet',tgt('vet-info/')],
         ['flight',tgt(LNG==='es'?'airlines/compare/':'airlines/')],['hotel',tgt('hotels/')],['grooming',tgt('grooming/')],
-        ['shop',tgt('products/gifts/')] /* XMAS-TREE-2026: remove ~6 Jan 2027; was products/ */,['ground',tgt('taxi/')],['|'],
+        ['shop',tgt(XMAS_ON()?'products/gifts/':'products/')] /* XMAS-TREE-2026: remove ~6 Jan 2027; was products/ */,['ground',tgt('taxi/')],['|'],
         ['forum',tgt('forum/')],['k9',tgt('k9/')],['service',tgt('veterans/#service-dog-support')],['veterans',tgt('veterans/')],['adoptions',tgt('adoptions/')],['news',tgt('news/')],['b2b',tgt('pro/')]];
  document.documentElement.classList.add('nav-v'+V);
  var bookCur=false; if(V==='7g'&&cur==='ground'){cur='';bookCur=true}
@@ -140,10 +143,18 @@ function boot(){
  var navCur=cur||(/\/vet-info\//.test(path)?'vet':(/\/k9\//.test(path)?'k9':''));
  var h=S.map(function(s){ if(s[0]==='|') return '<span class="nav-group-sep" aria-hidden="true"></span>';
    var extra=s[0]==='b2b'?' nav-biz':(s[0]==='veterans'?' nav-vet':'');var ik=NAV_I18N[s[0]]||'';
-   /* XMAS-TREE-2026: remove ~6 Jan 2027 (xmas class, aria-label, XMAS_TREE) */var xmas=(s[0]==='shop'); if(xmas) extra+=' ppc-xmas-products'; return '<a class="sec theme-'+s[0]+extra+'" href="'+s[1]+'"'+(s[0]===navCur?' aria-current="page"':'')+(ik?' data-i18n="'+ik+'"':'')+(xmas?' aria-label="'+XMAS_ARIA[LNG]+'"':'')+'>'+pst(s[0])+'<span class="lbl">'+CAT[s[0]][li]+'</span>'+(xmas?XMAS_TREE:'')+'</a>'}).join('');
+   /* XMAS-TREE-2026: remove ~6 Jan 2027 (xmas class, aria-label, XMAS_TREE) */var xmas=(s[0]==='shop'&&XMAS_ON()); if(xmas) extra+=' ppc-xmas-products'; return '<a class="sec theme-'+s[0]+extra+'" href="'+s[1]+'"'+(s[0]===navCur?' aria-current="page"':'')+(ik?' data-i18n="'+ik+'"':'')+(xmas?' aria-label="'+XMAS_ARIA[LNG]+'"':'')+'>'+pst(s[0])+'<span class="lbl">'+CAT[s[0]][li]+'</span>'+(xmas?XMAS_TREE:'')+'</a>'}).join('');
  h+='<span class="menu-sep menu-only" aria-hidden="true"></span>'+
     [(plab('Compare')+'|'+tgt('airlines/compare/')),(plab('Guides')+'|'+tgt('#gear')),(plab('Updates')+'|'+tgt('updates.html')),(plab('About')+'|'+tgt('about.html'))].map(function(x){x=x.split('|');return '<a class="menu-only sub" href="'+x[1]+'">'+x[0]+'</a>'}).join('');
  if(m&&!m.classList.contains('pst-nav')){ m.innerHTML=h; m.classList.add('pst-nav'); }
+ /* XMAS-TREE-2026 m18: keep the tree on the homepage desktop row only; drop it (and the gifts link/aria) when the row becomes the mobile menu */
+ var XMAS_HON=tgt('products/gifts/'),XMAS_HOFF=tgt('products/');
+ var xmasSync=function(){ if(!XMAS_HOME) return; var on=XMAS_ON();
+   [].forEach.call(document.querySelectorAll('#site-menu a.theme-shop, nav.pst-nav a.theme-shop'),function(a){ if(a.classList.contains('ppc-mnu__item')) return;
+     var has=a.classList.contains('ppc-xmas-products'); if(on===has) return;
+     if(on){ a.classList.add('ppc-xmas-products'); a.setAttribute('href',XMAS_HON); a.setAttribute('aria-label',XMAS_ARIA[LNG]); a.insertAdjacentHTML('beforeend',XMAS_TREE); }
+     else { a.classList.remove('ppc-xmas-products'); a.setAttribute('href',XMAS_HOFF); a.removeAttribute('aria-label'); var t=a.querySelector('.ppc-xmas-tree'); if(t) t.remove(); } }); };
+ if(XMAS_HOME&&XMAS_MQ){ if(XMAS_MQ.addEventListener) XMAS_MQ.addEventListener('change',xmasSync); else if(XMAS_MQ.addListener) XMAS_MQ.addListener(xmasSync); }
  /* badge d'en-tête de section, même tampon que la nav (taille page) */
  var h1=document.querySelector('main h1, #main h1, h1');
  /* Country maps: section label only (no in-page back link; the metro bar leads back to the World map). */

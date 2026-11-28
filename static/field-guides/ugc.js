@@ -25,43 +25,43 @@ var REJECT=['Policy inaccurate','Copyright music','Unreadable / >30s','Privacy v
 
 /* ---------- i18n (100% EN default; 4-language toggle EN / FR / ES / DE aligned with the site glossary) ---------- */
 var LOC={
-fr:{tab_gallery:'Rapports terrain',tab_submit:'Envoyer un conseil',nav_fg:'Rapports terrain',nav_adv:'Contact',
+fr:{tab_gallery:'Retours d\'expérience',tab_submit:'Envoyer un conseil',nav_fg:'Retours d\'expérience',nav_adv:'Contact',
 a_dept:'Hub Communauté, Vérifs terrain & City Scouts · une seule porte, sans compte',a_ttl:'Partagez ce qui s’est vraiment passé avec votre animal',
 a_lead:'Postez un clip de 30 s, signalez un écart avec la règle officielle ou devenez Founding City Scout. Environ 60 secondes, sans compte. Un humain vérifie tout avant publication, avec crédit à votre nom.',
 
 
-c_dept:'Paw Passport — Rapports de terrain',c_ttl:'Rapports de terrain Pet Policy — Principaux corridors de voyage avec animaux',c_lead:'Ces vignettes d\'exemple présentent les règles officielles de voyage avec un animal pour les principaux corridors. Soumettez une astuce de 30 s pour vérification.',c_more:'Épisodes d\'exemple',c_rules:'Exemples de vérification des règles officielles',c_rulessub:'Règles officielles uniquement — ces vignettes sont des exemples.',
+c_dept:'Paw Passport — Retours d\'expérience',c_ttl:'Retours d\'expérience Pet Policy — Principaux corridors de voyage avec animaux',c_lead:'Ces vignettes d\'exemple présentent les règles officielles de voyage avec un animal pour les principaux corridors. Soumettez une astuce de 30 s pour vérification.',c_more:'Épisodes d\'exemple',c_rules:'Exemples de vérification des règles officielles',c_rulessub:'Règles officielles uniquement — ces vignettes sont des exemples.',
 c_submit:'Envoyer un conseil 30 s',c_submitn:'Sans compte · relu par un humain',
 c_pdept:'',c_ph:'',
 c_pp:'Une marque par épisode, affichée « Pet Tip présenté par … » sous le vrai conseil terrain — jamais dans les faits de la règle.',
 c_pl1:'Lancement : partenariat matériel gagnant-gagnant (produit pour tests terrain honnêtes + crédit)',c_pl2:'',c_pl3:'',
 c_pcta:'',
 c_disc:'Exemple : les épisodes d’exemple illustrent de vraies règles.'},
-es:{tab_gallery:'Informes de campo',tab_submit:'Enviar un consejo',nav_fg:'Informes de campo',nav_adv:'Contacto',
+es:{tab_gallery:'Experiencias reales',tab_submit:'Enviar un consejo',nav_fg:'Experiencias reales',nav_adv:'Contacto',
 a_dept:'Hub Comunidad, Verificaciones & City Scouts · una puerta, sin cuenta',a_ttl:'Comparta lo que realmente pasó con su mascota',
 a_lead:'Suba un clip de 30 s, avise si el control real difirió de la norma oficial o postúlese como Founding City Scout. Toma unos 60 segundos, sin cuenta. Un humano verifica todo antes de publicar, con crédito a su @usuario.',
 
 
-c_dept:'Informes de campo Paw Passport',c_ttl:'Informes de campo Pet Policy — Principales corredores para viajar con mascotas',c_lead:'Estas fichas de ejemplo muestran las normas oficiales para viajar con mascotas en los principales corredores. Envíe un consejo de 30 s para su revisión.',c_more:'Episodios de ejemplo',c_rules:'Ejemplos de verificación de normas oficiales',c_rulessub:'Solo normas oficiales: estas fichas son ejemplos.',
+c_dept:'Experiencias reales Paw Passport',c_ttl:'Experiencias reales Pet Policy — Principales corredores para viajar con mascotas',c_lead:'Estas fichas de ejemplo muestran las normas oficiales para viajar con mascotas en los principales corredores. Envíe un consejo de 30 s para su revisión.',c_more:'Episodios de ejemplo',c_rules:'Ejemplos de verificación de normas oficiales',c_rulessub:'Solo normas oficiales: estas fichas son ejemplos.',
 c_submit:'Enviar consejo de 30 s',c_submitn:'Sin cuenta · revisado por un humano',
 c_pdept:'',c_ph:'',
 c_pp:'Una marca por episodio, mostrada como « Pet Tip presentado por … » debajo del consejo real — nunca dentro de la regla oficial.',
 c_pl1:'Lanzamiento: alianza win-win de equipamiento (producto para pruebas reales + crédito)',c_pl2:'',c_pl3:'',
 c_pcta:'',
 c_disc:'Vista previa: episodios de ejemplo basados en reglas reales. Las marcas mostradas son ejemplos ilustrativos.'},
-de:{tab_gallery:'Praxisberichte',tab_submit:'Tipp senden',nav_fg:'Praxisberichte',nav_adv:'Kontakt',
+de:{tab_gallery:'Erfahrungsberichte',tab_submit:'Tipp senden',nav_fg:'Erfahrungsberichte',nav_adv:'Kontakt',
 a_dept:'Community-, Praxischeck- & City-Scouts-Hub · ein Einstieg, kein Konto',a_ttl:'Teile, was mit deinem Haustier wirklich passiert ist',
 a_lead:'30-Sek.-Clip senden, Abweichung zur offiziellen Regel melden oder Founding City Scout werden. Dauert ca. 60 Sekunden ohne Registrierung. Jede Einsendung wird vor Veröffentlichung menschlich geprüft — mit Namensnennung.',
 
 
-c_dept:'Paw Passport Praxisberichte',c_ttl:'Pet Policy Praxisberichte — Wichtige Reisekorridore mit Haustieren',c_lead:'Die Beispielkacheln zeigen die offiziellen Regeln für Reisen mit Haustieren auf den wichtigsten Korridoren. Reichen Sie einen 30-Sekunden-Tipp zur Prüfung ein.',c_more:'Beispielepisoden',c_rules:'Beispiele für Prüfungen offizieller Regeln',c_rulessub:'Nur offizielle Regeln – diese Kacheln sind Beispiele.',
+c_dept:'Paw Passport Erfahrungsberichte',c_ttl:'Pet Policy Erfahrungsberichte — Wichtige Reisekorridore mit Haustieren',c_lead:'Die Beispielkacheln zeigen die offiziellen Regeln für Reisen mit Haustieren auf den wichtigsten Korridoren. Reichen Sie einen 30-Sekunden-Tipp zur Prüfung ein.',c_more:'Beispielepisoden',c_rules:'Beispiele für Prüfungen offizieller Regeln',c_rulessub:'Nur offizielle Regeln – diese Kacheln sind Beispiele.',
 c_submit:'30-Sek.-Tipp senden',c_submitn:'Ohne Konto · menschlich geprüft',
 c_pdept:'',c_ph:'',
 c_pp:'Eine Marke pro Episode als „Pet Tip präsentiert von …“ unterhalb des echten Praxistipps — niemals innerhalb der offiziellen Regel.',
 c_pl1:'Start: Win-Win-Ausstattungspartnerschaft (Produkt für ehrliche Praxistests + Nennung)',c_pl2:'',c_pl3:'',
 c_pcta:'',
 c_disc:'Vorschau: Beispielepisoden auf Basis echter Regeln. Genannte Marken dienen nur als Beispiel.'},
-ko:{tab_gallery:'필드 리포트',tab_submit:'팁 보내기',nav_fg:'필드 리포트',nav_adv:'문의',
+ko:{tab_gallery:'현장 후기',tab_submit:'팁 보내기',nav_fg:'현장 후기',nav_adv:'문의',
 a_dept:'커뮤니티 · 현장 점검 & City Scouts 허브 · 계정 없이 한 곳에서',a_ttl:'반려동물과 실제로 겪은 일을 공유해 주세요',
 a_lead:'30초 클립을 올리거나, 공식 규정과 달랐던 점을 알려 주거나, Founding City Scout이 되어 보세요. 약 60초, 계정 불필요. 사람이 공식 규정과 대조한 뒤 게시하며 크레딧을 남겨 드려요.',
 a_s1:'클립',a_up:'≤ 30초 영상 업로드',a_ln:'기존 클립 링크',a_drop:'세로 클립을 여기로 드래그',a_or:'또는',a_browse:'찾아보기',a_dropn:'최대 30초 (35초 허용) · 9:16 권장',
@@ -70,14 +70,14 @@ a_ctry:'국가 / 코리도',a_date:'여행 날짜',a_ent:'정확한 항공사 / 
 a_s4:'크레딧 & 권리',a_handle:'@핸들 (클립에 표시)',a_social:'크레딧용 프로필 링크',a_send:'검토용 30초 팁 보내기',a_sendn:'사람 모더레이터에게 전달 · 자동 게시 없음',
 
 
-c_dept:'Paw Passport 현장 리포트',c_ttl:'Pet Policy 현장 리포트 — 주요 반려동물 여행 노선',c_lead:'예시 타일에서 주요 노선의 공식 반려동물 여행 규정을 확인하실 수 있습니다. 30초 팁을 보내 주시면 검토하겠습니다.',c_more:'예시 에피소드',c_rules:'공식 규정 확인 예시',c_rulessub:'공식 규정만 다룹니다. 이 타일들은 예시입니다.',
+c_dept:'Paw Passport 현장 후기',c_ttl:'Pet Policy 현장 후기 — 주요 반려동물 여행 노선',c_lead:'예시 타일에서 주요 노선의 공식 반려동물 여행 규정을 확인하실 수 있습니다. 30초 팁을 보내 주시면 검토하겠습니다.',c_more:'예시 에피소드',c_rules:'공식 규정 확인 예시',c_rulessub:'공식 규정만 다룹니다. 이 타일들은 예시입니다.',
 c_submit:'30초 팁 보내기',c_submitn:'계정 불필요 · 사람 검토',
 c_pdept:'',c_ph:'',
 c_pp:'에피소드당 브랜드 하나, 실제 현장 팁 아래 “Pet Tip presented by …”로 표시 — 정책 사실 안에는 넣지 않아요.',
 c_pl1:'런칭: 윈윈 장비 파트너십 (정직한 현장 테스트용 제품 + 크레딧)',c_pl2:'',c_pl3:'',
 c_pcta:'',
 c_disc:'예시 에피소드는 실제 규칙을 보여 줍니다.'},
-ja:{tab_gallery:'フィールドレポート',tab_submit:'ヒントを送る',nav_fg:'フィールドレポート',nav_adv:'お問い合わせ',
+ja:{tab_gallery:'体験レポート',tab_submit:'ヒントを送る',nav_fg:'体験レポート',nav_adv:'お問い合わせ',
 a_dept:'コミュニティ・現地チェック＆City Scoutsハブ · アカウント不要の一窓口',a_ttl:'ペットとの実体験を共有してください',
 a_lead:'30秒クリップの投稿、公式ルールとの違いの報告、Founding City Scoutへの応募。約60秒、アカウント不要。人が公式ルールと照合してから公開し、クレジットを付けます。',
 a_s1:'クリップ',a_up:'≤30秒の動画をアップロード',a_ln:'既存クリップのリンク',a_drop:'縦型クリップをここにドラッグ',a_or:'または',a_browse:'参照',a_dropn:'最大30秒（35秒許容）· 9:16推奨',
@@ -86,14 +86,14 @@ a_ctry:'国 / 回廊',a_date:'旅行日',a_ent:'正確な航空会社 / ホテ�
 a_s4:'クレジット＆権利',a_handle:'@ハンドル（クリップ表示）',a_social:'クレジット用プロフィールURL',a_send:'審査用30秒ヒントを送る',a_sendn:'人のモデレーターへ · 自動公開なし',
 
 
-c_dept:'Paw Passport フィールドレポート',c_ttl:'Pet Policy フィールドレポート — 主なペット渡航ルート',c_lead:'例のタイルでは、主なルートにおけるペット渡航の公式ルールをご紹介しています。30秒のヒントをお寄せください。内容を確認いたします。',c_more:'エピソード例',c_rules:'公式ルール確認の例',c_rulessub:'公式ルールのみを掲載しています。これらのタイルは例です。',
+c_dept:'Paw Passport 体験レポート',c_ttl:'Pet Policy 体験レポート — 主なペット渡航ルート',c_lead:'例のタイルでは、主なルートにおけるペット渡航の公式ルールをご紹介しています。30秒のヒントをお寄せください。内容を確認いたします。',c_more:'エピソード例',c_rules:'公式ルール確認の例',c_rulessub:'公式ルールのみを掲載しています。これらのタイルは例です。',
 c_submit:'30秒ヒントを送る',c_submitn:'アカウント不要 · 人が確認',
 c_pdept:'',c_ph:'',
 c_pp:'エピソードにつき1ブランド。「Pet Tip presented by …」として実ヒントの下に表示 — 政策本文の中には入れません。',
 c_pl1:'ローンチ：ウィンウィン器材提携（正直な現地テスト用製品＋クレジット）',c_pl2:'',c_pl3:'',
 c_pcta:'',
 c_disc:'サンプルエピソードは実在のルールを示します。'},
-it:{c_dept:'Report dal campo Paw Passport',c_ttl:'Report dal campo Pet Policy — Principali corridoi per viaggiare con animali',c_lead:'I riquadri di esempio mostrano le regole ufficiali per viaggiare con animali nei principali corridoi. Invii un consiglio di 30 secondi da sottoporre a revisione.',c_more:'Episodi di esempio',c_rules:'Esempi di verifica delle regole ufficiali',c_rulessub:'Solo regole ufficiali: questi riquadri sono esempi.'}
+it:{c_dept:'Esperienze reali Paw Passport',c_ttl:'Esperienze reali Pet Policy — Principali corridoi per viaggiare con animali',c_lead:'I riquadri di esempio mostrano le regole ufficiali per viaggiare con animali nei principali corridoi. Invii un consiglio di 30 secondi da sottoporre a revisione.',c_more:'Episodi di esempio',c_rules:'Esempi di verifica delle regole ufficiali',c_rulessub:'Solo regole ufficiali: questi riquadri sono esempi.'}
 };
 var UI={
 en:{example:'Example',filmed:'Filmed by',presented:'Pet Tip presented by',visit:'Visit Partner ↗',mentionNote:'',fv:'Field-Verified',official:'Official rule ↗',openslot:'',opencta:'',all:'All',airlines:'Airlines',ferries:'Ferries & Trains',hotels:'Hotels & Cities',groom:'Grooming & Care',country:'Country',type:'Type',episodes:'episodes',featured:'Featured episode',vbadge:'✓ Verified Corridor Traveler',vtip:'Earned by a traveler whose clip or rule check passed human review. Share your episode — your @handle links back to your profile.',nores:'No approved episode for this filter yet — be the first to submit one.',trip:'Trip',brandother:'Your brand on another episode?',reported:'Reported by',seatopen:'Seat open — apply →'},

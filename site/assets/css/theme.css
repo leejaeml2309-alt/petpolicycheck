@@ -1058,25 +1058,9 @@ footer .pawpartout-credit a:focus-visible .pawpartout-name,
     top:0;
   }
 }
-/* Mobile / Menu dropdown: tree AFTER the label (~6px gap) so labels share the same x as Grooming/Rides.
-   .sec already uses gap:12px; a -6px start margin nets ~6px after the label. */
+/* m18: the tree never shows in the mobile menu / dropdown (Marc: tree only on the homepage; pastilles.js also removes it below 1100px). */
 @media (max-width:1099px){
-  .top .nav a.ppc-xmas-products,
-  .top .nav.pst-nav a.sec.ppc-xmas-products{
-    align-items:center;
-  }
-  .top .nav a.ppc-xmas-products .ppc-xmas-tree{
-    position:static;
-    width:16px;
-    height:19px;
-    margin:0 0 0 6px;
-  }
-  .top .nav.pst-nav a.sec.ppc-xmas-products .ppc-xmas-tree{
-    position:static;
-    width:16px;
-    height:19px;
-    margin:0 0 0 -6px;
-  }
+  .ppc-xmas-tree{display:none!important}
 }
 @keyframes ppc-xmas-twinkle{
   0%,100%{opacity:.7}

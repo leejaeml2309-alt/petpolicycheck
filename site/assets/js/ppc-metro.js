@@ -523,7 +523,7 @@
   ];
   function menuKey(a) {
     var t = (a.getAttribute("aria-label") || a.textContent || "").replace(/\s+/g, " ").trim();
-    t = t.replace(/\s*—.*$/, ""); /* drop the Christmas aria suffix */
+    t = t.replace(/\s*—.*$/, ""); /* m18: legacy aria suffix guard (the tree no longer exists in this menu) */
     return t;
   }
   /* v4g: every pill carries the same single-frame icon tile (.pst). Compare, Guides and About had none; same monoline style (24 grid, 1.75 stroke). */
@@ -538,6 +538,13 @@
     if (!ic) return;
     var label = a.textContent.replace(/\s+/g, " ").trim();
     a.innerHTML = '<span class="pst theme-' + ic[0] + '" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">' + ic[1] + '</svg></span><span class="lbl">' + label + "</span>";
+  }
+  /* m18: Marc "Le sapin seulement sur l'accueil": the mobile menu never carries the Christmas tree. Products gets its plain pill (normal bag icon, same tile, normal link and label). */
+  function noTree(a) {
+    var t = a.querySelector(".ppc-xmas-tree"); if (t) t.remove();
+    a.classList.remove("ppc-xmas-products");
+    if (/ — /.test(a.getAttribute("aria-label") || "")) a.removeAttribute("aria-label");
+    var h = a.getAttribute("href") || ""; if (/products\/gifts\/?$/.test(h)) a.setAttribute("href", h.replace(/gifts\/?$/, ""));
   }
   function enhanceHomeMenu(m) {
     if (!m || m.getAttribute("data-ppc-mnu") === "1") return;
@@ -556,6 +563,7 @@
       } else h += '<div class="ppc-mnu__group">';
       items.forEach(function (a) {
         a.classList.add("ppc-mnu__item");
+        noTree(a);
         ensureMenuIcon(a);
         h += a.outerHTML;
       });
