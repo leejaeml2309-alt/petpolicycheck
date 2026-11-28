@@ -19,7 +19,7 @@
     { id: "grooming", n: "7", name: "Grooming", c: "#c6a4db", st: [
       ["Groomers", "/grooming/"] ] },
     { id: "forum", n: "8", name: "Community", c: "#9dc2a0", st: [
-      ["Forum", "/forum/"], ["Stories", "/forum/pet-travel-stories/"], ["Adoptions", "/adoptions/"], ["News", "/news/"], ["Rule updates", "/updates.html"], ["Field guides", "/field-guides/"] ] },
+      ["Forum", "/forum/"], ["Stories", "/forum/pet-travel-stories/"], ["Adoptions", "/adoptions/"], ["News", "/news/"], ["Field guides", "/field-guides/"] ] },
     { id: "b2b", n: "B", name: "Business", c: "#8b9ce2", st: [
       ["Pet Desk", "/pro/"], ["Free widgets", "/widgets/"] ] },
     { id: "military", n: "M", name: "Military", c: "#0a2e5c", mil: true, st: [
@@ -39,7 +39,7 @@
     "/planning-tools/":[540,156], "/pet-travel-checklist/":[740,156], "/planner/":[840,156], "/fit/":[940,156], "/widgets/":[1040,156], "/pro/":[1120,196],
     "/hotel-pets/":[150,76], "/taxi/":[150,156], "/veterans/#service-dog-support":[150,196],
     "/grooming/":[250,160],
-    "/forum/":[740,116], "/forum/pet-travel-stories/":[800,116], "/adoptions/":[960,116], "/news/":[1030,116], "/updates.html":[1100,116], "/field-guides/":[1170,116],
+    "/forum/":[720,116], "/forum/pet-travel-stories/":[800,116], "/adoptions/":[960,116], "/news/":[1040,116], "/field-guides/":[1120,116],
     "/military/":[30,196], "/veterans/":[90,196], "/military-pcs/":[210,196], "/k9/":[270,196]
   };
   /* Each desktop route: station URLs in order, with [x,y] bend points between them. */
@@ -51,7 +51,7 @@
     tools: ["/planning-tools/", "/board-now/", "/pet-travel-checklist/", "/planner/", "/fit/", "/widgets/"],
     hotel: ["/hotel-pets/", "/hotels/", "/taxi/", "/veterans/#service-dog-support"],
     grooming: ["/countries/", "/grooming/"],
-    forum: ["/forum/", "/forum/pet-travel-stories/", [840,116], "/flight-volunteer/", [920,116], "/adoptions/", "/news/", "/updates.html", "/field-guides/"],
+    forum: ["/forum/", "/forum/pet-travel-stories/", [840,116], "/flight-volunteer/", [920,116], "/adoptions/", "/news/", "/field-guides/"],
     b2b: ["/widgets/", [1080,196], "/pro/"],
     military: ["/military/", "/veterans/", "/veterans/#service-dog-support", "/military-pcs/", "/k9/"]
   };
