@@ -1,0 +1,37 @@
+/* PetPolicyCheck compact country pages (preview 2026-11-28): tabs, numbered steps, identical airline cards, one-line hotels. */
+.cc-page main h3{font-family:"Marcellus",Georgia,serif;font-weight:400;color:#f3dc98;font-size:1.28rem;margin:20px 0 8px}
+.cc-page main .lead{max-width:62ch}
+.cc-page main p.cc-auth{max-width:none;margin:10px 0 6px;padding:12px 16px;border:1.5px solid #d6b25e55;border-radius:12px;background:linear-gradient(180deg,#0c1f45,#071330);line-height:1.55;font-size:.95rem}
+.cc-page main a{overflow-wrap:anywhere}
+/* numbered steps */
+.cc-steps{list-style:none;counter-reset:cc;margin:10px 0 16px;padding:0;display:grid;gap:10px}
+.cc-steps>li{counter-increment:cc;position:relative;padding:12px 16px 12px 58px;background:linear-gradient(180deg,#0c1f45,#071330);border:1.5px solid #d6b25e55;border-radius:12px;line-height:1.55;font-size:.97rem}
+.cc-steps>li::before{content:counter(cc);position:absolute;left:14px;top:12px;width:32px;height:32px;border-radius:50%;background:linear-gradient(170deg,#fff3c0,#e8c05a 32%,#d4a13a 62%,#a06a18 85%,#e8c05a);color:#071330;font:700 .95rem/32px Inter,system-ui,sans-serif;text-align:center}
+.cc-list{margin:8px 0 14px;padding-left:20px;line-height:1.55}
+.cc-list li{margin:6px 0}
+/* airline cards: one grid, every row the same height */
+.cc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:14px;margin:14px 0 8px}
+.cc-card{box-sizing:border-box;display:flex;flex-direction:column;padding:16px 16px 16px;background:linear-gradient(180deg,#0c1f45,#071330);border:1.5px solid #d6b25e66;border-radius:14px;min-height:var(--cc-h,0);scroll-margin-top:90px}
+.cc-card h3{margin:0 0 10px;font-size:1.2rem;line-height:1.2}
+.cc-card ul{list-style:none;margin:0 0 14px;padding:0;font-size:.9rem;line-height:1.5;color:#e9e2cf}
+.cc-card li{margin:0 0 8px;padding-left:12px;position:relative}
+.cc-card li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:#d6b25e}
+.cc-card li strong{color:#f3dc98}
+.cc-cta{box-sizing:border-box;margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;height:52px;padding:0 16px;border-radius:999px;border:1.5px solid #d6b25e99;background:#0a1a3c;color:#f3dc98;font:600 .82rem/1.2 Inter,system-ui,sans-serif;text-decoration:none}
+.cc-cta:hover,.cc-cta:focus-visible{background:#12295a;border-color:#f3dc98}
+.cc-cta:focus-visible{outline:3px solid #f3d98f;outline-offset:2px}
+.cc-arrow{flex:0 0 auto;font-size:1rem}
+/* hotels: one line each, no links */
+.cc-hotels{list-style:none;margin:12px 0 16px;padding:0;display:grid;gap:8px}
+.cc-hotels li{padding:11px 16px;border:1.5px solid #d6b25e44;border-left:4px solid #d6b25e;border-radius:10px;background:linear-gradient(180deg,#0c1f45,#071330);line-height:1.5;font-size:.93rem}
+.cc-hotels li strong{color:#f3dc98}
+/* sources */
+.cc-src{list-style:none;margin:6px 0 12px;padding:0;display:grid;gap:6px;font-size:.92rem;line-height:1.45}
+.cc-src li{padding:8px 12px;border-radius:8px;background:#0c1f4599}
+@media (max-width:640px){.cc-grid{grid-template-columns:minmax(0,1fr)}.cc-steps>li{padding:12px 12px 12px 54px}.cc-steps>li::before{left:12px}.cc-page main h3{font-size:1.18rem}}
+/* every card on a page shares one height (set per page and breakpoint; grid rows stay equal as a backstop) */
+
+.cc-philippines{--cc-h:340px}
+.cc-india{--cc-h:430px}
+@media (max-width:1100px){.cc-philippines{--cc-h:400px}.cc-india{--cc-h:510px}}
+@media (max-width:640px){.cc-philippines{--cc-h:400px}.cc-india{--cc-h:530px}}

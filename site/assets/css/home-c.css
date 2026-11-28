@@ -191,6 +191,12 @@ html.map-view main#main > .biz-banner{
 .legend .sw.cov-au{background:#012169;box-shadow:inset 0 0 0 1.5px #E4002B}
 .country.cov-au{fill:#012169;stroke:#E4002B;stroke-width:.6}.country.cov-au:hover,.country.cov-au:focus{fill:#1a3f73}
 
+/* Philippines and India (2026-11-28): flag-led colours, distinct from every other covered country. */
+.legend .sw.cov-ph{background:#d8b024;box-shadow:inset 0 0 0 1.5px #0038A8}
+.country.cov-ph{fill:#d8b024;stroke:#0038A8;stroke-width:.6}.country.cov-ph:hover,.country.cov-ph:focus{fill:#e8c33d}
+.legend .sw.cov-in{background:#e2711d;box-shadow:inset 0 0 0 1.5px #138808}
+.country.cov-in{fill:#e2711d;stroke:#138808;stroke-width:.6}.country.cov-in:hover,.country.cov-in:focus{fill:#f08a3a}
+
 /* Section colours on home leftover blocks (2026-11-17) */
 #plan-trip .book-g[data-sec]{
   border-top-color:var(--sec);
