@@ -141,6 +141,17 @@ html body .tp-fullmap .ppc-mmap__case,html body .tp-fullmap .ppc-mmap__case.is-o
 html body .tp-fullmap .ppc-mmap__dot{stroke-width:2.6}
 html body .tp-fullmap .ppc-mmap__ring{stroke-width:3}
 html body .tp-fullmap .ppc-mmap__lbl{font:600 13.5px/1 Inter,system-ui,sans-serif;stroke-width:3px;stroke-linejoin:round}
+/* v4d: paint rules for the large map must NOT depend on the header map's min-width:821px block (mobile rendered default black fills) */
+html body .tp-fullmap .ppc-mmap__ln,html body .tp-fullmap .ppc-mmap__case{fill:none}
+html body .tp-fullmap .ppc-mmap__case{stroke:#e2c275;stroke-linecap:round;stroke-linejoin:round}
+html body .tp-fullmap .ppc-mmap__dot{fill:#071330}
+html body .tp-fullmap .ppc-mmap__st.is-on .ppc-mmap__dot{fill:#f7f3e8}
+html body .tp-fullmap .ppc-mmap__ring{fill:#f7f3e8;stroke:#071330}
+html body .tp-fullmap .ppc-mmap__lbl{fill:#e9e2cf;stroke:#071330;paint-order:stroke}
+html body .tp-fullmap .ppc-mmap__lbl.is-ic,html body .tp-fullmap .ppc-mmap__lbl.is-ic tspan{fill:#fff7e0}
+html body .tp-fullmap .ppc-mmap__lbl.is-here{fill:#f5c84c;font-weight:800}
+html body .tp-fullmap .ppc-mmap__st:hover .ppc-mmap__dot,html body .tp-fullmap .ppc-mmap__st:focus .ppc-mmap__dot{fill:#f5c84c}
+html body .tp-fullmap .ppc-mmap__st:focus-visible .ppc-mmap__ring,html body .tp-fullmap .ppc-mmap__st:focus-visible .ppc-mmap__dot{stroke:#f5c84c;stroke-width:4}
 .tp-fullmap__cue{display:none}
 @media (max-width:1099px){
   .tp-fullmap__scroller{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:thin;

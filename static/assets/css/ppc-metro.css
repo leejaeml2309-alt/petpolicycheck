@@ -134,24 +134,34 @@ html.ppc-v2 body.theme-veterans .gcard > h2{color:#e2c275!important}
 .tp-fullmap__leg{display:inline-flex;align-items:center;gap:8px}
 .tp-fullmap__scroller{position:relative;border-radius:14px;background:linear-gradient(180deg,#0b1d45,#071330);
   border:1px solid #2a3d6b;padding:14px 12px 18px}
-.tp-fullmap__svg{display:block;width:100%;height:auto}
-.tp-fullmap .ppc-mmap__ln{stroke-width:7;stroke-linecap:round;stroke-linejoin:round;opacity:1}
-.tp-fullmap .ppc-mmap__case{stroke-width:11;opacity:1}
-.tp-fullmap .ppc-mmap__dot{stroke-width:3}
-.tp-fullmap .ppc-mmap__ring{stroke-width:3.5}
-.tp-fullmap .ppc-mmap__lbl{font:600 15px/1 Inter,system-ui,sans-serif;stroke-width:5px}
+html body .tp-fullmap .tp-fullmap__svg{display:block;width:100%;height:auto;max-height:none;overflow:visible}
+/* v4c: map drawn 1:1 (viewBox = frame inner width) so labels render at their real size */
+html body .tp-fullmap .ppc-mmap__ln,html body .tp-fullmap .ppc-mmap__ln.is-on{stroke-width:5;stroke-linecap:round;stroke-linejoin:round;opacity:1}
+html body .tp-fullmap .ppc-mmap__case,html body .tp-fullmap .ppc-mmap__case.is-on{stroke-width:8.5;opacity:1}
+html body .tp-fullmap .ppc-mmap__dot{stroke-width:2.6}
+html body .tp-fullmap .ppc-mmap__ring{stroke-width:3}
+html body .tp-fullmap .ppc-mmap__lbl{font:600 13.5px/1 Inter,system-ui,sans-serif;stroke-width:3px;stroke-linejoin:round}
+/* v4d: paint rules for the large map must NOT depend on the header map's min-width:821px block (mobile rendered default black fills) */
+html body .tp-fullmap .ppc-mmap__ln,html body .tp-fullmap .ppc-mmap__case{fill:none}
+html body .tp-fullmap .ppc-mmap__case{stroke:#e2c275;stroke-linecap:round;stroke-linejoin:round}
+html body .tp-fullmap .ppc-mmap__dot{fill:#071330}
+html body .tp-fullmap .ppc-mmap__st.is-on .ppc-mmap__dot{fill:#f7f3e8}
+html body .tp-fullmap .ppc-mmap__ring{fill:#f7f3e8;stroke:#071330}
+html body .tp-fullmap .ppc-mmap__lbl{fill:#e9e2cf;stroke:#071330;paint-order:stroke}
+html body .tp-fullmap .ppc-mmap__lbl.is-ic,html body .tp-fullmap .ppc-mmap__lbl.is-ic tspan{fill:#fff7e0}
+html body .tp-fullmap .ppc-mmap__lbl.is-here{fill:#f5c84c;font-weight:800}
+html body .tp-fullmap .ppc-mmap__st:hover .ppc-mmap__dot,html body .tp-fullmap .ppc-mmap__st:focus .ppc-mmap__dot{fill:#f5c84c}
+html body .tp-fullmap .ppc-mmap__st:focus-visible .ppc-mmap__ring,html body .tp-fullmap .ppc-mmap__st:focus-visible .ppc-mmap__dot{stroke:#f5c84c;stroke-width:4}
 .tp-fullmap__cue{display:none}
-@media (max-width:820px){
+@media (max-width:1099px){
   .tp-fullmap__scroller{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:thin;
-    scrollbar-color:#d9b765 #0b1d45;
-    background-image:linear-gradient(90deg,#d9b765 0 0); /* cue track */
-    background:linear-gradient(180deg,#0b1d45,#071330)}
+    scrollbar-color:#d9b765 #0b1d45;background:linear-gradient(180deg,#0b1d45,#071330)}
   .tp-fullmap__scroller::-webkit-scrollbar{height:8px}
   .tp-fullmap__scroller::-webkit-scrollbar-thumb{background:#d9b765;border-radius:8px}
-  .tp-fullmap__svg{width:1100px;max-width:none}
+  html body .tp-fullmap .tp-fullmap__svg{width:1046px;max-width:none}
   .tp-fullmap__cue{display:flex;align-items:center;gap:8px;margin:0 0 8px;padding:6px 12px;width:max-content;
     border-radius:999px;background:#d9b765;color:#0b1719;font:700 .78rem/1 Inter,system-ui,sans-serif}
 }
-@media (min-width:821px){
+@media (min-width:1100px){
   .tp-fullmap__scroller{overflow:visible}
 }

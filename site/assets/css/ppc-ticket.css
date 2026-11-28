@@ -169,9 +169,7 @@
 }
 .ppc-ticket--airline .ppc-ticket__fields > :only-child,
 .ppc-ticket--airline .ppc-ticket__field:last-child:nth-child(odd){grid-column:1/-1}
-.ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__status{font-size:1.42rem;line-height:1.35;max-width:40ch;padding:4px 0}
-.ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__val{font-size:1.02rem;line-height:1.4}
-.ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__lbl{font-size:.68rem;letter-spacing:.14em}
+.ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__status{font:400 .8rem/1.32 Inter,system-ui,sans-serif;padding:0}
 
 /* Hotel / stay strip: one compact line, city in the stub, no CTA. */
 .ppc-ticket--stay{
@@ -224,7 +222,7 @@
   .ppc-ticket--airline .ppc-ticket__body{padding:8px 14px 10px}
   .ppc-ticket--airline .ppc-ticket__head{padding:10px 14px 8px}
   .ppc-ticket--airline .ppc-ticket__title{font-size:1.08rem}
-  .ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__status{font-size:1.28rem;line-height:1.4;padding:6px 0}
+  .ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__status{font-size:.76rem;line-height:1.28;padding:0}
   .ppc-ticket--stay{--ticket-stub-h:52px}
   .ppc-ticket--stay .ppc-ticket__cta{/* none */}
 }
@@ -369,3 +367,8 @@ html body .ppc-ticket.ppc-ticket--frame.ppc-ticket--frame{border-width:1px!impor
 .ppc-ticket--frame:has(.ppc-ticket__stretch) .ppc-ticket__head,.ppc-ticket--frame:has(.ppc-ticket__stretch) .ppc-ticket__main{position:static}
 .ppc-ticket--frame:has(.ppc-ticket__stretch) .ppc-ticket__stub{position:static}
 html body .ppc-ticket--frame .ppc-ticket__title > a.ppc-ticket__stretch::after{content:""!important;display:block!important;position:absolute;top:0;right:0;bottom:0;left:0;z-index:3}
+/* v4d: stacked (<=640px) airline tickets: body takes the free height, stub/button pinned to the bottom of the ticket */
+@media (max-width:640px){
+  html body .ppc-ticket--airline > .ppc-ticket__main{flex:1 1 auto}
+  html body .ppc-ticket--airline > .ppc-ticket__stub{margin-top:auto}
+}
