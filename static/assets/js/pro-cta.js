@@ -1,14 +1,31 @@
 /* /pro/ Starter CTA (2026-11-25): gumroad_click GA4 event + mobile sticky bar. */
 (function(){
   function lang(){var l=(document.documentElement.getAttribute('lang')||'en').slice(0,2).toLowerCase();return l||'en';}
+  /* 2026-11-28: params are built from explicit data attributes first (data-tier, data-cta), then the URL and the
+     billing toggle, so every event carries tier / billing / lang / cta_position as plain strings.
+     Add ?ga_debug=1 to the page URL to send debug_mode and watch the event in GA4 DebugView. */
+  var DBG=/[?&]ga_debug=1\b/.test(location.search);
+  function billing(a,u){
+    var b=a.getAttribute('data-billing');if(b)return b;
+    if(/[?&]yearly=true/.test(u))return 'yearly';
+    return document.documentElement.getAttribute('data-bill')==='yr'?'yearly':'monthly';
+  }
   function track(ev){
-    var a=ev.target&&ev.target.closest?ev.target.closest('a[href*="gumroad.com/l/petdesk-starter"]'):null;
+    var a=ev.target&&ev.target.closest?ev.target.closest('a[href*="gumroad.com/l/petdesk-"]'):null;
     if(!a||(ev.type==='auxclick'&&ev.button!==1))return;
     var u=a.href||'';
+    var p={
+      tier:String(a.getAttribute('data-tier')||'starter'),
+      billing:String(billing(a,u)),
+      lang:String(lang()),
+      cta_position:String(a.getAttribute('data-cta')||'plan'),
+      link_url:u,
+      transport_type:'beacon'
+    };
+    if(DBG)p.debug_mode=true;
     try{
-      if(typeof window.gtag==='function'){
-        window.gtag('event','gumroad_click',{tier:'starter',billing:/[?&]yearly=true/.test(u)?'yearly':'monthly',lang:lang(),link_url:u,cta_position:a.getAttribute('data-cta')||'plan',transport_type:'beacon'});
-      }
+      if(typeof window.gtag==='function')window.gtag('event','gumroad_click',p);
+      window.__ppcLastGumroad=p;
     }catch(e){}
   }
   document.addEventListener('click',track,true);

@@ -216,7 +216,10 @@
 <script src="../assets/js/ppc-i18n.js?v=20261124ja1" defer></script>
 <link rel="stylesheet" href="../assets/site-search.css?v=20261117sb2">
 <link rel="stylesheet" href="/assets/css/pro-cta.css?v=20261125cta2">
-<script src="/assets/js/pro-cta.js?v=20261125cta2" defer></script>
+<script src="/assets/js/pro-cta.js?v=20261128ga1" defer></script>
+<link rel="stylesheet" href="/assets/css/ppc-journey.css?v=20261128j1">
+<script src="/assets/js/ppc-journey.js?v=20261128j1" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://petpolicycheck.com/"}, {"@type": "ListItem", "position": 2, "name": "Pet Desk for professionals", "item": "https://petpolicycheck.com/pro/"}]}</script>
 </head>
 <body class="v-c"><a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap">
@@ -233,6 +236,7 @@ m.addEventListener('focusout',function(e){var r=e.relatedTarget;if(m.classList.c
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init()})();</script>
 
 <main class="wrap" id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; Pet Desk for professionals</nav>
 
 <section class="pro-sign theme-b2b" aria-label="B2B Pet Desk">
   <div class="pro-eye"><span class="pst theme-b2b pst-lg" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="12" rx="1.5"/><path d="M8 7V5.8A2.2 2.2 0 0 1 10.2 3.6h3.6A2.2 2.2 0 0 1 16 5.8V7M3.5 12h17"/></svg></span><span data-i="eyebrow">Paw Passport · For Business</span></div>
@@ -252,7 +256,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       <button type="button" data-bill="yr" aria-pressed="false" data-i="bill_yr">Annual (Save 20%)</button>
     </div>
   </div>
-  <div class="pd-hero-cta" data-pd="starter-hero"><a class="btn-pro pri" href="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-mo="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-yr="https://petpolicycheck.gumroad.com/l/petdesk-starter?yearly=true&amp;wanted=true" data-i="cta_trial" data-cta="hero" rel="noopener" target="_blank">Start your 1-month free trial</a><span class="pd-sub"><span class="pd-sub-mo" data-pc="mo">$49/mo after your free month</span><span class="pd-sub-yr" data-pc="yr">$468/year after your free month</span></span></div>
+  <div class="pd-hero-cta" data-pd="starter-hero"><a data-tier="starter" class="btn-pro pri" href="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-mo="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-yr="https://petpolicycheck.gumroad.com/l/petdesk-starter?yearly=true&amp;wanted=true" data-i="cta_trial" data-cta="hero" rel="noopener" target="_blank">Start your 1-month free trial</a><span class="pd-sub"><span class="pd-sub-mo" data-pc="mo">$49/mo after your free month</span><span class="pd-sub-yr" data-pc="yr">$468/year after your free month</span></span></div>
 </section>
 
 <div class="plans" id="plans">
@@ -268,7 +272,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
       <li data-i="s5">Watchlist of up to 5 airlines in your Desk, with every logged rule change flagged</li>
     </ul>
     <div class="cta-row" data-pd="starter-trial">
-      <a class="btn-pro pri" href="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-mo="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-yr="https://petpolicycheck.gumroad.com/l/petdesk-starter?yearly=true&amp;wanted=true" data-i="cta_trial" rel="noopener" target="_blank">Start your 1-month free trial</a>
+      <a data-cta="plan" data-tier="starter" class="btn-pro pri" href="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-mo="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-yr="https://petpolicycheck.gumroad.com/l/petdesk-starter?yearly=true&amp;wanted=true" data-i="cta_trial" rel="noopener" target="_blank">Start your 1-month free trial</a>
       <p class="fine trial-micro" data-i="cta_micro">1 month free, then $49/month or $468/year. Card required at Gumroad checkout. You are charged automatically when the free month ends unless you cancel before; Gumroad emails you 48 hours before the charge.</p>
       <a class="btn-pro ghost" href="mailto:contact@petpolicycheck.com?subject=B2B%20Pet%20Desk%20Starter%20onboarding" data-i="cta_onboard">Request onboarding</a>
       <p class="fine pd-desk-link"><a href="desk/" data-pc="desk">Already a member? Open your Pet Desk</a></p>
@@ -373,7 +377,8 @@ document.querySelectorAll('.bill-sw button').forEach(function(b){b.addEventListe
 apply();
 })();
 </script>
-<div class="pd-sticky" id="pd-sticky" aria-hidden="true"><a class="btn-pro pri" href="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-mo="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-yr="https://petpolicycheck.gumroad.com/l/petdesk-starter?yearly=true&amp;wanted=true" data-i="cta_trial" data-cta="sticky" rel="noopener" target="_blank">Start your 1-month free trial</a><span class="pd-sub"><span class="pd-sub-mo" data-pc="mo">$49/mo after your free month</span><span class="pd-sub-yr" data-pc="yr">$468/year after your free month</span></span></div>
+<!-- ppc-journey:next --><section class="ppc-next" aria-labelledby="ppc-next-h"><h2 id="ppc-next-h">Explore the free guides</h2><div class="ppc-next__grid"><a class="ppc-next__card" href="/airlines/compare/" data-ppc-ev="next_step_click" data-cta="next_step_1"><span class="ppc-next__k">Free data</span><span class="ppc-next__t">Airline pet fee &amp; cabin comparator</span><span class="ppc-next__d">The airline rules your clients ask about, with sources.</span><span class="ppc-next__go" aria-hidden="true">&rarr;</span></a><a class="ppc-next__card" href="/products/under-seat-carrier-size-by-airline.html" data-ppc-ev="next_step_click" data-cta="next_step_2"><span class="ppc-next__k">Free data</span><span class="ppc-next__t">Under-seat sizes by airline</span><span class="ppc-next__d">Every airline&rsquo;s published maximum, with its source.</span><span class="ppc-next__go" aria-hidden="true">&rarr;</span></a><a class="ppc-next__card" href="/routes/" data-ppc-ev="next_step_click" data-cta="next_step_3"><span class="ppc-next__k">Free data</span><span class="ppc-next__t">Route guides</span><span class="ppc-next__d">USA to Korea, Japan, France, Mexico and more.</span><span class="ppc-next__go" aria-hidden="true">&rarr;</span></a></div></section>
+<div class="pd-sticky" id="pd-sticky" aria-hidden="true"><a data-tier="starter" class="btn-pro pri" href="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-mo="https://petpolicycheck.gumroad.com/l/petdesk-starter?wanted=true" data-href-yr="https://petpolicycheck.gumroad.com/l/petdesk-starter?yearly=true&amp;wanted=true" data-i="cta_trial" data-cta="sticky" rel="noopener" target="_blank">Start your 1-month free trial</a><span class="pd-sub"><span class="pd-sub-mo" data-pc="mo">$49/mo after your free month</span><span class="pd-sub-yr" data-pc="yr">$468/year after your free month</span></span></div>
 </main>
 
 <footer class="foot foot-compact">
