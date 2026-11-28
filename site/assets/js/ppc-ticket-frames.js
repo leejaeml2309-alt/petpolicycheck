@@ -1,16 +1,17 @@
 /*! PetPolicyCheck boarding-pass frames (preview v4b, 2026-11-28).
     Wraps section cards in the shared .ppc-ticket markup (head band + body + perforated stub).
-    Styles: /assets/css/ppc-ticket.css (.ppc-ticket--frame). English pages only.
+    Styles: /assets/css/ppc-ticket.css (.ppc-ticket--frame). English pages, plus the Spanish homepage /es/ (CTA "Embarcar aquí").
     Never touches the metro header or any geographic map (world/country SVG, pins, popups, zoom). */
 (function () {
   "use strict";
   var EXCL = "#ppc-metro, .ppc-metro, .ppc-mmap, .tp-fullmap, .mapcard, .mapbox, #mapbox, .mapscroll, .map-stage, #world-map, #map, #usa-map, #country-map, .map-switch, .panel, svg";
   var PLANE = '<svg class="ppc-ticket__plane" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>';
   var GOLD = "#d9b765";
+  var ESHOME = document.documentElement.getAttribute("data-ppc-locale") === "es" && /^\/es\/(index\.html)?$/.test(location.pathname);
   /* One entry per card family. o: "p" portrait (stub bottom) | "l" landscape (stub right, bottom on mobile). */
   var CFG = [
     { sel: "a.tp-gate", o: "p", title: "h3", cta: ".tp-gate__go", accent: "sec" },
-    { sel: "a.ent-gate", o: "p", title: "b", ctaText: "Board here", accent: function (el) { return el.classList.contains("is-mil") ? "#0a2e5c" : GOLD; } },
+    { sel: "a.ent-gate", o: "p", title: "b", ctaText: ESHOME ? "Embarcar aquí" : "Board here", accent: function (el) { return el.classList.contains("is-mil") ? "#0a2e5c" : GOLD; } },
     { sel: "a.tp-head", o: "l", title: ".tp-head__cap b", cta: ".tp-head__go", accent: GOLD },
     { sel: "aside.usa-map-tease", o: "l", titleText: function (el) { var t = el.getAttribute("aria-label") || "Country map"; return t.charAt(0).toUpperCase() + t.slice(1); }, cta: "a.btn", accent: GOLD },
     { sel: ".bn .bn-card", o: "p", title: ".pp-name", cta: ".pp-actions a.pp-btn", accent: "#dfa572" },

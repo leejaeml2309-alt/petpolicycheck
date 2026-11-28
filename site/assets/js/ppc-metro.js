@@ -1,8 +1,39 @@
 /*! PetPolicyCheck metro map: one landmark at the top of every page.
     Lines = major sections, stations = their sub-sections. Current station highlighted,
-    "Terminal" always one tap away. English pages only for now (preview). */
+    "Terminal" always one tap away. English pages, plus the Spanish homepage /es/ (2026-11-28 preview). */
 (function () {
   "use strict";
+  /* Spanish homepage only (/es/): same metro, Spanish labels, links to /es/ pages where they exist.
+     Every other /es/, /de/, /fr/, /it/, /ja/, /ko/ page still gets no metro (see build()). */
+  var ESHOME = document.documentElement.getAttribute("data-ppc-locale") === "es" && /^\/es\/(index\.html)?$/.test(location.pathname);
+  var ES = {
+    "Destinations": "Destinos", "Vet & paperwork": "Veterinario y trámites", "Airlines": "Aerolíneas", "Gear": "Equipo",
+    "Planning tools": "Herramientas de planificación", "Stay & ground": "Alojamiento y traslados", "Grooming": "Peluquería",
+    "Community": "Comunidad", "Business": "Empresas", "Military": "Militar",
+    "World map": "Mapa mundial", "Country guides": "Guías por país", "Laws": "Leyes", "USA state map": "Mapa de EE. UU. por estados",
+    "Routes": "Rutas", "Philippines": "Filipinas", "India": "India",
+    "Vet hall": "Centro veterinario", "Vet prep": "Preparación veterinaria", "Health certificate": "Certificado de salud",
+    "Titer countdown": "Test de anticuerpos", "Pet passport": "Pasaporte de mascota", "Partner vets": "Veterinarios asociados",
+    "US clinics": "Clínicas de EE. UU.", "Insurance": "Seguro",
+    "Airline policies": "Políticas de aerolíneas", "Compare": "Comparar", "Under-seat sizes": "Medidas bajo el asiento",
+    "Airports": "Aeropuertos", "Flight volunteers": "Voluntarios de vuelo",
+    "Board now": "Embarcar ahora", "Soft carriers": "Transportadoras blandas", "Carriers & crates": "Transportadoras y jaulas",
+    "All products": "Todos los productos", "Gifts": "Regalos", "Guides": "Guías",
+    "Tools hall": "Centro de herramientas", "Checklist": "Lista de control", "Planner": "Planificador", "Fit check": "Ajuste bajo el asiento",
+    "Hotels": "Hoteles", "Hotel pet rules": "Normas de hoteles", "Rides": "Traslados",
+    "Groomers": "Peluqueros", "Forum": "Foro", "Stories": "Historias", "Adoptions": "Adopciones", "News": "Noticias", "Field reports": "Experiencias reales",
+    "Pet Desk": "Pet Desk", "Free widgets": "Widgets gratis",
+    "Military gate": "Puerta militar", "Veterans": "Veteranos", "Service dogs": "Perros de servicio", "PCS moves": "Mudanzas PCS", "K9": "K9",
+    /* interface strings */
+    "Line": "Línea", "You are at": "Está en", "All lines": "Todas las líneas", "Close map": "Cerrar mapa", "Lines": "Líneas",
+    "Metro map of the site": "Mapa de metro del sitio", "Metro map: all lines and interchanges": "Mapa de metro: todas las líneas y correspondencias",
+    "(interchange)": "(correspondencia)", "Close": "Cerrar", "Menu": "Menú", "Board here": "Embarcar aquí"
+  };
+  /* station URLs that have a /es/ page (checked against site/es on 2026-11-28); the others keep the English URL */
+  var ES_OK = ["/#gear", "/?view=map", "/airlines/", "/airlines/compare/", "/airport/", "/clinics/usa.html", "/countries/usa-map.html", "/countries/usa.html#federal", "/field-guides/", "/fit/", "/flight-volunteer/", "/forum/", "/forum/pet-travel-stories/", "/grooming/", "/hotel-pets/", "/hotels/", "/insurance/pet-insurance-for-travelers.html", "/k9/", "/military-pcs/", "/partner-vets/", "/passport/", "/pet-travel-checklist/", "/planner/", "/pro/", "/products/", "/products/best-airline-approved-soft-carriers.html", "/products/carriers/", "/products/under-seat-carrier-size-by-airline.html", "/routes/", "/taxi/", "/titer-calculator/", "/vet-info/", "/vet-prep/", "/veterans/", "/veterans/#service-dog-support", "/widgets/"];
+  function T(x) { return ESHOME && ES[x] != null ? ES[x] : x; }
+  function HU(u) { return ESHOME && ES_OK.indexOf(u) > -1 ? "/es" + u : u; }
+  function LP() { return ESHOME ? "/" : location.pathname; }
   var LINES = [
     { id: "map", n: "1", name: "Destinations", c: "#d9b765", st: [
       ["World map", "/?view=map"], ["Country guides", "/countries/"], ["Laws", "/countries/usa.html#federal"], ["USA state map", "/countries/usa-map.html"], ["Routes", "/routes/"], ["Philippines", "/countries/philippines.html"], ["India", "/countries/india.html"] ] },
@@ -25,6 +56,7 @@
     { id: "military", n: "M", name: "Military", c: "#0a2e5c", mil: true, st: [
       ["Military gate", "/military/"], ["Veterans", "/veterans/"], ["Service dogs", "/veterans/#service-dog-support"], ["PCS moves", "/military-pcs/"], ["K9", "/k9/"] ] }
   ];
+  if (ESHOME) LINES.forEach(function (L) { L.name = T(L.name); L.st.forEach(function (s) { s[0] = T(s[0]); }); });
   var SEC = { map: "map", law: "law", vet: "law", tools: "tools", flight: "flight", shop: "shop", hotel: "hotel", ground: "ground", grooming: "grooming", forum: "forum", news: "forum", adoptions: "forum", k9: "military", veterans: "military" };
 
 
@@ -57,14 +89,14 @@
   };
   var NAMES = {};
   LINES.forEach(function (L) { L.st.forEach(function (s) { NAMES[s[1]] = s[0]; }); });
-  NAMES["/hotels/"] = "Hotels"; NAMES["/countries/"] = "Country guides";
+  NAMES["/hotels/"] = T("Hotels"); NAMES["/countries/"] = T("Country guides");
   function linesAt(u) { var o = []; LINES.forEach(function (L, i) { if (ROUTE[L.id].indexOf(u) > -1) o.push(i); }); return o; }
   /* v3 compact map (viewBox 1200x138): same topology, 7px extra vertical padding so labels clear the frame by 4px. */
   var VS = 0.8; /* v4i: vertical stretch (was 0.6) so every station name has room between rows */
   var TOP = 28, BOT = 30; /* v4i: extra top room for names above the top row */
   function Y(y) { return Math.round((TOP + (y - 36) * VS) * 10) / 10; }
   function svgMap(sel, curUrl) {
-    var W = 1200, H = Math.round(TOP + BOT + 160 * VS), h = '<svg class="ppc-mmap__svg" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Metro map: all lines and interchanges">';
+    var W = 1200, H = Math.round(TOP + BOT + 160 * VS), h = '<svg class="ppc-mmap__svg" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="' + T("Metro map: all lines and interchanges") + '">';
     var order = LINES.map(function (L, i) { return i; }).filter(function (i) { return i !== sel; }).concat([sel]);
     order.forEach(function (i) {
       var L = LINES[i], pts = ROUTE[L.id].map(function (p) { return typeof p === "string" ? POS[p] : p; });
@@ -107,7 +139,7 @@
       var x = POS[u][0], y = Y(POS[u][1]), ls = linesAt(u);
       var onSel = selSt.indexOf(u) > -1, here = u === curUrl, ic = ls.length > 1;
       var cls = "ppc-mmap__st" + (ic ? " is-ic" : "") + (onSel ? " is-on" : "") + (here ? " is-here" : "");
-      h += '<a href="' + u + '" class="' + cls + '"' + (here ? ' aria-current="page"' : "") + "><title>" + esc(NAMES[u] || u) + (ic ? " (interchange)" : "") + "</title>";
+      h += '<a href="' + HU(u) + '" class="' + cls + '"' + (here ? ' aria-current="page"' : "") + "><title>" + esc(NAMES[u] || u) + (ic ? " " + T("(interchange)") : "") + "</title>";
       if (ic) h += '<circle cx="' + x + '" cy="' + y + '" r="6.5" class="ppc-mmap__ring"/>';
       else h += '<circle cx="' + x + '" cy="' + y + '" r="3.6" class="ppc-mmap__dot" style="stroke:' + LINES[ls[0]].c + '"/>';
       if (here) h += '<circle cx="' + x + '" cy="' + y + '" r="10" class="ppc-mmap__here"/>';
@@ -123,7 +155,7 @@
   function stPath(u) { return norm(u.split("#")[0].split("?")[0]); }
 
   function locate() {
-    var path = norm(location.pathname), q = location.search || "", best = null, bestLen = -1;
+    var path = norm(LP()), q = location.search || "", best = null, bestLen = -1;
     LINES.forEach(function (L, li) {
       L.st.forEach(function (s, si) {
         var sp = stPath(s[1]), hit = false;
@@ -149,7 +181,7 @@
     var h = '<ol class="ppc-metro__track' + (L.mil ? " is-mil" : "") + '" style="--c:' + L.c + '">';
     L.st.forEach(function (s, i) {
       var on = i === here;
-      h += '<li class="ppc-metro__st' + (on ? " is-here" : "") + '"><a href="' + s[1] + '"' + (on ? ' aria-current="page"' : "") + '><span class="ppc-metro__dot" aria-hidden="true"></span><span class="ppc-metro__lbl">' + esc(s[0]) + "</span></a></li>";
+      h += '<li class="ppc-metro__st' + (on ? " is-here" : "") + '"><a href="' + HU(s[1]) + '"' + (on ? ' aria-current="page"' : "") + '><span class="ppc-metro__dot" aria-hidden="true"></span><span class="ppc-metro__lbl">' + esc(s[0]) + "</span></a></li>";
     });
     return h + "</ol>";
   }
@@ -438,26 +470,26 @@
 
   function build() {
     if (document.getElementById("ppc-metro")) return;
-    var path = location.pathname;
-    if (/^\/(de|es|fr|it|ja|ko)\//.test(path) || /print\.html$/.test(path) || window.top !== window.self) return;
+    var path = LP();
+    if ((!ESHOME && /^\/(de|es|fr|it|ja|ko)\//.test(path)) || /print\.html$/.test(path) || window.top !== window.self) return;
     var hdr = document.querySelector("header.top");
     if (!hdr || hdr.closest(".intro")) return;
     var cur = locate(), isTerminal = norm(path) === "/terminal/";
     var nav = document.createElement("nav");
-    nav.id = "ppc-metro"; nav.className = "ppc-metro"; nav.setAttribute("aria-label", "Metro map of the site");
+    nav.id = "ppc-metro"; nav.className = "ppc-metro"; nav.setAttribute("aria-label", T("Metro map of the site"));
     var L = LINES[cur.li];
     var bul = LINES.map(function (x, i) {
-      return bullet(x, "button", ' type="button" data-line="' + i + '" aria-pressed="' + (i === cur.li) + '" aria-label="Line ' + x.n + ": " + x.name + '" title="Line ' + x.n + " · " + x.name + '"');
+      return bullet(x, "button", ' type="button" data-line="' + i + '" aria-pressed="' + (i === cur.li) + '" aria-label="' + T("Line") + " " + x.n + ": " + x.name + '" title="' + T("Line") + " " + x.n + " · " + x.name + '"');
     }).join("");
     var all = LINES.map(function (x) {
       return '<div class="ppc-metro__row">' + bullet(x, "span", ' aria-hidden="true"') + '<span class="ppc-metro__rowname">' + x.name + "</span>" + track(x, x === L ? cur.si : -1) + "</div>";
     }).join("");
     nav.innerHTML =
       '<div class="ppc-metro__bar">' +
-        '<p class="ppc-metro__where"><span class="ppc-metro__line">Line ' + L.n + " &middot; " + L.name + "</span>" +
-          (cur.si > -1 ? '<span class="ppc-metro__you">You are at <b>' + esc(L.st[cur.si][0]) + "</b></span>" : "") + "</p>" +
-        '<div class="ppc-metro__bullets" role="group" aria-label="Lines">' + bul + "</div>" +
-        '<button class="ppc-metro__all-btn" type="button" aria-expanded="false" aria-controls="ppc-metro-all">All lines</button>' +
+        '<p class="ppc-metro__where"><span class="ppc-metro__line">' + T("Line") + " " + L.n + " &middot; " + L.name + "</span>" +
+          (cur.si > -1 ? '<span class="ppc-metro__you">' + T("You are at") + " <b>" + esc(L.st[cur.si][0]) + "</b></span>" : "") + "</p>" +
+        '<div class="ppc-metro__bullets" role="group" aria-label="' + T("Lines") + '">' + bul + "</div>" +
+        '<button class="ppc-metro__all-btn" type="button" aria-expanded="false" aria-controls="ppc-metro-all">' + T("All lines") + "</button>" +
       "</div>" +
       '<div class="ppc-metro__cur">' + track(L, cur.si) + "</div>" +
       '<div class="ppc-mmap">' + svgMap(cur.li, cur.si > -1 ? L.st[cur.si][1] : "") + "</div>" +
@@ -482,7 +514,7 @@
         var i = +b.getAttribute("data-line"), X = LINES[i];
         curBox.innerHTML = track(X, i === cur.li ? cur.si : -1);
         mapBox.innerHTML = svgMap(i, cur.si > -1 ? L.st[cur.si][1] : "");
-        where.innerHTML = "Line " + X.n + " &middot; " + X.name;
+        where.innerHTML = T("Line") + " " + X.n + " &middot; " + X.name;
         nav.querySelectorAll("[data-line]").forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
         centre();
         placeAllMetroLabels();
@@ -491,7 +523,7 @@
     var ab = nav.querySelector(".ppc-metro__all-btn"), ap = nav.querySelector(".ppc-metro__all");
     ab.addEventListener("click", function () {
       var open = ap.hidden; ap.hidden = !open; ab.setAttribute("aria-expanded", String(open));
-      ab.textContent = open ? "Close map" : "All lines";
+      ab.textContent = open ? T("Close map") : T("All lines");
     });
     setStickyTop();
     wireHomeMenu();
@@ -521,10 +553,11 @@
     { n: "M", name: "Military", c: "#0a2e5c", keys: ["K9", "Service dogs", "Veterans"], mil: true },
     { n: "", name: "", c: "", keys: ["About"] }
   ];
+  var ES_KEY = { "Mapa mundial": "World map", "Leyes": "Laws", "Veterinario": "Vet", "Avión": "Plane", "Hotel": "Hotel", "Peluquería": "Grooming", "Productos": "Products", "Traslados": "Rides", "Foro": "Forum", "K9": "K9", "Perros de servicio": "Service dogs", "Veteranos": "Veterans", "Adopciones": "Adoptions", "Noticias": "News", "Para empresas": "For Business", "Comparar": "Compare", "Guías": "Guides", "Actualizaciones": "Updates", "Acerca de": "About" };
   function menuKey(a) {
     var t = (a.getAttribute("aria-label") || a.textContent || "").replace(/\s+/g, " ").trim();
     t = t.replace(/\s*—.*$/, ""); /* m18: legacy aria suffix guard (the tree no longer exists in this menu) */
-    return t;
+    return ESHOME && ES_KEY[t] ? ES_KEY[t] : t;
   }
   /* v4g: every pill carries the same single-frame icon tile (.pst). Compare, Guides and About had none; same monoline style (24 grid, 1.75 stroke). */
   var MENU_ICONS = {
@@ -544,7 +577,7 @@
     var t = a.querySelector(".ppc-xmas-tree"); if (t) t.remove();
     a.classList.remove("ppc-xmas-products");
     if (/ — /.test(a.getAttribute("aria-label") || "")) a.removeAttribute("aria-label");
-    var h = a.getAttribute("href") || ""; if (/products\/gifts\/?$/.test(h)) a.setAttribute("href", h.replace(/gifts\/?$/, ""));
+    var h = a.getAttribute("href") || ""; if (/products\/gifts\/?$/.test(h)) a.setAttribute("href", ESHOME ? "/es/products/" : h.replace(/gifts\/?$/, ""));
   }
   function enhanceHomeMenu(m) {
     if (!m || m.getAttribute("data-ppc-mnu") === "1") return;
@@ -559,7 +592,7 @@
       if (g.n) {
         h += '<div class="ppc-mnu__group"><p class="ppc-mnu__line">' +
           '<span class="ppc-metro__bul' + (g.mil ? " is-mil" : "") + '" style="--c:' + g.c + '" aria-hidden="true">' + g.n + "</span>" +
-          "<span>Line " + g.n + " · " + g.name + "</span></p>";
+          "<span>" + T("Line") + " " + g.n + " · " + T(g.name) + "</span></p>";
       } else h += '<div class="ppc-mnu__group">';
       items.forEach(function (a) {
         a.classList.add("ppc-mnu__item");
@@ -596,7 +629,7 @@
     }
   }
   function wireHomeMenu() {
-    if (norm(location.pathname) !== "/") return;
+    if (norm(LP()) !== "/") return;
     var tries = 0;
     function go() {
       var m = document.getElementById("site-menu");
@@ -608,7 +641,7 @@
           lockPageScroll(open);
           if (btn) {
             var lab = btn.querySelector("[data-i18n], span:last-child") || btn;
-            if (lab && lab !== btn && !lab.querySelector("svg")) lab.textContent = open ? "Close" : "Menu";
+            if (lab && lab !== btn && !lab.querySelector("svg")) lab.textContent = open ? T("Close") : T("Menu");
             btn.setAttribute("aria-expanded", open ? "true" : "false");
           }
         }

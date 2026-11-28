@@ -33,6 +33,7 @@ function ppcGuidePinText(G){
     var nj=JA_PIN[raw]||JA_PIN[G && G.name]||raw;
     return nj+'ガイド';
   }
+  if(ppcHomeLang()==='es') return raw+' guía';
   return raw+' guide';
 }
 window.PPC_HOME_I18N={lang:ppcHomeLang,es:ES,it:IT,de:DE,ja:JA,t:ppcHS,pin:ppcGuidePinText};
@@ -43,6 +44,7 @@ var ppcGuidePinText=window.ppcGuidePinText;
 (function(){
 var W=960,H=500,VH=H,marks=[],svg=d3.select('#world-map'),tip=document.getElementById('tip'),box=document.getElementById('mapbox');
 var countries=topojson.feature(ATLAS,ATLAS.objects.countries).features.filter(function(f){return f.id!=='010'&&f.properties.name!=='Antarctica'});
+if(window.PPC_HOME_I18N.lang()==='es'&&window.PPC_COUNTRY_NAMES_ES){var CN=window.PPC_COUNTRY_NAMES_ES;countries.forEach(function(f){var n=CN.byId[f.id]||CN.byName[f.properties.name];if(n)f.properties.name=n})}
 var proj=d3.geoNaturalEarth1().rotate([-10,0]);
 proj.fitWidth(W-16,{type:'Sphere'});
 // crop to the inhabited latitudes (84N to 57S): no empty Antarctic band
@@ -271,7 +273,7 @@ var pick=document.getElementById('pick');
 var og=document.createElement('optgroup');og.label=ppcHS('guidesOG','Country guides');pick.appendChild(og);
 Object.keys(GUIDES).forEach(function(id){var G=GUIDES[id],o=document.createElement('option');o.value=id;o.textContent=G.option||G.name+'  \u2605 guide';og.appendChild(o)});
 var oa=document.createElement('optgroup');oa.label=ppcHS('allOG','All countries');pick.appendChild(oa);
-countries.slice().sort(function(a,b){return a.properties.name.localeCompare(b.properties.name)}).forEach(function(c){var o=document.createElement('option');o.value=c.id;o.textContent=c.properties.name+(GUIDES[c.id]?ppcHS('guideStar','  \u2605 guide'):'');oa.appendChild(o)});
+countries.slice().sort(function(a,b){return a.properties.name.localeCompare(b.properties.name,window.PPC_HOME_I18N.lang()==='es'?'es':undefined)}).forEach(function(c){var o=document.createElement('option');o.value=c.id;o.textContent=c.properties.name+(GUIDES[c.id]?ppcHS('guideStar','  \u2605 guide'):'');oa.appendChild(o)});
 pick.onchange=function(){if(pick.value)openCountry(pick.value);pick.value=''};
 // panel
 var panel=document.getElementById('panel'),scrim=document.getElementById('scrim');

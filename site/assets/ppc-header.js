@@ -73,21 +73,21 @@
 /*! Metro map loader (preview 2026-11-28): adds the site-wide metro strip under the header. */
 (function () {
   try {
-    if (/^\/(de|es|fr|it|ja|ko)\//.test(location.pathname)) return;
+    if (/^\/(de|es|fr|it|ja|ko)\//.test(location.pathname) && !/^\/es\/(index\.html)?$/.test(location.pathname)) return; /* /es/ homepage only gets the metro */
     document.documentElement.classList.add("ppc-v2");
     if (document.getElementById("ppc-metro-css")) return;
     var l = document.createElement("link"); l.rel = "stylesheet"; l.id = "ppc-metro-css";
     l.href = "/assets/css/ppc-metro.css?v=20261128m18"; document.head.appendChild(l);
-    if (!window.PPCMetro) { var s = document.createElement("script"); s.src = "/assets/js/ppc-metro.js?v=20261128m18"; document.head.appendChild(s); }
+    if (!window.PPCMetro) { var s = document.createElement("script"); s.src = "/assets/js/ppc-metro.js?v=20261128m18es1"; document.head.appendChild(s); }
   } catch (e) {}
 })();
 
 /*! Boarding-pass frames loader (preview v4b 2026-11-28): shared ppc-ticket.css + frame builder, English pages only. */
 (function () {
   try {
-    if (/^\/(de|es|fr|it|ja|ko)\//.test(location.pathname)) return;
+    if (/^\/(de|es|fr|it|ja|ko)\//.test(location.pathname) && !/^\/es\/(index\.html)?$/.test(location.pathname)) return; /* /es/ homepage only */
     var has = Array.prototype.some.call(document.querySelectorAll('link[rel="stylesheet"]'), function (l) { return /ppc-ticket\.css/.test(l.href); });
     if (!has) { var l = document.createElement("link"); l.rel = "stylesheet"; l.id = "ppc-ticket-css"; l.href = "/assets/css/ppc-ticket.css?v=20261128tk8"; document.head.appendChild(l); }
-    if (!window.PPCTicketFrames) { var s = document.createElement("script"); s.src = "/assets/js/ppc-ticket-frames.js?v=20261128tk8"; document.head.appendChild(s); }
+    if (!window.PPCTicketFrames) { var s = document.createElement("script"); s.src = "/assets/js/ppc-ticket-frames.js?v=20261128tk8es1"; document.head.appendChild(s); }
   } catch (e) {}
 })();
