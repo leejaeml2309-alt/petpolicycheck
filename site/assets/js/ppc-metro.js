@@ -19,7 +19,7 @@
     { id: "grooming", n: "7", name: "Grooming", c: "#c6a4db", st: [
       ["Groomers", "/grooming/"] ] },
     { id: "forum", n: "8", name: "Community", c: "#9dc2a0", st: [
-      ["Forum", "/forum/"], ["Stories", "/forum/pet-travel-stories/"], ["Adoptions", "/adoptions/"], ["News", "/news/"], ["Field guides", "/field-guides/"] ] },
+      ["Forum", "/forum/"], ["Stories", "/forum/pet-travel-stories/"], ["Adoptions", "/adoptions/"], ["News", "/news/"], ["Field reports", "/field-guides/"] ] },
     { id: "b2b", n: "B", name: "Business", c: "#8b9ce2", st: [
       ["Pet Desk", "/pro/"], ["Free widgets", "/widgets/"] ] },
     { id: "military", n: "M", name: "Military", c: "#0a2e5c", mil: true, st: [
@@ -61,10 +61,10 @@
   function linesAt(u) { var o = []; LINES.forEach(function (L, i) { if (ROUTE[L.id].indexOf(u) > -1) o.push(i); }); return o; }
   /* v3 compact map (viewBox 1200x138): same topology, 7px extra vertical padding so labels clear the frame by 4px. */
   var VS = 0.8; /* v4i: vertical stretch (was 0.6) so every station name has room between rows */
-  var TOP = 28; /* v4i: extra top room for names above the top row */
+  var TOP = 28, BOT = 30; /* v4i: extra top room for names above the top row */
   function Y(y) { return Math.round((TOP + (y - 36) * VS) * 10) / 10; }
   function svgMap(sel, curUrl) {
-    var W = 1200, H = Math.round(TOP + 19 + 160 * VS), h = '<svg class="ppc-mmap__svg" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Metro map: all lines and interchanges">';
+    var W = 1200, H = Math.round(TOP + BOT + 160 * VS), h = '<svg class="ppc-mmap__svg" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Metro map: all lines and interchanges">';
     var order = LINES.map(function (L, i) { return i; }).filter(function (i) { return i !== sel; }).concat([sel]);
     order.forEach(function (i) {
       var L = LINES[i], pts = ROUTE[L.id].map(function (p) { return typeof p === "string" ? POS[p] : p; });

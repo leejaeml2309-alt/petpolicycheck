@@ -3269,7 +3269,7 @@ def build_passport(cfg):
   <div><label for="ret">Return trip</label><select id="ret"><option value="0">One way</option><option value="1">Round trip</option></select></div></div>
   <div class="row"><div><label for="date">Departure</label><input type="date" id="date"></div><div><label for="retDate">Return</label><input type="date" id="retDate"></div></div>
   <button type="button" id="print" data-i18n="passport.print">Print / Save PDF passport</button>
-  <p style="font-size:12px;color:var(--mut,#a9b3a4);margin-top:10px">Shareable link: <a id="share" href="#">copy</a> · <a href="{root}airlines/compare/">Airline fee comparator</a> · <a href="{root}field-guides/">Field Guides</a></p>
+  <p style="font-size:12px;color:var(--mut,#a9b3a4);margin-top:10px">Shareable link: <a id="share" href="#">copy</a> · <a href="{root}airlines/compare/">Airline fee comparator</a> · <a href="{root}field-guides/">Field Reports</a></p>
 </form>
 <main>
   <div class="screen" id="out"></div>
@@ -3405,7 +3405,7 @@ def main():
         _polish_static_html(_p, _root)
     # Homepage (written earlier from home-c.html)
     _polish_static_html(OUT / "index.html", "")
-    # Unified Community Hub / Field Guides (#4 + #9 + #11)
+    # Unified Community Hub / Field Reports (#4 + #9 + #11)
     _fg_src = ROOT / "static" / "field-guides"
     if _fg_src.exists():
         _fg_dst = OUT / "field-guides"
