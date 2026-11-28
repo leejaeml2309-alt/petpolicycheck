@@ -12,6 +12,24 @@
     if (secs.length < 2) return;
     var parent = secs[0].parentNode; secs = secs.filter(function (x) { return x.parentNode === parent; });
     if (secs.length < 2) return;
+    var gattr = root.getAttribute("data-ppc-split-groups");
+    if (gattr) {
+      /* "Label:id,id|Label:id": consecutive sections share one tab; unlisted ones join the group before them */
+      var gmap = {}, groups = [];
+      gattr.split("|").forEach(function (g, gi) { var k = g.split(":"); groups.push({ label: k[0].trim(), id: "g-" + slug(k[0]), secs: [] }); k[1].split(",").forEach(function (id) { gmap[id.trim()] = gi; }); });
+      var gi = 0;
+      secs.forEach(function (x) { if (x.id in gmap) gi = gmap[x.id]; groups[gi].secs.push(x); });
+      groups = groups.filter(function (g) { return g.secs.length; });
+      var panels = groups.map(function (g, n) {
+        var wrap = document.createElement("div");
+        wrap.className = "ppc-split__panel"; wrap.id = g.id; wrap.setAttribute("role", "tabpanel"); wrap.setAttribute("aria-labelledby", "t-" + g.id); wrap.setAttribute("data-tab", g.label);
+        var first = g.secs[0], last = g.secs[g.secs.length - 1], end = n + 1 < groups.length ? groups[n + 1].secs[0] : last.nextSibling;
+        parent.insertBefore(wrap, first);
+        var node = first, nx; while (node && node !== end) { nx = node.nextSibling; wrap.appendChild(node); node = nx; }
+        return wrap;
+      });
+      return wire(root, parent, panels);
+    }
     secs.forEach(function (x) { x.classList.add("ppc-split__panel"); x.setAttribute("role", "tabpanel"); x.setAttribute("aria-labelledby", "t-" + x.id); });
     wire(root, parent, secs);
   }
@@ -50,7 +68,7 @@
     panels.forEach(function (p) {
       var b = document.createElement("a");
       b.href = "#" + p.id; b.id = "t-" + p.id; b.setAttribute("role", "tab"); b.className = "ppc-split__tab";
-      b.textContent = p.querySelector("h2").textContent.replace(/\s+/g, " ").trim();
+      b.textContent = (p.getAttribute("data-tab") || p.querySelector("h2").textContent).replace(/\s+/g, " ").trim();
       bar.appendChild(b);
     });
     parent.insertBefore(bar, panels[0]);

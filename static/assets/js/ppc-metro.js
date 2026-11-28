@@ -59,32 +59,54 @@
   LINES.forEach(function (L) { L.st.forEach(function (s) { NAMES[s[1]] = s[0]; }); });
   NAMES["/hotels/"] = "Hotels"; NAMES["/countries/"] = "Country guides";
   function linesAt(u) { var o = []; LINES.forEach(function (L, i) { if (ROUTE[L.id].indexOf(u) > -1) o.push(i); }); return o; }
+  /* v3 compact map: the schematic keeps its x, rows are 24 units apart (viewBox 1200x131). */
+  function Y(y) { return Math.round((15 + (y - 36) * 0.6) * 10) / 10; }
   function svgMap(sel, curUrl) {
-    var W = 1200, H = 226, h = '<svg class="ppc-mmap__svg" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Metro map: all lines and interchanges">';
+    var W = 1200, H = 131, h = '<svg class="ppc-mmap__svg" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Metro map: all lines and interchanges">';
     var order = LINES.map(function (L, i) { return i; }).filter(function (i) { return i !== sel; }).concat([sel]);
     order.forEach(function (i) {
       var L = LINES[i], pts = ROUTE[L.id].map(function (p) { return typeof p === "string" ? POS[p] : p; });
-      var d = "M" + pts.map(function (p) { return p[0] + " " + p[1]; }).join("L");
+      var d = "M" + pts.map(function (p) { return p[0] + " " + Y(p[1]); }).join("L");
       var on = i === sel;
       if (L.mil) h += '<path d="' + d + '" class="ppc-mmap__case' + (on ? " is-on" : "") + '"/>';
       h += '<path d="' + d + '" class="ppc-mmap__ln' + (on ? " is-on" : "") + '" style="stroke:' + L.c + '" data-line="' + i + '"/>';
     });
-    var seen = {}, k = 0, selSt = ROUTE[LINES[sel].id].filter(function (p) { return typeof p === "string"; });
-    Object.keys(POS).forEach(function (u) {
-      var xy = POS[u], ls = linesAt(u), x = xy[0], y = xy[1];
+    var selSt = ROUTE[LINES[sel].id].filter(function (p) { return typeof p === "string"; });
+    var placed = [], labels = [], stations = Object.keys(POS);
+    /* station discs count as obstacles so labels never sit on a ring */
+    stations.forEach(function (u) { var x = POS[u][0], y = Y(POS[u][1]); placed.push([x - 7, y - 7, x + 7, y + 7]); });
+    function tw(t) { return t.length * 6.1 + 2; }
+    function fits(b) {
+      if (b[0] < 2 || b[2] > W - 2 || b[1] < 1 || b[3] > H - 1) return false;
+      for (var q = 0; q < placed.length; q++) { var o = placed[q]; if (b[0] < o[2] && o[0] < b[2] && b[1] < o[3] && o[1] < b[3]) return false; }
+      return true;
+    }
+    /* who gets a name: the page you are on, then interchanges (all lines), then the selected line */
+    var want = stations.filter(function (u) { return u === curUrl; })
+      .concat(stations.filter(function (u) { return u !== curUrl && linesAt(u).length > 1; }))
+      .concat(selSt.filter(function (u) { return u !== curUrl && linesAt(u).length < 2; }));
+    want.forEach(function (u) {
+      var x = POS[u][0], y = Y(POS[u][1]), t = NAMES[u] || u, w = tw(t), hh = 11;
+      var c = [[x - w / 2, y + 8, "middle", x, y + 17], [x - w / 2, y - 18, "middle", x, y - 9],
+               [x + 10, y - 5.5, "start", x + 10, y + 4], [x - 10 - w, y - 5.5, "end", x - 10, y + 4],
+               [x + 6, y + 7, "start", x + 6, y + 16], [x - 6 - w, y + 7, "end", x - 6, y + 16],
+               [x + 6, y - 17, "start", x + 6, y - 8], [x - 6 - w, y - 17, "end", x - 6, y - 8]];
+      for (var n = 0; n < c.length; n++) {
+        var b = [c[n][0], c[n][1], c[n][0] + w, c[n][1] + hh];
+        if (fits(b)) { placed.push(b); labels.push([u, c[n][3], c[n][4], c[n][2], t]); return; }
+      }
+    });
+    stations.forEach(function (u) {
+      var x = POS[u][0], y = Y(POS[u][1]), ls = linesAt(u);
       var onSel = selSt.indexOf(u) > -1, here = u === curUrl, ic = ls.length > 1;
       var cls = "ppc-mmap__st" + (ic ? " is-ic" : "") + (onSel ? " is-on" : "") + (here ? " is-here" : "");
       h += '<a href="' + u + '" class="' + cls + '"' + (here ? ' aria-current="page"' : "") + "><title>" + esc(NAMES[u] || u) + (ic ? " (interchange)" : "") + "</title>";
-      if (ic) h += '<circle cx="' + x + '" cy="' + y + '" r="8.5" class="ppc-mmap__ring"/>';
-      else h += '<circle cx="' + x + '" cy="' + y + '" r="4.6" class="ppc-mmap__dot" style="stroke:' + LINES[ls[0]].c + '"/>';
-      if (here) h += '<circle cx="' + x + '" cy="' + y + '" r="13" class="ppc-mmap__here"/>';
-      if (onSel || here) {
-        var idx = selSt.indexOf(u), below = (idx > -1 ? idx : k++) % 2 === 0, ty = below ? y + 23 : y - 14;
-        var anc = x < 60 ? "start" : x > W - 60 ? "end" : "middle", tx = anc === "start" ? x - 8 : anc === "end" ? x + 8 : x;
-        var nb = [selSt[idx - 1], selSt[idx + 1]].filter(Boolean).map(function (v) { return POS[v]; });
-        if (idx > -1 && nb.length && nb.every(function (q) { return Math.abs(q[0] - x) < Math.abs(q[1] - y); })) { anc = "start"; tx = x + 17; ty = ic ? y - 9 : y + 4; }
-        h += '<text x="' + tx + '" y="' + ty + '" text-anchor="' + anc + '" class="ppc-mmap__lbl' + (here ? " is-here" : "") + '">' + esc(NAMES[u] || u) + "</text>";
-      }
+      if (ic) h += '<circle cx="' + x + '" cy="' + y + '" r="6.5" class="ppc-mmap__ring"/>';
+      else h += '<circle cx="' + x + '" cy="' + y + '" r="3.6" class="ppc-mmap__dot" style="stroke:' + LINES[ls[0]].c + '"/>';
+      if (here) h += '<circle cx="' + x + '" cy="' + y + '" r="10" class="ppc-mmap__here"/>';
+      labels.forEach(function (l) {
+        if (l[0] === u) h += '<text x="' + l[1] + '" y="' + l[2] + '" text-anchor="' + l[3] + '" class="ppc-mmap__lbl' + (here ? " is-here" : ic ? " is-ic" : "") + '">' + esc(l[4]) + "</text>";
+      });
       h += "</a>";
     });
     return h + "</svg>";

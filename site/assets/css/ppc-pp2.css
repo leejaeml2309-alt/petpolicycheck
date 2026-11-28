@@ -6,7 +6,7 @@ html.ppc-pp2 .crumbs a{color:#e8d49a}
 html.ppc-pp2 main .btn,html.ppc-pp2 main a.btn,html.ppc-pp2 .ppc-pro-banner a,html.ppc-pp2 .pro-cta a.btn{background:linear-gradient(170deg,#fff3c0,#e8c05a 32%,#d4a13a 62%,#a06a18 85%,#e8c05a)!important;color:#071330!important;border:0!important;border-radius:999px!important;box-shadow:0 6px 16px #0007}
 html.ppc-pp2 main table{background:#071330cc}
 html.ppc-pp2 main .usa-map-tease,html.ppc-pp2 main .card,html.ppc-pp2 main .ppc-pro-banner{background:linear-gradient(180deg,#0c1f45,#071330)!important;border:1.5px solid #d6b25e66!important;border-radius:14px}
-html.ppc-pp2 .ppc-tease-links{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0}
+html.ppc-pp2 .ppc-tease-links{display:flex;flex-wrap:wrap;gap:14px 10px;align-items:center;margin:0}
 /* sub-section tabs */
 .ppc-split{display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;margin:18px 0 14px;padding:6px 2px 8px;border-bottom:1px solid #d6b25e44;position:sticky;top:0;z-index:3;background:#071330f2}
 .ppc-split__tab{flex:0 0 auto;padding:8px 14px;border-radius:999px;border:1.5px solid #d6b25e66;color:#e9e2cf;text-decoration:none;font:600 .84rem/1.2 Inter,system-ui,sans-serif;white-space:nowrap;background:#0c1f45}
@@ -15,3 +15,5 @@ html.ppc-pp2 .ppc-tease-links{display:flex;flex-wrap:wrap;gap:8px;align-items:ce
 .ppc-split__panel[hidden]{display:none}
 .ppc-split__panel > h2:first-child{margin-top:6px}
 @media (max-width:820px){.ppc-split{margin:12px -4px 10px;padding:4px 4px 8px}.ppc-split__tab{padding:7px 12px;font-size:.8rem}}
+html.ppc-pp2 .ppc-tease-links .btn{box-shadow:0 3px 8px #0005,inset 0 1px 0 #fff6}
+html.ppc-pp2 .usa-map-tease{padding:14px 16px 16px}

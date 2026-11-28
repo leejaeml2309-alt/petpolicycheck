@@ -258,3 +258,20 @@ html.pp-skin .foot{background:#04091c}
 html.ppc-v2 .pp-skin body,html.ppc-v2.pp-skin body{background-color:transparent}
 .tp-pier > .tp-spine{grid-row:1/span 5}
 .tp-pier--short > .tp-spine{grid-row:1/span 2}
+/* v3: zero truncation on gate cards; equal rows per grid (1fr rows size to the tallest card) */
+.tp-gate__top{flex-wrap:wrap;row-gap:4px}
+.tp-gate__k{white-space:normal;overflow:visible;text-overflow:clip}
+.tp-gate h3,.tp-gate p{display:block;-webkit-line-clamp:unset;overflow:visible}
+.tp-pier{grid-auto-rows:minmax(var(--row),1fr)}
+.tp-halls,.hall-grid{grid-auto-rows:minmax(180px,1fr)}
+@media (max-width:820px){
+  .tp-gate h3{-webkit-line-clamp:unset}
+  .tp-halls,.hall-grid{grid-auto-rows:minmax(150px,1fr)}
+}
+/* v3: frame tiles on the map view: no clamp, no ellipsis; equal heights from 1fr rows */
+.ppc-com.ppc-com--frames{grid-auto-rows:minmax(236px,1fr)}
+.ppc-com.ppc-com--frames .ppc-tile{height:auto!important;min-height:0}
+.ppc-com.ppc-com--frames .ppc-tile p{display:block;-webkit-line-clamp:unset;overflow:visible}
+.ppc-com.ppc-com--frames .ppc-tile h3{white-space:normal;overflow:visible;text-overflow:clip}
+@media (max-width:900px){.ppc-com.ppc-com--frames{grid-auto-rows:minmax(200px,1fr)}}
+.ppc-com.ppc-com--frames{width:100%;width:round(down,100%,3px)}
