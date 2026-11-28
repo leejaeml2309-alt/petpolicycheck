@@ -153,8 +153,6 @@ textarea{resize:vertical;min-height:72px}
 .spons p{margin:2px 0 0;font-size:.84rem;color:var(--ink)}
 .spons .go{margin-left:auto;flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
 .spons .go a{font:700 .74rem var(--text);color:#0b1719;background:var(--gold);padding:8px 12px;border-radius:6px;text-decoration:none;white-space:nowrap}
-.openslot{display:flex;gap:12px;align-items:center;padding:11px 14px;border:1px dashed #d9b76599;border-radius:12px;background:#d9b76508;margin-top:14px;font-size:.84rem;color:var(--mut)}
-.openslot a{margin-left:auto;color:var(--gold2);font-weight:700;text-decoration:none;white-space:nowrap}
 .ghead{display:flex;align-items:baseline;gap:12px;margin:34px 0 14px}
 .ghead h2{font-size:1.55rem}.ghead span{color:var(--mut);font-size:.88rem}
 .cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
@@ -323,8 +321,6 @@ body:not(.admin-mode) .admin-only{display:none!important}
   .toolbar .sp{margin-left:0;flex-wrap:wrap}
   .spons{flex-wrap:wrap}
   .spons .go{margin-left:0;align-items:flex-start}
-  .openslot{flex-wrap:wrap}
-  .openslot a{margin-left:0}
   .ghead{flex-wrap:wrap}
 }
 @media (max-width:560px){

@@ -577,11 +577,7 @@ def partner_banner(root, slot="top-partner"):
                  f'<picture><source media="(max-width:720px)" srcset="{root}assets/partners/{img_m}">'
                  f'<img src="{root}assets/partners/{img}" alt="{alt}" width="970" height="90" loading="lazy" decoding="async"></picture></a>')
     else:
-        inner = (f'{label}<div class="partner-ph">'
-                 f'<span class="pst-mini" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="12" rx="1.5"/><path d="M8 7V5.8A2.2 2.2 0 0 1 10.2 3.6h3.6A2.2 2.2 0 0 1 16 5.8V7M3.5 12h17"/></svg></span>'
-                 f'<p><b>Your brand here</b> · Become a PetPolicyCheck partner</p>'
-                 f'<a class="partner-cta" href="{root}contact.html">Partner with us <span aria-hidden="true">→</span></a>'
-                 f'</div>')
+        return ""  # PPC runs zero ads: no placeholder slot
     return (f'<aside class="partner-slot partner-top" data-partner-slot="{e(slot)}" data-partner-live="{live}" '
             f'aria-label="Partner"><div class="partner-card">{inner}</div></aside>')
 

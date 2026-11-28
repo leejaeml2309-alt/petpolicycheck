@@ -1060,8 +1060,10 @@ footer .pawpartout-credit a:focus-visible .pawpartout-name,
 }
 /* m18: the tree never shows in the mobile menu / dropdown (Marc: tree only on the homepage; pastilles.js also removes it below 1100px). */
 @media (max-width:1099px){
-  .ppc-xmas-tree{display:none!important}
+  .nav .ppc-xmas-tree{display:none!important}
 }
+/* EN homepage: small tree perched at the top-right of the title (inline, scales with the h1; never in a nav). */
+.ppc-xmas-tree.ppc-xmas-home{display:inline-block;position:relative;width:max(.42em,10px);height:max(.525em,12.5px);margin:0 0 0 .1em;vertical-align:top;top:.08em}
 @keyframes ppc-xmas-twinkle{
   0%,100%{opacity:.7}
   50%{opacity:1}

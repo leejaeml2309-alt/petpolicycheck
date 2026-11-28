@@ -176,12 +176,6 @@
     document.querySelectorAll('.partner-label').forEach(function (el) {
       var v = t('site.partner.label'); if (v) el.textContent = v;
     });
-    document.querySelectorAll('.partner-ph b').forEach(function (el) {
-      /* keep structure: first line bold brand phrase from partner.ph split */
-    });
-    document.querySelectorAll('.partner-ph p').forEach(function (el) {
-      var v = t('site.partner.ph'); if (v) el.innerHTML = '<b>' + v.split(' · ')[0] + '</b> · ' + v.split(' · ').slice(1).join(' · ');
-    });
     document.querySelectorAll('.partner-cta').forEach(function (el) {
       var v = t('site.partner.cta'); if (v) el.innerHTML = v.replace('→', '<span aria-hidden="true">→</span>');
     });
