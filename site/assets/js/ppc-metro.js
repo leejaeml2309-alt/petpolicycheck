@@ -494,7 +494,7 @@
     { n: "4", name: "Gear", c: "#dfa572", keys: ["Products", "Guides"] },
     { n: "6", name: "Stay & ground", c: "#d3a0b1", keys: ["Hotel", "Rides"] },
     { n: "7", name: "Grooming", c: "#c6a4db", keys: ["Grooming"] },
-    { n: "8", name: "Community", c: "#9dc2a0", keys: ["Forum", "Adoptions", "News", "Updates"] },
+    { n: "8", name: "Community", c: "#9dc2a0", keys: ["Forum", "Adoptions", "News"] },
     { n: "B", name: "Business", c: "#8b9ce2", keys: ["For Business"] },
     { n: "M", name: "Military", c: "#0a2e5c", keys: ["K9", "Service dogs", "Veterans"], mil: true },
     { n: "", name: "", c: "", keys: ["About"] }
@@ -503,6 +503,19 @@
     var t = (a.getAttribute("aria-label") || a.textContent || "").replace(/\s+/g, " ").trim();
     t = t.replace(/\s*—.*$/, ""); /* drop the Christmas aria suffix */
     return t;
+  }
+  /* v4g: every pill carries the same single-frame icon tile (.pst). Compare, Guides and About had none; same monoline style (24 grid, 1.75 stroke). */
+  var MENU_ICONS = {
+    "Compare": ["flight", '<path d="M4 8h13M13.5 4.5 17 8l-3.5 3.5M20 16H7M10.5 12.5 7 16l3.5 3.5"/>'],
+    "Guides": ["shop", '<path d="M12 6.2C10.3 5 7.8 4.6 4.6 4.8v12.6c3.2-.2 5.7.2 7.4 1.4 1.7-1.2 4.2-1.6 7.4-1.4V4.8c-3.2-.2-5.7.2-7.4 1.4ZM12 6.2v12.6"/>'],
+    "About": ["map", '<circle cx="12" cy="12" r="8.6"/><path d="M12 11v5.2M12 7.9v.01"/>']
+  };
+  function ensureMenuIcon(a) {
+    if (a.querySelector(".pst")) return;
+    var k = menuKey(a), ic = MENU_ICONS[k];
+    if (!ic) return;
+    var label = a.textContent.replace(/\s+/g, " ").trim();
+    a.innerHTML = '<span class="pst theme-' + ic[0] + '" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">' + ic[1] + '</svg></span><span class="lbl">' + label + "</span>";
   }
   function enhanceHomeMenu(m) {
     if (!m || m.getAttribute("data-ppc-mnu") === "1") return;
@@ -521,12 +534,13 @@
       } else h += '<div class="ppc-mnu__group">';
       items.forEach(function (a) {
         a.classList.add("ppc-mnu__item");
+        ensureMenuIcon(a);
         h += a.outerHTML;
       });
       h += "</div>";
     });
     /* any leftover link (should be none) */
-    links.forEach(function (a) { if (!used[menuKey(a)]) h += a.outerHTML.replace("<a ", '<a class="ppc-mnu__item" '); });
+    links.forEach(function (a) { if (!used[menuKey(a)] && menuKey(a) !== "Updates") h += a.outerHTML.replace("<a ", '<a class="ppc-mnu__item" '); }); /* v4g: "Updates" (airline log) duplicates News, so it is left out of the menu */
     m.innerHTML = h;
     m.classList.add("ppc-mnu");
     m.setAttribute("data-ppc-mnu", "1");
