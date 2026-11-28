@@ -216,14 +216,14 @@
   }
   .ppc-ticket__cta{flex-direction:row;justify-content:space-between;text-align:left;padding:8px 14px}
   .ppc-ticket--airline .ppc-ticket__fields,
-  .ppc-ticket--airline:not(.ppc-ticket--solo) .ppc-ticket__fields{grid-template-columns:minmax(0,1fr);gap:5px}
-  .ppc-ticket--airline .ppc-ticket__field{display:grid;grid-template-columns:5.6rem minmax(0,1fr);column-gap:8px;align-items:start}
-  .ppc-ticket--airline .ppc-ticket__lbl{margin:0;padding-top:.15em}
+  .ppc-ticket--airline:not(.ppc-ticket--solo) .ppc-ticket__fields{grid-template-columns:minmax(0,1fr);gap:8px}
+  .ppc-ticket--airline .ppc-ticket__field{display:block;line-height:1.3}
+  .ppc-ticket--airline .ppc-ticket__val{display:block}
+  .ppc-ticket--airline .ppc-ticket__lbl{display:block;margin:0 0 2px;padding:0}
   .ppc-ticket--airline .ppc-ticket__val{font-size:.76rem;line-height:1.28}
   .ppc-ticket--airline .ppc-ticket__body{padding:8px 14px 10px}
   .ppc-ticket--airline .ppc-ticket__head{padding:10px 14px 8px}
   .ppc-ticket--airline .ppc-ticket__title{font-size:1.08rem}
-  .ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__field{grid-template-columns:minmax(0,1fr)}
   .ppc-ticket--airline.ppc-ticket--solo .ppc-ticket__status{font-size:1.28rem;line-height:1.4;padding:6px 0}
   .ppc-ticket--stay{--ticket-stub-h:52px}
   .ppc-ticket--stay .ppc-ticket__cta{/* none */}
@@ -307,7 +307,7 @@
 }
 
 /* Lists of frames: one template, identical sizes in each list. */
-.ppc-ticket-list{grid-auto-rows:1fr!important;align-items:stretch!important}
+.ppc-ticket-list{grid-auto-rows:auto!important;align-items:stretch!important}
 .ppc-ticket-list > .ppc-ticket--frame{align-self:stretch;height:auto;min-height:100%}
 
 /* Per-family body layouts (photomontages stay inside the ticket body). */
@@ -355,3 +355,17 @@ html body .ppc-ticket.ppc-ticket--frame.ppc-ticket--frame{border-width:1px!impor
 .ppc-split.is-split:has(> .ppc-ticket--frame){display:block;position:static;overflow:visible;background:none;border:0;padding:0}
 .ppc-split.is-split .ppc-ticket__title > .ppc-split__h{display:inline!important}
 .ppc-ticket--frame .ppc-ticket__stub .ppc-ticket__lbl{font-size:.74rem;letter-spacing:.12em}
+
+/* v4c: landscape stubs: the CTA fills the whole stub, so a tall ticket never shows a dead column beside the button. */
+@media (min-width:641px){
+  html body .ppc-ticket:not(.ppc-ticket--portrait) > .ppc-ticket__stub:has(> .ppc-ticket__cta){align-items:stretch;justify-content:stretch}
+  html body .ppc-ticket:not(.ppc-ticket--portrait) > .ppc-ticket__stub > .ppc-ticket__cta{flex:1 1 auto;height:auto;align-self:stretch;justify-content:center;align-items:center}
+}
+.ppc-ticket--stay .ppc-ticket__stub .ppc-ticket__lbl{font-size:.92rem;line-height:1.3;letter-spacing:.1em}
+
+/* one path per ticket: the title link covers the whole ticket, the stub label is decorative */
+.ppc-ticket__stretch::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;z-index:3}
+.ppc-ticket--frame:has(> .ppc-ticket__main .ppc-ticket__stretch){cursor:pointer}
+.ppc-ticket--frame:has(.ppc-ticket__stretch) .ppc-ticket__head,.ppc-ticket--frame:has(.ppc-ticket__stretch) .ppc-ticket__main{position:static}
+.ppc-ticket--frame:has(.ppc-ticket__stretch) .ppc-ticket__stub{position:static}
+html body .ppc-ticket--frame .ppc-ticket__title > a.ppc-ticket__stretch::after{content:""!important;display:block!important;position:absolute;top:0;right:0;bottom:0;left:0;z-index:3}

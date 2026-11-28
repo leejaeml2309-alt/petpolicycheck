@@ -274,7 +274,7 @@
         return { placed: placed.length };
   }
   function placeAllMetroLabels() {
-    document.querySelectorAll("#ppc-metro .ppc-mmap svg, .tp-fullmap__svg").forEach(placeMetroLabels);
+    document.querySelectorAll("#ppc-metro .ppc-mmap svg").forEach(placeMetroLabels);
   }
 
   function build() {

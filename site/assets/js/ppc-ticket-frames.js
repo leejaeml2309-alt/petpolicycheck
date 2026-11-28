@@ -44,9 +44,9 @@
     while (el.firstChild) body.appendChild(el.firstChild);
     if (cta) { cta.classList.add("ppc-ticket__cta"); arrow(cta); stub.appendChild(cta); }
     else if (c.dupCta && t && t.tagName === "A") {
-      var a = document.createElement("a"); a.className = "ppc-ticket__cta"; a.href = t.getAttribute("href");
-      if (t.target) { a.target = t.target; a.rel = t.rel || "noopener"; }
-      a.tabIndex = -1; a.setAttribute("aria-hidden", "true"); a.textContent = c.dupCta; arrow(a); stub.appendChild(a);
+      t.classList.add("ppc-ticket__stretch");
+      var a = document.createElement("span"); a.className = "ppc-ticket__cta"; a.setAttribute("aria-hidden", "true");
+      a.textContent = c.dupCta; arrow(a); stub.appendChild(a);
     } else if (c.ctaText) {
       var s = document.createElement("span"); s.className = "ppc-ticket__cta"; s.setAttribute("aria-hidden", "true"); s.textContent = c.ctaText; arrow(s); stub.appendChild(s);
     } else if (c.stubLabel) {

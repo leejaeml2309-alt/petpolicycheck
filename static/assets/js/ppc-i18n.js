@@ -212,7 +212,7 @@
       var aff = t('site.foot.aff');
       if (!copy) return;
       var link = p.querySelector('a[href*="terms"]');
-      var termsHref = (link && link.getAttribute('href')) || fallbackHref || 'terms.html';
+      var termsHref = (link && link.getAttribute('href')) || fallbackHref || '/terms.html';
       var affHtml = aff ? '<span data-i18n="site.foot.aff">' + aff + '</span> ' : '';
       var termsHtml = '<a href="' + termsHref + '">Terms</a>';
       p.classList.add('disc');
