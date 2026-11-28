@@ -60,3 +60,46 @@ button.ppc-metro__bul.is-mil[aria-pressed="true"]{box-shadow:inset 0 0 0 1.5px #
   .ppc-metro__rowname{display:none}
 }
 @media print{.ppc-metro{display:none}}
+/* ===== v2 (2026-11-28 pm) ===== */
+/* Desktop: crossing metro map. Mobile keeps the single-line track. */
+.ppc-mmap{display:none}
+@media (min-width:821px){
+  .ppc-metro__cur,.ppc-metro__all-btn,.ppc-metro__all{display:none!important}
+  .ppc-mmap{display:block;margin:6px 0 0}
+  .ppc-mmap__svg{display:block;width:100%;height:auto;max-height:200px;overflow:visible}
+  .ppc-mmap__ln{fill:none;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;opacity:.62;transition:opacity .2s}
+  .ppc-mmap__ln.is-on{opacity:1;stroke-width:7}
+  .ppc-mmap__case{fill:none;stroke:#e2c275;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;opacity:.62}
+  .ppc-mmap__case.is-on{opacity:1;stroke-width:10}
+  .ppc-mmap__dot{fill:#071330;stroke-width:3}
+  .ppc-mmap__ring{fill:#f7f3e8;stroke:#071330;stroke-width:3.5}
+  .ppc-mmap__st.is-ic .ppc-mmap__ring{filter:drop-shadow(0 0 0 #000)}
+  .ppc-mmap__st.is-on .ppc-mmap__dot{fill:#f7f3e8}
+  .ppc-mmap__here{fill:none;stroke:#f5c84c;stroke-width:3}
+  .ppc-mmap__lbl{font:600 11.5px/1 Inter,system-ui,sans-serif;fill:#e9e2cf;paint-order:stroke;stroke:#071330;stroke-width:4px;stroke-linejoin:round}
+  .ppc-mmap__lbl.is-here{fill:#f5c84c;font-weight:800}
+  .ppc-mmap__st:hover .ppc-mmap__dot,.ppc-mmap__st:focus .ppc-mmap__dot{fill:#f5c84c}
+  .ppc-mmap__st:focus-visible{outline:none}
+  .ppc-mmap__st:focus-visible .ppc-mmap__ring,.ppc-mmap__st:focus-visible .ppc-mmap__dot{stroke:#f5c84c;stroke-width:4}
+  .ppc-metro{background:linear-gradient(180deg,#0b1d45,#071330);border-color:#2a3d6b}
+}
+/* Mobile: no clipped label. Exactly three stations per view, snap so none is cut at the edge. */
+@media (max-width:820px){
+  .ppc-metro__track{scroll-snap-type:x mandatory;scroll-padding:0}
+  .ppc-metro__st{flex:0 0 calc(100% / 3)!important;min-width:0!important;scroll-snap-align:center}
+  .ppc-metro__track:has(> li:nth-child(2):last-child) .ppc-metro__st{flex-basis:50%!important}
+  .ppc-metro__track:has(> li:only-child) .ppc-metro__st{flex-basis:100%!important}
+  .ppc-metro__lbl{max-width:100%;white-space:normal;overflow-wrap:anywhere;overflow:visible;text-overflow:clip}
+  .ppc-metro__st a{padding:0 3px}
+}
+/* One navigation: the old section bar gives way to the metro. Logo, search and the compact menu stay. */
+@media (min-width:821px){
+  html.ppc-v2 header.top #site-menu{display:none!important}
+  html.ppc-v2 header.top .wrap{justify-content:space-between}
+}
+/* Pawpartout navy background with a repeated solid-silver 747 silhouette (same lattice technique as pawpartout.com). */
+html.ppc-v2 body,html.ppc-v2 body.intro-home > section.intro{background:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='150' viewBox='0 0 240 150'%3E%3Cdefs%3E%3ClinearGradient id='s' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f5f7fa'/%3E%3Cstop offset='.45' stop-color='%23c5d0dc'/%3E%3Cstop offset='.55' stop-color='%239aa7b6'/%3E%3Cstop offset='1' stop-color='%23e8eef4'/%3E%3C/linearGradient%3E%3Csymbol id='p' viewBox='0 0 100 32'%3E%3Cg fill='url(%23s)'%3E%3Cpath d='M3 17.6C3.2 15.6 5.5 13.6 9 12.6C11 9.8 15 7.9 21 7.6L33 7.7C36.5 8 39 9.6 41 10.6L84 10.6L91.5 2.2H96L94.6 11.2L97.6 12.6C98.4 13.2 98.2 14 97.4 14.4L90 17.2C88 18 86 18.3 83 18.4H10C6 18.4 3.2 18.4 3 17.6Z'/%3E%3Cpath d='M36 16.6L60 16.4L72 22.6L66 22.8Z'/%3E%3Crect x='46.5' y='19.6' width='8' height='3' rx='1.4'/%3E%3Crect x='56.5' y='21.6' width='7' height='2.6' rx='1.2'/%3E%3Cpath d='M84 14.8L95.5 14.2L97 16.6L88 16.6Z'/%3E%3C/g%3E%3C/symbol%3E%3C/defs%3E%3Cg opacity='.2'%3E%3Cuse href='%23p' x='10' y='12' width='100' height='32'/%3E%3Cuse href='%23p' x='130' y='87' width='100' height='32'/%3E%3C/g%3E%3C/svg%3E") 0 0/240px 150px repeat fixed,
+  radial-gradient(ellipse 70% 55% at 50% 34%,#12306a 0%,#0a1d48 35%,#050d26 75%) fixed,#050d26!important}
+html.ppc-v2 header.top{background:#071330e6!important;border-bottom-color:#2a3d6b!important}
+html.ppc-v2 body::before{background:none!important}

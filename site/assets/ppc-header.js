@@ -73,9 +73,11 @@
 /*! Metro map loader (preview 2026-11-28): adds the site-wide metro strip under the header. */
 (function () {
   try {
-    if (document.getElementById("ppc-metro-css") || /^\/(de|es|fr|it|ja|ko)\//.test(location.pathname)) return;
+    if (/^\/(de|es|fr|it|ja|ko)\//.test(location.pathname)) return;
+    document.documentElement.classList.add("ppc-v2");
+    if (document.getElementById("ppc-metro-css")) return;
     var l = document.createElement("link"); l.rel = "stylesheet"; l.id = "ppc-metro-css";
-    l.href = "/assets/css/ppc-metro.css?v=20261128m1"; document.head.appendChild(l);
-    if (!window.PPCMetro) { var s = document.createElement("script"); s.src = "/assets/js/ppc-metro.js?v=20261128m1"; document.head.appendChild(s); }
+    l.href = "/assets/css/ppc-metro.css?v=20261128m3"; document.head.appendChild(l);
+    if (!window.PPCMetro) { var s = document.createElement("script"); s.src = "/assets/js/ppc-metro.js?v=20261128m3"; document.head.appendChild(s); }
   } catch (e) {}
 })();

@@ -222,8 +222,6 @@ NAV = [("?view=map", "World map", "site.nav.map", ()), ("airlines/", "Airlines",
        ("veterans/", "Veterans", "site.nav.veterans", ("veterans/",)),
        ("pro/", "For Business", "site.nav.pro", ("pro/", "b2b-pet-desk/")),  # briefcase pastille via pastilles.js theme-b2b
 ]
-if SHOW_ADS:
-    NAV.append(("advertise/", "Advertise", "site.nav.advertise", ("advertise/",)))
 LOGO_BADGE = '<span class="lbadge"><img src="{root}assets/img/logo-mark-header.png" width="62" height="48" alt="PetPolicyCheck"></span>'
 
 
@@ -259,8 +257,7 @@ def nav_links(root, path, i18n=False):
         url = home_url(root) + href if href.startswith(("#", "?")) else root + href
         if href == "book/" and path in BOOK_NAV_LOCAL:  # /book/ is US-only: Korea/Japan guides point "Book" at their own booking box
             url = BOOK_NAV_LOCAL[path]
-        cta = (' class="cta menu-only"' if href == "advertise/"
-               else ' class="nav-book"' if href == "book/"
+        cta = (' class="nav-book"' if href == "book/"
                else ' class="nav-vet"' if href == "veterans/"
                else ' class="nav-vet"' if href == "veterans/"
                else ' class="nav-biz"' if href == "pro/"
@@ -426,7 +423,7 @@ def site_footer_ad(cfg, root, fi):
         print(f"  WARNING: ads.site_footer.adsense_slot reuses the {RESERVED_AD_SLOTS[slot]} slot {slot}; rendering placeholder")
         slot = ""
     live = ad_unit_id(slot)
-    adv = f'<p class="sfad-adv"><a href="{root}advertise/"{ti("site.adhere", fi)}>Advertise here</a></p>'
+    adv = f'<p class="sfad-adv"><a href="{root}contact.html"{ti("site.adhere", fi)}>Advertise here</a></p>'
     if live:
         inner = medium_rect_grid(slot, "site_footer")
     else:
@@ -473,7 +470,7 @@ def site_footer(cfg, root, fi, path="", ads=True, sponsor="auto"):
 <div class="fbrand"><p class="wm">{e(cfg['site_name'])}</p><p{ti("site.foot.rules", fi)}>Airline pet rules change often. Always confirm with the airline and the destination's official authority before you book. Information here is not legal or veterinary advice.</p>{FB_SOC}</div>
 <div><h4><a href="{root}vet-info/"{ti("site.foot.vet_info", fi)}>Vet info</a></h4><ul>{li(root + "vet-prep/", "site.foot.vet_prep", "Vet prep")}{li(root + "countries/usa.html#federal", "site.nav.health", "Health certificate")}<li><a href="{root}titer-calculator/"{ti("home.tools.titer", fi)}>Titer countdown</a></li>{li(root + "partner-vets/", "site.foot.vets", "Partner vets")}</ul></div>
 <div><h4{ti("site.foot.explore", fi)}>Explore</h4><ul>{li(h + "?view=map", "site.nav.map", "World map")}{li(root + "airlines/", "site.foot.airlines", "Airline policies")}{li(root + "airlines/compare/", "site.nav.compare", "Compare")}{li(h + "#gear", "site.nav.guides", "Guides")}{li(root + "updates.html", "site.nav.updates", "Updates")}<li><a href="{root}routes/">Routes</a></li>{li(root + "k9/", "site.foot.k9", "K9")}{li(root + "veterans/", "site.foot.service_dogs_veterans", "Service dogs &amp; Veterans")}{li(root + "adoptions/", "site.foot.adoptions", "Adoptions")}{li(root + "news/", "site.foot.news", "News")}<li><a href="{root}fit/">Carrier fit</a></li><li><a href="{root}airport/">Airport pet travel guides</a></li></ul></div>
-<div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{(li(root + "advertise/", "site.nav.advertise", "Advertise") if SHOW_ADS else "")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
+<div><h4{ti("site.foot.shop", fi)}>Shop &amp; community</h4><ul>{li(root + "products/", "site.nav.products", "Products")}{forum}{li(root + "pro/", "site.foot.pro", "B2B Pet Desk")}{li(root + "clinics/usa.html", "site.foot.clinics_usa", "US clinics")}</ul></div>
 <div><h4{ti("site.foot.aboutcol", fi)}>About</h4><ul>{li(root + "about.html", "site.foot.about", "About &amp; disclaimer")}{li(root + "terms.html", "site.foot.terms", "Terms")}{li(root + "refund-policy.html", "site.foot.refund", "Refund policy")}{li(root + "privacy.html", "site.foot.privacy", "Privacy")}{li(root + "contact.html", "site.foot.contact", "Contact")}</ul></div>
 </div>
 {band}
@@ -583,7 +580,7 @@ def partner_banner(root, slot="top-partner"):
         inner = (f'{label}<div class="partner-ph">'
                  f'<span class="pst-mini" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="12" rx="1.5"/><path d="M8 7V5.8A2.2 2.2 0 0 1 10.2 3.6h3.6A2.2 2.2 0 0 1 16 5.8V7M3.5 12h17"/></svg></span>'
                  f'<p><b>Your brand here</b> · Become a PetPolicyCheck partner</p>'
-                 f'<a class="partner-cta" href="{root}advertise/">Partner with us <span aria-hidden="true">→</span></a>'
+                 f'<a class="partner-cta" href="{root}contact.html">Partner with us <span aria-hidden="true">→</span></a>'
                  f'</div>')
     return (f'<aside class="partner-slot partner-top" data-partner-slot="{e(slot)}" data-partner-live="{live}" '
             f'aria-label="Partner"><div class="partner-card">{inner}</div></aside>')
@@ -1088,7 +1085,7 @@ def ad_ph(root, i18n=False):
     if not SHOW_ADS:
         return ""
     """Small Advertise link kept for ads=False pages that are not getting a framed slot (map, coming soon)."""
-    return f'<p class="adph"><a href="{root}advertise/"{ti("site.adhere", i18n)}>Advertise here</a></p>'
+    return f'<p class="adph"><a href="{root}contact.html"{ti("site.adhere", i18n)}>Advertise here</a></p>'
 
 
 def live_ins(slot, key):
@@ -1132,7 +1129,7 @@ def ad_frame(cfg, key, root, i18n=False, attrs=""):
         return (open_tag("adframe-live") + '<div class="adframe-min" aria-hidden="true"></div>'
                 f'<div class="adframe-box">{ins}</div></aside>')
     return (open_tag("adframe-empty") + '<span class="adl" aria-hidden="true">Advertisement</span>'
-            f'<a class="adframe-cta" href="{root}advertise/"{ti("site.adhere", i18n)}>Advertise here</a>'
+            f'<a class="adframe-cta" href="{root}contact.html"{ti("site.adhere", i18n)}>Advertise here</a>'
             f'<!-- TODO ads.{key_e}: placeholder until a sponsor image or a new numeric AdSense unit id is set on ads.{key_e}.adsense_slot. --></aside>')
 
 
@@ -1171,7 +1168,7 @@ def medium_rect_empty_grid(root, key, i18n=False, todo="", n=3):
     cell = (f'<aside class="adframe adframe-empty adframe-rect ad-{key_e}" data-ad-key="{key_e}" '
             f'role="complementary" aria-label="Advertisement">'
             f'<span class="adl" aria-hidden="true">Advertisement</span>'
-            f'<a class="adframe-cta" href="{root}advertise/"{ti("site.adhere", i18n)}>Advertise here</a></aside>')
+            f'<a class="adframe-cta" href="{root}contact.html"{ti("site.adhere", i18n)}>Advertise here</a></aside>')
     return f'<div class="adgrid adgrid-{key_e}">{todo}{cell * n}</div>'
 
 
@@ -1754,28 +1751,6 @@ def flight_box(cfg, a):
     """Disabled 2026-11-10: no travel-booking affiliate boxes (previous billing provider acceptable-use policy)."""
     return ""
 
-def build_advertise(cfg):
-    mail = obf_mail(cfg["contact_email"])
-    body = f"""<h1>Advertise on {e(cfg['site_name'])}</h1>
-<p>{e(cfg['site_name'])} helps people fly with a dog or cat: airline pet policies checked against the official source and dated, plus carrier and crate guides that compare official product dimensions with airline limits.</p>
-<h2>Audience</h2>
-<p>Pet owners planning to fly with their pets, in the cabin or in the hold, or to move abroad with them. Readers come to look up a specific airline's pet rules, carrier sizes, weight limits and fees. <b>Traffic stats available on request.</b></p>
-<h2>Placements</h2>
-<div class="tablewrap"><table class="cmp"><thead><tr><th>Placement</th><th>Where</th><th>Creative size</th></tr></thead><tbody>
-<tr><td data-l="Placement">Airline page banner</td><td data-l="Where">Top of every airline pet policy page</td><td data-l="Size">728 &times; 90 px (scales down on mobile)</td></tr>
-<tr><td data-l="Placement">Guide sponsor</td><td data-l="Where">Sponsor box in the product guides (carriers, crates, bowls)</td><td data-l="Size">300 &times; 250 px</td></tr>
-<tr><td data-l="Placement">Site-wide footer</td><td data-l="Where">Footer of every page</td><td data-l="Size">468 &times; 60 px</td></tr>
-</tbody></table></div>
-<p class="small">Every placement is clearly labelled "Sponsored" and links with rel="sponsored nofollow". One advertiser per placement at a time. Sponsor creatives are images only (PNG, JPG or WebP); no pop-ups, auto-play or tracking scripts. Separately, the site also shows Google AdSense ads (see our <a href="{{root}}privacy.html">privacy policy</a>).</p>
-<h2>Good fit for</h2>
-<ul><li>Pet carrier, crate and travel gear brands</li><li>Pet insurance</li><li>Pet relocation and pet shipping services</li><li>Pet-friendly hotels and travel services</li></ul>
-<h2>Editorial independence</h2>
-<p>Sponsors never change our airline data, dimensions or fit results, and sponsored products get no special placement in guides (see our <a href="{{root}}about.html#affiliates">disclosure</a>).</p>
-<h2>Rates and booking</h2>
-<p><b>Rates on request.</b> Email {mail} with your brand, the placement you're interested in and your dates.</p>"""
-    return page(cfg, f"Advertise on {cfg['site_name']}: reach pet owners planning to fly",
-                "Sponsorship and banner placements on PetPolicyCheck for pet carrier brands, pet insurance, pet relocation and pet-friendly travel. Rates on request.",
-                body, "advertise/", "../")
 
 
 def build_clinics_usa(cfg):
@@ -3327,7 +3302,6 @@ def main():
         shutil.rmtree(OUT)
     (OUT / "airlines").mkdir(parents=True)
     (OUT / "products").mkdir()
-    (OUT / "advertise").mkdir()
     (OUT / "partner-vets").mkdir()
     (OUT / "countries").mkdir()
     (OUT / "routes").mkdir()
@@ -3461,7 +3435,6 @@ def main():
     # privacy.html is generated above (includes Gumroad MoR section). Keep static/privacy.html
     # as a reference mirror only — do not overwrite the generated page.
     (OUT / "contact.html").write_text(build_contact(cfg))
-    (OUT / "advertise" / "index.html").write_text(build_advertise(cfg))
     (OUT / "partner-vets" / "index.html").write_text(build_partner_vets(cfg))
     (OUT / "clinics").mkdir(parents=True, exist_ok=True)
     (OUT / "clinics" / "usa.html").write_text(build_clinics_usa(cfg))
@@ -3498,7 +3471,7 @@ def main():
     base = site_base(cfg)
     newest = max(a["last_verified"] for a in airlines if a.get("last_verified"))
     urls = [(f"{base}/", newest), (f"{base}/updates.html", newest), (f"{base}/about.html", newest),
-            (f"{base}/privacy.html", newest), (f"{base}/contact.html", newest)] + ([(f"{base}/advertise/", newest)] if SHOW_ADS else []) + [(f"{base}/partner-vets/", newest),
+            (f"{base}/privacy.html", newest), (f"{base}/contact.html", newest)] + [(f"{base}/partner-vets/", newest),
             (f"{base}/products/", pd["verified"])]
     urls += [(f"{base}/products/{x['slug']}.html", pd["verified"]) for x in pd["products"] + pd["guides"]]
     urls += [(f"{base}/airlines/{a['slug']}.html", a.get("last_verified") or a.get("last_checked") or newest) for a in airlines]

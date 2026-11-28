@@ -34,8 +34,6 @@ REDIRECT_KEEP = {
     "extension/index.html",
 }
 RESTORE_ROBOTS = {
-    "advertise/index.html": '<meta name="robots" content="noindex,nofollow">',
-    "field-guides/advertise.html": '<meta name="robots" content="noindex,nofollow">',
     "forum/account.html": '<meta name="robots" content="noindex,follow">',
     "forum/admin.html": '<meta name="robots" content="noindex,follow">',
     "forum/new.html": '<meta name="robots" content="noindex,follow">',
