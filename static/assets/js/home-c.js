@@ -339,7 +339,7 @@ document.addEventListener('click',function(e){
  var c=e.target.closest('a[data-country]');if(c&&GUIDES[c.getAttribute('data-country')]&&!(e.ctrlKey||e.metaKey||e.shiftKey||e.button)){e.preventDefault();openCountry(c.getAttribute('data-country'))}});
 // table filter
 var q=document.getElementById('q'),rows=document.querySelectorAll('#cmp tbody tr');
-q.addEventListener('input',function(){var v=q.value.trim().toLowerCase();rows.forEach(function(r){r.hidden=v&&r.cells[0].textContent.toLowerCase().indexOf(v)<0})});
+if(q)q.addEventListener('input',function(){var v=q.value.trim().toLowerCase();rows.forEach(function(r){r.hidden=v&&r.cells[0].textContent.toLowerCase().indexOf(v)<0})});
 // deep links
 // #airlines (legacy panel) and #compare open the airline policy table.
 // #country=Japan, #country=USA, #country=United%20States, #country-392 (legacy numeric id)
