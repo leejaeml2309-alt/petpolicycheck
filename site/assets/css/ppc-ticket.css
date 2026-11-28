@@ -372,3 +372,10 @@ html body .ppc-ticket--frame .ppc-ticket__title > a.ppc-ticket__stretch::after{c
   html body .ppc-ticket--airline > .ppc-ticket__main{flex:1 1 auto}
   html body .ppc-ticket--airline > .ppc-ticket__stub{margin-top:auto}
 }
+
+/* v4e: airline tickets: the CTA is one fixed-size button (46px high), centred in the stub at >=641px and pinned to the bottom when stacked. */
+html body .ppc-ticket.ppc-ticket--airline > .ppc-ticket__stub > .ppc-ticket__cta{flex:0 0 auto;height:46px;min-height:46px;max-height:46px;box-sizing:border-box;padding-top:0;padding-bottom:0;align-self:center;width:100%}
+@media (min-width:641px){
+  html body .ppc-ticket.ppc-ticket--airline:not(.ppc-ticket--portrait) > .ppc-ticket__stub:has(> .ppc-ticket__cta){align-items:center;justify-content:center}
+  html body .ppc-ticket.ppc-ticket--airline:not(.ppc-ticket--portrait) > .ppc-ticket__stub > .ppc-ticket__cta{flex:0 0 auto;height:46px;align-self:center}
+}

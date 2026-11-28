@@ -4,9 +4,6 @@
   font:500 .86rem/1.3 var(--text,Inter,system-ui,sans-serif);align-self:center;min-width:0;position:relative;z-index:2}
 .ppc-metro *{box-sizing:border-box}
 .ppc-metro__bar{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;min-width:0}
-.ppc-metro__back{flex:0 0 auto;display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;
-  background:#d9b765;color:#0b1719;font-weight:700;font-size:.8rem;text-decoration:none;letter-spacing:.02em}
-.ppc-metro__back:hover{background:#f0d58c}
 .ppc-metro__where{flex:1 1 220px;margin:0;display:flex;gap:4px 12px;flex-wrap:wrap;align-items:baseline;min-width:0}
 .ppc-metro__line{font:700 .7rem/1.2 var(--text,Inter,system-ui,sans-serif);letter-spacing:.14em;text-transform:uppercase;color:#d9cfb4}
 .ppc-metro__you{color:var(--mut,#a7b0a2);font-size:.82rem}
@@ -104,14 +101,11 @@ html.ppc-v2 body,html.ppc-v2 body.intro-home > section.intro{background:
 html.ppc-v2 header.top{background:#071330e6!important;border-bottom-color:#2a3d6b!important}
 html.ppc-v2 body::before{background:none!important}
 /* v3: page-level link colours must never override the back button (AA contrast) */
-#ppc-metro .ppc-metro__back,#ppc-metro .ppc-metro__back:visited,#ppc-metro .ppc-metro__back:hover,#ppc-metro .ppc-metro__back:focus-visible{color:#0b1719!important;background:#d9b765;text-decoration:none!important;opacity:1}
-#ppc-metro .ppc-metro__back:hover{background:#f0d58c}
 /* v3 desktop: compact header map (~170px block). Mobile untouched. */
 @media (min-width:821px){
   html.ppc-v2 .ppc-metro{margin:8px auto 4px;padding:7px 14px 6px}
   html.ppc-v2 .ppc-metro__bar{min-height:0}
   html.ppc-v2 .ppc-metro__bul{width:24px;height:24px;font-size:.72rem}
-  html.ppc-v2 .ppc-metro__back{padding:4px 11px}
   html.ppc-v2 .ppc-mmap{margin:4px 0 0}
   html.ppc-v2 .ppc-mmap__svg{display:block;width:100%;height:auto}
   html.ppc-v2 .ppc-mmap__ln{stroke-width:4.2}

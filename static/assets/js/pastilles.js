@@ -135,15 +135,15 @@ function boot(){
  var bookCur=false; if(V==='7g'&&cur==='ground'){cur='';bookCur=true}
  if(cur) document.documentElement.classList.add('theme-'+cur);
  if(onCountryMap) document.documentElement.classList.add('theme-map');
- var m=document.getElementById('site-menu')||document.querySelector('.map-nav nav.nav, header.map-nav nav'); if(!m) return;
+ var m=document.getElementById('site-menu')||document.querySelector('.map-nav nav.nav, header.map-nav nav'); if(!m&&!document.querySelector('header.top[data-no-menu]')) return; /* v4e: inner pages ship without the hamburger (the metro leads everywhere); the rest of the pastille setup still runs */
  var NAV_I18N={map:'site.nav.map',grooming:'site.nav.grooming',ground:'site.nav.rides',shop:'site.nav.products',forum:'site.nav.forum',veterans:'site.nav.veterans',adoptions:'site.nav.adoptions',news:'site.nav.news',b2b:'site.nav.pro'};
  var navCur=cur||(/\/vet-info\//.test(path)?'vet':(/\/k9\//.test(path)?'k9':''));
  var h=S.map(function(s){ if(s[0]==='|') return '<span class="nav-group-sep" aria-hidden="true"></span>';
    var extra=s[0]==='b2b'?' nav-biz':(s[0]==='veterans'?' nav-vet':'');var ik=NAV_I18N[s[0]]||'';
    /* XMAS-TREE-2026: remove ~6 Jan 2027 (xmas class, aria-label, XMAS_TREE) */var xmas=(s[0]==='shop'); if(xmas) extra+=' ppc-xmas-products'; return '<a class="sec theme-'+s[0]+extra+'" href="'+s[1]+'"'+(s[0]===navCur?' aria-current="page"':'')+(ik?' data-i18n="'+ik+'"':'')+(xmas?' aria-label="'+XMAS_ARIA[LNG]+'"':'')+'>'+pst(s[0])+'<span class="lbl">'+CAT[s[0]][li]+'</span>'+(xmas?XMAS_TREE:'')+'</a>'}).join('');
  h+='<span class="menu-sep menu-only" aria-hidden="true"></span>'+
-    [(plab('Compare')+'|'+tgt('#compare')),(plab('Guides')+'|'+tgt('#gear')),(plab('Updates')+'|'+tgt('updates.html')),(plab('About')+'|'+tgt('about.html'))].map(function(x){x=x.split('|');return '<a class="menu-only sub" href="'+x[1]+'">'+x[0]+'</a>'}).join('');
- if(!m.classList.contains('pst-nav')){ m.innerHTML=h; m.classList.add('pst-nav'); }
+    [(plab('Compare')+'|'+tgt('airlines/compare/')),(plab('Guides')+'|'+tgt('#gear')),(plab('Updates')+'|'+tgt('updates.html')),(plab('About')+'|'+tgt('about.html'))].map(function(x){x=x.split('|');return '<a class="menu-only sub" href="'+x[1]+'">'+x[0]+'</a>'}).join('');
+ if(m&&!m.classList.contains('pst-nav')){ m.innerHTML=h; m.classList.add('pst-nav'); }
  /* badge d'en-tête de section, même tampon que la nav (taille page) */
  var h1=document.querySelector('main h1, #main h1, h1');
  /* Country maps: section label only (no in-page back link; the metro bar leads back to the World map). */

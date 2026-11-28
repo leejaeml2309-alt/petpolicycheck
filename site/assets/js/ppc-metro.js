@@ -5,13 +5,13 @@
   "use strict";
   var LINES = [
     { id: "map", n: "1", name: "Destinations", c: "#d9b765", st: [
-      ["World map", "/?view=map"], ["Country guides", "/countries/"], ["USA state map", "/countries/usa-map.html"], ["Routes", "/routes/"], ["Philippines", "/countries/philippines.html"], ["India", "/countries/india.html"] ] },
+      ["World map", "/?view=map"], ["Country guides", "/countries/"], ["Laws", "/countries/usa.html#federal"], ["USA state map", "/countries/usa-map.html"], ["Routes", "/routes/"], ["Philippines", "/countries/philippines.html"], ["India", "/countries/india.html"] ] },
     { id: "law", n: "2", name: "Vet & paperwork", c: "#a7b1d3", st: [
       ["Vet hall", "/vet-paperwork/"], ["Vet prep", "/vet-prep/"], ["Health certificate", "/vet-info/"], ["Titer countdown", "/titer-calculator/"], ["Pet passport", "/passport/"], ["Partner vets", "/partner-vets/"], ["US clinics", "/clinics/usa.html"], ["Insurance", "/insurance/pet-insurance-for-travelers.html"] ] },
     { id: "flight", n: "3", name: "Airlines", c: "#98c6cc", st: [
       ["Airline policies", "/airlines/"], ["Compare", "/airlines/compare/"], ["Under-seat sizes", "/products/under-seat-carrier-size-by-airline.html"], ["Airports", "/airport/"], ["Flight volunteers", "/flight-volunteer/"] ] },
     { id: "shop", n: "4", name: "Gear", c: "#dfa572", st: [
-      ["Board now", "/board-now/"], ["Soft carriers", "/products/best-airline-approved-soft-carriers.html"], ["Carriers & crates", "/products/carriers/"], ["All products", "/products/"], ["Gifts", "/products/gifts/"] ] },
+      ["Board now", "/board-now/"], ["Soft carriers", "/products/best-airline-approved-soft-carriers.html"], ["Carriers & crates", "/products/carriers/"], ["All products", "/products/"], ["Gifts", "/products/gifts/"], ["Guides", "/#gear"] ] },
     { id: "tools", n: "5", name: "Planning tools", c: "#3e8e8a", st: [
       ["Tools hall", "/planning-tools/"], ["Checklist", "/pet-travel-checklist/"], ["Planner", "/planner/"], ["Fit check", "/fit/"] ] },
     { id: "hotel", n: "6", name: "Stay & ground", c: "#d3a0b1", st: [
@@ -31,11 +31,11 @@
   /* Desktop schematic (>=821px): the lines cross like a real metro map. Interchanges are
      stations shared by two or more lines, drawn as connection rings. Mobile keeps the single track. */
   var POS = {
-    "/?view=map":[40,116], "/hotels/":[150,116], "/countries/":[250,116], "/countries/usa-map.html":[330,116], "/routes/":[440,76], "/countries/philippines.html":[480,36], "/countries/india.html":[580,36],
+    "/?view=map":[40,116], "/hotels/":[150,116], "/countries/":[250,116], "/countries/usa-map.html":[330,116], "/countries/usa.html#federal":[290,116], "/routes/":[440,76], "/countries/philippines.html":[480,36], "/countries/india.html":[580,36],
     "/vet-paperwork/":[40,36], "/vet-prep/":[100,36], "/vet-info/":[380,196], "/titer-calculator/":[450,196], "/passport/":[520,196],
     "/partner-vets/":[590,196], "/clinics/usa.html":[660,196], "/insurance/pet-insurance-for-travelers.html":[730,196],
     "/airlines/":[340,36], "/airlines/compare/":[530,76], "/products/under-seat-carrier-size-by-airline.html":[640,76], "/airport/":[760,76], "/flight-volunteer/":[880,76],
-    "/board-now/":[640,156], "/products/best-airline-approved-soft-carriers.html":[740,36], "/products/carriers/":[820,36], "/products/":[900,36], "/products/gifts/":[980,36],
+    "/board-now/":[640,156], "/products/best-airline-approved-soft-carriers.html":[740,36], "/products/carriers/":[820,36], "/products/":[900,36], "/products/gifts/":[980,36], "/#gear":[1060,36],
     "/planning-tools/":[540,156], "/pet-travel-checklist/":[740,156], "/planner/":[840,156], "/fit/":[940,156], "/widgets/":[1040,156], "/pro/":[1120,196],
     "/hotel-pets/":[150,76], "/taxi/":[150,156], "/veterans/#service-dog-support":[150,196],
     "/grooming/":[250,160],
@@ -44,10 +44,10 @@
   };
   /* Each desktop route: station URLs in order, with [x,y] bend points between them. */
   var ROUTE = {
-    map: ["/?view=map", "/hotels/", "/countries/", "/countries/usa-map.html", [400,116], "/routes/", "/countries/philippines.html", "/countries/india.html"],
+    map: ["/?view=map", "/hotels/", "/countries/", "/countries/usa.html#federal", "/countries/usa-map.html", [400,116], "/routes/", "/countries/philippines.html", "/countries/india.html"],
     law: ["/vet-paperwork/", "/vet-prep/", [170,36], "/countries/", [330,196], "/vet-info/", "/titer-calculator/", "/passport/", "/partner-vets/", "/clinics/usa.html", "/insurance/pet-insurance-for-travelers.html"],
     flight: ["/airlines/", [400,36], "/routes/", "/airlines/compare/", "/products/under-seat-carrier-size-by-airline.html", "/airport/", "/flight-volunteer/"],
-    shop: ["/board-now/", "/products/under-seat-carrier-size-by-airline.html", [680,36], "/products/best-airline-approved-soft-carriers.html", "/products/carriers/", "/products/", "/products/gifts/"],
+    shop: ["/board-now/", "/products/under-seat-carrier-size-by-airline.html", [680,36], "/products/best-airline-approved-soft-carriers.html", "/products/carriers/", "/products/", "/products/gifts/", "/#gear"],
     tools: ["/planning-tools/", "/board-now/", "/pet-travel-checklist/", "/planner/", "/fit/", "/widgets/"],
     hotel: ["/hotel-pets/", "/hotels/", "/taxi/", "/veterans/#service-dog-support"],
     grooming: ["/countries/", "/grooming/"],
@@ -295,8 +295,6 @@
     }).join("");
     nav.innerHTML =
       '<div class="ppc-metro__bar">' +
-        (isTerminal ? '<a class="ppc-metro__back" href="/"><span aria-hidden="true">&larr;</span> Entrance</a>'
-                    : '<a class="ppc-metro__back" href="/terminal/"><span aria-hidden="true">&larr;</span> Terminal</a>') +
         '<p class="ppc-metro__where"><span class="ppc-metro__line">Line ' + L.n + " &middot; " + L.name + "</span>" +
           (cur.si > -1 ? '<span class="ppc-metro__you">You are at <b>' + esc(L.st[cur.si][0]) + "</b></span>" : "") + "</p>" +
         '<div class="ppc-metro__bullets" role="group" aria-label="Lines">' + bul + "</div>" +
@@ -306,6 +304,12 @@
       '<div class="ppc-mmap">' + svgMap(cur.li, cur.si > -1 ? L.st[cur.si][1] : "") + "</div>" +
       '<div class="ppc-metro__all" id="ppc-metro-all" hidden>' + all + "</div>";
     hdr.parentNode.insertBefore(nav, hdr.nextSibling);
+    /* v4e: the metro replaces the hamburger on every inner page (the entrance page has no metro and keeps it). */
+    if (norm(path) !== "/") {
+      hdr.setAttribute("data-no-menu", "1");
+      var oldMenu = document.getElementById("site-menu"); if (oldMenu) oldMenu.remove();
+      hdr.querySelectorAll(".menu-btn").forEach(function (b) { b.remove(); });
+    }
 
     document.documentElement.classList.add("ppc-v2");
     var mapBox = nav.querySelector(".ppc-mmap");
