@@ -77,7 +77,17 @@
     document.documentElement.classList.add("ppc-v2");
     if (document.getElementById("ppc-metro-css")) return;
     var l = document.createElement("link"); l.rel = "stylesheet"; l.id = "ppc-metro-css";
-    l.href = "/assets/css/ppc-metro.css?v=20261128m7"; document.head.appendChild(l);
-    if (!window.PPCMetro) { var s = document.createElement("script"); s.src = "/assets/js/ppc-metro.js?v=20261128m7"; document.head.appendChild(s); }
+    l.href = "/assets/css/ppc-metro.css?v=20261128m8"; document.head.appendChild(l);
+    if (!window.PPCMetro) { var s = document.createElement("script"); s.src = "/assets/js/ppc-metro.js?v=20261128m8"; document.head.appendChild(s); }
+  } catch (e) {}
+})();
+
+/*! Boarding-pass frames loader (preview v4b 2026-11-28): shared ppc-ticket.css + frame builder, English pages only. */
+(function () {
+  try {
+    if (/^\/(de|es|fr|it|ja|ko)\//.test(location.pathname)) return;
+    var has = Array.prototype.some.call(document.querySelectorAll('link[rel="stylesheet"]'), function (l) { return /ppc-ticket\.css/.test(l.href); });
+    if (!has) { var l = document.createElement("link"); l.rel = "stylesheet"; l.id = "ppc-ticket-css"; l.href = "/assets/css/ppc-ticket.css?v=20261128tk1"; document.head.appendChild(l); }
+    if (!window.PPCTicketFrames) { var s = document.createElement("script"); s.src = "/assets/js/ppc-ticket-frames.js?v=20261128tk1"; document.head.appendChild(s); }
   } catch (e) {}
 })();

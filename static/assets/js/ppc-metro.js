@@ -5,7 +5,7 @@
   "use strict";
   var LINES = [
     { id: "map", n: "1", name: "Destinations", c: "#d9b765", st: [
-      ["World map", "/?view=map"], ["Country guides", "/countries/"], ["USA state map", "/countries/usa-map.html"], ["Routes", "/routes/"] ] },
+      ["World map", "/?view=map"], ["Country guides", "/countries/"], ["USA state map", "/countries/usa-map.html"], ["Routes", "/routes/"], ["Philippines", "/countries/philippines.html"], ["India", "/countries/india.html"] ] },
     { id: "law", n: "2", name: "Vet & paperwork", c: "#a7b1d3", st: [
       ["Vet hall", "/vet-paperwork/"], ["Vet prep", "/vet-prep/"], ["Health certificate", "/vet-info/"], ["Titer countdown", "/titer-calculator/"], ["Pet passport", "/passport/"], ["Partner vets", "/partner-vets/"], ["US clinics", "/clinics/usa.html"], ["Insurance", "/insurance/pet-insurance-for-travelers.html"] ] },
     { id: "flight", n: "3", name: "Airlines", c: "#98c6cc", st: [
@@ -31,7 +31,7 @@
   /* Desktop schematic (>=821px): the lines cross like a real metro map. Interchanges are
      stations shared by two or more lines, drawn as connection rings. Mobile keeps the single track. */
   var POS = {
-    "/?view=map":[40,116], "/hotels/":[150,116], "/countries/":[250,116], "/countries/usa-map.html":[330,116], "/routes/":[440,76],
+    "/?view=map":[40,116], "/hotels/":[150,116], "/countries/":[250,116], "/countries/usa-map.html":[330,116], "/routes/":[440,76], "/countries/philippines.html":[480,36], "/countries/india.html":[580,36],
     "/vet-paperwork/":[40,36], "/vet-prep/":[100,36], "/vet-info/":[380,196], "/titer-calculator/":[450,196], "/passport/":[520,196],
     "/partner-vets/":[590,196], "/clinics/usa.html":[660,196], "/insurance/pet-insurance-for-travelers.html":[730,196],
     "/airlines/":[340,36], "/airlines/compare/":[530,76], "/products/under-seat-carrier-size-by-airline.html":[640,76], "/airport/":[760,76], "/flight-volunteer/":[880,76],
@@ -44,7 +44,7 @@
   };
   /* Each desktop route: station URLs in order, with [x,y] bend points between them. */
   var ROUTE = {
-    map: ["/?view=map", "/hotels/", "/countries/", "/countries/usa-map.html", [400,116], "/routes/"],
+    map: ["/?view=map", "/hotels/", "/countries/", "/countries/usa-map.html", [400,116], "/routes/", "/countries/philippines.html", "/countries/india.html"],
     law: ["/vet-paperwork/", "/vet-prep/", [170,36], "/countries/", [330,196], "/vet-info/", "/titer-calculator/", "/passport/", "/partner-vets/", "/clinics/usa.html", "/insurance/pet-insurance-for-travelers.html"],
     flight: ["/airlines/", [400,36], "/routes/", "/airlines/compare/", "/products/under-seat-carrier-size-by-airline.html", "/airport/", "/flight-volunteer/"],
     shop: ["/board-now/", "/products/under-seat-carrier-size-by-airline.html", [680,36], "/products/best-airline-approved-soft-carriers.html", "/products/carriers/", "/products/", "/products/gifts/"],

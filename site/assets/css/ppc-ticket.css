@@ -228,3 +228,130 @@
   .ppc-ticket--stay{--ticket-stub-h:52px}
   .ppc-ticket--stay .ppc-ticket__cta{/* none */}
 }
+
+/* ==== v4b: site-wide section frames (extends .ppc-ticket above; markup built by /assets/js/ppc-ticket-frames.js).
+   .ppc-ticket--frame      generic card / section frame (landscape: stub on the right)
+   .ppc-ticket--portrait   gates and tall cards: stub at the bottom
+   Under 641px every frame takes the portrait layout (base rules above + the block below).
+   Never applied inside #ppc-metro or any geographic map container (guarded in JS, scoped here). ==== */
+.ppc-ticket.ppc-ticket--frame{
+  --ticket-stub:clamp(118px,24%,210px);
+  --ticket-stub-h:58px;
+  display:flex;
+  flex-direction:row;
+  align-items:stretch;
+  height:100%;
+  min-height:0;
+  max-width:100%;
+  margin:0;
+  padding:0!important;
+  background:linear-gradient(180deg,var(--ticket-navy-2),var(--ticket-navy))!important;
+  border:1.5px solid var(--ticket-gold)!important;
+  border-radius:14px!important;
+  box-shadow:none!important;
+  color:var(--ticket-muted)!important;
+  text-decoration:none!important;
+  transform:none!important;
+  filter:none!important;
+  overflow:visible!important;
+  font-family:Inter,system-ui,sans-serif;
+  text-align:left;
+}
+.ppc-ticket.ppc-ticket--frame::before,.ppc-ticket.ppc-ticket--frame::after{content:none!important;display:none!important}
+.ppc-ticket.ppc-ticket--frame:hover,.ppc-ticket.ppc-ticket--frame:focus-within{border-color:#f3dc98!important}
+.ppc-ticket.ppc-ticket--frame:focus-visible{outline:3px solid #f3d98f;outline-offset:3px}
+.ppc-ticket--frame .ppc-ticket__main{display:flex;flex-direction:column;flex:1 1 auto;min-width:0;min-height:0}
+.ppc-ticket--frame .ppc-ticket__head{flex:0 0 auto;min-height:52px;background:none}
+.ppc-ticket--frame .ppc-ticket__head::before{background:var(--ticket-accent)}
+.ppc-ticket--frame.ppc-ticket--mil .ppc-ticket__head::before{height:4px;background:var(--ticket-accent);box-shadow:0 1px 0 var(--ticket-gold)}
+.ppc-ticket--frame .ppc-ticket__title{display:block;flex:1 1 auto;min-width:0;font-family:"Marcellus",Georgia,serif;font-size:1.12rem;line-height:1.25;color:var(--ticket-ink)!important;overflow-wrap:break-word}
+.ppc-ticket--frame .ppc-ticket__title > *{display:inline;margin:0!important;padding:0!important;border:0!important;background:none!important;font:inherit!important;color:inherit!important;letter-spacing:normal!important;text-transform:none!important;text-decoration:none!important}
+.ppc-ticket--frame .ppc-ticket__title > *::before,.ppc-ticket--frame .ppc-ticket__title > *::after{content:none!important;display:none!important}
+.ppc-ticket--frame .ppc-ticket__title a:hover,.ppc-ticket--frame .ppc-ticket__title a:focus-visible{text-decoration:underline!important}
+.ppc-ticket--frame .ppc-ticket__plane{width:16px;height:16px}
+.ppc-ticket--frame .ppc-ticket__body{display:flex;flex-direction:column;gap:6px;justify-content:flex-start;flex:1 1 auto;min-height:0;padding:10px 16px 12px;color:var(--ticket-muted)!important;font-size:.86rem;line-height:1.45}
+.ppc-ticket--frame .ppc-ticket__body :where(p,li,span,b,strong,em,small,dd,dt,div,h3,h4,blockquote,label){color:inherit}
+.ppc-ticket--frame .ppc-ticket__body :where(p,ul,ol,blockquote,h3,h4){margin:0}
+.ppc-ticket--frame .ppc-ticket__body a:not(.ppc-ticket__cta):not(.btn):not(.ppc-btn):not(.pp-btn):not(.ppc-rel__chip){color:#f3dc98!important;text-underline-offset:2px}
+.ppc-ticket--frame .ppc-ticket__kicker{color:var(--ticket-gold)!important;font:600 .66rem/1.2 Inter,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.ppc-ticket--frame .ppc-ticket__stub{flex:0 0 var(--ticket-stub);width:var(--ticket-stub);max-width:var(--ticket-stub);display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:8px;padding:12px 14px 12px 18px}
+.ppc-ticket--frame .ppc-ticket__cta{width:100%;min-height:44px;color:var(--ticket-gold)!important;background:#0a1a3c!important;text-decoration:none!important;font:600 .78rem/1.25 Inter,system-ui,sans-serif!important;letter-spacing:.02em;text-transform:none!important;box-shadow:none!important}
+.ppc-ticket--frame .ppc-ticket__cta::before,.ppc-ticket--frame .ppc-ticket__cta::after{content:none!important}
+.ppc-ticket--frame .ppc-ticket__stub .ppc-ticket__lbl{text-align:center;margin:0}
+
+/* Portrait (gates, tall cards) and every frame on mobile: stub at the bottom, horizontal perforation. */
+.ppc-ticket.ppc-ticket--frame.ppc-ticket--portrait{
+  flex-direction:column;
+  --ticket-cut-y:calc(100% - var(--ticket-stub-h));
+  -webkit-mask-image:
+    radial-gradient(circle var(--ticket-notch) at 0 var(--ticket-cut-y), #0000 var(--ticket-notch), #000 calc(var(--ticket-notch) + .5px)),
+    radial-gradient(circle var(--ticket-notch) at 100% var(--ticket-cut-y), #0000 var(--ticket-notch), #000 calc(var(--ticket-notch) + .5px));
+  -webkit-mask-size:51% 100%,51% 100%;
+  -webkit-mask-position:0 0,100% 0;
+  mask-image:
+    radial-gradient(circle var(--ticket-notch) at 0 var(--ticket-cut-y), #0000 var(--ticket-notch), #000 calc(var(--ticket-notch) + .5px)),
+    radial-gradient(circle var(--ticket-notch) at 100% var(--ticket-cut-y), #0000 var(--ticket-notch), #000 calc(var(--ticket-notch) + .5px));
+  mask-size:51% 100%,51% 100%;
+  mask-position:0 0,100% 0;
+}
+.ppc-ticket--frame.ppc-ticket--portrait .ppc-ticket__head::before{border-radius:12px 12px 0 0}
+.ppc-ticket--frame.ppc-ticket--portrait .ppc-ticket__stub{flex:0 0 var(--ticket-stub-h);width:100%;max-width:none;height:var(--ticket-stub-h);min-height:var(--ticket-stub-h);flex-direction:row;align-items:center;padding:8px 16px}
+.ppc-ticket--frame.ppc-ticket--portrait .ppc-ticket__stub::before{left:var(--ticket-notch);right:var(--ticket-notch);top:0;bottom:auto;border-left:0;border-top:2px dashed rgba(217,183,101,.55)}
+.ppc-ticket--frame.ppc-ticket--portrait .ppc-ticket__cta{flex-direction:row;justify-content:space-between;min-height:40px;padding:6px 14px}
+@media (max-width:640px){
+  .ppc-ticket.ppc-ticket--frame{flex-direction:column}
+  .ppc-ticket--frame .ppc-ticket__head::before{border-radius:12px 12px 0 0}
+  .ppc-ticket--frame .ppc-ticket__stub{flex:0 0 var(--ticket-stub-h);width:100%;max-width:none;height:var(--ticket-stub-h);min-height:var(--ticket-stub-h);flex-direction:row;align-items:center;padding:8px 16px}
+  .ppc-ticket--frame .ppc-ticket__stub::before{left:var(--ticket-notch);right:var(--ticket-notch);top:0;bottom:auto;border-left:0;border-top:2px dashed rgba(217,183,101,.55)}
+  .ppc-ticket--frame .ppc-ticket__cta{flex-direction:row;justify-content:space-between;min-height:40px;padding:6px 14px}
+}
+
+/* Lists of frames: one template, identical sizes in each list. */
+.ppc-ticket-list{grid-auto-rows:1fr!important;align-items:stretch!important}
+.ppc-ticket-list > .ppc-ticket--frame{align-self:stretch;height:auto;min-height:100%}
+
+/* Per-family body layouts (photomontages stay inside the ticket body). */
+.ppc-ticket--frame.tp-gate .ppc-ticket__body{flex-direction:row;align-items:stretch;gap:14px;padding:12px 14px}
+.ppc-ticket--frame.tp-gate .tp-gate__media{flex:0 0 104px;width:104px;height:auto;min-height:132px;margin:0;border-radius:10px;overflow:hidden;position:relative}
+.ppc-ticket--frame.tp-gate .tp-gate__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ppc-ticket--frame.tp-gate .tp-gate__body{display:flex;flex-direction:column;gap:6px;padding:0;min-width:0;background:none}
+.ppc-ticket--frame.tp-gate .tp-gate__body p{color:var(--ticket-muted)!important;font-size:.86rem;line-height:1.45}
+.ppc-ticket--frame.tp-gate .tp-gate__k{color:var(--ticket-gold)!important}
+.ppc-ticket--frame.ent-gate .ppc-ticket__body{padding:12px 14px}
+.ppc-ticket--frame.ent-gate .ent-gate__in{display:flex;flex-direction:column;gap:8px;padding:0;background:none;border:0;box-shadow:none}
+.ppc-ticket--frame.ent-gate .ent-gate__media{display:block;aspect-ratio:640/300;width:100%;border-radius:10px;overflow:hidden}
+.ppc-ticket--frame.ent-gate .ent-gate__media img{width:100%;height:100%;object-fit:cover;display:block}
+.ppc-ticket--frame.ent-gate .d{color:var(--ticket-muted)!important}
+.ppc-ticket--frame.tp-head .ppc-ticket__body{padding:12px 14px}
+.ppc-ticket--frame.tp-head img{display:block;width:100%;height:auto;border-radius:10px}
+.ppc-ticket--frame.tp-head .tp-head__cap{position:static;display:block;padding:0;background:none}
+.ppc-ticket--frame.bn-card .pp-card-in{display:flex;flex-direction:column;gap:10px;padding:0;background:none;border:0;box-shadow:none;height:100%}
+.ppc-ticket--frame.bn-card .pp-well{border-radius:10px;overflow:hidden}
+.ppc-ticket--frame.bn-card .pp-body,.ppc-ticket--frame.bn-card .pp-copy{background:none;padding:0}
+.ppc-ticket--frame.cty .cty__l{display:flex;flex-wrap:wrap;gap:6px 12px}
+.ppc-ticket--frame.gcard,.ppc-ticket--frame.usa-map-tease{margin:0 0 18px}
+.ppc-ticket--frame.scard{margin:0}
+.ppc-ticket--frame .ppc-ticket__cta{flex-direction:row;gap:8px;justify-content:center}
+.ppc-ticket--frame.ppc-ticket--portrait .ppc-ticket__cta{justify-content:space-between}
+/* Win over page skins (pp2, theme-*) that style cards with !important. */
+html body .ppc-ticket.ppc-ticket--frame.ppc-ticket--frame{background:linear-gradient(180deg,var(--ticket-navy-2),var(--ticket-navy))!important;background-color:var(--ticket-navy)!important;border:1.5px solid var(--ticket-gold)!important;border-radius:14px!important;box-shadow:none!important;padding:0!important;color:var(--ticket-muted)!important}
+html body .ppc-ticket--frame.ppc-ticket--frame .ppc-ticket__cta.ppc-ticket__cta{display:flex!important;align-items:center;width:100%;margin:0!important;background:#0a1a3c!important;background-image:none!important;color:var(--ticket-gold)!important;border:1.5px solid rgba(217,183,101,.7)!important;border-radius:10px!important;box-shadow:none!important;text-shadow:none!important;font:600 .8rem/1.25 Inter,system-ui,sans-serif!important;text-align:left}
+html body .ppc-ticket--frame.ppc-ticket--frame .ppc-ticket__cta.ppc-ticket__cta:hover,html body .ppc-ticket--frame.ppc-ticket--frame .ppc-ticket__cta.ppc-ticket__cta:focus-visible{background:#12295a!important;color:#f3dc98!important;border-color:#f3dc98!important}
+/* Accent stripe across the whole ticket top (body and stub), in the section's line colour. */
+html body .ppc-ticket.ppc-ticket--frame.ppc-ticket--frame{background:linear-gradient(var(--ticket-accent),var(--ticket-accent)) top/100% 4px no-repeat,linear-gradient(180deg,var(--ticket-navy-2),var(--ticket-navy))!important}
+html body .ppc-ticket.ppc-ticket--frame.ppc-ticket--mil{background:linear-gradient(var(--ticket-accent),var(--ticket-accent)) top/100% 4px no-repeat,linear-gradient(var(--ticket-gold),var(--ticket-gold)) 0 4px/100% 1px no-repeat,linear-gradient(180deg,var(--ticket-navy-2),var(--ticket-navy))!important}
+.ppc-ticket--frame .ppc-ticket__head::before,.ppc-ticket--frame.ppc-ticket--mil .ppc-ticket__head::before{content:none!important;display:none!important}
+.ppc-ticket--frame .ppc-ticket__head{padding-top:14px}
+.ppc-ticket--frame .ppc-ticket__title,.ppc-ticket--frame .ppc-ticket__cta,.ppc-ticket--frame .ppc-ticket__lbl{overflow-wrap:normal!important;word-break:normal!important;hyphens:manual}
+.ppc-ticket--frame .ppc-ticket__body{overflow-wrap:break-word}
+html body .ppc-ticket.ppc-ticket--frame.ppc-ticket--frame{display:flex}
+html body .ppc-ticket.ppc-ticket--frame[hidden]{display:none!important}
+/* Light widgets kept light inside a ticket (veterans handler-card preview, product wells). */
+.ppc-ticket--frame .cr80,.ppc-ticket--frame .cr80 *{color:#14213d}
+.ppc-ticket--frame .pp-well .pp-illus{color:#5b4a26}
+/* Chrome snaps a 1.5px border to 1px: the extra half pixel is drawn as an inset gold line. */
+html body .ppc-ticket.ppc-ticket--frame.ppc-ticket--frame{border-width:1px!important;box-shadow:inset 0 0 0 .5px var(--ticket-gold)!important}
+/* Routes: the tab panel ticket takes the full width under its tab row (pp2 styles .ppc-split as a sticky scroller). */
+.ppc-split.is-split:has(> .ppc-ticket--frame){display:block;position:static;overflow:visible;background:none;border:0;padding:0}
+.ppc-split.is-split .ppc-ticket__title > .ppc-split__h{display:inline!important}
+.ppc-ticket--frame .ppc-ticket__stub .ppc-ticket__lbl{font-size:.74rem;letter-spacing:.12em}
