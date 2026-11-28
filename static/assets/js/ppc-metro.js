@@ -35,8 +35,8 @@
     "/vet-paperwork/":[40,36], "/vet-prep/":[100,36], "/vet-info/":[380,196], "/titer-calculator/":[450,196], "/passport/":[520,196],
     "/partner-vets/":[590,196], "/clinics/usa.html":[660,196], "/insurance/pet-insurance-for-travelers.html":[730,196],
     "/airlines/":[340,36], "/airlines/compare/":[530,76], "/products/under-seat-carrier-size-by-airline.html":[640,76], "/airport/":[760,76], "/flight-volunteer/":[880,76],
-    "/board-now/":[640,156], "/products/best-airline-approved-soft-carriers.html":[740,36], "/products/carriers/":[820,36], "/products/":[900,36], "/products/gifts/":[980,36], "/#gear":[1060,36],
-    "/planning-tools/":[540,156], "/pet-travel-checklist/":[740,156], "/planner/":[840,156], "/fit/":[940,156], "/widgets/":[1040,156], "/pro/":[1120,196],
+    "/board-now/":[640,168], "/products/best-airline-approved-soft-carriers.html":[740,36], "/products/carriers/":[820,36], "/products/":[900,36], "/products/gifts/":[980,36], "/#gear":[1060,36],
+    "/planning-tools/":[540,168], "/pet-travel-checklist/":[740,168], "/planner/":[840,168], "/fit/":[940,168], "/widgets/":[1040,168], "/pro/":[1120,196],
     "/hotel-pets/":[150,76], "/taxi/":[150,156], "/veterans/#service-dog-support":[150,196],
     "/grooming/":[250,160],
     "/forum/":[720,116], "/forum/pet-travel-stories/":[800,116], "/adoptions/":[960,116], "/news/":[1040,116], "/field-guides/":[1120,116],
@@ -60,9 +60,11 @@
   NAMES["/hotels/"] = "Hotels"; NAMES["/countries/"] = "Country guides";
   function linesAt(u) { var o = []; LINES.forEach(function (L, i) { if (ROUTE[L.id].indexOf(u) > -1) o.push(i); }); return o; }
   /* v3 compact map (viewBox 1200x138): same topology, 7px extra vertical padding so labels clear the frame by 4px. */
-  function Y(y) { return Math.round((19 + (y - 36) * 0.6) * 10) / 10; }
+  var VS = 0.8; /* v4i: vertical stretch (was 0.6) so every station name has room between rows */
+  var TOP = 28; /* v4i: extra top room for names above the top row */
+  function Y(y) { return Math.round((TOP + (y - 36) * VS) * 10) / 10; }
   function svgMap(sel, curUrl) {
-    var W = 1200, H = 138, h = '<svg class="ppc-mmap__svg" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Metro map: all lines and interchanges">';
+    var W = 1200, H = Math.round(TOP + 19 + 160 * VS), h = '<svg class="ppc-mmap__svg" viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Metro map: all lines and interchanges">';
     var order = LINES.map(function (L, i) { return i; }).filter(function (i) { return i !== sel; }).concat([sel]);
     order.forEach(function (i) {
       var L = LINES[i], pts = ROUTE[L.id].map(function (p) { return typeof p === "string" ? POS[p] : p; });
@@ -265,17 +267,19 @@
       }
       return true;
     }
-    function noStack(r) {
+    function noStack(r, relax) {
       var i, o, ox, gap;
       for (i = 0; i < placed.length; i++) {
         o = placed[i];
         ox = Math.min(r.right, o.right) - Math.max(r.left, o.left);
         gap = Math.max(r.top, o.top) - Math.min(r.bottom, o.bottom);
-        if (ox > 8 && gap < 12) return false;
+        if (ox > 8 && gap < (relax ? 3 : 12)) return false;
       }
       return true;
     }
-    texts.forEach(function (t) {
+    /* v4i: second pass. A name left unplaced by the strict rules is retried with a 2px clearance and
+       stacking allowed (never overlapping), so every station keeps its name. */
+    function placeOne(t, relax) {
       var a = t.closest("a"), cir = a && a.querySelector("circle.ppc-mmap__dot, circle.ppc-mmap__ring") || (a && a.querySelector("circle"));
       if (!cir) { t.style.visibility = "visible"; return; }
       if (!t.getAttribute("data-name")) t.setAttribute("data-name", t.textContent.trim());
@@ -293,7 +297,7 @@
       dists.forEach(function (d) {
         dirs.forEach(function (an) { cands.push([sx + an[0] * d, sy + an[1] * d, an[2]]); });
       });
-      var ok = false, i, u, ux, r, g, gMin = (t.classList.contains("is-here") || +t.getAttribute("data-pri") === 3) ? 2 : LABEL_GAP;
+      var ok = false, i, u, ux, r, g, gMin = (relax || t.classList.contains("is-here") || +t.getAttribute("data-pri") === 3) ? 2 : LABEL_GAP;
       for (g = LABEL_GAP; g >= gMin && !ok; g--) {
         for (u = 0; u < wraps.length && !ok; u++) {
           for (i = 0; i < cands.length; i++) {
@@ -301,7 +305,7 @@
             setPos(t, ux[0], ux[1], cands[i][2], wraps[u]);
             t.style.visibility = "visible";
             r = inflate(t.getBoundingClientRect(), strokePad);
-            if (labelFits(r, sb, paths, circles, placed, g) && nearerOwn(r, { x: sx, y: sy }) && noStack(r)) { placed.push(r); ok = true; break; }
+            if (labelFits(r, sb, paths, circles, placed, g) && nearerOwn(r, { x: sx, y: sy }) && noStack(r, relax)) { placed.push(r); ok = true; break; }
             t.style.visibility = "hidden";
           }
         }
@@ -311,7 +315,25 @@
         t.setAttribute("data-unplaced", "1");
         t.setAttribute("aria-hidden", "true");
       } else { t.removeAttribute("data-unplaced"); t.removeAttribute("aria-hidden"); }
-    });
+    }
+    /* v4i: if any name is still unplaced, place everything again with the failed names first (they pick their
+       slot before the neighbours do). Maps that place every name on the first pass never loop. */
+    texts.forEach(function (t) { if (!t.getAttribute("data-name")) t.setAttribute("data-name", t.textContent.trim()); });
+    var boost = {}, attempt, failed;
+    for (attempt = 0; attempt < 8; attempt++) {
+      placed.length = 0;
+      texts.forEach(function (t) { t.style.visibility = "hidden"; t.removeAttribute("data-unplaced"); });
+      texts.sort(function (a, b) {
+        var ba = boost[a.getAttribute("data-name")] ? 1 : 0, bb = boost[b.getAttribute("data-name")] ? 1 : 0;
+        if (ba !== bb) return bb - ba;
+        return (+b.getAttribute("data-pri") || 0) - (+a.getAttribute("data-pri") || 0);
+      });
+      texts.forEach(function (t) { placeOne(t, false); });
+      texts.forEach(function (t) { if (t.getAttribute("data-unplaced")) placeOne(t, true); });
+      failed = texts.filter(function (t) { return t.getAttribute("data-unplaced"); });
+      if (!failed.length) break;
+      failed.forEach(function (t) { boost[t.getAttribute("data-name")] = 1; });
+    }
     /* Tight bottom Military row: if any of its names failed, re-place the whole row
        in reserved left / above / right slots so every station keeps a name. */
     (function placeMilRow() {
